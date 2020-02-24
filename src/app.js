@@ -1,14 +1,19 @@
 import {PLATFORM} from 'aurelia-pal';
 
+@inject(WebAPI)
 export class App {
-
-    configureRouter(config, router){
-      config.title = 'Ofbiz-frontend';
-      config.map([
-        { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select' },
-        { route: 'contacts/:navbar',  moduleId: PLATFORM.moduleName('navbar-searchbar'), name:'navbar' }
-      ]);
-
-      this.router = router;
-    }
+  constructor(api) {
+    this.api = api;
   }
+
+  configureRouter(config, router) {
+    config.title = 'Workspace';
+    config.map([
+      { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select'},
+      { route: 'workspace/:id',  moduleId: PLATFORM.moduleName('workspace-detail'), name:'contacts' },
+      { route: 'workspaces',  moduleId: PLATFORM.moduleName('workspaces'), name:'workspaces' }
+    ]);
+
+    this.router = router;
+  }
+}
