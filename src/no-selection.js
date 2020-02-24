@@ -1,5 +1,5 @@
 export class NoSelection {
   constructor() {
-    this.message = "Please Select a Contact.";
+    this.message = "Please Select a Workspace.";
   }
 }

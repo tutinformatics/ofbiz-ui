@@ -8,10 +8,10 @@ export class App {
   }
 
   configureRouter(config, router) {
-    config.title = 'Contacts';
+    config.title = 'Workspace';
     config.map([
       { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select'},
-      { route: 'contacts/:id',  moduleId: PLATFORM.moduleName('contact-detail'), name:'contacts' }
+      { route: 'workspace/:id',  moduleId: PLATFORM.moduleName('workspace-detail'), name:'contacts' }
     ]);
 
     this.router = router;
