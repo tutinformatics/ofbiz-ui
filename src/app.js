@@ -1,5 +1,4 @@
-import {inject, PLATFORM} from 'aurelia-framework';
-import {WebAPI} from './web-api';
+import {PLATFORM} from 'aurelia-pal';
 
 @inject(WebAPI)
 export class App {
