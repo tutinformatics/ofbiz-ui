@@ -11,7 +11,8 @@ export class App {
     config.title = 'Workspace';
     config.map([
       { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select'},
-      { route: 'workspace/:id',  moduleId: PLATFORM.moduleName('workspace-detail'), name:'contacts' }
+      { route: 'workspace/:id',  moduleId: PLATFORM.moduleName('workspace-detail'), name:'contacts' },
+      { route: 'workspaces',  moduleId: PLATFORM.moduleName('workspaces'), name:'workspaces' }
     ]);
 
     this.router = router;
