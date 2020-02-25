@@ -1,11 +1,15 @@
-import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
 import {ContactUpdated,ContactViewed} from './messages';
 import {areEqual} from './utility';
+import {HttpClient} from 'aurelia-http-client';
+import {inject} from 'aurelia-dependency-injection';
 
 @inject(WebAPI, EventAggregator)
 export class WorkspaceDetail {
+
+  baseUrl = 'workspace/control/createWorkspaceEvent';
+
   constructor(api, ea){
     this.api = api;
     this.ea = ea;
@@ -32,7 +36,22 @@ export class WorkspaceDetail {
       this.routeConfig.navModel.setTitle(contact.url);
       this.originalContact = JSON.parse(JSON.stringify(contact));
       this.ea.publish(new ContactUpdated(this.contact));
+      this.createWorkspace(contact);
     });
+
+  }
+
+  createWorkspace(contact) {
+    let httpClient = new HttpClient(); // FIXME: should be injected
+    httpClient.createRequest(this.baseUrl)
+      .asPost()
+      .withParams({
+        workspaceGroupId: contact.workspace_group_id,
+        name: contact.name,
+        url: contact.url})
+      .send()
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
   }
 
   canDeactivate() {
