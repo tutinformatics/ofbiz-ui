@@ -13,7 +13,8 @@ export class App {
     config.map([
       { route: '', moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select'},
       { route: 'workspace/:id',  moduleId: PLATFORM.moduleName('workspace-detail'), name:'contacts' },
-      { route: 'workspaces',  moduleId: PLATFORM.moduleName('workspaces'), name:'workspaces' }
+      { route: 'workspaces',  moduleId: PLATFORM.moduleName('workspaces'), name:'workspaces' },
+      { route: 'kanban',  moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name:'kanban' }
     ]);
 
     this.router = router;

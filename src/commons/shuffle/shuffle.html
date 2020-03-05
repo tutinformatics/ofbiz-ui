@@ -1,0 +1,11 @@
+<template>
+  <div
+    class="dropdown-item"
+    reorderable-repeat.for="o of objArray"
+    reorderable-after-reordering="objArrayReordered"
+    reorderable-dnd-handler-selector=".handler"
+  >
+    <div class="handler"></div>
+    ${o.name}
+  </div>
+</template>
