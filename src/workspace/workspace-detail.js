@@ -1,9 +1,9 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {WebAPI} from './web-api';
 import {ContactUpdated,ContactViewed} from './messages';
-import {areEqual} from './utility';
+import {areEqual} from '../commons/util/utility';
 import {HttpClient} from 'aurelia-http-client';
 import {inject} from 'aurelia-dependency-injection';
+import { WebAPI } from "./web-api";
 
 @inject(WebAPI, EventAggregator)
 export class WorkspaceDetail {
