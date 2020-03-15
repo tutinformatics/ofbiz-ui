@@ -13,4 +13,8 @@ export class ObjectDist {
       this.three = this.variables[this.type][2];
     }
   }
+
+  generateKey() {
+    console.log("Key Generated");  // TODO: ADD KEY GENERATION FOR PUBLISHER
+  }
 }
