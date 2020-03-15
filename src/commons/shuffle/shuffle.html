@@ -1,11 +1,19 @@
 <template>
-  <div
-    class="dropdown-item"
-    reorderable-repeat.for="o of objArray"
-    reorderable-after-reordering="objArrayReordered"
-    reorderable-dnd-handler-selector=".handler"
-  >
-    <div class="handler"></div>
-    ${o.name}
+  <div class="col-2" reorderable-group-for.bind="fruits">
+    <h4>Fruits</h4>
+    <div class="list-group-item-secondary rounded border-primary p-2 m-1"
+         reorderable-repeat.for="s of fruits"
+         reorderable-after-reordering="fruitsOrdered"
+         reorderable-group="lifes">${s}</div>
   </div>
+  <div class=" btn list-group-item-danger rounded border-primary default-icon d-inline-block m-1"
+    reorderable-group-for.bind="animals">
+      <h4>Animals</h4>
+      <div class=""
+           reorderable-repeat.for="s of animals"
+           reorderable-after-reordering="animalsOrdered"
+           reorderable-group="lifes">${s}</div>
+    </div>
+
+
 </template>
