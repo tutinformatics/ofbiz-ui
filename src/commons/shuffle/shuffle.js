@@ -8,5 +8,29 @@ export class Shuffle {
 
   assetPath = "/icons/" //"/src/resources/icons/";
   svgFile = ".svg";
+  active = "";
+
+
+
+  getUserSettings() {
+
+  }
+
+  saveUserSettings() {
+
+  }
+
+
+  getShuffleIcons() {
+
+  }
+
+  mouseOver() {
+    this.active = "-active";
+  }
+
+  mouseOut() {
+    this.active = "";
+  }
 
 }

@@ -55,3 +55,20 @@ li.list-group-item.active > a {
   background-color: #744662 !important;
   color: white !important;
 }
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+.icon-wrapper {
+  font-size: 12px;
+  width: 80px;
+  height: 80px;
+  background-color: #dddddd !important;
+}
+
+.dropdown-menu {
+  width: 180px;
+  background-color: #ababab !important;
+}
