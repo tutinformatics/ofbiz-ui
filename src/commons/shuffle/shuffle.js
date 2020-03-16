@@ -3,7 +3,11 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 
 @inject(EventAggregator)
 export class Shuffle {
-  stringArray = ['Menu_item_1', 'Menu_item_2', 'Menu_item_3', 'Menu_item_4'];
+  stringArray = ['crm', 'accounting', 'calendar', 'contacts'];
+
+
+
+
 
 
   objArray = [
