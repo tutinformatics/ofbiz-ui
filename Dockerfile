@@ -9,6 +9,6 @@ SHELL ["/bin/bash", "-c", "rm -rf /usr/share/nginx/html/"]
 ## From ‘builder’ stage copy over the artifacts in dist folder to default deploy public folde
 COPY dist/ /usr/share/nginx/html
 
-EXPOSE 6060
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

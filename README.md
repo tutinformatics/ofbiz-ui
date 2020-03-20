@@ -48,3 +48,6 @@ docker-compose up [--build]
 - Make sore you have correct ports opened if running on windows _(especially using docker-toolbox)_
 - On unix files created in docker need sudo rights to be removed so that might be a problem if backend doesn't build
 - You can contact Tavo Annus (kilpkonn)
+
+## Deploy architecture/diagram
+![img](./readme/deploy-proxy.png)
