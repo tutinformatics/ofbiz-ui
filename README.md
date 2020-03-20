@@ -17,6 +17,8 @@ _Allows hot reload_
 
 # Start ofbiz locally
 ./gradlew [cleanAll loadAll] ofbiz
+# Or with newer version of back
+./deploy.sh
 
 
 # --< In frontend repo (here) >--
@@ -29,13 +31,13 @@ au run
 docker-compose -f docker-compose-dev.yml up [--build]
 ```
 
-## Run prod(?) app
+## Run fully in docker
 _Only exposes port 80 to public, uses nginx to serve front_
 ```bash
 # --< In backend repo >--
 
 # Start ofbiz in docker
-docker-compose up
+./deploy-dev.sh
 
 # --< In frontend repo (here) >--
 
