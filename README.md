@@ -3,6 +3,7 @@
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
 
 ## Install dependencies
+_(Only needed for developing / running in dev mode)_
 
 ```bash
 npm install -g aurelia-cli
@@ -16,6 +17,7 @@ _Allows hot reload_
 
 # Start ofbiz locally
 ./gradlew [cleanAll loadAll] ofbiz
+
 
 # --< In frontend repo (here) >--
 
@@ -36,9 +38,6 @@ _Only exposes port 80 to public, uses nginx to serve front_
 docker-compose up
 
 # --< In frontend repo (here) >--
-
-# Build aurelia
-au build
 
 # Start proxy and front
 # Use --build to recreate containers
