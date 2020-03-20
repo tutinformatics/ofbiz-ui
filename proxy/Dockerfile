@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:alpine
 
 ## Copy our default deploy config
 COPY config/* /etc/nginx/conf.d/
