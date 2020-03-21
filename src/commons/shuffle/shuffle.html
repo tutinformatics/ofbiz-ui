@@ -1,11 +1,19 @@
 <template>
-  <div class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1" reorderable-repeat.for="s of stringArray">
-    <div class="">
-    <img mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()" class="icon pt-1" src="${assetPath}${s}${active}${svgFile}"><br>
-    <div class="text-uppercase">
-      ${s & oneTime}
+  <require from="./button-icon"></require>
+
+  <!--<div id="shuffle-menu">
+    <div style="cursor: default"  class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1" reorderable-repeat.for="s of stringArray">
+      <div>
+        <img id="${s}" mouseover.delegate="mouseOver(this)" mouseout.delegate="mouseOut(this)" class="icon pt-1" src="${assetPath}${s}${notactive}${svgFile}"><br>
+        <div class="text-uppercase">
+          ${s & oneTime}
+        </div>
+      </div>
     </div>
   </div>
+  <br>-->
+  <div id="shuffle-menu" class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1" reorderable-repeat.for="s of stringArray">
+      <button-icon elem-name="${s}"></button-icon>
   </div>
 
 
