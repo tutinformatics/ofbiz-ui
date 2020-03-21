@@ -63,6 +63,7 @@ li.list-group-item.active > a {
 
 .icon-wrapper {
   font-size: 12px;
+  overflow: hidden;
   width: 80px;
   height: 80px;
   background-color: #dddddd !important;
@@ -71,4 +72,8 @@ li.list-group-item.active > a {
 .dropdown-menu {
   width: 266px;
   background-color: #ababab !important;
+}
+
+button-icon {
+  cursor: default
 }
