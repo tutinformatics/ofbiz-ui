@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  proxy-dev:
+    container_name: proxy-dev
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile-dev
+    restart: unless-stopped
+    network_mode: "host"
+    ports:
+      - "80:80"
