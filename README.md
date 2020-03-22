@@ -45,10 +45,11 @@ _Only exposes port 80 to public, uses nginx to serve front_
 # Use --build to recreate containers
 docker-compose up [--build]
 ```
+
 **If something is broken with proxy/docker...**
 - Make sore you have correct ports opened if running on windows _(especially using docker-toolbox)_
 - On unix files created in docker need sudo rights to be removed so that might be a problem if backend doesn't build
 - You can contact Tavo Annus (kilpkonn)
 
-## Deploy architecture/diagram
+## Running fully in docker architecture/diagram
 ![img](./readme/deploy-proxy.png)
