@@ -14,6 +14,7 @@ html, body {
 
 #sidebar {
   min-width: 250px;
+  max-width: 400px;
   height: 100%;
   background: #1D2125;
   color: #fff;
@@ -21,17 +22,19 @@ html, body {
 }
 
 #sidebar.active {
-  margin-left: -320px;
+  margin-left: -250px;
 }
 
 #sidebar ul li {
   color: white;
   padding: 10px;
   display: block;
-  transition: 0.3s all;
 }
 
-#sidebar ul li:hover {
+.sidebar-navigation {
+  transition: 0.3s all;
+}
+.sidebar-navigation:hover {
   background: #242F32;
   cursor: pointer;
 }
@@ -64,5 +67,16 @@ html, body {
 
 .user-picture {
   border-radius: 60px;
-  max-width: 200px;
+  max-width: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    flex-direction: column-reverse;
+  }
+
+  #sidebar.active {
+    margin-left: -400px;
+  }
+
 }

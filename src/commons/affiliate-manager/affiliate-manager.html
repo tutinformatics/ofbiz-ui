@@ -4,17 +4,17 @@
   <require from="./icons/info/infoIcon"></require>
   <require from="./icons/diamond/diamondIcon"></require>
   <require from="./icons/handshake/handshakeIcon"></require>
+  <require from="./icons/close/closeIcon"></require>
   <div class="wrapper">
-    <!-- Sidebar active-->
     <nav id="sidebar"  class.bind="sidebarIsOpen ? 'active' : ''">
       <ul class="list-unstyled components">
         <li class="avatar-wrapper">
           <div class="card avatar-area">
             <div class="row">
-              <div class="col-sm-4 mx-0 user-picture d-flex align-items-center">
+              <div class="col mx-0 user-picture d-flex align-items-center">
                 <img src="./assets/user-default.jpg" class="card-img user-picture" alt="default-user">
               </div>
-              <div class="col-sm-8 mx-0 px-0 d-flex align-items-center">
+              <div class="col mx-0 px-0 d-flex align-items-center">
                 <div class="card-body text-white px-0">
                   <h6>user@email.com</h6>
                 </div>
@@ -22,19 +22,19 @@
             </div>
           </div>
         </li>
-        <li>
+        <li class="sidebar-navigation">
           <button class="navbar-toggler d-inline" type="button">
             <handshake-icon></handshake-icon>
           </button>
           <h6 class="d-inline">Become Partner</h6>
         </li>
-        <li>
+        <li class="sidebar-navigation">
           <button class="navbar-toggler" type="button">
             <info-icon></info-icon>
           </button>
           <h6 class="d-inline">About</h6>
         </li>
-        <li>
+        <li class="sidebar-navigation">
           <button class="navbar-toggler" type="button">
             <diamond-icon></diamond-icon>
           </button>
