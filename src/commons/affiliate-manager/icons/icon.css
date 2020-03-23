@@ -1,8 +1,8 @@
-.menuIcon {
+.icon {
   color: white;
   transition: 0.3s all
 }
 
-.menuIcon:hover {
+.icon:hover {
   color: #dddddd;
 }

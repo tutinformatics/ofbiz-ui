@@ -1,22 +1,43 @@
 <template>
   <require from="./styles/affiliate-manager.css"></require>
-  <require from="./icons/menuIcon"></require>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h4 class="text-white">Collapsed content</h4>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-      </div>
-      <nav class="navbar w-100 header">
-        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"
-                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-          <menu-icon></menu-icon>
+  <require from="./icons/menu/menuIcon"></require>
+  <require from="./icons/info/infoIcon"></require>
+  <require from="./icons/diamond/diamondIcon"></require>
+  <require from="./icons/handshake/handshakeIcon"></require>
+  <div class="wrapper">
+    <!-- Sidebar active-->
+    <nav id="sidebar"  class.bind="sidebarIsOpen ? 'active' : ''">
+      <ul class="list-unstyled components">
+        <li>
+          <button class="navbar-toggler d-inline" type="button">
+            <handshake-icon></handshake-icon>
+          </button>
+          <h6 class="d-inline">Become Partner</h6>
+        </li>
+        <li>
+          <button class="navbar-toggler" type="button">
+            <info-icon></info-icon>
+          </button>
+          <h6 class="d-inline">About</h6>
+        </li>
+        <li>
+          <button class="navbar-toggler" type="button">
+            <diamond-icon></diamond-icon>
+          </button>
+          <h6 class="d-inline">Top Partners</h6>
+        </li>
+      </ul>
+    </nav>
 
-        </button>
-      </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="navbar w-100 header">
+          <button class="navbar-toggler menu-toggler" type="button" click.trigger="toggleSideBar()">
+            <menu-icon></menu-icon>
+          </button>
+        </nav>
+      </div>
     </div>
+
   </div>
 </template>
