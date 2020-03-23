@@ -8,6 +8,20 @@
     <!-- Sidebar active-->
     <nav id="sidebar"  class.bind="sidebarIsOpen ? 'active' : ''">
       <ul class="list-unstyled components">
+        <li class="avatar-wrapper">
+          <div class="card avatar-area">
+            <div class="row">
+              <div class="col-sm-4 mx-0 user-picture d-flex align-items-center">
+                <img src="./assets/user-default.jpg" class="card-img user-picture" alt="default-user">
+              </div>
+              <div class="col-sm-8 mx-0 px-0 d-flex align-items-center">
+                <div class="card-body text-white px-0">
+                  <h6>user@email.com</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
         <li>
           <button class="navbar-toggler d-inline" type="button">
             <handshake-icon></handshake-icon>
@@ -35,6 +49,7 @@
           <button class="navbar-toggler menu-toggler" type="button" click.trigger="toggleSideBar()">
             <menu-icon></menu-icon>
           </button>
+          <h4 class="text-white mx-auto">Affiliate Manager</h4>
         </nav>
       </div>
     </div>

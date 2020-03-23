@@ -21,7 +21,7 @@ html, body {
 }
 
 #sidebar.active {
-  margin-left: -250px;
+  margin-left: -320px;
 }
 
 #sidebar ul li {
@@ -33,6 +33,7 @@ html, body {
 
 #sidebar ul li:hover {
   background: #242F32;
+  cursor: pointer;
 }
 
 .navbar-toggler {
@@ -50,4 +51,18 @@ html, body {
 .menu-toggler:hover {
   background: #242F32;
   opacity: 0.5;
+}
+
+.avatar-wrapper {
+  background: #242F32;
+}
+
+.avatar-area {
+  background: transparent;
+  border: 0;
+}
+
+.user-picture {
+  border-radius: 60px;
+  max-width: 200px;
 }
