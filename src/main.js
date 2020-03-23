@@ -13,6 +13,7 @@ export function configure(aurelia) {
 
   aurelia.use
     .standardConfiguration()
+    .plugin(PLATFORM.moduleName('aurelia-fontawesome'))
     .feature(PLATFORM.moduleName('resources/index'));
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
