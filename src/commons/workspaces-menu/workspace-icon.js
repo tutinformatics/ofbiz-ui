@@ -5,9 +5,8 @@ import {autoinject} from "aurelia-dependency-injection";
 @inject(EventAggregator)
 @inject(Element)
 @customElement('button-icon')
-export class ButtonIcon {
+export class WorkspaceIcon {
   @bindable elemName = '';
-  stringArray = ['crm', 'accounting', 'calendar', 'contacts', 'manufacturing'];
 
   assetPath = "/icons/";
   svgFile = ".svg";
