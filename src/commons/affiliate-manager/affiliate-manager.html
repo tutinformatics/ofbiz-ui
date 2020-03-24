@@ -1,5 +1,5 @@
 <template>
-  <require from="./styles/affiliate-manager.css"></require>
+  <require from="./styles/scss/affiliate-manager.css"></require>
   <require from="./icons/menu/menuIcon"></require>
   <require from="./icons/info/infoIcon"></require>
   <require from="./icons/diamond/diamondIcon"></require>
@@ -23,19 +23,19 @@
           </div>
         </li>
         <li class="sidebar-navigation">
-          <button class="navbar-toggler d-inline" type="button">
+          <button class="icon-wrapper d-inline" type="button">
             <handshake-icon></handshake-icon>
           </button>
           <h6 class="d-inline">Become Partner</h6>
         </li>
         <li class="sidebar-navigation">
-          <button class="navbar-toggler" type="button">
+          <button class="icon-wrapper" type="button">
             <info-icon></info-icon>
           </button>
           <h6 class="d-inline">About</h6>
         </li>
         <li class="sidebar-navigation">
-          <button class="navbar-toggler" type="button">
+          <button class="icon-wrapper" type="button">
             <diamond-icon></diamond-icon>
           </button>
           <h6 class="d-inline">Top Partners</h6>
@@ -43,14 +43,24 @@
       </ul>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row">
+    <div class="container-fluid content-wrapper">
+      <div class="row justify-content-center">
         <nav class="navbar w-100 header">
-          <button class="navbar-toggler menu-toggler" type="button" click.trigger="toggleSideBar()">
+          <button class="icon-wrapper menu-toggler" type="button" click.trigger="toggleSideBar()">
             <menu-icon></menu-icon>
           </button>
-          <h4 class="text-white mx-auto">Affiliate Manager</h4>
         </nav>
+        <img class="top-img" src="./assets/about-header.png" alt="affiliate-life">
+        <div class="col-md-9 text-center">
+          <h2 class="mt-3">What is Affiliate Marketing?</h2>
+          <p>
+            <i>Affiliate marketing is the process of earning a commission by promoting other people’s
+            (or company’s) products. You find a product you like, promote it to others and earn a piece of
+              the profit for each sale that you make.</i>
+          </p>
+          <h2 class="my-4">How does It work?</h2>
+          <img class="diagram-img" src="./assets/affiliate-diagram.png" alt="affiliate-life">
+        </div>
       </div>
     </div>
 
