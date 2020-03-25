@@ -79,16 +79,6 @@ html, body {
   max-width: 100px;
 }
 
-.top-img {
-  margin-top: -100px;
-  min-height: 200px;
-}
-
-.diagram-img{
-  height: 500px;
-  width: 500px;
-}
-
 .content-wrapper{
   overflow-x: hidden;
 }
@@ -102,19 +92,10 @@ html, body {
   }
 
   #sidebar.active {
-    margin-left: -400px;
+    margin-left: -600px;
   }
 
   .header {
     position: fixed;
-  }
-
-  .top-img {
-    margin-top: -50px;
-  }
-
-  .diagram-img{
-    height: 300px;
-    width: 300px;
   }
 }

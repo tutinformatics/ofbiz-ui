@@ -1,0 +1,21 @@
+.top-img {
+  margin-top: -100px;
+  min-height: 200px;
+}
+
+.diagram-img{
+  height: 500px;
+  width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  .top-img {
+    margin-top: -50px;
+  }
+
+  .diagram-img{
+    height: 300px;
+    width: 300px;
+  }
+}
+
