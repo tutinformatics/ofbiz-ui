@@ -8,7 +8,8 @@ export class AffiliateManager {
     this.sidebarIsOpen = !this.sidebarIsOpen;
   }
 
-  navigateTo = (navigateNext) => {
+  navigateTo(navigateNext) {
+    console.log(navigateNext);
     this.navigatedTo = navigateNext;
   }
 

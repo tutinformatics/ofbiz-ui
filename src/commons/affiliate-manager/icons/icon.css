@@ -1,8 +1,10 @@
-.icon {
+.icon-wrapper {
+  width: 50px;
   color: white;
-  transition: 0.3s all
-}
-
-.icon:hover {
-  color: #dddddd;
+  margin-left: 8px;
+  margin-right: 20px;
+  outline: 0 !important;
+  background: transparent;
+  border: none;
+  display: inline-block;
 }

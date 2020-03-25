@@ -5,12 +5,11 @@
   <require from="./icons/diamond/diamondIcon"></require>
   <require from="./icons/handshake/handshakeIcon"></require>
   <require from="./components/about"></require>
-  <require from="./icons/close/closeIcon"></require>
   <div class="wrapper">
     <nav id="sidebar" class.bind="sidebarIsOpen ? 'active' : ''">
       <ul class="list-unstyled components">
         <li class="avatar-wrapper">
-          <div class="card avatar-area">
+          <div class="card light-area">
             <div class="row">
               <div class="col mx-0 user-picture d-flex align-items-center">
                 <img src="./assets/user-default.jpg" class="card-img user-picture" alt="default-user">
@@ -23,22 +22,22 @@
             </div>
           </div>
         </li>
-        <li class="sidebar-navigation">
-          <button class="icon-wrapper d-inline" type="button">
-            <handshake-icon></handshake-icon>
-          </button>
+        <li class="sidebar-navigation"
+            class.bind="navigatedTo === 'Become-partner'? 'avatar-wrapper' : ''"
+            click.delegate="navigateTo('Become-partner')">
+          <handshake-icon></handshake-icon>
           <h6 class="d-inline">Become Partner</h6>
         </li>
-        <li class="sidebar-navigation">
-          <button class="icon-wrapper" type="button">
-            <info-icon></info-icon>
-          </button>
+        <li class="sidebar-navigation"
+            class.bind="navigatedTo === 'About'? 'avatar-wrapper' : ''"
+            click.trigger="navigateTo('About')">
+          <info-icon></info-icon>
           <h6 class="d-inline">About</h6>
         </li>
-        <li class="sidebar-navigation">
-          <button class="icon-wrapper" type="button">
-            <diamond-icon></diamond-icon>
-          </button>
+        <li class="sidebar-navigation"
+            class.bind="navigatedTo === 'Top-partners'? 'avatar-wrapper' : ''"
+            click.trigger="navigateTo('Top-partners')">
+          <diamond-icon></diamond-icon>
           <h6 class="d-inline">Top Partners</h6>
         </li>
       </ul>
@@ -47,9 +46,9 @@
     <div class="container-fluid content-wrapper">
       <div class="row d-block">
         <nav class="navbar w-100 header">
-          <button class="icon-wrapper menu-toggler" type="button" click.trigger="toggleSideBar()">
+          <div class="menu-toggler" click.trigger="toggleSideBar()">
             <menu-icon></menu-icon>
-          </button>
+          </div>
         </nav>
         <about if.bind="navigatedTo === 'About'"></about>
       </div>
