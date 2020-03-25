@@ -5,6 +5,7 @@
   <require from="./components/icons/diamond/diamondIcon"></require>
   <require from="./components/icons/handshake/handshakeIcon"></require>
   <require from="./components/view/about"></require>
+  <require from="./components/view/becomePartner/becomePartner"></require>
   <div class="wrapper">
     <nav id="sidebar" class.bind="sidebarIsOpen ? 'active' : ''">
       <ul class="list-unstyled components">
@@ -24,7 +25,7 @@
         </li>
         <li class="sidebar-navigation"
             class.bind="navigatedTo === 'Become-partner'? 'avatar-wrapper' : ''"
-            click.delegate="navigateTo('Become-partner')">
+            click.trigger="navigateTo('Become-partner')">
           <handshake-icon></handshake-icon>
           <h6 class="d-inline">Become Partner</h6>
         </li>
@@ -44,14 +45,20 @@
     </nav>
 
     <div class="container-fluid content-wrapper">
-      <div class="row d-block">
+      <div class="row">
         <nav class="navbar w-100 header">
           <div class="menu-toggler" click.trigger="toggleSideBar()">
             <menu-icon></menu-icon>
           </div>
         </nav>
-        <about if.bind="navigatedTo === 'About'"></about>
       </div>
+      <div class="row">
+        <div class="col px-0">
+          <about if.bind="navigatedTo === 'About'"></about>
+          <become-partner if.bind="navigatedTo === 'Become-partner'"></become-partner>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
