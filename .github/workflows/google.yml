@@ -18,6 +18,7 @@ on:
     branches:
       - release/*
       - master
+      - ci
   release:
     types: [created]
 
