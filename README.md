@@ -36,7 +36,7 @@ _Only exposes port 80 to public, uses nginx to serve front_
 ```bash
 # --< In backend repo >--
 
-# Start ofbiz in docker
+# Start ofbiz in docker  
 ./deploy-dev.sh
 
 # --< In frontend repo (here) >--
