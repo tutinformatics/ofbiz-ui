@@ -10,6 +10,8 @@ export class App {
       { route: 'workspaces',  moduleId: PLATFORM.moduleName('workspace/workspaces'), name:'workspaces' },
       { route: 'kanban',  moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name:'kanban' },
       { route: 'kendo-grid',  moduleId: PLATFORM.moduleName('commons/kendo-grid-test/kendo-grid'), name:'grid' },
+      { route: 'kendo-grid',  moduleId: PLATFORM.moduleName('commons/kendo-grid-test/kendo-grid'), name:'grid' },
+      { route: 'crm-office',  moduleId: PLATFORM.moduleName('components/crm-office/crm-office'), name:'crm-office' },
     ]);
 
     this.router = router;
