@@ -16,6 +16,10 @@ export class Task {
 
   addTask() {
     this.taskService.createTask(this.task)
-      .then(() => this.router.navigate('/'));
+      .then(() => this.router.navigate('/tasks'));
+  }
+
+  handleBack() {
+    this.router.navigateBack();
   }
 }
