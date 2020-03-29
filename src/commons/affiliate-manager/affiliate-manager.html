@@ -1,10 +1,8 @@
 <template>
   <require from="./components/icons/menu/menuIcon"></require>
-  <require from="./components/icons/info/infoIcon"></require>
-  <require from="./components/icons/diamond/diamondIcon"></require>
-  <require from="./components/icons/handshake/handshakeIcon"></require>
-  <require from="./components/view/about"></require>
+  <require from="./components/view/about/about"></require>
   <require from="./components/view/becomePartner/becomePartner"></require>
+  <require from="./components/guest-views/sidebar/sidebar"></require>
   <div class="wrapper">
     <nav id="sidebar" class.bind="sidebarIsOpen ? 'active' : ''">
       <ul class="list-unstyled components">
@@ -22,24 +20,7 @@
             </div>
           </div>
         </li>
-        <li class="sidebar-navigation"
-            class.bind="navigatedTo === 'Become-partner'? 'avatar-wrapper' : ''"
-            click.trigger="navigateTo('Become-partner')">
-          <handshake-icon></handshake-icon>
-          <h6 class="d-inline">Become Partner</h6>
-        </li>
-        <li class="sidebar-navigation"
-            class.bind="navigatedTo === 'About'? 'avatar-wrapper' : ''"
-            click.trigger="navigateTo('About')">
-          <info-icon></info-icon>
-          <h6 class="d-inline">About</h6>
-        </li>
-        <li class="sidebar-navigation"
-            class.bind="navigatedTo === 'Top-partners'? 'avatar-wrapper' : ''"
-            click.trigger="navigateTo('Top-partners')">
-          <diamond-icon></diamond-icon>
-          <h6 class="d-inline">Top Partners</h6>
-        </li>
+        <sidebar current.two-way="current"></sidebar>
       </ul>
     </nav>
 
@@ -53,11 +34,10 @@
       </div>
       <div class="row">
         <div class="col px-0">
-          <about if.bind="navigatedTo === 'About'"></about>
-          <become-partner if.bind="navigatedTo === 'Become-partner'"></become-partner>
+          <about if.bind="current === 'About'"></about>
+          <become-partner if.bind="current === 'Become-partner'"></become-partner>
         </div>
       </div>
-
     </div>
   </div>
 </template>

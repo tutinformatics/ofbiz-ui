@@ -1,4 +1,4 @@
-import "../../styles/scss/about.scss";
+import "../../../styles/scss/about.scss";
 
 export class About {
   constructor(ea) {
