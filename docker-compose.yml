@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  proxy:
+    container_name: proxy
+    build:
+      context: ./proxy
+    restart: unless-stopped
+    networks:
+      - ofbiz-api-network
+      - aurelia-front-network
+    ports:
+      - "80:80"
+
+  aurelia_front:
+    container_name: aurelia-front
+    build:
+      context: .
+    restart: unless-stopped
+    networks:
+      - aurelia-front-network
+
+networks:
+  ofbiz-api-network:
+    external:
+      name: ofbiz-api-network
+
+  aurelia-front-network:
+    name: aurelia-front-network
+    driver: bridge
+
