@@ -1,3 +1,5 @@
+import './styles/scss/affiliate-manager.scss';
+
 export class AffiliateManager {
   constructor(ea) {
     this.sidebarIsOpen = false;
