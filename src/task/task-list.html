@@ -1,0 +1,30 @@
+<template>
+    <require from="aurelia-kendoui-bridge/grid/grid"></require>
+    <require from="aurelia-kendoui-bridge/grid/col"></require>
+    <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
+    <require from="aurelia-kendoui-bridge/common/template"></require>
+
+    <div class="card">
+        <div class="card-header text-white bg-primary">Tasks Dashboard</div>
+
+        <div class="card-body">
+            <ak-grid k-data-source.bind="datasource">
+                <ak-grid-toolbar>
+                    <ak-template>
+                        <button
+                            class="btn btn-primary float-right" 
+                            click.delegate="handleAddTask()"
+                        >
+                            Create Task
+                        </button>
+                    </ak-template>
+                </ak-grid-toolbar>
+
+                <ak-col k-title="Task Name" k-field="taskName"></ak-col>
+                <ak-col k-title="Project Name" k-field="projectName"></ak-col>
+                <ak-col k-title="Priority" k-field="priority"></ak-col>
+                <ak-col k-title="Start Date" k-field="startDate" k-format="{0:dd/MM/yyyy}"></ak-col>
+            </ak-grid>
+        </div>
+    </div>
+</template>
