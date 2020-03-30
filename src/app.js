@@ -12,7 +12,7 @@ export class App {
       { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
       {
         route: 'affiliate-manager',
-        moduleId: PLATFORM.moduleName('commons/affiliate-manager/affiliate-manager'),
+        moduleId: PLATFORM.moduleName('affiliate-manager/affiliate-manager'),
         name: 'affiliate-manager',
       },
     ]);
