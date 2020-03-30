@@ -10,7 +10,7 @@ export class Marketdata {
     this.datasource = {
       type: 'odata',
       transport: {
-        read: '//demos.telerik.com/kendo-ui/service/Northwind.svc/Customers'
+        read: ''
       },
       pageSize: 10
     };
