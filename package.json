@@ -25,8 +25,9 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "nprogress": "^0.2.0",
-    "popper.js": "^1.16.1",
-    "aurelia-templating": "latest"
+    "aurelia-templating": "latest",
+    "lodash": "^4.17.15",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
