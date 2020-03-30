@@ -12,8 +12,7 @@ import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin(PLATFORM.moduleName('aurelia-fontawesome'))
-    .feature(PLATFORM.moduleName('resources/index'));
+    .plugin(PLATFORM.moduleName('aurelia-fontawesome'));
 
   aurelia.use
     .developmentLogging(environment.debug ? 'debug' : 'warn');
