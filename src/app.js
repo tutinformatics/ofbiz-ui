@@ -1,17 +1,25 @@
-import { PLATFORM } from 'aurelia-pal';
-
 export class App {
-  configureRouter(config, router) {
-    config.title = 'Ofbiz UI';
-    config.options.pushState = true;
-    config.options.root = '/';
-    config.map([
-      { route: '', redirect: 'tasks' },
-      { route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks' },
-      { route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task' },
-      { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' }
-    ]);
+  constructor() {
+    this.heading = "Todos";
+    this.todos = [];
+    this.todoDescription = "";
+    this.products = [];
+  }
 
-    this.router = router;
+  addTodo() {
+    if (this.todoDescription) {
+      this.todos.push({
+        description: this.todoDescription,
+        done: false
+      });
+      this.todoDescription = "";
+    }
+  }
+
+  removeTodo(todo) {
+    let index = this.todos.indexOf(todo);
+    if (index !== -1) {
+      this.todos.splice(index, 1);
+    }
   }
 }

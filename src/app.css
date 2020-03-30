@@ -1,0 +1,87 @@
+.color-box div {
+  display: inline-block;
+  margin: 10px;
+  width: 120px;
+  height: 100px;
+  border: dashed 1px black;
+  text-align: center;
+  line-height: 100px;
+}
+
+ul.native-list {
+  padding: 0 30px;
+}
+
+ul.native-list li {
+  list-style-type: initial;
+}
+.tester {
+  color: red;
+  background-color: red;
+}
+.myNav {
+  font-size: 2vw;
+  font-weight: 600;
+  background: #d89c0f;
+  border: 1px solid #707070;
+  height: 6vw;
+}
+.leftMenu {
+  background: #00000091;
+  border: 1px solid #707070;
+  height: 100%;
+}
+.myBtn {
+  padding: 0.2vw;
+  margin: 1.6vw;
+  background: #ffffff;
+  font-size: 1.6vw;
+  font-weight: 600;
+  border: 1px solid #707070;
+  width: 10vw;
+}
+.myBtnS {
+  margin-top: 1.5vw;
+  padding: 0.2vw;
+  background: #ffffff;
+  font-size: 1.5vw;
+  font-weight: 600;
+  border: 1px solid #707070;
+  width: 10vw;
+}
+.myTableDiv {
+  background-color: #c2c2c2;
+  padding: 3vw;
+  padding-top: 1.5vw;
+  width: 65vw;
+}
+.myTable {
+  margin-top: 3vw;
+  margin-left: 4vw;
+  font-size: 1.5vw;
+  text-align: center;
+  border: 1px solid #707070;
+  width: 65vw;
+  padding: 0px;
+}
+.thead {
+  border-top: none;
+  padding-top: 0px;
+  background-color: #dc9a17;
+  border: 1px solid #707070;
+}
+.tbody {
+  border: 1px solid #707070;
+  background-color: #ffd6a7;
+}
+.add {
+  padding: 0.2vw;
+  background: #ded22a;
+  font-size: 2vw;
+  font-weight: 600;
+  border: 1px solid #707070;
+  width: 100%;
+}
+.td {
+  border: 1px solid #707070;
+}
