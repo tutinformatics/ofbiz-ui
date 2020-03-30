@@ -1,0 +1,55 @@
+.become-partner--wrapper {
+  overflow-x: hidden;
+}
+
+.become-partner--background {
+  margin-top: -100px;
+}
+
+.become-partner--submit {
+  background-color: #009688;
+  border-radius: 15px;
+  max-width: 300px;
+  height: 70px;
+  z-index: 1;
+}
+
+.become-partner--sumbit__wrapper {
+  margin-top: -200px;
+  width: 100%;
+}
+
+.become-partner--sumbit__motivator {
+  background-color: #1D2125;
+  color: #DCE0E7;
+  width: 60%;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.become-partner--text {
+  margin-top: 110px;
+}
+
+@media only screen and (max-width: 600px) {
+  .become-partner--background {
+    margin-top: -10px;
+    margin-left: -200px;
+    max-height: 400px;
+  }
+
+  .become-partner--sumbit__wrapper {
+    margin-top: 20px;
+  }
+
+  .become-partner--sumbit__motivator {
+    background-color: transparent;
+    color: black;
+  }
+
+  .become-partner--text {
+    margin-top: 20px;
+  }
+}
+
+/*# sourceMappingURL=becomePartner.css.map */
