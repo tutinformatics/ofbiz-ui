@@ -1,5 +1,5 @@
 {
-  "name": "ofbiz-frontend",
+  "name": "aurelia-app",
   "type": "project:application",
   "paths": {
     "root": "src",
@@ -23,7 +23,7 @@
   "platform": {
     "hmr": false,
     "open": false,
-    "port": 6060,
+    "port": 8080,
     "host": "localhost",
     "output": "public"
   },

@@ -1,55 +1,33 @@
-# `Ofbiz-UI`
+# `aurelia-app`
 
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
 
-## Install dependencies
-_(Only needed for developing / running in dev mode)_
-
-```bash
-npm install -g aurelia-cli
-npm install
-```
+For more information, go to https://aurelia.io/docs/cli/webpack
 
 ## Run dev app
-_Allows hot reload_
-```bash
-# --< In backend repo >--
 
-# Start ofbiz locally
-./gradlew [cleanAll loadAll] ofbiz
-# Or with newer version of back
-./deploy.sh
+Run `npm start`, then open `http://localhost:8080`
 
+You can change the standard webpack configurations from CLI easily with something like this: `npm start -- --open --port 8888`. However, it is better to change the respective npm scripts or `webpack.config.js` with these options, as per your need.
 
-# --< In frontend repo (here) >--
+To enable Webpack Bundle Analyzer, do `npm run analyze` (production build).
 
-# Start aurelia app
-au run
+To enable hot module reload, do `npm start -- --hmr`.
 
-# Start proxy
-# Use --build to recreate containers
-docker-compose -f docker-compose-dev.yml up [--build]
-```
+To change dev server port, do `npm start -- --port 8888`.
 
-## Run fully in docker
-_Only exposes port 80 to public, uses nginx to serve front_
-```bash
-# --< In backend repo >--
+To change dev server host, do `npm start -- --host 127.0.0.1`
 
-# Start ofbiz in docker
-./deploy-dev.sh
+**PS:** You could mix all the flags as well, `npm start -- --host 127.0.0.1 --port 7070 --open --hmr`
 
-# --< In frontend repo (here) >--
+For long time aurelia-cli user, you can still use `au run` with those arguments like `au run --env prod --open --hmr`. But `au run` now simply executes `npm start` command.
 
-# Start proxy and front
-# Use --build to recreate containers
-docker-compose up [--build]
-```
+## Build for production
 
-**If something is broken with proxy/docker...**
-- Make sore you have correct ports opened if running on windows _(especially using docker-toolbox)_
-- On unix files created in docker need sudo rights to be removed so that might be a problem if backend doesn't build
-- You can contact Tavo Annus (kilpkonn)
+Run `npm run build`, or the old way `au build --env prod`.
 
-## Running fully in docker architecture/diagram
-![img](./readme/deploy-proxy.png)
+## Unit tests
+
+Run `au test` (or `au jest`).
+
+To run in watch mode, `au test --watch` or `au jest --watch`.
