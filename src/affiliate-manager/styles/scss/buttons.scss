@@ -1,0 +1,22 @@
+.aff-button {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  border-radius: 10px;
+  border: solid 1px $white;
+  padding: 10px;
+  z-index: 1;
+  transition: 0.3s all;
+}
+
+.aff-button__large {
+  width: 100%;
+  max-width: 300px;
+  min-width: 100px;
+}
+
+.aff-button:hover {
+  background-color: $primary-color-hover;
+}

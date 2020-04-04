@@ -1,19 +1,13 @@
 @import "variables";
+@import "buttons";
 
-.become-partner--wrapper {
+.aff-become-partner-img-area {
+  margin-top: -50px;
   overflow-x: hidden;
 }
 
-.become-partner--background {
+.aff-become-partner-img-area--img {
   margin-top: -100px;
-}
-
-.become-partner--submit {
-  background-color: $primary-color;
-  border-radius: 15px;
-  max-width: 300px;
-  height: 70px;
-  z-index: 1;
 }
 
 .become-partner--sumbit__wrapper {
@@ -21,20 +15,17 @@
   width: 100%;
 }
 
-.become-partner--sumbit__motivator {
-  background-color: $secondary-dark;
-  color: $background-color;
-  width: 60%;
-  margin: 20px auto;
+.become-partner__motivator {
+  text-align: center;
   border-radius: 10px;
 }
 
-.become-partner--text{
-  margin-top: 110px;
+.become-partner__description{
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-  .become-partner--background {
+  .aff-become-partner-img-area--img {
     margin-top: -10px;
     margin-left: -200px;
     max-height: 400px;
@@ -49,7 +40,7 @@
     color: black;
   }
 
-  .become-partner--text{
+  .become-partner__description{
     margin-top: 20px;
   }
 
