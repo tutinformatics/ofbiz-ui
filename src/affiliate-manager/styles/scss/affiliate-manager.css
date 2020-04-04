@@ -5,7 +5,7 @@ html, body {
   overflow-x: hidden;
 }
 
-.header {
+.aff-mar-header {
   z-index: 1;
   height: 50px;
   background-color: #009688;
@@ -87,7 +87,7 @@ html, body {
     margin-left: -600px;
   }
 
-  .header {
+  .aff-mar-header {
     position: fixed;
   }
 }

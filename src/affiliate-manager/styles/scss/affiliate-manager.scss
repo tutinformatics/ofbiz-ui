@@ -7,7 +7,7 @@ html, body {
   overflow-x: hidden;
 }
 
-.header {
+.aff-mar-header {
   z-index: 1;
   height: 50px;
   background-color: transparent;
@@ -87,9 +87,5 @@ html, body {
 
   #sidebar.active {
     margin-left: -600px;
-  }
-
-  .header {
-    position: fixed;
   }
 }
