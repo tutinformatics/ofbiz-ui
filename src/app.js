@@ -9,7 +9,8 @@ export class App {
       { route: '', redirect: 'tasks' },
       { route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks' },
       { route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task' },
-      { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' }
+      { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
+      { route: 'agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
     ]);
 
     this.router = router;
