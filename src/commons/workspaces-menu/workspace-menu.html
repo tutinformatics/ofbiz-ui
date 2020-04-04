@@ -1,8 +1,11 @@
 <template>
   <require from="./workspace-icon"></require>
-  <!--<div id="shuffle-menu" class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1" reorderable-repeat.for="s of stringArray">
-      <workspace-icon elem-name="${s}"></workspace-icon>
-  </div>-->
-
+  <require from="./favorite-icon"></require>
+  <div id="workspace-menu" class="text-center d-block border-primary bg-secondary text-white ml-1 mr-1 mb-1" reorderable-repeat.for="s of stringArray">
+      <workspace-icon callback.call="callback(val)" elem-name="${s.name}" color="${s.color}" favorite="${s.favorites}"></workspace-icon>
+  </div>
+  <div id="favorites-menu" class="text-center d-block border-primary bg-secondary text-white ml-1 mr-1 mb-1" repeat.for="t of favoritesArray">
+      <favorite-icon elem-name="${t.name}" color="${t.color}"></favorite-icon>
+  </div>
 
 </template>

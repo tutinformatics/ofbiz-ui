@@ -3,12 +3,34 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 
 @inject(EventAggregator)
 export class WorkspaceMenu {
-  stringArray = ['crm', 'accounting', 'calendar', 'contacts', 'manufacturing', 'marketing', 'invoicing', 'facility'];
-  assetPath = "/icons/";
-  svgFile = ".svg";
+  stringArray = [
+      { name: 'My Workspace', color: 'blue', favorites: true},
+      { name: 'Workspace 1', color: 'red', favorites: false}];
 
-  notactive = "";
-  active = "-active";
+  favoritesArray = [];
+
+
+
+  addToFavorites(element) {
+    for (var i = 0; i < stringArray.length; i++) {
+      if (element == stringArray[i].name) {
+        this.favoritesArray.push(stringArray[i]);
+      }
+    }
+
+  }
+
+  print(string) {
+    console.log(string);
+  }
+
+  removeFromFavorites(element) {
+    for (var i = 0; i < favoritesArray.length; i++) {
+      if (element.id == favoritesArray[i].id) {
+        this.favoritesArray.pop(i);
+      }
+    }
+  }
 
   getUserSettings() {
 
@@ -23,6 +45,13 @@ export class WorkspaceMenu {
 
   }
 
+  constructor() {
 
+  }
 
+  @bindable
+  callback = val => {
+    //addToFavorites(val);
+    console.log(val);
+  };
 }

@@ -1,3 +1,14 @@
 <template id="">
+  <div class="badge-wrapper " mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()" style="background-color: ${color};">
+    <div class="text-uppercase">
+      ${elemName}
+    </div>
+    <div if.one-time="!favorites">
+      <span click.trigger="callback('My Workspace')" class="fa fa-star-o fa-2x"></span>
+    </div>
+    <div else>
+      <span click.trigger="callback($elemName)" class="fa fa-star fa-2x"></span>
+    </div>
 
+  </div>
 </template>

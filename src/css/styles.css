@@ -69,14 +69,20 @@ li.list-group-item.active > a {
   height: 80px;
   background: linear-gradient(to bottom, white 0%,#744662 75%,#444444 76%,#444444 100%);
   background-color: #dddddd !important;
+  cursor: pointer
+}
+
+.badge-wrapper {
+  font-size: 12px;
+  text-shadow: 2px 2px #444444;
+  overflow: hidden;
+  width: 256px;
+  height: 40px;
+  cursor: pointer
 }
 
 .dropdown-menu {
   width: 266px;
   background: linear-gradient(#744662, #dddddd);
   background-color: #ababab !important;
-}
-
-button-icon {
-  cursor: pointer
 }

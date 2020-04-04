@@ -4,11 +4,11 @@ import {autoinject} from "aurelia-dependency-injection";
 
 @inject(EventAggregator)
 @inject(Element)
-@customElement('workspace-icon')
-export class WorkspaceIcon {
+@customElement('favorite-icon')
+export class FavoriteIcon {
   @bindable elemName = '';
   @bindable color = '';
-  @bindable favorite = false;
+
   constructor() {
   }
 
@@ -17,7 +17,4 @@ export class WorkspaceIcon {
 
   mouseOut() {
   }
-
-  @bindable
-  callback = (val) => {};
 }

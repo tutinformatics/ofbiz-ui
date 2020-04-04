@@ -21,7 +21,7 @@ export class ButtonIcon {
           active: ''
         };
   }
-  x;
+  
   mouseOver() {
     this.element.active = '-active';
   }
