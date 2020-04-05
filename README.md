@@ -8,8 +8,6 @@ _(Only needed for developing / running in dev mode)_
 ```bash
 npm install -g aurelia-cli
 npm install
-npm i @aurelia/fetch-client
-npm install au-table --save
 ```
 
 ## Run dev app
