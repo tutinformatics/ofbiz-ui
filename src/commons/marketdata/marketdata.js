@@ -1,18 +1,17 @@
+import {HttpClient} from 'aurelia-fetch-client';
+
 export class Marketdata {
+  users = [];
 
-  pageable = {
-    refresh: true,
-    pageSizes: true,
-    buttonCount: 10
-  };
+  bind() {
+    let client = new HttpClient();
 
-  constructor() {
-    this.datasource = {
-      type: 'odata',
-      transport: {
-        read: ''
-      },
-      pageSize: 10
-    };
+    return client.fetch('data.json')
+      .then(response => response.json())
+      .then(users => this.users = users);
+  }
+
+  rowSelected($event) {
+    console.log($event.detail.row);
   }
 }

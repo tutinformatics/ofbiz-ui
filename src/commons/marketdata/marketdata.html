@@ -1,16 +1,28 @@
 <template>
-  <require from="aurelia-kendoui-bridge/grid/grid"></require>
-  <require from="aurelia-kendoui-bridge/grid/col"></require>
-  <require from="aurelia-kendoui-bridge/common/template"></require>
-
-  <ak-grid
-    k-data-source.bind="datasource"
-    k-pageable.bind="pageable"
-    k-sortable.bind="true">
-    <ak-col k-title="Company Name" k-field="CompanyName"></ak-col>
-    <ak-col k-title="Sector" k-field="CompanySector"></ak-col>
-    <ak-col k-title="Employee count" k-field="EmployeeCount"></ak-col>
-    <ak-col k-title="Company Address" k-field="CompanyAddress"></ak-col>
-  </ak-grid>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
+          style="margin: 0 0 0 0">
+    Add Contact
+  </button>
+    <table class="table table-striped" au-table="data.bind: users; display-data.bind: $displayData">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>E-mail</th>
+        <th>Active</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="user of $displayData" aut-select="row.bind: user; custom.bind: true; mode: multiple; selected-class: info"
+          select.delegate="rowSelected($event)">
+        <td><input type="checkbox" checked.bind="user.$isSelected"/></td>
+        <td>${user.name}</td>
+        <td>${user.age}</td>
+        <td><a href="mailto:${user.email}">${user.email}</a></td>
+        <td>${user.isActive}</td>
+      </tr>
+      </tbody>
+    </table>
 </template>
 

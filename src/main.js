@@ -25,10 +25,14 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
     .developmentLogging();
 
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
+    .plugin(PLATFORM.moduleName('au-table'))
+    .feature(PLATFORM.moduleName('resources'));
+
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
-
   }
-
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }
