@@ -2,11 +2,11 @@ export class StatusValueConverter {
   toView(status) {
     switch (status) {
     case 'PTS_CREATED_AS':
-      return 'Assigned';
+      return 'ASSIGNED';
     case 'PTS_CREATED':
-      return 'Created';
+      return 'CREATED';
     default:
-      return 'Unknown';
+      return 'UNKNOWN';
     }
   }
 }

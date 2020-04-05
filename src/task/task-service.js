@@ -1,20 +1,29 @@
 import { inject } from 'aurelia-dependency-injection';
-import { HttpClient } from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import { SearchUtils } from '../commons/util/search-utils';
 
 @inject(HttpClient)
 export class TaskService {
-  baseUrl = 'api/task-list';
+  baseUrl = 'api/project'; // TODO: should be configurable
 
   constructor(httpClient) {
     this.httpClient = httpClient;
   }
 
+  createTask(task) {
+    const body = json(task);
+    return this.httpClient
+      .fetch(`${this.baseUrl}/new-task`, {
+        method: 'post',
+        body: body
+      })
+      .catch(error => console.log(error)); // TODO: improve error handling
+  }
   getProjectTaskList(params) {
     const query = SearchUtils.appendQueryParams(params);
 
     return this.httpClient
-      .fetch(`${this.baseUrl}?${query}`)
+      .fetch(`${this.baseUrl}/task-list?${query}`)
       .then(res => res.json())
       .then(res => {
         res.taskList.map(task => {
@@ -24,15 +33,8 @@ export class TaskService {
           task.estimatedCompletionDate = !!task.estimatedCompletionDate ? new Date(task.estimatedCompletionDate) : undefined;
         });
         return res.taskList;
-      });
-  }
-
-  createTask(task) {
-    return new Promise(resolve => {
-      const newTask = Object.assign({}, task);
-      this.tasks.push(newTask);
-      resolve(newTask);
-    });
+      })
+      .catch(error => console.log(error)); // TODO: improve error handling
   }
 }
 

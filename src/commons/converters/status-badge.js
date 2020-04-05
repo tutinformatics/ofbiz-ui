@@ -4,7 +4,7 @@ export class StatusBadgeValueConverter {
     case 'PTS_CREATED_AS':
       return 'badge-success';
     case 'PTS_CREATED':
-      return 'badge-info';
+      return 'badge-secondary';
     default:
       return 'badge-secondary';
     }
