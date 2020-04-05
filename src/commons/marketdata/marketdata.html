@@ -1,12 +1,14 @@
 <template>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
-          style="margin: 0 0 0 0">
-    Add Contact
-  </button>
-  <div class="form-group">
-    <input type="text" value.bind="filters[0].value" placeholder="Find" class="form-control"/>
+  <div class="row">
+    <div class="col-50">
+      <input type="text" value.bind="filters[0].value" placeholder="Find" class="form-control"/>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
+            style="margin: 0 0 0 1%">
+      Add Contact
+    </button>
   </div>
-  <table class="table table-striped" aurelia-table="data.bind: users; display-data.bind: $displayData;
+  <table class="table table-striped" aurelia-table="data.bind: companies; display-data.bind: $displayData;
                                               current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
     <thead>
     <tr>
@@ -17,70 +19,56 @@
     </tr>
     </thead>
     <tbody>
-    <tr repeat.for="user of $displayData">
-      <td>${user.company}</td>
-      <td>${user.code}</td>
-      <td>${user.active}</td>
-      <td>${user.address}</td>
+    <tr repeat.for="company of $displayData">
+      <td>${company.company}</td>
+      <td>${company.code}</td>
+      <td>${company.active}</td>
+      <td>${company.address + ', ' + company.city}</td>
     </tr>
     </tbody>
   </table>
-  <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems">
-    <template replace-part="pagination">
-      <ul class="custom-pagination" hide.bind="hideSinglePage && totalPages === 1">
-        <li>
-          <a aria-label="Previous" click.delegate="previousPage()"
-             class-name.bind="currentPage === 1 ? 'disabled' : ''">
-            <span aria-hidden="true">«</span>
-          </a>
-        </li>
-        <li repeat.for="page of displayPages">
-          <a click.delegate="selectPage(page.value)" class-name.bind="currentPage === page.value ? 'active' : ''">
-            ${page.title}
-          </a>
-        </li>
-        <li>
-          <a aria-label="Next" click.delegate="nextPage()"
-             class-name.bind="currentPage === totalPages ? 'disabled' : ''">
-            <span aria-hidden="true">»</span>
-          </a>
-        </li>
-      </ul>
-    </template>
-  </aut-pagination>
 
-<div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">ADD CONTACT</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form role = "form" submit.delegate = "submitData()">
-          <div class="form-group">
-            <label for = "company">Company name</label>
-            <input type="text" value.bind="company" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for = "code">Company code</label>
-            <input type="text" value.bind="code" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for = "active">Status</label>
-            <input type="text" value.bind="active" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for = "address">Address</label>
-            <input type="text" value.bind="address" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+  <div class="row">
+    <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems"
+                    pagination-size.bind="5" boundary-links.bind="true"></aut-pagination>
+  </div>
+
+  <div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ADD CONTACT</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role="form" submit.delegate="submitData()">
+            <div class="form-group">
+              <label for="company">Company name</label>
+              <input type="text" value.bind="company" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="code">Company code</label>
+              <input type="text" value.bind="code" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="active">Status</label>
+              <input type="text" value.bind="active" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" value.bind="address" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" value.bind="city" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 

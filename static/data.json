@@ -1,602 +1,6988 @@
 [
   {
-    "company": "001 group OU",
+    "company": "001 group OÜ",
     "code": 12754230,
     "active": "Registrisse kantud",
-    "address": "OismAe tee 78-9"
+    "address": "Õismäe tee 78-9",
+    "city": "Tallinn"
   },
   {
-    "company": "001 Kinnisvara OU",
+    "company": "001 Kinnisvara OÜ",
     "code": 12652512,
     "active": "Registrisse kantud",
-    "address": "OismAe tee 78-9"
+    "address": "Õismäe tee 78-9",
+    "city": "Tallinn"
   },
   {
-    "company": "007 Autohaus osaUhing",
+    "company": "007 Autohaus osaühing",
     "code": 11694365,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "",
+    "city": ""
   },
   {
-    "company": "013 investment OU",
+    "company": "013 investment OÜ",
     "code": 12937781,
     "active": "Registrisse kantud",
-    "address": "Tartu mnt 18"
+    "address": "Tartu mnt 18",
+    "city": "Tallinn"
   },
   {
-    "company": "01Arvutiabi OU",
+    "company": "01Arvutiabi OÜ",
     "code": 14112620,
     "active": "Registrisse kantud",
-    "address": "Aru tn 19-5"
+    "address": "Aru tn 19-5",
+    "city": "Tallinn"
   },
   {
-    "company": "01 Creations OsaUhing",
+    "company": "01 Creations Osaühing",
     "code": 10818150,
     "active": "Registrisse kantud",
-    "address": "Ahtri tn 12"
+    "address": "Ahtri tn 12",
+    "city": "Tallinn"
   },
   {
-    "company": "0dav riie OU",
+    "company": "0dav riie OÜ",
     "code": 14288602,
     "active": "Registrisse kantud",
-    "address": "Vanaaseme"
+    "address": "Vanaaseme",
+    "city": "Kehtna vald"
   },
   {
-    "company": "0 rent OU",
+    "company": "0 rent OÜ",
     "code": 14289174,
     "active": "Registrisse kantud",
-    "address": "VAike tn 14a-12"
+    "address": "Väike tn 14a-12",
+    "city": "Põhja-Sakala vald"
   },
   {
-    "company": "0x00 OU",
+    "company": "0x00 OÜ",
     "code": 14809610,
     "active": "Registrisse kantud",
-    "address": "TammepOllu tee 13-12"
+    "address": "Tammepõllu tee 13-12",
+    "city": "Viimsi vald"
   },
   {
-    "company": "1000000INVEST OU",
+    "company": "1000000INVEST OÜ",
     "code": 14433211,
     "active": "Registrisse kantud",
-    "address": "SOpruse pst 145"
+    "address": "Sõpruse pst 145",
+    "city": "Tallinn"
   },
   {
-    "company": "1000 Extra OU",
+    "company": "1000 Extra OÜ",
     "code": 14085201,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "",
+    "city": ""
   },
   {
-    "company": "1001 Investments OU",
+    "company": "1001 Investments OÜ",
     "code": 11142683,
     "active": "Registrisse kantud",
-    "address": "Luha tn 20-29"
+    "address": "Luha tn 20-29",
+    "city": "Tallinn"
   },
   {
-    "company": "1001 Night OU",
+    "company": "1001 Night OÜ",
     "code": 14637155,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "Nurga tn 5",
+    "city": "Harju maakond"
   },
   {
-    "company": "1001 Properties OU",
+    "company": "1001 Properties OÜ",
     "code": 14923889,
     "active": "Registrisse kantud",
-    "address": "Savi tn 6-12"
+    "address": "Savi tn 6-12",
+    "city": "Tartu linn"
   },
   {
-    "company": "100% Carbon OU",
+    "company": "100% Carbon OÜ",
     "code": 12441287,
     "active": "Registrisse kantud",
-    "address": "Roo tn 42-7"
+    "address": "Roo tn 42-7",
+    "city": "Tallinn"
   },
   {
-    "company": "100CAR OU",
+    "company": "100CAR OÜ",
     "code": 11163018,
     "active": "Registrisse kantud",
-    "address": "Kadaka tee 137-72"
+    "address": "Kadaka tee 137-72",
+    "city": "Tallinn"
   },
   {
-    "company": "100 doors OU",
+    "company": "100 doors OÜ",
     "code": 12489420,
     "active": "Registrisse kantud",
-    "address": "Haapsalu mnt 74a-5"
+    "address": "Haapsalu mnt 74a-5",
+    "city": "Pärnu linn"
   },
   {
-    "company": "100% Go OU",
+    "company": "100% Go OÜ",
     "code": 14364310,
     "active": "Registrisse kantud",
-    "address": "Kohala mnt 2"
+    "address": "Kohala mnt 2",
+    "city": "Rakvere vald"
   },
   {
-    "company": "100KINGITUST OU",
+    "company": "100KINGITUST OÜ",
     "code": 12036279,
     "active": "Registrisse kantud",
-    "address": "PArnu mnt 146"
+    "address": "Pärnu mnt 146",
+    "city": "Tallinn"
   },
   {
-    "company": "100lippu OU",
+    "company": "100lippu OÜ",
     "code": 14381081,
     "active": "Registrisse kantud",
-    "address": "Asula tn 1b-50"
+    "address": "Asula tn 1b-50",
+    "city": "Tallinn"
   },
   {
-    "company": "100m³ TAiteliiva UU",
+    "company": "100m³ Täiteliiva UÜ",
     "code": 12816095,
     "active": "Registrisse kantud",
-    "address": "TornimAe tn 5"
+    "address": "Tornimäe tn 5",
+    "city": "Tallinn"
   },
   {
-    "company": "10.0 OU",
+    "company": "10.0 OÜ",
     "code": 14615952,
     "active": "Registrisse kantud",
-    "address": "Vana-Viljandi mnt 3"
+    "address": "Vana-Viljandi mnt 3",
+    "city": "Rapla vald"
   },
   {
-    "company": "100 Vill OU",
+    "company": "100 Vill OÜ",
     "code": 12855190,
     "active": "Registrisse kantud",
-    "address": "Mahtra tn 30a"
+    "address": "Mahtra tn 30a",
+    "city": "Tallinn"
   },
   {
-    "company": "100 Wool OU",
+    "company": "100 Wool OÜ",
     "code": 12189250,
     "active": "Registrisse kantud",
-    "address": "Mahtra tn 30a"
+    "address": "Mahtra tn 30a",
+    "city": "Tallinn"
   },
   {
-    "company": "101 Dream OU",
+    "company": "101 Dream OÜ",
     "code": 12979650,
     "active": "Registrisse kantud",
-    "address": "Marati tn 4-7"
+    "address": "Marati tn 4-7",
+    "city": "Tallinn"
   },
   {
-    "company": "101Kapital Deutsch OU",
+    "company": "101Kapital Deutsch OÜ",
     "code": 14482190,
     "active": "Registrisse kantud",
-    "address": "PArnu mnt 141"
+    "address": "Pärnu mnt 141-pk 59",
+    "city": "Tallinn"
   },
   {
-    "company": "101Kapital International OU",
+    "company": "101Kapital International OÜ",
     "code": 14439248,
     "active": "Registrisse kantud",
-    "address": "PArnu mnt 141"
+    "address": "Pärnu mnt 141-pk 59",
+    "city": "Tallinn"
   },
   {
-    "company": "101km OU",
+    "company": "101km OÜ",
     "code": 14064469,
     "active": "Registrisse kantud",
-    "address": "Sepapaja tn 6"
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "101Timber OU",
+    "company": "101Timber OÜ",
     "code": 14611316,
     "active": "Registrisse kantud",
-    "address": "Narva mnt 5"
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
   },
   {
-    "company": "101 Visiooni OU",
+    "company": "101 Visiooni OÜ",
     "code": 11098315,
     "active": "Registrisse kantud",
-    "address": "Peetri tee 21b"
+    "address": "Peetri tee 21b",
+    "city": "Rae vald"
   },
   {
-    "company": "1024 OU",
+    "company": "1024 OÜ",
     "code": 11935521,
     "active": "Registrisse kantud",
-    "address": "Pae tn 25-2"
+    "address": "Pae tn 25-2",
+    "city": "Tallinn"
   },
   {
-    "company": "102 Property Holding OU",
+    "company": "102 Property Holding OÜ",
     "code": 11979116,
     "active": "Registrisse kantud",
-    "address": "Kristjani tee 1"
+    "address": "Kristjani tee 1",
+    "city": "Viimsi vald"
   },
   {
-    "company": "10 ASJA OU",
+    "company": "10 ASJA OÜ",
     "code": 12765245,
     "active": "Registrisse kantud",
-    "address": "ArunOmme tee 15"
+    "address": "Arunõmme tee 15",
+    "city": "Saku vald"
   },
   {
-    "company": "10 Capital OU",
+    "company": "10 Capital OÜ",
     "code": 12771820,
     "active": "Registrisse kantud",
-    "address": "Roseni tn 9-35"
+    "address": "Roseni tn 9-35",
+    "city": "Tallinn"
   },
   {
-    "company": "10 Distribution Group OU",
+    "company": "10 Distribution Group OÜ",
     "code": 11413202,
     "active": "Registrisse kantud",
-    "address": "Roosikrantsi tn 2-248"
+    "address": "Roosikrantsi tn 2-248",
+    "city": "Tallinn"
   },
   {
-    "company": "10Dspace OU",
+    "company": "10Dspace OÜ",
     "code": 14318875,
     "active": "Likvideerimisel",
-    "address": "Sepapaja tn 6"
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "10fevrier OU",
+    "company": "10fevrier OÜ",
     "code": 14449287,
     "active": "Registrisse kantud",
-    "address": "Sepapaja tn 6"
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "10Guards OU",
+    "company": "10Guards OÜ",
     "code": 14514694,
     "active": "Registrisse kantud",
-    "address": "Narva mnt 7-634"
+    "address": "Narva mnt 7-634",
+    "city": "Tallinn"
   },
   {
-    "company": "10K Ventures OU",
+    "company": "10K Ventures OÜ",
     "code": 14733580,
     "active": "Registrisse kantud",
-    "address": "Keemia tn 4"
+    "address": "Keemia tn 4",
+    "city": "Tallinn"
   },
   {
-    "company": "10Lines OU",
+    "company": "10Lines OÜ",
     "code": 14793777,
     "active": "Registrisse kantud",
-    "address": "TAhetorni tn 21"
+    "address": "Tähetorni tn 21",
+    "city": "Tallinn"
   },
   {
-    "company": "10L OU",
+    "company": "10L OÜ",
     "code": 14154818,
     "active": "Registrisse kantud",
-    "address": "MunamAe tn 16-13"
+    "address": "Munamäe tn 16-13",
+    "city": "Otepää vald"
   },
   {
-    "company": "10-to-10 OsaUhing",
+    "company": "10-to-10 Osaühing",
     "code": 14543494,
     "active": "Registrisse kantud",
-    "address": "PArnu mnt 148"
+    "address": "Pärnu mnt 148",
+    "city": "Tallinn"
   },
   {
-    "company": "10XCapital OU",
+    "company": "10XCapital OÜ",
     "code": 14755274,
     "active": "Registrisse kantud",
-    "address": "Viru vAljak 2"
+    "address": "Viru väljak 2",
+    "city": "Tallinn"
   },
   {
-    "company": "10X OU",
+    "company": "10X OÜ",
     "code": 14014023,
     "active": "Registrisse kantud",
-    "address": "Katusepapi tn 6"
+    "address": "Katusepapi tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "10xVentures OU",
+    "company": "10xVentures OÜ",
     "code": 12716235,
     "active": "Registrisse kantud",
-    "address": "Luige tn 14"
+    "address": "Luige tn 14",
+    "city": "Tallinn"
   },
   {
-    "company": "11059 OU",
+    "company": "11059 OÜ",
     "code": 14459446,
     "active": "Registrisse kantud",
-    "address": "Sepapaja tn 6"
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "110 Kv OU",
+    "company": "110 Kv OÜ",
     "code": 14708725,
     "active": "Registrisse kantud",
-    "address": "Kildema"
+    "address": "Kildema",
+    "city": "Rapla vald"
   },
   {
-    "company": "1111 KOMA 1111 OU",
+    "company": "1111 KOMA 1111 OÜ",
     "code": 12870226,
     "active": "Registrisse kantud",
-    "address": "Pargi tee 17"
+    "address": "Pargi tee 17",
+    "city": "Põlva vald"
   },
   {
-    "company": "111.ee OU",
+    "company": "111.ee OÜ",
     "code": 14256097,
     "active": "Registrisse kantud",
-    "address": "Hariduse tn 11-3"
+    "address": "Hariduse tn 11-3",
+    "city": "Tallinn"
   },
   {
-    "company": "112 Kinnisvara OU",
+    "company": "112 Kinnisvara OÜ",
     "code": 12582243,
     "active": "Registrisse kantud",
-    "address": "J. SUtiste tee 41-213"
+    "address": "J. Sütiste tee 41-213",
+    "city": "Tallinn"
   },
   {
-    "company": 11,
-    "code": "2 Retsepti OU",
-    "active": "R",
-    "address": "LasnamAe linnaosa"
-  },
-  {
-    "company": "113115 OU",
+    "company": "113115 OÜ",
     "code": 14207785,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "",
+    "city": ""
   },
   {
-    "company": "116 OU",
+    "company": "116 OÜ",
     "code": 11326710,
     "active": "Registrisse kantud",
-    "address": "PArnu mnt 6a"
+    "address": "Pärnu mnt 6a",
+    "city": "Mulgi vald"
   },
   {
-    "company": "118finder OU",
+    "company": "118finder OÜ",
     "code": 12329780,
     "active": "Registrisse kantud",
-    "address": "Madara tn 14"
+    "address": "Madara tn 14",
+    "city": "Tallinn"
   },
   {
-    "company": "11 Meelt ja Maitset OU",
+    "company": "11 Meelt ja Maitset OÜ",
     "code": 12577503,
     "active": "Registrisse kantud",
-    "address": "Pronksi tn 7-49"
+    "address": "Pronksi tn 7-49",
+    "city": "Tallinn"
   },
   {
-    "company": "11squared OU",
+    "company": "11squared OÜ",
     "code": 14805500,
     "active": "Registrisse kantud",
-    "address": "Pikk tn 7"
+    "address": "Pikk tn 7",
+    "city": "Tallinn"
   },
   {
-    "company": "11tools OU",
+    "company": "11tools OÜ",
     "code": 14562960,
     "active": "Registrisse kantud",
-    "address": "Sepapaja tn 6"
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "120bpm OU",
+    "company": "120bpm OÜ",
     "code": 14330468,
     "active": "Registrisse kantud",
-    "address": "Wismari tn 21-11"
+    "address": "Wismari tn 21-11",
+    "city": "Tallinn"
   },
   {
-    "company": "12.12.12 UU",
+    "company": "12.12.12 UÜ",
     "code": 12391106,
     "active": "Registrisse kantud",
-    "address": "Ulikooli tn 6a-610"
+    "address": "Ülikooli tn 6a-610",
+    "city": "Tartu linn"
   },
   {
-    "company": "12-24 OU",
+    "company": "12-24 OÜ",
     "code": 14401916,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "Vestervalli tn 6-3",
+    "city": "Ida-Viru maakond"
   },
   {
-    "company": "123 ABAKUS OU",
+    "company": "123 ABAKUS OÜ",
     "code": 14072635,
     "active": "Registrisse kantud",
-    "address": "Uus-Saku tn 9a"
+    "address": "Uus-Saku tn 9a",
+    "city": "Saku vald"
   },
   {
-    "company": "123 ACCOUNTING OU",
+    "company": "123 ACCOUNTING OÜ",
     "code": 12502764,
     "active": "Registrisse kantud",
-    "address": "Lai tn 32-8"
+    "address": "Lai tn 32-8",
+    "city": "Tallinn"
   },
   {
-    "company": "123Apartments OU",
+    "company": "123Apartments OÜ",
     "code": 14159313,
     "active": "Registrisse kantud",
-    "address": "Peterburi tee 20-37"
+    "address": "Peterburi tee 20-37",
+    "city": "Tallinn"
   },
   {
-    "company": "123 Autoosad OU",
+    "company": "123 Autoosad OÜ",
     "code": 12243067,
     "active": "Registrisse kantud",
-    "address": "Akadeemia tee 78"
+    "address": "Akadeemia tee 78",
+    "city": "Tallinn"
   },
   {
-    "company": "123 Baltic OU",
+    "company": "123 Baltic OÜ",
     "code": 12218141,
     "active": "Registrisse kantud",
-    "address": "Majaka tn 41-4"
+    "address": "Majaka tn 41-4",
+    "city": "Tallinn"
   },
   {
-    "company": "123.ee OU",
+    "company": "123.ee OÜ",
     "code": 11112363,
     "active": "Registrisse kantud",
-    "address": "Vana-Posti tn 2-15"
+    "address": "Vana-Posti tn 2-15",
+    "city": "Tallinn"
   },
   {
-    "company": "1-2-3 EHITUS OU",
+    "company": "1-2-3 EHITUS OÜ",
     "code": 14248152,
     "active": "Registrisse kantud",
-    "address": "Valdeku tn 51-1"
+    "address": "Valdeku tn 51-1",
+    "city": "Tallinn"
   },
   {
-    "company": "123FILTRIPOOD OU",
+    "company": "123FILTRIPOOD OÜ",
     "code": 14812440,
     "active": "Registrisse kantud",
-    "address": "Kapteni tee 5"
+    "address": "Kapteni tee 5",
+    "city": "Rae vald"
   },
   {
-    "company": "123 Grupp OU",
+    "company": "123 Grupp OÜ",
     "code": 11342212,
     "active": "Registrisse kantud",
-    "address": "Parda tn 12"
+    "address": "Parda tn 12",
+    "city": "Tallinn"
   },
   {
-    "company": "123 Haldus OU",
+    "company": "123 Haldus OÜ",
     "code": 11999934,
     "active": "Registrisse kantud",
-    "address": "Vallimaa tn 9-20"
+    "address": "Vallimaa tn 9-20",
+    "city": "Saaremaa vald"
   },
   {
-    "company": "1-2-3 Hooldus OU",
+    "company": "1-2-3 Hooldus OÜ",
     "code": 14248131,
     "active": "Registrisse kantud",
-    "address": "Posti tn 2"
+    "address": "Posti tn 2",
+    "city": "Kohila vald"
   },
   {
-    "company": "123 Kindlustuskonsultatsioonid OU",
+    "company": "123 Kindlustuskonsultatsioonid OÜ",
     "code": 11350281,
     "active": "Registrisse kantud",
-    "address": "Anne tn 83-21"
+    "address": "Anne tn 83-21",
+    "city": "Tartu linn"
   },
   {
-    "company": "123 Kinnisvarahalduse OU",
+    "company": "123 Kinnisvarahalduse OÜ",
     "code": 12459531,
     "active": "Registrisse kantud",
-    "address": "Varsa tn 10"
+    "address": "Varsa tn 10",
+    "city": "Tartu linn"
   },
   {
-    "company": "123Kunert OU",
+    "company": "123Kunert OÜ",
     "code": 14290220,
     "active": "Registrisse kantud",
-    "address": "Sepapaja tn 6"
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "123-Mobile OU",
+    "company": "123-Mobile OÜ",
     "code": 14262092,
     "active": "Registrisse kantud",
-    "address": "Timuti tn 15-7"
+    "address": "Timuti tn 15-7",
+    "city": "Tallinn"
   },
   {
-    "company": "123OK OU",
+    "company": "123OK OÜ",
     "code": 12791047,
     "active": "Registrisse kantud",
-    "address": "Lubja tn 48a"
+    "address": "Lubja tn 48a",
+    "city": "Pärnu linn"
   },
   {
-    "company": "123OSA OU",
+    "company": "123OSA OÜ",
     "code": 12621598,
     "active": "Registrisse kantud",
-    "address": "KAAnu tn 6"
+    "address": "Käänu tn 6",
+    "city": "Tallinn"
   },
   {
-    "company": "123 OU",
+    "company": "123 OÜ",
     "code": 12040996,
     "active": "Registrisse kantud",
-    "address": "Vallimaa tn 9-20"
+    "address": "Vallimaa tn 9-20",
+    "city": "Saaremaa vald"
   },
   {
-    "company": "123pesula OU",
+    "company": "123pesula OÜ",
     "code": 14649164,
     "active": "Registrisse kantud",
-    "address": "PArnu mnt 186"
+    "address": "Pärnu mnt 186",
+    "city": "Tallinn"
   },
   {
-    "company": "123projekt OU",
+    "company": "123projekt OÜ",
     "code": 10047126,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "Kassitatra põik 1",
+    "city": "Harju maakond"
   },
   {
-    "company": "123Puksiir OU",
+    "company": "123Puksiir OÜ",
     "code": 14414780,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "Keemikute tn 35",
+    "city": "Harju maakond"
   },
   {
-    "company": "123 Raamatupidamine OU",
+    "company": "123 Raamatupidamine OÜ",
     "code": 11377437,
     "active": "Registrisse kantud",
-    "address": "VAike-Turu tn 5-63"
+    "address": "Väike-Turu tn 5-63",
+    "city": "Tartu linn"
   },
   {
-    "company": "123 Reklaam OU",
+    "company": "123 Reklaam OÜ",
     "code": 11346724,
     "active": "Registrisse kantud",
-    "address": "Vana-Posti tn 2-15"
+    "address": "Vana-Posti tn 2-15",
+    "city": "Tallinn"
   },
   {
-    "company": "123tracking OU",
+    "company": "123tracking OÜ",
     "code": 12991705,
     "active": "Registrisse kantud",
-    "address": "Rajametsa tn 12a"
+    "address": "Rajametsa tn 12a",
+    "city": "Tallinn"
   },
   {
-    "company": "123Trade OU",
+    "company": "123Trade OÜ",
     "code": 12020137,
     "active": "Registrisse kantud",
-    "address": "J. Kuperjanovi tn 3a-47"
+    "address": "J. Kuperjanovi tn 3a-47",
+    "city": "Valga vald"
   },
   {
-    "company": "123Transport OU",
+    "company": "123Transport OÜ",
     "code": 12582384,
     "active": "Registrisse kantud",
-    "address": "Ulme AU 18"
+    "address": "Ulme AÜ 18",
+    "city": "Saue vald"
   },
   {
-    "company": "123 Vara OU",
+    "company": "123 Vara OÜ",
     "code": 14367603,
     "active": "Registrisse kantud",
-    "address": "Vana-Posti tn 2-15"
+    "address": "Vana-Posti tn 2-15",
+    "city": "Tallinn"
   },
   {
-    "company": "128Bit OU",
+    "company": "128Bit OÜ",
     "code": 14767722,
     "active": "Registrisse kantud",
-    "address": "Laki tn 30"
+    "address": "Laki tn 30",
+    "city": "Tallinn"
   },
   {
     "company": "12. Aprilli Selts",
     "code": 80320996,
     "active": "Registrisse kantud",
-    "address": "Toompuiestee 3"
+    "address": "Toompuiestee 3",
+    "city": "Tallinn"
   },
   {
-    "company": "12 Capital OU",
+    "company": "12 Capital OÜ",
     "code": 12211570,
     "active": "Registrisse kantud",
-    "address": "Liimi tn 1"
+    "address": "Liimi tn 1",
+    "city": "Tallinn"
   },
   {
-    "company": "12FIX OU",
+    "company": "12FIX OÜ",
     "code": 12843287,
     "active": "Registrisse kantud",
-    "address": "Koondise tn 7-10"
+    "address": "Koondise tn 7-10",
+    "city": "Saue vald"
   },
   {
-    "company": "12kuud haldus OU",
+    "company": "12kuud haldus OÜ",
     "code": 12883921,
     "active": "Registrisse kantud",
-    "address": "SOpruse pst 198-24"
+    "address": "Sõpruse pst 198-24",
+    "city": "Tallinn"
   },
   {
-    "company": "12 Maja OU",
+    "company": "12 Maja OÜ",
     "code": 12301116,
     "active": "Registrisse kantud",
-    "address": "Enelase tn 14"
+    "address": "Enelase tn 14",
+    "city": "Kambja vald"
   },
   {
-    "company": "1/2 Mind OU",
+    "company": "1/2 Mind OÜ",
     "code": 11550459,
     "active": "Registrisse kantud",
-    "address": "TOOkoja tn 1"
+    "address": "Töökoja tn 1",
+    "city": "Tallinn"
   },
   {
-    "company": "12 mArki OU",
+    "company": "12 märki OÜ",
     "code": 12901659,
     "active": "Registrisse kantud",
-    "address": "Randla tn 15-1"
+    "address": "Randla tn 15-1",
+    "city": "Tallinn"
   },
   {
-    "company": "12th Avenue OU",
+    "company": "12th Avenue OÜ",
     "code": 14410569,
     "active": "Registrisse kantud",
-    "address": "Kannikese pOik 4-2"
+    "address": "Kannikese põik 4-2",
+    "city": "Tori vald"
   },
   {
-    "company": "12v24v OU",
+    "company": "12v24v OÜ",
     "code": 14748386,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "Sepa tn 1-43",
+    "city": "Ida-Viru maakond"
   },
   {
-    "company": "12 Vara OU",
+    "company": "12 Vara OÜ",
     "code": 14364993,
     "active": "Registrisse kantud",
-    "address": "Liimi tn 1"
+    "address": "Liimi tn 1",
+    "city": "Tallinn"
   },
   {
-    "company": "12V OU",
+    "company": "12V OÜ",
     "code": 12273465,
     "active": "Registrisse kantud",
-    "address": ""
+    "address": "Mõisa tn 2-15",
+    "city": "Ida-Viru maakond"
   },
   {
-    "company": "13.10 Investments OU",
+    "company": "13.10 Investments OÜ",
     "code": 14355149,
     "active": "Registrisse kantud",
-    "address": "Tuukri tn 44-11"
+    "address": "Tuukri tn 44-11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1337 OÜ",
+    "code": 14055364,
+    "active": "Registrisse kantud",
+    "address": "Mustamäe tee 96-60",
+    "city": "Tallinn"
+  },
+  {
+    "company": "13 boksiline hooneühistu Pärnu mnt 548C",
+    "code": 80115250,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 540-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "13 ehitusprojekt OÜ",
+    "code": 14576040,
+    "active": "Registrisse kantud",
+    "address": "Järveküla tee 52-11",
+    "city": "Kohtla-Järve linn"
+  },
+  {
+    "company": "13solutions OÜ",
+    "code": 14672464,
+    "active": "Registrisse kantud",
+    "address": "Valuoja pst 24-12",
+    "city": "Viljandi maakond"
+  },
+  {
+    "company": "15075 OÜ",
+    "code": 10399776,
+    "active": "Registrisse kantud",
+    "address": "Vääna tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "150k OÜ",
+    "code": 12856686,
+    "active": "Registrisse kantud",
+    "address": "Vihuri tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "150N OÜ",
+    "code": 14542561,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "159ART OÜ",
+    "code": 14905199,
+    "active": "Registrisse kantud",
+    "address": "Kahva tn 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "15adala OÜ",
+    "code": 14943900,
+    "active": "Registrisse kantud",
+    "address": "Välja tn 20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "15 OÜ",
+    "code": 12271945,
+    "active": "Registrisse kantud",
+    "address": "Niine põik 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "15 Tamme OÜ",
+    "code": 12949873,
+    "active": "Registrisse kantud",
+    "address": "Lille tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "16lrm OÜ",
+    "code": 14461785,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "16 Sulge OÜ",
+    "code": 12357428,
+    "active": "Registrisse kantud",
+    "address": "M. Härma tn 5-78",
+    "city": "Tallinn"
+  },
+  {
+    "company": "17 Kevadet OÜ",
+    "code": 12063632,
+    "active": "Registrisse kantud",
+    "address": "Kevade tn 17",
+    "city": "Viljandi maakond"
+  },
+  {
+    "company": "180 OÜ",
+    "code": 14397679,
+    "active": "Registrisse kantud",
+    "address": "Staapli tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1865 Dirndl OÜ",
+    "code": 14774231,
+    "active": "Registrisse kantud",
+    "address": "Kalda tn 21",
+    "city": "Saku vald"
+  },
+  {
+    "company": "18k Agency OÜ",
+    "code": 14931044,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1911 Estonian Shooting OÜ",
+    "code": 14354865,
+    "active": "Registrisse kantud",
+    "address": "Nurme põik 20a",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "1919Forward OÜ",
+    "code": 14809099,
+    "active": "Registrisse kantud",
+    "address": "Keemia tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "19\" Customs OÜ",
+    "code": 14488896,
+    "active": "Registrisse kantud",
+    "address": "Kivi tn 4",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "1A1CRYPTO OÜ",
+    "code": 14836564,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 158/2-88",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Adviser UÜ",
+    "code": 14704667,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1A.EE OÜ",
+    "code": 11786222,
+    "active": "Registrisse kantud",
+    "address": "Liimi tn 6/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1AGENCY & CO OÜ",
+    "code": 14565958,
+    "active": "Registrisse kantud",
+    "address": "Mõisa tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Agent Teenused OÜ",
+    "code": 11260164,
+    "active": "Registrisse kantud",
+    "address": "Männi tn 3-13",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "1A GEODEESIA OÜ",
+    "code": 11968472,
+    "active": "Registrisse kantud",
+    "address": "Põllu",
+    "city": "Hiiumaa vald"
+  },
+  {
+    "company": "1AK200 OÜ",
+    "code": 12904793,
+    "active": "Registrisse kantud",
+    "address": "M. Maslovi tn 1",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "1Apteek OÜ",
+    "code": 14277283,
+    "active": "Registrisse kantud",
+    "address": "Tööstuse tn 27/1-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1A Rehvid OÜ",
+    "code": 14375471,
+    "active": "Registrisse kantud",
+    "address": "Vesse tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Aruandlus OÜ",
+    "code": 14097813,
+    "active": "Registrisse kantud",
+    "address": "Põrguvälja tee 29",
+    "city": "Rae vald"
+  },
+  {
+    "company": "1ATM Kinnisvara OÜ",
+    "code": 14382092,
+    "active": "Registrisse kantud",
+    "address": "Maidla tn 9",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "1Autod OÜ",
+    "code": 14699587,
+    "active": "Registrisse kantud",
+    "address": "Turu tn 30",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "1BIT OÜ",
+    "code": 14381842,
+    "active": "Registrisse kantud",
+    "address": "Randla tn 13-201",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Brooker OÜ",
+    "code": 14010255,
+    "active": "Registrisse kantud",
+    "address": "Räägu tn 17a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Bussirent OÜ",
+    "code": 14266055,
+    "active": "Registrisse kantud",
+    "address": "Alu tn 3",
+    "city": "Kose vald"
+  },
+  {
+    "company": "1Capital Group OÜ",
+    "code": 14802921,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 19-54",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Capital OÜ",
+    "code": 12656444,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 19-54",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1CARGO OÜ",
+    "code": 12205204,
+    "active": "Registrisse kantud",
+    "address": "Keevise tn 10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 CargoPlus OÜ",
+    "code": 12604950,
+    "active": "Registrisse kantud",
+    "address": "Järveotsa tee 35a-77",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1CATERING OÜ",
+    "code": 12711539,
+    "active": "Registrisse kantud",
+    "address": "Metsavahi tee 8",
+    "city": "Jõelähtme vald"
+  },
+  {
+    "company": "1Class Ehitus OÜ",
+    "code": 14772736,
+    "active": "Registrisse kantud",
+    "address": "Ringi tn 64a/1-17",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "1Construct OÜ",
+    "code": 12144885,
+    "active": "Registrisse kantud",
+    "address": "Paide mnt 19a",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "1CONTACT OÜ",
+    "code": 11375045,
+    "active": "Registrisse kantud",
+    "address": "Tähe tn 129b",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "1Credit OÜ",
+    "code": 11644893,
+    "active": "Registrisse kantud",
+    "address": "Kaupmehe tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1DEVE Crane Activities OÜ",
+    "code": 12561608,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 158/2-88",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1D Games OÜ",
+    "code": 14411741,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "1Diil OÜ",
+    "code": 12387062,
+    "active": "Registrisse kantud",
+    "address": "C. R. Jakobsoni tn 7/1-77",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1DOX Digital OÜ",
+    "code": 12595949,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-215",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Dream OÜ",
+    "code": 14138417,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-246",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Ehitus OÜ",
+    "code": 12950379,
+    "active": "Likvideerimisel",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "1equation OÜ",
+    "code": 14421159,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Eritööd OÜ",
+    "code": 14597378,
+    "active": "Registrisse kantud",
+    "address": "Sääse tn 1-179",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Estate Group OÜ",
+    "code": 14503874,
+    "active": "Registrisse kantud",
+    "address": "Paasiku tn 14-73",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Esthaus Kinnisvara OÜ",
+    "code": 14264441,
+    "active": "Registrisse kantud",
+    "address": "Laiaküla tee 30",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Ettevõte OÜ",
+    "code": 11144713,
+    "active": "Registrisse kantud",
+    "address": "Kelgumäe tn 23",
+    "city": "Rae vald"
+  },
+  {
+    "company": "1Fassaad OÜ",
+    "code": 14355072,
+    "active": "Registrisse kantud",
+    "address": "Vanakuu tn 2-3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Finance OÜ",
+    "code": 14097463,
+    "active": "Registrisse kantud",
+    "address": "Lai tn 11",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "1Firmad OÜ",
+    "code": 12387866,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1fox Service OÜ",
+    "code": 14309215,
+    "active": "Registrisse kantud",
+    "address": "Hobujaama tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1GEST OÜ",
+    "code": 14657778,
+    "active": "Registrisse kantud",
+    "address": "Õie tn 76",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "1Grupp A&M OÜ",
+    "code": 11876557,
+    "active": "Pankrotis",
+    "address": "Endla tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1haljastus OÜ",
+    "code": 14074924,
+    "active": "Registrisse kantud",
+    "address": "Vapramäe tn 12",
+    "city": "Elva vald"
+  },
+  {
+    "company": "1HEA Service OÜ",
+    "code": 14758580,
+    "active": "Registrisse kantud",
+    "address": "Raadiku tn 8b/2-125",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Hetk OÜ",
+    "code": 14373615,
+    "active": "Registrisse kantud",
+    "address": "Jaama tn 3",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "1Home Group AS",
+    "code": 12793135,
+    "active": "Registrisse kantud",
+    "address": "Parda tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1INTERNET OÜ",
+    "code": 14352719,
+    "active": "Registrisse kantud",
+    "address": "Hirvela tn 7-6",
+    "city": "Tori vald"
+  },
+  {
+    "company": "1 Investing OÜ",
+    "code": 14278532,
+    "active": "Registrisse kantud",
+    "address": "Kentmanni tn 8b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Invest Management OÜ",
+    "code": 12766983,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 52-22",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Investmets-C UÜ",
+    "code": 14119443,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 43",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Investmets OÜ",
+    "code": 12534623,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 43",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1iOpen OÜ",
+    "code": 14470726,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1it OÜ",
+    "code": 12895634,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare tee 89",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1JetiFoods OÜ",
+    "code": 14813675,
+    "active": "Registrisse kantud",
+    "address": "Jõe tn 9-99",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Joule OÜ",
+    "code": 14743928,
+    "active": "Registrisse kantud",
+    "address": "P. Pinna tn 6a-31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Kahest Grupp OÜ",
+    "code": 12653061,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 140-38",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Kapp OÜ",
+    "code": 14431560,
+    "active": "Registrisse kantud",
+    "address": "Mõtuse tn 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Karving Stuudio OÜ",
+    "code": 12521721,
+    "active": "Registrisse kantud",
+    "address": "Sõle tn 69-20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Kaubandus OÜ",
+    "code": 14002238,
+    "active": "Registrisse kantud",
+    "address": "Mürsiku tn 5",
+    "city": "Harku vald"
+  },
+  {
+    "company": "1k-digital.com OÜ",
+    "code": 10678111,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1kilo OÜ",
+    "code": 14164299,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 7-17",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Kindlustusmaakler OÜ",
+    "code": 12768350,
+    "active": "Registrisse kantud",
+    "address": "Akadeemia tee 21/6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Kinnisvaraarendaja OÜ",
+    "code": 12470461,
+    "active": "Registrisse kantud",
+    "address": "Veerme tn 33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1KLIKK OÜ",
+    "code": 12695007,
+    "active": "Registrisse kantud",
+    "address": "Luige tn 1",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "1Kodu Kinnisvara OÜ",
+    "code": 11144357,
+    "active": "Registrisse kantud",
+    "address": "Tornimäe tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Kodu OÜ",
+    "code": 14419990,
+    "active": "Registrisse kantud",
+    "address": "Auna tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Konsult OÜ",
+    "code": 11475172,
+    "active": "Registrisse kantud",
+    "address": "Alaoru",
+    "city": "Rõuge vald"
+  },
+  {
+    "company": "1-koolitus MTÜ",
+    "code": 80562002,
+    "active": "Registrisse kantud",
+    "address": "Mustamäe tee 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1kopikas OÜ",
+    "code": 14734496,
+    "active": "Registrisse kantud",
+    "address": "Riia mnt 90-2",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "1korda1 OÜ",
+    "code": 11975756,
+    "active": "Likvideerimisel",
+    "address": "Tornimäe tn 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1KORISTUS OÜ",
+    "code": 14469462,
+    "active": "Registrisse kantud",
+    "address": "Kooli tn 10",
+    "city": "Harku vald"
+  },
+  {
+    "company": "1Korsten OÜ",
+    "code": 12356400,
+    "active": "Registrisse kantud",
+    "address": "Loodjärve tee 29-6",
+    "city": "Harku vald"
+  },
+  {
+    "company": "1Korstnapühkija ja Pottsepp OÜ",
+    "code": 12143331,
+    "active": "Registrisse kantud",
+    "address": "Mere pst 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1KPD Consult OÜ",
+    "code": 14056046,
+    "active": "Registrisse kantud",
+    "address": "Kase tn 6-8",
+    "city": "Järva vald"
+  },
+  {
+    "company": "1kpd OÜ",
+    "code": 12988620,
+    "active": "Registrisse kantud",
+    "address": "Kase tn 6-8",
+    "city": "Järva vald"
+  },
+  {
+    "company": "1kx Network OÜ",
+    "code": 14539783,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Maaler Ehitus OÜ",
+    "code": 14578286,
+    "active": "Registrisse kantud",
+    "address": "Katleri tn 17-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Maaler OÜ",
+    "code": 14134336,
+    "active": "Registrisse kantud",
+    "address": "Katleri tn 17-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1man OÜ",
+    "code": 14620901,
+    "active": "Registrisse kantud",
+    "address": "Asula tn 39",
+    "city": "Saku vald"
+  },
+  {
+    "company": "1Market OÜ",
+    "code": 12454226,
+    "active": "Registrisse kantud",
+    "address": "Pirita tee 20/4-PK-9",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1master solutions OÜ",
+    "code": 14656454,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "1 Mb OÜ",
+    "code": 11513352,
+    "active": "Registrisse kantud",
+    "address": "Heldri tee 53-34",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "1millionapps OÜ",
+    "code": 14817331,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1minute UÜ",
+    "code": 14922269,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1MLR OÜ",
+    "code": 12623060,
+    "active": "Registrisse kantud",
+    "address": "Paadi tee 3",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "1MW OÜ",
+    "code": 14153523,
+    "active": "Registrisse kantud",
+    "address": "Rebase tn 2d-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1NET.EE OÜ",
+    "code": 14906922,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Office Estonia OÜ",
+    "code": 11528017,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Office Global OÜ",
+    "code": 14207868,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Office Group OÜ",
+    "code": 12133700,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Office OÜ",
+    "code": 12310390,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1one.eu OÜ",
+    "code": 14728372,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1oT OÜ",
+    "code": 14611026,
+    "active": "Registrisse kantud",
+    "address": "Järvevana tee 7b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Paigaldus OÜ",
+    "code": 14746884,
+    "active": "Registrisse kantud",
+    "address": "Kasemäe tn 9-12",
+    "city": "Rae vald"
+  },
+  {
+    "company": "1P Arendusjuhtimise OÜ",
+    "code": 12819136,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Partner Advisory OÜ",
+    "code": 11769057,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1PARTNER Ehitus OÜ",
+    "code": 11226150,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Partner Haldus OÜ",
+    "code": 14044863,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1PARTNER Kinnisvara Eesti OÜ",
+    "code": 11027723,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1PARTNER Kinnisvaragrupp Osaühing",
+    "code": 11015625,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1PARTNER Kinnisvara Tallinn OÜ",
+    "code": 11036461,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1PARTNER Kommertskinnisvara OÜ",
+    "code": 12138519,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Partner Seven Kinnisvarakonsultandid OÜ",
+    "code": 10394023,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Personal OÜ",
+    "code": 14076292,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "1pintsel OÜ",
+    "code": 14903154,
+    "active": "Registrisse kantud",
+    "address": "Astangu tn 36-17",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1P Kinnisvara Tartu OÜ",
+    "code": 12273759,
+    "active": "Registrisse kantud",
+    "address": "Soola tn 2",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "1pood.com OÜ",
+    "code": 11471168,
+    "active": "Registrisse kantud",
+    "address": "Kaunissaare",
+    "city": "Saue vald"
+  },
+  {
+    "company": "1Print OÜ",
+    "code": 12862630,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1-Print Security OÜ",
+    "code": 12357486,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Projekt OÜ",
+    "code": 11199750,
+    "active": "Registrisse kantud",
+    "address": "Puisniidu tee 24-2",
+    "city": "Harku vald"
+  },
+  {
+    "company": "1PT Grupp Osaühing",
+    "code": 11481296,
+    "active": "Registrisse kantud",
+    "address": "A. Puškini tn 19-57",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "1Puksiir OÜ",
+    "code": 12702397,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 3-11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Päev Catering OÜ",
+    "code": 12483268,
+    "active": "Registrisse kantud",
+    "address": "Ratasepa",
+    "city": "Saue vald"
+  },
+  {
+    "company": "1Päev OÜ",
+    "code": 11579411,
+    "active": "Registrisse kantud",
+    "address": "Ratasepa",
+    "city": "Saue vald"
+  },
+  {
+    "company": "1QA OSAÜHING",
+    "code": 10614594,
+    "active": "Registrisse kantud",
+    "address": "Paasiku tn 14-131",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Raamatupidamine OÜ",
+    "code": 11711922,
+    "active": "Registrisse kantud",
+    "address": "Veerenni tn 24/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Raid OÜ",
+    "code": 12320626,
+    "active": "Registrisse kantud",
+    "address": "Soolahe tee 34",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Reisid OÜ",
+    "code": 12605263,
+    "active": "Registrisse kantud",
+    "address": "Kivila tn 3",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "1 Rental OÜ",
+    "code": 14388485,
+    "active": "Registrisse kantud",
+    "address": "Metsa vkt 13",
+    "city": "Viljandi vald"
+  },
+  {
+    "company": "1secondhand OÜ",
+    "code": 14211321,
+    "active": "Registrisse kantud",
+    "address": "Randla tn 30-8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1SmartHome Kinnisvarabüroo OÜ",
+    "code": 14642340,
+    "active": "Registrisse kantud",
+    "address": "Järveotsa tee 27-20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Sofa OÜ",
+    "code": 12013918,
+    "active": "Registrisse kantud",
+    "address": "Kibuvitsa tn 3-1",
+    "city": "Harku vald"
+  },
+  {
+    "company": "1Solution OÜ",
+    "code": 14502320,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Star Kinnisvara OÜ",
+    "code": 12184962,
+    "active": "Registrisse kantud",
+    "address": "Laaniku tn 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1st Connect Energy Services OÜ",
+    "code": 14698872,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1st Finants OÜ",
+    "code": 12116825,
+    "active": "Registrisse kantud",
+    "address": "Filosoofi tn 25-2",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "1st Investments OÜ",
+    "code": 14787966,
+    "active": "Registrisse kantud",
+    "address": "Loojangu tee 25",
+    "city": "Harku vald"
+  },
+  {
+    "company": "1st Momentum OÜ",
+    "code": 14216212,
+    "active": "Likvideerimisel",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1st One OÜ",
+    "code": 14745086,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 67-41",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Stop FB OÜ",
+    "code": 14413119,
+    "active": "Registrisse kantud",
+    "address": "Kullassepa tn 13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Stop Group OÜ",
+    "code": 11344599,
+    "active": "Registrisse kantud",
+    "address": "Kullassepa tn 13 // Kuninga tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1stQuest OÜ",
+    "code": 14393233,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "1StTech OÜ",
+    "code": 11760748,
+    "active": "Registrisse kantud",
+    "address": "Mustamäe tee 171a-31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1studio OÜ",
+    "code": 12920467,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 71",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1STX OÜ",
+    "code": 14648414,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Z1oneZone OÜ",
+    "code": 14541596,
+    "active": "Registrisse kantud",
+    "address": "Keemia tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Zulf OÜ",
+    "code": 14438912,
+    "active": "Registrisse kantud",
+    "address": "Võistluse tn 23-20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Tagatis OÜ",
+    "code": 12363624,
+    "active": "Registrisse kantud",
+    "address": "Enelase tn 14",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "1Taks OÜ",
+    "code": 14264760,
+    "active": "Registrisse kantud",
+    "address": "Keskvälja",
+    "city": "Haljala vald"
+  },
+  {
+    "company": "1Team OÜ",
+    "code": 14468497,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-472",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Teater Mittetulundusühing",
+    "code": 80322841,
+    "active": "Registrisse kantud",
+    "address": "Tüve tn 14-17",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Teenus OÜ",
+    "code": 12066582,
+    "active": "Registrisse kantud",
+    "address": "Kotka tn 14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Tomato OÜ",
+    "code": 12532386,
+    "active": "Pankrotis",
+    "address": "Tornimäe tn 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1top1 OÜ",
+    "code": 12942210,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 14-31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Tower Group OÜ",
+    "code": 12795571,
+    "active": "Registrisse kantud",
+    "address": "Ahtri tn 6a-32",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Track OÜ",
+    "code": 14600212,
+    "active": "Registrisse kantud",
+    "address": "Tüve tn 55-1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Trader OÜ",
+    "code": 11660573,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 160",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1 Turundusbüroo OÜ",
+    "code": 12810715,
+    "active": "Registrisse kantud",
+    "address": "Maleva tn 1-38",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1U4 OÜ",
+    "code": 14417330,
+    "active": "Registrisse kantud",
+    "address": "Panga tn 7-7",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "1 UKS OÜ",
+    "code": 12555051,
+    "active": "Registrisse kantud",
+    "address": "Tammeõue tee 37",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "1UL Teenused OÜ",
+    "code": 14501600,
+    "active": "Registrisse kantud",
+    "address": "Ravila tn 75",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "1Valve Partner OÜ",
+    "code": 14664726,
+    "active": "Registrisse kantud",
+    "address": "Kadaka tee 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1WON Technology OÜ",
+    "code": 14805308,
+    "active": "Registrisse kantud",
+    "address": "Roseni tn 13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1Väekasmari OÜ",
+    "code": 14728573,
+    "active": "Registrisse kantud",
+    "address": "Kalmistu tee 8a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "1x3 OÜ",
+    "code": 14926480,
+    "active": "Registrisse kantud",
+    "address": "Lõvi tee 58",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "1X OÜ",
+    "code": 14613545,
+    "active": "Registrisse kantud",
+    "address": "Kopli tn 90-25c",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2007 OÜ",
+    "code": 14830277,
+    "active": "Registrisse kantud",
+    "address": "Linnu tee 35",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "200 kraadi OÜ",
+    "code": 14155887,
+    "active": "Registrisse kantud",
+    "address": "Püünsi tee 24",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "200OK OÜ",
+    "code": 14555575,
+    "active": "Registrisse kantud",
+    "address": "Maakri tn 19/1-7K",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2014Kompa OÜ",
+    "code": 12759954,
+    "active": "Registrisse kantud",
+    "address": "Tulika tn 9b",
+    "city": "Kohtla-Järve linn"
+  },
+  {
+    "company": "2016 Arenduse UÜ",
+    "code": 14164805,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016-Finants UÜ",
+    "code": 14167347,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016-Halduse UÜ",
+    "code": 14166744,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016-Hooldus UÜ",
+    "code": 14166690,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016 Investeeringud Grupp UÜ",
+    "code": 14171633,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016-Rent UÜ",
+    "code": 14166980,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016 Spetsialist UÜ",
+    "code": 14164188,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016-Teeninduse UÜ",
+    "code": 14166827,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2016-Ürituste UÜ",
+    "code": 14167092,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2019 Holdings OÜ",
+    "code": 14647107,
+    "active": "Registrisse kantud",
+    "address": "Raua tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "20:20 Ideas Osaühing",
+    "code": 11055398,
+    "active": "Registrisse kantud",
+    "address": "Villardi tn 8-9",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2020TRADING OÜ",
+    "code": 14361167,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "20. Eesti Relvagrenaderide Diviisi Veteranide Ühendus",
+    "code": 80127708,
+    "active": "Registrisse kantud",
+    "address": "Toompea tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2.0 OÜ",
+    "code": 12963608,
+    "active": "Registrisse kantud",
+    "address": "Kaupmehe tn 7-83",
+    "city": "Tallinn"
+  },
+  {
+    "company": "20Tau Systems OÜ",
+    "code": 14237929,
+    "active": "Registrisse kantud",
+    "address": "Kõrvitsa tn 1-5",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "20 Thousand Leagues OÜ",
+    "code": 14551382,
+    "active": "Registrisse kantud",
+    "address": "V. Reimani tn 6-13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2100 Technologies OÜ",
+    "code": 14675003,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30",
+    "city": "Tallinn"
+  },
+  {
+    "company": "212rent OÜ",
+    "code": 14646480,
+    "active": "Registrisse kantud",
+    "address": "Jahe tee 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "21kollektiv OÜ",
+    "code": 14590654,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "21Pluss OÜ",
+    "code": 12752878,
+    "active": "Registrisse kantud",
+    "address": "Tallinna tn 62-6",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "21 Promotion OÜ",
+    "code": 14683407,
+    "active": "Registrisse kantud",
+    "address": "Tuleviku tn 11",
+    "city": "Paide linn"
+  },
+  {
+    "company": "21 Robots OÜ",
+    "code": 14521671,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 15-96",
+    "city": "Tallinn"
+  },
+  {
+    "company": "21st Century Law Productions OÜ",
+    "code": 14637327,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "21st GM Osaühing",
+    "code": 12017649,
+    "active": "Registrisse kantud",
+    "address": "L. Koidula tn 4/2-3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "21stSense OÜ",
+    "code": 14698599,
+    "active": "Registrisse kantud",
+    "address": "Säde tn 2a",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "21times2 OÜ",
+    "code": 14709311,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "21Xchange OÜ",
+    "code": 14617017,
+    "active": "Registrisse kantud",
+    "address": "Juhkentali tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "220 Energia OÜ",
+    "code": 12271081,
+    "active": "Registrisse kantud",
+    "address": "Roseni tn 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "220 Solar OÜ",
+    "code": 14040405,
+    "active": "Registrisse kantud",
+    "address": "Ehitajate tee 114",
+    "city": "Tallinn"
+  },
+  {
+    "company": "22d OÜ",
+    "code": 14743839,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "22Games OÜ",
+    "code": 14308581,
+    "active": "Registrisse kantud",
+    "address": "Tuukri tn 19",
+    "city": "Tallinn"
+  },
+  {
+    "company": "22 HAIR STUDIO OÜ",
+    "code": 12679681,
+    "active": "Registrisse kantud",
+    "address": "Kai tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "22ndcompany OÜ",
+    "code": 12721503,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 16/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "22resto OÜ",
+    "code": 14177417,
+    "active": "Registrisse kantud",
+    "address": "Meistri tn 22",
+    "city": "Tallinn"
+  },
+  {
+    "company": "22 Systems OÜ",
+    "code": 14319917,
+    "active": "Registrisse kantud",
+    "address": "Kaluri tn 2",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "233 Tech OÜ",
+    "code": 14926215,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 67/1-13b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "235CCC OÜ",
+    "code": 14452740,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "239 Consulting OÜ",
+    "code": 14593386,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "23 Degrees OÜ",
+    "code": 14540823,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7/365 Finance UÜ",
+    "code": 14168464,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7 Avariitööd UÜ",
+    "code": 14769359,
+    "active": "Registrisse kantud",
+    "address": "Rännaku pst 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24-7FITNESSKLUBI OÜ",
+    "code": 14045006,
+    "active": "Registrisse kantud",
+    "address": "Laki põik 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24-7 Fitness OÜ",
+    "code": 12875689,
+    "active": "Registrisse kantud",
+    "address": "Insitoa",
+    "city": "Türi vald"
+  },
+  {
+    "company": "24/7 Halduse UÜ",
+    "code": 14168619,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7 Hooldus OÜ",
+    "code": 14168499,
+    "active": "Registrisse kantud",
+    "address": "Läänemere tee 36-46",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7 Investeeringud UÜ",
+    "code": 14167034,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7 Logistics OÜ",
+    "code": 14806830,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30-302/3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7 Office OÜ",
+    "code": 12807363,
+    "active": "Registrisse kantud",
+    "address": "Vabaduse pst 174b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24/7 Rent OÜ",
+    "code": 14168559,
+    "active": "Registrisse kantud",
+    "address": "Akadeemia tee 5-407",
+    "city": "Tallinn"
+  },
+  {
+    "company": "247 Solutions Company OÜ",
+    "code": 12782054,
+    "active": "Registrisse kantud",
+    "address": "Ploomipuu pst 109",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "248 arhitektuur OÜ",
+    "code": 14532835,
+    "active": "Registrisse kantud",
+    "address": "Vabaduse pst 42",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24direct OÜ",
+    "code": 11451349,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24EE OÜ",
+    "code": 14704147,
+    "active": "Registrisse kantud",
+    "address": "Sõpruse pst 145",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24express OÜ",
+    "code": 12392815,
+    "active": "Registrisse kantud",
+    "address": "Kesk-Sõjamäe tn 10a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24Express Transport & Logistics OÜ",
+    "code": 14808533,
+    "active": "Registrisse kantud",
+    "address": "Põllu tn 20-16",
+    "city": "Türi vald"
+  },
+  {
+    "company": "24h Ehitaja OÜ",
+    "code": 14168772,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 49",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24h IT Help OÜ",
+    "code": 11889040,
+    "active": "Registrisse kantud",
+    "address": "Kesk tn 3-10",
+    "city": "Valga vald"
+  },
+  {
+    "company": "24 Holding OÜ",
+    "code": 11170403,
+    "active": "Registrisse kantud",
+    "address": "Väike-Turu tn 5-81",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "24 Hour OÜ",
+    "code": 12398893,
+    "active": "Registrisse kantud",
+    "address": "Endla tn 3-6104",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24H Production OÜ",
+    "code": 14138363,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24K CORPORATION OÜ",
+    "code": 14776618,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-1111",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24Plus OÜ",
+    "code": 14831392,
+    "active": "Registrisse kantud",
+    "address": "Lasnamäe tn 4b-26",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24seven Consult OÜ",
+    "code": 11787405,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 8-604c",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24seven OÜ",
+    "code": 12281139,
+    "active": "Registrisse kantud",
+    "address": "Pronksi tn 10-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "24 tundi Osaühing",
+    "code": 10509822,
+    "active": "Registrisse kantud",
+    "address": "Lõõtsa tn 8a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "256 OÜ",
+    "code": 12503686,
+    "active": "Registrisse kantud",
+    "address": "Võidujooksu tn 1-25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "258 Holdings OÜ",
+    "code": 14265110,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30",
+    "city": "Tallinn"
+  },
+  {
+    "company": "25 Carat OÜ",
+    "code": 12949784,
+    "active": "Registrisse kantud",
+    "address": "Lasnamäe tn 22-14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "25 HOURS PRODUCTION OÜ",
+    "code": 14655437,
+    "active": "Likvideerimisel",
+    "address": "Randla tn 13-201",
+    "city": "Tallinn"
+  },
+  {
+    "company": "25 Kaadrit OÜ",
+    "code": 12664834,
+    "active": "Registrisse kantud",
+    "address": "Linnamäe tee 81-17",
+    "city": "Tallinn"
+  },
+  {
+    "company": "#265 ENERGYUNIT OÜ",
+    "code": 14128471,
+    "active": "Registrisse kantud",
+    "address": "Uus-Sadama tn 21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "275 SPORTLAB OÜ",
+    "code": 14467470,
+    "active": "Registrisse kantud",
+    "address": "Heki tee 12/1-3",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "27 Rabbits OÜ",
+    "code": 14085483,
+    "active": "Registrisse kantud",
+    "address": "J. Vilmsi tn 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "285 South West OÜ",
+    "code": 14817986,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "28 Betoon OÜ",
+    "code": 12251115,
+    "active": "Registrisse kantud",
+    "address": "Tulika tn 31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "28 Drinks Eesti OÜ",
+    "code": 14645769,
+    "active": "Registrisse kantud",
+    "address": "Paavli tn 5a/3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "28 Style Ilustuudio OÜ",
+    "code": 14688299,
+    "active": "Registrisse kantud",
+    "address": "Ehitajate tee 13-20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2A element OÜ",
+    "code": 14112843,
+    "active": "Registrisse kantud",
+    "address": "Betooni põik 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 Ahju OÜ",
+    "code": 12600509,
+    "active": "Registrisse kantud",
+    "address": "Liiva",
+    "city": "Kastre vald"
+  },
+  {
+    "company": "2A Motors OÜ",
+    "code": 14332220,
+    "active": "Registrisse kantud",
+    "address": "Metsa tee 1",
+    "city": "Viljandi vald"
+  },
+  {
+    "company": "2A-Projekt OÜ",
+    "code": 12528597,
+    "active": "Registrisse kantud",
+    "address": "Pistriku vkt 20",
+    "city": "Raasiku vald"
+  },
+  {
+    "company": "2A Rakkennus OÜ",
+    "code": 12947590,
+    "active": "Registrisse kantud",
+    "address": "Tamme tn 5-1",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "2BA Freight OÜ",
+    "code": 14261553,
+    "active": "Registrisse kantud",
+    "address": "Kaunase pst 80-72",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2Beat WM OÜ",
+    "code": 14692668,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2BE Consult OÜ",
+    "code": 12830480,
+    "active": "Registrisse kantud",
+    "address": "Lauka tn 4c-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2BHOLDING OÜ",
+    "code": 14527113,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "2 Brothers OÜ",
+    "code": 14066008,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Build OÜ",
+    "code": 14713011,
+    "active": "Registrisse kantud",
+    "address": "Side põik 1-1",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2 CGG OÜ",
+    "code": 14444976,
+    "active": "Registrisse kantud",
+    "address": "Parda tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Consult OÜ",
+    "code": 12125451,
+    "active": "Registrisse kantud",
+    "address": "Kikkapuu tee 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2D6 OÜ",
+    "code": 12258755,
+    "active": "Registrisse kantud",
+    "address": "Siduri tn 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Deal Group OÜ",
+    "code": 14463809,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2D GROUP OÜ",
+    "code": 14577418,
+    "active": "Registrisse kantud",
+    "address": "Outokumpu tn 17-34",
+    "city": "Kohtla-Järve linn"
+  },
+  {
+    "company": "2D Kindlustusabi Grupp Täisühing",
+    "code": 11380448,
+    "active": "Registrisse kantud",
+    "address": "Tallinna mnt 9-14",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2D Kindlustusmaakler Osaühing",
+    "code": 11522534,
+    "active": "Pankrotis",
+    "address": "Tallinna mnt 9-14",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2D Kindlustusteenused TÜ",
+    "code": 11434598,
+    "active": "Registrisse kantud",
+    "address": "Tallinna mnt 9-14",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2D kindlustusvahenduse büroo TÜ",
+    "code": 11481669,
+    "active": "Likvideerimisel",
+    "address": "Tallinna mnt 9-14",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2D Kindlustusvahenduse TÜ",
+    "code": 11380336,
+    "active": "Registrisse kantud",
+    "address": "Tallinna mnt 9-14",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2dot media OÜ",
+    "code": 14739526,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Dots OÜ",
+    "code": 12265436,
+    "active": "Registrisse kantud",
+    "address": "Rohu tn 111-7",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "2D Puhastus OÜ",
+    "code": 14358225,
+    "active": "Registrisse kantud",
+    "address": "Lõime tn 25a-39",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2eurocoins OÜ",
+    "code": 14431873,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 Euro OÜ",
+    "code": 12108091,
+    "active": "Registrisse kantud",
+    "address": "Joala tn 5-27",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2FA BUILDING OÜ",
+    "code": 14511052,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Factor OÜ",
+    "code": 14651706,
+    "active": "Registrisse kantud",
+    "address": "Kuremarja tee 17-4",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "2FELICE OÜ",
+    "code": 12009383,
+    "active": "Registrisse kantud",
+    "address": "Keemikute tn 39a-2",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "2F Rent OÜ",
+    "code": 14632117,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 G Baltic Company OÜ",
+    "code": 10914913,
+    "active": "Registrisse kantud",
+    "address": "Tööstuse tee 1",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "2Geckos OÜ",
+    "code": 14728001,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2G Marketing OÜ",
+    "code": 14251510,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2GO Invest OÜ",
+    "code": 14137961,
+    "active": "Registrisse kantud",
+    "address": "J. Hurda tn 34b-21",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2GO OÜ",
+    "code": 11893314,
+    "active": "Registrisse kantud",
+    "address": "Muuli tee 27",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "2HK OÜ",
+    "code": 14398650,
+    "active": "Registrisse kantud",
+    "address": "Tikste tn 4",
+    "city": "Tõrva vald"
+  },
+  {
+    "company": "2Intelligent Media Osaühing",
+    "code": 11748954,
+    "active": "Registrisse kantud",
+    "address": "Vana-Rannamõisa tee 1f/6-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 IT Now! OÜ",
+    "code": 12986578,
+    "active": "Registrisse kantud",
+    "address": "Mereranna tee 12-16",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "2 Karu OÜ",
+    "code": 12991898,
+    "active": "Registrisse kantud",
+    "address": "Kastani tn 78",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2K Capital OÜ",
+    "code": 14929662,
+    "active": "Registrisse kantud",
+    "address": "Tornimäe tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2KDent OÜ",
+    "code": 14929389,
+    "active": "Registrisse kantud",
+    "address": "Merivälja tee 33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2K Ehitus OÜ",
+    "code": 14678763,
+    "active": "Registrisse kantud",
+    "address": "Torni tee 3",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "2K Entertainment Agency OÜ",
+    "code": 14887751,
+    "active": "Registrisse kantud",
+    "address": "C. R. Jakobsoni tn 17-62",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2K Füsioteraapia OÜ",
+    "code": 12377626,
+    "active": "Registrisse kantud",
+    "address": "Idapõllu tee 5-16",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "2K Group OÜ",
+    "code": 14128560,
+    "active": "Registrisse kantud",
+    "address": "Idapõllu tee 5-16",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "2K Insener OÜ",
+    "code": 12883803,
+    "active": "Registrisse kantud",
+    "address": "Pikaliiva tn 90/2-46",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2K Lahendused OÜ",
+    "code": 11747630,
+    "active": "Registrisse kantud",
+    "address": "Kotka tn 4-42",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2K Logistika OÜ",
+    "code": 11945985,
+    "active": "Registrisse kantud",
+    "address": "Pargi tn 5",
+    "city": "Anija vald"
+  },
+  {
+    "company": "2Korrus OÜ",
+    "code": 11661130,
+    "active": "Registrisse kantud",
+    "address": "Kopli tn 83-10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2K OÜ",
+    "code": 14524445,
+    "active": "Registrisse kantud",
+    "address": "Puhangu tn 59",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2K Services OÜ",
+    "code": 12810017,
+    "active": "Registrisse kantud",
+    "address": "Aruküla tee 9",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2KSoft OÜ",
+    "code": 11481497,
+    "active": "Registrisse kantud",
+    "address": "G. Lurichi tn 6",
+    "city": "Tapa vald"
+  },
+  {
+    "company": "2KV OÜ",
+    "code": 14364674,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 küpsist OÜ",
+    "code": 14726157,
+    "active": "Registrisse kantud",
+    "address": "Tüllisaare",
+    "city": "Hiiumaa vald"
+  },
+  {
+    "company": "2LSG OÜ",
+    "code": 14211930,
+    "active": "Registrisse kantud",
+    "address": "Variku tn 63",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2Lumak OÜ",
+    "code": 14581584,
+    "active": "Registrisse kantud",
+    "address": "Klooga mnt 47",
+    "city": "Harku vald"
+  },
+  {
+    "company": "2Lõvi OÜ",
+    "code": 12029115,
+    "active": "Registrisse kantud",
+    "address": "Tõnise",
+    "city": "Hiiumaa vald"
+  },
+  {
+    "company": "2m02 OÜ",
+    "code": 14177765,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2M4R Holding OÜ",
+    "code": 14271145,
+    "active": "Registrisse kantud",
+    "address": "Selise tn 2-7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2MATEERIA OÜ",
+    "code": 12498407,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 38-40",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2MD EXPERT OÜ",
+    "code": 12436435,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "2Med OÜ",
+    "code": 12995525,
+    "active": "Registrisse kantud",
+    "address": "Rahvakooli tee 20",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2M Engineering Systems OÜ",
+    "code": 14181459,
+    "active": "Registrisse kantud",
+    "address": "Anne tn 89-18",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2meSystems OÜ",
+    "code": 14737678,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2MHand OÜ",
+    "code": 12228470,
+    "active": "Registrisse kantud",
+    "address": "Kalevi tn 109b-4",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2minutit UÜ",
+    "code": 14337022,
+    "active": "Registrisse kantud",
+    "address": "Küti tn 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2M OÜ",
+    "code": 12986354,
+    "active": "Registrisse kantud",
+    "address": "Siduri tn 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2MR OÜ",
+    "code": 11910194,
+    "active": "Registrisse kantud",
+    "address": "Seljamaa",
+    "city": "Tori vald"
+  },
+  {
+    "company": "2M Teenused OÜ",
+    "code": 12534511,
+    "active": "Registrisse kantud",
+    "address": "Künnapuu tee 15",
+    "city": "Harku vald"
+  },
+  {
+    "company": "2NT OÜ",
+    "code": 12946188,
+    "active": "Registrisse kantud",
+    "address": "Erika tn 13-34",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2o2o OÜ",
+    "code": 14614384,
+    "active": "Registrisse kantud",
+    "address": "Lossi tn 3",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "2Partnerit OÜ",
+    "code": 14389792,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 59-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2PEA OÜ",
+    "code": 11164963,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": "Harku vald"
+  },
+  {
+    "company": "2PI EST OÜ",
+    "code": 11427138,
+    "active": "Registrisse kantud",
+    "address": "Kuklase tn 14-3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 Pintslit OÜ",
+    "code": 12989789,
+    "active": "Registrisse kantud",
+    "address": "Kalda põik 4",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "2Pärli OÜ",
+    "code": 12567717,
+    "active": "Registrisse kantud",
+    "address": "Väike-Sadama tn 10-5",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "2QE Finance OÜ",
+    "code": 14595385,
+    "active": "Registrisse kantud",
+    "address": "A. Lauteri tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2QT OÜ",
+    "code": 14390358,
+    "active": "Registrisse kantud",
+    "address": "Tööstuse tn 2-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2RA OÜ",
+    "code": 12843904,
+    "active": "Registrisse kantud",
+    "address": "Ääre tn 6-2",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "2R Capital Partners UÜ",
+    "code": 11025256,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 104a-13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Red Lights OÜ",
+    "code": 14081663,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 6-219",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Rent OÜ",
+    "code": 12741760,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2R Group OÜ",
+    "code": 11396751,
+    "active": "Registrisse kantud",
+    "address": "Arbu tn 8-10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2S2B Social Media OÜ",
+    "code": 14543684,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "2senores OÜ",
+    "code": 14534403,
+    "active": "Registrisse kantud",
+    "address": "Rännaku pst 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2S GRUPP OÜ",
+    "code": 14357786,
+    "active": "Registrisse kantud",
+    "address": "Kooli tn 4-22",
+    "city": "Anija vald"
+  },
+  {
+    "company": "2 Silma OÜ",
+    "code": 11662098,
+    "active": "Registrisse kantud",
+    "address": "Ristiku tee 20",
+    "city": "Saku vald"
+  },
+  {
+    "company": "2S Invest OÜ",
+    "code": 12532417,
+    "active": "Registrisse kantud",
+    "address": "Jõe tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 Sisters Trade OÜ",
+    "code": 12948709,
+    "active": "Registrisse kantud",
+    "address": "Nelgi tee 30",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "2Smart OÜ",
+    "code": 11064670,
+    "active": "Registrisse kantud",
+    "address": "Kalevi tn 9-22",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2Smart Systems OÜ",
+    "code": 14629670,
+    "active": "Registrisse kantud",
+    "address": "Tuule tee 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 Soni OÜ",
+    "code": 12712289,
+    "active": "Registrisse kantud",
+    "address": "Lille tn 51-34",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "2S&S genus OÜ",
+    "code": 14446484,
+    "active": "Registrisse kantud",
+    "address": "Randla tn 13-201",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2 Stone Solutions OÜ",
+    "code": 12269476,
+    "active": "Registrisse kantud",
+    "address": "Linnupesa tee 5",
+    "city": "Rae vald"
+  },
+  {
+    "company": "2SUNS EST OÜ",
+    "code": 14620491,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "2tamsalu OÜ",
+    "code": 12681838,
+    "active": "Registrisse kantud",
+    "address": "Matsi",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "2T Catering OÜ",
+    "code": 12657917,
+    "active": "Likvideerimisel",
+    "address": "Ala-Kivistiku",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "2TheKey OÜ",
+    "code": 12768887,
+    "active": "Registrisse kantud",
+    "address": "Vesivärava tn 50-407",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2tmfunds OÜ",
+    "code": 14636182,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "2T Osaühing",
+    "code": 11436657,
+    "active": "Registrisse kantud",
+    "address": "Rahu tn 46-64",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "2T Technology OÜ",
+    "code": 12063052,
+    "active": "Registrisse kantud",
+    "address": "Jõe tn 5-55",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2u1k international OÜ",
+    "code": 14732758,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 67/1-13b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2U OÜ",
+    "code": 12586413,
+    "active": "Registrisse kantud",
+    "address": "Mustamäe tee 44",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2US product OÜ",
+    "code": 14303945,
+    "active": "Registrisse kantud",
+    "address": "Tuukri tn 19-315",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2WAY OÜ",
+    "code": 11914364,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Way Solutions OÜ",
+    "code": 12739391,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 8-604c",
+    "city": "Tallinn"
+  },
+  {
+    "company": "2Your Service OÜ",
+    "code": 11171118,
+    "active": "Registrisse kantud",
+    "address": "Oja tee 23",
+    "city": "Viljandi maakond"
+  },
+  {
+    "company": "3000 Productions OÜ",
+    "code": 14365604,
+    "active": "Registrisse kantud",
+    "address": "Mäealuse tn 2/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3032 OÜ",
+    "code": 14917972,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "303 Team OÜ",
+    "code": 14359294,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 25-411",
+    "city": "Tallinn"
+  },
+  {
+    "company": "305 Records OÜ",
+    "code": 12247243,
+    "active": "Registrisse kantud",
+    "address": "Vahtriku tee 1-17",
+    "city": "Tallinn"
+  },
+  {
+    "company": "30coffee OÜ",
+    "code": 14613195,
+    "active": "Registrisse kantud",
+    "address": "Mahtra tn 50a-37",
+    "city": "Tallinn"
+  },
+  {
+    "company": "30dollarhomes OÜ",
+    "code": 12966819,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 7-43",
+    "city": "Tallinn"
+  },
+  {
+    "company": "30 Hz OÜ",
+    "code": 12597368,
+    "active": "Registrisse kantud",
+    "address": "Noole tn 4-36",
+    "city": "Tallinn"
+  },
+  {
+    "company": "30 Passi OÜ",
+    "code": 14429592,
+    "active": "Registrisse kantud",
+    "address": "Metsakasti tee 12",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "30pluss osaühing",
+    "code": 11690674,
+    "active": "Registrisse kantud",
+    "address": "J. Kunderi tn 8a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "313 Fashion OÜ",
+    "code": 12445730,
+    "active": "Registrisse kantud",
+    "address": "Telliskivi tn 60a/2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "314 Finance OÜ",
+    "code": 12751316,
+    "active": "Registrisse kantud",
+    "address": "Mooni tn 18-41",
+    "city": "Tallinn"
+  },
+  {
+    "company": "327 Spirits OÜ",
+    "code": 14620114,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "32dent OÜ",
+    "code": 14487098,
+    "active": "Likvideerimisel",
+    "address": "Punane tn 33-19",
+    "city": "Tallinn"
+  },
+  {
+    "company": "333 Finance OÜ",
+    "code": 12786201,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "33 Kaday OÜ",
+    "code": 14800780,
+    "active": "Registrisse kantud",
+    "address": "Pallasti tn 23-28",
+    "city": "Tallinn"
+  },
+  {
+    "company": "33 Lemons OÜ",
+    "code": 12189238,
+    "active": "Registrisse kantud",
+    "address": "Sõle tn 41-95",
+    "city": "Tallinn"
+  },
+  {
+    "company": "33Signals OÜ",
+    "code": 14218004,
+    "active": "Registrisse kantud",
+    "address": "Tornimäe tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3455 OÜ",
+    "code": 14311637,
+    "active": "Registrisse kantud",
+    "address": "Väike-Karja tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3500 OÜ",
+    "code": 14185664,
+    "active": "Registrisse kantud",
+    "address": "Õunaaia/1-5",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "35FIT OÜ",
+    "code": 14520329,
+    "active": "Registrisse kantud",
+    "address": "Gonsiori tn 33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360Amigo OÜ",
+    "code": 12368596,
+    "active": "Registrisse kantud",
+    "address": "Mere pst 8-65",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360Auto OÜ",
+    "code": 14867978,
+    "active": "Registrisse kantud",
+    "address": "Luha tn 13-42",
+    "city": "Võru maakond"
+  },
+  {
+    "company": "360 Avia Services OÜ",
+    "code": 14245857,
+    "active": "Registrisse kantud",
+    "address": "Räime tn 15-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360 Capital OÜ",
+    "code": 12841839,
+    "active": "Registrisse kantud",
+    "address": "Sõpruse pst 145",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360 Components OÜ",
+    "code": 14300906,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360digitals OÜ",
+    "code": 14843050,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "360Health OÜ",
+    "code": 14889164,
+    "active": "Registrisse kantud",
+    "address": "Lõõtsa tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360 Hydra OÜ",
+    "code": 14633648,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 20/1-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360 Listings OÜ",
+    "code": 14286661,
+    "active": "Registrisse kantud",
+    "address": "Tööstuse tn 47b-52",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360 Media OÜ",
+    "code": 12546862,
+    "active": "Registrisse kantud",
+    "address": "Karsti tn 5-32",
+    "city": "Tallinn"
+  },
+  {
+    "company": "360solutions OÜ",
+    "code": 14375407,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "361 ventures OÜ",
+    "code": 14637209,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "363 OÜ",
+    "code": 14386635,
+    "active": "Likvideerimisel",
+    "address": "Kalda tn 2",
+    "city": "Otepää vald"
+  },
+  {
+    "company": "365cash OÜ",
+    "code": 14397478,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 56",
+    "city": "Tallinn"
+  },
+  {
+    "company": "365CloudBackup OÜ",
+    "code": 14806118,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 67/1-13b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "365 Emoney OÜ",
+    "code": 14900776,
+    "active": "Registrisse kantud",
+    "address": "Pirita tee 20/4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "365 Finance EST UÜ",
+    "code": 14233894,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "365JP OÜ",
+    "code": 14269875,
+    "active": "Registrisse kantud",
+    "address": "Lauliku tn 8-8",
+    "city": "Saku vald"
+  },
+  {
+    "company": "365ONLINESTORE OÜ",
+    "code": 14807539,
+    "active": "Registrisse kantud",
+    "address": "Kalda tn 21",
+    "city": "Saku vald"
+  },
+  {
+    "company": "365 pilti OÜ",
+    "code": 14010692,
+    "active": "Registrisse kantud",
+    "address": "Kase",
+    "city": "Mustvee vald"
+  },
+  {
+    "company": "365 Ürituste UÜ",
+    "code": 14232197,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "369 INSENERIBÜROO OÜ",
+    "code": 14875038,
+    "active": "Registrisse kantud",
+    "address": "Pärja tn 37",
+    "city": "Tallinn"
+  },
+  {
+    "company": "372 Creative OÜ",
+    "code": 14425186,
+    "active": "Registrisse kantud",
+    "address": "Joonase",
+    "city": "Rõuge vald"
+  },
+  {
+    "company": "372 Design OÜ",
+    "code": 12544372,
+    "active": "Registrisse kantud",
+    "address": "Jaama tn 56b-1",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "372 Studio OÜ",
+    "code": 12213020,
+    "active": "Registrisse kantud",
+    "address": "J. Vilmsi tn 14-16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "377 Tallinn OÜ",
+    "code": 14563907,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 7-1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "386 OÜ",
+    "code": 12874264,
+    "active": "Registrisse kantud",
+    "address": "Loode tn 2",
+    "city": "Elva vald"
+  },
+  {
+    "company": "393BOR OÜ",
+    "code": 14370746,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "39 MC Mittetulundusühing",
+    "code": 80355562,
+    "active": "Registrisse kantud",
+    "address": "Jaani tee 8-1",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "3A Consulting OÜ",
+    "code": 12969232,
+    "active": "Registrisse kantud",
+    "address": "Kadaka tee 48",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3A EHITUS OÜ",
+    "code": 14916045,
+    "active": "Registrisse kantud",
+    "address": "Kressi tee 76",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3A Holdings OÜ",
+    "code": 14774739,
+    "active": "Registrisse kantud",
+    "address": "Mustamäe tee 6b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3a-investments OÜ",
+    "code": 12125735,
+    "active": "Registrisse kantud",
+    "address": "Lõõtsa tn 8a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 Air OÜ",
+    "code": 11856721,
+    "active": "Registrisse kantud",
+    "address": "Kase tee 12",
+    "city": "Viljandi vald"
+  },
+  {
+    "company": "3 A - Kuup OÜ",
+    "code": 11564510,
+    "active": "Registrisse kantud",
+    "address": "Väljataguse tn 30",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "3A-Services OÜ",
+    "code": 12890660,
+    "active": "Registrisse kantud",
+    "address": "Astangu tn 19/3-147",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3AT OÜ",
+    "code": 14828441,
+    "active": "Registrisse kantud",
+    "address": "Koidu tn 63-1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3B Solutions OÜ",
+    "code": 12620653,
+    "active": "Registrisse kantud",
+    "address": "Käo tn 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3-C Baltics OÜ",
+    "code": 10310724,
+    "active": "Likvideerimisel",
+    "address": "Kloostrimetsa tee 52/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 colors interactive OÜ",
+    "code": 14583152,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3Commas Exchange OÜ",
+    "code": 14843699,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 36",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3CULAR OÜ",
+    "code": 14548003,
+    "active": "Registrisse kantud",
+    "address": "Lina tn 4-10",
+    "city": "Elva vald"
+  },
+  {
+    "company": "3D3 OÜ",
+    "code": 12733854,
+    "active": "Registrisse kantud",
+    "address": "Orava tn 12",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3DAmper OÜ",
+    "code": 14006408,
+    "active": "Registrisse kantud",
+    "address": "Võra tee 35",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3Dao Graphics OÜ",
+    "code": 12743031,
+    "active": "Registrisse kantud",
+    "address": "Tööstuse tn 79-1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Art Studio OÜ",
+    "code": 12861457,
+    "active": "Registrisse kantud",
+    "address": "Karsti tn 4-10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Automaatika OÜ",
+    "code": 14069194,
+    "active": "Registrisse kantud",
+    "address": "Kivipõllu tn 46",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3D Auto OÜ",
+    "code": 12276598,
+    "active": "Registrisse kantud",
+    "address": "Raua",
+    "city": "Elva vald"
+  },
+  {
+    "company": "3D Blueprint Group OÜ",
+    "code": 12374869,
+    "active": "Registrisse kantud",
+    "address": "Ahtri tn 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3dBonus OÜ",
+    "code": 14293365,
+    "active": "Registrisse kantud",
+    "address": "Pärna tn 1",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "3DBTK OÜ",
+    "code": 14942119,
+    "active": "Registrisse kantud",
+    "address": "Lasnamäe tn 4b-26",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D-Builder OÜ",
+    "code": 14720821,
+    "active": "Registrisse kantud",
+    "address": "Saare tn 12",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "3D Catering OÜ",
+    "code": 14420527,
+    "active": "Registrisse kantud",
+    "address": "Võru tn 132a",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3D CITY OÜ",
+    "code": 14863456,
+    "active": "Registrisse kantud",
+    "address": "Hobusepea tn 10-3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Creationist OÜ",
+    "code": 12831249,
+    "active": "Registrisse kantud",
+    "address": "Vallikraavi tn 17-5",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3D Creative Systems OÜ",
+    "code": 12551066,
+    "active": "Registrisse kantud",
+    "address": "Töö pst 29",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3DecoR OÜ",
+    "code": 14462000,
+    "active": "Registrisse kantud",
+    "address": "Ropka tn 8-29",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3DE DISAIN OÜ",
+    "code": 12128840,
+    "active": "Registrisse kantud",
+    "address": "Ravila tn 11-53",
+    "city": "Türi vald"
+  },
+  {
+    "company": "3d.ee OÜ",
+    "code": 10423575,
+    "active": "Registrisse kantud",
+    "address": "Kukeharja tee 5",
+    "city": "Harku vald"
+  },
+  {
+    "company": "3D EKSPERT OÜ",
+    "code": 10480219,
+    "active": "Registrisse kantud",
+    "address": "Vana-Lõuna tn 27",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3d Energy Service OÜ",
+    "code": 14321185,
+    "active": "Registrisse kantud",
+    "address": "Pikri tn 10-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3DENT OÜ",
+    "code": 14553300,
+    "active": "Registrisse kantud",
+    "address": "Mahtra tn 68-21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3DFoodlab OÜ",
+    "code": 14090716,
+    "active": "Registrisse kantud",
+    "address": "Saiakang 3-3a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3DFREUNDE OÜ",
+    "code": 14532829,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "3DGolf OÜ",
+    "code": 11474132,
+    "active": "Likvideerimisel",
+    "address": "Rauna tn 50",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3D Graphics OÜ",
+    "code": 14545772,
+    "active": "Registrisse kantud",
+    "address": "Ahtri tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Grupp OÜ",
+    "code": 12425704,
+    "active": "Registrisse kantud",
+    "address": "Teelise tn 7-38",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Hologrammid OÜ",
+    "code": 14828464,
+    "active": "Registrisse kantud",
+    "address": "Viru väljak 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D House OÜ",
+    "code": 14184245,
+    "active": "Registrisse kantud",
+    "address": "Piiri tn 13",
+    "city": "Lüganuse vald"
+  },
+  {
+    "company": "3D idee OÜ",
+    "code": 12609663,
+    "active": "Registrisse kantud",
+    "address": "Ehitajate tee 25-59",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Infra OÜ",
+    "code": 12192813,
+    "active": "Registrisse kantud",
+    "address": "Tallinna mnt 3b",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "3Dink OÜ",
+    "code": 12303071,
+    "active": "Registrisse kantud",
+    "address": "Vahtra pst 8",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "3dInvest OÜ",
+    "code": 11449660,
+    "active": "Registrisse kantud",
+    "address": "Mahtra tn 56-51",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3Disain OÜ",
+    "code": 11299261,
+    "active": "Registrisse kantud",
+    "address": "Tarja tn 6-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D KINNISVARA HALDUSE OÜ",
+    "code": 14750621,
+    "active": "Registrisse kantud",
+    "address": "Endla tn 33-21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3DKoda OÜ",
+    "code": 14201096,
+    "active": "Registrisse kantud",
+    "address": "Õismäe talu",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3D kogudus",
+    "code": 80321221,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 33/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3DK OÜ",
+    "code": 14919712,
+    "active": "Registrisse kantud",
+    "address": "Koidu tn 108-27",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3DLab OÜ",
+    "code": 14756463,
+    "active": "Registrisse kantud",
+    "address": "A. Lauteri tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Lighting OÜ",
+    "code": 12612719,
+    "active": "Registrisse kantud",
+    "address": "Kellamäe tn 5-30",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "3D Line OÜ",
+    "code": 12441086,
+    "active": "Registrisse kantud",
+    "address": "Kangelaste prospekt 15-51",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "3D Logistic OÜ",
+    "code": 12357983,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 52",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Memory OÜ",
+    "code": 14608254,
+    "active": "Registrisse kantud",
+    "address": "Astangu tn 19/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Mobile Labs OÜ",
+    "code": 14064392,
+    "active": "Registrisse kantud",
+    "address": "Padriku tee 11/2-11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D NORD OÜ",
+    "code": 12973601,
+    "active": "Registrisse kantud",
+    "address": "Karsti tn 4-10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3dPoint OÜ",
+    "code": 11448494,
+    "active": "Registrisse kantud",
+    "address": "Sooääre-4",
+    "city": "Peipsiääre vald"
+  },
+  {
+    "company": "3dPrisma OÜ",
+    "code": 12160878,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D-PROTO OÜ",
+    "code": 10519855,
+    "active": "Registrisse kantud",
+    "address": "Tiiru tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Punkt OÜ",
+    "code": 14892195,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 7",
+    "city": "Elva vald"
+  },
+  {
+    "company": "3D-Resins OÜ",
+    "code": 14611996,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 158/2-88",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3d rope access service OÜ",
+    "code": 14762439,
+    "active": "Registrisse kantud",
+    "address": "Pikri tn 10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Seinad OÜ",
+    "code": 14420013,
+    "active": "Registrisse kantud",
+    "address": "Raeplatoo",
+    "city": "Rae vald"
+  },
+  {
+    "company": "3Dservice OÜ",
+    "code": 12039177,
+    "active": "Registrisse kantud",
+    "address": "Tamme tn 12-12",
+    "city": "Alutaguse vald"
+  },
+  {
+    "company": "3dSigma OÜ",
+    "code": 11593285,
+    "active": "Registrisse kantud",
+    "address": "Pae tn 10-27",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "3D Sisustus OÜ",
+    "code": 12083830,
+    "active": "Registrisse kantud",
+    "address": "Untmetsa",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "3dStiil OÜ",
+    "code": 11474637,
+    "active": "Registrisse kantud",
+    "address": "Lepiku tn 12-20",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "3DST OÜ",
+    "code": 12454634,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 67-3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Studio OÜ",
+    "code": 12705220,
+    "active": "Registrisse kantud",
+    "address": "Joa tn 2/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Talu OÜ",
+    "code": 14617218,
+    "active": "Registrisse kantud",
+    "address": "Männituka",
+    "city": "Märjamaa vald"
+  },
+  {
+    "company": "3D Technologies R&D AS",
+    "code": 11288613,
+    "active": "Registrisse kantud",
+    "address": "Kompanii tn 1c",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3D Trükikoda OÜ",
+    "code": 12583159,
+    "active": "Registrisse kantud",
+    "address": "Õismäe talu",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3D TUUR OÜ",
+    "code": 14649268,
+    "active": "Registrisse kantud",
+    "address": "Kristiina tn 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3D Urban Architecture OÜ",
+    "code": 12786336,
+    "active": "Registrisse kantud",
+    "address": "Aida tn 7-32",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "3D Web OÜ",
+    "code": 11484231,
+    "active": "Registrisse kantud",
+    "address": "Kaera tn 7-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3d Viimistlus OÜ",
+    "code": 11460489,
+    "active": "Registrisse kantud",
+    "address": "Kooli tn 25-1",
+    "city": "Rae vald"
+  },
+  {
+    "company": "3D WORK OÜ",
+    "code": 14011510,
+    "active": "Registrisse kantud",
+    "address": "Oja tee 22",
+    "city": "Järva vald"
+  },
+  {
+    "company": "3ENERGY GROUP OÜ",
+    "code": 14238679,
+    "active": "Registrisse kantud",
+    "address": "Lõõtsa tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3E Technik OÜ",
+    "code": 12821144,
+    "active": "Registrisse kantud",
+    "address": "Koidutähe tee 58-27",
+    "city": "Luunja vald"
+  },
+  {
+    "company": "3F Elekter OÜ",
+    "code": 14810292,
+    "active": "Registrisse kantud",
+    "address": "Karusselli tn 38-1",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "3 gallos OÜ",
+    "code": 14526929,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3GEE OÜ",
+    "code": 11323025,
+    "active": "Registrisse kantud",
+    "address": "Aaviksaare",
+    "city": "Türi vald"
+  },
+  {
+    "company": "3GLA3 OÜ",
+    "code": 12226608,
+    "active": "Registrisse kantud",
+    "address": "Kreenholmi tn 30-8",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "3G Ropka Varahalduse OÜ",
+    "code": 12708038,
+    "active": "Registrisse kantud",
+    "address": "Tehase tn 19",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3 Grupp osaühing",
+    "code": 11113457,
+    "active": "Registrisse kantud",
+    "address": "Lepiku tn 12-5",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "3in1 OÜ",
+    "code": 12997919,
+    "active": "Registrisse kantud",
+    "address": "Paasiku tn 4-280",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 Invest OÜ",
+    "code": 14731173,
+    "active": "Registrisse kantud",
+    "address": "Vahipargi tn 11-8",
+    "city": "Tartu vald"
+  },
+  {
+    "company": "3i OÜ",
+    "code": 12245860,
+    "active": "Registrisse kantud",
+    "address": "Ida tn 2a-2",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3JS VIRTUTE OÜ",
+    "code": 14842820,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 141--43",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3J Teknik OÜ",
+    "code": 12095862,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3J Turundus OÜ",
+    "code": 12065401,
+    "active": "Likvideerimisel",
+    "address": "Munamäe tn 16-3",
+    "city": "Otepää vald"
+  },
+  {
+    "company": "3KDisain OÜ",
+    "code": 14792909,
+    "active": "Registrisse kantud",
+    "address": "Vardja tee 4-3",
+    "city": "Kose vald"
+  },
+  {
+    "company": "3K Expert OÜ",
+    "code": 11354445,
+    "active": "Likvideerimisel",
+    "address": "Lastekodu tn 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3KGroup OÜ",
+    "code": 10201874,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 139c",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3K REAL ESTATE OÜ",
+    "code": 14474813,
+    "active": "Registrisse kantud",
+    "address": "Herne tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3K Stuudio OÜ",
+    "code": 12990999,
+    "active": "Registrisse kantud",
+    "address": "Lootsi tn 4",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3 Lift OÜ",
+    "code": 14474457,
+    "active": "Registrisse kantud",
+    "address": "Sinilille tee 6-13",
+    "city": "Rae vald"
+  },
+  {
+    "company": "3 Lions EST OÜ",
+    "code": 14540674,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "3LOG Solutions OÜ",
+    "code": 14052176,
+    "active": "Registrisse kantud",
+    "address": "Vainu tn 6-10",
+    "city": "Paide linn"
+  },
+  {
+    "company": "3 LV OÜ",
+    "code": 14270341,
+    "active": "Registrisse kantud",
+    "address": "Nooruse tn 6-9",
+    "city": "Elva vald"
+  },
+  {
+    "company": "3markets OÜ",
+    "code": 11093855,
+    "active": "Registrisse kantud",
+    "address": "Tehase tn 21d",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "3M Eesti OÜ",
+    "code": 11668959,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 158/2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3MS Machinery OÜ",
+    "code": 14206171,
+    "active": "Registrisse kantud",
+    "address": "Sooja tn 1",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3MS OÜ",
+    "code": 12843821,
+    "active": "Registrisse kantud",
+    "address": "L. Koidula tn 9-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3NC Technology OÜ",
+    "code": 14614237,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3nigma OÜ",
+    "code": 14409371,
+    "active": "Registrisse kantud",
+    "address": "Remmelga tee 14",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "3N OÜ",
+    "code": 14279394,
+    "active": "Registrisse kantud",
+    "address": "Kääri tee 17",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "3N Residential OÜ",
+    "code": 12368449,
+    "active": "Registrisse kantud",
+    "address": "Põhja pst 25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3N Reval OÜ",
+    "code": 11980013,
+    "active": "Registrisse kantud",
+    "address": "Põhja pst 25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3olives OÜ",
+    "code": 11357159,
+    "active": "Registrisse kantud",
+    "address": "Ranna tee 21",
+    "city": "Harku vald"
+  },
+  {
+    "company": "3park Eesti OÜ",
+    "code": 14928846,
+    "active": "Registrisse kantud",
+    "address": "Salve tn 3f",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3park OÜ",
+    "code": 12697041,
+    "active": "Registrisse kantud",
+    "address": "Liiviku tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 Partners Eesti OÜ",
+    "code": 14625258,
+    "active": "Registrisse kantud",
+    "address": "Luise tn 4-46",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3p logistics OÜ",
+    "code": 14736880,
+    "active": "Registrisse kantud",
+    "address": "Laki põik 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3Points OÜ",
+    "code": 14880269,
+    "active": "Registrisse kantud",
+    "address": "Ugala tn 28",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3PO OÜ",
+    "code": 12954360,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 53/2-13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3P Pro OÜ",
+    "code": 11809934,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 11a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3PR Advisory OÜ",
+    "code": 14707849,
+    "active": "Registrisse kantud",
+    "address": "Saani tn 2/2-36",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3PRO TRADE OÜ",
+    "code": 14222626,
+    "active": "Registrisse kantud",
+    "address": "Tornimäe tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3Punkti OÜ",
+    "code": 12231963,
+    "active": "Registrisse kantud",
+    "address": "Vaadi tee 5",
+    "city": "Rae vald"
+  },
+  {
+    "company": "3 Quarters OÜ",
+    "code": 14243255,
+    "active": "Registrisse kantud",
+    "address": "Ehitajate tee 11-49",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3QUENT COMMUNICATIONS OÜ",
+    "code": 12421942,
+    "active": "Registrisse kantud",
+    "address": "Tulika tn 19",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3QWS OÜ",
+    "code": 14632399,
+    "active": "Registrisse kantud",
+    "address": "Aruheina tee 5-8",
+    "city": "Rae vald"
+  },
+  {
+    "company": "3R Computers OÜ",
+    "code": 11396745,
+    "active": "Registrisse kantud",
+    "address": "Liivalaia tn 22",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3rdEFX OÜ",
+    "code": 12816244,
+    "active": "Registrisse kantud",
+    "address": "Teaduspargi tn 6/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3rd Floor Studio OÜ",
+    "code": 14618525,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 53",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3rdhub OÜ",
+    "code": 14857081,
+    "active": "Registrisse kantud",
+    "address": "Männimäe/1",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "3R Ehitus OÜ",
+    "code": 14490812,
+    "active": "Registrisse kantud",
+    "address": "Tuuliku tn 15-13",
+    "city": "Tartu vald"
+  },
+  {
+    "company": "3R Elekter OÜ",
+    "code": 14486302,
+    "active": "Registrisse kantud",
+    "address": "Pirni tn 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3RG OÜ",
+    "code": 14200300,
+    "active": "Registrisse kantud",
+    "address": "Hommiku tn 4-8",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "3RK Teenused OÜ",
+    "code": 14822728,
+    "active": "Registrisse kantud",
+    "address": "Thomarahva",
+    "city": "Väike-Maarja vald"
+  },
+  {
+    "company": "3Rähni Mittetulundusühing",
+    "code": 80335246,
+    "active": "Registrisse kantud",
+    "address": "Mai tn 18a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 Selli OÜ",
+    "code": 11256808,
+    "active": "Registrisse kantud",
+    "address": "Härgmäe tn 21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 SELTSIMEEST OÜ",
+    "code": 12167082,
+    "active": "Registrisse kantud",
+    "address": "Tuukri põik 4-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3S Group OÜ",
+    "code": 12579838,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 71 // Tolli tn 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 Soovi OÜ",
+    "code": 10671623,
+    "active": "Registrisse kantud",
+    "address": "Liiva tn 3-10",
+    "city": "Lääne-Harju vald"
+  },
+  {
+    "company": "3Sped OÜ",
+    "code": 11711684,
+    "active": "Registrisse kantud",
+    "address": "Nõmme tee 95",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3ST OÜ",
+    "code": 12830534,
+    "active": "Registrisse kantud",
+    "address": "Koogu tn 18",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3Teed Consulting OÜ",
+    "code": 14210095,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 7/3",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "3 tegu OÜ",
+    "code": 14531215,
+    "active": "Registrisse kantud",
+    "address": "Luha",
+    "city": "Setomaa vald"
+  },
+  {
+    "company": "3T GROUP LIMITED OÜ",
+    "code": 14131527,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "3T&K Group OÜ",
+    "code": 11159287,
+    "active": "Registrisse kantud",
+    "address": "Karja tn 12",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "3 Tooni OÜ",
+    "code": 14583755,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 13-81",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3T OÜ",
+    "code": 12652954,
+    "active": "Registrisse kantud",
+    "address": "Käo tn 52/7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3T Technology OÜ",
+    "code": 11357567,
+    "active": "Registrisse kantud",
+    "address": "Trummi tn 23-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 TUBA OÜ",
+    "code": 14912163,
+    "active": "Registrisse kantud",
+    "address": "Koidu tn 75-9",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3v3 Europe OÜ",
+    "code": 12387820,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 232/9",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3 Way Invest OÜ",
+    "code": 14584849,
+    "active": "Registrisse kantud",
+    "address": "Vaate tee 22",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3wells OÜ",
+    "code": 11245584,
+    "active": "Registrisse kantud",
+    "address": "Kalevipoja tn 17-142",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3W Investments OÜ",
+    "code": 12062615,
+    "active": "Registrisse kantud",
+    "address": "Rebasesaba tee 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3wsolution OÜ",
+    "code": 11444786,
+    "active": "Registrisse kantud",
+    "address": "Liivalao tn 14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "3V Tehnika OÜ",
+    "code": 11719941,
+    "active": "Registrisse kantud",
+    "address": "Põllu tn 40",
+    "city": "Kadrina vald"
+  },
+  {
+    "company": "3x3 OÜ",
+    "code": 11947607,
+    "active": "Registrisse kantud",
+    "address": "Rakvere tee 3",
+    "city": "Kadrina vald"
+  },
+  {
+    "company": "3X Capital OÜ",
+    "code": 14680576,
+    "active": "Registrisse kantud",
+    "address": "Pihlaka tn 4-5",
+    "city": "Põlva vald"
+  },
+  {
+    "company": "3XM Car Service OÜ",
+    "code": 11440498,
+    "active": "Registrisse kantud",
+    "address": "Ringtee 2-30",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "3xs Partnerid OÜ",
+    "code": 12348263,
+    "active": "Registrisse kantud",
+    "address": "Poku tee 21",
+    "city": "Saue vald"
+  },
+  {
+    "company": "3X Trade OÜ",
+    "code": 14183257,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 41",
+    "city": "Tallinn"
+  },
+  {
+    "company": "400V OÜ",
+    "code": 14633698,
+    "active": "Registrisse kantud",
+    "address": "Rägavere tee 11",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "404-dev OÜ",
+    "code": 14569152,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "404 LAB OÜ",
+    "code": 14552817,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "40HC Logistics OÜ",
+    "code": 12665153,
+    "active": "Registrisse kantud",
+    "address": "Kassi tn 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "41North OÜ",
+    "code": 14914985,
+    "active": "Registrisse kantud",
+    "address": "Keemia tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "420devIce OÜ",
+    "code": 14167749,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "420 Estonia OÜ",
+    "code": 14781001,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 4",
+    "city": "Võru maakond"
+  },
+  {
+    "company": "420 SPOT OF TALLINN OÜ",
+    "code": 14725379,
+    "active": "Registrisse kantud",
+    "address": "Pikaliiva tn 90/1-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "42 Coffee Cups OÜ",
+    "code": 12382521,
+    "active": "Registrisse kantud",
+    "address": "Liimi tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "42DEL OÜ",
+    "code": 12770312,
+    "active": "Registrisse kantud",
+    "address": "Metsa tee 13",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "42keiken OÜ",
+    "code": 14868682,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "42ne Solutions OÜ",
+    "code": 12158717,
+    "active": "Registrisse kantud",
+    "address": "Rüütli tn 12",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "42.network OÜ",
+    "code": 14283510,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "42 OÜ",
+    "code": 11454477,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare tee 131-146",
+    "city": "Tallinn"
+  },
+  {
+    "company": "42piratas OÜ",
+    "code": 14564953,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "43 ASJA OÜ",
+    "code": 14260383,
+    "active": "Registrisse kantud",
+    "address": "Väike tn 12a-16",
+    "city": "Põhja-Sakala vald"
+  },
+  {
+    "company": "43dB OÜ",
+    "code": 12590076,
+    "active": "Registrisse kantud",
+    "address": "Teaduspargi tn 6/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "43mm OÜ",
+    "code": 12975787,
+    "active": "Registrisse kantud",
+    "address": "Veerenni tn 24",
+    "city": "Tallinn"
+  },
+  {
+    "company": "440Hz OÜ",
+    "code": 14308902,
+    "active": "Registrisse kantud",
+    "address": "Mesimarja tee 13",
+    "city": "Harku vald"
+  },
+  {
+    "company": "47tech OÜ",
+    "code": 14209005,
+    "active": "Registrisse kantud",
+    "address": "V. Reimani tn 2-33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "48Mb OÜ",
+    "code": 12356423,
+    "active": "Registrisse kantud",
+    "address": "Kellamäe tn 16-18",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "4A Investments OÜ",
+    "code": 11118940,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Alaska UÜ",
+    "code": 12632633,
+    "active": "Registrisse kantud",
+    "address": "Oja tn 89-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4A LAW CONSULTING OÜ",
+    "code": 14215767,
+    "active": "Registrisse kantud",
+    "address": "Koidu tn 32",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "4All OÜ",
+    "code": 12075919,
+    "active": "Registrisse kantud",
+    "address": "Reti põik 6",
+    "city": "Rae vald"
+  },
+  {
+    "company": "4A Lux OÜ",
+    "code": 14575744,
+    "active": "Registrisse kantud",
+    "address": "Kalda",
+    "city": "Tori vald"
+  },
+  {
+    "company": "4 AVX OÜ",
+    "code": 11581572,
+    "active": "Registrisse kantud",
+    "address": "Ohtu tee 16",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "4Beards OÜ",
+    "code": 14573892,
+    "active": "Registrisse kantud",
+    "address": "Vesivärava tn 16-1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4BEAUTIBY OÜ",
+    "code": 14646444,
+    "active": "Registrisse kantud",
+    "address": "J. Sütiste tee 41-130",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Body OÜ",
+    "code": 12008308,
+    "active": "Registrisse kantud",
+    "address": "Karjavälja tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Canine OÜ",
+    "code": 12790131,
+    "active": "Registrisse kantud",
+    "address": "Põllu tn 16",
+    "city": "Kadrina vald"
+  },
+  {
+    "company": "4Capes OÜ",
+    "code": 10890348,
+    "active": "Registrisse kantud",
+    "address": "Rotermanni tn 14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4changemakers OÜ",
+    "code": 14856880,
+    "active": "Registrisse kantud",
+    "address": "Majaka tn 26",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Clover OÜ",
+    "code": 14396875,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "4Cr8 OÜ",
+    "code": 14558705,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4D AEQ UÜ",
+    "code": 12394665,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Dance OÜ",
+    "code": 12682855,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 16/1-112",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4D Capital Management OÜ",
+    "code": 11075449,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4D Creative OÜ",
+    "code": 12073027,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4dev studio OÜ",
+    "code": 14558237,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4D Floatation OÜ",
+    "code": 14255880,
+    "active": "Registrisse kantud",
+    "address": "Kissa-Varblase",
+    "city": "Väike-Maarja vald"
+  },
+  {
+    "company": "4D Grupp OÜ",
+    "code": 14314825,
+    "active": "Registrisse kantud",
+    "address": "Nõmme",
+    "city": "Rae vald"
+  },
+  {
+    "company": "4D Markets OÜ",
+    "code": 14821048,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4D Masters OÜ",
+    "code": 11289788,
+    "active": "Registrisse kantud",
+    "address": "Staadioni tn 14-23",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4D PR-lahendused OÜ",
+    "code": 12568527,
+    "active": "Registrisse kantud",
+    "address": "Barsbütteli tn 52",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "4Dreams OÜ",
+    "code": 14140124,
+    "active": "Registrisse kantud",
+    "address": "Sõpruse pst 212-14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4D TECH OÜ",
+    "code": 12795507,
+    "active": "Registrisse kantud",
+    "address": "Keskväljak 3",
+    "city": "Hiiumaa vald"
+  },
+  {
+    "company": "4 Earth OÜ",
+    "code": 14676155,
+    "active": "Registrisse kantud",
+    "address": "Lihula mnt 7",
+    "city": "Haapsalu linn"
+  },
+  {
+    "company": "4Enjoy OÜ",
+    "code": 14346340,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4EST EXPERT OÜ",
+    "code": 14679679,
+    "active": "Registrisse kantud",
+    "address": "Sepakuru tn 26",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4est Floors Group OÜ",
+    "code": 14673151,
+    "active": "Registrisse kantud",
+    "address": "Võlvi tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4est Floors OÜ",
+    "code": 14193907,
+    "active": "Registrisse kantud",
+    "address": "Meeliku tn 22/4-262",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Family OÜ",
+    "code": 14235907,
+    "active": "Registrisse kantud",
+    "address": "Vormsi tn 4-25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4globe OÜ",
+    "code": 12414126,
+    "active": "Registrisse kantud",
+    "address": "Pikksilma tn 2/1-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 Good Men OÜ",
+    "code": 12210056,
+    "active": "Registrisse kantud",
+    "address": "A. Weizenbergi tn 2-16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Group OÜ",
+    "code": 12872685,
+    "active": "Registrisse kantud",
+    "address": "Kikkapuu tee 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4G Teenused UÜ",
+    "code": 12923454,
+    "active": "Registrisse kantud",
+    "address": "Soo tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Hair OÜ",
+    "code": 12833126,
+    "active": "Registrisse kantud",
+    "address": "Väike-Ameerika tn 9-28",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Hands OÜ",
+    "code": 14393003,
+    "active": "Registrisse kantud",
+    "address": "Väike-Ameerika tn 19-108",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4H CAPITALS OÜ",
+    "code": 14868558,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 67/1-13b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4ire DApps OÜ",
+    "code": 14685303,
+    "active": "Registrisse kantud",
+    "address": "Tuukri tn 19-315",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4it OÜ",
+    "code": 14103264,
+    "active": "Registrisse kantud",
+    "address": "Taludevahe tn 116-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4K Ehitus OÜ",
+    "code": 12679221,
+    "active": "Registrisse kantud",
+    "address": "Kurtna tee 46-2",
+    "city": "Saku vald"
+  },
+  {
+    "company": "4K Estflix OÜ",
+    "code": 12757754,
+    "active": "Registrisse kantud",
+    "address": "Suur-Ameerika tn 37-63",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Kids OÜ",
+    "code": 11432895,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 KINGS OÜ",
+    "code": 12950468,
+    "active": "Registrisse kantud",
+    "address": "Parda tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 K OÜ",
+    "code": 12652392,
+    "active": "Registrisse kantud",
+    "address": "Kaunase pst 8-13",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4K Partnerid OÜ",
+    "code": 12945579,
+    "active": "Registrisse kantud",
+    "address": "Sõle tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4K Rental Solutions OÜ",
+    "code": 14891273,
+    "active": "Registrisse kantud",
+    "address": "Rehe tn 11-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4KR OÜ",
+    "code": 12935842,
+    "active": "Registrisse kantud",
+    "address": "Kalda tn 4",
+    "city": "Lääne-Nigula vald"
+  },
+  {
+    "company": "4 Käppa Kaubandus OÜ",
+    "code": 14297357,
+    "active": "Registrisse kantud",
+    "address": "Tallinna tn 88",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "4Lifealert OÜ",
+    "code": 14535992,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 6-219",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Mation OÜ",
+    "code": 14145305,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 4c-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Meca OÜ",
+    "code": 12641974,
+    "active": "Registrisse kantud",
+    "address": "Väljaku tn 5-2",
+    "city": "Rae vald"
+  },
+  {
+    "company": "4M EESTI OÜ",
+    "code": 14799188,
+    "active": "Registrisse kantud",
+    "address": "Õngu tee 13",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4metres OÜ",
+    "code": 14226251,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 82-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4MICE OÜ",
+    "code": 14569590,
+    "active": "Registrisse kantud",
+    "address": "Ubalehe tee 23",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "4Minds OÜ",
+    "code": 14483657,
+    "active": "Registrisse kantud",
+    "address": "Kivinurme",
+    "city": "Harku vald"
+  },
+  {
+    "company": "4MyCredo OÜ",
+    "code": 14594747,
+    "active": "Registrisse kantud",
+    "address": "Suurevälja tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Nature Energy Ltd OÜ",
+    "code": 14521197,
+    "active": "Registrisse kantud",
+    "address": "Uus-Sadama tn 21-303",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Nature Group OÜ",
+    "code": 12225266,
+    "active": "Registrisse kantud",
+    "address": "Uus-Sadama tn 21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Nm Garage OÜ",
+    "code": 14497441,
+    "active": "Registrisse kantud",
+    "address": "Roostiku tee 2",
+    "city": "Harku vald"
+  },
+  {
+    "company": "4orBuy OÜ",
+    "code": 11926396,
+    "active": "Registrisse kantud",
+    "address": "Ristiku tn 2-8",
+    "city": "Paide linn"
+  },
+  {
+    "company": "4Partner OÜ",
+    "code": 11440311,
+    "active": "Registrisse kantud",
+    "address": "Tori-Jaani",
+    "city": "Kanepi vald"
+  },
+  {
+    "company": "4PARTSTRADE COMPANY OÜ",
+    "code": 14364705,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "4P Energia OÜ",
+    "code": 14161712,
+    "active": "Registrisse kantud",
+    "address": "Lodjapuu tee 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4people OÜ",
+    "code": 12671515,
+    "active": "Registrisse kantud",
+    "address": "Herne tn 27",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4PIR OÜ",
+    "code": 14352642,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4PL Logistics OÜ",
+    "code": 14781610,
+    "active": "Registrisse kantud",
+    "address": "Sambliku tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4PRINT OÜ",
+    "code": 14534981,
+    "active": "Registrisse kantud",
+    "address": "Keskuse tn 6-65",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Project OÜ",
+    "code": 11251426,
+    "active": "Registrisse kantud",
+    "address": "Nõlvaku põik 10-7",
+    "city": "Saue vald"
+  },
+  {
+    "company": "4PS OÜ",
+    "code": 12399527,
+    "active": "Registrisse kantud",
+    "address": "Kalda tn 30",
+    "city": "Harku vald"
+  },
+  {
+    "company": "4rainforest OÜ",
+    "code": 14753529,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 388b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4rent Estonia OÜ",
+    "code": 14224074,
+    "active": "Registrisse kantud",
+    "address": "Riia tn 24d",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4ROOM Interior OÜ",
+    "code": 14702266,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 42-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4ROOM OÜ",
+    "code": 10961338,
+    "active": "Registrisse kantud",
+    "address": "Kaera tee 6",
+    "city": "Harku vald"
+  },
+  {
+    "company": "4R Residence OÜ",
+    "code": 14490574,
+    "active": "Registrisse kantud",
+    "address": "Ravi tn 4-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4RUM OÜ",
+    "code": 14389527,
+    "active": "Registrisse kantud",
+    "address": "Tatari tn 64",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Rõngast OÜ",
+    "code": 14791749,
+    "active": "Registrisse kantud",
+    "address": "Rohu tn 106",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "4Sale OÜ",
+    "code": 12976918,
+    "active": "Registrisse kantud",
+    "address": "Jõe tn 2-II korrus",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4salutem OÜ",
+    "code": 14620410,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 29-31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4SD OÜ",
+    "code": 14713465,
+    "active": "Registrisse kantud",
+    "address": "Roseni tn 13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 SEASONS OÜ",
+    "code": 11581342,
+    "active": "Registrisse kantud",
+    "address": "Kalevipoja tn 17-41",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Seina Haldus OÜ",
+    "code": 11398773,
+    "active": "Registrisse kantud",
+    "address": "Siidisaba tn 5a-14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4SEINA OÜ",
+    "code": 11310726,
+    "active": "Registrisse kantud",
+    "address": "Hansu tn 14",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Sezona OÜ",
+    "code": 12595978,
+    "active": "Registrisse kantud",
+    "address": "Papli tn 6",
+    "city": "Lüganuse vald"
+  },
+  {
+    "company": "4-Sever OÜ",
+    "code": 14554021,
+    "active": "Registrisse kantud",
+    "address": "Pirita tee 26f-16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Sign OÜ",
+    "code": 12086461,
+    "active": "Registrisse kantud",
+    "address": "Võru tn 54",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4 Sisters OÜ",
+    "code": 12000361,
+    "active": "Registrisse kantud",
+    "address": "Lauliku tn 13",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 smart OÜ",
+    "code": 12321301,
+    "active": "Registrisse kantud",
+    "address": "Paekaare tn 12-28",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Sport OÜ",
+    "code": 11294683,
+    "active": "Registrisse kantud",
+    "address": "Alasniidu tee 31",
+    "city": "Harku vald"
+  },
+  {
+    "company": "4Sport Solutions OÜ",
+    "code": 12350490,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-111",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 STE HOUSES OÜ",
+    "code": 12731192,
+    "active": "Registrisse kantud",
+    "address": "Mahlamäe tn 10-23",
+    "city": "Rapla vald"
+  },
+  {
+    "company": "4Steps Group OÜ",
+    "code": 11925847,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare tee 85-19",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Steps Metall OÜ",
+    "code": 12460505,
+    "active": "Registrisse kantud",
+    "address": "M. Gorki tn 5-2",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "4style OÜ",
+    "code": 12192080,
+    "active": "Registrisse kantud",
+    "address": "Allikaoja vkt 15",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "4S Viimistlus OÜ",
+    "code": 14812397,
+    "active": "Registrisse kantud",
+    "address": "Lasteaia tn 3-6",
+    "city": "Setomaa vald"
+  },
+  {
+    "company": "4Takti OÜ",
+    "code": 14485662,
+    "active": "Registrisse kantud",
+    "address": "Mägari tee 11/1-3",
+    "city": "Haapsalu linn"
+  },
+  {
+    "company": "4 Teams OÜ",
+    "code": 11976112,
+    "active": "Registrisse kantud",
+    "address": "Keskuse tn 6-65",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4th Dimension Consulting OÜ",
+    "code": 14141655,
+    "active": "Registrisse kantud",
+    "address": "Sõle tn 47a-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Times Capital AS",
+    "code": 12263609,
+    "active": "Registrisse kantud",
+    "address": "Tehnika tn 55",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4T OÜ",
+    "code": 12043635,
+    "active": "Registrisse kantud",
+    "address": "Tedre tn 81-55",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4 Trade LPS OÜ",
+    "code": 14054809,
+    "active": "Registrisse kantud",
+    "address": "Trummi tn 38h",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Trade OÜ",
+    "code": 14443698,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-456",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4trends OÜ",
+    "code": 12893061,
+    "active": "Registrisse kantud",
+    "address": "Vana-Pikkeri",
+    "city": "Nõo vald"
+  },
+  {
+    "company": "4Tuna OÜ",
+    "code": 14773496,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4types Communications OÜ",
+    "code": 14275054,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Ucar OÜ",
+    "code": 14769827,
+    "active": "Registrisse kantud",
+    "address": "Ropka tn 6-37",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4U does IT OÜ",
+    "code": 14183464,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4U KINNISVARA OÜ",
+    "code": 12724631,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 55-3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4U Logistics OÜ",
+    "code": 11518177,
+    "active": "Registrisse kantud",
+    "address": "Niidu tee 6",
+    "city": "Jõelähtme vald"
+  },
+  {
+    "company": "4U OÜ",
+    "code": 11009866,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 54-1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4US OÜ",
+    "code": 12482352,
+    "active": "Registrisse kantud",
+    "address": "Jaama tn 191-52",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "4Walls OÜ",
+    "code": 11922621,
+    "active": "Registrisse kantud",
+    "address": "Piksepeni tn 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Ward OÜ",
+    "code": 14818543,
+    "active": "Registrisse kantud",
+    "address": "Sõpruse pst 214-153",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4WAY OÜ",
+    "code": 11893515,
+    "active": "Registrisse kantud",
+    "address": "Pangapealse tn 21",
+    "city": "Harku vald"
+  },
+  {
+    "company": "4 Vedu OÜ",
+    "code": 14169100,
+    "active": "Registrisse kantud",
+    "address": "Laukapuu-2",
+    "city": "Lääne-Nigula vald"
+  },
+  {
+    "company": "4V Ehitus OÜ",
+    "code": 14827565,
+    "active": "Registrisse kantud",
+    "address": "Siduri tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4Wheels OÜ",
+    "code": 11425211,
+    "active": "Pankrotis",
+    "address": "Punane tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4VOST OÜ",
+    "code": 14258475,
+    "active": "Registrisse kantud",
+    "address": "Soolahe tee 57-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4V Rent OÜ",
+    "code": 14817472,
+    "active": "Registrisse kantud",
+    "address": "Siduri tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4x4 Alakomitee",
+    "code": 80216205,
+    "active": "Registrisse kantud",
+    "address": "F. R. Faehlmanni tn 46",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4x4Gaming OÜ",
+    "code": 12958808,
+    "active": "Registrisse kantud",
+    "address": "Kentmanni tn 18-43",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4x4 klubi 1 Hobujõud",
+    "code": 80343553,
+    "active": "Registrisse kantud",
+    "address": "Männiriisika",
+    "city": "Rakvere vald"
+  },
+  {
+    "company": "4you Consulting OÜ",
+    "code": 14560122,
+    "active": "Registrisse kantud",
+    "address": "Läänemere tee 20-35",
+    "city": "Tallinn"
+  },
+  {
+    "company": "4you Trans OÜ",
+    "code": 14588907,
+    "active": "Registrisse kantud",
+    "address": "Kauba tn 36-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "500 Miles Investments OÜ",
+    "code": 14280836,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "50 Inch OÜ",
+    "code": 14330304,
+    "active": "Registrisse kantud",
+    "address": "Rukki tn 28",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "50LUTION Marketing & Sales OÜ",
+    "code": 14698277,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "50pluss Klubi",
+    "code": 80278985,
+    "active": "Likvideerimisel",
+    "address": "Rubiini tee 26",
+    "city": "Harku vald"
+  },
+  {
+    "company": "50 Square OÜ",
+    "code": 12629499,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "50TON OÜ",
+    "code": 14808088,
+    "active": "Registrisse kantud",
+    "address": "Liikuri tn 48-45",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5/28 Management OÜ",
+    "code": 14924951,
+    "active": "Registrisse kantud",
+    "address": "Telliskivi tn 57",
+    "city": "Tallinn"
+  },
+  {
+    "company": "52Hours OÜ",
+    "code": 14317309,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "52kaarti OÜ",
+    "code": 14414277,
+    "active": "Registrisse kantud",
+    "address": "Jääraku tee 9",
+    "city": "Tallinn"
+  },
+  {
+    "company": "53 kraadi OÜ",
+    "code": 14753909,
+    "active": "Registrisse kantud",
+    "address": "Risu tee 3",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "5.50 OÜ",
+    "code": 12714182,
+    "active": "Registrisse kantud",
+    "address": "Lastekodu tn 41/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5546666 UÜ",
+    "code": 12591147,
+    "active": "Registrisse kantud",
+    "address": "Ülikooli tn 6a-610",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "555566221 OÜ",
+    "code": 12111443,
+    "active": "Registrisse kantud",
+    "address": "Tõnismägi 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "555 OÜ",
+    "code": 12671142,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 4/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "55-SPORT mittetulundusühing",
+    "code": 80356521,
+    "active": "Registrisse kantud",
+    "address": "Raua tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "56DB OÜ",
+    "code": 14233088,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "56TOM & CO OÜ",
+    "code": 14535199,
+    "active": "Registrisse kantud",
+    "address": "Tallinna tn 30",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "57Studio OÜ",
+    "code": 14548210,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "58N Services OÜ",
+    "code": 14759591,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "5A2 OÜ",
+    "code": 14783738,
+    "active": "Registrisse kantud",
+    "address": "Väljaotsa",
+    "city": "Vinni vald"
+  },
+  {
+    "company": "5A OÜ",
+    "code": 12921886,
+    "active": "Registrisse kantud",
+    "address": "Valdeku tn 120-25",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+ Autoteenindus OÜ",
+    "code": 11981320,
+    "active": "Registrisse kantud",
+    "address": "Mustamäe tee 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5ax CNC Baltic OÜ",
+    "code": 14215141,
+    "active": "Registrisse kantud",
+    "address": "Estonia pst 15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+ Capital OÜ",
+    "code": 11642434,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 6-24",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+Company OÜ",
+    "code": 14380609,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5CORE OÜ",
+    "code": 12622675,
+    "active": "Registrisse kantud",
+    "address": "Pargi tee 11-8",
+    "city": "Rae vald"
+  },
+  {
+    "company": "5C's Kids Club OÜ",
+    "code": 14550951,
+    "active": "Registrisse kantud",
+    "address": "Kentmanni tn 20a-15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5D Earth OÜ",
+    "code": 12856002,
+    "active": "Registrisse kantud",
+    "address": "Uusküla tn 8-9",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "5D GROUP OÜ",
+    "code": 11507067,
+    "active": "Registrisse kantud",
+    "address": "K. Kärberi tn 19-63",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5D OÜ",
+    "code": 14634949,
+    "active": "Registrisse kantud",
+    "address": "Viru tn 9-57",
+    "city": "Lüganuse vald"
+  },
+  {
+    "company": "5D Production OÜ",
+    "code": 11898754,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 71",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5D Vision OÜ",
+    "code": 10606206,
+    "active": "Registrisse kantud",
+    "address": "Teaduspargi tn 11",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "5 Elementi OÜ",
+    "code": 12840047,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5EMK RAIETÖÖD OÜ",
+    "code": 14577654,
+    "active": "Registrisse kantud",
+    "address": "Miku",
+    "city": "Peipsiääre vald"
+  },
+  {
+    "company": "5+Expert OÜ",
+    "code": 12763387,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+Garant OÜ",
+    "code": 14418387,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5G Logistics OÜ",
+    "code": 14213596,
+    "active": "Registrisse kantud",
+    "address": "Heki tee 6-68",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "5+ Invest OÜ",
+    "code": 11947530,
+    "active": "Registrisse kantud",
+    "address": "F. Tuglase tn 19",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "5J1J Osaühing",
+    "code": 14473771,
+    "active": "Registrisse kantud",
+    "address": "Liipri tn 1 // Rännaku pst 2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5K Group OÜ",
+    "code": 12495900,
+    "active": "Registrisse kantud",
+    "address": "Põllu tn 40a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5K MTÜ",
+    "code": 80101689,
+    "active": "Registrisse kantud",
+    "address": "Naage tee 16",
+    "city": "Harku vald"
+  },
+  {
+    "company": "5+ Masters OÜ",
+    "code": 12024253,
+    "active": "Registrisse kantud",
+    "address": "Elektri tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5M Solutions OÜ",
+    "code": 14104720,
+    "active": "Registrisse kantud",
+    "address": "Lastekodu tn 41/1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5Pack OÜ",
+    "code": 14847378,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 524b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5plus1 OÜ",
+    "code": 14440027,
+    "active": "Registrisse kantud",
+    "address": "Männimäe",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "5Pluss Auto OÜ",
+    "code": 14160517,
+    "active": "Registrisse kantud",
+    "address": "Mere tn 7",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "5 Pluss Kinnisvarabüroo OÜ",
+    "code": 12912769,
+    "active": "Registrisse kantud",
+    "address": "Staadioni tn 28",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "5 Point Consulting OÜ",
+    "code": 14074611,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+power UÜ",
+    "code": 14896460,
+    "active": "Registrisse kantud",
+    "address": "Nurme tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5sails OÜ",
+    "code": 14005320,
+    "active": "Registrisse kantud",
+    "address": "Punane tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+ Service OÜ",
+    "code": 11621354,
+    "active": "Registrisse kantud",
+    "address": "Aia tn 3-8",
+    "city": "Harku vald"
+  },
+  {
+    "company": "5 Star Project OÜ",
+    "code": 14155864,
+    "active": "Likvideerimisel",
+    "address": "Endla tn 3-6104",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5stars OÜ",
+    "code": 12962520,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 19-13",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "5starUnity Europe OÜ",
+    "code": 14798622,
+    "active": "Registrisse kantud",
+    "address": "Ahtri tn 8",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+Team OÜ",
+    "code": 14285259,
+    "active": "Registrisse kantud",
+    "address": "Mänsi",
+    "city": "Hiiumaa vald"
+  },
+  {
+    "company": "5+ Teenused osaühing",
+    "code": 11607828,
+    "active": "Registrisse kantud",
+    "address": "Aedniku tee 16",
+    "city": "Saku vald"
+  },
+  {
+    "company": "5T Haldus OÜ",
+    "code": 14455833,
+    "active": "Registrisse kantud",
+    "address": "Õismäe tee 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5T Ohutuse OÜ",
+    "code": 12347111,
+    "active": "Registrisse kantud",
+    "address": "Maikellukese tn 7",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "5T Õppekeskus OÜ",
+    "code": 12859408,
+    "active": "Registrisse kantud",
+    "address": "Maikellukese tn 7",
+    "city": "Kiili vald"
+  },
+  {
+    "company": "5Uba OÜ",
+    "code": 14014075,
+    "active": "Registrisse kantud",
+    "address": "Pedaja tn 10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "5+work OÜ",
+    "code": 14293112,
+    "active": "Registrisse kantud",
+    "address": "Luise tn 4-46",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6020 peaks OÜ",
+    "code": 14390743,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6060 OÜ",
+    "code": 14812026,
+    "active": "Registrisse kantud",
+    "address": "Kivi tn 2",
+    "city": "Harku vald"
+  },
+  {
+    "company": "60 Seconds OÜ",
+    "code": 11466090,
+    "active": "Registrisse kantud",
+    "address": "Männimäe/2",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "613Supply OÜ",
+    "code": 14727444,
+    "active": "Registrisse kantud",
+    "address": "Männimäe/1",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "64International OÜ",
+    "code": 14436868,
+    "active": "Registrisse kantud",
+    "address": "Telliskivi tn 60a/5-Lift99 postkast",
+    "city": "Tallinn"
+  },
+  {
+    "company": "65+ OÜ",
+    "code": 11201463,
+    "active": "Registrisse kantud",
+    "address": "Kesakanni tn 1",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "666.AG OÜ",
+    "code": 14675871,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 7-2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "66R OÜ",
+    "code": 14514375,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "6AE Logistic OÜ",
+    "code": 14825425,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 158/2-ruum 88",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6arz OÜ",
+    "code": 14606864,
+    "active": "Registrisse kantud",
+    "address": "Valgevase tn 3/1-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6A TRANSPORT OÜ",
+    "code": 14690907,
+    "active": "Registrisse kantud",
+    "address": "Hooldekodu tee 23a-15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6B Grupp OÜ",
+    "code": 14426048,
+    "active": "Registrisse kantud",
+    "address": "Mõisavahe tn 58-1",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "6D Kino OÜ",
+    "code": 12471495,
+    "active": "Registrisse kantud",
+    "address": "Kreegi tn 19-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6.exchange OÜ",
+    "code": 14914577,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 16",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6fsinvestments OÜ",
+    "code": 14752896,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "6ik Group OÜ",
+    "code": 12135745,
+    "active": "Registrisse kantud",
+    "address": "Kordoni tee 5",
+    "city": "Jõelähtme vald"
+  },
+  {
+    "company": "6K Invest OÜ",
+    "code": 14606901,
+    "active": "Registrisse kantud",
+    "address": "Järveotsa tee 17a-78",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6 kraadi OÜ",
+    "code": 14753832,
+    "active": "Registrisse kantud",
+    "address": "Risu tee 3",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "6lehoovimajaprojekt OÜ",
+    "code": 14863549,
+    "active": "Registrisse kantud",
+    "address": "Järvevana tee 7b",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6nnekas OÜ",
+    "code": 12555832,
+    "active": "Registrisse kantud",
+    "address": "Kõivusalu vkt 5",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "6Sense OÜ",
+    "code": 14387126,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 7-17",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6THC OÜ",
+    "code": 14371734,
+    "active": "Registrisse kantud",
+    "address": "Sakala tn 22-17a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "6 Tiigrit OÜ",
+    "code": 12529192,
+    "active": "Registrisse kantud",
+    "address": "Sireli tn 6",
+    "city": "Harju maakond"
+  },
+  {
+    "company": "6xS Real OÜ",
+    "code": 11461276,
+    "active": "Registrisse kantud",
+    "address": "Valdeku tn 112-76",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7102 OÜ",
+    "code": 12440980,
+    "active": "Registrisse kantud",
+    "address": "Kadaka pst 140-39",
+    "city": "Tallinn"
+  },
+  {
+    "company": "720 KRAADI OÜ",
+    "code": 12474525,
+    "active": "Registrisse kantud",
+    "address": "F. R. Kreutzwaldi tn 15-7",
+    "city": "Võru maakond"
+  },
+  {
+    "company": "7.21 Lab OÜ",
+    "code": 12588487,
+    "active": "Registrisse kantud",
+    "address": "Kirsi tn 5-23",
+    "city": "Tallinn"
+  },
+  {
+    "company": "737Simulators OÜ",
+    "code": 14853574,
+    "active": "Registrisse kantud",
+    "address": "Lõõtsa tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "73 St. OÜ",
+    "code": 14309920,
+    "active": "Registrisse kantud",
+    "address": "K. Kärberi tn 33-93",
+    "city": "Tallinn"
+  },
+  {
+    "company": "742 Time OÜ",
+    "code": 12884642,
+    "active": "Registrisse kantud",
+    "address": "Aasa tn 3-25",
+    "city": "Põlva vald"
+  },
+  {
+    "company": "74EMC investments OÜ",
+    "code": 14237042,
+    "active": "Registrisse kantud",
+    "address": "F. R. Faehlmanni tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "75cl Osaühing",
+    "code": 11407972,
+    "active": "Registrisse kantud",
+    "address": "Taaramäe tn 8",
+    "city": "Tartu vald"
+  },
+  {
+    "company": "76Capital OÜ",
+    "code": 12857869,
+    "active": "Registrisse kantud",
+    "address": "Ravila tn 3a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "777 ERI Kinnisvara OÜ",
+    "code": 14443764,
+    "active": "Registrisse kantud",
+    "address": "Joala tn 15-15",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "777 OÜ",
+    "code": 12962425,
+    "active": "Registrisse kantud",
+    "address": "Kaunase pst 12",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "77ArtDesign OÜ",
+    "code": 14737282,
+    "active": "Registrisse kantud",
+    "address": "Männimäe/1",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": 7,
+    "code": "7 OÜ",
+    "active": "R",
+    "address": "",
+    "city": "Moori küla"
+  },
+  {
+    "company": "78 Rocks Holdings OÜ",
+    "code": 14869871,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "7Beauty OÜ",
+    "code": 14310224,
+    "active": "Registrisse kantud",
+    "address": "Vahtra põik 4-9",
+    "city": "Haapsalu linn"
+  },
+  {
+    "company": "7 Blaze OÜ",
+    "code": 12130370,
+    "active": "Registrisse kantud",
+    "address": "Talve tn 40",
+    "city": "Saaremaa vald"
+  },
+  {
+    "company": "7 Brows Studio OÜ",
+    "code": 14742975,
+    "active": "Registrisse kantud",
+    "address": "Jõe tn 3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7COIN INVEST OÜ",
+    "code": 11259072,
+    "active": "Registrisse kantud",
+    "address": "Sõpruse pst 214-153",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7colors OÜ",
+    "code": 14485998,
+    "active": "Registrisse kantud",
+    "address": "Akadeemia tee 36-60",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7CS OÜ",
+    "code": 14220797,
+    "active": "Registrisse kantud",
+    "address": "Lühike jalg 1-4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7detaili OÜ",
+    "code": 14162321,
+    "active": "Registrisse kantud",
+    "address": "Suur-Sõjamäe tn 25a",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Dimensions OÜ",
+    "code": 14770084,
+    "active": "Registrisse kantud",
+    "address": "Lasnamäe tn 4b-26",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7D OÜ",
+    "code": 12342763,
+    "active": "Registrisse kantud",
+    "address": "Linnuse tn 8-14",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "7EHITUS OÜ",
+    "code": 14503650,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 122-11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7ELEMENT OÜ",
+    "code": 11181453,
+    "active": "Registrisse kantud",
+    "address": "Mõisa tee 19",
+    "city": "Saue vald"
+  },
+  {
+    "company": "7EVEN HILLS OÜ",
+    "code": 14086494,
+    "active": "Registrisse kantud",
+    "address": "Luise tn 4-46",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7 Figures OÜ",
+    "code": 14315718,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 105-5 korrus",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Finance OÜ",
+    "code": 11677740,
+    "active": "Registrisse kantud",
+    "address": "Suvila tn 11",
+    "city": "Raasiku vald"
+  },
+  {
+    "company": "7 floor OÜ",
+    "code": 14079560,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 25-19",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7 Flows OÜ",
+    "code": 14208158,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7foots OÜ",
+    "code": 11885711,
+    "active": "Registrisse kantud",
+    "address": "Maakri tn 19/1-7k",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7H Eesti OÜ",
+    "code": 10576161,
+    "active": "Likvideerimisel",
+    "address": "Uueristi tn 11-33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7HETKE OÜ",
+    "code": 12754106,
+    "active": "Registrisse kantud",
+    "address": "J. Vilmsi tn 45a-10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Kinnisvara Partnerid OÜ",
+    "code": 12550987,
+    "active": "Registrisse kantud",
+    "address": "Kuldnoka tn 17-7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7 Kitsetalle OÜ",
+    "code": 12971660,
+    "active": "Registrisse kantud",
+    "address": "Kitse",
+    "city": "Türi vald"
+  },
+  {
+    "company": "7 kuud OÜ",
+    "code": 11439992,
+    "active": "Registrisse kantud",
+    "address": "Nisu tn 33-7",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "7käiku OÜ",
+    "code": 12952007,
+    "active": "Registrisse kantud",
+    "address": "Kirsi tn 6-70",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Lavella OÜ",
+    "code": 14611693,
+    "active": "Registrisse kantud",
+    "address": "Sarapuu põik 4-16",
+    "city": "Harku vald"
+  },
+  {
+    "company": "7Markets OÜ",
+    "code": 14141684,
+    "active": "Registrisse kantud",
+    "address": "Kassisilma tn 6",
+    "city": "Kambja vald"
+  },
+  {
+    "company": "7 Moaid OÜ",
+    "code": 14454673,
+    "active": "Registrisse kantud",
+    "address": "Kumalase tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7NS Digital Agency OÜ",
+    "code": 14147356,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7ok OÜ",
+    "code": 14784947,
+    "active": "Registrisse kantud",
+    "address": "Papiniidu tn 33-84",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "7Plus OÜ",
+    "code": 10824535,
+    "active": "Registrisse kantud",
+    "address": "Söödi",
+    "city": "Otepää vald"
+  },
+  {
+    "company": "7 rings OÜ",
+    "code": 12488107,
+    "active": "Registrisse kantud",
+    "address": "Mesisaare",
+    "city": "Rõuge vald"
+  },
+  {
+    "company": "7 Seemet OÜ",
+    "code": 12383489,
+    "active": "Registrisse kantud",
+    "address": "Jäätma",
+    "city": "Saue vald"
+  },
+  {
+    "company": "7Signals OÜ",
+    "code": 14358863,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Sky Group OÜ",
+    "code": 12758802,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 26",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Souls OÜ",
+    "code": 12979874,
+    "active": "Registrisse kantud",
+    "address": "A. H. Tammsaare pst 32-85",
+    "city": "Pärnu linn"
+  },
+  {
+    "company": "7T Invest OÜ",
+    "code": 12300380,
+    "active": "Registrisse kantud",
+    "address": "Põllu tn 3",
+    "city": "Põltsamaa vald"
+  },
+  {
+    "company": "7Ways OÜ",
+    "code": 11332797,
+    "active": "Registrisse kantud",
+    "address": "",
+    "city": ""
+  },
+  {
+    "company": "7WebPages OÜ",
+    "code": 12526256,
+    "active": "Registrisse kantud",
+    "address": "Pae tn 21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7Wednesday OÜ",
+    "code": 14444930,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30",
+    "city": "Tallinn"
+  },
+  {
+    "company": "7ürti OÜ",
+    "code": 14027876,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 110-120",
+    "city": "Tallinn"
+  },
+  {
+    "company": "80/20 Publishing OÜ",
+    "code": 14218926,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "808 KSK grupp OÜ",
+    "code": 14781455,
+    "active": "Registrisse kantud",
+    "address": "Aruheina tee 1",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "818 Capital OÜ",
+    "code": 14183180,
+    "active": "Registrisse kantud",
+    "address": "Aardla tn 66",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "818 OÜ",
+    "code": 14705690,
+    "active": "Registrisse kantud",
+    "address": "Mahtra tn 25-126",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8192 OÜ",
+    "code": 14878628,
+    "active": "Registrisse kantud",
+    "address": "Männimäe/1",
+    "city": "Kuusalu vald"
+  },
+  {
+    "company": "81 Holding OÜ",
+    "code": 14243166,
+    "active": "Registrisse kantud",
+    "address": "Tehnika tn 9-14",
+    "city": "Võru vald"
+  },
+  {
+    "company": "835hub OÜ",
+    "code": 12602767,
+    "active": "Registrisse kantud",
+    "address": "C. R. Jakobsoni tn 17-6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "844 Projekt OÜ",
+    "code": 12928186,
+    "active": "Registrisse kantud",
+    "address": "Rauna tn 18",
+    "city": "Saue vald"
+  },
+  {
+    "company": "848 Invest OÜ",
+    "code": 14785016,
+    "active": "Registrisse kantud",
+    "address": "Astangu tn 26-21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "(88-88) UÜ",
+    "code": 14000848,
+    "active": "Registrisse kantud",
+    "address": "Ülikooli tn 6a-610",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "888MIR OÜ",
+    "code": 12353896,
+    "active": "Registrisse kantud",
+    "address": "Masina tn 22",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8.8 Capital OÜ",
+    "code": 12810908,
+    "active": "Registrisse kantud",
+    "address": "Pargi tee 11",
+    "city": "Rae vald"
+  },
+  {
+    "company": "88 Design OÜ",
+    "code": 14541662,
+    "active": "Registrisse kantud",
+    "address": "Paadi tee 3",
+    "city": "Viimsi vald"
+  },
+  {
+    "company": "88InsurTech OÜ",
+    "code": 14508825,
+    "active": "Registrisse kantud",
+    "address": "Parda tn 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "88mph OÜ",
+    "code": 11592469,
+    "active": "Registrisse kantud",
+    "address": "Ahtri tn 6a-22/2",
+    "city": "Tallinn"
+  },
+  {
+    "company": "88 OÜ",
+    "code": 12524955,
+    "active": "Registrisse kantud",
+    "address": "Leevikese tn 14",
+    "city": "Tartu linn"
+  },
+  {
+    "company": "89141 Rakvere Piljardiklubi",
+    "code": 80228542,
+    "active": "Registrisse kantud",
+    "address": "Võidu tn 18",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "89 OÜ",
+    "code": 12845820,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 31",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8Allocate OÜ",
+    "code": 12919889,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 47",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8AM OÜ",
+    "code": 12948810,
+    "active": "Registrisse kantud",
+    "address": "Kai tn 1",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8 Artvision Studio OÜ",
+    "code": 12737651,
+    "active": "Registrisse kantud",
+    "address": "Rakvere tn 20b-7",
+    "city": "Ida-Viru maakond"
+  },
+  {
+    "company": "8bit OÜ",
+    "code": 12646397,
+    "active": "Registrisse kantud",
+    "address": "Pae tn 21",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8BitSoft OÜ",
+    "code": 14387333,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8 Bits Space OÜ",
+    "code": 14867109,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8 Blockchain Capital OÜ",
+    "code": 14686857,
+    "active": "Registrisse kantud",
+    "address": "Rävala pst 4",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8D ARHITEKTUUR OÜ",
+    "code": 12858395,
+    "active": "Registrisse kantud",
+    "address": "Liivalaia tn 3-15",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8 Delfiini OÜ",
+    "code": 12417768,
+    "active": "Registrisse kantud",
+    "address": "Ehitajate tee 40-33",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8giga.com OÜ",
+    "code": 12601325,
+    "active": "Registrisse kantud",
+    "address": "Viru tn 4",
+    "city": "Lääne-Viru maakond"
+  },
+  {
+    "company": "8KA OÜ",
+    "code": 14819353,
+    "active": "Registrisse kantud",
+    "address": "Uus tn 28-1",
+    "city": "Valga vald"
+  },
+  {
+    "company": "8KND OÜ",
+    "code": 14656201,
+    "active": "Registrisse kantud",
+    "address": "Niine tn 11",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8 Minds OÜ",
+    "code": 12535114,
+    "active": "Registrisse kantud",
+    "address": "Puisniidu tee 27",
+    "city": "Harku vald"
+  },
+  {
+    "company": "8M OÜ",
+    "code": 12466979,
+    "active": "Registrisse kantud",
+    "address": "Pärna tn 12",
+    "city": "Tartu vald"
+  },
+  {
+    "company": "8point8 OÜ",
+    "code": 14527662,
+    "active": "Registrisse kantud",
+    "address": "Kauge tn 10-10",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8PX OÜ",
+    "code": 14481032,
+    "active": "Registrisse kantud",
+    "address": "E. Vilde tee 85",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8starflow OÜ",
+    "code": 12877300,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30-302/3",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8Starlife OÜ",
+    "code": 14583620,
+    "active": "Registrisse kantud",
+    "address": "Jõe tn 5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8TO8 OÜ",
+    "code": 14329867,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 38-40c",
+    "city": "Tallinn"
+  },
+  {
+    "company": "8-WINDS OÜ",
+    "code": 14113558,
+    "active": "Registrisse kantud",
+    "address": "Tiigi tn 6-12",
+    "city": "Viljandi vald"
+  },
+  {
+    "company": "8win Grupp OÜ",
+    "code": 14617690,
+    "active": "Registrisse kantud",
+    "address": "Tuukri tn 19-315",
+    "city": "Tallinn"
+  },
+  {
+    "company": "910Jack OÜ",
+    "code": 14546043,
+    "active": "Registrisse kantud",
+    "address": "Tornimäe tn 7",
+    "city": "Tallinn"
+  },
+  {
+    "company": "93rd Capital OÜ",
+    "code": 14427127,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "93rd Consult OÜ",
+    "code": 14796942,
+    "active": "Registrisse kantud",
+    "address": "Tina tn 6a-12",
+    "city": "Tallinn"
+  },
+  {
+    "company": "999Solutions OÜ",
+    "code": 14346280,
+    "active": "Registrisse kantud",
+    "address": "Spordi tn 19-5",
+    "city": "Tallinn"
+  },
+  {
+    "company": "99 Dimensions OÜ",
+    "code": 14519929,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "99funnel OÜ",
+    "code": 14651907,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6",
+    "city": "Tallinn"
+  },
+  {
+    "company": "99GADGETS OÜ",
+    "code": 14265664,
+    "active": "Registrisse kantud",
+    "address": "Pärnu mnt 482/2",
+    "city": "Tallinn"
   }
 ]
