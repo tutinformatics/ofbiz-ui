@@ -1,28 +1,21 @@
 <template>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
-          style="margin: 0 0 0 0">
-    Add Contact
-  </button>
-    <table class="table table-striped" au-table="data.bind: users; display-data.bind: $displayData">
-      <thead>
+  <table class="table table-striped" au-table="data.bind: users; display-data.bind: $displayData">
+    ${displayData}
+    <thead>
       <tr>
-        <th></th>
         <th>Company name</th>
         <th>Company code</th>
         <th>Status</th>
         <th>Address</th>
       </tr>
-      </thead>
-      <tbody>
-      <tr repeat.for="user of $displayData" aut-select="row.bind: user; custom.bind: true; mode: multiple; selected-class: info"
-          select.delegate="rowSelected($event)">
-        <td><input type="checkbox" checked.bind="user.$isSelected"/></td>
-        <td>${user.name}</td>
-        <td>${user.age}</td>
-        <td><a href="mailto:${user.email}">${user.email}</a></td>
-        <td>${user.isActive}</td>
-      </tr>
-      </tbody>
-    </table>
+    </thead>
+    <tbody>
+    <tr repeat.for="user of $displayData">
+      <td>${user.company}</td>
+      <td>${user.code}</td>
+      <td>${user.active}</td>
+      <td>${user.address}</td>
+    </tr>
+    </tbody>
+  </table>
 </template>
-

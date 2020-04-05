@@ -1,0 +1,602 @@
+[
+  {
+    "company": "001 group OU",
+    "code": 12754230,
+    "active": "Registrisse kantud",
+    "address": "OismAe tee 78-9"
+  },
+  {
+    "company": "001 Kinnisvara OU",
+    "code": 12652512,
+    "active": "Registrisse kantud",
+    "address": "OismAe tee 78-9"
+  },
+  {
+    "company": "007 Autohaus osaUhing",
+    "code": 11694365,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "013 investment OU",
+    "code": 12937781,
+    "active": "Registrisse kantud",
+    "address": "Tartu mnt 18"
+  },
+  {
+    "company": "01Arvutiabi OU",
+    "code": 14112620,
+    "active": "Registrisse kantud",
+    "address": "Aru tn 19-5"
+  },
+  {
+    "company": "01 Creations OsaUhing",
+    "code": 10818150,
+    "active": "Registrisse kantud",
+    "address": "Ahtri tn 12"
+  },
+  {
+    "company": "0dav riie OU",
+    "code": 14288602,
+    "active": "Registrisse kantud",
+    "address": "Vanaaseme"
+  },
+  {
+    "company": "0 rent OU",
+    "code": 14289174,
+    "active": "Registrisse kantud",
+    "address": "VAike tn 14a-12"
+  },
+  {
+    "company": "0x00 OU",
+    "code": 14809610,
+    "active": "Registrisse kantud",
+    "address": "TammepOllu tee 13-12"
+  },
+  {
+    "company": "1000000INVEST OU",
+    "code": 14433211,
+    "active": "Registrisse kantud",
+    "address": "SOpruse pst 145"
+  },
+  {
+    "company": "1000 Extra OU",
+    "code": 14085201,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "1001 Investments OU",
+    "code": 11142683,
+    "active": "Registrisse kantud",
+    "address": "Luha tn 20-29"
+  },
+  {
+    "company": "1001 Night OU",
+    "code": 14637155,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "1001 Properties OU",
+    "code": 14923889,
+    "active": "Registrisse kantud",
+    "address": "Savi tn 6-12"
+  },
+  {
+    "company": "100% Carbon OU",
+    "code": 12441287,
+    "active": "Registrisse kantud",
+    "address": "Roo tn 42-7"
+  },
+  {
+    "company": "100CAR OU",
+    "code": 11163018,
+    "active": "Registrisse kantud",
+    "address": "Kadaka tee 137-72"
+  },
+  {
+    "company": "100 doors OU",
+    "code": 12489420,
+    "active": "Registrisse kantud",
+    "address": "Haapsalu mnt 74a-5"
+  },
+  {
+    "company": "100% Go OU",
+    "code": 14364310,
+    "active": "Registrisse kantud",
+    "address": "Kohala mnt 2"
+  },
+  {
+    "company": "100KINGITUST OU",
+    "code": 12036279,
+    "active": "Registrisse kantud",
+    "address": "PArnu mnt 146"
+  },
+  {
+    "company": "100lippu OU",
+    "code": 14381081,
+    "active": "Registrisse kantud",
+    "address": "Asula tn 1b-50"
+  },
+  {
+    "company": "100m³ TAiteliiva UU",
+    "code": 12816095,
+    "active": "Registrisse kantud",
+    "address": "TornimAe tn 5"
+  },
+  {
+    "company": "10.0 OU",
+    "code": 14615952,
+    "active": "Registrisse kantud",
+    "address": "Vana-Viljandi mnt 3"
+  },
+  {
+    "company": "100 Vill OU",
+    "code": 12855190,
+    "active": "Registrisse kantud",
+    "address": "Mahtra tn 30a"
+  },
+  {
+    "company": "100 Wool OU",
+    "code": 12189250,
+    "active": "Registrisse kantud",
+    "address": "Mahtra tn 30a"
+  },
+  {
+    "company": "101 Dream OU",
+    "code": 12979650,
+    "active": "Registrisse kantud",
+    "address": "Marati tn 4-7"
+  },
+  {
+    "company": "101Kapital Deutsch OU",
+    "code": 14482190,
+    "active": "Registrisse kantud",
+    "address": "PArnu mnt 141"
+  },
+  {
+    "company": "101Kapital International OU",
+    "code": 14439248,
+    "active": "Registrisse kantud",
+    "address": "PArnu mnt 141"
+  },
+  {
+    "company": "101km OU",
+    "code": 14064469,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6"
+  },
+  {
+    "company": "101Timber OU",
+    "code": 14611316,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 5"
+  },
+  {
+    "company": "101 Visiooni OU",
+    "code": 11098315,
+    "active": "Registrisse kantud",
+    "address": "Peetri tee 21b"
+  },
+  {
+    "company": "1024 OU",
+    "code": 11935521,
+    "active": "Registrisse kantud",
+    "address": "Pae tn 25-2"
+  },
+  {
+    "company": "102 Property Holding OU",
+    "code": 11979116,
+    "active": "Registrisse kantud",
+    "address": "Kristjani tee 1"
+  },
+  {
+    "company": "10 ASJA OU",
+    "code": 12765245,
+    "active": "Registrisse kantud",
+    "address": "ArunOmme tee 15"
+  },
+  {
+    "company": "10 Capital OU",
+    "code": 12771820,
+    "active": "Registrisse kantud",
+    "address": "Roseni tn 9-35"
+  },
+  {
+    "company": "10 Distribution Group OU",
+    "code": 11413202,
+    "active": "Registrisse kantud",
+    "address": "Roosikrantsi tn 2-248"
+  },
+  {
+    "company": "10Dspace OU",
+    "code": 14318875,
+    "active": "Likvideerimisel",
+    "address": "Sepapaja tn 6"
+  },
+  {
+    "company": "10fevrier OU",
+    "code": 14449287,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6"
+  },
+  {
+    "company": "10Guards OU",
+    "code": 14514694,
+    "active": "Registrisse kantud",
+    "address": "Narva mnt 7-634"
+  },
+  {
+    "company": "10K Ventures OU",
+    "code": 14733580,
+    "active": "Registrisse kantud",
+    "address": "Keemia tn 4"
+  },
+  {
+    "company": "10Lines OU",
+    "code": 14793777,
+    "active": "Registrisse kantud",
+    "address": "TAhetorni tn 21"
+  },
+  {
+    "company": "10L OU",
+    "code": 14154818,
+    "active": "Registrisse kantud",
+    "address": "MunamAe tn 16-13"
+  },
+  {
+    "company": "10-to-10 OsaUhing",
+    "code": 14543494,
+    "active": "Registrisse kantud",
+    "address": "PArnu mnt 148"
+  },
+  {
+    "company": "10XCapital OU",
+    "code": 14755274,
+    "active": "Registrisse kantud",
+    "address": "Viru vAljak 2"
+  },
+  {
+    "company": "10X OU",
+    "code": 14014023,
+    "active": "Registrisse kantud",
+    "address": "Katusepapi tn 6"
+  },
+  {
+    "company": "10xVentures OU",
+    "code": 12716235,
+    "active": "Registrisse kantud",
+    "address": "Luige tn 14"
+  },
+  {
+    "company": "11059 OU",
+    "code": 14459446,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6"
+  },
+  {
+    "company": "110 Kv OU",
+    "code": 14708725,
+    "active": "Registrisse kantud",
+    "address": "Kildema"
+  },
+  {
+    "company": "1111 KOMA 1111 OU",
+    "code": 12870226,
+    "active": "Registrisse kantud",
+    "address": "Pargi tee 17"
+  },
+  {
+    "company": "111.ee OU",
+    "code": 14256097,
+    "active": "Registrisse kantud",
+    "address": "Hariduse tn 11-3"
+  },
+  {
+    "company": "112 Kinnisvara OU",
+    "code": 12582243,
+    "active": "Registrisse kantud",
+    "address": "J. SUtiste tee 41-213"
+  },
+  {
+    "company": 11,
+    "code": "2 Retsepti OU",
+    "active": "R",
+    "address": "LasnamAe linnaosa"
+  },
+  {
+    "company": "113115 OU",
+    "code": 14207785,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "116 OU",
+    "code": 11326710,
+    "active": "Registrisse kantud",
+    "address": "PArnu mnt 6a"
+  },
+  {
+    "company": "118finder OU",
+    "code": 12329780,
+    "active": "Registrisse kantud",
+    "address": "Madara tn 14"
+  },
+  {
+    "company": "11 Meelt ja Maitset OU",
+    "code": 12577503,
+    "active": "Registrisse kantud",
+    "address": "Pronksi tn 7-49"
+  },
+  {
+    "company": "11squared OU",
+    "code": 14805500,
+    "active": "Registrisse kantud",
+    "address": "Pikk tn 7"
+  },
+  {
+    "company": "11tools OU",
+    "code": 14562960,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6"
+  },
+  {
+    "company": "120bpm OU",
+    "code": 14330468,
+    "active": "Registrisse kantud",
+    "address": "Wismari tn 21-11"
+  },
+  {
+    "company": "12.12.12 UU",
+    "code": 12391106,
+    "active": "Registrisse kantud",
+    "address": "Ulikooli tn 6a-610"
+  },
+  {
+    "company": "12-24 OU",
+    "code": 14401916,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "123 ABAKUS OU",
+    "code": 14072635,
+    "active": "Registrisse kantud",
+    "address": "Uus-Saku tn 9a"
+  },
+  {
+    "company": "123 ACCOUNTING OU",
+    "code": 12502764,
+    "active": "Registrisse kantud",
+    "address": "Lai tn 32-8"
+  },
+  {
+    "company": "123Apartments OU",
+    "code": 14159313,
+    "active": "Registrisse kantud",
+    "address": "Peterburi tee 20-37"
+  },
+  {
+    "company": "123 Autoosad OU",
+    "code": 12243067,
+    "active": "Registrisse kantud",
+    "address": "Akadeemia tee 78"
+  },
+  {
+    "company": "123 Baltic OU",
+    "code": 12218141,
+    "active": "Registrisse kantud",
+    "address": "Majaka tn 41-4"
+  },
+  {
+    "company": "123.ee OU",
+    "code": 11112363,
+    "active": "Registrisse kantud",
+    "address": "Vana-Posti tn 2-15"
+  },
+  {
+    "company": "1-2-3 EHITUS OU",
+    "code": 14248152,
+    "active": "Registrisse kantud",
+    "address": "Valdeku tn 51-1"
+  },
+  {
+    "company": "123FILTRIPOOD OU",
+    "code": 14812440,
+    "active": "Registrisse kantud",
+    "address": "Kapteni tee 5"
+  },
+  {
+    "company": "123 Grupp OU",
+    "code": 11342212,
+    "active": "Registrisse kantud",
+    "address": "Parda tn 12"
+  },
+  {
+    "company": "123 Haldus OU",
+    "code": 11999934,
+    "active": "Registrisse kantud",
+    "address": "Vallimaa tn 9-20"
+  },
+  {
+    "company": "1-2-3 Hooldus OU",
+    "code": 14248131,
+    "active": "Registrisse kantud",
+    "address": "Posti tn 2"
+  },
+  {
+    "company": "123 Kindlustuskonsultatsioonid OU",
+    "code": 11350281,
+    "active": "Registrisse kantud",
+    "address": "Anne tn 83-21"
+  },
+  {
+    "company": "123 Kinnisvarahalduse OU",
+    "code": 12459531,
+    "active": "Registrisse kantud",
+    "address": "Varsa tn 10"
+  },
+  {
+    "company": "123Kunert OU",
+    "code": 14290220,
+    "active": "Registrisse kantud",
+    "address": "Sepapaja tn 6"
+  },
+  {
+    "company": "123-Mobile OU",
+    "code": 14262092,
+    "active": "Registrisse kantud",
+    "address": "Timuti tn 15-7"
+  },
+  {
+    "company": "123OK OU",
+    "code": 12791047,
+    "active": "Registrisse kantud",
+    "address": "Lubja tn 48a"
+  },
+  {
+    "company": "123OSA OU",
+    "code": 12621598,
+    "active": "Registrisse kantud",
+    "address": "KAAnu tn 6"
+  },
+  {
+    "company": "123 OU",
+    "code": 12040996,
+    "active": "Registrisse kantud",
+    "address": "Vallimaa tn 9-20"
+  },
+  {
+    "company": "123pesula OU",
+    "code": 14649164,
+    "active": "Registrisse kantud",
+    "address": "PArnu mnt 186"
+  },
+  {
+    "company": "123projekt OU",
+    "code": 10047126,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "123Puksiir OU",
+    "code": 14414780,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "123 Raamatupidamine OU",
+    "code": 11377437,
+    "active": "Registrisse kantud",
+    "address": "VAike-Turu tn 5-63"
+  },
+  {
+    "company": "123 Reklaam OU",
+    "code": 11346724,
+    "active": "Registrisse kantud",
+    "address": "Vana-Posti tn 2-15"
+  },
+  {
+    "company": "123tracking OU",
+    "code": 12991705,
+    "active": "Registrisse kantud",
+    "address": "Rajametsa tn 12a"
+  },
+  {
+    "company": "123Trade OU",
+    "code": 12020137,
+    "active": "Registrisse kantud",
+    "address": "J. Kuperjanovi tn 3a-47"
+  },
+  {
+    "company": "123Transport OU",
+    "code": 12582384,
+    "active": "Registrisse kantud",
+    "address": "Ulme AU 18"
+  },
+  {
+    "company": "123 Vara OU",
+    "code": 14367603,
+    "active": "Registrisse kantud",
+    "address": "Vana-Posti tn 2-15"
+  },
+  {
+    "company": "128Bit OU",
+    "code": 14767722,
+    "active": "Registrisse kantud",
+    "address": "Laki tn 30"
+  },
+  {
+    "company": "12. Aprilli Selts",
+    "code": 80320996,
+    "active": "Registrisse kantud",
+    "address": "Toompuiestee 3"
+  },
+  {
+    "company": "12 Capital OU",
+    "code": 12211570,
+    "active": "Registrisse kantud",
+    "address": "Liimi tn 1"
+  },
+  {
+    "company": "12FIX OU",
+    "code": 12843287,
+    "active": "Registrisse kantud",
+    "address": "Koondise tn 7-10"
+  },
+  {
+    "company": "12kuud haldus OU",
+    "code": 12883921,
+    "active": "Registrisse kantud",
+    "address": "SOpruse pst 198-24"
+  },
+  {
+    "company": "12 Maja OU",
+    "code": 12301116,
+    "active": "Registrisse kantud",
+    "address": "Enelase tn 14"
+  },
+  {
+    "company": "1/2 Mind OU",
+    "code": 11550459,
+    "active": "Registrisse kantud",
+    "address": "TOOkoja tn 1"
+  },
+  {
+    "company": "12 mArki OU",
+    "code": 12901659,
+    "active": "Registrisse kantud",
+    "address": "Randla tn 15-1"
+  },
+  {
+    "company": "12th Avenue OU",
+    "code": 14410569,
+    "active": "Registrisse kantud",
+    "address": "Kannikese pOik 4-2"
+  },
+  {
+    "company": "12v24v OU",
+    "code": 14748386,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "12 Vara OU",
+    "code": 14364993,
+    "active": "Registrisse kantud",
+    "address": "Liimi tn 1"
+  },
+  {
+    "company": "12V OU",
+    "code": 12273465,
+    "active": "Registrisse kantud",
+    "address": ""
+  },
+  {
+    "company": "13.10 Investments OU",
+    "code": 14355149,
+    "active": "Registrisse kantud",
+    "address": "Tuukri tn 44-11"
+  }
+]

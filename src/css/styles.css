@@ -80,3 +80,50 @@ li.list-group-item.active > a {
 button-icon {
   cursor: pointer
 }
+
+.aut-sort:before{
+  font-family: FontAwesome;
+  padding-right: 0.5em;
+  width: 1.28571429em;
+  display: inline-block;
+  text-align: center;
+}
+
+.aut-sortable:before{
+  content: "\f106";
+}
+
+.aut-asc:before{
+  content: "\f107";
+}
+
+.aut-desc:before{
+  content: "\f106";
+}
+
+.ul.custom-pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ul.custom-pagination li {display: inline;}
+
+ul.custom-pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+ul.custom-pagination li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+ul.custom-pagination li a:hover:not(.active):not(.disabled) {background-color: #ddd;}
+
+ul.custom-pagination li a.disabled {
+  color: darkgrey;
+}
