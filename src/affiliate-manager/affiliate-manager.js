@@ -6,7 +6,7 @@ export class AffiliateManager {
 
   constructor(ea) {
     this.sidebarIsOpen = false;
-    this.current = "About";
+    this.current = "Become-partner";
   }
 
   toggleSideBar() {
