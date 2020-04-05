@@ -8,6 +8,7 @@ export class Agents {
   
   async attached() {
     this.agents = await this.agentService.getAgents();
+    console.log(typeof this.agents);
   }
 }
 

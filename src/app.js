@@ -10,7 +10,8 @@ export class App {
       { route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks' },
       { route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task' },
       { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
-      { route: 'agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
+      { route: 'crm/agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
+      { route: 'crm/pipeline', moduleId: PLATFORM.moduleName('crm/pipeline/pipeline'), name: 'pipeline' },
     ]);
 
     this.router = router;
