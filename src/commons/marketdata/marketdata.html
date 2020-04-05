@@ -1,13 +1,20 @@
 <template>
-  <table class="table table-striped" au-table="data.bind: users; display-data.bind: $displayData">
-    ${displayData}
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
+          style="margin: 0 0 0 0">
+    Add Contact
+  </button>
+  <div class="form-group">
+    <input type="text" value.bind="filters[0].value" placeholder="Enter filter text" class="form-control"/>
+  </div>
+  <table class="table table-striped" aurelia-table="data.bind: users; display-data.bind: $displayData;
+                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems;">
     <thead>
-      <tr>
-        <th>Company name</th>
-        <th>Company code</th>
-        <th>Status</th>
-        <th>Address</th>
-      </tr>
+    <tr>
+      <th>Company name</th>
+      <th>Company code</th>
+      <th>Status</th>
+      <th>Address</th>
+    </tr>
     </thead>
     <tbody>
     <tr repeat.for="user of $displayData">
@@ -18,4 +25,27 @@
     </tr>
     </tbody>
   </table>
+  <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems">
+    <template replace-part="pagination">
+      <ul class="custom-pagination" hide.bind="hideSinglePage && totalPages === 1">
+        <li>
+          <a aria-label="Previous" click.delegate="previousPage()"
+             class-name.bind="currentPage === 1 ? 'disabled' : ''">
+            <span aria-hidden="true">«</span>
+          </a>
+        </li>
+        <li repeat.for="page of displayPages">
+          <a click.delegate="selectPage(page.value)" class-name.bind="currentPage === page.value ? 'active' : ''">
+            ${page.title}
+          </a>
+        </li>
+        <li>
+          <a aria-label="Next" click.delegate="nextPage()"
+             class-name.bind="currentPage === totalPages ? 'disabled' : ''">
+            <span aria-hidden="true">»</span>
+          </a>
+        </li>
+      </ul>
+    </template>
+  </aut-pagination>
 </template>
