@@ -1,0 +1,11 @@
+<template>
+  <div class="m-3">
+    <div repeat.for="email of emails" class="card" style="width: auto">
+      <div class="card-body">
+        <h5 class="card-title">${email.receiver}</h5>
+        <p class="card-text">${email.text}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</template>
