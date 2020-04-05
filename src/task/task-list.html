@@ -20,10 +20,22 @@
                     </ak-template>
                 </ak-grid-toolbar>
 
-                <ak-col k-title="Task Name" k-field="taskName"></ak-col>
-                <ak-col k-title="Project Name" k-field="projectName"></ak-col>
+                <ak-col k-title="Task ID" k-field="workEffortId"></ak-col>
+                <ak-col k-title="Task" k-field="workEffortName"></ak-col>
+                <ak-col k-title="Phase Name" k-field="phaseName"></ak-col>
+                <ak-col k-title="Current Status ID" k-field="currentStatusId">
+                    <ak-template>
+                        <span class="badge ${currentStatusId | statusBadge}">
+                            ${currentStatusId | status}
+                        </span>
+                    </ak-template>
+                </ak-col>
                 <ak-col k-title="Priority" k-field="priority"></ak-col>
+                <ak-col k-title="Est.Start Date" k-field="estimatedStartDate" k-format="{0:MM/dd/yyyy}"></ak-col>
                 <ak-col k-title="Start Date" k-field="startDate" k-format="{0:dd/MM/yyyy}"></ak-col>
+                <ak-col k-title="Est.Compl" k-field="estimatedCompletionDate" k-format="{0:MM/dd/yyyy}"></ak-col>
+                <ak-col k-title="Act.Compl" k-field="completionDate" k-format="{0:MM/dd/yyyy}"></ak-col>
+                <ak-col k-title="Planned Hours" k-field="plannedHours"></ak-col>
             </ak-grid>
         </div>
     </div>

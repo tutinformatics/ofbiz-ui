@@ -1,27 +1,30 @@
-import _ from 'lodash';
+import { inject } from 'aurelia-dependency-injection';
+import { HttpClient } from 'aurelia-fetch-client';
+import { SearchUtils } from '../commons/util/search-utils';
 
+@inject(HttpClient)
 export class TaskService {
-  constructor() {
-    this.tasks = [
-      {
-        taskName: 'Test',
-        projectName: 'Test Project',
-        priority: 1,
-        startDate: new Date()
-      },
-      {
-        taskName: 'Test 2',
-        projectName: 'Test Project 2',
-        priority: 3,
-        startDate: new Date()
-      }
-    ];
+  baseUrl = 'api/task-list';
+
+  constructor(httpClient) {
+    this.httpClient = httpClient;
   }
 
-  getTasks() {
-    return new Promise(resolve => {
-      resolve(_.cloneDeep(this.tasks));
-    });
+  getProjectTaskList(params) {
+    const query = SearchUtils.appendQueryParams(params);
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}?${query}`)
+      .then(res => res.json())
+      .then(res => {
+        res.taskList.map(task => {
+          task.estimatedStartDate = !!task.estimatedStartDate ? new Date(task.estimatedStartDate) : undefined;
+          task.startDate = !!task.startDate ? new Date(task.startDate) : undefined;
+          task.completionDate = !!task.completionDate ? new Date(task.completionDate) : undefined;
+          task.estimatedCompletionDate = !!task.estimatedCompletionDate ? new Date(task.estimatedCompletionDate) : undefined;
+        });
+        return res.taskList;
+      });
   }
 
   createTask(task) {
@@ -32,5 +35,4 @@ export class TaskService {
     });
   }
 }
-
 

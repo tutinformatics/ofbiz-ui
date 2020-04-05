@@ -4,30 +4,37 @@ import { TaskService } from './task-service';
 
 @inject(Router, TaskService)
 export class TaskList {
-    datasource = {
-      transport: {
-        read: (options) => {
-          options.success(this.tasks);
+  datasource = {
+    transport: {
+      read: (options) => {
+        this.taskService.getProjectTaskList({ projectId: '9000' }) // TODO: projectId should not be hard-coded
+          .then(tasks => options.success(tasks));
+      }
+    },
+    schema: {
+      model: {
+        fields: {
+          workEffortId: { type: 'number' },
+          workEffortName: { type: 'string' },
+          phaseName: { type: 'string' },
+          currentStatusId: { type: 'string' },
+          priority: { type: 'number' },
+          estimatedStartDate: { type: 'date' },
+          startDate: { type: 'date' },
+          estimatedCompletionDate: { type: 'date' },
+          completionDate: { type: 'date' },
+          plannedHours: { type: 'number' }
         }
       }
-    };
-
-    constructor(router, taskService) {
-      this.router = router;
-      this.taskService = taskService;
-      this.tasks = [];
     }
+  }
 
-    created() {
-      this.loadTasks();
-    }
+  constructor(router, taskService) {
+    this.router = router;
+    this.taskService = taskService;
+  }
 
-    loadTasks() {
-      this.taskService.getTasks()
-        .then(tasks => this.tasks = tasks);
-    }
-
-    handleAddTask() {
-      this.router.navigate('/new-task');
-    }
+  handleAddTask() {
+    this.router.navigate('/new-task');
+  }
 }

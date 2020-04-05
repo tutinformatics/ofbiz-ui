@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime';
 import * as environment from '../config/environment.json';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -21,9 +21,14 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
     .developmentLogging();
 
+  aurelia.use
+    .globalResources([
+      PLATFORM.moduleName('commons/converters/status-badge'),
+      PLATFORM.moduleName('commons/converters/status')
+    ]);
+
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
-
   }
 
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
