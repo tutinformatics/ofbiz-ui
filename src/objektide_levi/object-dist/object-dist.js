@@ -1,5 +1,4 @@
 import "smart-webcomponents-community/source/styles/smart.default.css";
-import "./object-dist.css";
 import { smartQueryBuilder } from "../../../node_modules/smart-webcomponents-community/source/modules/smart.querybuilder.js";
 
 export class ObjectDist {
