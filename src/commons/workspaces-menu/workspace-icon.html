@@ -1,13 +1,13 @@
-<template id="">
+<template bindable="favorite">
   <div class="badge-wrapper " mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()" style="background-color: ${color};">
     <div class="text-uppercase">
-      ${elemName}
+      ${elemName} ${favorite}
     </div>
-    <div if.one-time="!favorites">
-      <span click.trigger="callback('My Workspace')" class="fa fa-star-o fa-2x"></span>
+    <div if.bind="fav">
+      not<span click.trigger="callback()" class="fa fa-star-o fa-2x"></span>
     </div>
     <div else>
-      <span click.trigger="callback($elemName)" class="fa fa-star fa-2x"></span>
+      favorite<span click.trigger="callback()" class="fa fa-star fa-2x"></span>
     </div>
 
   </div>

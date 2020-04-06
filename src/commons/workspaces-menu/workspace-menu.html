@@ -2,7 +2,7 @@
   <require from="./workspace-icon"></require>
   <require from="./favorite-icon"></require>
   <div id="workspace-menu" class="text-center d-block border-primary bg-secondary text-white ml-1 mr-1 mb-1" reorderable-repeat.for="s of stringArray">
-      <workspace-icon callback.call="callback(val)" elem-name="${s.name}" color="${s.color}" favorite="${s.favorites}"></workspace-icon>
+      <workspace-icon callback.call="callback(val)" elem-name="${s.name}" color="${s.color}" favorite=${s.favorite}></workspace-icon>
   </div>
   <div id="favorites-menu" class="text-center d-block border-primary bg-secondary text-white ml-1 mr-1 mb-1" repeat.for="t of favoritesArray">
       <favorite-icon elem-name="${t.name}" color="${t.color}"></favorite-icon>

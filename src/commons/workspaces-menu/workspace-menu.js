@@ -4,8 +4,8 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 @inject(EventAggregator)
 export class WorkspaceMenu {
   stringArray = [
-      { name: 'My Workspace', color: 'blue', favorites: true},
-      { name: 'Workspace 1', color: 'red', favorites: false}];
+      { name: 'My Workspace', color: 'blue', favorite: true},
+      { name: 'Workspace 1', color: 'red', favorite: false}];
 
   favoritesArray = [];
 
