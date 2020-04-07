@@ -26,6 +26,12 @@ export class ObjectDist {
     this.generateVariables();
   }
 
+  getRegex() {
+    const querybuilder = document.querySelector('smart-query-builder');
+    let customOperations = querybuilder.getDynamicField;
+    console.log(customOperations);
+  }
+
   generateVariables() {
     this.type = '';
     this.variables = [["Puldiauto", "Mängukaru", "Tuulelohe"], ["Arved", "Kasum", "Käive"], ["Püsiklient", "Tavaklient", "Partner"]];
