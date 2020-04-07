@@ -1,18 +1,14 @@
-import "../../../styles/scss/becomePartner.scss"
+import "../../../assets/scss/becomePartner.scss"
+import {HttpClient} from "aurelia-fetch-client";
+
+let httpClient = new HttpClient();
 
 export class BecomePartner {
-  constructor(ea) {
-  }
 
   async becomeAffPartner() {
-    const response = await fetch("http://localhost:4567/api/product", {
-      method: 'GET',
-      cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    console.log(await response.json());
+    httpClient.fetch("http://localhost:4567/api/invoices?id=api-invoices-get-all")
+      .then(response => response.json())
+      .then(data => this.invoices = JSON.parse(data))
   }
 
 }

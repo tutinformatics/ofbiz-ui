@@ -1,4 +1,4 @@
-import './styles/scss/affiliate-manager.scss';
+import '../assets/scss/affiliate-manager.scss';
 import {bindable} from "aurelia-templating";
 
 export class AffiliateManager {
