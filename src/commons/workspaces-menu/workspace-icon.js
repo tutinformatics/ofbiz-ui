@@ -1,23 +1,29 @@
-import {inject, customElement, bindable, observable} from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
+import {inject, customElement, bindable} from 'aurelia-framework';
 import {autoinject} from "aurelia-dependency-injection";
 
-@inject(EventAggregator)
-@inject(Element)
+
 @customElement('workspace-icon')
 export class WorkspaceIcon {
   @bindable elemName = '';
   @bindable color = '';
-  @bindable favorite = false;
-
-  fav = this.favorite;
+  @bindable favorite;
 
   constructor() {
+    document.addEventListener('aurelia-composed', () => {
+      this.favorite = (this.favorite == 'true');
+    });
+  }
 
+  isFavorite() {
+    if(this.favorite == "true" || this.favorite == true){
+      this.favorite = true;
+    } else {
+      this.favorite = false;
+    }
   }
 
   mouseOver() {
-    console.log(this.favorite);
+    this.isFavorite();
   }
 
   mouseOut() {

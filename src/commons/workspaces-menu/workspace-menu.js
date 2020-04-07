@@ -3,12 +3,11 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 
 @inject(EventAggregator)
 export class WorkspaceMenu {
+  @bindable type = '';
+
   stringArray = [
       { name: 'My Workspace', color: 'blue', favorite: true},
       { name: 'Workspace 1', color: 'red', favorite: false}];
-
-  favoritesArray = [];
-
 
 
   addToFavorites(element) {
