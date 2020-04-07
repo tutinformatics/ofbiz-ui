@@ -7,6 +7,7 @@ export class WorkspaceIcon {
   @bindable elemName = '';
   @bindable color = '';
   @bindable favorite;
+  @bindable image = '';
 
   constructor() {
     document.addEventListener('aurelia-composed', () => {
@@ -16,19 +17,27 @@ export class WorkspaceIcon {
 
   isFavorite() {
     if(this.favorite == "true" || this.favorite == true){
-      this.favorite = true;
+      return true;
     } else {
-      this.favorite = false;
+      return false;
+    }
+  }
+
+  isNotFavorite() {
+    if(this.favorite == "false" || this.favorite == false){
+      return true;
+    } else {
+      return false;
     }
   }
 
   mouseOver() {
-    this.isFavorite();
+    //this.isFavorite();
   }
 
   mouseOut() {
   }
 
   @bindable
-  callback = (val) => {};
+  callback = (elemName) => {};
 }

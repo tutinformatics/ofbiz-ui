@@ -1,13 +1,13 @@
 <template>
-  <div class="badge-wrapper rounded container" mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()" style="background-color: ${color} !important;">
+  <div class="badge-wrapper rounded container" mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()" style="background-color: ${color} !important; background-image: url('${image}') !important;">
     <div class="text-uppercase col">
       ${elemName}
     </div>
     <div id="notfav" class="col-6 float-right" if.bind="favorite">
-      <span click.trigger="callback()" class="fa fa-star fa-2x"></span>
+      <span click.trigger="callback($elemName)" class="fa fa-star fa-2x"></span>
     </div>
-    <div id="fav" class="col-6 d-justify-content-right" else>
-      <span click.trigger="callback()" class="fa fa-star-o fa-2x"></span>
+    <div id="fav" class="col-6 d-justify-content-right" if.bind="!favorite">
+      <span click.trigger="callback($elemName)" class="fa fa-star-o fa-2x"></span>
     </div>
 
   </div>

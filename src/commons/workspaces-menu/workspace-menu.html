@@ -1,13 +1,13 @@
 <template>
   <require from="./workspace-icon"></require>
 
-  <div id="workspace-menu" class="text-center d-block border-primary text-white ml-1 mr-1 mb-1" reorderable-repeat.for="s of stringArray">
-      <workspace-icon callback.call="callback(val)" elem-name="${s.name}" color="${s.color}" favorite=${s.favorite}></workspace-icon>
+  <div id="workspace-menu" class="rounded border-primary text-white ml-1 mr-1 mb-1" reorderable-repeat.for="s of stringArray">
+      <workspace-icon elem-name="${s.name}" color="${s.color}" image="${s.image}" favorite=${s.favorite}></workspace-icon>
   </div>
   <hr class="solid">
-  <div id="favorites-menu" class="text-center d-block border-primary text-white ml-1 mr-1 mb-1" repeat.for="s of stringArray">
+  <div id="favorites-menu" class="rounded border-primary text-white ml-1 mr-1 mb-1" repeat.for="s of stringArray">
     <div if.bind="s.favorite == true">
-      <workspace-icon callback.call="callback(val)" elem-name="${s.name}" color="${s.color}" favorite=${s.favorite}></workspace-icon>
+      <workspace-icon elem-name="${s.name}" color="${s.color}" image="${s.image}" favorite=${s.favorite}></workspace-icon>
     </div>
   </div>
 

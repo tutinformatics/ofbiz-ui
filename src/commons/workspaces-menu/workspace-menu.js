@@ -6,8 +6,8 @@ export class WorkspaceMenu {
   @bindable type = '';
 
   stringArray = [
-      { name: 'My Workspace', color: 'blue', favorite: true},
-      { name: 'Workspace 1', color: 'red', favorite: false}];
+      { name: 'My Workspace', color: 'blue', image: 'https://free-images.com/sm/cfd6/gesanghua_scenery_small_fresh.jpg', favorite: true},
+      { name: 'Workspace 1', color: 'red', image: 'https://www.macupdate.com/images/user_img/3002188', favorite: false}];
 
 
   addToFavorites(element) {
@@ -49,8 +49,7 @@ export class WorkspaceMenu {
   }
 
   @bindable
-  callback = val => {
-    //addToFavorites(val);
-    console.log(val);
+  callback = (thing) => {
+    console.log(thing);
   };
 }

@@ -86,3 +86,7 @@ li.list-group-item.active > a {
   background: linear-gradient(#744662, #dddddd);
   background-color: #ababab !important;
 }
+
+#workspace-menu {
+  background-color: none !important;
+}
