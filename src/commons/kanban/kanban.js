@@ -41,8 +41,4 @@ export class Kanban {
     console.log('insects: ' + list);
     console.log('change', change);
   }
-
-
-
-
 }
