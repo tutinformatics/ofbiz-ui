@@ -1,4 +1,5 @@
 import { bindable } from 'aurelia-framework';
+import './affHeader.scss';
 
 export class AffHeader {
 

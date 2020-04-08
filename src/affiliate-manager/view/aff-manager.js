@@ -1,4 +1,4 @@
-import '../assets/scss/affiliate-manager.scss';
+import '../containers/guest/affGuest.scss';
 
 export class AffManager {
 

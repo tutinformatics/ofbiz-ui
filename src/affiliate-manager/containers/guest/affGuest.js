@@ -1,4 +1,4 @@
-import '../../assets/scss/affiliate-manager.scss';
+import './affGuest.scss';
 import { bindable } from 'aurelia-framework';
 
 export class AffGuest {

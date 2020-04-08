@@ -1,10 +1,8 @@
 <template>
   <require from="../icons/menu/menuIcon"></require>
-  <div class="row sticky-top">
-    <nav class="navbar w-100 aff-mar-header">
-      <div class="menu-toggler" click.trigger="toggleSidebar()">
-        <menu-icon></menu-icon>
-      </div>
-    </nav>
+  <div class="row sticky-top p-2">
+    <div class="aff-sidebar-toggle-button" click.trigger="toggleSidebar()">
+      <menu-icon></menu-icon>
+    </div>
   </div>
 </template>
