@@ -1,0 +1,27 @@
+<template>
+  <require from="../../components/header/affHeader"></require>
+  <require from="../../components/about/about"></require>
+  <require from="../../components/becomePartner/becomePartner"></require>
+  <require from="../../components/sidebar/guest/affGuestSidebar"></require>
+  <div class="wrapper">
+    <aff-guest-sidebar
+      current.two-way="currentPage"
+      opened.one-way="isSidebarOpened">
+    </aff-guest-sidebar>
+    <div class="container-fluid content-wrapper">
+      <aff-header
+        opened.two-way="isSidebarOpened">
+      </aff-header>
+      <div class="row">
+        <div class="col px-0">
+          <about
+            if.bind="currentPage === 'About'">
+          </about>
+          <become-partner
+            if.bind="currentPage === 'Become-partner'">
+          </become-partner>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

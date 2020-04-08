@@ -1,4 +1,4 @@
-import "../../../assets/scss/becomePartner.scss"
+import "../../assets/scss/becomePartner.scss"
 import {HttpClient} from "aurelia-fetch-client";
 
 let httpClient = new HttpClient();

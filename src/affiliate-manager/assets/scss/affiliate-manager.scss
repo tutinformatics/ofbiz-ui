@@ -18,35 +18,6 @@ html, body {
   display: flex;
 }
 
-#sidebar {
-  z-index: 100;
-  height: 100%;
-  width: $sidebar-width;
-  min-width: $sidebar-width;
-  background: $secondary-dark;
-  color: $background-color;
-  transition: all 0.3s;
-}
-
-#sidebar.active {
-  margin-left: -$sidebar-width;
-}
-
-#sidebar ul li {
-  color: $background-color;
-  padding: 1em;
-  display: block;
-}
-
-.sidebar-navigation {
-  transition: 0.3s all;
-}
-
-.sidebar-navigation:hover {
-  background: $secondary-light;
-  cursor: pointer;
-}
-
 .menu-toggler {
   margin-top: 0;
   border-radius: 20px;
@@ -59,33 +30,10 @@ html, body {
   opacity: 0.5;
 }
 
-.avatar-wrapper {
-  background: $secondary-light;
-}
-
-.light-area {
-  background: transparent;
-  border: 0;
-}
-
-.user-picture {
-  border-radius: 60px;
-  max-width: 100px;
-}
-
 .content-wrapper{
   overflow-x: hidden;
 }
 
-@media only screen and (max-width: 600px) {
-  #sidebar {
-    width: 100%;
-    top: 50px;
-    position: absolute;
-    transition: all 0.3s;
-  }
-
-  #sidebar.active {
-    margin-left: -600px;
-  }
+.active {
+  color:red;
 }

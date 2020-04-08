@@ -1,0 +1,29 @@
+<template>
+  <require from="../../icons/info/infoIcon"></require>
+  <require from="../../icons/diamond/diamondIcon"></require>
+  <require from="../../icons/handshake/handshakeIcon"></require>
+  <require from="../general/affSidebarUserInfo"></require>
+  <nav class="aff-sidebar" class.bind="opened ? 'active' : ''">
+    <ul class="px-0">
+      <aff-sidebar-user-info></aff-sidebar-user-info>
+      <li class="aff-sidebar__menu-element"
+          class.bind="current === 'Become-partner'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Become-partner')">
+        <handshake-icon></handshake-icon>
+        <h6>Become Partner</h6>
+      </li>
+      <li class="aff-sidebar__menu-element"
+          class.bind="current === 'About'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('About')">
+        <info-icon></info-icon>
+        <h6>About</h6>
+      </li>
+      <li class="aff-sidebar__menu-element"
+          class.bind="current === 'Top-partners'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Top-partners')">
+        <diamond-icon></diamond-icon>
+        <h6>Top Partners</h6>
+      </li>
+    </ul>
+  </nav>
+</template>
