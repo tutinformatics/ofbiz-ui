@@ -1,4 +1,4 @@
-import './affGuest.scss';
+import '../general/affGeneral.scss';
 import { bindable } from 'aurelia-framework';
 
 export class AffGuest {

@@ -3,7 +3,7 @@ import '../containers/guest/affGuest.scss';
 export class AffManager {
 
   isGuest() {
-    return true;
+    return false;
   }
 
   isMember() {
@@ -11,7 +11,7 @@ export class AffManager {
   }
 
   isAdmin() {
-    return false;
+    return true;
   }
 
 }
