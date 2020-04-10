@@ -1,0 +1,44 @@
+<template>
+  <div class="container aff-all-affiliates">
+    <h3 class=" mt-5 aff-all-affiliates__main-header">Here you can find information about all affiliate partners</h3>
+    <div class="col aff-all-affiliates__search-container">
+
+      <div class="input-group my-4">
+        <select class="browser-default custom-select col-3" value.bind="selectedFilter">
+          <option model.bind=null>Choose</option>
+          <option repeat.for="key of allKeys"
+                  model.bind="key">
+            ${key}
+          </option>
+        </select>
+
+        <input type="text" class="form-control" placeholder="Enter filter text"
+               class="form-control" input.delegate="getFilteredValues($event.target.value)"/>
+      </div>
+
+      <div class="position-sticky">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date</th>
+            <th>Email</th>
+            <th>Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr repeat.for="user of filteredValues">
+            <td>${user.firstName}</td>
+            <td>${user.lastName}</td>
+            <td>${user.dateTimeCreated}</td>
+            <td><a href="mailto:${user.email}">${user.email}</a></td>
+            <td>${user.status}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</template>
