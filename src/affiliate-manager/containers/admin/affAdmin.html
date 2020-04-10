@@ -1,7 +1,7 @@
 <template>
   <require from="../../components/general/header/affHeader"></require>
   <require from="../../components/admin/sidebar/affAdminSidebar"></require>
-  <require from="../../components/admin/affiliates/affiliates"></require>
+  <require from="../../components/admin/affiliates/allAffiliates"></require>
   <div class="aff-content">
     <aff-admin-sidebar
       current.two-way="currentPage"
@@ -16,11 +16,11 @@
       </div>
       <div class="row">
         <div class="col px-0">
-          <affiliates
+          <all-affiliates
             if.bind="currentPage === 'Affiliates'">
-          </affiliates>
+          </all-affiliates>
           <approve
-            if.bind="currentPage === 'Approve-affiliates'">
+            if.bind="currentPage === 'Approve-allAffiliates'">
           </approve>
           <settings
             if.bind="currentPage === 'Global-settings'">
