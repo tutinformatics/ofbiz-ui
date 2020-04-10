@@ -9,6 +9,7 @@ h6 {
   height: 100%;
   width: $sidebar-width;
   min-width: $sidebar-width;
+  min-height: 100vh;
   background: $secondary-dark;
   color: $background-color;
   transition: all 0.6s;
