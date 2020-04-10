@@ -1,25 +1,30 @@
 <template>
   <require from="../../components/general/header/affHeader"></require>
-  <require from="../../components/general/about/about"></require>
-  <require from="../../components/guest/becomePartner/becomePartner"></require>
-  <require from="../../components/guest/sidebar/affGuestSidebar"></require>
+  <require from="../../components/admin/sidebar/affAdminSidebar"></require>
+  <require from="../../components/admin/affiliates/affiliates"></require>
   <div class="aff-content">
-    <aff-guest-sidebar
+    <aff-admin-sidebar
       current.two-way="currentPage"
       opened.one-way="isSidebarOpened">
-    </aff-guest-sidebar>
+    </aff-admin-sidebar>
     <div class="container-fluid aff-content__main-area">
-      <aff-header
+      <div class="row aff-content__manager-header">
+      <aff-header class="my-auto"
         opened.two-way="isSidebarOpened">
       </aff-header>
+        <i class="m-auto aff-content__header-text">${currentPage}</i>
+      </div>
       <div class="row">
         <div class="col px-0">
-          <about
-            if.bind="currentPage === 'About'">
-          </about>
-          <become-partner
-            if.bind="currentPage === 'Become-partner'">
-          </become-partner>
+          <affiliates
+            if.bind="currentPage === 'Affiliates'">
+          </affiliates>
+          <approve
+            if.bind="currentPage === 'Approve-affiliates'">
+          </approve>
+          <settings
+            if.bind="currentPage === 'Global-settings'">
+          </settings>
         </div>
       </div>
     </div>
