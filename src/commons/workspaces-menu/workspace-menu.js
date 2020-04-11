@@ -7,7 +7,8 @@ export class WorkspaceMenu {
 
   stringArray = [
       { name: 'My Workspace', color: 'blue', image: 'https://free-images.com/sm/cfd6/gesanghua_scenery_small_fresh.jpg', favorite: true},
-      { name: 'Workspace 1', color: 'red', image: 'https://www.macupdate.com/images/user_img/3002188', favorite: false}];
+      { name: 'Workspace 1', color: 'red', image: 'https://www.macupdate.com/images/user_img/3002188', favorite: false},
+      { name: 'Workspace 2', color: 'orange', image: '', favorite: true}];
 
 
   addToFavorites(element) {
@@ -19,8 +20,10 @@ export class WorkspaceMenu {
 
   }
 
-  print(string) {
-    console.log(string);
+  print() {
+    for (var i = 0; i < this.stringArray.length; i++) {
+      console.log(this.stringArray[i].name);
+    }
   }
 
   removeFromFavorites(element) {

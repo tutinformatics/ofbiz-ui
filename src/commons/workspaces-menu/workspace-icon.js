@@ -17,9 +17,9 @@ export class WorkspaceIcon {
 
   isFavorite() {
     if(this.favorite == "true" || this.favorite == true){
-      return true;
+      this.favorite = true;
     } else {
-      return false;
+      this.favorite = false;
     }
   }
 
@@ -32,7 +32,7 @@ export class WorkspaceIcon {
   }
 
   mouseOver() {
-    //this.isFavorite();
+    this.isFavorite();
   }
 
   mouseOut() {
