@@ -29,7 +29,4 @@ export class TaskList {
     this.taskService = taskService;
   }
 
-  handleArchiveOrder() {
-    this.router.navigate('/new-task');
-  }
 }
