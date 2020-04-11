@@ -14,10 +14,10 @@ export class TaskList {
     schema: {
       model: {
         fields: {
-          orderId: { type: 'number' },
-          totalCost: { type: 'number' },
-          dateOrdered: { type: 'date' },
-          dateArrived: { type: 'date' },
+          productName: { type: 'string' },
+          quantity: { type: 'number' },
+          itemPrice: { type: 'number' },
+          totalPrice: { type: 'number' },
           details: { type: 'string' },
         }
       }

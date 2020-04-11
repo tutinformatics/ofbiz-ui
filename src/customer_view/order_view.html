@@ -5,14 +5,16 @@
   <require from="aurelia-kendoui-bridge/common/template"></require>
 
   <div class="card">
-    <div class="card-header text-white bg-primary">Orders history</div>
+    <div class="card-header text-white bg-primary">Order details</div>
 
     <div class="card-body">
+      <h3>Cost: </h3>
+      <h3>Contains products:</h3>
       <ak-grid k-data-source.bind="datasource">
-        <ak-col k-title="Order id" k-field="orderId"></ak-col>
-        <ak-col k-title="Total cost €" k-field="totalCost"></ak-col>
-        <ak-col k-title="Date ordered" k-field="dateOrdered" k-format="{0:MM/dd/yyyy}"></ak-col>
-        <ak-col k-title="Date arrived" k-field="dateArrived" k-format="{0:MM/dd/yyyy}"></ak-col>
+        <ak-col k-title="Product name" k-field="productName"></ak-col>
+        <ak-col k-title="Quantity" k-field="quantity"></ak-col>
+        <ak-col k-title="Item price €" k-field="itemPrice"></ak-col>
+        <ak-col k-title="Total price €" k-field="totalPrice"></ak-col>
         <ak-col k-title="Details" k-field="details"></ak-col>
       </ak-grid>
     </div>
