@@ -1,0 +1,31 @@
+<template>
+  <require from="aurelia-kendoui-bridge/grid/grid"></require>
+  <require from="aurelia-kendoui-bridge/grid/col"></require>
+  <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
+  <require from="aurelia-kendoui-bridge/common/template"></require>
+
+  <div class="card">
+    <div class="card-header text-white bg-primary">Orders history</div>
+
+    <div class="card-body">
+      <ak-grid k-data-source.bind="datasource">
+        <ak-grid-toolbar>
+          <ak-template>
+            <button
+              class="btn btn-primary btn-lg float-right rounded-pill"
+              click.delegate="handleArchiveOrder()"
+            >
+              Archive order
+            </button>
+          </ak-template>
+        </ak-grid-toolbar>
+
+        <ak-col k-title="Order name" k-field="orderName"></ak-col>
+        <ak-col k-title="Total cost" k-field="totalCost"></ak-col>
+        <ak-col k-title="Date ordered" k-field="dateOrdered" k-format="{0:MM/dd/yyyy}"></ak-col>
+        <ak-col k-title="Date arrived" k-field="dateArrived" k-format="{0:MM/dd/yyyy}"></ak-col>
+        <ak-col k-title="Details" k-field="details"></ak-col>
+      </ak-grid>
+    </div>
+  </div>
+</template>
