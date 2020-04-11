@@ -14,7 +14,8 @@ export class App {
       { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' },
       { route: 'order-history', moduleId: PLATFORM.moduleName('customer_view/order_history'), name: 'order-history'},
       { route: 'active-orders', moduleId: PLATFORM.moduleName('customer_view/active_orders'), name: 'active-orders'},
-      { route: 'active-orders-list', moduleId: PLATFORM.moduleName('customer_view/active_orders_list'), name: 'active-orders-list' }
+      { route: 'active-orders-list', moduleId: PLATFORM.moduleName('customer_view/active_orders_list'), name: 'active-orders-list' },
+      { route: 'order-view', moduleId: PLATFORM.moduleName('customer_view/order_view'), name: 'order-view'}
     ]);
     this.router = router;
   }
