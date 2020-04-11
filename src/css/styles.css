@@ -1,3 +1,9 @@
+.dropdown-menu {
+  width: 266px;
+  background: linear-gradient(#744662, #dddddd);
+  background-color: #ababab !important;
+}
+
 .color-box div {
   display: inline-block;
   margin: 10px;
