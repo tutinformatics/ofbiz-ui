@@ -2,7 +2,7 @@ import './affAdmin.scss';
 import { bindable } from "aurelia-framework";
 
 export class AffAdmin {
-  @bindable currentPage = "Affiliates";
+  @bindable currentPage = "Global-settings";
   @bindable isSidebarOpened = false;
 
 }

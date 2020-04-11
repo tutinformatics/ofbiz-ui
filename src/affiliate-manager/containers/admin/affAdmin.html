@@ -2,6 +2,7 @@
   <require from="../../components/general/header/affHeader"></require>
   <require from="../../components/admin/sidebar/affAdminSidebar"></require>
   <require from="../../components/admin/affiliates/allAffiliates"></require>
+  <require from="../../components/admin/settings/globalSettings"></require>
   <div class="aff-content">
     <aff-admin-sidebar
       current.two-way="currentPage"
@@ -23,9 +24,9 @@
           <approve
             if.bind="currentPage === 'Approve-allAffiliates'">
           </approve>
-          <settings
+          <global-settings
             if.bind="currentPage === 'Global-settings'">
-          </settings>
+          </global-settings>
         </div>
       </div>
     </div>
