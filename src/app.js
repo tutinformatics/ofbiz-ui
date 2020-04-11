@@ -13,7 +13,8 @@ export class App {
       { route: 'object-dist/publisher', moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'), name: 'publisher' },
       { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' },
       { route: 'order-history', moduleId: PLATFORM.moduleName('customer_view/order_history'), name: 'order-history'},
-      { route: 'order-view', moduleId: PLATFORM.moduleName('customer_view/order_view'), name: 'order-view'}
+      { route: 'active-orders', moduleId: PLATFORM.moduleName('customer_view/active_orders'), name: 'active-orders'},
+      { route: 'active-orders-list', moduleId: PLATFORM.moduleName('customer_view/active_orders_list'), name: 'active-orders-list' }
     ]);
     this.router = router;
   }
