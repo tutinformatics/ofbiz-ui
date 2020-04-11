@@ -12,11 +12,8 @@ export class ObjectDist {
     let filter = {};
     let conditionCount = 1;
     for (let i = 0; i < queryArray.length; i++) {
-      if (typeof queryArray[i] == "object") {
-        filter[`condition${conditionCount}`] = JSON.stringify(queryArray[i]);
-      } else {
-        filter[`operator${conditionCount}`] = queryArray[i];
-      }
+      if (typeof queryArray[i] == "object") filter[`condition${conditionCount}`] = JSON.stringify(queryArray[i]);
+      else filter[`operator${conditionCount}`] = queryArray[i];
       conditionCount++;
     }
     console.log(JSON.stringify(filter));
