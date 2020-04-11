@@ -14,7 +14,7 @@ export class TaskList {
     schema: {
       model: {
         fields: {
-          orderName: { type: 'string' },
+          orderId: { type: 'number' },
           totalCost: { type: 'number' },
           dateOrdered: { type: 'date' },
           dateArrived: { type: 'date' },
@@ -22,7 +22,7 @@ export class TaskList {
         }
       }
     }
-  }
+  };
 
   constructor(router, taskService) {
     this.router = router;
