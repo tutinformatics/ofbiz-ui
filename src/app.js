@@ -6,7 +6,7 @@ export class App {
     config.options.pushState = true;
     config.options.root = '/';
     config.map([
-      { route: '', redirect: 'tasks' },
+      { route: '', redirect: 'customer-view' },
       { route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks' },
       { route: 'new-task', moduleId: PLATFORM.moduleName('task/task-edit'), name: 'new-task' },
       { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
