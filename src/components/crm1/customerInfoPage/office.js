@@ -1,4 +1,4 @@
-export class CrmOffice {
+export class Office {
   constructor() {
     this.firstName = 'John';
     this.lastName = 'Corona';

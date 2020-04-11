@@ -10,9 +10,8 @@ export class App {
       { route: 'workspaces',  moduleId: PLATFORM.moduleName('workspace/workspaces'), name: 'workspaces' },
       { route: 'kanban',  moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
       { route: 'kendo-grid',  moduleId: PLATFORM.moduleName('commons/kendo-grid-test/kendo-grid'), name: 'grid' },
-      { route: 'kendo-grid',  moduleId: PLATFORM.moduleName('commons/kendo-grid-test/kendo-grid'), name: 'grid' },
-      // { route: 'crm-office',  moduleId: PLATFORM.moduleName('components/crm-office/customerInfoPage/crm-office'), name: 'crm-office' },
-      { route: 'crm-office',  moduleId: PLATFORM.moduleName('components/crm-office/customerInfoPage/customerInfoPage'), name: 'customerInfoPage' },
+      { route: 'crm/office',  moduleId: PLATFORM.moduleName('components/crm1/customerInfoPage/customerInfoPage'), name: 'customerInfoPage' },
+      { route: 'crm/clients',  moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'), name: 'clientsView' },
     ]);
 
     this.router = router;
