@@ -8,8 +8,18 @@ export class ObjectDist {
 
   getRegex() {
     const querybuilder = document.querySelector('smart-query-builder');
-    let customOperations = querybuilder.getDynamicField;
-    console.log(customOperations);
+    let queryArray = querybuilder.value;
+    let filter = {};
+    let conditionCount = 1;
+    for (let i = 0; i < queryArray.length; i++) {
+      if (typeof queryArray[i] == "object") {
+        filter[`condition${conditionCount}`] = JSON.stringify(queryArray[i]);
+      } else {
+        filter[`operator${conditionCount}`] = queryArray[i];
+      }
+      conditionCount++;
+    }
+    console.log(JSON.stringify(filter));
   }
 
   generateVariables() {
