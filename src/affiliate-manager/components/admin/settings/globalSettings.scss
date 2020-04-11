@@ -1,0 +1,38 @@
+@import "src/affiliate-manager/assets/scss/variables";
+
+
+.aff-system-settings__line--straight {
+  width: 60%;
+  border: 1.5px solid #4C4A4A;
+}
+
+@media only screen and (max-width: 600px) {
+  .aff-system-settings__line--straight {
+    width: 100vw;
+    margin-left: -25px;
+    padding-left: -15px;
+  }
+}
+
+.aff-system-settings__pay-frequency {
+
+  width: 50vw;
+  text-align-last: center;
+
+  &:focus {
+    border-color: $primary-color-hover;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
+  }
+}
+
+.aff-system-settings__save-button {
+  width: 30vw;
+  background-color: $secondary-dark;
+  border: none;
+  &:hover{
+    background-color: $secondary-light;
+  }
+}
+
+
