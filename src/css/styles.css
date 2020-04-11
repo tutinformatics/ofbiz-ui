@@ -22,7 +22,3 @@
 button-icon {
   cursor: pointer
 }
-
-#queryBuilder {
-  --smart-query-builder-default-width: 96%;
-}
