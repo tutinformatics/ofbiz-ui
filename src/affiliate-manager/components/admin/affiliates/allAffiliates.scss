@@ -1,17 +1,18 @@
 @import "src/affiliate-manager/assets/scss/variables";
 
-.aff-all-affiliates{
+.aff-all-affiliates {
   text-align: center;
 }
 
-.aff-all-affiliates__filter--selector{
+.aff-all-affiliates__filter--selector {
   min-height: 50px;
 }
 
 .aff-all-affiliates__select--filter, .aff-all-affiliates__select--input {
-  &:focus{
+  &:focus {
     border-color: $primary-color-hover;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
   }
 }
+

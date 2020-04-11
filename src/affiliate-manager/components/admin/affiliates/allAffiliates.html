@@ -1,23 +1,26 @@
 <template>
+  <require from="../../general/icons/manage/manageIcon"></require>
+  <require from="../../general/icons/check/checkIcon"></require>
+  <require from="../../general/icons/cross/crossIcon"></require>
   <div class="container aff-all-affiliates">
     <h3 class=" mt-5 aff-all-affiliates__main-header">Here you can find information about all affiliate partners</h3>
     <div class="col aff-all-affiliates__search-container">
       <label for="selectFilter">Choose filter to search by and start the search</label>
       <div class="input-group my-4">
-        <select id="selectFilter" class=" custom-select col-3 aff-all-affiliates__select--filter" value.bind="selectedFilter">
+        <select id="selectFilter" class=" custom-select col-3 aff-all-affiliates__select--filter"
+                value.bind="selectedFilter">
           <option model.bind=null>Choose</option>
           <option class="option" repeat.for="key of allKeys"
                   model.bind="key">
             ${key}
           </option>
         </select>
-
         <input type="text" class="form-control aff-all-affiliates__select--input" placeholder="Enter filter text"
                class="form-control" input.delegate="getFilteredValues($event.target.value)"/>
       </div>
 
       <div>
-        <table class="table table-striped">
+        <table class="table table-striped aff-partner-table">
           <thead>
           <tr>
             <th>First name</th>
@@ -34,6 +37,21 @@
             <td>${user.dateTimeCreated}</td>
             <td><a href="mailto:${user.email}">${user.email}</a></td>
             <td>${user.status}</td>
+            <td class="aff-partner-table__mange-icon-container">
+              <manage-icon if.bind="user.status === 'approved'" class="aff-partner-table__mange-icon" click.trigger="navigateTo('Global-settings')"></manage-icon>
+              <check-icon if.bind="user.status === 'pending'"></check-icon>
+              <cross-icon if.bind="user.status === 'pending'"></cross-icon>
+            </td>
+            <all-affiliates
+              modifyUser.two-way="currentPage"
+              if.bind="currentPage === 'Affiliates'">
+            </all-affiliates>
+            <approve
+              if.bind="currentPage === 'Approve-allAffiliates'">
+            </approve>
+            <settings
+              if.bind="currentPage === 'Global-settings'">
+            </settings>
           </tr>
           </tbody>
         </table>

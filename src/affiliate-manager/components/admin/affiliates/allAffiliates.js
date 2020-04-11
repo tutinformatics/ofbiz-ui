@@ -1,8 +1,10 @@
 import "./allAffiliates.scss"
-import {bindable} from "aurelia-templating";
+import { bindable } from 'aurelia-framework';
 
 export class allAffiliates {
   @bindable selectedFilter;
+  @bindable modifyUser;
+
   filteredValues = [];
   affiliatePartners;
   allKeys;
@@ -35,6 +37,10 @@ export class allAffiliates {
   getFilteredValues(filterInput) {
     this.filteredValues = this.selectedFilter == null || filterInput === "" ?
       this.affiliatePartners.slice() : this.filteredValues.filter(partner => String(partner[this.selectedFilter]).toLowerCase().startsWith(filterInput.toLowerCase()));
+  }
+
+  navigateTo(navigateNext) {
+    this.modifyUser = navigateNext;
   }
 
 
