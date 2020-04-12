@@ -22,4 +22,9 @@ export class ProjectList {
   handleAddProject() {
     this.router.navigate('/new-project');
   }
+
+  goToProjectView(event, projectId) {
+    event.preventDefault();
+    this.router.navigate(`projects/${projectId}`);
+  }
 }

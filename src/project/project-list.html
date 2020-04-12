@@ -19,12 +19,17 @@
             </button>
           </ak-template>
         </ak-grid-toolbar>
+        <ak-col k-title="Project ID" k-field="projectId">
+          <ak-template>
+            <a href="" click.delegate="goToProjectView($event, projectId)">${projectId}</a>
+          </ak-template>
+        </ak-col>
         <ak-col k-title="Project Name" k-field="projectName"></ak-col>
         <ak-col k-title="Project Status ID" k-field="currentStatusId">
           <ak-template>
-                        <span class="badge badge-pill ${currentStatusId | statusBadge}">
-                            ${currentStatusId | status}
-                        </span>
+            <span class="badge badge-pill ${currentStatusId | statusBadge}">
+              ${currentStatusId | status}
+            </span>
           </ak-template>
         </ak-col>
       </ak-grid>
