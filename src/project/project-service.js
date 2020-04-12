@@ -1,4 +1,4 @@
-import {inject} from "aurelia-dependency-injection";
+import {inject} from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
@@ -14,7 +14,10 @@ export class ProjectService {
       .fetch(`${this.baseUrl}/project-list`)
       .then(res => res.json())
       .then(res => res.projectList)
-      .catch(error => console.log(error)); // TODO: improve error handling
+      .catch(error => {
+      /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error(error);
+      }); // TODO: improve error handling
   }
 
   createProject(project) {
@@ -24,6 +27,9 @@ export class ProjectService {
         method: 'post',
         body: body
       })
-      .catch(error => console.log(error)); // TODO: improve error handling
+      .catch(error => {
+      /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error(error);
+      }); // TODO: improve error handling
   }
 }

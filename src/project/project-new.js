@@ -22,14 +22,14 @@ export class ProjectEditComponent {
       text: 'General, public access',
       value: 'PROVIDER_MANAGER'
     },
-      {
-        text: 'Restricted, private access',
-        value: 'PROVIDER_MANAGER'
-      },
-      {
-        text: 'Very restricted, confidential access',
-        value: 'WES_CONFIDENTIAL'
-      }];
+    {
+      text: 'Restricted, private access',
+      value: 'PROVIDER_MANAGER'
+    },
+    {
+      text: 'Very restricted, confidential access',
+      value: 'WES_CONFIDENTIAL'
+    }];
   }
 
   get canSave() {
@@ -44,7 +44,4 @@ export class ProjectEditComponent {
   handleBack() {
     this.router.navigateBack();
   }
-
-
-
 }

@@ -7,7 +7,7 @@ export class TaskList {
   datasource = {
     transport: {
       read: (options) => {
-        this.taskService.getProjectTaskList({ projectId: '9000' }) // TODO: projectId should not be hard-coded
+        this.taskService.getProjectTaskList({ projectId: this.projectId })
           .then(tasks => options.success(tasks));
       }
     },
@@ -32,6 +32,10 @@ export class TaskList {
   constructor(router, taskService) {
     this.router = router;
     this.taskService = taskService;
+  }
+
+  activate(params) {
+    this.projectId = params.id;
   }
 
   handleAddTask() {
