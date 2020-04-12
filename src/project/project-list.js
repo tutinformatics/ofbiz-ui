@@ -1,6 +1,6 @@
-import {inject} from "aurelia-dependency-injection";
-import {Router} from "aurelia-router";
-import {ProjectService} from "./project-service";
+import {inject} from 'aurelia-dependency-injection';
+import {Router} from 'aurelia-router';
+import {ProjectService} from './project-service';
 
 
 @inject(Router, ProjectService)
