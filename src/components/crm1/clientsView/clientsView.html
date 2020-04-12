@@ -1,3 +1,17 @@
 <template>
+  <div class="container">
 
+    <div class="d-flex justify-content-around flex-wrap">
+      <div repeat.for="contact of contacts" >
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../img/avatar.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${contact.firstName} ${contact.lastName}</h5>
+            <h5 class="card-title">Works For: ${contact.companyName}</h5>
+            <a href="#" class="btn btn-primary">Detail Information</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

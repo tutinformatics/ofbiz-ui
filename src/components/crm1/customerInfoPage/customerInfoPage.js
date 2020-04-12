@@ -1,22 +1,21 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
-import {HttpClient} from 'aurelia-http-client';
-import {Person} from './person';
 
-@inject(EventAggregator)
+@inject(EventAggregator, HttpClientCRM)
 export class CustomerInfoPage {
-  httpClient = new HttpClient();
 
-  constructor(ea) {
+  constructor(ea, http) {
     this.ea = ea;
+    this.http = http.http;
   }
 
-  activate() {
+  attached() {
    this.getAllContacts()
   }
 
   getAllContacts() {
-    this.httpClient.createRequest('http://localhost:7463/api/contact')
+    let response = this.http.createRequest('contact')
       .asGet()
       .send()
       .then(response => {
@@ -38,8 +37,8 @@ export class CustomerInfoPage {
           this.position = resJson[1].roleTypeId;
           this.companyAddress = resJson[1].address2;
           this.addressIndex = resJson[1].postalCode;
+          return resJson[0];
         }
-      )
-     ;
+      );
   }
 }
