@@ -1,20 +1,13 @@
 import '../../../assets/scss/sidebar.scss';
 import { bindable } from 'aurelia-framework';
 
-export class AffAdminSidebar {
+export class AffMemberSidebar {
 
   @bindable current;
-
-  AffAdminSidebar() {
-    this.opened = true;
-  }
+  @bindable opened;
 
   navigateTo(navigateNext) {
     this.current = navigateNext;
-  }
-
-  slide() {
-    this.opened = !this.opened;
   }
 
 }

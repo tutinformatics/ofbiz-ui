@@ -7,11 +7,11 @@ html, body {
   overflow-x: hidden;
 }
 
-.aff-content{
-  height: 100%;
-  display: flex;
-}
-
-.aff-content__main-area{
-  overflow-x: hidden;
+.aff-sidebar-area {
+  z-index: 2;
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+  max-width: $sidebar-width;
+  min-width: $sidebar-width;
 }

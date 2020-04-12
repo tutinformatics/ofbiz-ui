@@ -3,27 +3,47 @@
   <require from="../../general/icons/approve/approveIcon"></require>
   <require from="../../general/icons/addressBook/addressBookIcon"></require>
   <require from="../../general/sidebar/sidebarUserInfo/affSidebarUserInfo"></require>
-  <nav class="aff-sidebar" class.bind="opened ? 'active' : ''">
-    <ul class="px-0">
-      <aff-sidebar-user-info></aff-sidebar-user-info>
-      <li class="aff-sidebar__menu-element"
+  <require from="../../general/icons/menu/menuIcon"></require>
+  <require from="../../general/icons/affIcon"></require>
+  <div class="row h-100 flex-nowrap">
+    <div class="col-10 aff-sidebar-container px-0" class.bind="opened? 'aff-sidebar-container--closed': ''">
+      <div class="row w-100 aff-sidebar mx-0">
+        <div class="col aff-sidebar__col aff-sidebar__col--user-info">
+          <aff-sidebar-user-info></aff-sidebar-user-info>
+        </div>
+        <div
+          class="col aff-sidebar__col"
           class.bind="current === 'Affiliates'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Affiliates')">
-        <address-book-icon></address-book-icon>
-        <h6>Affiliates</h6>
-      </li>
-      <li class="aff-sidebar__menu-element"
+          <aff-icon
+            icon-label.bind="`Affiliates`">
+            <address-book-icon></address-book-icon>
+          </aff-icon>
+        </div>
+        <div
+          class="col aff-sidebar__col"
           class.bind="current === 'Approve-affiliates'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Approve-affiliates')">
-        <approve-icon></approve-icon>
-        <h6>Approve</h6>
-      </li>
-      <li class="aff-sidebar__menu-element"
+          <aff-icon
+            icon-label.bind="`Approve`">
+            <approve-icon></approve-icon>
+          </aff-icon>
+        </div>
+        <div
+          class="col aff-sidebar__col"
           class.bind="current === 'Global-settings'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Global-settings')">
-        <settings-icon></settings-icon>
-        <h6>Global Settings</h6>
-      </li>
-    </ul>
-  </nav>
+          <aff-icon
+            icon-label.bind="`Global Settings`">
+            <settings-icon></settings-icon>
+          </aff-icon>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 m-3 aff-sidebar__invoke-button">
+      <aff-icon click.trigger="slide()">
+        <menu-icon></menu-icon>
+      </aff-icon>
+    </div>
+  </div>
 </template>

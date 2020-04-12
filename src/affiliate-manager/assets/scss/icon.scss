@@ -1,23 +1,17 @@
-@import "src/affiliate-manager/assets/scss/variables";
+@import "./variables";
+@import "src/affiliate-manager/assets/scss/utils";
 
-.aff-icon {
-  width: 50px;
-  height: auto;
-  color: white;
-  margin-left: 8px;
-  margin-right: 20px;
-  outline: 0 !important;
-  background: transparent;
-  border: none;
-  display: inline-block;
+.aff-icon__label {
+  @extend %flex-vertically-align
 }
 
-.aff-icon__content {
-  background-color: transparent;
-  height: 50px;
-  width: 50px;
+.aff-icon__svg-icon {
+  @extend %flex-vertically-align
 }
 
+.aff-icon__svg-picture {
+  width: 42px;
+}
 
 .aff-icon--manage-user, .aff-icon--user-approve {
   border-radius: 20px;

@@ -1,29 +1,35 @@
 <template>
   <require from="../../general/icons/info/infoIcon"></require>
-  <require from="../../general/icons/diamond/diamondIcon"></require>
   <require from="../../general/icons/handshake/handshakeIcon"></require>
-  <require from="../../general/sidebar/sidebarUserInfo/affSidebarUserInfo"></require>
-  <nav class="aff-sidebar" class.bind="opened ? 'active' : ''">
-    <ul class="px-0">
-      <aff-sidebar-user-info></aff-sidebar-user-info>
-      <li class="aff-sidebar__menu-element"
+  <require from="../../general/icons/affIcon"></require>
+  <require from="../../general/icons/menu/menuIcon"></require>
+  <div class="row h-100 flex-nowrap">
+    <div class="col-10 aff-sidebar-container px-0" class.bind="opened? 'aff-sidebar-container--closed': ''">
+      <div class="row w-100 aff-sidebar mx-0">
+        <div
+          class="col aff-sidebar__col"
           class.bind="current === 'Become-partner'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Become-partner')">
-        <handshake-icon></handshake-icon>
-        <h6>Become Partner</h6>
-      </li>
-      <li class="aff-sidebar__menu-element"
-          class.bind="current === 'About'? 'aff-sidebar__menu-element--active' : ''"
+          <aff-icon
+            icon-label.bind="`Become Partner`">
+            <handshake-icon></handshake-icon>
+          </aff-icon>
+        </div>
+        <div
+          class="col aff-sidebar__col"
+          class.bind="current === 'About'? 'aff-sidebar__col--active' : ''"
           click.trigger="navigateTo('About')">
-        <info-icon></info-icon>
-        <h6>About</h6>
-      </li>
-      <li class="aff-sidebar__menu-element"
-          class.bind="current === 'Top-partners'? 'aff-sidebar__menu-element--active' : ''"
-          click.trigger="navigateTo('Top-partners')">
-        <diamond-icon></diamond-icon>
-        <h6>Top Partners</h6>
-      </li>
-    </ul>
-  </nav>
+          <aff-icon
+            icon-label.bind="`Info`">
+            <info-icon></info-icon>
+          </aff-icon>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 m-3 aff-sidebar__invoke-button">
+      <aff-icon click.trigger="slide()">
+        <menu-icon></menu-icon>
+      </aff-icon>
+    </div>
+  </div>
 </template>

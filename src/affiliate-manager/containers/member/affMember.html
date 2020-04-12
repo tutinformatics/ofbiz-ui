@@ -1,1 +1,22 @@
-<template></template>
+<template>
+  <require from="../../components/general/header/affHeader"></require>
+  <require from="../../components/member/sidebar/affMemberSidebar"></require>
+  <div class="aff-content">
+    <aff-member-sidebar
+      current.two-way="currentPage"
+      opened.one-way="isSidebarOpened">
+    </aff-member-sidebar>
+    <div class="container-fluid aff-content__main-area">
+      <div class="row aff-content__manager-header">
+        <aff-header class="my-auto"
+                    opened.two-way="isSidebarOpened">
+        </aff-header>
+        <i class="m-auto aff-content__header-text">${currentPage}</i>
+      </div>
+      <div class="row">
+        <div class="col px-0">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -7,6 +7,12 @@ html, body {
   overflow-x: hidden;
 }
 
+.aff-content__manager-header{
+  background: $primary-color;
+  padding-left: 20px;
+  height: 50px;
+}
+
 .aff-content {
   height: 100%;
   display: flex;

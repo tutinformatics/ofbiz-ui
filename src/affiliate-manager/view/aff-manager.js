@@ -1,5 +1,3 @@
-import '../containers/guest/affGuest.scss';
-
 export class AffManager {
 
   isGuest() {
@@ -11,7 +9,7 @@ export class AffManager {
   }
 
   isAdmin() {
-    return true;
+      return true;
   }
 
 }

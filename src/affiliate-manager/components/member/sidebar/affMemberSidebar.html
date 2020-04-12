@@ -1,0 +1,30 @@
+<template>
+  <require from="../../general/icons/cogs/settingsIcon"></require>
+  <require from="../../general/icons/holding-usd/holdingUsdIcon"></require>
+  <require from="../../general/icons/addressBook/addressBookIcon"></require>
+  <require from="../../general/sidebar/sidebarUserInfo/affSidebarUserInfo"></require>
+  <nav
+    class="aff-sidebar" class.bind="opened ? 'active' : ''">
+    <ul class="px-0">
+
+      <li class="aff-sidebar__menu-element"
+          class.bind="current === 'Affiliates'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Affiliates')">
+        <holding-usd-icon class="mr-4"></holding-usd-icon>
+        <h6>Affiliates</h6>
+      </li>
+      <li class="aff-sidebar__menu-element"
+          class.bind="current === 'Affiliates'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Affiliates')">
+        <address-book-icon></address-book-icon>
+        <h6>Affiliates</h6>
+      </li>
+      <li class="aff-sidebar__menu-element"
+          class.bind="current === 'Global-settings'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Global-settings')">
+        <settings-icon></settings-icon>
+        <h6>Global Settings</h6>
+      </li>
+    </ul>
+  </nav>
+</template>
