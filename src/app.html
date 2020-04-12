@@ -1,6 +1,8 @@
 <template>
     <require from="./css/styles.css"></require>
     <require from="./commons/navbar-searchbar/navbar-searchbar"></require>
+    <require from="nav-menu.html"></require>
     <navbar-searchbar></navbar-searchbar>
-    <router-view class=""></router-view>
+  <nav-menu router.bind="router"></nav-menu>
+  <router-view class=""></router-view>
 </template>
