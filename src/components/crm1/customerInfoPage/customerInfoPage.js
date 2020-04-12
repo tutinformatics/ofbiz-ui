@@ -19,24 +19,23 @@ export class CustomerInfoPage {
   }
 
   async getContact(id) {
-    console.log('test' + id)
-    let response = await this.http.createRequest('contact')
+    let response = await this.http.createRequest(`contact/${id}`)
       .asGet()
       .send()
       .then(response => {
         let resJson = JSON.parse(response.response);
-        this.firstName = resJson[id].firstName;
-        this.lastName = resJson[id].lastName;
-        this.email = resJson[id].emailAddress;
-        this.phoneNumber = resJson[id].phoneNumber;
-        this.companyName = resJson[id].companyName;
-        this.position = resJson[id].roleTypeId;
+        this.firstName = resJson.firstName;
+        this.lastName = resJson.lastName;
+        this.email = resJson.emailAddress;
+        this.phoneNumber = resJson.phoneNumber;
+        this.companyName = resJson.companyName;
+        this.position = resJson.roleTypeId;
         //   resJson[0].postalCode))
-        this.companyAddress = resJson[id].address2;
-        this.addressIndex = resJson[id].postalCode;
-        console.log(resJson[id])
+        this.companyAddress = resJson.address2;
+        this.addressIndex = resJson.postalCode;
+        console.log(resJson.lastName)
 
-        return resJson[id];
+        return resJson;
         }
       );
     console.log(response)

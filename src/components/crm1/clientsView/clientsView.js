@@ -23,7 +23,7 @@ export class ClientsView {
       .send()
       .then(response => {
           let resJson = JSON.parse(response.response);
-          for (let i = 0; i < 6; i++) {
+          for (let i = 0; i < resJson.length; i++) {
             let contact = new Contact(
               resJson[i].firstName,
               resJson[i].lastName,
@@ -50,10 +50,10 @@ export class ClientsView {
         .asPost()
         .withContent(JSON.stringify(contact))
         .send()
-        .then(response => console.log(response))
+        .then(() => this.contacts.push(contact))
         .catch(error => console.log(error));
     }
-    console.log(contact)
+
   }
 }
 
