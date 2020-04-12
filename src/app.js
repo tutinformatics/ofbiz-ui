@@ -11,7 +11,10 @@ export class App {
       { route: 'new-task', moduleId: PLATFORM.moduleName('task/task-edit'), name: 'new-task' },
       { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
       { route: 'object-dist/publisher', moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'), name: 'publisher' },
-      { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' }
+      { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' },
+      { route: 'crm/agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
+      { route: 'crm/pipeline', moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'), name: 'pipeline' },
+      { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities' },
     ]);
     this.router = router;
   }
