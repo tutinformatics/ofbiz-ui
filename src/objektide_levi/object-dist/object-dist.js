@@ -1,8 +1,30 @@
-import {HttpClient} from "aurelia-fetch-client";
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 export class ObjectDist {
 
+  httpClient;
+
   constructor() {
+
+    httpClient.configure(config => {
+      config
+        .useStandardConfiguration()
+        .withBaseUrl('api/')
+        .withDefaults({
+          credentials: 'same-origin',
+          headers: {
+            'X-Requested-With': 'Fetch'
+          }
+        })
+        .withInterceptor({
+          request(request) {
+            let authHeader = "object-dist-auth-header";
+            request.headers.append('Authorization', authHeader);
+            return request;
+          }
+        });
+    });
+
     this.generateVariables();
   }
 
@@ -35,31 +57,15 @@ export class ObjectDist {
     }
   }
 
-  fetchData() {
-    let httpClient = new HttpClient();
-    httpClient.configure(config => {
-      config
-        .withBaseUrl('api/')
-        .withDefaults({
-          credentials: 'same-origin',
-          headers: {
-            'Accept': 'application/json',
-            'X-Requested-With': 'Fetch'
-          }
-        })
-        .withInterceptor({
-          request(request) {
-            console.log(`Requesting ${request.method} ${request.url}`);
-            return request;
-          },
-          response(response) {
-            console.log(`Received ${response.status} ${response.url}`);
-            return response;
-          }
-        });
-    });
+  getRequest() {
   }
 
+  postRequest(filterString) {
+    this.httpClient.fetch("comments", {
+      method: "post",
+      body: filterString
+    })
+  }
 
   generateKey() {
     console.log("Key Generated");  // TODO: ADD KEY GENERATION FOR PUBLISHER
