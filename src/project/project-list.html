@@ -1,0 +1,33 @@
+<template>
+  <require from="aurelia-kendoui-bridge/grid/grid"></require>
+  <require from="aurelia-kendoui-bridge/grid/col"></require>
+  <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
+  <require from="aurelia-kendoui-bridge/common/template"></require>
+
+  <div class="card">
+    <div class="card-header text-white bg-primary">Project Dashboard</div>
+
+    <div class="card-body">
+      <ak-grid k-data-source.bind="datasource">
+        <ak-grid-toolbar>
+          <ak-template>
+            <button
+              class="btn btn-primary btn-lg float-right rounded-pill"
+              click.delegate="handleAddTask()"
+            >
+              Create Project
+            </button>
+          </ak-template>
+        </ak-grid-toolbar>
+        <ak-col k-title="Project Name" k-field="projectName"></ak-col>
+        <ak-col k-title="Project Status ID" k-field="currentStatusId">
+          <ak-template>
+                        <span class="badge badge-pill ${currentStatusId | statusBadge}">
+                            ${currentStatusId | status}
+                        </span>
+          </ak-template>
+        </ak-col>
+      </ak-grid>
+    </div>
+  </div>
+</template>
