@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:alpine as production-stage
 
 ## Copy our default deploy config
-COPY config/* /etc/nginx/conf.d/
+COPY deploy/nginx/* /etc/nginx/conf.d/
 
 ## Remove default deploy website
 SHELL ["/bin/bash", "-c", "rm -rf /usr/share/nginx/html/"]
