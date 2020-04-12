@@ -1,4 +1,4 @@
-import { PLATFORM } from 'aurelia-pal';
+import {PLATFORM} from 'aurelia-pal';
 
 export class App {
   configureRouter(config, router) {
@@ -6,17 +6,30 @@ export class App {
     config.options.pushState = true;
     config.options.root = '/';
     config.map([
-      { route: '', redirect: 'tasks' },
-      { route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks' },
-      { route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task' },
-      { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
+      {route: '', redirect: 'tasks'},
+      {route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks'},
+      {route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task'},
+      {route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban'},
       {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager'),
       },
-      { route: 'object-dist/publisher', moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'), name: 'publisher' },
-      { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' }
+      {
+        route: 'affiliate-manager/aff-partner/:email?',
+        name: 'aff-partner',
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-partner/manage-aff-partner')
+      },
+      {
+        route: 'object-dist/publisher',
+        moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'),
+        name: 'publisher'
+      },
+      {
+        route: 'object-dist',
+        moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
+        name: 'object-dist'
+      }
     ]);
     this.router = router;
   }

@@ -1,6 +1,9 @@
 import "./allAffiliates.scss"
 import { bindable } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+import { inject } from 'aurelia-framework'
 
+@inject(Router)
 export class allAffiliates {
   @bindable selectedFilter;
   @bindable modifyUser;
@@ -10,7 +13,8 @@ export class allAffiliates {
   allKeys;
 
 
-  constructor() {
+  constructor(router) {
+    this.router = router;
     this.affiliatePartners = [{
       "firstName": "Nikita",
       "lastName": "Ojamae",
@@ -39,8 +43,8 @@ export class allAffiliates {
       this.affiliatePartners.slice() : this.filteredValues.filter(partner => String(partner[this.selectedFilter]).toLowerCase().startsWith(filterInput.toLowerCase()));
   }
 
-  navigateTo(navigateNext) {
-    this.modifyUser = navigateNext;
+  managePartner(userEmail) {
+    this.router.navigateToRoute('aff-partner', {"email": userEmail})
   }
 
 

@@ -37,7 +37,7 @@
             <td><a href="mailto:${user.email}">${user.email}</a></td>
             <td>${user.status}</td>
             <td class="aff-partner-table__mange-icon-container">
-              <manage-icon class="aff-partner-table__mange-icon" click.trigger="navigateTo('Global-settings')"></manage-icon>
+              <manage-icon class="aff-partner-table__mange-icon" click.trigger="managePartner(user.email)"></manage-icon>
             </td>
             <all-affiliates
               modifyUser.two-way="currentPage"
