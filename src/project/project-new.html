@@ -1,0 +1,122 @@
+<template>
+  <require from="aurelia-kendoui-bridge/numerictextbox/numerictextbox"></require>
+  <require from="aurelia-kendoui-bridge/datepicker/datepicker"></require>
+  <require from="aurelia-kendoui-bridge/dropdownlist/dropdownlist"></require>
+
+  <div class="card mx-auto" style="width: 60vw;">
+    <div class="card-header text-white bg-primary">New Project</div>
+
+    <div class="card-body">
+      <form role="form">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Project Name</label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              placeholder="Enter Project Name"
+              class="form-control"
+              value.bind="project.workEffortName"
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Description</label>
+          <div class="col-md-9">
+            <textarea class="form-control" rows="5" value.bind="project.description"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Client Billing Party ID</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" value.bind="project.clientBillingPartyId">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Organization Party ID</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" value.bind="project.organizationPartyId">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Priority</label>
+          <div class="col-md-9">
+            <input
+              type="number"
+              ak-numerictextbox="k-value.two-way: project.priority; k-min.bind:1; k-max.bind:9; k-step.bind:1"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Scope</label>
+          <div class="col-md-9">
+            <ak-drop-down-list
+              k-data-text-field="text"
+              k-data-value-field="value"
+              k-data-source.bind="scopeList"
+              k-value.two-way="project.scopeEnumId"
+              style="width: 100%;"
+            >
+            </ak-drop-down-list>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Parent Project Name</label>
+          <div class="col-md-9">
+            <ak-drop-down-list
+              k-data-text-field="text"
+              k-data-value-field="value"
+              k-data-source.bind="parentProjectList"
+              k-value.two-way="project.workEffortParentId"
+              style="width: 100%;"
+            >
+            </ak-drop-down-list>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Estimated Start Date</label>
+          <div class="col-md-9">
+            <input ak-datepicker="k-value.two-way: project.estimatedStartDate"/>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Estimated Completion Date</label>
+          <div class="col-md-9">
+            <input ak-datepicker="k-value.two-way: project.estimatedCompletionDate" />
+          </div>
+        </div>
+      </form>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label">Mailing List E-mail</label>
+        <div class="col-md-9">
+          <input type="email" class="form-control" value.bind="project.emailAddress">
+        </div>
+      </div>
+
+      <div>
+        <button
+          class="btn btn-primary btn-lg float-right rounded-pill"
+          click.delegate="addProject()"
+          disabled.bind="!canSave"
+        >
+          Create Project
+        </button>
+
+        <button
+          class="btn btn-secondary btn-lg float-left rounded-pill"
+          click.delegate="handleBack()"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
