@@ -2,8 +2,8 @@
   <require from="../../general/icons/check/checkIcon"></require>
   <require from="../../general/icons/cross/crossIcon"></require>
   <div class="m-5 text-center">
-    <h3 class=" my-5 aff-all-affiliates__main-header">Approve or disapprove candidates for affiliate partnership</h3>
-    <table class="mx-4 table table-striped aff-partner-table">
+    <h3 class=" my-5">Approve or disapprove candidates for affiliate partnership</h3>
+    <table class="mx-4 table table-striped aff-candidate-table">
       <thead>
       <tr>
         <th>First name</th>
@@ -23,19 +23,9 @@
           <check-icon></check-icon>
           <cross-icon></cross-icon>
         </td>
-        <all-affiliates
-          modifyUser.two-way="currentPage"
-          if.bind="currentPage === 'Affiliates'">
-        </all-affiliates>
-        <approve
-          if.bind="currentPage === 'Approve-allAffiliates'">
-        </approve>
-        <settings
-          if.bind="currentPage === 'Global-settings'">
-        </settings>
       </tr>
       </tbody>
     </table>
-
+    <button class="my-4 mx-auto btn aff-system__button--main">Decision history</button>
   </div>
 </template>
