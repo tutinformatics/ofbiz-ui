@@ -6,7 +6,7 @@ export class StatusBadgeValueConverter {
     case 'PTS_CREATED':
       return 'badge-secondary';
     default:
-      return 'badge-secondary';
+      return 'badge-light';
     }
   }
 }

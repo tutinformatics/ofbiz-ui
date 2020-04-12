@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
-import { SearchUtils } from '../commons/util/search-utils';
+import { SearchUtils } from '../../commons/util/search-utils';
 
 @inject(HttpClient)
 export class TaskService {
