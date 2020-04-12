@@ -1,5 +1,5 @@
-export class Person {
-  constructor(firstName, lastName, emailAddress, phoneNumber, companyName, position, companyAddress, addressIndex) {
+export class Contact {
+  constructor(firstName, lastName, emailAddress, phoneNumber, companyName, position, companyAddress, addressIndex, partyId) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = emailAddress;
@@ -8,5 +8,6 @@ export class Person {
     this.position = position;
     this.companyAddress = companyAddress;
     this.addressIndex = addressIndex;
+    this.partyId = partyId;
   }
 }

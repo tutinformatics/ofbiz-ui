@@ -8,37 +8,38 @@ export class CustomerInfoPage {
   constructor(ea, http) {
     this.ea = ea;
     this.http = http.http;
+    // this.ea.subscribe("clientId", async id => {
+    //   console.log('subscribe')
+    //   await this.getContact(id)
+    // })
   }
 
-  attached() {
-   this.getAllContacts()
+  activate (parms) {
+    this.getContact(parms.id)
   }
 
-  getAllContacts() {
-    let response = this.http.createRequest('contact')
+  async getContact(id) {
+    console.log('test' + id)
+    let response = await this.http.createRequest('contact')
       .asGet()
       .send()
       .then(response => {
-          let resJson = JSON.parse(response.response);
-          // this.ea.publish(new Person(
-        //   resJson[0].firstName,
-        //   resJson[0].lastName,
-        //   resJson[0].emailAddress,
-        //   resJson[0].phoneNumber,
-        //   resJson[0].companyName,
-        //   "test",
-        //   resJson[0].address2,
+        let resJson = JSON.parse(response.response);
+        this.firstName = resJson[id].firstName;
+        this.lastName = resJson[id].lastName;
+        this.email = resJson[id].emailAddress;
+        this.phoneNumber = resJson[id].phoneNumber;
+        this.companyName = resJson[id].companyName;
+        this.position = resJson[id].roleTypeId;
         //   resJson[0].postalCode))
-          this.firstName = resJson[1].firstName;
-          this.lastName = resJson[1].lastName;
-          this.email = resJson[1].emailAddress;
-          this.phoneNumber = resJson[1].phoneNumber;
-          this.companyName = resJson[1].companyName;
-          this.position = resJson[1].roleTypeId;
-          this.companyAddress = resJson[1].address2;
-          this.addressIndex = resJson[1].postalCode;
-          return resJson[0];
+        this.companyAddress = resJson[id].address2;
+        this.addressIndex = resJson[id].postalCode;
+        console.log(resJson[id])
+
+        return resJson[id];
         }
       );
+    console.log(response)
   }
+
 }
