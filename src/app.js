@@ -15,7 +15,8 @@ export class App {
       { route: 'crm/agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
       { route: 'crm/pipeline', moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'), name: 'pipeline' },
       { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities' },
-      { route: 'project', moduleId: PLATFORM.moduleName('project/project-list'), name: 'project', title:'Projects'}
+      { route: 'projects', moduleId: PLATFORM.moduleName('project/project-list'), name: 'projects', title:'Projects'},
+      { route: 'new-project', moduleId: PLATFORM.moduleName('project/project-new'), name: 'newProject', title:'Create Project'}
     ]);
     this.router = router;
   }

@@ -14,5 +14,16 @@ export class ProjectService {
       .fetch(`${this.baseUrl}/project-list`)
       .then(res => res.json())
       .then(res => res.projectList)
+      .catch(error => console.log(error)); // TODO: improve error handling
+  }
+
+  createProject(project) {
+    const body = json(project);
+    return this.httpClient
+      .fetch(`${this.baseUrl}/new-project`, {
+        method: 'post',
+        body: body
+      })
+      .catch(error => console.log(error)); // TODO: improve error handling
   }
 }
