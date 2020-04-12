@@ -1,0 +1,41 @@
+<template>
+  <require from="../../general/icons/check/checkIcon"></require>
+  <require from="../../general/icons/cross/crossIcon"></require>
+  <div class="m-5 text-center">
+    <h3 class=" my-5 aff-all-affiliates__main-header">Approve or disapprove candidates for affiliate partnership</h3>
+    <table class="mx-4 table table-striped aff-partner-table">
+      <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="user of affCandidates">
+        <td>${user.firstName}</td>
+        <td>${user.lastName}</td>
+        <td>${user.dateTimeCreated}</td>
+        <td><a href="mailto:${user.email}">${user.email}</a></td>
+        <td>${user.status}</td>
+        <td class="aff-partner-table__mange-icon-container">
+          <check-icon></check-icon>
+          <cross-icon></cross-icon>
+        </td>
+        <all-affiliates
+          modifyUser.two-way="currentPage"
+          if.bind="currentPage === 'Affiliates'">
+        </all-affiliates>
+        <approve
+          if.bind="currentPage === 'Approve-allAffiliates'">
+        </approve>
+        <settings
+          if.bind="currentPage === 'Global-settings'">
+        </settings>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</template>
