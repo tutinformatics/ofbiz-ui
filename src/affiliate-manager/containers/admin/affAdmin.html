@@ -3,17 +3,17 @@
   <require from="../../components/admin/sidebar/affAdminSidebar"></require>
   <require from="../../components/admin/affiliates/allAffiliates"></require>
   <require from="../../components/admin/global-settings/affGlobalSettings"></require>
+  <require from="../../components/admin/approve/affPartnerApprove"></require>
   <div class="aff-content">
     <aff-admin-sidebar
       current.two-way="currentPage"
       opened.one-way="isSidebarOpened">
     </aff-admin-sidebar>
     <div class="container-fluid aff-content__main-area">
-      <div class="row aff-content__manager-header">
+      <div class="aff-content__manager-header">
         <aff-header class="my-auto"
                     opened.two-way="isSidebarOpened">
         </aff-header>
-        <i class="m-auto aff-content__header-text">${currentPage}</i>
       </div>
       <div class="row">
         <div class="col px-0">
@@ -21,13 +21,14 @@
             modifyUser.two-way="currentPage"
             if.bind="currentPage === 'Affiliates'">
           </all-affiliates>
-          <approve
-            if.bind="currentPage === 'Approve-allAffiliates'">
-          </approve>
+          <aff-partner-approve
+            if.bind="currentPage === 'Approve-affiliates'">
+          </aff-partner-approve>
           <aff-global-settings
             if.bind="currentPage === 'Global-settings'">
           </aff-global-settings>
         </div>
+        <i class="m-auto aff-content__header-text">${currentPage}</i>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ import { bindable } from "aurelia-framework";
 
 export class AffAdmin {
 
-  @bindable currentPage = "Global-settings";
+  @bindable currentPage = "Approve-affiliates";
   @bindable isSidebarOpened = false;
 
 }
