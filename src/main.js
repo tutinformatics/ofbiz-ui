@@ -14,11 +14,6 @@ export function configure(aurelia) {
     .standardConfiguration()
     .plugin(PLATFORM.moduleName('aurelia-fontawesome'));
 
-  // aurelia.use
-  //   .standardConfiguration()
-  //   .developmentLogging()
-  //   .plugin('au-table');
-
   aurelia.use
     .developmentLogging(environment.debug ? 'debug' : 'warn');
 
@@ -30,11 +25,14 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
     .developmentLogging();
 
-
+  aurelia.use
+    .globalResources([
+      PLATFORM.moduleName('commons/converters/status-badge'),
+      PLATFORM.moduleName('commons/converters/status')
+    ]);
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
-
   }
 
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
