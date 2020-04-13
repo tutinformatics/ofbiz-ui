@@ -6,7 +6,7 @@ let httpClient = new HttpClient();
 export class BecomePartner {
 
   async becomeAffPartner() {
-    httpClient.fetch("http://localhost:4567/api/product")
+    httpClient.fetch("http://localhost:4567/api/parties/affiliates")
       .then(response => response.json())
       .then(data => this.invoices = JSON.parse(data))
   }

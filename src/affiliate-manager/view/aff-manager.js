@@ -5,11 +5,11 @@ export class AffManager {
   }
 
   isMember() {
-    return false;
+    return true;
   }
 
   isAdmin() {
-      return true;
+    return false;
   }
 
 }
