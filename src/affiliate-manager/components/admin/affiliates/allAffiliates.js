@@ -1,42 +1,54 @@
 import "./allAffiliates.scss"
 import { bindable } from 'aurelia-framework';
-import { Router } from 'aurelia-router';
-import { inject } from 'aurelia-framework'
+import { HttpClient } from "aurelia-fetch-client";
+import moment from 'moment';
 
-@inject(Router)
 export class allAffiliates {
+
   @bindable selectedFilter;
   @bindable modifyUser;
-
   filteredValues = [];
   affiliatePartners;
   allKeys;
+  httpClient = new HttpClient();
 
-
-  constructor(router) {
-    this.router = router;
-    this.affiliatePartners = [{
-      "firstName": "Nikita",
-      "lastName": "Ojamae",
-      "dateTimeCreated": "Mar 15, 2020, 6:56:48 PM",
-      "email": "122@gmail.com",
-      status: "approved"
-    }, {
-      "firstName": "Alexei",
-      "lastName": "Tsop",
-      "dateTimeCreated": "Mar 20, 2020, 8:56:48 PM",
-      "email": "Alex@gmail.com",
-      "status": "pending"
-    }];
+  constructor() {
+    this.affiliatePartners = [];
     this.allKeys = this.getKeys();
     this.filteredValues = this.affiliatePartners.slice();
+    this.fetchAffiliatePartners();
+  }
 
+  async fetchAffiliatePartners() {
+    const response = await this.httpClient.fetch("http://localhost:4567/api/parties/unconfirmedAffiliates");
+    const responseData = await response.json();
+    responseData.forEach(partner =>
+      this.affiliatePartners.push(
+        this.parsePartner(partner)
+      )
+    );
+    this.affiliatePartners.push(
+      {
+        "firstName": "Nikita",
+        "lastName": "Ojamae",
+        "dateTimeCreated": "Mar 15, 2020, 6:56:48 PM",
+        "email": "122@gmail.com",
+        "status": "approved"
+      },
+      {
+        "firstName": "Alexei",
+        "lastName": "Tsop",
+        "dateTimeCreated": "Mar 20, 2020, 8:56:48 PM",
+        "email": "Alex@gmail.com",
+        "status": "pending"
+      }
+    );
+    console.log(this.affiliatePartners)
   }
 
   getKeys() {
     return this.affiliatePartners.length > 0 ? Object.keys(this.affiliatePartners[0]) : [];
   }
-
 
   getFilteredValues(filterInput) {
     this.filteredValues = this.selectedFilter == null || filterInput === "" ?
@@ -45,6 +57,17 @@ export class allAffiliates {
 
   managePartner(userEmail) {
     this.router.navigateToRoute('aff-partner', {"email": userEmail})
+  }
+
+  parsePartner(partner) {
+    const parsedDate = new Date(partner["createdStamp"]);
+    return {
+      "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
+      "firstName": "Nikita",
+      "lastName": "Ojamae",
+      "email": "122@gmail.com",
+      "status": "approved"
+    }
   }
 
 
