@@ -15,8 +15,8 @@
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'My Affiliates'? 'aff-sidebar__menu-element--active' : ''"
-          click.trigger="navigateTo('My Affiliates')">
+          class.bind="currentPage === 'My-Affiliates'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('My-Affiliates')">
           <aff-icon
             icon-label.bind="`My Affiliates`">
             <my-affiliates-icon></my-affiliates-icon>
@@ -24,7 +24,7 @@
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'Generate-Code'? 'aff-sidebar__menu-element--active' : ''"
+          class.bind="currentPage === 'Generate-Code'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Generate-Code')">
           <aff-icon
             icon-label.bind="`Generate Code`">
@@ -33,7 +33,7 @@
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'Statistics'? 'aff-sidebar__menu-element--active' : ''"
+          class.bind="currentPage === 'Statistics'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Statistics')">
           <aff-icon
             icon-label.bind="`Statistics`">
@@ -42,7 +42,7 @@
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'Top-Partners'? 'aff-sidebar__menu-element--active' : ''"
+          class.bind="currentPage === 'Top-Partners'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Top-Partners')">
           <aff-icon
             icon-label.bind="`Top Partners`">
@@ -51,7 +51,7 @@
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'Settings'? 'aff-sidebar__menu-element--active' : ''"
+          class.bind="currentPage === 'Settings'? 'aff-sidebar__menu-element--active' : ''"
           click.trigger="navigateTo('Settings')">
           <aff-icon
             icon-label.bind="`Settings`">

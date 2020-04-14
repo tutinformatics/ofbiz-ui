@@ -3,24 +3,18 @@
   <require from="../../components/general/about/about"></require>
   <require from="../../components/guest/becomePartner/becomePartner"></require>
   <require from="../../components/member/sidebar/affMemberSidebar"></require>
+  <require from="../../components/member/my-affiliates/affMyAffiliates"></require>
   <div class="container-fluid">
     <div class="row">
       <div class="col aff-sidebar-area">
         <aff-member-sidebar
-          current.two-way="currentPage">
+          current-page.two-way="currentPage">
         </aff-member-sidebar>
       </div>
-      <div class="col">
-        <div class="row">
-          <div class="col px-0">
-            <about
-              if.bind="currentPage === 'About'">
-            </about>
-            <become-partner
-              if.bind="currentPage === 'Become-partner'">
-            </become-partner>
-          </div>
-        </div>
+      <div class="col px-0">
+        <aff-my-affiliates
+          if.bind="currentPage === 'My-Affiliates'">
+        </aff-my-affiliates>
       </div>
     </div>
   </div>

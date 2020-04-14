@@ -3,14 +3,14 @@ import { bindable } from 'aurelia-framework';
 
 export class AffMemberSidebar {
 
-  @bindable current;
+  @bindable currentPage;
 
   AffMemberSidebar() {
-    this.opened = true;
+    this.opened = false;
   }
 
   navigateTo(navigateNext) {
-    this.current = navigateNext;
+    this.currentPage = navigateNext;
   }
 
   slide() {
