@@ -1,15 +1,21 @@
 export class AffManager {
 
+  view;
+
+  activate(params) {
+    this.view = params.view;
+  }
+
   isGuest() {
-    return false;
+    return this.view === 'guest';
   }
 
   isMember() {
-    return false;
+    return this.view === 'member';
   }
 
   isAdmin() {
-    return true;
+    return this.view === 'admin';
   }
 
 }
