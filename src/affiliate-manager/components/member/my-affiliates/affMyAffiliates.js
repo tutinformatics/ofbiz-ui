@@ -1,4 +1,4 @@
-import "./affMyAffiliates.scss"
+import "../member-components.scss"
 
 export class AffMyAffiliates {
 

@@ -4,6 +4,7 @@
   <require from="../../components/guest/becomePartner/becomePartner"></require>
   <require from="../../components/member/sidebar/affMemberSidebar"></require>
   <require from="../../components/member/my-affiliates/affMyAffiliates"></require>
+  <require from="../../components/member/generate-code/affGenerateCode"></require>
   <div class="container-fluid">
     <div class="row">
       <div class="col aff-sidebar-area">
@@ -15,6 +16,9 @@
         <aff-my-affiliates
           if.bind="currentPage === 'My-Affiliates'">
         </aff-my-affiliates>
+        <aff-generate-code
+          if.bind="currentPage === 'Generate-Code'">
+        </aff-generate-code>
       </div>
     </div>
   </div>
