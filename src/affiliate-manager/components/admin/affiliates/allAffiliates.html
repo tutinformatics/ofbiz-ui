@@ -1,5 +1,6 @@
 <template>
   <require from="../../general/icons/manage/manageIcon"></require>
+  <require from="../../general/icons/affIcon"></require>
 
   <div class="mx-5 aff-all-affiliates">
     <h3 class=" mt-5 aff-all-affiliates__main-header">Here you can find information about all affiliate partners</h3>
@@ -37,7 +38,11 @@
             <td><a href="mailto:${user.email}">${user.email}</a></td>
             <td>${user.status}</td>
             <td class="aff-partner-table__mange-icon-container">
-              <manage-icon class="aff-partner-table__mange-icon" click.trigger="managePartner(user.email)"></manage-icon>
+              <aff-icon
+                class="aff-icon--manage-user"
+                click.trigger="managePartner(user.email)">
+                <manage-icon></manage-icon>
+              </aff-icon>
             </td>
             <all-affiliates
               modifyUser.two-way="currentPage"

@@ -1,0 +1,12 @@
+.aff-member-table__row {
+  transition: 0.3s all;
+}
+
+.aff-member-table__eye-icon {
+  transition: 0.3s all;
+  cursor: pointer;
+
+  &:hover {
+    color: #00a59d;
+  }
+}

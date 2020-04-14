@@ -1,1 +1,3 @@
-export class AffMember {}
+export class AffMember {
+  currentPage = 'My-Affiliates'
+}
