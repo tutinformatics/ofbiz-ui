@@ -1,6 +1,8 @@
 <template>
   <require from="../../general/icons/check/checkIcon"></require>
   <require from="../../general/icons/cross/crossIcon"></require>
+  <require from="../../general/icons/affIcon"></require>
+
   <div class="m-5 text-center">
     <h3 class=" my-5">Approve or disapprove candidates for affiliate partnership</h3>
     <table class="mx-4 table table-striped aff-candidate-table">
@@ -20,8 +22,12 @@
         <td><a href="mailto:${user.email}">${user.email}</a></td>
         <td>${user.status}</td>
         <td class="aff-partner-table__mange-icon-container">
-          <check-icon></check-icon>
-          <cross-icon></cross-icon>
+          <aff-icon class="aff-icon--user-approve">
+            <check-icon></check-icon>
+          </aff-icon>
+          <aff-icon class="aff-icon--user-decline">
+            <cross-icon></cross-icon>
+          </aff-icon>
         </td>
       </tr>
       </tbody>

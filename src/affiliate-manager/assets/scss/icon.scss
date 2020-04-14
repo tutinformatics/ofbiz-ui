@@ -12,26 +12,3 @@
 .aff-icon__svg-picture {
   width: 42px;
 }
-
-.aff-icon--manage-user, .aff-icon--user-approve {
-  border-radius: 20px;
-  transition: 0.3s all;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.5);
-    background-color: $primary-color;
-  }
-}
-
-.aff-icon--user-decline{
-  border-radius: 20px;
-  transition: 0.3s all;
-  margin-top: 10px;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.5);
-    background-color: #a64452 ;
-  }
-}
