@@ -31,19 +31,18 @@ export class allAffiliates {
       {
         "firstName": "Nikita",
         "lastName": "Ojamae",
-        "dateTimeCreated": "Mar 15, 2020, 6:56:48 PM",
+        "dateTimeCreated": "15-03-2020",
         "email": "122@gmail.com",
-        "status": "approved"
+        "status": "active"
       },
       {
         "firstName": "Alexei",
         "lastName": "Tsop",
-        "dateTimeCreated": "Mar 20, 2020, 8:56:48 PM",
+        "dateTimeCreated": "04-04-2020",
         "email": "Alex@gmail.com",
-        "status": "pending"
+        "status": "active"
       }
     );
-    console.log(this.affiliatePartners)
   }
 
   getKeys() {
@@ -63,10 +62,10 @@ export class allAffiliates {
     const parsedDate = new Date(partner["createdStamp"]);
     return {
       "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
-      "firstName": "Nikita",
-      "lastName": "Ojamae",
-      "email": "122@gmail.com",
-      "status": "approved"
+      "firstName": partner['firstName'],
+      "lastName": partner['lastName'],
+      "email": `${partner['firstName']}@gmail.com`,
+      "status": 'active'
     }
   }
 

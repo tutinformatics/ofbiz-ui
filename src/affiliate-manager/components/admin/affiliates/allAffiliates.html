@@ -38,11 +38,11 @@
         </thead>
         <tbody>
         <tr class="aff-member-table__row" repeat.for="user of affiliatePartners">
-          <td>${user['firstName']}</td>
-          <td>${user['lastName']}</td>
-          <td>${user['dateTimeCreated']}</td>
-          <td><a href="mailto:${user['email']}">${user['email']}</a></td>
-          <td>${user['status']}</td>
+          <td class="align-middle">${user['firstName']}</td>
+          <td class="align-middle">${user['lastName']}</td>
+          <td class="align-middle"> ${user['dateTimeCreated']}</td>
+          <td class="align-middle"><a href="mailto:${user['email']}">${user['email']}</a></td>
+          <td class="align-middle">${user['status']}</td>
           <td class="aff-table__action-icon">
             <aff-icon
               click.trigger="managePartner(user['email'])">

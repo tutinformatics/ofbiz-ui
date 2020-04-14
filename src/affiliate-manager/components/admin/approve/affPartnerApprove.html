@@ -33,16 +33,20 @@
         </thead>
         <tbody>
         <tr repeat.for="user of affCandidates">
-          <td>${user['firstName']}</td>
-          <td>${user['lastName']}</td>
-          <td>${user['email']}</td>
-          <td>${user['dateTimeCreated']}</td>
-          <td class="aff-table__action-icon aff-table__action-icon--red">
+          <td class="align-middle">${user['firstName']}</td>
+          <td class="align-middle">${user['lastName']}</td>
+          <td class="align-middle">${user['email']}</td>
+          <td class="align-middle">${user['dateTimeCreated']}</td>
+          <td
+            click.trigger="disapprove(user['partyId'])"
+            class="aff-table__action-icon aff-table__action-icon--red">
             <aff-icon>
               <cross-icon></cross-icon>
             </aff-icon>
           </td>
-          <td class="aff-table__action-icon">
+          <td
+            click.trigger="approve(user['partyId'])"
+            class="aff-table__action-icon">
             <aff-icon>
               <check-icon></check-icon>
             </aff-icon>
