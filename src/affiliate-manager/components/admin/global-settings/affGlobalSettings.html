@@ -1,37 +1,46 @@
 <template>
-  <div class="text-center">
-    <h3 class=" mt-5 aff-system-settings__header">Affiliate System Settings</h3>
-    <div class="mx-auto mt-3 mb-5 aff-system-settings__line--straight"></div>
+  <require from="../../general/page-title/affPageTitle"></require>
+  <require from="../../general/filter/affFilter"></require>
+
+  <div class="row">
+    <div class="col-md-9 mx-auto text-center">
+      <aff-page-title
+        main-text.one-way="'Affiliate System Settings'"
+      >
+      </aff-page-title>
+    </div>
+    <div class="col-md-9 mx-auto">
+      <form class="aff-system-settings__input-container">
+        <div class="form-group aff-system-settings__single-input">
+          <label class="" for="frequency">Frequency of commission payments:</label>
+          <select id="frequency" class="mx-auto form-control border aff-system-settings__pay-frequency"
+                  value.bind="paymentFrequency">
+            <option repeat.for="option of possibleFrequency"
+                    model.bind="option">
+              ${option}
+          </select>
+        </div>
+        <div class="form-group aff-system-settings__single-input">
+          <label class="" for="commission">Commission in percents:</label>
+          <input type="number" id="commission" class="mx-auto form-control border aff-system-settings__pay-commission"
+                 min="0.00" placeholder="0.01" step="0.01" max="100" value.bind="commissionPercent">
+        </div>
+        <div class="form-group aff-system-settings__single-input">
+          <label class="" for="multilevelAff">Multilevel Affiliate System:</label>
+          <select id="multilevelAff" class="mx-auto form-control border aff-system-settings__multilevel-aff"
+                  value.bind="multiLevelAff">
+            <option repeat.for="option of possibleMultiLevel"
+                    model.bind="option">
+              ${option}
+          </select>
+        </div>
+        <div class="form-group aff-system-settings__single-input">
+          <label class="" for="codeInCookies">Affiliate code is stored in cookies for (weeks):</label>
+          <input type="number" id="codeInCookies" class="mx-auto form-control border aff-system-settings__cookie-dur"
+                 min="1" placeholder="1" max="50" value.bind="codeInCookieDuration">
+        </div>
+        <button click.trigger="saveSettings()" class="my-4 btn aff-system__button--main">Save</button>
+      </form>
+    </div>
   </div>
-  <form class="text-center aff-system-settings__input-container">
-    <div class="form-group aff-system-settings__single-input">
-      <label class="" for="frequency">Frequency of commission payments:</label>
-      <select id="frequency" class="mx-auto form-control border aff-system-settings__pay-frequency"
-              value.bind="paymentFrequency">
-        <option repeat.for="option of possibleFrequency"
-                model.bind="option">
-          ${option}
-      </select>
-    </div>
-    <div class="form-group aff-system-settings__single-input">
-      <label class="" for="commission">Commission in percents:</label>
-      <input type="number" id="commission" class="mx-auto form-control border aff-system-settings__pay-commission"
-             min="0.00" placeholder="0.01" step="0.01" max="100" value.bind="commissionPercent">
-    </div>
-    <div class="form-group aff-system-settings__single-input">
-      <label class="" for="multilevelAff">Multilevel Affiliate System:</label>
-      <select id="multilevelAff" class="mx-auto form-control border aff-system-settings__multilevel-aff"
-              value.bind="multiLevelAff">
-        <option repeat.for="option of possibleMultiLevel"
-                model.bind="option">
-          ${option}
-      </select>
-    </div>
-    <div class="form-group aff-system-settings__single-input">
-      <label class="" for="codeInCookies">Affiliate code is stored in cookies for (weeks):</label>
-      <input type="number" id="codeInCookies" class="mx-auto form-control border aff-system-settings__cookie-dur"
-             min="1" placeholder="1" max="50" value.bind="codeInCookieDuration">
-    </div>
-    <button click.trigger="saveSettings()" class="my-4 btn aff-system__button--main">Save</button>
-  </form>
 </template>

@@ -2,16 +2,7 @@
 
 
 .aff-system-settings__line--straight {
-  width: 60%;
-  border: 1.5px solid #4C4A4A;
-}
-
-@media only screen and (max-width: 600px) {
-  .aff-system-settings__line--straight {
-    width: 100vw;
-    margin-left: -25px;
-    padding-left: -15px;
-  }
+  border-bottom: solid 1.5px #4C4A4A;
 }
 
 .aff-system-settings__pay-frequency, .aff-system-settings__cookie-dur,

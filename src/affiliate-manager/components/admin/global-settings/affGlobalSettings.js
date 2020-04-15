@@ -1,5 +1,5 @@
 import "./affGlobalSettings.scss"
-import {bindable} from 'aurelia-framework';
+import { bindable } from 'aurelia-framework';
 
 export class affGlobalSettings {
 
@@ -9,6 +9,7 @@ export class affGlobalSettings {
   @bindable codeInCookieDuration;
   possibleFrequency = ["Each month", "Each week", "Each year", "Each half-year"];
   possibleMultiLevel = ["available", "not available"];
+  userGroups = ["affiliate-partners", "legacy-affiliate-partners"];
   globalSettings;
 
 
