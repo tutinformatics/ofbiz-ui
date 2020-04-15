@@ -1,0 +1,14 @@
+@import "./variables";
+@import "src/affiliate-manager/assets/scss/utils";
+
+.aff-icon__label {
+  @extend %flex-vertically-align
+}
+
+.aff-icon__svg-icon {
+  @extend %flex-vertically-align
+}
+
+.aff-icon__svg-picture {
+  width: 42px;
+}

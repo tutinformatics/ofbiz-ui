@@ -15,6 +15,16 @@ export class App {
       { route: 'crm/agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
       { route: 'crm/pipeline', moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'), name: 'pipeline' },
       { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities' },
+      {
+        route: 'affiliate-manager',
+        name: 'affiliate-manager',
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager'),
+      },
+      {
+        route: 'affiliate-manager/aff-partner/:email?',
+        name: 'aff-partner',
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-partner/manage-aff-partner')
+      },
     ]);
     this.router = router;
   }
