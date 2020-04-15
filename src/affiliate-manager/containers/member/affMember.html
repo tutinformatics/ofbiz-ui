@@ -9,12 +9,13 @@
   <require from="../../components/member/statistics/affStatistics"></require>
   <div class="container-fluid">
     <div class="row">
-      <div class="col aff-sidebar-area">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
         <aff-member-sidebar
-          current-page.two-way="currentPage">
+          current-page.two-way="currentPage"
+          opened.two-way="opened">
         </aff-member-sidebar>
       </div>
-      <div class="col px-0">
+      <div class="col px-0 z-index-upper">
         <aff-my-affiliates
           if.bind="currentPage === 'My-Affiliates'"
         >

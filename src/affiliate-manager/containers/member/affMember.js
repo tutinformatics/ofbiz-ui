@@ -1,3 +1,8 @@
+import '../general/affGeneral.scss';
+
 export class AffMember {
-  currentPage = 'My-Affiliates'
+
+  currentPage = 'My-Affiliates';
+  opened = false;
+
 }

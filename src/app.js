@@ -1,4 +1,4 @@
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 
 export class App {
   configureRouter(config, router) {

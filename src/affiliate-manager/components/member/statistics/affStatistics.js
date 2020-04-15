@@ -47,12 +47,16 @@ export class AffStatistics {
 
   partners = [
     {
+      "first-name": "John",
+      "last-name": "K",
       "email": "king@gmail.com",
       "commission": "17.85$",
       "registered-since": "15/05/2019",
       "sub-partners": "1",
     },
     {
+      "first-name": "Patrick",
+      "last-name": "Mill",
       "email": "queen@gmail.com",
       "commission": "45.00$",
       "registered-since": "22/10/19",
@@ -67,6 +71,7 @@ export class AffStatistics {
       "active-since": "22/10/19",
       "times-used": "15",
       "category": "smart-devices",
+      "invited": "40",
     },
     {
       "code": "287454",
@@ -74,6 +79,7 @@ export class AffStatistics {
       "active-since": "22/10/09",
       "times-used": "59",
       "category": "services",
+      "invited": "11",
     },
     {
       "code": "287655",
@@ -81,6 +87,7 @@ export class AffStatistics {
       "active-since": "22/10/17",
       "times-used": "508",
       "category": "food",
+      "invited": "0",
     },
   ]
 }

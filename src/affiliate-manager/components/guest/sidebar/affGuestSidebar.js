@@ -4,10 +4,7 @@ import { bindable } from 'aurelia-framework';
 export class AffGuestSidebar {
 
   @bindable current;
-
-  AffGuestSidebar() {
-    this.opened = true;
-  }
+  @bindable opened;
 
   navigateTo(navigateNext) {
     this.current = navigateNext;

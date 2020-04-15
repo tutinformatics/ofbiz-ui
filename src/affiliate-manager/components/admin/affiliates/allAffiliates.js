@@ -1,8 +1,9 @@
 import "./allAffiliates.scss"
-import { bindable } from 'aurelia-framework';
+import { bindable, inject } from 'aurelia-framework';
 import { HttpClient } from "aurelia-fetch-client";
 import moment from 'moment';
 
+@inject(HttpClient)
 export class allAffiliates {
 
   @bindable selectedFilter;
@@ -10,9 +11,9 @@ export class allAffiliates {
   filteredValues = [];
   affiliatePartners;
   allKeys;
-  httpClient = new HttpClient();
 
-  constructor() {
+  constructor(httpClient) {
+    this.httpClient = httpClient;
     this.affiliatePartners = [];
     this.allKeys = this.getKeys();
     this.filteredValues = this.affiliatePartners.slice();

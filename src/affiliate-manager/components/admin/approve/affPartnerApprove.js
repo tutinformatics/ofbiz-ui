@@ -1,17 +1,18 @@
 import './affPartnerApprove.scss';
-import { bindable } from 'aurelia-framework';
+import { bindable, inject } from 'aurelia-framework';
 import { HttpClient, json } from "aurelia-fetch-client";
 import moment from "moment";
 
+@inject(HttpClient)
 export class affPartnerApprove {
 
   @bindable selectedFilter;
   @bindable modifyUser;
 
   affCandidates;
-  httpClient = new HttpClient();
 
-  constructor() {
+  constructor(httpClient) {
+    this.httpClient = httpClient;
     this.affCandidates = [];
     this.fetchPendingPartners();
   }

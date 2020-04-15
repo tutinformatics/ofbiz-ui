@@ -5,9 +5,11 @@
   <require from="../../components/guest/sidebar/affGuestSidebar"></require>
   <div class="container-fluid">
     <div class="row">
-      <div class="col aff-sidebar-area">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
         <aff-guest-sidebar
-          current.two-way="currentPage">
+          current.two-way="currentPage"
+          opened.two-way="opened"
+        >
         </aff-guest-sidebar>
       </div>
       <div class="col">
