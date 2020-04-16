@@ -1,0 +1,137 @@
+$primary-color: #007bff;
+$primary-color-light: #006ad3;
+$secondary-color: #cccccc;
+$white-color: #fff;
+$black-color: #000000;
+$border-radius: 0.3rem;
+
+body, html {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+*:focus {
+  outline: none;
+}
+
+.container-fluid--no-overflow {
+  overflow-y: hidden;
+}
+
+.login {
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  background: $white-color;
+  padding: 30px;
+  max-width: 450px;
+  min-width: 315px;
+  position: relative;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.login__btn {
+  max-width: 450px;
+
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $primary-color-light;
+  }
+
+  &:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+}
+
+.login__input {
+  background-color: #f6f6f6;
+  color: $black-color;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+
+  &:focus {
+    background-color: #fff;
+    border-bottom: 2px solid $primary-color;
+  }
+}
+
+.forgot-password {
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+}
+
+.col--sign-up {
+  width: 95px;
+}
+
+.col--forgot-psw {
+  width: 160px;
+}
+
+.forgot-password__link {
+  color: $primary-color;
+  display: block;
+  text-decoration: none;
+  font-weight: 400;
+
+  &:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: $primary-color;
+    content: "";
+    transition: width 0.2s;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $black-color;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .login {
+    padding-top: 130px;
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -19,13 +19,13 @@ export class allAffiliates {
   }
 
   async fetchAffiliatePartners() {
-    // const response = await this.httpClient.fetch("http://localhost:4567/api/parties/unconfirmedAffiliates");
-    // const responseData = await response.json();
-    // responseData.forEach(partner =>
-    //   this.affiliatePartners.push(
-    //     this.parsePartner(partner)
-    //   )
-    // );
+    const response = await this.httpClient.fetch("https://localhost:8443/api/parties/unconfirmedAffiliates");
+    const responseData = await response.json();
+    responseData.forEach(partner =>
+      this.affiliatePartners.push(
+        this.parsePartner(partner)
+      )
+    );
     this.allAffiliatePartners.push(
       {
         "firstName": "Nikita",

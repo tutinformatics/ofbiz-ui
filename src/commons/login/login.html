@@ -1,0 +1,37 @@
+<template>
+  <div class="container-fluid h-100 container-fluid--no-overflow">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col login mt-n5">
+        <form>
+          <label class="sr-only" for="username"></label>
+          <input
+            type="text"
+            id="username"
+            class="login__input"
+            placeholder="Username"
+          />
+          <label for="password" class="sr-only"></label>
+          <input
+            type="text"
+            id="password"
+            class="login__input"
+            placeholder="Password"
+          />
+          <input
+            class="login__btn my-2"
+            type="submit"
+            value="Log In"
+          />
+        </form>
+        <div class="row forgot-password flex-column">
+          <div class="col mx-auto my-2 col--sign-up">
+            <a class="forgot-password__link" href="#">Sign Up</a>
+          </div>
+          <div class="col mx-auto col--forgot-psw">
+            <a class="forgot-password__link" href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

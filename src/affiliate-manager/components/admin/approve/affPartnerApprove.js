@@ -50,11 +50,11 @@ export class affPartnerApprove {
 
   async approve(partyId) {
     const response = await this.httpClient
-      .fetch("http://localhost:4567/api/parties/affiliate/approve",
+      .fetch("https://localhost:8443/api/parties/affiliate/approve",
         {
-          method: "get",
+          method: "put",
           body: json({
-            "partyId": partyId
+            "partyId": "admin"
           })
         });
     const responseData = await response.json();

@@ -6,6 +6,7 @@
   <require from="../../components/member/my-affiliates/affMyAffiliates"></require>
   <require from="../../components/member/generate-code/affGenerateCode"></require>
   <require from="../../components/member/top-partners/affTopPartners"></require>
+  <require from="../../components/member/settings/affSettings"></require>
   <require from="../../components/member/review/affReview"></require>
   <div class="container-fluid">
     <div class="row">
@@ -32,6 +33,10 @@
           if.bind="currentPage === 'Review'"
         >
         </aff-review>
+        <aff-settings
+          if.bind="currentPage === 'Settings'"
+        >
+        </aff-settings>
       </div>
     </div>
   </div>

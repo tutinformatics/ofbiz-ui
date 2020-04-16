@@ -21,9 +21,9 @@ export class App {
         moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager'),
       },
       {
-        route: 'affiliate-manager/aff-partner/:email?',
+        route: 'login',
         name: 'aff-partner',
-        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-partner/manage-aff-partner')
+        moduleId: PLATFORM.moduleName('commons/login/login')
       },
     ]);
     this.router = router;
