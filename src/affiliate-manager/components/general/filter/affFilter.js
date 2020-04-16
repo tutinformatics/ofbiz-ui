@@ -11,7 +11,7 @@ export class AffFilter {
   setFilteredValues(filterInput) {
     if (this.selected && filterInput !== '') {
       const filteredValues = this.valuesToFilter.filter(
-        value => value[this.selected].startsWith(filterInput)
+        value => value[this.selected].toLowerCase().startsWith(filterInput.toLowerCase())
       );
       this.callback(filteredValues);
     } else {

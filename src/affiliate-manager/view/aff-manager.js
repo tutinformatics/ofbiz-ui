@@ -1,6 +1,9 @@
 export class AffManager {
 
-  view;
+  constructor() {
+    this.view = null;
+  }
+
 
   activate(params) {
     this.view = params.view;

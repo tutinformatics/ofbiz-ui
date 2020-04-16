@@ -32,14 +32,14 @@ export class allAffiliates {
         "lastName": "Ojamae",
         "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
         "email": "122@gmail.com",
-        "status": "active"
+        "status": "Active"
       },
       {
         "firstName": "Alexei",
         "lastName": "Tsop",
         "dateTimeCreated": moment(1587330000000).format('MM-D-YYYY'),
         "email": "Alex@gmail.com",
-        "status": "active"
+        "status": "Active"
       }
     );
   }

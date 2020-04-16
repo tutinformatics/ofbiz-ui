@@ -6,7 +6,7 @@
   <require from="../../components/member/my-affiliates/affMyAffiliates"></require>
   <require from="../../components/member/generate-code/affGenerateCode"></require>
   <require from="../../components/member/top-partners/affTopPartners"></require>
-  <require from="../../components/member/statistics/affStatistics"></require>
+  <require from="../../components/member/review/affReview"></require>
   <div class="container-fluid">
     <div class="row">
       <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
@@ -28,10 +28,10 @@
           if.bind="currentPage === 'Top-Partners'"
         >
         </aff-top-partners>
-        <aff-statistics
-          if.bind="currentPage === 'Statistics'"
+        <aff-review
+          if.bind="currentPage === 'Review'"
         >
-        </aff-statistics>
+        </aff-review>
       </div>
     </div>
   </div>

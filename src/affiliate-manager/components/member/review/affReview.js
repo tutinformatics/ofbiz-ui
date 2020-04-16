@@ -1,4 +1,4 @@
-export class AffStatistics {
+export class AffReview {
 
   counter = 1;
 
