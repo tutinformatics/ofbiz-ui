@@ -5,7 +5,7 @@ import { safeGet } from '../../commons/util/utility';
 
 @inject(HttpClient)
 export class TaskService {
-  baseUrl = 'api/project'; // TODO: should be configurable
+  baseUrl = 'api/v1/projects';
 
   constructor(httpClient) {
     this.httpClient = httpClient;

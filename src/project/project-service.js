@@ -3,7 +3,7 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class ProjectService {
-  baseUrl = 'api/project';
+  baseUrl = 'api/v1/projects';
 
   constructor(httpClient) {
     this.httpClient = httpClient;
