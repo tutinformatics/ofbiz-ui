@@ -8,7 +8,6 @@ import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
 
-
 export function configure(aurelia) {
   aurelia.use
     .developmentLogging(environment.debug ? 'debug' : 'warn');
@@ -26,6 +25,11 @@ export function configure(aurelia) {
       PLATFORM.moduleName('commons/converters/status-badge'),
       PLATFORM.moduleName('commons/converters/status')
     ]);
+
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
+    .plugin(PLATFORM.moduleName('aurelia-dialog'));
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));

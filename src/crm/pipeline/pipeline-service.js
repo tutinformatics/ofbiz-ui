@@ -1,4 +1,4 @@
-import { HttpClient } from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
@@ -8,8 +8,22 @@ export class PipelineService {
     const baseUrl = 'http://localhost:7463/api/';
 
     this.client.configure(config => {
-      config.withBaseUrl(baseUrl);
-    })
+      config
+        .withBaseUrl(baseUrl)
+        .withDefaults({
+          mode: 'cors',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+      // .withDefaults({
+      //   credentials: 'cross-origin',
+      //   headers: {
+      //     'X-Requested-With': 'Fetch'
+      //   }
+      // });
+    });
+
   }
 
   async getNewOpportunities() {
@@ -33,6 +47,20 @@ export class PipelineService {
   async getWonOpportunities() {
     try {
       const response = await this.client.fetch('opportunity/1/won');
+      return response.json();
+    } catch (e) {
+      console.log("getagents:", e);
+    }
+  }
+
+  async createNewOpportunity(opportunity) {
+    try {
+      const response = this.client
+        .fetch('opportunity', {
+          method: 'post',
+          body: json(opportunity)
+        });
+
       return response.json();
     } catch (e) {
       console.log("getagents:", e);
