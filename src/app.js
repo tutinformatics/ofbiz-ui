@@ -16,20 +16,17 @@ export class App {
       { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities' },
       { route: 'projects', moduleId: PLATFORM.moduleName('project/project-list'), name: 'projects', title: 'Projects' },
       { route: 'projects/:id', moduleId: PLATFORM.moduleName('project/task/task-list'), name: 'project' },
-      { route: 'new-project', moduleId: PLATFORM.moduleName('project/project-new'), name: 'newProject', title: 'Create Project' }
-      { route: 'projects', moduleId: PLATFORM.moduleName('project/project-list'), name: 'projects', title:'Projects'},
-      { route: 'new-project', moduleId: PLATFORM.moduleName('project/project-new'), name: 'newProject', title:'Create Project'}
-      { route: 'project', moduleId: PLATFORM.moduleName('project/project-list'), name: 'project', title:'Projects'}
+      { route: 'new-project', moduleId: PLATFORM.moduleName('project/project-new'), name: 'newProject', title: 'Create Project' },
       {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
-        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager'),
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager')
       },
       {
         route: 'affiliate-manager/aff-partner/:email?',
         name: 'aff-partner',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-partner/manage-aff-partner')
-      },
+      }
     ]);
     this.router = router;
   }
