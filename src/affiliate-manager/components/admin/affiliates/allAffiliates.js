@@ -1,62 +1,76 @@
 import "./allAffiliates.scss"
-import { bindable, inject } from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import { HttpClient } from "aurelia-fetch-client";
 import moment from 'moment';
 
 @inject(HttpClient)
 export class allAffiliates {
 
-  @bindable selectedFilter;
-  @bindable modifyUser;
-  filteredValues = [];
-  affiliatePartners;
-  allKeys;
+  filteredValues;
+  allAffiliatePartners;
+  allAffiliatesOptions;
 
   constructor(httpClient) {
     this.httpClient = httpClient;
-    this.affiliatePartners = [];
-    this.allKeys = this.getKeys();
-    this.filteredValues = this.affiliatePartners.slice();
+    this.allAffiliatePartners = [];
+    this.allAffiliatesOptions = this.getAffiliatesOptions();
     this.fetchAffiliatePartners();
+    this.filteredValues = this.allAffiliatePartners;
   }
 
   async fetchAffiliatePartners() {
-    const response = await this.httpClient.fetch("http://localhost:4567/api/parties/unconfirmedAffiliates");
-    const responseData = await response.json();
-    responseData.forEach(partner =>
-      this.affiliatePartners.push(
-        this.parsePartner(partner)
-      )
-    );
-    this.affiliatePartners.push(
+    // const response = await this.httpClient.fetch("http://localhost:4567/api/parties/unconfirmedAffiliates");
+    // const responseData = await response.json();
+    // responseData.forEach(partner =>
+    //   this.affiliatePartners.push(
+    //     this.parsePartner(partner)
+    //   )
+    // );
+    this.allAffiliatePartners.push(
       {
         "firstName": "Nikita",
         "lastName": "Ojamae",
-        "dateTimeCreated": "15-03-2020",
+        "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
         "email": "122@gmail.com",
         "status": "active"
       },
       {
         "firstName": "Alexei",
         "lastName": "Tsop",
-        "dateTimeCreated": "04-04-2020",
+        "dateTimeCreated": moment(1587330000000).format('MM-D-YYYY'),
         "email": "Alex@gmail.com",
         "status": "active"
       }
     );
   }
 
-  getKeys() {
-    return this.affiliatePartners.length > 0 ? Object.keys(this.affiliatePartners[0]) : [];
+  getAffiliatesOptions() {
+    return [
+      {
+        "key": "lastName",
+        "value": "Last Name",
+      },
+      {
+        "key": "firstName",
+        "value": "First Name",
+      },
+      {
+        "key": "dateTimeCreated",
+        "value": "Date",
+      },
+      {
+        "key": "email",
+        "value": "Email",
+      },
+      {
+        "key": "status",
+        "value": "Status",
+      },
+    ];
   }
 
-  getFilteredValues(filterInput) {
-    this.filteredValues = this.selectedFilter == null || filterInput === "" ?
-      this.affiliatePartners.slice() : this.filteredValues.filter(partner => String(partner[this.selectedFilter]).toLowerCase().startsWith(filterInput.toLowerCase()));
-  }
-
-  managePartner(userEmail) {
-    this.router.navigateToRoute('aff-partner', {"email": userEmail})
+  setFilteredValues(filteredValues) {
+    this.filteredValues =  filteredValues;
   }
 
   parsePartner(partner) {
@@ -69,6 +83,5 @@ export class allAffiliates {
       "status": 'active'
     }
   }
-
 
 }

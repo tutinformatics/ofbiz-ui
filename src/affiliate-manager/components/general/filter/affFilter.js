@@ -1,10 +1,21 @@
-import { bindable } from "aurelia-templating";
+import { bindable } from "aurelia-framework";
 
 export class AffFilter {
 
+  @bindable valuesToFilter;
   @bindable options;
+  @bindable callback;
   @bindable id;
-  @bindable prependText;
-  @bindable selected;
+  selected;
 
+  setFilteredValues(filterInput) {
+    if (this.selected && filterInput !== '') {
+      const filteredValues = this.valuesToFilter.filter(
+        value => value[this.selected].startsWith(filterInput)
+      );
+      this.callback(filteredValues);
+    } else {
+      this.callback(this.valuesToFilter);
+    }
+  }
 }
