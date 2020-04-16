@@ -11,11 +11,13 @@
       </aff-page-title>
     </div>
     <div class="col-md-9 mx-auto my-3">
+      </aff-filter>
+
       <aff-filter
+        values-to-filter.one-way="allTopPartnes"
         options.one-way="topPartnersOptions"
-        id.one-way="`aff-top-partners`"
-        prepend-text.one-way="'Order top partners by'"
-        selected.one-way="null"
+        callback.call="setFilteredTopPartners($event)"
+        id.one-way="'Member-Top-Partners'"
       >
       </aff-filter>
     </div>
@@ -24,6 +26,8 @@
         <thead>
         <tr>
           <th scope="col">Place</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
           <th scope="col">Email</th>
           <th scope="col">Partner Since</th>
           <th scope="col">Commission Total</th>
@@ -31,9 +35,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="aff-member-table__row" repeat.for="topPartner of topPartners">
+        <tr class="aff-member-table__row" repeat.for="topPartner of filteredTopPartners">
           <td class="align-middle">
-            <p>${nextCounterValue()}</p>
+            <p>${topPartner['place']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['first-name']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['last-name']}</p>
           </td>
           <td class="align-middle">
             <p>${topPartner['email']}</p>
