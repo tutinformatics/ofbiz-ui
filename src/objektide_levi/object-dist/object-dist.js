@@ -51,7 +51,7 @@ export class ObjectDist {
 
         let cell1 = row.insertCell(0);
         cell1.className = "text-center";
-        cell1.innerHTML = content.publisherName;
+        cell1.innerHTML = content.entityName;
 
         let cell2 = row.insertCell(1);
         cell2.className = "text-center";
@@ -73,7 +73,7 @@ export class ObjectDist {
 
         let cell1 = row.insertCell(0);
         cell1.className = "text-center";
-        cell1.innerHTML = content.subscriberName;
+        cell1.innerHTML = content.entityName;
 
         let cell2 = row.insertCell(1);
         cell2.className = "text-center";
