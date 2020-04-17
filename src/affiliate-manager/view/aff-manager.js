@@ -4,7 +4,6 @@ export class AffManager {
     this.view = null;
   }
 
-
   activate(params) {
     this.view = params.view;
   }
@@ -19,6 +18,10 @@ export class AffManager {
 
   isAdmin() {
     return this.view === 'admin';
+  }
+
+  isPendingMember() {
+    return this.view === 'pending'
   }
 
 }

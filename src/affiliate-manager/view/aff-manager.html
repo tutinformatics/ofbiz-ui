@@ -2,9 +2,11 @@
   <require from="../containers/guest/affGuest"></require>
   <require from="../containers/member/affMember"></require>
   <require from="../containers/admin/affAdmin"></require>
+  <require from="../containers/pending-member/pendingMember"></require>
   <div>
     <aff-guest if.bind="isGuest()"></aff-guest>
     <aff-member if.bind="isMember()"></aff-member>
     <aff-admin if.bind="isAdmin()"></aff-admin>
+    <pending-member if.bind="isPendingMember()"></pending-member >
   </div>
 </template>

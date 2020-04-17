@@ -9,6 +9,10 @@
   padding: 10px;
   z-index: 1;
   transition: 0.3s all;
+
+  &:hover:enabled {
+    background-color: $primary-color-hover;
+  }
 }
 
 .aff-button--large {
@@ -16,11 +20,6 @@
   max-width: 300px;
   min-width: 100px;
 }
-
-.aff-button:hover {
-  background-color: $primary-color-hover;
-}
-
 
 .aff-system__button--main{
   background-color: $secondary-dark;
