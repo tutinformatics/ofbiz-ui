@@ -1,6 +1,8 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import { Router } from "aurelia-router";
+import {inject} from 'aurelia-dependency-injection';
 
+@inject(Router)
 export class ObjectDist {
 
   httpClient = new HttpClient();
@@ -129,7 +131,7 @@ export class ObjectDist {
   }
 
   refreshPage() {
-    app.router.navigateToRoute('watch', {}, { replace: true, trigger: true });
+    this.router.navigateToRoute('object-dist', {}, { replace: true, trigger: true });  // TODO fix;
   }
 
   getFilterFromComponent(isPublisher) {
