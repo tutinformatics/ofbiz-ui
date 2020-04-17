@@ -14,9 +14,19 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                    placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" aria-describedby="emailHelp"
+                   placeholder="Enter Password">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="repeat-password">Password</label>
+            <input type="password" class="form-control" id="repeat-password" aria-describedby="emailHelp"
+                   placeholder="Repeat Password">
           </div>
           <div class="form-group">
             <label for="address">Address</label>
@@ -24,10 +34,10 @@
           </div>
           <div class="form-group">
             <label for="username">Full name (on the card)</label>
-            <input type="text" name="username" placeholder="Jason Doe" required class="form-control">
+            <input type="text" id="username" placeholder="Jason Doe" required class="form-control">
           </div>
           <div class="form-group">
-            <label for="cardNumber">Card number</label>
+            <label id="cardNumber">Card number</label>
             <div class="input-group">
               <input type="text" name="cardNumber" placeholder="Your card number" class="form-control" required>
               <div class="input-group-append">
