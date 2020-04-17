@@ -32,10 +32,10 @@ export class ObjectDist {
     });
   }
 
-  getFilter(publisher) {
+  getFilterFromComponent(isPublisher) {
     const queryBuilders = document.querySelectorAll('smart-query-builder');
     let queryBuilder = queryBuilders[0];
-    if (publisher) {
+    if (isPublisher) {
       queryBuilder = queryBuilders[1];
     }
     let queryArray = queryBuilder.value;
@@ -64,7 +64,7 @@ export class ObjectDist {
       "OfbizSubscriberName": document.getElementById("name").value,
       "topic": document.getElementById("topic").value,
       "description": document.getElementById("description").value,
-      "filter": this.getFilter(false)
+      "filter": this.getFilterFromComponent(false)
     };
     console.log(document.getElementById("topic").value);
     console.log(document.getElementById("description").value);
@@ -77,7 +77,7 @@ export class ObjectDist {
       "OfbizPublisherName": document.getElementById("name").value,
       "topic": document.getElementById("topic").value,
       "description": document.getElementById("description").value,
-      "filter": this.getFilter(true)
+      "filter": this.getFilterFromComponent(true)
     };
     this.postSubscriberPublisher(JSON.stringify(data), "publishers/create");
   }
