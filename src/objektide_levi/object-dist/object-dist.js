@@ -6,6 +6,8 @@ export class ObjectDist {
 
   constructor() {
     this.setHTTPClient();
+    this.fetchPublishers();
+    this.fetchSubscribers();
   }
 
   setHTTPClient() {
@@ -32,6 +34,95 @@ export class ObjectDist {
     });
   }
 
+  fetchPublishers() {
+    this.httpClient.fetch("publishers")
+      .then(response => response.json())
+      .then(data => {
+        this.populatePublishers(data);
+      });
+  }
+
+  populatePublishers(data) {
+    let table = document.getElementById("publisherTable");
+    for(let entry in data) {  // currently duplicate with populateSubscribers, will change in future
+      if (data.hasOwnProperty(entry)) {
+        let content = data[entry];
+        let row = table.insertRow();
+
+        let cell1 = row.insertCell(0);
+        cell1.className = "text-center";
+        cell1.innerHTML = content.publisherName;
+
+        let cell2 = row.insertCell(1);
+        cell2.className = "text-center";
+        cell2.innerHTML = content.description;
+
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = "<td><a class=\"btn btn-primary\" href=\"../#/object-dist\">EDIT</a></td>"
+        cell3.className = "text-center";
+      }
+    }
+  }
+
+  populateSubscribers(data) {
+    let table = document.getElementById("subscriberTable");
+    for(let entry in data) {
+      if (data.hasOwnProperty(entry)) {
+        let content = data[entry];
+        let row = table.insertRow();
+
+        let cell1 = row.insertCell(0);
+        cell1.className = "text-center";
+        cell1.innerHTML = content.subscriberName;
+
+        let cell2 = row.insertCell(1);
+        cell2.className = "text-center";
+        cell2.innerHTML = content.description;
+
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = "<td><a class=\"btn btn-primary\" href=\"../#/object-dist\">EDIT</a></td>"
+        cell3.className = "text-center";
+      }
+    }
+  }
+
+  fetchSubscribers() {
+    this.httpClient.fetch("subscribers")
+      .then(response => response.json())
+      .then(data => {
+        this.populateSubscribers(data);
+      });
+  }
+
+  makePostSubscriberPublisher(data, url) {
+    this.httpClient.fetch(url, {
+      method: "post",
+      body: data
+    })
+  }
+
+  subscriberPostRequest() {
+    let data = {
+      "OfbizSubscriberId": "0",
+      "OfbizEntityName": document.getElementById("subscriberName").value,
+      "topic": document.getElementById("subscriberTopic").value,
+      "description": document.getElementById("subscriberDescription").value,
+      "filter": this.getFilterFromComponent(false)
+    };
+    this.makePostSubscriberPublisher(JSON.stringify(data), "subscribers/create");
+  }
+
+  publisherPostRequest() {
+    let data = {
+      "OfbizPublisherId": "0",
+      "OfbizEntityName": document.getElementById("publisherName").value,
+      "topic": document.getElementById("publisherTopic").value,
+      "description": document.getElementById("publisherDescription").value,
+      "filter": this.getFilterFromComponent(true)
+    };
+    this.makePostSubscriberPublisher(JSON.stringify(data), "publishers/create");
+  }
+
   getFilterFromComponent(isPublisher) {
     const queryBuilders = document.querySelectorAll('smart-query-builder');
     let queryBuilder = queryBuilders[0];
@@ -47,39 +138,6 @@ export class ObjectDist {
       conditionCount++;
     }
     return JSON.stringify(filter);
-  }
-
-  postSubscriberPublisher(data, url) {
-    this.httpClient.fetch(url, {
-      method: "post",
-      body: data
-    }).then(response => {
-      console.log(response);
-    })
-  }
-
-  subscriberPostRequest() {
-    let data = {
-      "OfbizSubscriberId": "0",
-      "OfbizSubscriberName": document.getElementById("name").value,
-      "topic": document.getElementById("topic").value,
-      "description": document.getElementById("description").value,
-      "filter": this.getFilterFromComponent(false)
-    };
-    console.log(document.getElementById("topic").value);
-    console.log(document.getElementById("description").value);
-    this.postSubscriberPublisher(JSON.stringify(data), "subscribers/create");
-  }
-
-  publisherPostRequest() {
-    let data = {
-      "OfbizPublisherId": "0",
-      "OfbizPublisherName": document.getElementById("name").value,
-      "topic": document.getElementById("topic").value,
-      "description": document.getElementById("description").value,
-      "filter": this.getFilterFromComponent(true)
-    };
-    this.postSubscriberPublisher(JSON.stringify(data), "publishers/create");
   }
 
   generateKey() {
