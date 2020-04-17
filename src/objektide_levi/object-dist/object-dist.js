@@ -2,35 +2,43 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 
 export class ObjectDist {
 
-  httpClient;
+  httpClient = new HttpClient();
 
   constructor() {
+    this.setHTTPClient();
+  }
 
-    httpClient.configure(config => {
+  setHTTPClient() {
+    this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('api/')
+        .withBaseUrl('https://localhost:8443/api/objectdist/')
         .withDefaults({
           credentials: 'same-origin',
           headers: {
-            'X-Requested-With': 'Fetch'
+            'Content-Type': 'application/json'
           }
         })
         .withInterceptor({
           request(request) {
-            let authHeader = "object-dist-auth-header";
-            request.headers.append('Authorization', authHeader);
+            console.log(`Requesting ${request.method} ${request.url}`);
             return request;
+          },
+          response(response) {
+            console.log(`Received ${response.status} ${response.url}`);
+            return response;
           }
         });
     });
-
-    this.generateVariables();
   }
 
-  getRegex() {
-    const querybuilder = document.querySelector('smart-query-builder');
-    let queryArray = querybuilder.value;
+  getFilter(publisher) {
+    const queryBuilders = document.querySelectorAll('smart-query-builder');
+    let queryBuilder = queryBuilders[0];
+    if (publisher) {
+      queryBuilder = queryBuilders[1];
+    }
+    let queryArray = queryBuilder.value;
     let filter = {};
     let conditionCount = 1;
     for (let i = 0; i < queryArray.length; i++) {
@@ -38,33 +46,40 @@ export class ObjectDist {
       else filter[`operator${conditionCount}`] = queryArray[i];
       conditionCount++;
     }
-    console.log(JSON.stringify(filter));
+    return JSON.stringify(filter);
   }
 
-  generateVariables() {
-    this.type = '';
-    this.variables = [["Puldiauto", "Mängukaru", "Tuulelohe"], ["Arved", "Kasum", "Käive"], ["Püsiklient", "Tavaklient", "Partner"]];
-    this.one = "Puldiauto";
-    this.two = "Mängukaru";
-    this.three = "Tuulelohe";
-  }
-
-  changeVariables() {
-    if (this.type) {
-      this.one = this.variables[this.type][0];
-      this.two = this.variables[this.type][1];
-      this.three = this.variables[this.type][2];
-    }
-  }
-
-  getRequest() {
-  }
-
-  postRequest(filterString) {
-    this.httpClient.fetch("comments", {
+  postSubscriberPublisher(data, url) {
+    this.httpClient.fetch(url, {
       method: "post",
-      body: filterString
+      body: data
+    }).then(response => {
+      console.log(response);
     })
+  }
+
+  subscriberPostRequest() {
+    let data = {
+      "OfbizSubscriberId": "0",
+      "OfbizSubscriberName": document.getElementById("name").value,
+      "topic": document.getElementById("topic").value,
+      "description": document.getElementById("description").value,
+      "filter": this.getFilter(false)
+    };
+    console.log(document.getElementById("topic").value);
+    console.log(document.getElementById("description").value);
+    this.postSubscriberPublisher(JSON.stringify(data), "subscribers/create");
+  }
+
+  publisherPostRequest() {
+    let data = {
+      "OfbizPublisherId": "0",
+      "OfbizPublisherName": document.getElementById("name").value,
+      "topic": document.getElementById("topic").value,
+      "description": document.getElementById("description").value,
+      "filter": this.getFilter(true)
+    };
+    this.postSubscriberPublisher(JSON.stringify(data), "publishers/create");
   }
 
   generateKey() {

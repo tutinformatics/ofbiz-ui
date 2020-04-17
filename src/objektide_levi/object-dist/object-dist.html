@@ -1,4 +1,5 @@
 <template>
+  <require from="./query-builder/query-builder"></require>
   <div class="container">
     <div class="card">
       <div class="card-body">
@@ -81,26 +82,21 @@
               <div class="modal-body">
                 <form>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="text" class="form-control" placeholder="Name" id="name" required>
                   </div>
                   <div class="form-group">
-                    <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
+                    <input type="text" class="form-control" placeholder="Topic" id="topic" required>
                   </div>
                   <div class="form-group">
-                    <label for="class">Variables</label>
-                    <select id="class" class="custom-select my-1 mr-sm-2">
-                      <option selected>${one}</option>
-                      <option value="1">${two}</option>
-                      <option value="2">${three}</option>
-                    </select>
+                    <textarea class="form-control" rows="3" placeholder="Description" id="description" required></textarea>
                   </div>
                 </form>
               </div>
-              <div style="display: flex; justify-content: center" id="query-builder-div">
-                <compose view-model="./query-builder/query-builder"></compose>
+              <div style="display: flex; justify-content: center" class="query-builder-div">
+                <query-builder></query-builder>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="getRegex()">Submit</button>
+                <button type="submit" class="btn btn-primary" click.trigger="subscriberPostRequest()" data-dismiss="modal">Submit</button>
               </div>
             </div>
           </div>
@@ -118,18 +114,21 @@
               <div class="modal-body">
                 <form>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="text" class="form-control" placeholder="Name" id="name" required>
                   </div>
                   <div class="form-group">
-                    <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
+                    <input type="text" class="form-control" placeholder="Topic" id="topic" required>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" id="description" rows="3" placeholder="description" required></textarea>
                   </div>
                 </form>
               </div>
-              <div style="display: flex; justify-content: center">
-                <compose view-model="./query-builder/query-builder"></compose>
+              <div style="display: flex; justify-content: center" class="query-builder-div">
+                <query-builder></query-builder>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="generateKey()">Submit</button>
+                <button type="submit" class="btn btn-primary" click.trigger="publisherPostRequest()" data-dismiss="modal">Submit</button>
               </div>
             </div>
           </div>
