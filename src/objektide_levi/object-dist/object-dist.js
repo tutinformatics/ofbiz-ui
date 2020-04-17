@@ -1,10 +1,13 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
+import { Router } from "aurelia-router";
 
 export class ObjectDist {
 
   httpClient = new HttpClient();
+  router;
 
-  constructor() {
+  constructor(router) {
+    this.router = router;
     this.setHTTPClient();
     this.fetchPublishers();
     this.fetchSubscribers();
@@ -110,6 +113,7 @@ export class ObjectDist {
       "filter": this.getFilterFromComponent(false)
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), "subscribers/create");
+    this.refreshPage();
   }
 
   publisherPostRequest() {
@@ -121,6 +125,11 @@ export class ObjectDist {
       "filter": this.getFilterFromComponent(true)
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), "publishers/create");
+    this.refreshPage();
+  }
+
+  refreshPage() {
+    app.router.navigateToRoute('watch', {}, { replace: true, trigger: true });
   }
 
   getFilterFromComponent(isPublisher) {
