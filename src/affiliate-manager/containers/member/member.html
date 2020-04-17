@@ -1,0 +1,42 @@
+<template>
+  <require from="../../components/general/about/about"></require>
+  <require from="../../components/guest/becomePartner/becomePartner"></require>
+  <require from="../../components/member/sidebar/memberSidebar"></require>
+  <require from="../../components/member/my-affiliates/myAffiliates"></require>
+  <require from="../../components/member/generate-code/generateCode"></require>
+  <require from="../../components/member/top-partners/topPartners"></require>
+  <require from="../../components/member/settings/settings"></require>
+  <require from="../../components/member/review/review"></require>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
+        <member-sidebar
+          current-page.two-way="currentPage"
+          opened.two-way="opened">
+        </member-sidebar>
+      </div>
+      <div class="col px-0 z-index-upper">
+        <my-affiliates
+          if.bind="currentPage === 'My-Affiliates'"
+        >
+        </my-affiliates>
+        <generate-code
+          if.bind="currentPage === 'Generate-Code'"
+        >
+        </generate-code>
+        <top-partners
+          if.bind="currentPage === 'Top-Partners'"
+        >
+        </top-partners>
+        <review
+          if.bind="currentPage === 'Review'"
+        >
+        </review>
+        <settings
+          if.bind="currentPage === 'Settings'"
+        >
+        </settings>
+      </div>
+    </div>
+  </div>
+</template>

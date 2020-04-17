@@ -18,7 +18,7 @@ export class App {
       {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
-        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager'),
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
       },
       {
         route: 'login',

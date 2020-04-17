@@ -1,6 +1,0 @@
-export class AffSettings {
-
-  constructor() {
-  }
-
-}

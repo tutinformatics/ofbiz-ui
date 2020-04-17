@@ -1,11 +1,10 @@
 <template>
   <require from="../../general/icons/cogs/settingsIcon"></require>
+  <require from="../../general/icons/approve/approveIcon"></require>
+  <require from="../../general/icons/addressBook/addressBookIcon"></require>
   <require from="../../general/sidebar/sidebarUserInfo/sidebarUserInfo"></require>
   <require from="../../general/icons/menu/menuIcon"></require>
   <require from="../../general/icons/icon"></require>
-  <require from="../../general/icons/handshake/handshakeIcon"></require>
-  <require from="../../general/icons/info/infoIcon"></require>
-  <require from="../../general/icons/status/statusIcon"></require>
   <div class="row h-100 flex-nowrap">
     <div class="col-10 aff-sidebar-container px-0" class.bind="opened? 'aff-sidebar-container--closed': ''">
       <div class="row w-100 aff-sidebar mx-0">
@@ -14,29 +13,29 @@
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'Become-partner'? 'aff-sidebar__menu-element--active' : ''"
-          click.trigger="navigateTo('Become-partner')">
+          class.bind="current === 'Affiliates'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Affiliates')">
           <icon
-            icon-label.bind="`Become Partner`">
-            <handshake-icon></handshake-icon>
+            icon-label.bind="`Affiliates`">
+            <address-book-icon></address-book-icon>
           </icon>
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'Status'? 'aff-sidebar__col--active' : ''"
-          click.trigger="navigateTo('Status')">
+          class.bind="current === 'Approve-affiliates'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Approve-affiliates')">
           <icon
-            icon-label.bind="`Status`">
-            <status-icon></status-icon>
+            icon-label.bind="`Approve`">
+            <approve-icon></approve-icon>
           </icon>
         </div>
         <div
           class="col aff-sidebar__col"
-          class.bind="current === 'About'? 'aff-sidebar__col--active' : ''"
-          click.trigger="navigateTo('About')">
+          class.bind="current === 'Global-Settings'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Global-Settings')">
           <icon
-            icon-label.bind="`Info`">
-            <info-icon></info-icon>
+            icon-label.bind="`Global Settings`">
+            <settings-icon></settings-icon>
           </icon>
         </div>
       </div>
