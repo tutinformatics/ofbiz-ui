@@ -21,15 +21,24 @@ export class Pipeline {
     });
   }
 
-  async attached() {
-    this.new = await this.pipelineService.getNewOpportunities();
-    this.proposition = await this.pipelineService.getPropositionOpportunities();
-    this.won = await this.pipelineService.getWonOpportunities();
+  attached() {
+    this.pipelineService.getNewOpportunities()
+      .then(
+        data => this.new = data
+      );
+    this.pipelineService.getPropositionOpportunities()
+      .then(
+        data => this.proposition = data
+      );
+    this.pipelineService.getWonOpportunities()
+      .then(
+        data => this.won = data
+      );
   }
 
   async newOpportunity() {
-    let opportunity = { name: this.name, description: this.description, price: this.price, pipelineId: "SAMPLE_ID1", customerId: "SAMPLE_ID1", contactId: "SAMPLE_ID1", stage: "new" };
-    this.new.push(opportunity);
+    let opportunity = { name: this.name, description: this.description, price: this.price, pipelineId: "SAMPLE_ID1", customerId: "SAMPLE_ID1", contactId: "SAMPLE_ID1", stage: this.stage };
+    // this.new.push(opportunity);
     // switch (this.stage) {
     //   case "new":
     //     this.new.push(opportunity);
@@ -50,7 +59,7 @@ export class Pipeline {
     //   .find(j => j !== undefined);
 
     // modal.hide();
-    // await this.pipelineService.createNewOpportunity(opportunity);
+    await this.pipelineService.createNewOpportunity(opportunity);
   };
 
   objArrayReordered(objArray, change) {

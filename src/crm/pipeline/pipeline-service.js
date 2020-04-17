@@ -5,66 +5,55 @@ import { inject } from 'aurelia-framework';
 export class PipelineService {
   constructor() {
     this.client = new HttpClient;
-    const baseUrl = 'http://localhost:7463/api/';
+    const baseUrl = '/api/';
 
     this.client.configure(config => {
       config
         .withBaseUrl(baseUrl)
-        .withDefaults({
-          mode: 'cors',
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-      // .withDefaults({
-      //   credentials: 'cross-origin',
-      //   headers: {
-      //     'X-Requested-With': 'Fetch'
-      //   }
-      // });
     });
-
   }
 
-  async getNewOpportunities() {
-    try {
-      const response = await this.client.fetch('opportunity/1/new');
-      return response.json();
-    } catch (e) {
-      console.log("getagents:", e);
-    }
+  getNewOpportunities() {
+    return this.client
+      .fetch('opportunity/1/new')
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
   }
 
-  async getPropositionOpportunities() {
-    try {
-      const response = await this.client.fetch('opportunity/1/proposition');
-      return response.json();
-    } catch (e) {
-      console.log("getagents:", e);
-    }
+  getPropositionOpportunities() {
+    return this.client
+      .fetch('opportunity/1/proposition')
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
   }
 
-  async getWonOpportunities() {
-    try {
-      const response = await this.client.fetch('opportunity/1/won');
-      return response.json();
-    } catch (e) {
-      console.log("getagents:", e);
-    }
+  getWonOpportunities() {
+    return this.client
+      .fetch('opportunity/1/won')
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
   }
 
-  async createNewOpportunity(opportunity) {
-    try {
-      const response = this.client
-        .fetch('opportunity', {
-          method: 'post',
-          body: json(opportunity)
-        });
-
-      return response.json();
-    } catch (e) {
-      console.log("getagents:", e);
-    }
+  createNewOpportunity(opportunity) {
+    this.client
+      .fetch('opportunity', {
+        method: 'post',
+        body: json(opportunity)
+      })
+      .then(response => response.json())
+      .catch(reason => {
+        // do something useful here
+        console.error(reason);
+      });
   }
 }
 
