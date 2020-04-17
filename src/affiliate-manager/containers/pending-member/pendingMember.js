@@ -3,7 +3,7 @@ import '../general/affGeneral.scss';
 export class PendingMember {
 
   constructor() {
-    this.currentPage = 'My-Affiliates';
+    this.currentPage = 'Become-Partner';
     this.opened = false;
   }
 

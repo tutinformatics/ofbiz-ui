@@ -3,11 +3,11 @@ import { bindable } from 'aurelia-framework';
 
 export class PendingMemberSidebar {
 
-  @bindable currentPage;
+  @bindable current;
   @bindable opened;
 
   navigateTo(navigateNext) {
-    this.currentPage = navigateNext;
+    this.current = navigateNext;
   }
 
   slide() {
