@@ -22,7 +22,7 @@ export class App {
       },
       {
         route: 'login',
-        name: 'aff-partner',
+        name: 'login-page',
         moduleId: PLATFORM.moduleName('commons/login/login')
       },
     ]);

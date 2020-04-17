@@ -2,33 +2,57 @@
   <div class="container-fluid h-100 container-fluid--no-overflow">
     <div class="row justify-content-center align-items-center h-100">
       <div class="col login mt-n5">
-        <form>
-          <label class="sr-only" for="username"></label>
-          <input
-            type="text"
-            id="username"
-            class="login__input"
-            placeholder="Username"
-          />
-          <label for="password" class="sr-only"></label>
-          <input
-            type="text"
-            id="password"
-            class="login__input"
-            placeholder="Password"
-          />
-          <input
-            class="login__btn my-2"
-            type="submit"
-            value="Log In"
-          />
-        </form>
-        <div class="row forgot-password flex-column">
-          <div class="col mx-auto my-2 col--sign-up">
-            <a class="forgot-password__link" href="#">Sign Up</a>
+        <div class="login__form-wrapper" class.bind="forgotPassword? 'login__form-wrapper--invisible': ''">
+          <form>
+            <label class="sr-only" for="username"></label>
+            <input
+              type="text"
+              id="username"
+              class="login__input"
+              placeholder="Username"
+            />
+            <label for="password" class="sr-only"></label>
+            <input
+              type="text"
+              id="password"
+              class="login__input"
+              placeholder="Password"
+            />
+            <input
+              class="login__btn my-2"
+              type="submit"
+              value="Log In"
+            />
+          </form>
+          <div class="row login-additional flex-column">
+            <div class="col mx-auto my-2 col--sign-up">
+              <a class="login-additional__link">Sign Up</a>
+            </div>
+            <div class="col mx-auto col--forgot-psw">
+              <a class="login-additional__link" click.trigger="setForgotPassword(true)">Forgot Password?</a>
+            </div>
           </div>
-          <div class="col mx-auto col--forgot-psw">
-            <a class="forgot-password__link" href="#">Forgot Password?</a>
+        </div>
+        <div class="login__form-wrapper login__form-wrapper--absolute" class.bind="!forgotPassword? 'login__form-wrapper--invisible': ''">
+          <div class="row">
+            <div class="col">
+              <label class="sr-only" for="email"></label>
+              <input
+                type="email"
+                id="email"
+                class="login__input"
+                placeholder="Enter email"
+              />
+              <small id="emailHelp" class="form-text text-muted">Instruction for password reset will be sent to this email</small>
+              <input
+                class="login__btn my-2"
+                type="submit"
+                value="Confirm"
+              />
+              <div class="col mx-auto my-2 col--sign-up">
+                <a class="login-additional__link" click.trigger="setForgotPassword(false)">Back</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
