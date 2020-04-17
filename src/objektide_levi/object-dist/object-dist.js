@@ -131,7 +131,7 @@ export class ObjectDist {
   }
 
   refreshPage() {
-    this.router.navigateToRoute('object-dist', {}, { replace: true, trigger: true });  // TODO fix;
+    //this.router.navigateToRoute('object-dist', {}, { replace: true, trigger: true });  // TODO fix;
   }
 
   getFilterFromComponent(isPublisher) {
