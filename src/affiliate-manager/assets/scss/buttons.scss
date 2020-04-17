@@ -22,14 +22,14 @@
 }
 
 .aff-system__button--main{
-  background-color: $secondary-dark;
+  background-color: $table-dark;
   border: none;
 
   color: $color-creamy-white;
 
   &:hover {
     color: $color-creamy-white;
-    background-color: $secondary-light;
+    background-color: $table-light;
   }
 
   &:focus {

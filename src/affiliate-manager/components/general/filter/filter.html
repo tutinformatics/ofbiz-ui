@@ -1,5 +1,9 @@
 <template>
-  <label for.bind="id">Choose filter to search by and start the search</label>
+  <div>
+    <label for.bind="id" class="w-100 text-left ml-2 mb-n1">
+      <small>Choose filter to search by and start the search</small>
+    </label>
+  </div>
   <div class="input-group mt-1">
     <select id.bind="id" class="custom-select col-3 aff-all-affiliates__select--filter mx-auto"
             value.bind="selected">

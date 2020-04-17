@@ -1,7 +1,7 @@
 <template>
   <require from="../../general/page-title/pageTitle"></require>
   <require from="../../general/filter/filter"></require>
-  <require from="../../general/icons/manage/manageIcon"></require>
+  <require from="../../general/icons/delete/deleteIcon"></require>
   <require from="../../general/icons/icon"></require>
 
   <div class="row flex-column mx-3 text-center mt-5">
@@ -11,6 +11,24 @@
       </page-title>
     </div>
     <div class="col-md-9 mx-auto my-3">
+      <div class="input-group flex-column mb-3">
+        <label for="product-categories-select" class="ml-2 text-left">
+          <small>Choose a category and generate a new affiliate code</small>
+        </label>
+        <div class="d-flex justify-content-start">
+          <select
+            name="product-categories"
+            id="product-categories-select"
+            class="custom-select aff-all-affiliates__select--filter col-3">
+            <option model.bind=null>Choose</option>
+            <option class="option" repeat.for="category of productCategories"
+                    model.bind="category['key']">
+              ${category['value']}
+            </option>
+          </select>
+          <button class="btn aff-system__button--main" type="button">Generate New</button>
+        </div>
+      </div>
       <filter
         values-to-filter.one-way="affiliateCodes"
         options.one-way="affiliateCodeOptions"
@@ -47,6 +65,18 @@
           >
             Expiration Date
           </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Is Default
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Category
+          </th>
         </tr>
         </thead>
         <tbody>
@@ -63,9 +93,15 @@
           <td class="align-middle">
             <p>${code['expiration-date']}</p>
           </td>
-          <td class="aff-table__action-icon">
-            <icon class="mt-n2">
-              <manage-icon></manage-icon>
+          <td class="align-middle">
+            <p>${code['is-default']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${code['category']}</p>
+          </td>
+          <td class="aff-table__action-icon aff-table__action-icon--red">
+            <icon if.bind="!code['is-default']" class="mt-n2">
+              <delete-icon></delete-icon>
             </icon>
           </td>
         </tr>

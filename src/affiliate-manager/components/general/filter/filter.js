@@ -7,11 +7,12 @@ export class Filter {
   @bindable callback;
   @bindable id;
   selected;
+  showLabel = false;
 
   setFilteredValues(filterInput) {
     if (this.selected && filterInput !== '') {
       const filteredValues = this.valuesToFilter.filter(
-        value => value[this.selected].toLowerCase().startsWith(filterInput.toLowerCase())
+        value => `${value[this.selected]}`.toLowerCase().startsWith(filterInput.toLowerCase())
       );
       this.callback(filteredValues);
     } else {
