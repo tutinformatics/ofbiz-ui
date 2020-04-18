@@ -5,6 +5,7 @@ export class PendingMember {
   constructor() {
     this.currentPage = 'Become-Partner';
     this.opened = false;
+    this.partnerStatus = 'default'
   }
 
 }
