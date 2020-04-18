@@ -1,0 +1,12 @@
+<template>
+  <div class="list-group-item list-group-item-action workspace-item badge-wrapper rounded ${styles}">
+    <div class="text-uppercase float-left">
+      ${elemName}
+    </div>
+    <div class="text-uppercase d-flex justify-content-end" click.callback="changeList('my')" click.delegate="handleRemoveFav()">
+     x
+     <i class="p-2 fa fa-ellipsis-v"></i>
+    </div>
+
+  </div>
+</template>

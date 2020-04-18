@@ -27,6 +27,11 @@ export function configure(aurelia) {
       PLATFORM.moduleName('commons/converters/status')
     ]);
 
+  aurelia.use
+      .standardConfiguration()
+      .developmentLogging()
+      .plugin(PLATFORM.moduleName("aurelia-animator-css"));
+
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
