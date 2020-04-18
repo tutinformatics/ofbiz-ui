@@ -19,14 +19,18 @@
           <select
             name="product-categories"
             id="product-categories-select"
-            class="custom-select aff-all-affiliates__select--filter col-3">
+            class="custom-select aff-all-affiliates__select--filter col-3"
+            value.bind="selectedCategory">
             <option model.bind=null>Choose</option>
             <option class="option" repeat.for="category of productCategories"
                     model.bind="category['key']">
               ${category['value']}
             </option>
           </select>
-          <button class="btn aff-system__button--main" type="button">Generate New</button>
+          <button
+            click.trigger="generateAffiliateCode()"
+            class="btn aff-system__button--main"
+            type="button">Generate New</button>
         </div>
       </div>
       <filter

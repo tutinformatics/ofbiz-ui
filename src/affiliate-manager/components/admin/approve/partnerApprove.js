@@ -14,13 +14,13 @@ export class partnerApprove {
   }
 
   async fetchPendingPartners() {
-    // const response = await this.httpClient.fetch("http://localhost:4567/api/parties/unconfirmedAffiliates");
-    // const responseData = await response.json();
-    // responseData.forEach(candidate =>
-    //   this.affCandidates.push(
-    //     this.parseCandidate(candidate)
-    //   )
-    // );
+    const response = await this.httpClient.fetch("https://localhost:8443/api/parties/unconfirmedAffiliates");
+    const responseData = await response.json();
+    responseData.forEach(candidate =>
+      this.affAllCandidates.push(
+        this.parseCandidate(candidate)
+      )
+    );
     this.affAllCandidates.push(
       {
         "firstName": "Nikita",

@@ -19,10 +19,11 @@ export class allAffiliates {
   }
 
   async fetchAffiliatePartners() {
-    const response = await this.httpClient.fetch("https://localhost:8443/api/parties/unconfirmedAffiliates");
+    const response = await this.httpClient
+      .fetch("https://localhost:8443/api/parties/affiliates");
     const responseData = await response.json();
     responseData.forEach(partner =>
-      this.affiliatePartners.push(
+      this.allAffiliatePartners.push(
         this.parsePartner(partner)
       )
     );
@@ -34,13 +35,6 @@ export class allAffiliates {
         "email": "122@gmail.com",
         "status": "Active"
       },
-      {
-        "firstName": "Alexei",
-        "lastName": "Tsop",
-        "dateTimeCreated": moment(1587330000000).format('MM-D-YYYY'),
-        "email": "Alex@gmail.com",
-        "status": "Active"
-      }
     );
   }
 

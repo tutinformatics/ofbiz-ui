@@ -1,11 +1,16 @@
 import "../member-components.scss"
+import { inject } from "aurelia-dependency-injection";
+import { HttpClient } from "aurelia-fetch-client";
+import moment from "moment";
 
+@inject(HttpClient)
 export class MyAffiliates {
 
-  constructor() {
+  constructor(httpClient) {
+    this.httpClient = httpClient;
     this.myAffiliatesOption = this.getMyAffiliateOptions();
     this.myAffiliatePartners = this.getMyAffiliatePartners();
-    this.filteredAffiliatePartners = this.myAffiliatePartners;
+    this.filteredAffiliatePartners = [];
   }
 
   getMyAffiliateOptions() {
@@ -33,33 +38,32 @@ export class MyAffiliates {
     ];
   }
 
-  getMyAffiliatePartners() {
-    return [
-      {
-        "first-name": "Mike",
-        "last-name": "Sparksi",
-        "email": "mike@gmail.com",
-        "date": "24/11/2020",
-        "status": "Active",
-      },
-      {
-        "first-name": "Nick",
-        "last-name": "Noi",
-        "email": "nick.noi@gmail.com",
-        "date": "22/03/2020",
-        "status": "Active",
-      },
-      {
-        "first-name": "Hutin",
-        "last-name": "Pui",
-        "email": "hutin@pui.com",
-        "date": "26/11/2020",
-        "status": "Active",
-      },
-    ]
+  async getMyAffiliatePartners() {
+    const myPartners = [];
+    const response = await this.httpClient
+      .fetch("https://localhost:8443/api/parties/affiliates");
+    const responseData = await response.json();
+    responseData.forEach(partner =>
+      myPartners.push(
+        this.parsePartner(partner)
+      )
+    );
+    this.filteredAffiliatePartners = myPartners;
+    return myPartners;
   }
 
   setFilteredAffiliatePartners(filteredValues) {
     this.filteredAffiliatePartners = filteredValues;
+  }
+
+  parsePartner(partner) {
+    const parsedDate = new Date(partner["createdStamp"]);
+    return {
+      "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
+      "firstName": partner['firstName'],
+      "lastName": partner['lastName'],
+      "email": `${partner['firstName']}@gmail.com`,
+      "status": 'active'
+    }
   }
 }
