@@ -1,0 +1,19 @@
+<template>
+  <div tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">${partner['first-name']} ${partner['last-name']} Detailed View</h4>
+          <button type="button" click.trigger="controller.cancel()" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          ${partner.email}?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn mx-auto" click.trigger="controller.ok()">Yes</button>
+        </div>
+      </div><!-- /.modal-content  -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+</template>

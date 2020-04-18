@@ -66,10 +66,10 @@ Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 25
 Server version: 8.0.19 MySQL Community Server - GPL
 
-Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2020, Oracle and/or its allAffiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
+allAffiliates. Other names may be trademarks of their respective
 owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.

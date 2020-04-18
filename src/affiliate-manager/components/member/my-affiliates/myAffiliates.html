@@ -4,6 +4,14 @@
   <require from="../../general/icons/eye/eyeIcon"></require>
   <require from="../../general/icons/icon"></require>
 
+  <ul>
+    <li repeat.for="item of data">
+      ${item}
+
+    </li>
+  </ul>
+
+
   <div class="row flex-column mx-3 text-center mt-5">
     <div class="col-md-9 mx-auto">
       <page-title
@@ -74,7 +82,8 @@
           </td>
           <td class="aff-table__action-icon">
             <icon class="mt-n2">
-              <eye-icon></eye-icon>
+              <eye-icon click.trigger="detailedView(partner)">
+              </eye-icon>
             </icon>
           </td>
         </tr>
