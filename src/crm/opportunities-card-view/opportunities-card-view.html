@@ -4,15 +4,28 @@
   <div class="container mt-4">
     <opportunity-modal></opportunity-modal>
 
+    <!-- <div class="container"> -->
     <div class="row mt-4">
-      <table class="table table-striped">
+      <div class="col-4" repeat.for="opportunity of opportunities">
+        <div class="card" style="height: 12rem; margin-bottom: 20px;">
+          <div class="card-body">
+            <h5 class="card-title">${opportunity.name}</h5>
+            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
+            <p class="card-text">${opportunity.description}</p>
+            <p class="card-text">${opportunity.stage}</p>
+            <p class="card-text"><b>${opportunity.price}€</b></p>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+
+      <!-- <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">State</th>
-            <th scope="col"></th>
           </tr>
         </thead>
 
@@ -22,14 +35,9 @@
             <td>${opportunity.description}</td>
             <td>${opportunity.price}€</td>
             <td>${opportunity.stage}</td>
-            <td>
-              <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity }">Edit</a> |
-              <a href="#">Delete</a>
-              <!-- <a click.delegate="deleteOpportunity(opportunity.id)">Delete</a> -->
-          </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </template>

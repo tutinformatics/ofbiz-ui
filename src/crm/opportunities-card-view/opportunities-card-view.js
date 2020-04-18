@@ -1,6 +1,6 @@
-import { OpportunitiesService } from './opportunities-service';
+import { OpportunitiesService } from '/Users/siret/code/tarkvaratehnika/ofbiz-ui/src/crm/opportunities/opportunities-service.js';
 
-export class OpportunitiesList {
+export class OpportunitiesCardView {
   constructor() {
     this.opportunitiesService = new OpportunitiesService();
   }
@@ -11,11 +11,4 @@ export class OpportunitiesList {
         data => this.opportunities = data
       );
   }
-
-  deleteOpportunity(id) {
-    this.opportunities.filter(function(obj) {
-      return obj.id !== id;
-    });
-  }
 }
-

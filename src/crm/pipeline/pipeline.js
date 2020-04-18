@@ -1,6 +1,7 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { PipelineService } from './pipeline-service';
+import { bindables } from 'aurelia-kendoui-bridge';
 
 @inject(EventAggregator)
 export class Pipeline {
@@ -8,6 +9,7 @@ export class Pipeline {
   description = '';
   price = '';
   stage = '';
+  _subscriptions = [];
 
   constructor(ea) {
     this.new = [];
@@ -15,10 +17,29 @@ export class Pipeline {
     this.won = [];
 
     this.pipelineService = new PipelineService();
+    this.ea = ea;
 
     ea.subscribe('reorderable-group:intention-changed', intention => {
       this.intention = intention;
     });
+
+    ea.subscribe('newOpportunityCreation',
+      description => this.eventNewOpportunityCreation(description));
+  }
+
+  eventNewOpportunityCreation(description) {
+    this.pipelineService.getNewOpportunities()
+      .then(
+        data => this.new = data
+      );
+    this.pipelineService.getPropositionOpportunities()
+      .then(
+        data => this.proposition = data
+      );
+    this.pipelineService.getWonOpportunities()
+      .then(
+        data => this.won = data
+      );
   }
 
   attached() {
@@ -36,31 +57,17 @@ export class Pipeline {
       );
   }
 
-  async newOpportunity() {
-    let opportunity = { name: this.name, description: this.description, price: this.price, pipelineId: "SAMPLE_ID1", customerId: "SAMPLE_ID1", contactId: "SAMPLE_ID1", stage: this.stage };
-    // this.new.push(opportunity);
-    // switch (this.stage) {
-    //   case "new":
-    //     this.new.push(opportunity);
-    //     break;
-    //   case "proposition":
-    //     this.proposition.push(opportunity);
-    //     break;
-    //   case "won":
-    //     this.won.push(opportunity);
-    //     break;
-    // }
+  deleteWonOpportunity(index) {
+    this.won.splice(index, 1);
+  }
 
-    // this is very bad
-    // const el = document.getElementById("opportunityModal");
-    // const modal = Object.getOwnPropertyNames(el)
-    //   .filter(n => n.startsWith("jQuery"))
-    //   .map(n => e[n]["bs.modal"])
-    //   .find(j => j !== undefined);
+  deleteNewOpportunity(index) {
+    this.new.splice(index, 1);
+  }
 
-    // modal.hide();
-    await this.pipelineService.createNewOpportunity(opportunity);
-  };
+  deletePropositionOpportunity(index) {
+    this.proposition.splice(index, 1);
+  }
 
   objArrayReordered(objArray, change) {
     /* eslint no-console: 0 */
@@ -82,8 +89,4 @@ export class Pipeline {
     console.log('insects: ' + list);
     console.log('change', change);
   }
-
-
-
-
 }

@@ -1,69 +1,8 @@
 <template>
+  <require from="/Users/siret/code/tarkvaratehnika/ofbiz-ui/src/crm/opportunity-modal/opportunity-modal.html"></require>
   <div class="container mt-4">
-    <div class="row">
-      <div class="col">
-        <h1>Pipeline</h1>
-      </div>
-      <div class="col">
-        <div class="dropdown float-right">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Add new
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" data-toggle="modal" href="#opportunityModal">Opportunity</a>
-            <a class="dropdown-item" href="#">Column</a>
-          </div>
+    <opportunity-modal></opportunity-modal>
 
-          <div class="modal fade" id="opportunityModal" tabindex="-1" role="dialog" aria-labelledby="opportunityModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="opportunityModalLabel">Add new opportunity</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form role="form" submit.delegate="newOpportunity()">
-                    <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">Name</label>
-                      <input type="text" class="form-control" id="opportunity-name" value.bind="name">
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">Description</label>
-                      <textarea class="form-control" id="opportunity-description" value.bind="description"></textarea>
-                    </div>
-                    <div class="input-group">
-                      <label for="message-text" class="col-form-label">Price</label>
-                      <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2" value.bind="price">
-                        <div class="input-group-append">
-                          <span class="input-group-text" id="basic-addon2">€</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">Stage</label>
-                      <select class="form-control" value.bind="stage">
-                        <option value="new">New</option>
-                        <option value="proposition">Proposition</option>
-                        <option value="won">Won</option>
-                      </select>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="row mt-4">
       <div class="col-4" reorderable-group-for.bind="new">
         <div class="row-4 mb-4">
@@ -78,7 +17,7 @@
             </div>
             <div class="col text-right">
               <img src="assets/img/edit.svg" alt="edit">
-              <img src="assets/img/delete.svg" alt="delete">
+              <img src="assets/img/delete.svg" alt="delete" click.delegate="deleteNewOpportunity($index)">
             </div>
           </div>
           <div>${oppurtunity.description}</div>
@@ -99,7 +38,7 @@
               </div>
               <div class="col text-right">
                 <img src="assets/img/edit.svg" alt="edit">
-                <img src="assets/img/delete.svg" alt="delete">
+                <img src="assets/img/delete.svg" alt="delete" click.delegate="deletePropositionOpportunity($index)">
               </div>
             </div>
           </div>
@@ -119,7 +58,7 @@
             </div>
             <div class="col text-right">
               <img src="assets/img/edit.svg" alt="edit">
-              <img src="assets/img/delete.svg" alt="delete">
+              <img src="assets/img/delete.svg" alt="delete" click.delegate="deleteOpportunity($index)">
             </div>
           </div>
           <div>${oppurtunity.description}</div>

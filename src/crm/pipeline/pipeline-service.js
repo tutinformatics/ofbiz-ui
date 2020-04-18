@@ -50,6 +50,7 @@ export class PipelineService {
         body: json(opportunity)
       })
       .then(response => response.json())
+      .then(data => console.log(data))
       .catch(reason => {
         // do something useful here
         console.error(reason);

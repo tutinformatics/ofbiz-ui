@@ -5,20 +5,31 @@ import { inject } from 'aurelia-framework';
 export class OpportunitiesService {
   constructor() {
     this.client = new HttpClient;
-    const baseUrl = 'http://localhost:7463/api/';
+    const baseUrl = '/api/';
 
     this.client.configure(config => {
       config.withBaseUrl(baseUrl);
     })
   }
 
-  async getOpportunities() {
-    try {
-      const response = await this.client.fetch('opportunities');
-      return response.json();
-    } catch (e) {
-      console.log("getOpportunities:", e);
-    }
+  getOpportunities() {
+    return this.client
+      .fetch('opportunities')
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
+  }
+
+  getOpportunity(id) {
+    return this.client
+      .fetch('opportunities')
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
   }
 }
 
