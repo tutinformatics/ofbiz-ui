@@ -10,7 +10,7 @@ export class ButtonIcon {
 
   constructor() {
     this.element = {
-      active: '',
+      active: ''
     };
   }
 

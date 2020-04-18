@@ -5,11 +5,14 @@ import { Router } from 'aurelia-router';
 export class Navbar {
   constructor(router) {
     this.router = router;
-    this.currentApp = '';
+    this.currentProduct = '';
   }
 
-  setCurrentApp(appName) {
-    this.currentApp = appName;
-    this.router.navigate(this.currentApp);
+  setCurrentProduct({ text, url }) {
+    if (!url) {
+      return;
+    }
+    this.currentProduct = text;
+    this.router.navigate(url);
   }
 }

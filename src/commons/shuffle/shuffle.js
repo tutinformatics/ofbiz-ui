@@ -1,20 +1,41 @@
 import { bindable } from 'aurelia-framework';
 
 export class Shuffle {
-  @bindable selectApp;
+  @bindable selectProduct;
+
   // TODO: should not be hard-coded, but come from BE?
   products = [
-    'crm',
-    'accounting',
-    'calendar',
-    'contacts',
-    'manufacturing',
-    'marketing',
-    'invoicing',
-    'projects',
+    {
+      text: 'project',
+      url: 'projects'
+    },
+    {
+      text: 'crm',
+      url: '' // TODO: replace with proper url
+    },
+    {
+      text: 'accounting',
+      url: ''
+    },
+    {
+      text: 'contacts',
+      url: ''
+    },
+    {
+      text: 'manufacturing',
+      url: ''
+    },
+    {
+      text: 'marketing',
+      url: ''
+    },
+    {
+      text: 'invoicing',
+      url: ''
+    }
   ];
 
   handleSelect(product) {
-    this.selectApp({ appName: product });
+    this.selectProduct({ product: product });
   }
 }
