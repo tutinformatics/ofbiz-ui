@@ -1,0 +1,12 @@
+<template>
+  <require from="../containers/guest/guest"></require>
+  <require from="../containers/member/member"></require>
+  <require from="../containers/admin/admin"></require>
+  <require from="../containers/pending-member/pendingMember"></require>
+  <div>
+    <guest if.bind="isGuest()"></guest>
+    <member if.bind="isMember()"></member>
+    <admin if.bind="isAdmin()"></admin>
+    <pending-member if.bind="isPendingMember()"></pending-member >
+  </div>
+</template>

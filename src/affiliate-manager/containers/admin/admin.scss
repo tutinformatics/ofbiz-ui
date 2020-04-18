@@ -1,0 +1,43 @@
+@import "src/affiliate-manager/assets/scss/variables";
+
+html, body {
+  height: 100%;
+  background: $background-color;
+  font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.aff-content__manager-header{
+  background: $primary-color;
+  padding-left: 20px;
+  height: 50px;
+}
+
+.aff-content {
+  height: 100%;
+  display: flex;
+}
+
+.aff-content__main-area {
+  overflow-x: hidden;
+}
+
+.aff-icon__menu {
+  color: $primary-color;
+
+}
+
+.aff-sidebar-toggle-button:hover {
+  .aff-icon__menu{
+    color: $color-creamy-white;
+  }
+
+  background: $primary-color;
+}
+
+
+.aff-content__header-text {
+  font-size: large;
+  font-weight: bold;
+  color: $color-creamy-white;
+}

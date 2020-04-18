@@ -1,51 +1,87 @@
 import "./allAffiliates.scss"
-import { bindable } from 'aurelia-framework';
-import { Router } from 'aurelia-router';
-import { inject } from 'aurelia-framework'
+import { inject } from 'aurelia-framework';
+import { HttpClient } from "aurelia-fetch-client";
+import moment from 'moment';
 
-@inject(Router)
+@inject(HttpClient)
 export class allAffiliates {
-  @bindable selectedFilter;
-  @bindable modifyUser;
 
-  filteredValues = [];
-  affiliatePartners;
-  allKeys;
+  filteredValues;
+  allAffiliatePartners;
+  allAffiliatesOptions;
 
-
-  constructor(router) {
-    this.router = router;
-    this.affiliatePartners = [{
-      "firstName": "Nikita",
-      "lastName": "Ojamae",
-      "dateTimeCreated": "Mar 15, 2020, 6:56:48 PM",
-      "email": "122@gmail.com",
-      status: "approved"
-    }, {
-      "firstName": "Alexei",
-      "lastName": "Tsop",
-      "dateTimeCreated": "Mar 20, 2020, 8:56:48 PM",
-      "email": "Alex@gmail.com",
-      "status": "pending"
-    }];
-    this.allKeys = this.getKeys();
-    this.filteredValues = this.affiliatePartners.slice();
-
+  constructor(httpClient) {
+    this.httpClient = httpClient;
+    this.allAffiliatePartners = [];
+    this.allAffiliatesOptions = this.getAffiliatesOptions();
+    this.fetchAffiliatePartners();
+    this.filteredValues = this.allAffiliatePartners;
   }
 
-  getKeys() {
-    return this.affiliatePartners.length > 0 ? Object.keys(this.affiliatePartners[0]) : [];
+  async fetchAffiliatePartners() {
+    const response = await this.httpClient.fetch("https://localhost:8443/api/parties/unconfirmedAffiliates");
+    const responseData = await response.json();
+    responseData.forEach(partner =>
+      this.affiliatePartners.push(
+        this.parsePartner(partner)
+      )
+    );
+    this.allAffiliatePartners.push(
+      {
+        "firstName": "Nikita",
+        "lastName": "Ojamae",
+        "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
+        "email": "122@gmail.com",
+        "status": "Active"
+      },
+      {
+        "firstName": "Alexei",
+        "lastName": "Tsop",
+        "dateTimeCreated": moment(1587330000000).format('MM-D-YYYY'),
+        "email": "Alex@gmail.com",
+        "status": "Active"
+      }
+    );
   }
 
-
-  getFilteredValues(filterInput) {
-    this.filteredValues = this.selectedFilter == null || filterInput === "" ?
-      this.affiliatePartners.slice() : this.filteredValues.filter(partner => String(partner[this.selectedFilter]).toLowerCase().startsWith(filterInput.toLowerCase()));
+  getAffiliatesOptions() {
+    return [
+      {
+        "key": "lastName",
+        "value": "Last Name",
+      },
+      {
+        "key": "firstName",
+        "value": "First Name",
+      },
+      {
+        "key": "dateTimeCreated",
+        "value": "Date",
+      },
+      {
+        "key": "email",
+        "value": "Email",
+      },
+      {
+        "key": "status",
+        "value": "Status",
+      },
+    ];
   }
 
-  managePartner(userEmail) {
-    this.router.navigateToRoute('aff-partner', {"email": userEmail})
+  setFilteredValues(filteredValues) {
+    this.filteredValues =  filteredValues;
   }
 
+  parsePartner(partner) {
+    const parsedDate = new Date(partner["createdStamp"]);
+    return {
+      "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
+      "firstName": partner['firstName'],
+      "lastName": partner['lastName'],
+      "email": `${partner['firstName']}@gmail.com`,
+      "status": 'active'
+    }
+  }
 
 }

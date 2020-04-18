@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <label for.bind="id" class="w-100 text-left ml-2 mb-n1">
+      <small>Choose filter to search by and start the search</small>
+    </label>
+  </div>
+  <div class="input-group mt-1">
+    <select id.bind="id" class="custom-select col-3 aff-all-affiliates__select--filter mx-auto"
+            value.bind="selected">
+      <option model.bind=null>Choose</option>
+      <option class="option" repeat.for="option of options"
+              model.bind="option['key']">
+        ${option['value']}
+      </option>
+    </select>
+    <input type="text" class="form-control aff-all-affiliates__select--input" placeholder="Enter filter text"
+           class="form-control" input.delegate="setFilteredValues($event.target.value)"/>
+  </div>
+</template>

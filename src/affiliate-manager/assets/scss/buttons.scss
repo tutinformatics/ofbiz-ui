@@ -9,28 +9,27 @@
   padding: 10px;
   z-index: 1;
   transition: 0.3s all;
+
+  &:hover:enabled {
+    background-color: $primary-color-hover;
+  }
 }
 
-.aff-button__large {
+.aff-button--large {
   width: 100%;
   max-width: 300px;
   min-width: 100px;
 }
 
-.aff-button:hover {
-  background-color: $primary-color-hover;
-}
-
-
 .aff-system__button--main{
-  background-color: $secondary-dark;
+  background-color: $table-dark;
   border: none;
 
   color: $color-creamy-white;
 
   &:hover {
     color: $color-creamy-white;
-    background-color: $secondary-light;
+    background-color: $table-light;
   }
 
   &:focus {

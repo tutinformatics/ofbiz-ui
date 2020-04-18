@@ -8,10 +8,15 @@ html, body {
 }
 
 .aff-sidebar-area {
+  transition: 0.5s ease;
   z-index: 2;
   position: fixed;
   top: $header-height;
   bottom: 0;
   max-width: $sidebar-width;
   min-width: $sidebar-width;
+}
+
+.aff-sidebar-sidebar-area--closed {
+  margin-left: -296px;
 }

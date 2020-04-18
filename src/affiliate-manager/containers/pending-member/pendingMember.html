@@ -1,0 +1,32 @@
+<template>
+  <require from="../../components/general/about/about"></require>
+  <require from="../../components/guest/becomePartner/becomePartner"></require>
+  <require from="../../components/pending-member/status/statusPending"></require>
+  <require from="../../components/pending-member/sidebar/pendingMemberSidebar"></require>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
+        <pending-member-sidebar
+          current.two-way="currentPage"
+          opened.two-way="opened"
+        >
+        </pending-member-sidebar>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col px-0">
+            <about
+              if.bind="currentPage === 'About'">
+            </about>
+            <become-partner
+              is-pending="true"
+              if.bind="currentPage === 'Become-Partner'">
+            </become-partner>
+            <status-pending if.bind="currentPage === 'Status'">
+            </status-pending>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
