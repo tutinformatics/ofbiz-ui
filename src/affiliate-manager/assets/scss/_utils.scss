@@ -1,0 +1,16 @@
+%flex-vertically-align {
+  display: flex;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.z-index-upper {
+  z-index: 1;
+}
+
+.z-index-lower {
+  z-index: 0;
+}

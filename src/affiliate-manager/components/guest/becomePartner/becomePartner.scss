@@ -1,0 +1,48 @@
+@import "src/affiliate-manager/assets/scss/utils";
+@import "src/affiliate-manager/assets/scss/variables";
+@import "src/affiliate-manager/assets/scss/buttons";
+
+.aff-become-partner-img-area {
+  margin-top: -50px;
+  overflow-x: hidden;
+}
+
+.aff-become-partner-img-area--img {
+  margin-top: -100px;
+}
+
+.become-partner--sumbit__wrapper {
+  margin-top: -200px;
+  width: 100%;
+}
+
+.aff-become-partner__motivator {
+  text-align: center;
+  border-radius: 10px;
+}
+
+.become-partner__description{
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .aff-become-partner-img-area--img {
+    margin-top: -10px;
+    margin-left: -200px;
+    max-height: 400px;
+  }
+
+  .become-partner--sumbit__wrapper {
+    margin-top: 20px;
+  }
+
+  .become-partner--sumbit__motivator {
+    background-color: transparent;
+    color: black;
+  }
+
+  .aff-become-partner__description{
+    margin-top: 20px;
+  }
+
+}

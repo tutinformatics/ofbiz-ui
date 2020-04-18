@@ -1,0 +1,12 @@
+<template>
+  <div class="row aff-sidebar-icon">
+    <div class="col aff-sidebar-icon__icon">
+      <slot></slot>
+    </div>
+    <div if.bind="iconLabel" class="col-8 aff-sidebar-icon__label">
+      <h6>
+        ${iconLabel}
+      </h6>
+    </div>
+  </div>
+</template>
