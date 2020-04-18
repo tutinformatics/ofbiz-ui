@@ -1,8 +1,15 @@
 import "../member-components.scss"
+import {bindable} from "aurelia-framework";
+import {DialogService} from "aurelia-dialog";
+import {SingleAffiliate} from "./aff-detailed-view/singleAffiliate"
+import {inject} from "aurelia-dependency-injection";
 
+@inject(DialogService)
 export class MyAffiliates {
 
-  constructor() {
+
+  constructor(dialogService) {
+    this.dialogService = dialogService;
     this.myAffiliatesOption = this.getMyAffiliateOptions();
     this.myAffiliatePartners = this.getMyAffiliatePartners();
     this.filteredAffiliatePartners = this.myAffiliatePartners;
@@ -62,4 +69,31 @@ export class MyAffiliates {
   setFilteredAffiliatePartners(filteredValues) {
     this.filteredAffiliatePartners = filteredValues;
   }
+
+
+  delete(name) {
+
+    this.data.splice(this.data.indexOf(name), 1);
+
+  }
+
+
+  @bindable
+  action = () => {
+  };
+
+
+  detailedView(partner) {
+    this.dialogService.open({
+      viewModel: SingleAffiliate
+      , model: partner
+    }).then(result => {
+      if (result.wasCancelled) {
+        console.log("Hui");
+        return;
+      }
+      this.action();
+    });
+  }
 }
+
