@@ -7,7 +7,7 @@ export class Shuffle {
   products = [
     {
       text: 'project',
-      url: 'projects'
+      url: 'project'
     },
     {
       text: 'crm',

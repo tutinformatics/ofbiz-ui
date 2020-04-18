@@ -33,6 +33,29 @@
             <shuffle select-product.call="setCurrentProduct(product)"></shuffle>
           </div>
         </li>
+
+        <!-- Navbar elements -->
+        <!-- Project navbar elements -->
+        <li class="nav-item">
+          <a
+            if.bind="currentProduct == 'project'"
+            class="nav-link"
+            route-href="route: project"
+          >
+            Main
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            if.bind="currentProduct == 'project'"
+            class="nav-link"
+            route-href="route: project"
+          >
+            My Tasks
+          </a>
+        </li>
+        <!-- End of Project navbar elements -->
+        <!-- End of Navbar elements -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -57,7 +80,7 @@
         <a
           class="router-link nav-link bg-purple navbar-right"
           href="#/workspaces"
-          >
+        >
           Messages
         </a>
       </li>
@@ -65,7 +88,7 @@
         <a
           class="router-link nav-link bg-purple navbar-right"
           href="#/workspaces"
-          >
+        >
           Log in
         </a>
       </li>
