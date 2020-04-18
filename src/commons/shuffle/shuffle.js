@@ -1,28 +1,20 @@
-import {inject, customElement, bindable} from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
+import { bindable } from 'aurelia-framework';
 
-@inject(EventAggregator)
 export class Shuffle {
-  stringArray = ['crm', 'accounting', 'calendar', 'contacts', 'manufacturing', 'marketing', 'invoicing', 'facility'];
-  assetPath = "/icons/";
-  svgFile = ".svg";
+  @bindable selectApp;
+  // TODO: should not be hard-coded, but come from BE?
+  products = [
+    'crm',
+    'accounting',
+    'calendar',
+    'contacts',
+    'manufacturing',
+    'marketing',
+    'invoicing',
+    'projects',
+  ];
 
-  notactive = "";
-  active = "-active";
-  
-  getUserSettings() {
-
+  handleSelect(product) {
+    this.selectApp({ appName: product });
   }
-
-  saveUserSettings() {
-
-  }
-
-
-  getShuffleIcons() {
-
-  }
-
-
-
 }
