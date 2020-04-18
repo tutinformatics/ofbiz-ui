@@ -21,10 +21,10 @@
     </thead>
     <tbody>
     <tr repeat.for="company of $displayData">
-      <td>${company.company}</td>
-      <td>${company.code}</td>
-      <td>${company.active}</td>
-      <td>${company.address + ', ' + company.city}</td>
+      <td>${company.companyName}</td>
+      <td>${company.registryCode}</td>
+      <td>${company.companyStatus}</td>
+      <td>${company.companyAddress}</td>
       <td><button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button></td>
     </tr>
     </tbody>

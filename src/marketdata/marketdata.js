@@ -1,26 +1,37 @@
-import {HttpClient} from 'aurelia-fetch-client';
+import {inject} from 'aurelia-dependency-injection';
+import { HttpClient } from 'aurelia-fetch-client';
 
+@inject(HttpClient)
 export class Marketdata {
+  baseUrl = 'api/marketdata';
   companies = [];
+  test = null;
   pageSize = 10;
   filters = [
-    {value: '', keys: ['company', 'code', 'active', 'address']}
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']}
   ];
 
-  bind() {
-    let client = new HttpClient();
+  constructor(httpClient) {
+    this.httpClient = httpClient;
+  }
 
-    return client.fetch('data.json')
-      .then(response => response.json())
-      .then(companies => this.companies = companies);
+  bind() {
+    console.log('Getting data ...')
+    return this.httpClient
+      .fetch(`${this.baseUrl}`)
+      .then(res => res.json())
+      .then(companies => this.companies = companies)
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   submitData() {
     let company = {
-      company: this.company,
-      code: this.code,
-      active: this.active,
-      address: this.address,
+      companyName: this.companyName,
+      registryCode: this.registryCode,
+      companyStatus: this.companyStatus,
+      companyAddress: this.companyAddress,
       city: this.city
     };
 
