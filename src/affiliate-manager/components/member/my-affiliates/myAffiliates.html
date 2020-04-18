@@ -4,14 +4,6 @@
   <require from="../../general/icons/eye/eyeIcon"></require>
   <require from="../../general/icons/icon"></require>
 
-  <ul>
-    <li repeat.for="item of data">
-      ${item}
-
-    </li>
-  </ul>
-
-
   <div class="row flex-column mx-3 text-center mt-5">
     <div class="col-md-9 mx-auto">
       <page-title
@@ -53,12 +45,6 @@
             class="align-middle"
             scope="col"
           >
-            Partner Since
-          </th>
-          <th
-            class="align-middle"
-            scope="col"
-          >
             Status
           </th>
         </tr>
@@ -75,14 +61,11 @@
             <p>${partner['email']}</p>
           </td>
           <td class="align-middle">
-            <p>${partner['date']}</p>
-          </td>
-          <td class="align-middle">
             <p>${partner['status']}</p>
           </td>
           <td class="aff-table__action-icon">
             <icon class="mt-n2">
-              <eye-icon click.trigger="detailedView(partner)">
+              <eye-icon data-toggle="modal"  click.trigger="detailedView(partner)">
               </eye-icon>
             </icon>
           </td>

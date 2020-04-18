@@ -70,29 +70,12 @@ export class MyAffiliates {
     this.filteredAffiliatePartners = filteredValues;
   }
 
-
-  delete(name) {
-
-    this.data.splice(this.data.indexOf(name), 1);
-
-  }
-
-
-  @bindable
-  action = () => {
-  };
-
-
   detailedView(partner) {
     this.dialogService.open({
       viewModel: SingleAffiliate
       , model: partner
     }).then(result => {
-      if (result.wasCancelled) {
-        console.log("Hui");
-        return;
-      }
-      this.action();
+      console.log(result);
     });
   }
 }

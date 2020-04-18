@@ -1,16 +1,21 @@
 <template>
-  <div tabindex="-1" role="dialog">
+  <div class="" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">${partner['first-name']} ${partner['last-name']} Detailed View</h4>
-          <button type="button" click.trigger="controller.cancel()" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Detailed View:</h4>
+          <h4 class="ml-3 modal-title">${partner['first-name']} ${partner['last-name']}</h4>
         </div>
         <div class="modal-body">
-          ${partner.email}?
+          <p>Email:  ${partner["email"]}</p>
+          <p>Partner:  Since ${partner["date"]}</p>
+          <p>Status:  ${partner["status"]}</p>
+          <p>Commission:  ${partner["commission"]}</p>
+          <p>Affiliate Codes:  ${partner["affiliate_codes"]}</p>
+          <p>Sub Partners:  ${partner["sub_affiliates"]}</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn mx-auto" click.trigger="controller.ok()">Yes</button>
+          <button type="button"  class="btn mx-auto aff-system__button--main" click.trigger="controller.ok()">Close</button>
         </div>
       </div><!-- /.modal-content  -->
     </div><!-- /.modal-dialog -->
