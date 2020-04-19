@@ -115,7 +115,6 @@ export class ObjectDist {
       "filter": this.getFilterFromComponent(false)
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), "subscribers/create");
-    this.refreshPage();
   }
 
   publisherPostRequest() {
@@ -127,10 +126,10 @@ export class ObjectDist {
       "filter": this.getFilterFromComponent(true)
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), "publishers/create");
-    this.refreshPage();
   }
 
   refreshPage() {
+    location.reload();
     //this.router.navigateToRoute('object-dist', {}, { replace: true, trigger: true });  // TODO fix;
   }
 
