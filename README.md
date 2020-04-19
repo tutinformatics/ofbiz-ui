@@ -1,6 +1,6 @@
 # `Ofbiz-UI`
 
-This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
+_Currently deployed to: [35.228.129.189](http://35.228.129.189)_
 
 ## Install dependencies
 _(Only needed for developing / running in dev mode)_
@@ -32,11 +32,12 @@ docker-compose -f docker-compose-dev.yml up [--build]
 ```
 
 ## Run fully in docker
-_Only exposes port 80 to public, uses nginx to serve front_
+_Only exposes port 80 to public, uses nginx to serve front  
+_Don't use this for now_
 ```bash
 # --< In backend repo >--
 
-# Start ofbiz in docker
+# Start ofbiz in docker  
 ./deploy-dev.sh
 
 # --< In frontend repo (here) >--

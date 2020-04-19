@@ -145,6 +145,14 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
       { test: /environment\.json$/i, use: [
         {loader: "app-settings-loader", options: {env: production ? 'production' : 'development' }},
       ]},
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ]
   },
   plugins: [
