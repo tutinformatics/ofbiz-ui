@@ -25,10 +25,10 @@
               if.bind="currentPage === 'Become-Partner'">
             </become-partner>
             <div if.bind="currentPage === 'Status'">
-              <status-pending if.bind="partnerStatus === 'pending'">
+              <status-pending if.bind="partnerStatus === 'PENDING'">
               </status-pending>
 
-              <status-default if.bind="partnerStatus === 'default'">
+              <status-default if.bind="partnerStatus === 'DEFAULT'">
               </status-default>
 
               <status-disapproved if.bind="partnerStatus === 'disapproved'">

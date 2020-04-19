@@ -69,7 +69,7 @@ export class MyAffiliates {
       "firstName": "Alex",
       "lastName": "Groom",
       "email": 'ag@gmail.com',
-      "status": 'active'
+      "status": 'Active'
     });
     this.filteredAffiliatePartners = this.myAffiliatePartners;
   }
