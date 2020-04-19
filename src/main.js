@@ -7,8 +7,7 @@ import 'font-awesome/css/font-awesome.css';
 import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
-import '@progress/kendo-ui/css/web/kendo.common.min.css';
-import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
+
 
 export function configure(aurelia) {
   aurelia.use
