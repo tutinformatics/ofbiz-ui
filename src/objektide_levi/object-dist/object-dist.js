@@ -166,6 +166,7 @@ export class ObjectDist {
   }
 
   generatePublisherTopic() {
+    console.log(this.queryBuilder)
     document.getElementById('publisherTopic').value = this.generateKey();
 
   }
