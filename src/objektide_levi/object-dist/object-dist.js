@@ -2,18 +2,19 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {inject} from 'aurelia-dependency-injection';
 import { v1 as uuidv1 } from 'uuid';
+import {QueryBuilder} from "./query-builder/query-builder";
 
-@inject(Router)
+@inject(QueryBuilder)
 export class ObjectDist {
 
   httpClient = new HttpClient();
-  router;
+  queryBuilder;
 
-  constructor(router) {
-    this.router = router;
+  constructor(queryBuilder) {
     this.setHTTPClient();
     this.fetchPublishers();
     this.fetchSubscribers();
+    this.queryBuilder = queryBuilder;
   }
 
   attached() {
@@ -184,7 +185,8 @@ export class ObjectDist {
         for (let j = 0; j < queryArray[i].length; j++) {
           const data = queryArray[i][j];
           if (typeof data == "object") {
-            filter[data[0]] = [data[1], data[2]];
+            // filter[data[0]] = [data[1], data[2]];
+            filter[data[0]] = [data[2]];
           }
         }
         filters.push(filter)
@@ -199,5 +201,6 @@ export class ObjectDist {
 
   generatePublisherTopic() {
     document.getElementById('publisherTopic').value = this.generateKey();
+
   }
 }

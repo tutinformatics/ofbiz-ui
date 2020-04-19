@@ -6,18 +6,27 @@ import {HttpClient} from "aurelia-fetch-client";
 export class QueryBuilder {
 
   queryBuilder;
+  defaultFields = [
+    { label: 'Id', dataField: 'id', dataType: 'number' },
+    { label: 'Product', dataField: 'productName', dataType: 'string' },
+    { label: 'Unit Price', dataField: 'price', dataType: 'number' },
+    { label: 'Purchased', dataField: 'purchased', dataType: 'datetime' },
+    { label: 'Available', dataField: 'available', dataType: 'boolean' }
+  ]
+  customFields = [
+    { label: 'Sender ID', dataField: 'partyIdFrom', dataType: 'number' },
+    { label: 'Due Date', dataField: 'dueDate', dataType: 'datetime' },
+    { label: 'Description', dataField: 'description', dataType: 'string' },
+  ]
 
   constructor() {
     this.queryBuilder = Smart('#queryBuilder', class {
       get properties() {
         return {
-          fieldsMode: 'dynamic',
+          allowDrag: true,
           fields: [
-            { label: 'Id', dataField: 'id', dataType: 'number', "filterOperations": ["="] },
-            { label: 'Product', dataField: 'productName', dataType: 'string', "filterOperations": ["="] },
-            { label: 'Unit Price', dataField: 'price', dataType: 'number', "filterOperations": ["="] },
-            { label: 'Purchased', dataField: 'purchased', dataType: 'datetime', "filterOperations": ["="] },
-            { label: 'Available', dataField: 'available', dataType: 'boolean', "filterOperations": ["="] }
+            {label: 'Party ID', dataField: 'partyIdFrom', dataType: 'string'},
+            {label: 'Role type ID', dataField: 'roleTypeIdTo', dataType: 'string'},
           ]
         }
       }
