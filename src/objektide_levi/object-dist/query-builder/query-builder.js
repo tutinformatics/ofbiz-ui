@@ -11,13 +11,13 @@ export class QueryBuilder {
     this.queryBuilder = Smart('#queryBuilder', class {
       get properties() {
         return {
-          allowDrag: true,
+          fieldsMode: 'dynamic',
           fields: [
-            { label: 'Id', dataField: 'id', dataType: 'number' },
-            { label: 'Product', dataField: 'productName', dataType: 'string' },
-            { label: 'Unit Price', dataField: 'price', dataType: 'number' },
-            { label: 'Purchased', dataField: 'purchased', dataType: 'datetime' },
-            { label: 'Available', dataField: 'available', dataType: 'boolean' }
+            { label: 'Id', dataField: 'id', dataType: 'number', "filterOperations": ["="] },
+            { label: 'Product', dataField: 'productName', dataType: 'string', "filterOperations": ["="] },
+            { label: 'Unit Price', dataField: 'price', dataType: 'number', "filterOperations": ["="] },
+            { label: 'Purchased', dataField: 'purchased', dataType: 'datetime', "filterOperations": ["="] },
+            { label: 'Available', dataField: 'available', dataType: 'boolean', "filterOperations": ["="] }
           ]
         }
       }
