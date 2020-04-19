@@ -21,15 +21,21 @@
   min-width: 100px;
 }
 
-.aff-system__button--main{
+.aff-system__button--main {
   background-color: $table-dark;
   border: none;
 
   color: $color-creamy-white;
 
-  &:hover {
+  &:hover:enabled {
+    cursor: pointer;
     color: $color-creamy-white;
     background-color: $table-light;
+  }
+
+  &:hover:disabled {
+    cursor: default;
+    color: $color-creamy-white;
   }
 
   &:focus {

@@ -28,6 +28,7 @@
             </option>
           </select>
           <button
+            disabled.bind="!selectedCategory"
             click.trigger="generateAffiliateCode()"
             class="btn aff-system__button--main"
             type="button">Generate New</button>
@@ -83,21 +84,21 @@
             <p>${filteredAffiliateCodes[index]['code']}</p>
           </td>
           <td class="align-middle">
-            <p>${filteredAffiliateCodes[index]['code']}</p>
+            <p>${filteredAffiliateCodes[index]['dateOfCreation']}</p>
           </td>
           <td class="align-middle">
-            <p>${filteredAffiliateCodes[index]['code']}</p>
+            <p>${filteredAffiliateCodes[index]['expirationDate']}</p>
           </td>
           <td class="align-middle">
-            <p>${filteredAffiliateCodes[index]['code']}</p>
+            <p>${filteredAffiliateCodes[index]['isDefault']}</p>
           </td>
           <td class="align-middle">
-            <p>${filteredAffiliateCodes[index]['code']}</p>
+            <p>${filteredAffiliateCodes[index]['category']}</p>
           </td>
           <td class="aff-table__action-icon aff-table__action-icon--red">
             <icon
               click.trigger="deleteAffiliateCode(filteredAffiliateCodes[index]['code'], index)"
-              if.bind="!code['isDefault']"
+              if.bind="!filteredAffiliateCodes[index]['isDefault']"
               class="mt-n2">
               <delete-icon></delete-icon>
             </icon>

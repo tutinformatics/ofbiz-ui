@@ -22,11 +22,11 @@ export class MyAffiliates {
   getMyAffiliateOptions() {
     return [
       {
-        "key": 'first-name',
+        "key": 'firstName',
         "value": 'First name',
       },
       {
-        "key": 'last-name',
+        "key": 'lastName',
         "value": 'Last name',
       },
       {
@@ -34,7 +34,7 @@ export class MyAffiliates {
         "value": 'Email',
       },
       {
-        "key": 'date',
+        "key": 'dateTimeCreated',
         "value": 'Date',
       },
       {
@@ -46,17 +46,25 @@ export class MyAffiliates {
 
   getMyAffiliatePartners() {
     this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliates")
-      .then((response) => {
-          if (response.ok) {
-            response.json().then((response) => {
-              response.forEach(partner => this.myAffiliatePartners.push(
-                this.parsePartner(partner)
-              ))
-            })
-          }
+      .fetch("https://localhost:8443/api/parties/affiliate",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {"partyId": "DemoUser2"}
+          )
         }
-      );
+      ).then((response) => {
+        if (response.ok) {
+          response.json().then((response) => {
+              response['subAffiliates'].forEach(partner => this.myAffiliatePartners.push(
+                this.parsePartner(partner)
+                )
+              )
+            }
+          )
+        }
+      }
+    );
     this.myAffiliatePartners.push({
       "dateTimeCreated": '03.04.2020',
       "firstName": "Alex",
@@ -72,13 +80,13 @@ export class MyAffiliates {
   }
 
   parsePartner(partner) {
-    const parsedDate = new Date(partner["createdStamp"]);
+    const parsedDate = new Date(partner["date"]);
     return {
       "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
       "firstName": partner['firstName'],
       "lastName": partner['lastName'],
-      "email": `${partner['firstName']}@gmail.com`,
-      "status": 'active'
+      "email": partner['email']? partner['email']: 'missing',
+      "status": partner['status']
     }
   }
 

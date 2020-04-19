@@ -13,7 +13,11 @@
         ${option['value']}
       </option>
     </select>
-    <input type="text" class="form-control aff-all-affiliates__select--input" placeholder="Enter filter text"
-           class="form-control" input.delegate="setFilteredValues($event.target.value)"/>
+    <input
+      disabled.bind="!selected"
+      type="text"
+      class="form-control aff-all-affiliates__select--input"
+      placeholder="Enter filter text"
+      input.delegate="setFilteredValues($event.target.value)"/>
   </div>
 </template>

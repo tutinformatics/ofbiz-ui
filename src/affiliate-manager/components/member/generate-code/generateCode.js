@@ -92,27 +92,25 @@ export class GenerateCode {
   }
 
   generateAffiliateCode() {
-    if (this.selectedCategory) {
-      this.httpClient
-        .fetch("https://localhost:8443/api/parties/affiliate/code",
-          {
-            method: 'POST',
-            body: JSON.stringify(
-              {"partyId": "admin"}
-            )
-          }
-        ).then((response) => {
-          if (response.ok) {
-            response.json().then((response) => {
-                this.affiliateCodes.push(
-                  this.parseCode(response)
-                )
-              }
-            );
-          }
+    this.httpClient
+      .fetch("https://localhost:8443/api/parties/affiliate/code",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {"partyId": "admin"}
+          )
         }
-      );
-    }
+      ).then((response) => {
+        if (response.ok) {
+          response.json().then((response) => {
+              this.affiliateCodes.push(
+                this.parseCode(response)
+              )
+            }
+          );
+        }
+      }
+    );
   }
 
   deleteAffiliateCode(codeId, index) {
