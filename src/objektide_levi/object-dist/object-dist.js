@@ -16,6 +16,40 @@ export class ObjectDist {
     this.fetchSubscribers();
   }
 
+  attached() {
+    this.queryBuilderLoad();
+  }
+
+  queryBuilderLoad() {
+
+    let queryBuilders = document.querySelectorAll('smart-query-builder');
+    for (let queryBuilder of queryBuilders) {
+      queryBuilder.addEventListener('click', function() {
+        var list = this.getElementsByClassName('smart-conditions-menu');
+        var elements = this.getElementsByClassName('smart-element smart-menu-item smart-unselectable');
+        for (let item of list) {
+          if (item.style.left === '38px') {
+            for (let element of elements) {
+              if (element.value === 'or') {
+                element.style.display = 'none';
+              } else {
+                element.style.display = '';
+              }
+            }
+          } else if (item.style.left === '11px') {
+            for (let element of elements) {
+              if (element.value === 'or') {
+                element.style.display = '';
+              } else {
+                element.style.display = 'none';
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
   setHTTPClient() {
     this.httpClient.configure(config => {
       config
