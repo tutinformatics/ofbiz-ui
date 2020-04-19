@@ -1,7 +1,6 @@
 import "../member-components.scss"
 import { HttpClient } from "aurelia-fetch-client";
 import moment from "moment";
-import { bindable } from "aurelia-framework";
 import { DialogService } from "aurelia-dialog";
 import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
 import { inject } from "aurelia-dependency-injection";
@@ -91,30 +90,11 @@ export class MyAffiliates {
   }
 
 
-
-  delete(name) {
-
-    this.data.splice(this.data.indexOf(name), 1);
-
-  }
-
-
-  @bindable
-  action = () => {
-  };
-
-
   detailedView(partner) {
     this.dialogService.open({
       viewModel: SingleAffiliate
       , model: partner
-    }).then(result => {
-      if (result.wasCancelled) {
-        console.log("Hui");
-        return;
-      }
-      this.action();
-    });
+    })
   }
 }
 
