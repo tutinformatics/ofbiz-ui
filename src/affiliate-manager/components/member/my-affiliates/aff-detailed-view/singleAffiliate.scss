@@ -1,0 +1,17 @@
+.detailed-view-modal__profile-image {
+  width: 300px;
+  object-fit: cover;
+}
+
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+  max-height: 400px;
+
+}
+
+.modal-dialog {
+
+  width: 1250px;
+  margin: auto!important;
+}

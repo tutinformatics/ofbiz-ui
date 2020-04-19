@@ -1,25 +1,36 @@
 <template>
-  <div class="" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
+  <div tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Detailed View:</h4>
-          <h4 class="ml-3 modal-title">${partner['first-name']} ${partner['last-name']}</h4>
         </div>
         <div class="modal-body">
-          <p>Email:  ${partner["email"]}</p>
-          <p>Partner:  Since ${partner["date"]}</p>
-          <p>Status:  ${partner["status"]}</p>
-          <p>Commission:  ${partner["commission"]}</p>
-          <p>Affiliate Codes:  ${partner["affiliate_codes"]}</p>
-          <p>Sub Partners:  ${partner["sub_affiliates"]}</p>
+          <div class="row">
+            <div class="col-5">
+              <img class="detailed-view-modal__profile-image px-0"
+                   src="../../../../assets/images/user-default.jpg" alt="user image">
+            </div>
+            <div class="col-7">
+              <ul class="list-group list-group-flush">
+
+                <li class="list-group-item mt-2">Name: ${partner['firstName']} ${partner['lastName']}</li>
+                <li class="list-group-item mt-2">Email: ${partner["email"]}</li>
+                <li class="list-group-item">Partner Since: ${partner["date"]}</li>
+                <li class="list-group-item">Commission: ${partner["commission"]}</li>
+                <li class="list-group-item">Affiliate Codes: ${partner["affiliate_codes"]}</li>
+                <li class="list-group-item">Sub Partners: ${partner["sub_affiliates"]}</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button"  class="btn mx-auto aff-system__button--main" click.trigger="controller.ok()">Close</button>
+          <button type="button" class="btn mx-auto aff-system__button--main" click.trigger="controller.ok()">Close
+          </button>
         </div>
-      </div><!-- /.modal-content  -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
 
 
 </template>
