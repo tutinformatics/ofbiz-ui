@@ -40,7 +40,7 @@ import "../smart-webcomponents-community/source/styles/smart.default.css";
 HTML file should only include the content between "< body>" tags. No additional imports were required for us.
 
 ### 6. Displaying the component.
-To display the component inside another's component you must use the require tags
+To display the component inside another component you must use the require tags
 ```
 <require from="./query-builder/query-builder"></require>
 ```
