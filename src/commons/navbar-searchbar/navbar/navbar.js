@@ -33,7 +33,7 @@ export class Navbar {
       .then(res => this.projectMenuItems = res);
   }
 
-  deactivate() {
+  detached() {
     this.subscription.dispose();
   }
 }
