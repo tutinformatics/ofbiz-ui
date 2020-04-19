@@ -1,5 +1,5 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
-import { Router } from "aurelia-router";
+import {Router} from 'aurelia-router';
 import {inject} from 'aurelia-dependency-injection';
 
 @inject(Router)
@@ -40,7 +40,7 @@ export class ObjectDist {
   }
 
   fetchPublishers() {
-    this.httpClient.fetch("publishers")
+    this.httpClient.fetch('publishers')
       .then(response => response.json())
       .then(data => {
         this.populatePublishers(data);
@@ -48,51 +48,51 @@ export class ObjectDist {
   }
 
   populatePublishers(data) {
-    let table = document.getElementById("publisherTable");
-    for(let entry in data) {  // currently duplicate with populateSubscribers, will change in future
+    let table = document.getElementById('publisherTable');
+    for (let entry in data) {  // currently duplicate with populateSubscribers, will change in future
       if (data.hasOwnProperty(entry)) {
         let content = data[entry];
         let row = table.insertRow();
 
         let cell1 = row.insertCell(0);
-        cell1.className = "text-center";
+        cell1.className = 'text-center';
         cell1.innerHTML = content.entityName;
 
         let cell2 = row.insertCell(1);
-        cell2.className = "text-center";
+        cell2.className = 'text-center';
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = "<td><a class=\"btn btn-primary\" href=\"../#/object-dist\">EDIT</a></td>"
-        cell3.className = "text-center";
+        cell3.innerHTML = '<td><a class="btn btn-primary" href="../#/object-dist">EDIT</a></td>';
+        cell3.className = 'text-center';
       }
     }
   }
 
   populateSubscribers(data) {
-    let table = document.getElementById("subscriberTable");
-    for(let entry in data) {
+    let table = document.getElementById('subscriberTable');
+    for (let entry in data) {
       if (data.hasOwnProperty(entry)) {
         let content = data[entry];
         let row = table.insertRow();
 
         let cell1 = row.insertCell(0);
-        cell1.className = "text-center";
+        cell1.className = 'text-center';
         cell1.innerHTML = content.entityName;
 
         let cell2 = row.insertCell(1);
-        cell2.className = "text-center";
+        cell2.className = 'text-center';
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = "<td><a class=\"btn btn-primary\" href=\"../#/object-dist\">EDIT</a></td>"
-        cell3.className = "text-center";
+        cell3.innerHTML = '<td><a class="btn btn-primary" href="../#/object-dist">EDIT</a></td>';
+        cell3.className = 'text-center';
       }
     }
   }
 
   fetchSubscribers() {
-    this.httpClient.fetch("subscribers")
+    this.httpClient.fetch('subscribers')
       .then(response => response.json())
       .then(data => {
         this.populateSubscribers(data);
@@ -101,31 +101,33 @@ export class ObjectDist {
 
   makePostSubscriberPublisher(data, url) {
     this.httpClient.fetch(url, {
-      method: "post",
+      method: 'post',
       body: data
-    })
+    }).then(r => {
+      this.refreshPage();
+    });
   }
 
   subscriberPostRequest() {
     let data = {
-      "OfbizSubscriberId": "0",
-      "OfbizEntityName": document.getElementById("subscriberName").value,
-      "topic": document.getElementById("subscriberTopic").value,
-      "description": document.getElementById("subscriberDescription").value,
-      "filter": this.getFilterFromComponent(false)
+      'OfbizSubscriberId': '0',
+      'OfbizEntityName': document.getElementById('subscriberName').value,
+      'topic': document.getElementById('subscriberTopic').value,
+      'description': document.getElementById('subscriberDescription').value,
+      'filter': this.getFilterFromComponent(false)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), "subscribers/create");
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'subscribers/create');
   }
 
   publisherPostRequest() {
     let data = {
-      "OfbizPublisherId": "0",
-      "OfbizEntityName": document.getElementById("publisherName").value,
-      "topic": document.getElementById("publisherTopic").value,
-      "description": document.getElementById("publisherDescription").value,
-      "filter": this.getFilterFromComponent(true)
+      'OfbizPublisherId': '0',
+      'OfbizEntityName': document.getElementById('publisherName').value,
+      'topic': document.getElementById('publisherTopic').value,
+      'description': document.getElementById('publisherDescription').value,
+      'filter': this.getFilterFromComponent(true)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), "publishers/create");
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'publishers/create');
   }
 
   refreshPage() {
@@ -141,16 +143,19 @@ export class ObjectDist {
     }
     let queryArray = queryBuilder.value;
     let filter = {};
-    let conditionCount = 1;
     for (let i = 0; i < queryArray.length; i++) {
-      if (typeof queryArray[i] == "object") filter[`condition${conditionCount}`] = JSON.stringify(queryArray[i]);
-      else filter[`operator${conditionCount}`] = queryArray[i];
-      conditionCount++;
+      for (let j = 0; j < queryArray[i].length; j++) {
+        const data = queryArray[i][j];
+        if (typeof data == "object") {
+          filter[data[0]] = [data[1], data[2]];
+        }
+      }
     }
+    console.log(filter);
     return JSON.stringify(filter);
   }
 
   generateKey() {
-    console.log("Key Generated");  // TODO: ADD KEY GENERATION FOR PUBLISHER
+    console.log('Key Generated');  // TODO: ADD KEY GENERATION FOR PUBLISHER
   }
 }
