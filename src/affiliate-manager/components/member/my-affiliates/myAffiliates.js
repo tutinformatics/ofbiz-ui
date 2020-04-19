@@ -9,12 +9,14 @@ import { inject } from "aurelia-dependency-injection";
 @inject(HttpClient, DialogService)
 export class MyAffiliates {
 
+  myAffiliatePartners = [];
+  filteredAffiliatePartners = [];
+
   constructor(httpClient, dialogService) {
     this.httpClient = httpClient;
     this.dialogService = dialogService;
     this.myAffiliatesOption = this.getMyAffiliateOptions();
-    this.myAffiliatePartners = this.getMyAffiliatePartners();
-    this.filteredAffiliatePartners = [];
+    this.getMyAffiliatePartners();
   }
 
   getMyAffiliateOptions() {
@@ -42,18 +44,27 @@ export class MyAffiliates {
     ];
   }
 
-  async getMyAffiliatePartners() {
-    const myPartners = [];
-    const response = await this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliates");
-    const responseData = await response.json();
-    responseData.forEach(partner =>
-      myPartners.push(
-        this.parsePartner(partner)
-      )
-    );
-    this.filteredAffiliatePartners = myPartners;
-    return myPartners;
+  getMyAffiliatePartners() {
+    this.httpClient
+      .fetch("https://localhost:8443/api/parties/affiliates")
+      .then((response) => {
+          if (response.ok) {
+            response.json().then((response) => {
+              response.forEach(partner => this.myAffiliatePartners.push(
+                this.parsePartner(partner)
+              ))
+            })
+          }
+        }
+      );
+    this.myAffiliatePartners.push({
+      "dateTimeCreated": '03.04.2020',
+      "firstName": "Alex",
+      "lastName": "Groom",
+      "email": 'ag@gmail.com',
+      "status": 'active'
+    });
+    this.filteredAffiliatePartners = this.myAffiliatePartners;
   }
 
   setFilteredAffiliatePartners(filteredValues) {
