@@ -5,13 +5,15 @@ import moment from "moment";
 @inject(HttpClient)
 export class GenerateCode {
 
+  filteredAffiliateCodes = [];
+  affiliateCodes = [];
+  selectedCategory;
+
   constructor(httpClient) {
-    this.selectedCategory = null;
     this.httpClient = httpClient;
     this.affiliateCodeOptions = this.getAffiliateCodeOptions();
-    this.filteredAffiliateCodes = [];
-    this.affiliateCodes = this.getAffiliateCodes();
     this.productCategories = this.getProductCategories();
+    this.getAffiliateCodes();
   }
 
   getProductCategories() {
@@ -61,9 +63,8 @@ export class GenerateCode {
   }
 
   async getAffiliateCodes() {
-    const codes = [];
     const response = await this.httpClient
-      .fetch("https://localhost:8443/api/parties/getCodes",
+      .fetch("https://localhost:8443/api/parties/affiliate/codes",
         {
           method: 'POST',
           body: JSON.stringify(
@@ -73,58 +74,66 @@ export class GenerateCode {
       );
     const responseData = await response.json();
     responseData.forEach(code =>
-      codes.push(
+      this.affiliateCodes.push(
         this.parseCode(code)
       )
     );
-    codes.push(
+    this.affiliateCodes.push(
       {
         "code": "1472603",
-        "date-of-creation": "22-03-2020",
+        "dateOfCreation": "22-03-2020",
         "status": "Active",
-        "expiration-date": "22-03-2022",
+        "expirationDate": "22-03-2022",
         "category": "Electronics",
-        "is-default": true,
-      },
-      {
-        "code": "5474689",
-        "date-of-creation": "02-04-2020",
-        "status": "Active",
-        "expiration-date": "22-03-2022",
-        "category": "Services",
-        "is-default": false,
-      },
-      {
-        "code": "5577600",
-        "date-of-creation": "10-03-2020",
-        "status": "Active",
-        "expiration-date": "10-03-2022",
-        "category": "Weapon",
-        "is-default": false,
+        "isDefault": false,
       },
     );
-    this.filteredAffiliateCodes = codes;
-    return codes;
+    this.filteredAffiliateCodes = this.affiliateCodes;
   }
 
-  async generateAffiliateCode() {
+  generateAffiliateCode() {
     if (this.selectedCategory) {
-      const response = await this.httpClient
-        .fetch("https://localhost:8443/api/parties/createCode",
+      this.httpClient
+        .fetch("https://localhost:8443/api/parties/affiliate/code",
           {
             method: 'POST',
             body: JSON.stringify(
               {"partyId": "admin"}
             )
           }
-        );
-      const responseData = await response.json();
-      responseData.forEach(newCode =>
-        this.affiliateCodes.push(
-          this.parseCode(newCode)
-        )
+        ).then((response) => {
+          if (response.ok) {
+            response.json().then((response) => {
+                this.affiliateCodes.push(
+                  this.parseCode(response)
+                )
+              }
+            );
+          }
+        }
       );
     }
+  }
+
+  deleteAffiliateCode(codeId, index) {
+    this.httpClient
+      .fetch("https://localhost:8443/api/parties/affiliate/code",
+        {
+          method: 'DELETE',
+          body: JSON.stringify(
+            {
+              "partyId": "admin",
+              "affiliateCodeId": codeId,
+            }
+          )
+        }
+      ).then((response) => {
+        if (response.ok) {
+          this.affiliateCodes.splice(index, 1);
+        }
+      }
+    );
+
   }
 
   setFilteredAffiliateCodes(filteredValue) {
@@ -134,11 +143,10 @@ export class GenerateCode {
   parseCode(code) {
     const parsedDate = new Date(code["createdStamp"]);
     return {
-      "date-of-creation": moment(parsedDate).format('MM-D-YYYY'),
+      "dateOfCreation": moment(parsedDate).format('MM-D-YYYY'),
       "code": code['affiliateCodeId'],
-      "expiration-date": moment(parsedDate).format('MM-D-YYYY'),
-      "is-default": false,
-      "status": 'active',
+      "expirationDate": moment(parsedDate).format('MM-D-YYYY'),
+      "isDefault": code["isDefault"] === 'Y',
       "category": 'none',
     }
   }

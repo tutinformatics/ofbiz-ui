@@ -61,12 +61,6 @@
             class="align-middle"
             scope="col"
           >
-            Status
-          </th>
-          <th
-            class="align-middle"
-            scope="col"
-          >
             Expiration Date
           </th>
           <th
@@ -84,27 +78,27 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="aff-member-table__row" repeat.for="code of filteredAffiliateCodes">
+        <tr class="aff-member-table__row" repeat.for="index of filteredAffiliateCodes.length">
           <td class="align-middle">
-            <p>${code['code']}</p>
+            <p>${filteredAffiliateCodes[index]['code']}</p>
           </td>
           <td class="align-middle">
-            <p>${code['date-of-creation']}</p>
+            <p>${filteredAffiliateCodes[index]['code']}</p>
           </td>
           <td class="align-middle">
-            <p>${code['status']}</p>
+            <p>${filteredAffiliateCodes[index]['code']}</p>
           </td>
           <td class="align-middle">
-            <p>${code['expiration-date']}</p>
+            <p>${filteredAffiliateCodes[index]['code']}</p>
           </td>
           <td class="align-middle">
-            <p>${code['is-default']}</p>
-          </td>
-          <td class="align-middle">
-            <p>${code['category']}</p>
+            <p>${filteredAffiliateCodes[index]['code']}</p>
           </td>
           <td class="aff-table__action-icon aff-table__action-icon--red">
-            <icon if.bind="!code['is-default']" class="mt-n2">
+            <icon
+              click.trigger="deleteAffiliateCode(filteredAffiliateCodes[index]['code'], index)"
+              if.bind="!code['isDefault']"
+              class="mt-n2">
               <delete-icon></delete-icon>
             </icon>
           </td>

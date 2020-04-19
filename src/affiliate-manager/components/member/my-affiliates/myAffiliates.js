@@ -1,10 +1,10 @@
 import "../member-components.scss"
 import { HttpClient } from "aurelia-fetch-client";
 import moment from "moment";
-import {bindable} from "aurelia-framework";
-import {DialogService} from "aurelia-dialog";
-import {SingleAffiliate} from "./aff-detailed-view/singleAffiliate"
-import {inject} from "aurelia-dependency-injection";
+import { bindable } from "aurelia-framework";
+import { DialogService } from "aurelia-dialog";
+import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
+import { inject } from "aurelia-dependency-injection";
 
 @inject(HttpClient, DialogService)
 export class MyAffiliates {
