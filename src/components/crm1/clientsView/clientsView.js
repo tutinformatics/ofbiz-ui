@@ -11,6 +11,8 @@ export class ClientsView {
     this.http = http.http;
     this.router = router;
     this.contacts = [];
+    this.simpleView = true;
+    this.view = "Card View"
   }
 
   async attached() {
@@ -53,7 +55,15 @@ export class ClientsView {
         .then(() => this.contacts.push(contact))
         .catch(error => console.log(error));
     }
+  }
 
+  toggleView() {
+    if (this.simpleView) {
+      this.view = "Table View"
+    } else {
+      this.view = "Card view"
+    }
+    this.simpleView = !this.simpleView;
   }
 }
 

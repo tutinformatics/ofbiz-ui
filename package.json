@@ -22,6 +22,7 @@
     "bootstrap": "^4.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "aurelia-templating": "latest",
     "materialize-css": "^1.0.0-rc.2",
     "nprogress": "^0.2.0",
     "popper.js": "^1.16.1"
