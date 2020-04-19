@@ -21,7 +21,7 @@
               if.bind="currentPage === 'About'">
             </about>
             <become-partner
-              is-pending="true"
+              is-pending.one-way="partnerStatus === 'PENDING'"
               if.bind="currentPage === 'Become-Partner'">
             </become-partner>
             <div if.bind="currentPage === 'Status'">
