@@ -25,7 +25,7 @@ export class QueryBuilder {
         return {
           allowDrag: true,
           fields: [
-            {label: 'Party ID', dataField: 'partyIdFrom', dataType: 'number'},
+            {label: 'Party ID', dataField: 'partyIdFrom', dataType: 'string'},
             {label: 'Role type ID', dataField: 'roleTypeIdTo', dataType: 'string'},
           ]
         }
