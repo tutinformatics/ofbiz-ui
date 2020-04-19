@@ -1,0 +1,91 @@
+@import "src/affiliate-manager/assets/scss/variables";
+@import "src/affiliate-manager/assets/scss/utils";
+
+.aff-sidebar {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: $secondary-dark;
+  color: $white;
+  h6 {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.aff-sidebar-container {
+  transition: 0.5s ease;
+}
+
+.aff-sidebar-container--closed {
+  opacity: 0;
+}
+
+.aff-sidebar__col {
+  max-height: 4rem;
+  transition: 0.3s all;
+
+  &:hover {
+    background: $secondary-light;
+    cursor: pointer;
+  }
+}
+
+.aff-sidebar__col--user-info {
+  max-height: 7rem;
+  background: $secondary-light;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.aff-sidebar__col--active {
+  background: $secondary-light;
+}
+
+.aff-sidebar-icon {
+  z-index: 3;
+  padding: 0.4rem 0.75rem;
+}
+
+.aff-sidebar-icon__icon {
+  @extend %flex-vertically-align;
+  justify-content: center;
+}
+
+.aff-sidebar-icon__label {
+  @extend %flex-vertically-align;
+}
+
+.aff-sidebar__menu-element--active {
+  background: $secondary-light;
+}
+
+.aff-sidebar__invoke-button {
+  @extend %flex-vertically-align;
+  justify-content: center;
+  background: $primary-color;
+  color: $white;
+  opacity: 0.75;
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: 0.3s all;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .aff-sidebar {
+    width: 100%;
+    position: absolute;
+  }
+
+  .aff-sidebar.active {
+    margin-left: -$sidebar-width--widest;
+  }
+}

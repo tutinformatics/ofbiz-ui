@@ -7,10 +7,19 @@ export class App {
     config.options.root = '/';
     config.map([
       { route: '', redirect: 'tasks' },
-      { route: 'tasks', moduleId: PLATFORM.moduleName('task/task-list'), name: 'tasks' },
-      { route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task' },
+      { route: 'tasks', moduleId: PLATFORM.moduleName('project/task/task-list'), name: 'tasks' },
+      // { route: 'new-task', moduleId: PLATFORM.moduleName('task/task'), name: 'new-task' },
       { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
-      { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' }
+      { route: 'object-dist', moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'), name: 'object-dist' },
+      { route: 'marketdata',  moduleId: PLATFORM.moduleName('marketdata/marketdata'), name: 'marketdata' },
+      { route: 'crm/agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
+      { route: 'crm/pipeline', moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'), name: 'pipeline' },
+      { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities' },
+      { route: 'projects', moduleId: PLATFORM.moduleName('project/project-list'), name: 'projects', title: 'Projects' },
+      { route: 'projects/:id', moduleId: PLATFORM.moduleName('project/task/task-list'), name: 'project' },
+      { route: 'new-project', moduleId: PLATFORM.moduleName('project/project-new'), name: 'newProject', title: 'Create Project' },
+      { route: 'affiliate-manager', name: 'affiliate-manager', moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager')},
+      { route: 'affiliate-manager/aff-partner/:email?', name: 'aff-partner', moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-partner/manage-aff-partner')}
     ]);
     this.router = router;
   }

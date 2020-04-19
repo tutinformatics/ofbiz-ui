@@ -197,6 +197,5 @@ export class ObjectDist {
 
   generatePublisherTopic() {
     document.getElementById('publisherTopic').value = this.generateKey();
-
   }
 }
