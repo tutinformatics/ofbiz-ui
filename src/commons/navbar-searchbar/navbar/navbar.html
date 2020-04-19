@@ -36,22 +36,13 @@
 
         <!-- Navbar elements -->
         <!-- Project navbar elements -->
-        <li class="nav-item">
-          <a
-            if.bind="currentProduct == 'project'"
-            class="nav-link"
-            route-href="route: project"
-          >
-            Main
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            if.bind="currentProduct == 'project'"
-            class="nav-link"
-            route-href="route: project"
-          >
-            My Tasks
+        <li
+          if.bind="currentProduct === 'project'"
+          repeat.for="item of projectMenuItems"
+          class="nav-item"
+        >
+          <a class="nav-link" route-href="route.bind: item.route">
+            ${ item.text }
           </a>
         </li>
         <!-- End of Project navbar elements -->

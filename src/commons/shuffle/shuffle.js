@@ -6,31 +6,31 @@ export class Shuffle {
   // TODO: should not be hard-coded, but come from BE?
   products = [
     {
-      text: 'project',
+      name: 'project',
       url: 'project'
     },
     {
-      text: 'crm',
+      name: 'crm',
       url: '' // TODO: replace with proper url
     },
     {
-      text: 'accounting',
+      name: 'accounting',
       url: ''
     },
     {
-      text: 'contacts',
+      name: 'contacts',
       url: ''
     },
     {
-      text: 'manufacturing',
+      name: 'manufacturing',
       url: ''
     },
     {
-      text: 'marketing',
+      name: 'marketing',
       url: ''
     },
     {
-      text: 'invoicing',
+      name: 'invoicing',
       url: ''
     }
   ];
