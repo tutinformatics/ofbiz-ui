@@ -1,10 +1,10 @@
 # Using SmartHTMLElements components in Aurelia
 
+### 1. Choose the component from their website.
+We chose this
 ```
 https://www.htmlelements.com/demos/querybuilder/overview/
 ```
-
-### 1. Choose the component from their website.
 
 ### 2. Download the dependencies.
 ````
@@ -25,6 +25,7 @@ For example
 ````$xslt
 import { smartQueryBuilder } from "../../../../node_modules/smart-webcomponents-community/source/modules/smart.querybuilder.js";
 ````
+Then take their JS methods (from the documentation) and paste it to your JS file.<br>
 CSS files must also be imported inside the JS file, not inside the HTML (as described in HTMLElements documentation)
 <br>
 Instead of this
