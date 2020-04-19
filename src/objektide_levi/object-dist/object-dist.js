@@ -40,10 +40,6 @@ export class ObjectDist {
     });
   }
 
-  generatePublisherTopic() {
-    document.getElementById('publisherTopic').placeholder = this.generateKey();
-  }
-
   fetchPublishers() {
     this.httpClient.fetch('publishers')
       .then(response => response.json())
@@ -147,20 +143,27 @@ export class ObjectDist {
       queryBuilder = queryBuilders[1];
     }
     let queryArray = queryBuilder.value;
-    let filter = {};
+    let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
-      for (let j = 0; j < queryArray[i].length; j++) {
-        const data = queryArray[i][j];
-        if (typeof data == "object") {
-          filter[data[0]] = [data[1], data[2]];
+      if (typeof queryArray[i] == "object") {
+        let filter = {};
+        for (let j = 0; j < queryArray[i].length; j++) {
+          const data = queryArray[i][j];
+          if (typeof data == "object") {
+            filter[data[0]] = [data[1], data[2]];
+          }
         }
+        filters.push(filter)
       }
     }
-    return filter;
+    return filters;
   }
 
   generateKey() {
-    console.log(uuidv1());
     return uuidv1();
+  }
+
+  generatePublisherTopic() {
+    document.getElementById('publisherTopic').value = this.generateKey();
   }
 }
