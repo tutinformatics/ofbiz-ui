@@ -39,11 +39,7 @@ export class ObjectDist {
             }
           } else if (item.style.left === '11px') {
             for (let element of elements) {
-              if (element.value === 'or') {
-                element.style.display = '';
-              } else {
-                element.style.display = 'none';
-              }
+              element.style.display = '';
             }
           }
         }
