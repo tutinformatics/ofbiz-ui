@@ -1,6 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {inject} from 'aurelia-dependency-injection';
+import { v1 as uuidv1 } from 'uuid';
 
 @inject(Router)
 export class ObjectDist {
@@ -37,6 +38,10 @@ export class ObjectDist {
           }
         });
     });
+  }
+
+  generatePublisherTopic() {
+    document.getElementById('publisherTopic').placeholder = this.generateKey();
   }
 
   fetchPublishers() {
@@ -100,6 +105,7 @@ export class ObjectDist {
   }
 
   makePostSubscriberPublisher(data, url) {
+    console.log(data);
     this.httpClient.fetch(url, {
       method: 'post',
       body: data
@@ -132,7 +138,6 @@ export class ObjectDist {
 
   refreshPage() {
     location.reload();
-    //this.router.navigateToRoute('object-dist', {}, { replace: true, trigger: true });  // TODO fix;
   }
 
   getFilterFromComponent(isPublisher) {
@@ -151,11 +156,11 @@ export class ObjectDist {
         }
       }
     }
-    console.log(filter);
-    return JSON.stringify(filter);
+    return filter;
   }
 
   generateKey() {
-    console.log('Key Generated');  // TODO: ADD KEY GENERATION FOR PUBLISHER
+    console.log(uuidv1());
+    return uuidv1();
   }
 }
