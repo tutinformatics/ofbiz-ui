@@ -1,4 +1,4 @@
-.icon {
+.product-icon {
   width: 60px;
   height: 60px;
 }
@@ -12,7 +12,7 @@
   background-color: #dddddd !important;
 }
 
-.dropdown-menu {
+.workspace-dropdown-menu {
   width: 266px;
   background-color: #ababab !important;
 }
@@ -46,8 +46,4 @@ ul.custom-pagination li a:hover:not(.active):not(.disabled) {background-color: #
 
 ul.custom-pagination li a.disabled {
   color: darkgrey;
-}
-
-.row {
-  margin: 1% 1% 1% 0%;
 }
