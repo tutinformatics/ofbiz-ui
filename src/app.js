@@ -27,7 +27,8 @@ export class App {
         route: 'affiliate-manager/aff-partner/:email?',
         name: 'aff-partner',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-partner/manage-aff-partner')
-      }
+      },
+      { route: 'filter', moduleId: PLATFORM.moduleName('filter/filter'), name: 'filter', title: 'Filter' },
     ]);
     this.router = router;
   }
