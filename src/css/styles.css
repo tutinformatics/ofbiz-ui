@@ -47,3 +47,7 @@ ul.custom-pagination li a:hover:not(.active):not(.disabled) {background-color: #
 ul.custom-pagination li a.disabled {
   color: darkgrey;
 }
+
+.row {
+  margin: 1% 1% 1% 0%;
+}
