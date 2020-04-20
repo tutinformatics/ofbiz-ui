@@ -1,20 +1,27 @@
 import {inject, customElement, bindable} from 'aurelia-framework';
 import {autoinject} from "aurelia-dependency-injection";
+import { WorkspaceService } from './workspace-service';
 
 
 @customElement('workspace-icon')
+@inject(WorkspaceService)
 export class WorkspaceIcon {
+  @bindable wsId = 'no id';
   @bindable elemName = '';
   @bindable color = '';
   @bindable favorite;
   @bindable styles = '';
   @bindable links = '';
+  showclose = false;
 
-  constructor() {
-    document.addEventListener('aurelia-composed', () => {
+
+
+  constructor(projectService) {
+    /*document.addEventListener('aurelia-composed', () => {
       this.favorite = (this.favorite == 'true');
       this.isFavorite();
-    });
+    });*/
+    this.projectService = projectService;
   }
 
   isFavorite() {
@@ -29,19 +36,23 @@ export class WorkspaceIcon {
   }
 
   favoriteChanged(newValue, oldValue) {
-    console.log(this.favorite);
-    console.log(oldValue);
+    // console.log(this.favorite);
+    // console.log(oldValue);
   }
 
   handleRemoveFav() {
+    console.log(this.wsId);
     this.favorite = false;
+    this.projectService.removeWorkspace(this.wsId);
   }
 
   mouseOver() {
-    this.isFavorite();
+    this.showclose = true;
+    //this.isFavorite();
   }
 
   mouseOut() {
+    this.showclose = false;
   }
 
   /*styleChange(newValue, oldValue) {

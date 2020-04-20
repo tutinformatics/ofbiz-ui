@@ -70,6 +70,28 @@
   }
 }
 
+@keyframes FadeSlideInRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes FadeSlideOutRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 .animate-slide-in-top.au-enter {
     transform: translateY(100%);
   }
@@ -115,5 +137,22 @@
 }
 
 .animate-fade-out.au-left {
+  opacity: 0;
+}
+
+
+.animate-fade-slide-in-right.au-enter {
+  opacity: 0;
+}
+
+.animate-fade-slide-in-right.au-enter-active {
+  animation: FadeSlideInRight 1s;
+}
+
+.animate-fade-slide-out-right.au-leave-active {
+  animation: FadeSlideOutRight 1s;
+}
+
+.animate-fade-slide-out-right.au-left {
   opacity: 0;
 }

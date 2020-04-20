@@ -1,2 +1,9 @@
+
+
 export class Navbar {
+
+  handleAddWorkspace() {
+
+  }
+  
 }

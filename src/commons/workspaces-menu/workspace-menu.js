@@ -9,33 +9,21 @@ export class WorkspaceMenu {
   @bindable type = '';
 
   favorites = [
-      { id: '', name: 'My Workspace', styles: 'bg-1', favorite: true, links: ''},
-      { id: '', name: 'Workspace 1', styles: 'bg-3', favorite: true, links: ''},
-      { id: '', name: 'Workspace 2', styles: 'bg-2', favorite: true, links: ''},
-      { id: '', name: 'Space', styles: 'bg-3', favorite: true, links: ''},
-      { id: '', name: 'HMMMMMM', styles: 'bg-2', favorite: true, links: ''},
-      { id: '', name: 'Workspace 3', styles: 'bg-1', favorite: true, links: ''}
+      { wsId: '1', name: 'My Workspace', styles: 'bg-1', favorite: true, links: ''},
+      { wsId: '2', name: 'Workspace 1', styles: 'bg-3', favorite: true, links: ''},
+      { wsId: '3', name: 'Workspace 2', styles: 'bg-2', favorite: true, links: ''},
+      { wsId: '4', name: 'Space', styles: 'bg-3', favorite: true, links: ''},
+      { wsId: '5', name: 'HMMMMMM', styles: 'bg-2', favorite: true, links: ''},
+      { wsId: '6', name: 'Workspace 3', styles: 'bg-1', favorite: true, links: ''}
     ];
 
-  addToFavorites(element) {
-    for (var i = 0; i < stringArray.length; i++) {
-      if (element == stringArray[i].name) {
-        this.favorites.push(favorites[i]);
-      }
-    }
-  }
 
   print() {
+    var list = [];
     for (var i = 0; i < this.favorites.length; i++) {
-      console.log(this.favorites[i].name + ' ' + this.favorites[i].favorite);
+      list.push(this.favorites[i].wsId);
     }
-  }
-
-  favoritesChanged(newValue, oldValue) {
-    console.log("changed");
-    for (var i = 0; i < newValue.length; i++) {
-      console.log(this.favorites[i].name + ' ' + this.favorites[i].favorite);
-    }
+    console.log(list);
   }
 
   removeFromFavorites(element) {
