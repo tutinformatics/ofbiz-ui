@@ -1,7 +1,6 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { PipelineService } from './pipeline-service';
-import { bindables } from 'aurelia-kendoui-bridge';
+import { PipelineService } from '../service/pipeline-service';
 
 @inject(EventAggregator)
 export class Pipeline {
@@ -23,24 +22,12 @@ export class Pipeline {
       this.intention = intention;
     });
 
-    ea.subscribe('newOpportunityCreation',
-      description => this.eventNewOpportunityCreation(description));
+    // ea.subscribe('newOpportunityCreation',
+    //   description => this.eventNewOpportunityCreation(description));
   }
 
-  eventNewOpportunityCreation(description) {
-    this.pipelineService.getNewOpportunities()
-      .then(
-        data => this.new = data
-      );
-    this.pipelineService.getPropositionOpportunities()
-      .then(
-        data => this.proposition = data
-      );
-    this.pipelineService.getWonOpportunities()
-      .then(
-        data => this.won = data
-      );
-  }
+  // eventNewOpportunityCreation(description) {
+  // }
 
   attached() {
     this.pipelineService.getNewOpportunities()

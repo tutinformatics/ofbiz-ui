@@ -6,7 +6,7 @@ export class AgentService {
   constructor() {
     this.client = new HttpClient;
 
-    const baseUrl = 'http://localhost:7463/api/';
+    const baseUrl = '/api/';
 
     this.client.configure(config => {
       config.withBaseUrl(baseUrl);

@@ -1,4 +1,4 @@
-import { OpportunitiesService } from '/Users/siret/code/tarkvaratehnika/ofbiz-ui/src/crm/opportunities/opportunities-service.js';
+import { OpportunitiesService } from '../service/opportunities-service';
 
 export class OpportunitiesCardView {
   constructor() {

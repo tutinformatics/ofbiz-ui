@@ -1,43 +1,20 @@
 <template>
-  <require from="/Users/siret/code/tarkvaratehnika/ofbiz-ui/src/crm/opportunity-modal/opportunity-modal"></require>
+  <require from="crm/opportunity-modal/opportunity-modal"></require>
 
   <div class="container mt-4">
     <opportunity-modal></opportunity-modal>
 
-    <!-- <div class="container"> -->
     <div class="row mt-4">
       <div class="col-4" repeat.for="opportunity of opportunities">
         <div class="card" style="height: 12rem; margin-bottom: 20px;">
           <div class="card-body">
             <h5 class="card-title">${opportunity.name}</h5>
-            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
             <p class="card-text">${opportunity.description}</p>
             <p class="card-text">${opportunity.stage}</p>
             <p class="card-text"><b>${opportunity.price}€</b></p>
           </div>
         </div>
       </div>
-    <!-- </div> -->
-
-      <!-- <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">State</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr repeat.for="opportunity of opportunities">
-            <td>${opportunity.name}</td>
-            <td>${opportunity.description}</td>
-            <td>${opportunity.price}€</td>
-            <td>${opportunity.stage}</td>
-          </tr>
-        </tbody>
-      </table> -->
     </div>
   </div>
 </template>

@@ -1,4 +1,4 @@
-import { OpportunitiesService } from './opportunities-service';
+import { OpportunitiesService } from '../service/opportunities-service';
 
 export class OpportunitiesList {
   constructor() {
@@ -12,10 +12,10 @@ export class OpportunitiesList {
       );
   }
 
-  deleteOpportunity(id) {
-    this.opportunities.filter(function(obj) {
-      return obj.id !== id;
-    });
-  }
+  // deleteOpportunity(id) {
+  //   this.opportunities.filter(function(obj) {
+  //     return obj.id !== id;
+  //   });
+  // }
 }
 

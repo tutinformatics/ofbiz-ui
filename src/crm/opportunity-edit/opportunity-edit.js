@@ -1,13 +1,10 @@
 import { RouteConfig, NavigationInstruction} from 'aurelia-router';
-import { OpportunitiesService } from '../opportunities/opportunities-service';
+import { OpportunitiesService } from '../service/opportunities-service';
 
 
-export class Details {
-    // private _owner?: IOwner | null;
-    opportunity= {name: "siret"};
-
+export class OpportunityEdit {
     constructor() {
-      this.opportunitiesService = new OpportunitiesService
+      this.opportunitiesService = new OpportunitiesService();
     }
 
     attached() {
