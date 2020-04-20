@@ -1,76 +1,52 @@
 import { inject } from 'aurelia-framework';
-import { HttpClient, json } from "aurelia-fetch-client";
 import moment from "moment";
+import { AffManagerService } from "../../../service/affManagerService";
 
-@inject(HttpClient)
+@inject(AffManagerService)
 export class partnerApprove {
 
-  constructor(httpClient) {
-    this.httpClient = httpClient;
-    this.affAllCandidates = [];
+  pendingPartners = [];
+  filteredValues = [];
+
+  constructor(affManagerService) {
+    this.affManagerService = affManagerService;
     this.affApproveFilterOptions = this.getAffApproveFilterOptions();
-    this.filteredValues = this.affAllCandidates;
     this.fetchPendingPartners();
   }
 
   async fetchPendingPartners() {
-    const response = await this.httpClient.fetch("https://localhost:8443/api/parties/unconfirmedAffiliates");
-    const responseData = await response.json();
+    const responseData = await this.affManagerService.pendingPartnersRequest();
     responseData.forEach(candidate =>
-      this.affAllCandidates.push(
+      this.pendingPartners.push(
         this.parseCandidate(candidate)
       )
     );
-    this.affAllCandidates.push(
-      {
-        "firstName": "Nikita",
-        "lastName": "Ojamae",
-        "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
-        "email": "122@gmail.com",
-      },
-      {
-        "firstName": "Alexei",
-        "lastName": "Tsop",
-        "dateTimeCreated": moment(1587330000000).format('MM-D-YYYY'),
-        "email": "Alex@gmail.com",
-      }
-    )
+    this.filteredValues = this.pendingPartners;
   }
 
-  parseCandidate(candidate) {
-    const parsedDate = new Date(candidate["createdStamp"]);
-    return {
-      "firstName": candidate['firstName'],
-      "lastName": candidate['lastName'],
-      "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
-      "email": `${candidate['firstName']}@gmail.com`,
-      "partyId": candidate['partyId'],
+  async approve(index, partyId) {
+    const response = await this.affManagerService.approveRequest(partyId);
+    if (response.ok) {
+      this.pendingPartners.splice(index, 1);
     }
   }
 
-  async approve(partyId) {
-    const response = await this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliate/approve",
-        {
-          method: "put",
-          body: json({
-            "partyId": "admin"
-          })
-        });
-    const responseData = await response.json();
+  async disapprove(index, partyId) {
+    const response = await this.affManagerService.disapproveRequest(partyId);
+    if (response.ok) {
+      this.pendingPartners.splice(index, 1);
+    }
   }
 
-  async disapprove(partyId) {
-    const response = await this.httpClient
-      .fetch("http://localhost:4567/api/parties/affiliate/approve",
-        {
-          method: "PUT",
-          body: {
-            "partyId": partyId
-          }
-        });
-    const responseData = await response.json();
-    console.log(responseData);
+  parseCandidate(candidate) {
+    const parsedDate = candidate["createdStamp"]? new Date(candidate["createdStamp"]): null;
+    return {
+      "firstName": candidate['firstName'],
+      "lastName": candidate['lastName'],
+      "dateTimeCreated": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Date is missing',
+      "email": `${candidate['firstName']}@gmail.com`,
+      "partyId": candidate['partyId'],
+    }
   }
 
   setFilteredValues(filteredValues) {

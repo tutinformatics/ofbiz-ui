@@ -1,18 +1,18 @@
 import "../member-components.scss"
-import { HttpClient } from "aurelia-fetch-client";
 import moment from "moment";
 import { DialogService } from "aurelia-dialog";
 import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
 import { inject } from "aurelia-dependency-injection";
+import { AffManagerService } from "../../../service/affManagerService";
 
-@inject(HttpClient, DialogService)
+@inject(DialogService, AffManagerService)
 export class MyAffiliates {
 
   myAffiliatePartners = [];
   filteredAffiliatePartners = [];
 
-  constructor(httpClient, dialogService) {
-    this.httpClient = httpClient;
+  constructor(dialogService, affManagerService) {
+    this.affManagerService = affManagerService;
     this.dialogService = dialogService;
     this.myAffiliatesOption = this.getMyAffiliateOptions();
     this.getMyAffiliatePartners();
@@ -43,27 +43,17 @@ export class MyAffiliates {
     ];
   }
 
-  getMyAffiliatePartners() {
-    this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliate",
-        {
-          method: 'POST',
-          body: JSON.stringify(
-            {"partyId": "DemoUser2"}
+  async getMyAffiliatePartners() {
+    const response = await this.affManagerService.myAffiliatesRequest();
+    if (response.ok) {
+      response.json().then((response) => {
+          response['subAffiliates'].forEach(partner => this.myAffiliatePartners.push(
+            this.parsePartner(partner)
+            )
           )
         }
-      ).then((response) => {
-        if (response.ok) {
-          response.json().then((response) => {
-              response['subAffiliates'].forEach(partner => this.myAffiliatePartners.push(
-                this.parsePartner(partner)
-                )
-              )
-            }
-          )
-        }
-      }
-    );
+      )
+    }
     this.myAffiliatePartners.push({
       "dateTimeCreated": '03.04.2020',
       "firstName": "Alex",

@@ -32,10 +32,12 @@
       <li class="nav navbar-nav navbar-right">
         <a class="router-link nav-link bg-purple navbar-right" href="#/workspaces">Messages</a>
       </li>
-      <li class="nav navbar-nav navbar-right">
+      <li if.bind="!currentState.userLoginId" class="nav navbar-nav navbar-right">
         <a class="router-link nav-link bg-purple navbar-right" href="#/login">Log in</a>
       </li>
-
+      <li if.bind="currentState.userLoginId" class="nav navbar-nav navbar-right" click.trigger="logOut()">
+        <a class="router-link nav-link bg-purple navbar-right" href="#/login">Log out</a>
+      </li>
     </div>
   </nav>
 

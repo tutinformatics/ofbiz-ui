@@ -7,6 +7,7 @@ import 'font-awesome/css/font-awesome.css';
 import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
+import { initialState } from "./store/state";
 
 
 export function configure(aurelia) {
@@ -40,6 +41,11 @@ export function configure(aurelia) {
     .standardConfiguration()
     .developmentLogging()
     .plugin(PLATFORM.moduleName('aurelia-dialog'));
+
+  aurelia.use
+    .standardConfiguration()
+    .plugin(PLATFORM.moduleName('aurelia-store'),
+      { initialState });
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));

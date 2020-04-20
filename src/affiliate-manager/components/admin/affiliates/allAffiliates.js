@@ -1,27 +1,23 @@
 import "./allAffiliates.scss"
 import { inject } from 'aurelia-framework';
-import { HttpClient } from "aurelia-fetch-client";
 import moment from 'moment';
+import { AffManagerService } from "../../../service/affManagerService";
 
-@inject(HttpClient)
+@inject(AffManagerService)
 export class allAffiliates {
 
-  filteredValues;
-  allAffiliatePartners;
+  filteredValues = [];
+  allAffiliatePartners = [];
   allAffiliatesOptions;
 
-  constructor(httpClient) {
-    this.httpClient = httpClient;
-    this.allAffiliatePartners = [];
+  constructor(affManagerService) {
+    this.affManagerService = affManagerService;
     this.allAffiliatesOptions = this.getAffiliatesOptions();
     this.fetchAffiliatePartners();
-    this.filteredValues = this.allAffiliatePartners;
   }
 
   async fetchAffiliatePartners() {
-    const response = await this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliates");
-    const responseData = await response.json();
+    const responseData = await this.affManagerService.allAffiliatesRequest();
     responseData.forEach(partner =>
       this.allAffiliatePartners.push(
         this.parsePartner(partner)
@@ -36,6 +32,7 @@ export class allAffiliates {
         "status": "Active"
       },
     );
+    this.filteredValues = this.allAffiliatePartners
   }
 
   getAffiliatesOptions() {

@@ -14,7 +14,7 @@
     </div>
     <div class="col-md-9 mx-auto my-3">
       <filter
-        values-to-filter.one-way="affAllCandidates"
+        values-to-filter.one-way="pendingPartners"
         options.one-way="affApproveFilterOptions"
         callback.call="setFilteredValues($event)"
         id.one-way="'Admin-Generated-Code'"
@@ -52,20 +52,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr repeat.for="user of filteredValues">
-          <td class="align-middle">${user['firstName']}</td>
-          <td class="align-middle">${user['lastName']}</td>
-          <td class="align-middle">${user['email']}</td>
-          <td class="align-middle">${user['dateTimeCreated']}</td>
+        <tr repeat.for="index of filteredValues.length">
+          <td class="align-middle">${filteredValues[index]['firstName']}</td>
+          <td class="align-middle">${filteredValues[index]['lastName']}</td>
+          <td class="align-middle">${filteredValues[index]['email']}</td>
+          <td class="align-middle">${filteredValues[index]['dateTimeCreated']}</td>
           <td
-            click.trigger="disapprove(user['partyId'])"
+            click.trigger="disapprove(index, filteredValues[index]['partyId'])"
             class="aff-table__action-icon aff-table__action-icon--red">
             <icon>
               <cross-icon></cross-icon>
             </icon>
           </td>
           <td
-            click.trigger="approve(user['partyId'])"
+            click.trigger="approve(index, filteredValues[index]['partyId'])"
             class="aff-table__action-icon">
             <icon>
               <check-icon></check-icon>

@@ -1,16 +1,16 @@
 import { inject } from "aurelia-framework";
-import { HttpClient } from "aurelia-fetch-client";
 import moment from "moment";
+import { AffManagerService } from "../../../service/affManagerService";
 
-@inject(HttpClient)
+@inject(AffManagerService)
 export class GenerateCode {
 
   filteredAffiliateCodes = [];
   affiliateCodes = [];
   selectedCategory;
 
-  constructor(httpClient) {
-    this.httpClient = httpClient;
+  constructor(affManagerService) {
+    this.affManagerService = affManagerService;
     this.affiliateCodeOptions = this.getAffiliateCodeOptions();
     this.productCategories = this.getProductCategories();
     this.getAffiliateCodes();
@@ -63,16 +63,7 @@ export class GenerateCode {
   }
 
   async getAffiliateCodes() {
-    const response = await this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliate/codes",
-        {
-          method: 'POST',
-          body: JSON.stringify(
-            {"partyId": "admin"}
-          )
-        }
-      );
-    const responseData = await response.json();
+    const responseData = await this.affManagerService.getAffiliateCodesRequest();
     responseData.forEach(code =>
       this.affiliateCodes.push(
         this.parseCode(code)
@@ -91,47 +82,23 @@ export class GenerateCode {
     this.filteredAffiliateCodes = this.affiliateCodes;
   }
 
-  generateAffiliateCode() {
-    this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliate/code",
-        {
-          method: 'POST',
-          body: JSON.stringify(
-            {"partyId": "admin"}
+  async generateAffiliateCode() {
+    const response = await this.affManagerService.generateAffiliateCodeRequest();
+    if (response.ok) {
+      response.json().then((response) => {
+          this.affiliateCodes.push(
+            this.parseCode(response)
           )
         }
-      ).then((response) => {
-        if (response.ok) {
-          response.json().then((response) => {
-              this.affiliateCodes.push(
-                this.parseCode(response)
-              )
-            }
-          );
-        }
-      }
-    );
+      );
+    }
   }
 
-  deleteAffiliateCode(codeId, index) {
-    this.httpClient
-      .fetch("https://localhost:8443/api/parties/affiliate/code",
-        {
-          method: 'DELETE',
-          body: JSON.stringify(
-            {
-              "partyId": "admin",
-              "affiliateCodeId": codeId,
-            }
-          )
-        }
-      ).then((response) => {
-        if (response.ok) {
-          this.affiliateCodes.splice(index, 1);
-        }
-      }
-    );
-
+  async deleteAffiliateCode(codeId, index) {
+    const response = await this.affManagerService.deleteAffiliateCodeRequest(codeId);
+    if (response.ok) {
+      this.affiliateCodes.splice(index, 1);
+    }
   }
 
   setFilteredAffiliateCodes(filteredValue) {
@@ -148,4 +115,5 @@ export class GenerateCode {
       "category": 'none',
     }
   }
+
 }

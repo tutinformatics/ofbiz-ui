@@ -3,13 +3,15 @@
     <div class="row justify-content-center align-items-center h-100">
       <div class="col login mt-n5">
         <div class="login__form-wrapper" class.bind="forgotPassword? 'login__form-wrapper--invisible': ''">
-          <form>
+          <form role = "form" submit.delegate = "login()">
             <label class="sr-only" for="username"></label>
             <input
               type="text"
               id="username"
               class="login__input"
               placeholder="Username"
+              value.bind="username"
+              autocomplete="off"
             />
             <label for="password" class="sr-only"></label>
             <input
@@ -17,6 +19,7 @@
               id="password"
               class="login__input"
               placeholder="Password"
+              value.bind="password"
             />
             <input
               class="login__btn my-2"
@@ -24,6 +27,7 @@
               value="Log In"
             />
           </form>
+
           <div class="row login-additional flex-column">
             <div class="col mx-auto mt-2 col--sign-up">
               <a class="login-additional__link" href="#/sign-up">Sign Up</a>
