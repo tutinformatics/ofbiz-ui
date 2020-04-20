@@ -31,6 +31,7 @@ export class Navbar {
   loadMenuItems() {
     this.menuItemsService.getMenuItems('project')
       .then(res => this.projectMenuItems = res);
+    // TODO: fetch your menu items here
   }
 
   detached() {
