@@ -73,32 +73,6 @@ export class ProjectMainComponent {
 
 This approach will also keep `app.js` clean from child routes as the app will grow larger.
 
-## Conditionally define your nav-items in the navbar component
-
-Fetch your menu items inside `navbar.js`:
-```javascript
-loadMenuItems() {
-    this.menuItemsService.getMenuItems('project')
-      .then(res => this.projectMenuItems = res);
-    // TODO: fetch your menu items here
-  }
-```  
-
-`navbar.html`:
-```html
-<!-- Project navbar elements -->
-<li
-    if.bind="currentProduct === 'project'"
-    repeat.for="item of projectMenuItems"
-    class="nav-item"
->
-    <a class="nav-link" route-href="route.bind: item.route">
-        ${ item.text }
-    </a>
-</li>
-<!-- End of Project navbar elements -->
-```
-
 
 
 

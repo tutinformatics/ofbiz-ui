@@ -14,10 +14,9 @@ export class Navbar {
   }
 
   created() {
-    this.loadMenuItems();
     this.subscription = this.ea.subscribe('router:navigation:complete', () => {
-      let product = safeGet(() => this.router.currentInstruction.config.name, '');
-      this.currentProduct = product;
+      this.currentProduct = safeGet(() => this.router.currentInstruction.config.name, '');
+      this.loadMenuItems(this.currentProduct);
     });
   }
 
@@ -28,10 +27,9 @@ export class Navbar {
     this.router.navigate(url);
   }
 
-  loadMenuItems() {
-    this.menuItemsService.getMenuItems('project')
-      .then(res => this.projectMenuItems = res);
-    // TODO: fetch your menu items here
+  loadMenuItems(product) {
+    this.menuItemsService.getMenuItems(product)
+      .then(res => this.menuItems = res);
   }
 
   detached() {

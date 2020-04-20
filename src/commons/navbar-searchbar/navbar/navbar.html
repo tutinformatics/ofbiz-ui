@@ -35,17 +35,14 @@
         </li>
 
         <!-- Navbar elements -->
-        <!-- Project navbar elements -->
         <li
-          if.bind="currentProduct === 'project'"
-          repeat.for="item of projectMenuItems"
+          repeat.for="item of menuItems"
           class="nav-item"
         >
           <a class="nav-link" route-href="route.bind: item.route">
             ${ item.text }
           </a>
         </li>
-        <!-- End of Project navbar elements -->
         <!-- End of Navbar elements -->
       </ul>
 
