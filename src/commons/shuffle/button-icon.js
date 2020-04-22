@@ -1,27 +1,19 @@
-import {inject, customElement, bindable} from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
-import {autoinject} from "aurelia-dependency-injection";
+import { customElement, bindable } from 'aurelia-framework';
 
-@inject(EventAggregator)
-@inject(Element)
 @customElement('button-icon')
 export class ButtonIcon {
   @bindable elemName = '';
-  stringArray = ['crm', 'accounting', 'calendar', 'contacts', 'manufacturing'];
 
-  assetPath = "/icons/";
-  svgFile = ".svg";
-  active = "";
-  namething = '';
-
-
+  assetPath = '/icons/';
+  svgFile = '.svg';
+  active = '';
 
   constructor() {
     this.element = {
-          active: ''
-        };
+      active: ''
+    };
   }
-  x;
+
   mouseOver() {
     this.element.active = '-active';
   }

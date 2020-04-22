@@ -1,42 +1,85 @@
 <template>
   <require from="../../shuffle/shuffle"></require>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top"
+  >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <a class="navbar-brand dropdown-toggle bg-purple" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a
+            class="navbar-brand dropdown-toggle bg-purple"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             Products
           </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <shuffle></shuffle>
-            </div>
+          <div class="dropdown-menu workspace-dropdown-menu" aria-labelledby="navbarDropdown">
+            <shuffle select-product.call="setCurrentProduct(product)"></shuffle>
+          </div>
         </li>
 
+        <!-- Navbar elements -->
+        <li
+          repeat.for="item of menuItems"
+          class="nav-item"
+        >
+          <a class="nav-link" route-href="route.bind: item.route">
+            ${ item.text }
+          </a>
+        </li>
+        <!-- End of Navbar elements -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
-          <a class="navbar-brand dropdown-toggle bg-purple" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a
+            class="navbar-brand dropdown-toggle bg-purple"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             Workspaces
           </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <shuffle></shuffle>
-            </div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <shuffle></shuffle>
+          </div>
         </li>
-
       </ul>
       <li class="nav navbar-nav navbar-right">
-        <a class="router-link nav-link bg-purple navbar-right" href="#/workspaces">Messages</a>
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+          href="#/workspaces"
+        >
+          Messages
+        </a>
       </li>
       <li class="nav navbar-nav navbar-right">
-        <a class="router-link nav-link bg-purple navbar-right" href="#/workspaces">Log in</a>
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+          href="#/workspaces"
+        >
+          Log in
+        </a>
       </li>
-
     </div>
   </nav>
-
 </template>

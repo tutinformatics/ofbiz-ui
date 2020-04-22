@@ -1,10 +1,15 @@
 <template>
-  <div mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()" class="">
-    <img class="icon svg-image pt-1" src="${assetPath}${elemName}${element.active}${svgFile}"><br>
+  <div
+    mouseover.delegate="mouseOver()"
+    mouseout.delegate="mouseOut()"
+  >
+    <img
+      class="product-icon svg-image pt-1"
+      src="${assetPath}${elemName}${element.active}${svgFile}"
+    />
+    <br />
     <div class="text-uppercase">
       ${elemName & oneTime}
     </div>
-
   </div>
-
 </template>

@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
-import { ProjectService } from './project-service';
+import { ProjectService } from '../services/project-service';
 
 @inject(Router, ProjectService)
 export class ProjectList {
@@ -19,6 +19,6 @@ export class ProjectList {
   }
 
   handleAddProject() {
-    this.router.navigate('/new-project');
+    this.router.navigate('new-project');
   }
 }

@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
-import { TaskService } from './task-service';
+import { TaskService } from '../services/task-service';
 
 @inject(Router, TaskService)
 export class TaskList {
@@ -39,6 +39,6 @@ export class TaskList {
   }
 
   handleAddTask() {
-    this.router.navigate('/new-task');
+    this.router.navigate('new-task');
   }
 }

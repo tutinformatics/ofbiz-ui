@@ -16,7 +16,7 @@
 	c7.549-1.652,15.429,0.467,21.131,5.683V8H136z"/>
 <circle style="fill:#F73445;" cx="240" cy="328" r="32"/>
 <g>
-	<circle style="fill:#FED966;" cx="72" cy="368" r="24"/>
+	<circle style="fill:#FED966;" cx="72" cy="368" r="24"/>		
 	<circle style="fill:#FED966;" cx="408" cy="368" r="24"/>
 </g>
 <path style="fill:#F73445;" d="M240,360c26.51,0,48,21.49,48,48v64l0,0h-96l0,0v-64C192,381.49,213.49,360,240,360z"/>
