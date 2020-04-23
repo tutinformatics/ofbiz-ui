@@ -1,7 +1,7 @@
 import { inject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
-import { setUserLoginId } from "../../store/state";
+import { setUserLoginId } from "../../store/store";
 
 @inject(HttpClient, Store)
 export class LoginService {

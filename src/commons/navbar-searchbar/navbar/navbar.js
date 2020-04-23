@@ -1,5 +1,5 @@
 import { Store } from "aurelia-store";
-import { setUserLoginId } from "../../../store/state";
+import { setUserLoginId } from "../../../store/store";
 import { inject } from "aurelia-dependency-injection";
 import { Router } from "aurelia-router";
 import "./navbar.scss"
