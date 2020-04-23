@@ -21,7 +21,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
-          <a class="navbar-brand dropdown-toggle bg-purple" click.delegate="navigateTo('#')" id="navbarDropdown"
+          <a class="navbar-brand dropdown-toggle bg-purple" click.delegate="navigateTo('/')" id="navbarDropdown"
              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Workspaces
           </a>
@@ -35,7 +35,7 @@
         <a class="router-link nav-link bg-purple navbar-right" click.delegate="navigateTo('#/workspaces')">Messages</a>
       </li>
       <li
-        if.bind="currentState.userLoginId === 'null'"
+        if.bind="state.userLoginId === 'null'"
         class="nav navbar-nav navbar-right"
       >
         <a
@@ -46,7 +46,7 @@
         </a>
       </li>
       <li
-        if.bind="currentState.userLoginId !== 'null'"
+        if.bind="state.userLoginId !== 'null'"
         class="router-link nav navbar-nav navbar-right"
         click.delegate="logOut()"
       >

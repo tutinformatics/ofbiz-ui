@@ -4,9 +4,11 @@
   <require from="../containers/admin/admin"></require>
   <require from="../containers/pending-member/pendingMember"></require>
   <div>
-    <guest if.bind="isGuest()"></guest>
-    <member if.bind="isMember()"></member>
-    <admin if.bind="isAdmin()"></admin>
-    <pending-member if.bind="isPendingMember()"></pending-member >
+    <guest if.bind="authorized === 'GUEST'"></guest>
+    <member if.bind="authorized === 'MEMBER'"></member>
+    <admin if.bind="authorized === 'ADMIN'"></admin>
+    <pending-member
+      aff-status.one-way="affiliateStatus"
+      if.bind="authorized === 'PENDING'"></pending-member >
   </div>
 </template>

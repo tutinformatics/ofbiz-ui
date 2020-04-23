@@ -6,7 +6,8 @@ import { AffManagerService } from "../../../service/affManagerService";
 @inject(AffManagerService)
 export class BecomePartner {
 
-  @bindable affStatus;
+  affStatus;
+  @bindable guest;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
@@ -17,7 +18,7 @@ export class BecomePartner {
   async becomeAffPartner() {
     const response = await this.affManagerService.becomeAffPartner();
     if (response.ok) {
-      this.setBecomePartnerSuccess(true)
+      this.setBecomePartnerSuccess(true);
       this.affStatus = 'PENDING'
     } else {
       this.setBecomePartnerError(true);

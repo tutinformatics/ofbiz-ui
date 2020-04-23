@@ -1,16 +1,9 @@
-import { connectTo, Store } from "aurelia-store";
-import { pluck } from "rxjs/operators";
+import { Store } from "aurelia-store";
 import { setUserLoginId } from "../../../store/state";
 import { inject } from "aurelia-dependency-injection";
 import { Router } from "aurelia-router";
 import "./navbar.scss"
 
-@connectTo({
-  target: 'currentState',
-  selector: {
-    userLoginId: (store) => store.state.pipe(pluck('userLoginId')),
-  }
-})
 @inject(Router, Store)
 export class Navbar {
 
@@ -18,6 +11,17 @@ export class Navbar {
     this.store = store;
     this.router = router;
     this.store.registerAction('setUserLoginId', setUserLoginId);
+  }
+
+  bind() {
+    this.subscription = this.store.state.subscribe(
+      (state) => this.state = state
+    );
+  }
+
+
+  unbind() {
+    this.subscription.unsubscribe();
   }
 
   logOut() {
