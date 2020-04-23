@@ -1,55 +1,41 @@
 import "./login.scss"
-import { HttpClient, json } from "aurelia-fetch-client";
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
-import { Store } from "aurelia-store";
-import { setUserLoginId } from "../../store/state";
+import { ValidationControllerFactory, ValidationRules } from "aurelia-validation";
+import { LoginService } from "./loginService";
 
-@inject(HttpClient, Router, Store)
+@inject(Router, ValidationControllerFactory, LoginService)
 export class Login {
 
   username = null;
   password = null;
+  forgotPassword;
+  errors;
 
-  constructor(httpClient, router, store) {
-    this.store = store;
-    this.store.registerAction('setUserLoginId', setUserLoginId);
+  constructor(router, controllerFactory, loginService) {
     this.router = router;
-    this.httpClient = httpClient;
-    this.forgotPassword = false;
+    this.loginService = loginService;
+    this.controller = controllerFactory.createForCurrentScope();
+    ValidationRules
+      .ensure('username').required()
+      .ensure('password').required()
+      .on(this);
   }
 
   setForgotPassword(value) {
     this.forgotPassword = value;
   }
 
-  login() {
-    this.httpClient
-      .fetch("https://localhost:8443/api/auth/v1",
-        {
-          method: 'POST',
-          body: json({
-              "username": this.username,
-              "password": this.password
-            }
-          )
-        }
-      ).then(
-      (response) => {
-        if (response.ok) {
-          response
-            .json()
-            .then(
-              (response) => {
-                this.store.dispatch('setUserLoginId', response['userLoginId']);
-                localStorage.setItem("userLoginId", response['userLoginId']);
-                localStorage.setItem("token", response['token']);
-                this.router.navigate("/")
-              }
-            )
-        }
+  async login() {
+    await this.controller.validate();
+    if (this.controller.errors.length === 0) {
+      const isSuccessful = await this.loginService.loginAttempt(this.username, this.password);
+      if (isSuccessful) {
+        this.router.navigate("/");
+        return
       }
-    )
+    }
+    this.errors = true;
   }
 
 }

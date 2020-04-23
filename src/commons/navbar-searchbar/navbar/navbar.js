@@ -3,6 +3,7 @@ import { pluck } from "rxjs/operators";
 import { setUserLoginId } from "../../../store/state";
 import { inject } from "aurelia-dependency-injection";
 import { Router } from "aurelia-router";
+import "./navbar.scss"
 
 @connectTo({
   target: 'currentState',

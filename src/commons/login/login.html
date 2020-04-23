@@ -10,8 +10,9 @@
               id="username"
               class="login__input"
               placeholder="Username"
-              value.bind="username"
+              value.bind="username & validate"
               autocomplete="off"
+              class.bind="errors? 'error__login': ''"
             />
             <label for="password" class="sr-only"></label>
             <input
@@ -19,7 +20,9 @@
               id="password"
               class="login__input"
               placeholder="Password"
-              value.bind="password"
+              autocomplete="off"
+              value.bind="password & validate"
+              class.bind="errors? 'error__login': ''"
             />
             <input
               class="login__btn my-2"

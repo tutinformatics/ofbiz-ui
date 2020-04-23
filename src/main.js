@@ -13,39 +13,19 @@ import { initialState } from "./store/state";
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin(PLATFORM.moduleName('aurelia-fontawesome'));
-
-  aurelia.use
-    .developmentLogging(environment.debug ? 'debug' : 'warn');
-
-  aurelia.use
-    .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'));
-
-  aurelia.use
-    .standardConfiguration()
-    .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
-    .developmentLogging();
-
-  aurelia.use
-    .standardConfiguration()
     .developmentLogging()
-    .plugin(PLATFORM.moduleName('au-table'));
-
-  aurelia.use
     .globalResources([
       PLATFORM.moduleName('commons/converters/status-badge'),
       PLATFORM.moduleName('commons/converters/status')
-    ]);
-
-  aurelia.use
-    .standardConfiguration()
-    .developmentLogging()
-    .plugin(PLATFORM.moduleName('aurelia-dialog'));
-
-  aurelia.use
-    .standardConfiguration()
+    ])
+    .plugin(PLATFORM.moduleName('aurelia-fontawesome'))
+    .plugin(PLATFORM.moduleName('aurelia-dialog'))
+    .plugin(PLATFORM.moduleName('aurelia-validation'))
     .plugin(PLATFORM.moduleName('aurelia-store'),
-      { initialState });
+      {initialState})
+    .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'))
+    .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
+    .plugin(PLATFORM.moduleName('au-table'));
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));

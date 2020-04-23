@@ -111,6 +111,14 @@ body, html {
   opacity: 0;
 }
 
+.error__login {
+  border: solid 2px red;
+
+  &:focus {
+    border-bottom: solid 2px red;
+  }
+}
+
 @media only screen and (max-width: 450px) {
   .login {
     padding-top: 130px;
