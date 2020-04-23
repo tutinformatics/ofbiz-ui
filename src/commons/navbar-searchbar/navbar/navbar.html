@@ -8,35 +8,53 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <a class="navbar-brand dropdown-toggle bg-purple" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="navbar-brand dropdown-toggle bg-purple" click.delegate="navigateTo('#')" id="navbarDropdown"
+             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Products
           </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <shuffle></shuffle>
-            </div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <shuffle></shuffle>
+          </div>
         </li>
 
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
-          <a class="navbar-brand dropdown-toggle bg-purple" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="navbar-brand dropdown-toggle bg-purple" click.delegate="navigateTo('#')" id="navbarDropdown"
+             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Workspaces
           </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <shuffle></shuffle>
-            </div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <shuffle></shuffle>
+          </div>
         </li>
 
       </ul>
       <li class="nav navbar-nav navbar-right">
-        <a class="router-link nav-link bg-purple navbar-right" href="#/workspaces">Messages</a>
+        <a class="router-link nav-link bg-purple navbar-right" click.delegate="navigateTo('#/workspaces')">Messages</a>
       </li>
-      <li if.bind="!currentState.userLoginId" class="nav navbar-nav navbar-right">
-        <a class="router-link nav-link bg-purple navbar-right" href="#/login">Log in</a>
+      <li
+        if.bind="currentState.userLoginId === 'null'"
+        class="nav navbar-nav navbar-right"
+      >
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+          click.delegate="navigateTo('#/logIn')"
+        >
+          Log in
+        </a>
       </li>
-      <li if.bind="currentState.userLoginId" class="nav navbar-nav navbar-right" click.trigger="logOut()">
-        <a class="router-link nav-link bg-purple navbar-right" href="#/login">Log out</a>
+      <li
+        if.bind="currentState.userLoginId !== 'null'"
+        class="nav navbar-nav navbar-right"
+        click.delegate="logOut()"
+      >
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+        >
+          Log out
+        </a>
       </li>
     </div>
   </nav>

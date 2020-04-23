@@ -1,12 +1,8 @@
 export const initialState = {
-  userLoginId: null,
-  token: null,
+  userLoginId: localStorage.getItem('userLoginId'),
 };
 
 export const setUserLoginId =  (state, userLoginId) => {
-  return Object.assign({}, state, { userLoginId: { userLoginId } });
+  return Object.assign({}, state, { userLoginId: userLoginId });
 };
 
-export const setToken =  (state, token) => {
-  return Object.assign({}, state, { token: { token } });
-};
