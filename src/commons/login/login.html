@@ -10,7 +10,7 @@
               id="username"
               class="login__input"
               placeholder="Username"
-              value.bind="username & validate"
+              value.bind="username"
               autocomplete="off"
               class.bind="errors? 'error__login': ''"
             />
@@ -21,7 +21,7 @@
               class="login__input"
               placeholder="Password"
               autocomplete="off"
-              value.bind="password & validate"
+              value.bind="password"
               class.bind="errors? 'error__login': ''"
             />
             <input
