@@ -9,6 +9,8 @@ export class Login {
 
   username = null;
   password = null;
+  recovery = '';
+  showFeedback = false;
   forgotPassword;
   errors;
 
@@ -20,10 +22,18 @@ export class Login {
       .ensure('username').required()
       .ensure('password').required()
       .on(this);
+    ValidationRules
+      .ensure('recovery')
+      .email()
+      .required()
   }
 
   setForgotPassword(value) {
     this.forgotPassword = value;
+  }
+
+  navigateTO(path) {
+    this.router.navigate(path)
   }
 
   async login() {
@@ -36,6 +46,10 @@ export class Login {
       }
     }
     this.errors = true;
+  }
+
+  async sendForgotPasswordRequest() {
+    this.showFeedback = true;
   }
 
 }
