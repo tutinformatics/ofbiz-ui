@@ -19,11 +19,6 @@ export class Navbar {
     );
   }
 
-
-  unbind() {
-    this.subscription.unsubscribe();
-  }
-
   logOut() {
     // null will be converted to 'null'
     // -> therefore, we need to compare as === 'null', not as == null
