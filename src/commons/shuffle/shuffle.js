@@ -1,4 +1,5 @@
 import { bindable } from 'aurelia-framework';
+import { inject } from 'aurelia-dependency-injection';
 import { Router } from "aurelia-router";
 
 @inject(Router)
