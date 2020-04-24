@@ -28,103 +28,141 @@ export class AffManagerService {
   }
 
   async pendingPartnersRequest() {
-    const response = await this.httpClient.fetch("parties/unconfirmedAffiliates");
-    return await response.json();
+    try {
+      const response = await this.httpClient.fetch("parties/unconfirmedAffiliates");
+      return await response.json();
+    } catch (e) {
+      return null
+    }
   }
 
   async approveRequest(partyId) {
-    return await this.httpClient.fetch("parties/affiliate/approve",
-      {
-        method: "PUT",
-        body: JSON.stringify(
-          {"partyId": partyId}
-        )
-      }
-    );
+    try {
+      return await this.httpClient.fetch("parties/affiliate/approve",
+        {
+          method: "PUT",
+          body: JSON.stringify(
+            {"partyId": partyId}
+          )
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+
   }
 
   async disapproveRequest(partyId) {
-    return await this.httpClient.fetch("parties/affiliate/disapprove",
-      {
-        method: "PUT",
-        body: JSON.stringify(
-          {"partyId": partyId}
-        )
-      }
-    );
+    try {
+      return await this.httpClient.fetch("parties/affiliate/disapprove",
+        {
+          method: "PUT",
+          body: JSON.stringify(
+            {"partyId": partyId}
+          )
+        }
+      );
+    } catch (e) {
+      return null;
+    }
   }
 
   async allAffiliatesRequest() {
-    const response = await this.httpClient
-      .fetch("parties/affiliates");
-    return await response.json();
+    try {
+      const response = await this.httpClient
+        .fetch("parties/affiliates");
+      return await response.json();
+    } catch (e) {
+      return null;
+    }
   }
 
   async becomeAffPartner() {
-    return await this.httpClient
-      .fetch("parties/affiliate/create",
-        {
-          method: "POST",
-          body: JSON.stringify(
-            {"userLoginId": "admin"}
-          ),
-        }
-      );
+    try {
+      return await this.httpClient
+        .fetch("parties/affiliate/creae",
+          {
+            method: "POST",
+            body: JSON.stringify(
+              {"userLoginId": "admin"}
+            ),
+          }
+        );
+    } catch (e) {
+      return null;
+    }
   }
 
   async myAffiliatesRequest() {
-    return await this.httpClient.fetch("parties/affiliate",
-      {
-        method: 'POST',
-        body: JSON.stringify(
-          {"partyId": "DemoUser2"}
-        )
-      }
-    )
+    try {
+      return await this.httpClient.fetch("parties/affiliate",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {"partyId": "DemoUser2"}
+          )
+        }
+      )
+    } catch (e) {
+      return null;
+    }
   }
 
   async getStatusRequest() {
-    return await this.httpClient.fetch("parties/unconfirmedAffiliates")
+    try{
+      return await this.httpClient.fetch("parties/unconfirmedAffiliates")
+    } catch (e) {
+      return null;
+    }
   }
 
   async getAffiliateCodesRequest() {
-    const response = await this.httpClient.fetch("parties/affiliate/codes",
-      {
-        method: 'POST',
-        body: JSON.stringify(
-          {"partyId": "admin"}
-        )
-      }
-    );
-    return await response.json();
+    try {
+      const response = await this.httpClient.fetch("parties/affiliate/codes",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {"partyId": "admin"}
+          )
+        }
+      );
+      return await response.json();
+    } catch (e) {
+      return null;
+    }
   }
 
   async generateAffiliateCodeRequest() {
-    return await this.httpClient.fetch("parties/affiliate/code",
-      {
-        method: 'POST',
-        body: JSON.stringify(
-          {"partyId": "admin"}
-        )
-      }
-    )
+    try {
+      return await this.httpClient.fetch("parties/affiliate/code",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {"partyId": "admin"}
+          )
+        }
+      )
+    } catch (e) {
+      return null;
+    }
   }
 
   async deleteAffiliateCodeRequest(codeId) {
-    return await this.httpClient.fetch("parties/affiliate/code",
-      {
-        method: 'DELETE',
-        body: JSON.stringify(
-          {
-            "partyId": "admin",
-            "affiliateCodeId": codeId,
-          }
-        )
-      }
-    )
+    try {
+      return await this.httpClient.fetch("parties/affiliate/code",
+        {
+          method: 'DELETE',
+          body: JSON.stringify(
+            {
+              "partyId": "admin",
+              "affiliateCodeId": codeId,
+            }
+          )
+        }
+      )
+    } catch (e) {
+      return null;
+    }
   }
-
-  async
-
 
 }

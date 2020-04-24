@@ -17,12 +17,12 @@ export class BecomePartner {
 
   async becomeAffPartner() {
     const response = await this.affManagerService.becomeAffPartner();
-    if (response.ok) {
+    if (response && response.ok) {
       this.setBecomePartnerSuccess(true);
-      this.affStatus = 'PENDING'
-    } else {
-      this.setBecomePartnerError(true);
+      this.affStatus = 'PENDING';
+      return
     }
+    this.setBecomePartnerError(true);
   }
 
   setBecomePartnerError(value) {
