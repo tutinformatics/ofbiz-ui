@@ -1,12 +1,32 @@
 <template>
-  <select id="product-categories-select"
-    name="product-categories"
-    class="custom-select aff-all-affiliates__select--filter"
-    value.bind="selected">
-    <option model.bind=null>Choose</option>
-    <option class="option" repeat.for="option of options"
-            model.bind="option['key']">
-      ${option['value']}
-    </option>
-  </select>
+  <div class="row">
+    <div class="col d-flex justify-content-start">
+      <label for.bind="id" class="ml-2 text-left">
+        <small>${labelText}</small>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1 aff-select-value pr-1">
+      <select for.bind="id"
+              name="product-categories"
+              class="custom-select aff-filter__select"
+              value.bind="selected">
+        <option model.bind=null>Choose</option>
+        <option class="option" repeat.for="option of options"
+                model.bind="option['key']">
+          ${option['value']}
+        </option>
+      </select>
+    </div>
+    <div class="col px-0 d-flex justify-content-start">
+      <button
+        disabled.bind="!selected"
+        click.trigger="callback()"
+        class="btn aff-system__button--main"
+        type="button">Generate New
+      </button>
+    </div>
+
+  </div>
 </template>

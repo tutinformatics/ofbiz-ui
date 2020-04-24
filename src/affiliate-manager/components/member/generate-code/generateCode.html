@@ -12,22 +12,13 @@
       </page-title>
     </div>
     <div class="col-md-9 mx-auto my-3">
-      <div class="input-group flex-column mb-3">
-        <label for="product-categories-select" class="ml-2 text-left">
-          <small>Choose a category and generate a new affiliate code</small>
-        </label>
-        <div class="d-flex justify-content-start">
-          <select-value class="pl-0 col-3"
-                        selected.two-way="selectedCategory"
-                        options.one-way="productCategories"></select-value>
-          <button
-            disabled.bind="!selectedCategory"
-            click.trigger="generateAffiliateCode()"
-            class="btn aff-system__button--main"
-            type="button">Generate New
-          </button>
-        </div>
-      </div>
+      <select-value class="pl-0 col-3"
+                    selected.two-way="selectedCategory"
+                    options.one-way="productCategories"
+                    id.one-way="'generateCodeId'"
+                    label-text="Generate code for a chosen category"
+                    callback.call="generateAffiliateCode($event)">
+      </select-value>
       <filter
         values-to-filter.one-way="affiliateCodes"
         options.one-way="affiliateCodeOptions"
