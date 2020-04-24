@@ -1,5 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
-import { TaskService } from './task-service';
+import { TaskService } from '../services/task-service';
 import { Router } from 'aurelia-router';
 
 @inject(Router, TaskService)

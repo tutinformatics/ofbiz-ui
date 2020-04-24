@@ -1,5 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
-import { ProjectService } from './project-service';
+import { ProjectService } from '../services/project-service';
 import { Router } from 'aurelia-router';
 
 @inject(Router, ProjectService)
