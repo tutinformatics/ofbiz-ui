@@ -5,168 +5,169 @@
   <require from="../../general/icons/icon"></require>
   <require from="../../general/select/selectValue"></require>
 
-    <div class="row flex-column mx-3 text-center mt-5">
-      <div class="col-md-9 mx-auto">
-        <page-title
-          main-text.one-way="'My affiliate partnership statistics'"
-          secondary-text.one-way="'Here you can find general information about your activity and activity of your partners'"
-        >
-        </page-title>
-      </div>
-      <div class="col-md-9 mx-auto my-4">
-        <select-value
-          class="pl-0 col-md-9 mx-auto my-3"
-          selected.two-way="selectedPeriod"
-          id.one-way="'reviewSelectId'"
-          label-text="Show review for a chosen period"
-          options.one-way="affStatistics">
-        </select-value>
-      </div>
-      <div class="col-md-9 mt-2 mx-auto table-responsive-md">
-        <h6>Purchases related to my affiliate codes</h6>
-        <hr class="mt-n1">
-        <table class="table table-striped table-dark table-bordered table-hover">
-          <thead>
-          <tr>
-            <th scope="col">Product ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Commission</th>
-            <th scope="col">Code Used</th>
-            <th scope="col">Code Owner</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr class="aff-member-table__row" repeat.for="product of products">
-            <td class="align-middle">
-              <p>${product['id']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${product['name']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${product['commission']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${product['code']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${product['code-owner']}</p>
-            </td>
-            <td class="aff-table__action-icon">
-              <icon class="mt-n2">
-                <eye-icon></eye-icon>
-              </icon>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
-      </div>
-      <div class="col-md-9 mx-auto mt-5 table-responsive-md">
-        <h6>Multi-level affiliate program</h6>
-        <hr class="mt-n1">
-        <table class="table table-striped table-dark table-bordered table-hover">
-          <thead>
-          <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Commission</th>
-            <th scope="col">Registered Since</th>
-            <th scope="col">Sub-partners</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr class="aff-member-table__row" repeat.for="partner of partners">
-            <td class="align-middle">
-              <p>${partner['first-name']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${partner['last-name']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${partner['email']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${partner['commission']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${partner['registered-since']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${partner['sub-partners']}</p>
-            </td>
-            <td class="aff-table__action-icon">
-              <icon class="mt-n2">
-                <eye-icon></eye-icon>
-              </icon>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
-      </div>
-      <div class="col-md-9 mx-auto my-5 table-responsive-md">
-        <h6>Statistics per affiliate-code</h6>
-        <hr class="mt-n1">
-        <table class="table table-striped table-dark table-bordered table-hover">
-          <thead>
-          <tr>
-            <th
-              class="align-middle"
-              scope="col">Code
-            </th>
-            <th
-              class="align-middle"
-              scope="col">Commission Total
-            </th>
-            <th
-              class="align-middle"
-              scope="col">Active Since
-            </th>
-            <th
-              class="align-middle"
-              scope="col">Used (times)
-            </th>
-            <th
-              class="align-middle"
-              scope="col">Category
-            </th>
-            <th
-              class="align-middle"
-              scope="col">Invited
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr class="aff-member-table__row" repeat.for="code of codes">
-            <td class="align-middle">
-              <p>${code['code']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${code['commission']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${code['active-since']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${code['times-used']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${code['category']}</p>
-            </td>
-            <td class="align-middle">
-              <p>${code['invited']}</p>
-            </td>
-            <td class="aff-table__action-icon">
-              <icon class="mt-n2">
-                <eye-icon></eye-icon>
-              </icon>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
-      </div>
+  <div class="row flex-column mx-3 text-center mt-5">
+    <div class="col-md-9 mx-auto">
+      <page-title
+        main-text.one-way="'My affiliate partnership statistics'"
+        secondary-text.one-way="'Here you can find general information about your activity and activity of your partners'"
+      >
+      </page-title>
     </div>
+    <div class="col-md-9 mx-auto my-4">
+      <select-value
+        class="pl-0 col-md-9 mx-auto my-3"
+        selected.two-way="selectedPeriod"
+        id.one-way="'reviewSelectId'"
+        label-text="Show review for a chosen period"
+        options.one-way="affStatistics">
+      </select-value>
+    </div>
+    <div class="col-md-9 mt-2 mx-auto table-responsive-md">
+      <h6>Purchases related to my affiliate codes</h6>
+      <hr class="mt-n1">
+      <table class="table table-striped table-dark table-bordered table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Product ID</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Commission</th>
+          <th scope="col">Code Used</th>
+          <th scope="col">Code Owner</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="aff-member-table__row" repeat.for="product of products.slice(0, 3)">
+          <td class="align-middle">
+            <p>${product['id']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${product['name']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${product['commission']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${product['code']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${product['code-owner']}</p>
+          </td>
+          <td class="aff-table__action-icon">
+            <icon class="mt-n2">
+              <eye-icon></eye-icon>
+            </icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <button click.trigger="showAll(products)" class="mx-auto w-75 btn aff-system__button--main">Show More
+      </button>
+    </div>
+    <div class="col-md-9 mx-auto mt-5 table-responsive-md">
+      <h6>Multi-level affiliate program</h6>
+      <hr class="mt-n1">
+      <table class="table table-striped table-dark table-bordered table-hover">
+        <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Commission</th>
+          <th scope="col">Registered Since</th>
+          <th scope="col">Sub-partners</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="aff-member-table__row" repeat.for="partner of partners">
+          <td class="align-middle">
+            <p>${partner['first-name']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${partner['last-name']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${partner['email']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${partner['commission']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${partner['registered-since']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${partner['sub-partners']}</p>
+          </td>
+          <td class="aff-table__action-icon">
+            <icon class="mt-n2">
+              <eye-icon></eye-icon>
+            </icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
+    </div>
+    <div class="col-md-9 mx-auto my-5 table-responsive-md">
+      <h6>Statistics per affiliate-code</h6>
+      <hr class="mt-n1">
+      <table class="table table-striped table-dark table-bordered table-hover">
+        <thead>
+        <tr>
+          <th
+            class="align-middle"
+            scope="col">Code
+          </th>
+          <th
+            class="align-middle"
+            scope="col">Commission Total
+          </th>
+          <th
+            class="align-middle"
+            scope="col">Active Since
+          </th>
+          <th
+            class="align-middle"
+            scope="col">Used (times)
+          </th>
+          <th
+            class="align-middle"
+            scope="col">Category
+          </th>
+          <th
+            class="align-middle"
+            scope="col">Invited
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="aff-member-table__row" repeat.for="code of codes">
+          <td class="align-middle">
+            <p>${code['code']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${code['commission']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${code['active-since']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${code['times-used']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${code['category']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${code['invited']}</p>
+          </td>
+          <td class="aff-table__action-icon">
+            <icon class="mt-n2">
+              <eye-icon></eye-icon>
+            </icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
+    </div>
+  </div>
 </template>
