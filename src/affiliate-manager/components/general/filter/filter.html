@@ -1,23 +1,29 @@
 <template>
-  <div>
-    <label for.bind="id" class="w-100 text-left ml-2 mb-n1">
-      <small>Choose filter to search by and start the search</small>
-    </label>
+  <div class="row">
+    <div class="col">
+      <label for.bind="id" class="w-100 text-left ml-2 mb-n1">
+        <small>Choose filter to search by and start the search</small>
+      </label>
+    </div>
   </div>
-  <div class="input-group mt-1">
-    <select id.bind="id" class="custom-select aff-filter__select mx-auto"
-            value.bind="selected">
-      <option model.bind=null>Choose</option>
-      <option class="option" repeat.for="option of options"
-              model.bind="option['key']">
-        ${option['value']}
-      </option>
-    </select>
-    <input
-      disabled.bind="!selected"
-      type="text"
-      class="form-control aff-all-affiliates__select--input"
-      placeholder="Enter filter text"
-      input.delegate="setFilteredValues($event.target.value)"/>
+  <div class="row">
+    <div class="col-4 pr-0 aff-filter-col">
+      <select id.bind="id" class="custom-select aff-filter__select mx-auto"
+              value.bind="selected">
+        <option model.bind=null>Choose</option>
+        <option class="option" repeat.for="option of options"
+                model.bind="option['key']">
+          ${option['value']}
+        </option>
+      </select>
+    </div>
+    <div class="col pl-1">
+      <input
+        disabled.bind="!selected"
+        type="text"
+        class="form-control aff-all-affiliates__select--input"
+        placeholder="Enter filter text"
+        input.delegate="setFilteredValues($event.target.value)"/>
+    </div>
   </div>
 </template>

@@ -6,6 +6,10 @@ html, body {
   overflow-x: hidden;
 }
 
+.container-fluid--with-min {
+  min-width: 360px;
+}
+
 .aff-sidebar-area {
   transition: 0.5s ease;
   z-index: 2;
