@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-4 aff-select-value pr-1">
+    <div class="col-4 aff-filter-col pr-1">
       <div class="dropdown w-100">
         <button class="btn aff-filter__select dropdown-toggle w-100"
                 type="button" id.bind="id"
@@ -15,7 +15,10 @@
           ${selectedValue}
         </button>
         <div class="dropdown-menu dropdown-menu--aff" aria-labelledby="dropdownMenuButton">
-          <a click.delegate="setSelected(null, null)" class="dropdown-item aff-filter__dropdown">Choose</a>
+          <a class="dropdown-item aff-filter__dropdown"
+             click.delegate="setSelected(null, null)">
+            Choose
+          </a>
           <a class="dropdown-item aff-filter__dropdown" repeat.for="option of options"
              click.delegate="setSelected(option['key'], option['value'])">
             ${option['value']}
@@ -28,7 +31,7 @@
         disabled.bind="!selectedKey"
         click.trigger="callback()"
         class="btn aff-system__button--main"
-        type="button">Generate New
+        type="button">Generate
       </button>
     </div>
 

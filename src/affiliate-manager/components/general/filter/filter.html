@@ -15,7 +15,11 @@
           ${selectedValue}
         </button>
         <div class="dropdown-menu dropdown-menu--aff" aria-labelledby="dropdownMenuButton">
-          <a click.delegate="setSelected(null, null)" class="dropdown-item aff-filter__dropdown">Choose</a>
+          <a
+            class="dropdown-item aff-filter__dropdown"
+            click.delegate="setSelected(null, null)">
+            Choose
+          </a>
           <a class="dropdown-item aff-filter__dropdown" repeat.for="option of options"
              click.delegate="setSelected(option['key'], option['value'])">
             ${option['value']}
