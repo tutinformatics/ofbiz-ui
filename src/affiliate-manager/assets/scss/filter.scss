@@ -2,11 +2,19 @@
 
 .dropdown-menu--aff {
   background: linear-gradient(to bottom, white 0%, white 100%);
+  box-sizing: border-box;
+  max-width: 185px;
+  min-width: 185px;
 }
 
 .aff-filter__dropdown {
+  box-sizing: border-box;
   &:hover {
     cursor: pointer;
+  }
+
+  &:active {
+    background: white;
   }
 }
 
@@ -21,9 +29,6 @@
 }
 
 .aff-filter-col {
-  min-width: 150px;
-}
-
-.aff-select-value {
-  min-width: 150px;
+  max-width: 200px;
+  min-width: 200px;
 }

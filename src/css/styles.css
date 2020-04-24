@@ -13,6 +13,7 @@
   background-color: #dddddd !important;
 }
 
+/*thx for pain, bro (please do not override bootstrap like that)*/
 .dropdown-menu {
   width: 266px;
   background: linear-gradient(#744662, #dddddd);
