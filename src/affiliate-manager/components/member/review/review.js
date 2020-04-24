@@ -1,6 +1,11 @@
+import {bindable} from "aurelia-templating";
+
 export class Review {
 
   counter = 1;
+
+  @bindable
+  selectedPeriod;
 
   incrementCounter() {
     return this.counter++;
