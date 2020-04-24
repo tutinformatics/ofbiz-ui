@@ -14,6 +14,10 @@ export class AffManager {
     this.store = store;
   }
 
+  activate(parameters) {
+    this.view = parameters.view
+  }
+
   bind() {
     this.subscription = this.store.state.subscribe(
       (state) => this.state = state
