@@ -1,11 +1,11 @@
 <template>
   <div tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog aff-manage__modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Detailed View:</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body aff-manager__detailed-modal-view">
           <div class="row">
             <div class="col-5">
               <img class="detailed-view-modal__profile-image px-0"
@@ -13,7 +13,6 @@
             </div>
             <div class="col-7">
               <ul class="list-group list-group-flush">
-
                 <li class="list-group-item mt-2">Name: ${partner['firstName']} ${partner['lastName']}</li>
                 <li class="list-group-item mt-2">Email: ${partner["email"]}</li>
                 <li class="list-group-item">Partner Since: ${partner["date"]}</li>
