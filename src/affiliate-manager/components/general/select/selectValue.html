@@ -1,0 +1,12 @@
+<template>
+  <select
+    name="product-categories"
+    class="custom-select aff-all-affiliates__select--filter"
+    value.bind="selected">
+    <option model.bind=null>Choose</option>
+    <option class="option" repeat.for="option of options"
+            model.bind="option['key']">
+      ${option['value']}
+    </option>
+  </select>
+</template>
