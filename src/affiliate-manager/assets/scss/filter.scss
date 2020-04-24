@@ -1,0 +1,29 @@
+@import "variables";
+
+.dropdown-menu--aff {
+  background: linear-gradient(to bottom, white 0%, white 100%);
+}
+
+.aff-filter__dropdown {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.aff-filter__select, .aff-all-affiliates__select--input {
+  background: white;
+  border-radius: 5px;
+  &:focus {
+    border-color: $primary-color-hover;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
+  }
+}
+
+.aff-filter-col {
+  min-width: 150px;
+}
+
+.aff-select-value {
+  min-width: 150px;
+}

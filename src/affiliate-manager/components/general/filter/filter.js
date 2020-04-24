@@ -1,4 +1,5 @@
 import { bindable } from "aurelia-framework";
+import "../../../assets/scss/filter.scss"
 
 export class Filter {
 
@@ -6,17 +7,25 @@ export class Filter {
   @bindable options;
   @bindable callback;
   @bindable id;
-  selected;
-  showLabel = false;
+  selectedKey;
+  selectedValue = 'Choose';
 
   setFilteredValues(filterInput) {
-    if (this.selected && filterInput !== '') {
+    if (this.selectedKey && filterInput !== '') {
       const filteredValues = this.valuesToFilter.filter(
-        value => `${value[this.selected]}`.toLowerCase().startsWith(filterInput.toLowerCase())
+        value => `${value[this.selectedKey]}`.toLowerCase().startsWith(filterInput.toLowerCase())
       );
       this.callback(filteredValues);
     } else {
       this.callback(this.valuesToFilter);
+    }
+  }
+
+  setSelected(key, value) {
+    this.selectedKey = key;
+    this.selectedValue = value;
+    if (value === null) {
+      this.selectedValue = 'Choose';
     }
   }
 }

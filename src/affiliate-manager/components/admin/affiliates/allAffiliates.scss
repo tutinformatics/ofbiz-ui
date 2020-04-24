@@ -3,22 +3,3 @@
 .aff-all-affiliates {
   text-align: center;
 }
-
-.aff-all-affiliates__filter--selector {
-  min-height: 50px;
-}
-
-.aff-filter__select, .aff-all-affiliates__select--input {
-  &:focus {
-    border-color: $primary-color-hover;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
-  }
-}
-
-.aff-filter-col {
-  min-width: 150px;
-}
-
-
-
