@@ -33,6 +33,10 @@ export class AffManager {
   async authorizeMe() {
     if (this.view === 'admin') {
       this.authorized = 'ADMIN';
+    } else if (this.view === 'member') {
+      this.authorized = 'MEMBER';
+    } else if (this.view === 'pending') {
+      this.authorized = 'PENDING';
     } else if (this.state.userLoginId === 'null') {
       this.authorized = 'GUEST';
     } else {

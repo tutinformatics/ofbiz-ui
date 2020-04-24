@@ -27,7 +27,6 @@ export class BecomePartner {
 
   setBecomePartnerError(value) {
     this.becomePartnerError = value;
-    console.log(this.becomePartnerError)
   }
 
   setBecomePartnerSuccess(value) {

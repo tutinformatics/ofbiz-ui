@@ -26,16 +26,13 @@
   transition: 0.3s all;
   position: absolute;
   width: 350px;
-  top: 200px;
-  left: calc(50% - 175px);
-}
-
-.aff-become-partner__alert--success {
   top: 300px;
+  left: calc(50% - 175px);
+  z-index: 1;
 }
 
 .aff-become-partner__alert--hidden {
-  opacity: 0;
+  display: none;
 }
 
 .aff-become-partner__alert-cross-icon {
@@ -44,6 +41,7 @@
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
 
   &:active {
     outline: none;
@@ -52,6 +50,10 @@
   &:focus {
     outline: none;
   }
+}
+
+.aff-become-partner__alert-cross-icon--hidden {
+  cursor: default;
 }
 
 .become-partner__description{
