@@ -17,9 +17,9 @@
           <small>Choose a category and generate a new affiliate code</small>
         </label>
         <div class="d-flex justify-content-start">
-          <select-value class="pl-0 col-3" id="product-categories-select"
+          <select-value class="pl-0 col-3"
                         selected.two-way="selectedCategory"
-                        options.two-way="productCategories"></select-value>
+                        options.one-way="productCategories"></select-value>
           <button
             disabled.bind="!selectedCategory"
             click.trigger="generateAffiliateCode()"
