@@ -43,13 +43,10 @@ export class Shuffle {
   ];
 
   handleSelect(product) {
-    this.selectProduct({ product: product });
-  }
-
-  redirectTo(s) {
-    if (s === 'marketing') {
+    if (product.name === 'marketing') {
       this.router.navigate('/affiliate-manager');
     }
+    this.selectProduct({ product: product });
   }
 
 }
