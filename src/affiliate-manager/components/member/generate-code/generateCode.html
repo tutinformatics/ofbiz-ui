@@ -3,6 +3,7 @@
   <require from="../../general/filter/filter"></require>
   <require from="../../general/icons/delete/deleteIcon"></require>
   <require from="../../general/icons/icon"></require>
+  <require from="../../general/select/selectValue"></require>
 
   <div class="row flex-column mx-3 text-center mt-5">
     <div class="col-md-9 mx-auto">
@@ -16,22 +17,15 @@
           <small>Choose a category and generate a new affiliate code</small>
         </label>
         <div class="d-flex justify-content-start">
-          <select
-            name="product-categories"
-            id="product-categories-select"
-            class="custom-select aff-all-affiliates__select--filter col-3"
-            value.bind="selectedCategory">
-            <option model.bind=null>Choose</option>
-            <option class="option" repeat.for="category of productCategories"
-                    model.bind="category['key']">
-              ${category['value']}
-            </option>
-          </select>
+          <select-value class="pl-0 col-3" id="product-categories-select"
+                        selected.two-way="selectedCategory"
+                        options.two-way="productCategories"></select-value>
           <button
             disabled.bind="!selectedCategory"
             click.trigger="generateAffiliateCode()"
             class="btn aff-system__button--main"
-            type="button">Generate New</button>
+            type="button">Generate New
+          </button>
         </div>
       </div>
       <filter

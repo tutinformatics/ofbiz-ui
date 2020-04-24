@@ -1,4 +1,4 @@
-import { inject } from "aurelia-framework";
+import {bindable, inject} from "aurelia-framework";
 import moment from "moment";
 import { AffManagerService } from "../../../service/affManagerService";
 
@@ -7,6 +7,7 @@ export class GenerateCode {
 
   filteredAffiliateCodes = [];
   affiliateCodes = [];
+  @bindable
   selectedCategory;
 
   constructor(affManagerService) {
