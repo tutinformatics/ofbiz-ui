@@ -1,34 +1,14 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <require from="../../../css/clients.css"></require>
+  <require from="../common/clientsElement"></require>
   <div class="card">
     <div class="card-header">
-      Clients
+      <h6>Clients</h6>
     </div>
     <ul class="list-group list-group-flush">
-      <li  class="list-group-item">
-        <div class="row no-gutters">
-          <div class="col-md-4 m-auto">
-            <img src="../img/avatar.png" class="card-img" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 >CLIENT NAME</h6>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item"><div class="row no-gutters">
-        <div class="col-md-4 m-auto">
-          <img src="../img/avatar.png" class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h6 >CLIENT NAME</h6>
-          </div>
-        </div>
-      </div>
-      </li>
+      <clients-element></clients-element>
+      <clients-element></clients-element>
+      <clients-element></clients-element>
     </ul>
   </div>
 </template>
