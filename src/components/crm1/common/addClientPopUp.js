@@ -4,7 +4,7 @@
 //     console.log('const')
 //   }
 // }
-export class SecretMessageCustomElement {
+export class AddClientPopUp {
   test = 'Be sure to drink your Ovaltine!';
 }
 

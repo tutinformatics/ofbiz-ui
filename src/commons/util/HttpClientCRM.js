@@ -6,7 +6,7 @@ export class HttpClientCRM{
   constructor(http){
     this.http = http;
 
-    this.baseUrl = 'http://localhost:7463/api/';
+    this.baseUrl = 'http://localhost:8443/api/entities';
 
     this.http.configure(config => {
       config.withBaseUrl(this.baseUrl);

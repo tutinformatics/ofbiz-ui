@@ -4,7 +4,7 @@ export class Contact {
     this.lastName = lastName;
     this.email = emailAddress;
     this.phoneNumber = phoneNumber;
-    this.companyAddress = companyName ;
+    this.companyName = companyName ;
     this.position = position;
     this.companyAddress = companyAddress;
     this.addressIndex = addressIndex;
