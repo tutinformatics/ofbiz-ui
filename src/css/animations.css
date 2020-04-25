@@ -76,8 +76,9 @@
   }
 
   to {
-    transform: translateX(0);
     opacity: 1;
+    transform: translateX(0);
+
   }
 }
 
@@ -87,8 +88,9 @@
   }
 
   to {
-    transform: translateX(100%);
     opacity: 0;
+    transform: translateX(100%);
+
   }
 }
 
@@ -143,14 +145,15 @@
 
 .animate-fade-slide-in-right.au-enter {
   opacity: 0;
+  transform: translateX(100%);
 }
 
 .animate-fade-slide-in-right.au-enter-active {
-  animation: FadeSlideInRight 1s;
+  animation: FadeSlideInRight 0.2s;
 }
 
 .animate-fade-slide-out-right.au-leave-active {
-  animation: FadeSlideOutRight 1s;
+  animation: FadeSlideOutRight 0.2s;
 }
 
 .animate-fade-slide-out-right.au-left {

@@ -1,10 +1,10 @@
 <template>
-  <div class="list-group-item list-group-item-action workspace-item badge-wrapper rounded ${styles}" mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()">
+  <div class="list-group-item list-group-item-action workspace-item badge-wrapper rounded ${styles}">
     <div class="text-uppercase font-weight-bold float-left">
       ${elemName}
     </div>
-    <div class="text-uppercase d-flex justify-content-end" click.callback="changeList('my')" click.delegate="handleRemoveFav()">
-     <i if.bind="showclose" class="au-animate animate-fade-slide-in-right animate-fade-slide-out-right fa fa-times p-1"></i>
+    <div class="text-uppercase d-flex justify-content-end" click.callback="changeList('my')">
+     <i if.bind="showclose" class="au-animate animate-fade-slide-in-right animate-fade-slide-out-right fa fa-times p-1" click.delegate="handleRemoveFav(this)"></i>
     </div>
   </div>
 </template>

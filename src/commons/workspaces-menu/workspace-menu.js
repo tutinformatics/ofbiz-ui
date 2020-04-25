@@ -3,19 +3,13 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {DndService} from 'bcx-aurelia-dnd';
 import _ from 'lodash';
 import autoScroll from 'dom-autoscroller';
+import { WorkspaceService } from './workspace-service';
 
-@inject(DndService, EventAggregator)
+@inject(DndService, EventAggregator, WorkspaceService)
 export class WorkspaceMenu {
   @bindable type = '';
 
-  favorites = [
-      { wsId: '1', name: 'My Workspace', styles: 'bg-1', favorite: true, links: ''},
-      { wsId: '2', name: 'Workspace 1', styles: 'bg-3', favorite: true, links: ''},
-      { wsId: '3', name: 'Workspace 2', styles: 'bg-2', favorite: true, links: ''},
-      { wsId: '4', name: 'Space', styles: 'bg-3', favorite: true, links: ''},
-      { wsId: '5', name: 'HMMMMMM', styles: 'bg-2', favorite: true, links: ''},
-      { wsId: '6', name: 'Workspace 3', styles: 'bg-1', favorite: true, links: ''}
-    ];
+  favorites = [];
 
 
   print() {
@@ -34,14 +28,15 @@ export class WorkspaceMenu {
     }
   }
 
-  constructor(dndService, ea) {
+  constructor(dndService, ea, workspaceService) {
     this.dndService = dndService;
     this.ea = ea;
+    this.favorites = workspaceService.getWorkspaceList('userId');
   }
 
   @bindable
   changeList(thing) {
-    console.log(thing);
+    console.log(thing + ' miracle has happened');
   };
 
   attached() {

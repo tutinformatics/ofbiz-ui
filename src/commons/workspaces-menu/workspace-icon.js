@@ -12,27 +12,28 @@ export class WorkspaceIcon {
   @bindable favorite;
   @bindable styles = '';
   @bindable links = '';
-  showclose = false;
+  showclose = true;
+  workspaceService;
 
 
 
-  constructor(projectService) {
+  constructor(workspaceService) {
     /*document.addEventListener('aurelia-composed', () => {
       this.favorite = (this.favorite == 'true');
       this.isFavorite();
     });*/
-    this.projectService = projectService;
+    this.workspaceService = workspaceService;
   }
 
   isFavorite() {
     if(this.favorite == "true" || this.favorite == true){
       this.favorite = true;
-      console.log('is true');
+      //console.log('is true');
     } else {
       this.favorite = false;
-      console.log('is false');
+      //console.log('is false');
     }
-    console.log(this.favorite);
+    //console.log(this.favorite);
   }
 
   favoriteChanged(newValue, oldValue) {
@@ -41,13 +42,13 @@ export class WorkspaceIcon {
   }
 
   handleRemoveFav() {
-    console.log(this.wsId);
+    //console.log(this.wsId);
     this.favorite = false;
-    this.projectService.removeWorkspace(this.wsId);
+    this.workspaceService.removeWorkspace(this.wsId);
   }
 
   mouseOver() {
-    this.showclose = true;
+      this.showclose = true;
     //this.isFavorite();
   }
 
