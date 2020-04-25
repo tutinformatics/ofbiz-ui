@@ -1,35 +1,31 @@
 <template>
-  <require from="crm/opportunity-modal/opportunity-modal"></require>
-
+  <require from="crm/components/opportunity-modal/opportunity-modal"></require>
   <div class="container mt-4">
     <opportunity-modal></opportunity-modal>
 
-    <div class="row mt-4">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">State</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr repeat.for="opportunity of opportunities">
-            <td>${opportunity.name}</td>
-            <td>${opportunity.description}</td>
-            <td>${opportunity.price}€</td>
-            <td>${opportunity.stage}</td>
-            <td>
-              <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity }">Edit</a> |
-              <a href="#">Delete</a>
-              <!-- <a click.delegate="deleteOpportunity(opportunity.id)">Delete</a> -->
-          </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row mt-4 justify-content-between">
+      <div class="col-10">
+        <router-view></router-view>
+      </div>
+      <div class="col-1" style="padding-top: 15%;">
+        <div class="">
+          <div class="row">
+            <a route-href="route: listview">
+              <img src="assets/img/list.svg" alt="list">
+            </a>
+          </div>
+          <div class="row mt-3">
+            <a route-href="route: cardview">
+              <img src="assets/img/card.svg" alt="card">
+            </a>
+          </div>
+          <div class="row mt-3">
+            <a route-href="route: pipeline">
+              <img src="assets/img/pipeline.svg" alt="pipeline">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
