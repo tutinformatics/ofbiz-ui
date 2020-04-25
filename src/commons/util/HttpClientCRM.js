@@ -10,6 +10,14 @@ export class HttpClientCRM{
 
     this.http.configure(config => {
       config.withBaseUrl(this.baseUrl);
+      config.withInterceptor({
+        request(request) {
+          request.headers.add("Authorization", "Basic " + btoa(username + ":" + password));
+          ea.publish('http-request', request);
+          return request;
+        }
+      })
     });
+
   }
 }

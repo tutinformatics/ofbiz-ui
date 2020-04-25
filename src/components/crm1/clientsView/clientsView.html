@@ -13,13 +13,13 @@
       </div>
     </div>
     <div if.bind="simpleView" class="container">
-      <div class="d-flex justify-content-around flex-wrap">
+      <div class="m-2 d-flex justify-content-around flex-wrap">
         <div repeat.for="contact of contacts" >
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="../img/avatar.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">${contact.firstName} ${contact.lastName}</h5>
-              <h5 class="card-title">Works For: ${contact.CompanyName}</h5>
+              <h5 class="card-title">Works For: ${contact.companyName}</h5>
               <button class="btn btn-info" click.delegate="getClientInformation(contact)">Detail Information</button>
             </div>
           </div>

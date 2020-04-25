@@ -6,6 +6,10 @@
     "type": "???",
     "url": "???"
   },
+  "/api": {
+    "target": "http://localhost:8433",
+    "secure": false
+  },
   "license": "MIT",
   "dependencies": {
     "aurelia-animator-css": "^1.0.4",

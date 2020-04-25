@@ -20,6 +20,7 @@ export class ClientsView {
   }
 
   async getAllContacts() {
+    console.log('here')
     let response = await this.http.createRequest('Person')
       .asGet()
       .send()
@@ -40,6 +41,8 @@ export class ClientsView {
             this.contacts.push(contact)
           }
         }
+      ).catch(
+        console.log("ERROR")
       );
   }
 
