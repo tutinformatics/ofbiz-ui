@@ -25,7 +25,6 @@ export class ClientsView {
       .asGet()
       .send()
       .then(response => {
-        console.log('get all clients response')
           let resJson = JSON.parse(response.response);
           for (let i = 0; i < resJson.length; i++) {
             let contact = new Contact(
