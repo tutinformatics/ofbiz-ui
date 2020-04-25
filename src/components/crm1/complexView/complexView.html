@@ -1,136 +1,29 @@
 <template>
+  <require from="../common/categories"></require>
+  <require from="../common/clients"></require>
+  <require from="../common/client"></require>
+  <require from="../common/history"></require>
+
   <div class="m-3">
     <div class="d-flex flex-wrap">
 <!--      Categories-->
-      <div class="col-2">
-        <div class="card">
-          <div class="card-header">
-            Categories
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Category 1</li>
-            <li class="list-group-item">Category 2</li>
-            <li class="list-group-item">Category 2</li>
-          </ul>
-        </div>
-      </div>
+    <div class="col-2">
+      <categories></categories>
+    </div>
 <!--      Clients-->
-      <div class="col-3">
-        <div class="card">
-          <div class="card-header">
-            Clients
-          </div>
-          <ul class="list-group list-group-flush">
-            <li  class="list-group-item">
-                <div class="row no-gutters">
-                  <div class="col-md-4 m-auto">
-                    <img src="../img/avatar.png" class="card-img" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 >CLIENT NAME</h5>
-                    </div>
-                  </div>
-                </div>
-            </li>
-            <li class="list-group-item"><div class="row no-gutters">
-              <div class="col-md-4 m-auto">
-                <img src="../img/avatar.png" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 >CLIENT NAME</h5>
-                </div>
-              </div>
-            </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="col-3">
+      <clients></clients>
+    </div>
 <!--      Client-->
+    <div class="col-4">
+      <client></client>
+    </div>
+<!--Activity history-->
       <div class="col-4">
-        <div class="card">
-          <div class="card-header">
-            Client
-          </div>
-          <div class="text-center">
-            <img src="../img/avatar.png" class="card-img-top" alt="">
-          </div>
-          <div style="width: 100%; text-align: center">
-            <h2>${firstName} ${lastName}</h2>
-            <p>Part Time Virus</p>
-            <div class="accordion" id="accordionExample">
-              <div class="card-header" id="actions">
-                  <button class="btn" type="button" data-toggle="collapse" data-target="#actionsCollapse" aria-expanded="false" aria-controls="actionsCollapse">
-                    Quick Actions
-                  </button>
-              </div>
-              <div id="actionsCollapse" class="mt-2 mb-2 collapse show" aria-labelledby="communications" data-parent="#accordionExample">
-                <button type="button" class="btn btn-info btn-sm">Call</button>
-                <button type="button" class="btn btn-info btn-sm">Edit</button>
-                <button type="button" class="btn btn-info btn-sm">Notes</button>
-              </div>
-              <div class="card-header id="communications">
-                  <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#communicationsCollapse" aria-expanded="false" aria-controls="communicationsCollapse">
-                    Communications
-                  </button>
-              </div>
-              <div id="communicationsCollapse" class="collapse" aria-labelledby="communications" data-parent="#accordionExample">
-                <div class="card-body">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Calls</li>
-                    <li class="list-group-item">Emails</li>
-                    <li class="list-group-item">Meetings</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-header" id="sales">
-                  <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#salesCollapse" aria-expanded="false" aria-controls="salesCollapse">
-                    Sales
-                  </button>
-              </div>
-              <div id="salesCollapse" class="collapse" aria-labelledby="sales" data-parent="#accordionExample">
-                <div class="card-body">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Leads</li>
-                    <li class="list-group-item">Opportunities</li>
-                    <li class="list-group-item">Proposals</li>
-                    <li class="list-group-item">Deals</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-header" id="documents">
-                  <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#documentsCollapse" aria-expanded="false" aria-controls="documentsCollapse">
-                    Documents
-                  </button>
-              </div>
-              <div id="documentsCollapse" class="collapse" aria-labelledby="documents" data-parent="#accordionExample">
-                <div class="card-body">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Orders</li>
-                    <li class="list-group-item">Invoices</li>
-                    <li class="list-group-item">Claims</li>
-                    <li class="list-group-item">Returned</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card">
-            <div class="card-header">
-              Calls
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-          </div>
-        </div>
+        <history></history>
       </div>
+    </div>
+
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
