@@ -1,9 +1,10 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-<require from="../common/addClientPopUp"></require>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--  <require from="../common/addClientPopUp"></require>-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
-  <div class="container">
+  <div class="container-fluid" style="border-bottom: 1px solid gray;">
+    <h3>Clients</h3>
     <div class="mt-3 d-flex flex-row">
       <div class="m-1 sticky-top">
         <button type="button" class="btn btn-success">Create <i class="fa fa-plus-square" data-toggle="modal" data-target=".bd-example-modal-lg"></i></button>
@@ -11,29 +12,63 @@
       <div class="m-1 sticky-top">
         <button type="button" class="btn btn-info" click.delegate="toggleView()">${view}</button>
       </div>
+      <div class="helpers">
+      <div class="dropdown">
+        <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-filter"></i> Filters</a>
+        <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-columns"></i> Group by</a>
+        <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-star"></i> Favorites</a>
+
+
+
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+      </div>
+      </div>
+
     </div>
-    <div if.bind="simpleView" class="container">
-      <div class="m-2 d-flex justify-content-around flex-wrap">
+  </div>
+    <div if.bind="simpleView" class="container" >
+      <div class="row">
         <div repeat.for="contact of contacts" >
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 14rem; border:1px solid gray">
             <img class="card-img-top" src="../img/avatar.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">${contact.firstName} ${contact.lastName}</h5>
-              <h5 class="card-title">Works For: ${contact.companyName}</h5>
+              <h6 class="card-title">Works For: ${contact.companyName}</h6>
               <button class="btn btn-info" click.delegate="getClientInformation(contact)">Detail Information</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div else class="container">
+    <div else class="container-fluid">
+
       <table class="table">
         <thead>
-        <tr>
+        <th>
           <th scope="col">Name</th>
           <th scope="col">Phone</th>
           <th scope="col">Email</th>
           <th scope="col">Company</th>
+          <th scope="col" style="display: block"><i class="fas fa-ellipsis-v"></i></th>
         </tr>
         </thead>
         <tbody>
@@ -41,16 +76,87 @@
           <td>${contact.firstName} ${contact.lastName}</td>
           <td>${contact.phoneNumber}</td>
           <td>${contact.email}</td>
-          <td >${contact.companyName}</td>
+          <td>${contact.companyName}</td>
         </tr>
         </tbody>
       </table>
+
     </div>
+<!--    <add-client-pop-up></add-client-pop-up>-->
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
-        <add-client-pop-up></add-client-pop-up>
+        <div class="modal-content">
+          <div class="cards">
+            <div class="card-header text-white bg-primary">
+              <h3>Create new contact</h3>
+            </div>
+            <div class="card-body">
+              <form role="form">
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">First Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="First Name" class="form-control" value.bind="contact.firstName">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Last Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Last Name" class="form-control" value.bind="contact.lastName">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">E-mail</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Email" class="form-control" value.bind="contact.email">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Phone Number</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Phone number" class="form-control" value.bind="contact.phoneNumber">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Company</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Company Name" class="form-control" value.bind="contact.companyName">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Position</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Position" class="form-control" value.bind="contact.position">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Company Address</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Company Address" class="form-control" value.bind="contact.companyAddress">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Company Post Index</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Address Index" class="form-control" value.bind="contact.postalCode">
+                  </div>
+                </div>
+              </form>
+              <div>
+                <button class="btn btn-success float-right" data-dismiss="modal" click.delegate="addContact(contact)">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </template>
