@@ -5,7 +5,7 @@
 //   }
 // }
 export class AddClientPopUp {
-  test = 'Be sure to drink your Ovaltine!';
+  test = 'THIS MESSAGE IS HERE FOR TESTING PURPOSES';
 }
 
 
