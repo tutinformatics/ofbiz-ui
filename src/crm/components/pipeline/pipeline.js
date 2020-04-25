@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { PipelineService } from '/Users/siret/code/tarkvaratehnika/ofbiz-ui/src/crm/service/pipeline-service';
+import { PipelineService } from 'crm/service/pipeline-service';
 
 @inject(EventAggregator)
 export class Pipeline {
