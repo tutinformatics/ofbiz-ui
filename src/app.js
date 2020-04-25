@@ -17,6 +17,7 @@ export class App {
       { route: 'crm/opportunities-list-view', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities-list-view' },
       { route: 'crm/opportunities-card-view', moduleId: PLATFORM.moduleName('./crm/opportunities-card-view/opportunities-card-view'), name: 'opportunities-card-view' },
       { route: 'crm/opportunity-edit', moduleId: PLATFORM.moduleName('./crm/opportunity-edit/opportunity-edit'), name: 'opportunity-edit' },
+      { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities-test/opportunities-test'), name: 'opportunities' },
 
     ]);
     this.router = router;
