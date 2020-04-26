@@ -243,10 +243,34 @@ export class ObjectDist {
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = '<td><a class="btn btn-primary" href="../#/object-dist">EDIT</a></td>';
+        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button></td>';
         cell3.className = 'text-center';
+        let self = this;
+         document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
+           self.httpClient.fetch('generic/v1/entities/OfbizSubscriber?OfbizSubscriberId=' + event.target.id.substring(11))
+               .then(response => response.json())
+               .then(data => {
+                 self.editSubscriber(data);
+               });
+         });
       }
     }
+  }
+
+  editSubscriber(subscriber) {
+    let entity = subscriber[0];
+    let name = document.getElementById('editSubscriberName');
+    let topic = document.getElementById('editSubscriberTopic');
+    let description = document.getElementById('editSubscriberDescription');
+    let builder = document.getElementById('editSubscriberBuilder');
+    console.log(JSON.parse(entity.filter));
+    for(let element of entity.filter) {
+      console.log(element);
+    }
+    name.value = entity.OfbizEntityName;
+    topic.value = entity.topic;
+    description.value = entity.description;
+    builder.value = entity.filter;
   }
 
   fetchSubscribers() {

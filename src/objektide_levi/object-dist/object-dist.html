@@ -86,6 +86,41 @@
           </div>
         </div>
 
+        <div class="modal fade" id="editSubscriber" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">EDIT SUBSCRIBER</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="editSubscriberName" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Topic" id="editSubscriberTopic" required>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Subscriber Description"
+                              id="editSubscriberDescription" required></textarea>
+                  </div>
+                </form>
+              </div>
+              <div style="display: flex; justify-content: center" class="query-builder-div">
+                <query-builder id="editSubscriberBuilder"></query-builder>
+              </div>
+              <div class="modal-footer" style="margin-top: 20px">
+                <button type="submit" class="btn btn-primary" click.trigger="subscriberPutRequest()"
+                        data-dismiss="modal">Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="modal fade" id="addPublisher" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
