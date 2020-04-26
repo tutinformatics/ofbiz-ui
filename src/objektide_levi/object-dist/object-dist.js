@@ -285,7 +285,7 @@ export class ObjectDist {
       'description': document.getElementById('publisherDescription').value,
       'filter': this.getFilterFromComponent(true)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/publishers/create');
   }
 
   refreshPage() {
