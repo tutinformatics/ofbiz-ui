@@ -4,6 +4,7 @@ import { Router } from 'aurelia-router';
 import { safeGet } from '../../util/utility';
 import { MenuItemsService } from '../../services/menu-items-service';
 import { WorkspaceService } from '../../workspaces-menu/workspace-service';
+import * as toastr from 'toastr';
 
 @inject(Router, EventAggregator, MenuItemsService, WorkspaceService)
 export class Navbar {
@@ -30,24 +31,39 @@ export class Navbar {
   }
 
   loadMenuItems(product) {
-    this.menuItemsService.getMenuItems(product)
-      .then(res => this.menuItems = res);
+    this.menuItemsService
+      .getMenuItems(product)
+      .then((res) => (this.menuItems = res));
   }
 
   detached() {
     this.subscription.dispose();
   }
 
-
   handleStarIcon() {
-    var url = window.location.href;
+    let url = window.location.href;
     return this.workspaceService.getAlreadyInMenu(url);
   }
 
   handleFavorites() {
-    const url = this.router.currentInstruction.config.route;
+    const url = this.router.currentInstruction.fragment;
     const name = this.router.currentInstruction.config.title;
 
-    this.workspaceService.addWorkspace({title: name, url: url, userId: 'AMDIN'});
+    if (!!url) {
+      this.workspaceService
+        .addWorkspace({
+          title: name,
+          url: url,
+          userId: 'ADMIN' // TODO: should not be hard-coded
+        })
+        .then(() => {
+          this.workspaceMenu.loadWorkspaces();
+          toastr.success('Workspace successfully saved!');
+        })
+        .catch((error) => {
+          /* eslint no-console: ["error", { allow: ["error"] }] */
+          toastr.error('An error occured while saving workspace');
+        });
+    }
   }
 }

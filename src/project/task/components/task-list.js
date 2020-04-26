@@ -1,6 +1,7 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
 import { TaskService } from '../services/task-service';
+import { activationStrategy } from 'aurelia-router';
 
 @inject(Router, TaskService)
 export class TaskList {
@@ -16,7 +17,7 @@ export class TaskList {
       transport: {
         read: (options) => {
           this.taskService.getProjectTaskList({ projectId: params.id })
-            .then(tasks => options.success(tasks));
+            .then((tasks) => options.success(tasks));
         }
       },
       schema: {
@@ -36,6 +37,10 @@ export class TaskList {
         }
       }
     };
+  }
+
+  determineActivationStrategy() {
+    return activationStrategy.replace;
   }
 
   handleAddTask() {

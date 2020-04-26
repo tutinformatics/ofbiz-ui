@@ -30,29 +30,30 @@
           >
             Products
           </a>
-          <div class="dropdown-menu workspace-dropdown-menu" aria-labelledby="navbarDropdown">
+          <div
+            class="dropdown-menu workspace-dropdown-menu"
+            aria-labelledby="navbarDropdown"
+          >
             <shuffle select-product.call="setCurrentProduct(product)"></shuffle>
           </div>
         </li>
 
         <li click.delegate="handleFavorites()" class="nav-item">
-          <i if.bind="handleStarIcon() == true" class="fa fa-star pt-3" aria-hidden="true"></i>
+          <i
+            if.bind="handleStarIcon() == true"
+            class="fa fa-star pt-3"
+            aria-hidden="true"
+          ></i>
           <i else class="fa fa-star-o pt-3" aria-hidden="true"></i>
         </li>
 
         <!-- Navbar elements -->
-        <li
-          repeat.for="item of menuItems"
-          class="nav-item"
-        >
+        <li repeat.for="item of menuItems" class="nav-item">
           <a class="nav-link" route-href="route.bind: item.route">
             ${ item.text }
           </a>
         </li>
         <!-- End of Navbar elements -->
-
-
-
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -69,7 +70,11 @@
             Workspaces
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <workspace-menu type="regular"></workspace-menu>
+            <workspace-menu
+            view-model.bind="workspaceMenu" 
+            view-model.ref="workspaceMenu"
+            >
+            </workspace-menu>
           </div>
         </li>
       </ul>
