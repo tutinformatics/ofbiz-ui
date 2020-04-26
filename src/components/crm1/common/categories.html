@@ -1,15 +1,33 @@
 <template>
   <require from="../../../css/crm1.css"></require>
+  <require from="../common/categoryElement"></require>
+  <require from="../common/addCategory"></require>
 
-    <div class="card">
-      <div class="card-header">
-        Categories
+    <div class="card shadow">
+      <div class="card-header p-0 pt-1">
+        <h6>Categories <add-category></add-category></h6>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Category 1</li>
-        <li class="list-group-item">Category 2</li>
-        <li class="list-group-item">Category 2</li>
+      <div class="scrollbar scrollbar-primary m-0">
+        <div class="force-overflow"></div>
+
+      <ul class="list-group list-group-flush" style="max-height: 74vh;">
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
+        <category-element></category-element>
       </ul>
+      </div>
     </div>
   </div>
 </template>

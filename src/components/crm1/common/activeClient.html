@@ -1,0 +1,29 @@
+<template>
+  <require from="../../../css/crm1.css"></require>
+  <require from="../common/complexViewClient/clientInfo"></require>
+  <require from="../common/complexViewClient/clientQuickAction"></require>
+  <require from="../common/complexViewClient/clientContactOption"></require>
+  <require from="../common/complexViewClient/clientSaleOption"></require>
+  <require from="../common/complexViewClient/clientDocumentOption"></require>
+  <div class="card rounded shadow">
+    <div class="card-header p-0 pt-1">
+      <h6>Active client</h6>
+    </div>
+<!--    Client profile picture, name, position-->
+    <client-info></client-info>
+
+
+<!--    Quick action such as edit, call etc.-->
+    <client-quick-action></client-quick-action>
+
+
+<!--    Email, phone, meeting options-->
+    <client-contact-option></client-contact-option>
+
+<!--    Leads, opportunities, proposals, deals-->
+    <client-sale-option></client-sale-option>
+
+<!--    Orders, invoices, claims, returned-->
+    <client-document-option></client-document-option>
+</div>
+</template>
