@@ -229,7 +229,7 @@ export class ObjectDist {
           self.httpClient.fetch('generic/v1/entities/OfbizPublisher?OfbizPublisherId=' + event.target.id.substring(10))
             .then(response => response.json())
             .then(data => {
-              self.editSubscriber(data);
+              self.editPublisher(data);
             });
         });
         document.getElementById("publisherDelete_" + content.publisherId).addEventListener('click', function (event) {
@@ -299,6 +299,31 @@ export class ObjectDist {
     document.getElementById('editSubscriberDescription').value = entity.description;
     this.selectedEntity = entity.OfbizEntityName;
     this.populateEditFields(true, filterList);
+    builder.value = builderValues;
+  }
+
+  editPublisher(publisher) {
+    let entity = publisher[0];
+    let builder = document.querySelectorAll('smart-query-builder')[3];
+    console.log(entity);
+    let filterJson = JSON.parse(entity.filter);
+    let builderValues = [];
+    for (let entry in filterJson) {
+      if (filterJson.hasOwnProperty(entry)) {
+        let list = [];
+        for (let property in filterJson[entry]) {
+          if (filterJson[entry].hasOwnProperty(property)) {
+            list.push([toWords(property), "=", filterJson[entry][property][0]]);
+            list.push("and");
+          }
+        }
+        list.pop();
+        builderValues.push(list);
+      }
+    }
+    document.getElementById('editPublisherName').value = entity.OfbizEntityName;
+    document.getElementById('editPublisherTopic').value = entity.topic;
+    document.getElementById('editPublisherDescription').value = entity.description;
     builder.value = builderValues;
   }
 

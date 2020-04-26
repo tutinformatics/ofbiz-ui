@@ -164,6 +164,45 @@
           </div>
         </div>
 
+        <div class="modal fade" id="editPublisher" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">EDIT PUBLISHER</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="editPublisherName" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="publisherTopic" style="margin-bottom: 0">Topic UUID</label>
+                    <input type="text" class="form-control" id="editPublisherTopic" readonly>
+                  </div>
+                  <div class="alert alert-info">
+                    <strong>NB!</strong> Send this UUID to your clients who wish to subscribe to your data
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" id="editPublisherDescription" rows="3"
+                              placeholder="Publisher Description" required></textarea>
+                  </div>
+                </form>
+              </div>
+              <div style="display: flex; justify-content: center" class="query-builder-div">
+                <query-builder></query-builder>
+              </div>
+              <div class="modal-footer" style="margin-top: 20px">
+                <button type="submit" class="btn btn-primary" click.trigger="publisherPutRequest()"
+                        data-dismiss="modal">Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="modal fade" id="showGeneratedBrokerKey" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
