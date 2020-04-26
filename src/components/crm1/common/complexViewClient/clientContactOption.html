@@ -4,9 +4,10 @@
 
   <div class="card rounded-0">
     <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-      <client-contact-option-element></client-contact-option-element>
-      <client-contact-option-element></client-contact-option-element>
-      <client-contact-option-element></client-contact-option-element>
+      <div repeat.for="option of options">
+        <button type="button" class="btn p-1 m-1 btn-primary round">${option.name}</button>
+
+      </div>
     </div>
   </div>
   <hr/>

@@ -1,3 +1,7 @@
-export class clientDocumentOptionElement {
+import {clientQuickActionElement} from './clientQuickActionElement';
 
+export class clientDocumentOptionElement {
+  constructor(name) {
+    this.name = name;
+  }
 }

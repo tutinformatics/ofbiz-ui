@@ -2,13 +2,18 @@
   <require from="../../../../css/crm1.css"></require>
   <require from="./clientSaleOptionElement"></require>
 
-  <div class="card rounded-0">
-    <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-      <client-sale-option-element></client-sale-option-element>
-      <client-sale-option-element></client-sale-option-element>
-      <client-sale-option-element></client-sale-option-element>
-      <client-sale-option-element></client-sale-option-element>
+  <div class="card rounded-0 bg-white">
+    <div class="card-header p-0">
+      <h6 class="m-0 pb-2 pt-1">Sales</h6>
     </div>
-  </div>
+      <div repeat.for="option of options" >
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <hr/>
 </template>
+

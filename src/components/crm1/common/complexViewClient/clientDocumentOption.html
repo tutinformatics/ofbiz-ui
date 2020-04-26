@@ -2,13 +2,15 @@
   <require from="../../../../css/crm1.css"></require>
   <require from="./clientDocumentOptionElement"></require>
 
-  <div class="card rounded-0">
-    <div class="row no-gutters shadow">
-      <div class="btn-toolbar m-2 text-center p-0 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-        <client-document-option-element></client-document-option-element>
-        <client-document-option-element></client-document-option-element>
-        <client-document-option-element></client-document-option-element>
-        <client-document-option-element></client-document-option-element>
+  <div class="card rounded-0 bg-white">
+    <div class="card-header p-0">
+      <h6 class="m-0 pb-2 pt-1">Documents</h6>
+    </div>
+    <div repeat.for="option of options" >
+      <div class="row">
+        <div class="col-12">
+          <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+        </div>
       </div>
     </div>
   </div>
