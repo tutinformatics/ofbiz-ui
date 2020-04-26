@@ -37,4 +37,25 @@ export class LoginService {
     }
   }
 
+  async signUpRequest(username, password) {
+    try {
+      const response = await this.httpClient
+        .fetch("https://localhost:8443/api/auth/v1",
+          {
+            method: 'POST',
+            body: json({
+                "userLoginId": username,
+                "currentPassword": password
+              }
+            )
+          }
+        );
+      if (response.ok) {
+        return true;
+      }
+    } catch (e) {
+      return null
+    }
+  }
+
 }
