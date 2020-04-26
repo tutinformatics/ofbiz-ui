@@ -15,12 +15,12 @@ export class LoginService {
   async loginAttempt(username, password) {
     try {
       const response = await this.httpClient
-        .fetch("https://localhost:8443/api/auth/v1",
+        .fetch("https://localhost:8443/api/auth/v1/login",
           {
             method: 'POST',
             body: json({
-                "username": username,
-                "password": password
+                "userLoginId": username,
+                "currentPassword": password
               }
             )
           }
@@ -37,15 +37,16 @@ export class LoginService {
     }
   }
 
-  async signUpRequest(username, password) {
+  async signUpRequest(username, password, verifiedPassword) {
     try {
       const response = await this.httpClient
-        .fetch("https://localhost:8443/api/auth/v1",
+        .fetch("https://localhost:8443/api/auth/v1/register",
           {
             method: 'POST',
             body: json({
                 "userLoginId": username,
-                "currentPassword": password
+                "currentPassword": password,
+                "currentPasswordVerify": verifiedPassword
               }
             )
           }
