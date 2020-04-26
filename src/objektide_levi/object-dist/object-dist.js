@@ -152,7 +152,8 @@ export class ObjectDist {
           customFields.push({
             label: toWords(field.name),
             dataField: field.name,
-            dataType: this.dataTypeMapping[field.type]
+            dataType: this.dataTypeMapping[field.type],
+            filterOperations: ["="] // ONLY "EQUALS" OPERATOR AVAILABLE
           })
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder');
