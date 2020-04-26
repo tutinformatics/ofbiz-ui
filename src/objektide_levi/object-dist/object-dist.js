@@ -354,9 +354,9 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('subscriberTopic').value,
       'description': document.getElementById('subscriberDescription').value,
-      'filter': this.getFilterFromComponent(false)
+      'filter': this.getEditFilterFromComponent(false)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'subscribers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
   }
 
   publisherPostRequest() {
@@ -365,9 +365,9 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('publisherTopic').value,
       'description': document.getElementById('publisherDescription').value,
-      'filter': this.getFilterFromComponent(true)
+      'filter': this.getEditFilterFromComponent(true)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'publishers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/publishers/create');
   }
 
   refreshPage() {
@@ -381,6 +381,7 @@ export class ObjectDist {
       queryBuilder = queryBuilders[2];
     }
     let queryArray = queryBuilder.value;
+    console.log(queryArray);
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] == "object") {
@@ -426,5 +427,29 @@ export class ObjectDist {
     }).then(r => {
       this.refreshPage();
     });
+  }
+
+  getEditFilterFromComponent(isPublisher) {
+    const queryBuilders = document.querySelectorAll('smart-query-builder');
+    let queryBuilder = queryBuilders[1];
+    if (isPublisher) {
+      queryBuilder = queryBuilders[3];
+    }
+    let queryArray = queryBuilder.value;
+    let filters = [];
+    for (let i = 0; i < queryArray.length; i++) {
+      if (typeof queryArray[i] == "object") {
+        let filter = {};
+        for (let j = 0; j < queryArray[i].length; j++) {
+          const data = queryArray[i][j];
+          if (typeof data == "object") {
+            // filter[data[0]] = [data[1], data[2]];
+            filter[data[0]] = [data[2]];
+          }
+        }
+        filters.push(filter)
+      }
+    }
+    return JSON.stringify(filters);
   }
 }
