@@ -232,8 +232,9 @@ export class ObjectDist {
             });
         });
         document.getElementById("publisherDelete_" + content.publisherId).addEventListener('click', function (event) {
-          self.httpClient.delete('objectdist/publishers/delete/' + event.target.id.substring(16));
-          self.refreshPage();
+          self.httpClient.delete('objectdist/publishers/delete/' + event.target.id.substring(16)).then(r => {
+            self.refreshPage();
+          });
         });
       }
     }
@@ -266,8 +267,9 @@ export class ObjectDist {
                });
          });
         document.getElementById("subscriberDelete_" + content.subscriberId).addEventListener('click', function (event) {
-          self.httpClient.delete('objectdist/subscribers/delete/' + event.target.id.substring(17));
-          self.refreshPage();
+          self.httpClient.delete('objectdist/subscribers/delete/' + event.target.id.substring(17)).then(r => {
+            self.refreshPage()
+          });
         });
       }
     }
@@ -275,27 +277,23 @@ export class ObjectDist {
 
   editSubscriber(subscriber) {
     let entity = subscriber[0];
-    let name = document.getElementById('editSubscriberName');
-    let topic = document.getElementById('editSubscriberTopic');
-    let description = document.getElementById('editSubscriberDescription');
-    let builder = document.getElementById('editSubscriberBuilder');
+    let builder = document.querySelectorAll('smart-query-builder')[1];
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
     for (let entry in filterJson) {
       let list = [];
       for(let property in filterJson[entry]) {
-        console.log(`${property}: ${filterJson[entry][property]}`);
-        list.push([property, "=", filterJson[entry][property][0]])
+        list.push([toWords(property), "=", filterJson[entry][property][0]])
         list.push("and");
       }
       list.pop()
       builderValues.push(list);
     }
-    name.value = entity.OfbizEntityName;
-    topic.value = entity.topic;
-    description.value = entity.description;
+
+    document.getElementById('editSubscriberName').value = entity.OfbizEntityName;
+    document.getElementById('editSubscriberTopic').value = entity.topic;
+    document.getElementById('editSubscriberDescription').value = entity.description;
     builder.value = builderValues;
-    console.log(builderValues.toString())
   }
 
   fetchSubscribers() {
@@ -349,6 +347,7 @@ export class ObjectDist {
       queryBuilder = queryBuilders[1];
     }
     let queryArray = queryBuilder.value;
+    console.log(queryArray)
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] == "object") {
