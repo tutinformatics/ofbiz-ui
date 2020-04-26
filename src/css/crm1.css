@@ -26,10 +26,44 @@
   width: 100%;
 }
 
-img {
-  width: 1px;
+
+
+.btn{
+  border-radius: 0;
+
 }
 
+
+.card.card_internal{
+  margin: 20px 10px 10px 25px;
+  border: 1px solid gray;
+  height: 135px;
+}
+
+
+
+
+
+.helpers{
+
+
+  display: flex;
+  margin-left:auto;
+  margin-right:50px;
+  padding-left: 10px;
+  justify-content: space-between;
+
+
+}
+
+.card-body.card_selections .btn{
+  position: absolute;
+  right: 25px;
+  bottom: 10px;
+
+}
 .card-header{
   text-align: center;
 }
+
+
