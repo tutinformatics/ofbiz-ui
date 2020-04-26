@@ -222,7 +222,7 @@ export class ObjectDist {
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPublisher" style="margin: 2% 0 2% 0" id="publisher_' + content.publisherId + '">EDIT</button> / <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="publisherDelete_' + content.publisherId + '">DELETE</button></td>';
+        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPublisher" style="margin: 2% 0 2% 0" id="publisher_' + content.publisherId + '">EDIT</button> <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="publisherDelete_' + content.publisherId + '">DELETE</button></td>';
         cell3.className = 'text-center';
         let self = this;
         document.getElementById("publisher_" + content.publisherId).addEventListener('click', function (event) {
