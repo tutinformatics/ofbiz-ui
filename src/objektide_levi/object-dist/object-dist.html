@@ -62,7 +62,8 @@
               <div class="modal-body">
                 <form>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="subscriberName" required>
+                    <select id="subscriberEntitiesSelect" required class="form-control">
+                    </select>
                   </div>
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Topic" id="subscriberTopic" required>
@@ -97,9 +98,11 @@
               <div class="modal-body">
                 <form>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="publisherName" required>
+                    <select id="publisherEntitiesSelect" required class="form-control">
+                    </select>
                   </div>
                   <div class="form-group">
+                    <label for="publisherTopic" style="margin-bottom: 0">Topic UUID</label>
                     <input type="text" class="form-control" id="publisherTopic" readonly>
                   </div>
                   <div class="alert alert-info">

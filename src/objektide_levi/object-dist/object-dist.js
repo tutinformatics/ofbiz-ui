@@ -1,19 +1,40 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {inject} from 'aurelia-dependency-injection';
-import { v1 as uuidv1 } from 'uuid';
+import {v1 as uuidv1} from 'uuid';
 import {QueryBuilder} from "./query-builder/query-builder";
+import toWords from 'split-camelcase-to-words';
 
 @inject(QueryBuilder)
 export class ObjectDist {
 
   httpClient = new HttpClient();
   queryBuilder;
+  selectedEntity;
+
+  dataTypeMapping = {
+    "ofbiz": "dataType",
+    "id": "number",
+    "id-long": "number",
+    "id-vlong": "number",
+    "numeric": "number",
+    "date": "datetime",
+    "date-time": "datetime",
+    "description": "string",
+    "currency-amount": "number",
+    "indicator": "boolean",
+    "short-varchar": "string",
+    "long-varchar": "string",
+    "very-long": "string",
+    "very-short": "string",
+    "comment": "string"
+  }
 
   constructor(queryBuilder) {
     this.setHTTPClient();
     this.fetchPublishers();
     this.fetchSubscribers();
+    this.fetchOfbizEntities();
     this.queryBuilder = queryBuilder;
   }
 
@@ -21,7 +42,7 @@ export class ObjectDist {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('https://localhost:8443/api/objectdist/')
+        .withBaseUrl('https://localhost:8443/api/')
         .withDefaults({
           credentials: 'same-origin',
           headers: {
@@ -41,12 +62,111 @@ export class ObjectDist {
     });
   }
 
+  addEventListeners(isPublisher) {
+    let entity = document.getElementById("publisherEntitiesSelect");
+    if (!isPublisher) {
+      entity = document.getElementById("subscriberEntitiesSelect");
+    }
+    let _self = this;
+    entity.addEventListener("click", function () {
+      let options = entity.querySelectorAll("option");
+      let count = options.length;
+      if (typeof (count) === "undefined" || count < 2) {
+        if (isPublisher) {
+          addActivityItemPublisher();
+        } else {
+          addActivityItemSubscriber();
+        }
+      }
+    });
+
+    entity.addEventListener("change", function () {
+      if (isPublisher) {
+        addActivityItemPublisher();
+      } else {
+        addActivityItemSubscriber();
+      }
+    });
+
+    function addActivityItemPublisher() {
+      _self.clearFields();
+      _self.selectedEntity = document.getElementById("publisherEntitiesSelect").options[document.getElementById("publisherEntitiesSelect").selectedIndex].text;
+      _self.getEntityFields(true);
+    }
+
+    function addActivityItemSubscriber() {
+      _self.clearFields();
+      _self.selectedEntity = document.getElementById("subscriberEntitiesSelect").options[document.getElementById("subscriberEntitiesSelect").selectedIndex].text;
+      _self.getEntityFields(false);
+    }
+  }
+
+  getEntityFields(isPublisher) {
+    this.fetchOfbizEntityFields(isPublisher);
+  }
+
   fetchPublishers() {
-    this.httpClient.fetch('publishers')
+    this.httpClient.fetch('objectdist/publishers')
       .then(response => response.json())
       .then(data => {
         this.populatePublishers(data);
       });
+  }
+
+  fetchOfbizEntityFields(isPublisher) {
+    this.httpClient.fetch('generic/v1/structure/entities/' + this.selectedEntity)
+      .then(response => response.json())
+      .then(data => {
+        let customFields = []
+        for (let field of data) {
+          customFields.push({
+            label: toWords(field.name),
+            dataField: field.name,
+            dataType: this.dataTypeMapping[field.type]
+          })
+        }
+        const queryBuilders = document.querySelectorAll('smart-query-builder');
+        if (isPublisher) {
+          queryBuilders[1].fields = customFields;
+        } else {
+          queryBuilders[0].fields = customFields;
+        }
+      });
+  }
+
+  fetchOfbizEntities() {
+    this.httpClient.fetch('generic/v1/structure/entities/')
+      .then(response => response.json())
+      .then(data => {
+        this.populateSubscriberEntitiesDropdown(data);
+        this.populatePublisherEntitiesDropdown(data);
+        this.fetchOfbizEntityFields(false);
+        this.fetchOfbizEntityFields(true);
+      });
+  }
+
+  populateSubscriberEntitiesDropdown(data) {
+    let select = document.getElementById('subscriberEntitiesSelect');
+    for (let entity of data) {
+      let opt = document.createElement('option');
+      opt.value = entity;
+      opt.innerHTML = entity;
+      select.appendChild(opt);
+    }
+    this.addEventListeners(false);
+    this.selectedEntity = document.getElementById("subscriberEntitiesSelect").options[document.getElementById("subscriberEntitiesSelect").selectedIndex].text;
+  }
+
+  populatePublisherEntitiesDropdown(data) {
+    let select = document.getElementById('publisherEntitiesSelect');
+    for (let entity of data) {
+      let opt = document.createElement('option');
+      opt.value = entity;
+      opt.innerHTML = entity;
+      select.appendChild(opt);
+    }
+    this.addEventListeners(true);
+    this.selectedEntity = document.getElementById("publisherEntitiesSelect").options[document.getElementById("publisherEntitiesSelect").selectedIndex].text;
   }
 
   populatePublishers(data) {
@@ -94,7 +214,7 @@ export class ObjectDist {
   }
 
   fetchSubscribers() {
-    this.httpClient.fetch('subscribers')
+    this.httpClient.fetch('objectdist/subscribers')
       .then(response => response.json())
       .then(data => {
         this.populateSubscribers(data);
@@ -102,7 +222,6 @@ export class ObjectDist {
   }
 
   makePostSubscriberPublisher(data, url) {
-    console.log(data);
     this.httpClient.fetch(url, {
       method: 'post',
       body: data
@@ -167,5 +286,12 @@ export class ObjectDist {
 
   generatePublisherTopic() {
     document.getElementById('publisherTopic').value = this.generateKey();
+  }
+
+  clearFields() {
+    const queryBuilders = document.querySelectorAll('smart-query-builder');
+    for (let queryBuilder of queryBuilders) {
+      queryBuilder.value = [];
+    }
   }
 }
