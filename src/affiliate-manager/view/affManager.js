@@ -12,13 +12,6 @@ export class AffManager {
     this.affManagerService = affManagerService;
     this.view = null;
     this.store = store;
-  }
-
-  activate(parameters) {
-    this.view = parameters.view
-  }
-
-  bind() {
     this.subscription = this.store.state.subscribe(
       (state) => this.state = state
     );
@@ -27,6 +20,10 @@ export class AffManager {
 
   unbind() {
     this.subscription.unsubscribe();
+  }
+
+  activate(parameters) {
+    this.view = parameters.view
   }
 
   async authorizeMe() {
@@ -56,8 +53,6 @@ export class AffManager {
         }
       }
     }
-    console.log(this.authorized);
-    console.log(this.affiliateStatus)
   }
 
 }

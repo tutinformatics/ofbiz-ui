@@ -34,7 +34,7 @@ export class Shuffle {
     },
     {
       name: 'marketing',
-      url: ''
+      url: 'affiliate-manager'
     },
     {
       name: 'invoicing',
@@ -43,9 +43,6 @@ export class Shuffle {
   ];
 
   handleSelect(product) {
-    if (product.name === 'marketing') {
-      this.router.navigate('/affiliate-manager');
-    }
     this.selectProduct({ product: product });
   }
 

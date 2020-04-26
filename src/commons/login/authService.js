@@ -4,7 +4,7 @@ import { Store } from "aurelia-store";
 import { setUserLoginId } from "../../store/store";
 
 @inject(HttpClient, Store)
-export class LoginService {
+export class AuthService {
 
   constructor(httpClient, store) {
     this.httpClient = httpClient;

@@ -103,7 +103,6 @@ export class AffManagerService {
         );
       if (response.ok) {
         const responseData = await response.json();
-        console.log(responseData['partyId']);
         this.store.dispatch('setPartyId', responseData['partyId']);
         return responseData['partyId'];
       }

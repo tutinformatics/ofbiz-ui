@@ -12,6 +12,9 @@ export class Navbar {
   constructor(router, ea, menuItemsService,store) {
     this.store = store;
     this.store.registerAction('setUserLoginId', setUserLoginId);
+    this.subscription = this.store.state.subscribe(
+      (state) => this.state = state
+    );
     this.router = router;
     this.ea = ea;
     this.menuItemsService = menuItemsService;
@@ -41,19 +44,11 @@ export class Navbar {
     this.subscription.dispose();
   }
 
-  bind() {
-    this.subscription = this.store.state.subscribe(
-      (state) => this.state = state
-    );
-  }
-
   logOut() {
-    // null will be converted to 'null'
-    // -> therefore, we need to compare as === 'null', not as == null
-    localStorage.setItem('userLoginId', 'null');
-    localStorage.setItem('token', 'null');
-    this.store.dispatch('setUserLoginId', 'null');
-    this.navigateTo('#/logIn');
+    localStorage.removeItem('userLoginId');
+    localStorage.removeItem('token');
+    this.store.dispatch('setUserLoginId', null);
+    this.navigateTo('#/login');
   }
 
   navigateTo(path) {

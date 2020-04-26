@@ -1,10 +1,10 @@
 import "../assets/scss/general-login.scss"
 import { inject } from "aurelia-framework";
-import { LoginService } from "../login/loginService";
+import { AuthService } from "../login/authService";
 import "./signUp.scss"
 import { Router } from "aurelia-router";
 
-@inject(LoginService, Router)
+@inject(AuthService, Router)
 export class SignUp {
 
   userLoginId = '';
@@ -12,14 +12,14 @@ export class SignUp {
   repeatPassword = '';
   formError = false;
 
-  constructor(loginService, router) {
-    this.loginService = loginService;
+  constructor(authService, router) {
+    this.authService = authService;
     this.router = router;
   }
 
   async signUp() {
     if (this.password !== '' && this.password === this.repeatPassword && this.userLoginId !== '') {
-      const response = await this.loginService.signUpRequest(this.userLoginId, this.password, this.repeatPassword);
+      const response = await this.authService.signUpRequest(this.userLoginId, this.password, this.repeatPassword);
       if (response) {
         this.router.navigate("#/login")
       } else {

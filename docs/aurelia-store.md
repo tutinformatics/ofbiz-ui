@@ -26,13 +26,16 @@ For example, we store userLoginId that is fetched from backend in case of succes
     }
     ```
 
-2. add bind  to the same component
+2. subscribe to state and add life cycle hook (unsubscribe)
     ```
-      bind() {
+    constructor(store) {
         this.subscription = this.store.state.subscribe(
           (state) => this.state = state
         );
-      }
+    }
+    unbind() {
+      this.subscription.unsubscribe();
+    }
     ```
 
 3. use this.state
@@ -58,9 +61,9 @@ For example, we store userLoginId that is fetched from backend in case of succes
         this.store.registerAction('setUserLoginId', setUserLoginId);
       }
 
-    now you can make mutate userLoginId via setUserLoginId mutation
+    now you can mutate userLoginId via setUserLoginId mutation
 
-    this.store.dispatch('setUserLoginId', responseData['userLoginId']);
+    this.store.dispatch('setUserLoginId', 'new value');
 
     ```
 

@@ -2,9 +2,9 @@ import "./login.scss"
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { ValidationControllerFactory, ValidationRules } from "aurelia-validation";
-import { LoginService } from "./loginService";
+import { AuthService } from "./authService";
 
-@inject(Router, ValidationControllerFactory, LoginService)
+@inject(Router, ValidationControllerFactory, AuthService)
 export class Login {
 
   username = null;
@@ -14,9 +14,9 @@ export class Login {
   forgotPassword;
   errors;
 
-  constructor(router, controllerFactory, loginService) {
+  constructor(router, controllerFactory, authService) {
     this.router = router;
-    this.loginService = loginService;
+    this.authService = authService;
     this.controller = controllerFactory.createForCurrentScope();
     ValidationRules
       .ensure('username').required()
@@ -39,7 +39,7 @@ export class Login {
   async login() {
     await this.controller.validate();
     if (this.controller.errors.length === 0) {
-      const isSuccessful = await this.loginService.loginAttempt(this.username, this.password);
+      const isSuccessful = await this.authService.loginAttempt(this.username, this.password);
       if (isSuccessful) {
         this.router.navigate("/");
         return
