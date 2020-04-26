@@ -280,8 +280,10 @@ export class ObjectDist {
     let builder = document.querySelectorAll('smart-query-builder')[1];
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
+    let filterList = [];
     for (let entry in filterJson) {
       let list = [];
+      filterList = filterJson[entry];
       for(let property in filterJson[entry]) {
         list.push([toWords(property), "=", filterJson[entry][property][0]])
         list.push("and");
@@ -293,7 +295,38 @@ export class ObjectDist {
     document.getElementById('editSubscriberName').value = entity.OfbizEntityName;
     document.getElementById('editSubscriberTopic').value = entity.topic;
     document.getElementById('editSubscriberDescription').value = entity.description;
+    this.selectedEntity = entity.OfbizEntityName;
+    this.populateEditFields(true, filterList);
     builder.value = builderValues;
+  }
+
+  populateEditFields(isSubscriber, existingFilter) {
+    this.httpClient.fetch('generic/v1/structure/entities/' + this.selectedEntity)
+      .then(response => response.json())
+      .then(data => {
+        let customFields = []
+        data.sort(function(a, b) {
+          let textA = a.name.toUpperCase();
+          let textB = b.name.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        for (let field of data) {
+          if (existingFilter[field.name] == null) {
+            customFields.push({
+              label: toWords(field.name),
+              dataField: field.name,
+              dataType: this.dataTypeMapping[field.type],
+              filterOperations: ["="] // ONLY "EQUALS" OPERATOR AVAILABLE
+            })
+          }
+        }
+        const queryBuilders = document.querySelectorAll('smart-query-builder'); // TODO: add sorting, ma ei viitsi
+        if (isSubscriber) {
+          queryBuilders[1].fields = customFields;
+        } else {
+          // TODO add by index
+        }
+      });
   }
 
   fetchSubscribers() {
