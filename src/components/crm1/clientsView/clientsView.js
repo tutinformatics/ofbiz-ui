@@ -6,6 +6,14 @@ import {Router} from 'aurelia-router';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
+
+  phone = [ 'Phone'];
+  mail = [ 'Email']
+
+  selectedPhone = [];
+  selectedEmail = [];
+
+
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -82,5 +90,6 @@ export class ClientsView {
     }
     this.simpleView = !this.simpleView;
   }
+
 }
 

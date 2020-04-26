@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
   <div class="container-fluid" style="border-bottom: 1px solid gray;">
-    <h3>Clients</h3>
+    <h3>Customers</h3>
     <div class="mt-3 d-flex flex-row">
       <div class="m-1 sticky-top">
         <button type="button" class="btn btn-success">Create <i class="fa fa-plus-square" data-toggle="modal" data-target=".bd-example-modal-lg"></i></button>
@@ -45,43 +45,96 @@
 
     </div>
   </div>
-    <div if.bind="simpleView" class="container" >
-      <div class="row">
-        <div repeat.for="contact of contacts" >
-          <div class="card" style="width: 14rem; border:1px solid gray">
-            <img class="card-img-top" src="../img/avatar.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">${contact.firstName} ${contact.lastName}</h5>
-              <h6 class="card-title">Works For: ${contact.companyName}</h6>
-              <button class="btn btn-info" click.delegate="getClientInformation(contact)">Detail Information</button>
+
+
+
+
+  <div if.bind="simpleView" class="container-fluid" >
+    <div class="row outside ">
+
+    <div repeat.for="contact of contacts" >
+      <div class="card card_internal" style=" max-width: 370px; max-height: 135px">
+        <div class="row " style=" width: 370px; height: 135px">
+          <div class="col-sm-4">
+            <img class="card-img-top" src="../img/avatar.png" alt="Card image cap" style="height: 130px; width: 100px">
+          </div>
+          <div class="col-sm-8 " >
+            <div class="card-body card_selections">
+              <p class="card-title" style="font-size: 12px; font-weight: bold">${contact.firstName} ${contact.lastName}</p>
+              <p class="card-title" style="font-size: 10px">Works For: ${contact.companyName}</p>
+              <button class="btn btn-info btn-sm " click.delegate="getClientInformation(contact)">Details</button>
             </div>
           </div>
+      </div>
         </div>
       </div>
-    </div>
-    <div else class="container-fluid">
 
-      <table class="table">
+    </div>
+  </div>
+
+
+
+    <div else class="container-fluid" >
+
+      <table class="table" >
         <thead>
-        <th>
+        <tr >
+
           <th scope="col">Name</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Email</th>
           <th scope="col">Company</th>
-          <th scope="col" style="display: block"><i class="fas fa-ellipsis-v"></i></th>
+          <th scope="col">${selectedPhone}</th>
+          <th scope="col">${selectedEmail}</th>
+          <th scope="col" style="border-bottom: none">
+
+            <div class="dropdown">
+              <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i></a>
+              <form>
+
+                <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
+                  <label repeat.for="product of phone">
+                    <a class="dropdown-item"  href="#">
+                      <input type="checkbox" value.bind="product" checked.bind="selectedPhone">
+                      ${product}</a>
+
+                  </label>
+                  <label repeat.for="prod of mail">
+                    <a class="dropdown-item"  href="#">
+                      <input type="checkbox" value.bind="prod" checked.bind="selectedEmail">
+                      ${prod}</a>
+
+                  </label>
+                </div>
+              </form>
+            </div>
+          </th>
         </tr>
         </thead>
+
         <tbody>
+
         <tr repeat.for="contact of contacts">
           <td>${contact.firstName} ${contact.lastName}</td>
-          <td>${contact.phoneNumber}</td>
-          <td>${contact.email}</td>
+          <td >${contact.phoneNumber}</td>
+          <td >${contact.email}</td>
           <td>${contact.companyName}</td>
+          <td></td>
+
         </tr>
         </tbody>
       </table>
 
     </div>
+
+
+
+
+
+
+
+
+
+
 <!--    <add-client-pop-up></add-client-pop-up>-->
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
