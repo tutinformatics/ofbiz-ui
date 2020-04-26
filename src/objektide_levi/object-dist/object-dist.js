@@ -148,6 +148,11 @@ export class ObjectDist {
       .then(response => response.json())
       .then(data => {
         let customFields = []
+        data.sort(function(a, b) {
+          let textA = a.name.toUpperCase();
+          let textB = b.name.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
         for (let field of data) {
           customFields.push({
             label: toWords(field.name),
