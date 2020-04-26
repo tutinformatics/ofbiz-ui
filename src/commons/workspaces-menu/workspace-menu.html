@@ -1,8 +1,18 @@
 <template>
   <require from="./workspace-icon"></require>
-  <div id="shuffle-menu" class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1" reorderable-repeat.for="s of stringArray">
-      <workspace-icon elem-name="${s}"></workspace-icon>
+  <div ref="container" class="workspace-menu">
+    <div
+      class="workspace-item flex-item list-group text-center rounded border-primary ml-1 mr-1 mb-1"
+      reorderable-repeat.for="favorite of favorites"
+      reorderable-group="demo"
+    >
+      <workspace-icon
+        click.delegate="handleSelect(favorite)"
+        mousedown.delegate="print()"
+        ws-id="${favorite.workspaceId}"
+        elem-name="${favorite.title}"
+        links="${favorite.url}"
+      ></workspace-icon>
+    </div>
   </div>
-
-
 </template>
