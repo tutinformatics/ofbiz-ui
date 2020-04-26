@@ -25,6 +25,7 @@
     "aurelia-templating": "latest",
     "bcx-aurelia-reorderable-repeat": "^1.3.0",
     "bootstrap": "^4.4.1",
+    "dom-autoscroller": "^2.3.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
