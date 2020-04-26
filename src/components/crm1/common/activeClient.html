@@ -1,73 +1,29 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-
-  <div class="card shadow">
+  <require from="../common/complexViewClient/clientInfo"></require>
+  <require from="../common/complexViewClient/clientQuickAction"></require>
+  <require from="../common/complexViewClient/clientContactOption"></require>
+  <require from="../common/complexViewClient/clientSaleOption"></require>
+  <require from="../common/complexViewClient/clientDocumentOption"></require>
+  <div class="card rounded shadow">
     <div class="card-header p-0 pt-1">
-      <h6>ActiveClient</h6>
+      <h6>Active client</h6>
     </div>
-    <div class="container-fluid" style="width: 80%">
-      <img src="../img/avatar.png" class="card-img-top rounded-circle pt-1" alt="">
-    </div>
-    <div style="width: 100%; text-align: center">
-      <h2>${firstName} ${lastName}</h2>
-      <p>Part Time Virus</p>
-      <div class="accordion" id="accordionExample">
-        <div class="card-header" id="actions">
-          <button class="btn" type="button" data-toggle="collapse" data-target="#actionsCollapse" aria-expanded="false" aria-controls="actionsCollapse">
-            Quick Actions
-          </button>
-        </div>
+<!--    Client profile picture, name, position-->
+    <client-info></client-info>
 
-        <div id="actionsCollapse" class="mt-2 mb-2 collapse show" aria-labelledby="communications" data-parent="#accordionExample">
-          <button type="button" class="btn btn-info btn-sm">Call</button>
-          <button type="button" class="btn btn-info btn-sm">Edit</button>
-          <button type="button" class="btn btn-info btn-sm">Notes</button>
-        </div>
-        <div class="card-header" id="communications">
-        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#communicationsCollapse" aria-expanded="false" aria-controls="communicationsCollapse">
-          Communications
-        </button>
-      </div>
-      <div id="communicationsCollapse" class="collapse" aria-labelledby="communications" data-parent="#accordionExample">
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Calls</li>
-            <li class="list-group-item">Emails</li>
-            <li class="list-group-item">Meetings</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-header" id="sales">
-        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#salesCollapse" aria-expanded="false" aria-controls="salesCollapse">
-          Sales
-        </button>
-      </div>
-      <div id="salesCollapse" class="collapse" aria-labelledby="sales" data-parent="#accordionExample">
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Leads</li>
-            <li class="list-group-item">Opportunities</li>
-            <li class="list-group-item">Proposals</li>
-            <li class="list-group-item">Deals</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-header" id="documents">
-        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#documentsCollapse" aria-expanded="false" aria-controls="documentsCollapse">
-          Documents
-        </button>
-      </div>
-      <div id="documentsCollapse" class="collapse" aria-labelledby="documents" data-parent="#accordionExample">
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Orders</li>
-            <li class="list-group-item">Invoices</li>
-            <li class="list-group-item">Claims</li>
-            <li class="list-group-item">Returned</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<!--    Quick action such as edit, call etc.-->
+    <client-quick-action></client-quick-action>
+
+
+<!--    Email, phone, meeting options-->
+    <client-contact-option></client-contact-option>
+
+<!--    Leads, opportunities, proposals, deals-->
+    <client-sale-option></client-sale-option>
+
+<!--    Orders, invoices, claims, returned-->
+    <client-document-option></client-document-option>
 </div>
 </template>
