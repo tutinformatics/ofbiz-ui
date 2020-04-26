@@ -31,9 +31,12 @@ export class Navbar {
   }
 
   loadMenuItems(product) {
-    this.menuItemsService
-      .getMenuItems(product)
+    this.menuItemsService.getMenuItems(product)
       .then((res) => (this.menuItems = res));
+  }
+
+  handleNavigate({ route }) {
+    this.router.navigate(route);
   }
 
   detached() {

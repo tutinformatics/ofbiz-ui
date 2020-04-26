@@ -38,7 +38,7 @@ export class ProjectEditComponent {
 
   addProject() {
     this.projectService.createProject(this.project)
-      .then(() => this.router.navigate('/projects'));
+      .then(() => this.router.navigate('/project'));
   }
 
   handleBack() {

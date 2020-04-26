@@ -6,7 +6,7 @@
     },
     {
       "text": "My Tasks",
-      "route": "project"
+      "route": "project/new-task"
     }
   ]
 }

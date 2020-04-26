@@ -42,8 +42,4 @@ export class TaskList {
   determineActivationStrategy() {
     return activationStrategy.replace;
   }
-
-  handleAddTask() {
-    this.router.navigate('new-task');
-  }
 }
