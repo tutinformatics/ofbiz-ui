@@ -163,7 +163,7 @@ export class ObjectDist {
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isPublisher) {
-          queryBuilders[1].fields = customFields;
+          queryBuilders[2].fields = customFields;
         } else {
           queryBuilders[0].fields = customFields;
         }
@@ -221,7 +221,7 @@ export class ObjectDist {
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPublisher" style="margin: 2% 0 2% 0" id="publisher_' + content.publisherId + '">EDIT</button> / <button type="button" class="btn btn-primary" style="margin: 2% 0 2% 0" id="publisherDelete_' + content.publisherId + '">Delete</button></td>';
+        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPublisher" style="margin: 2% 0 2% 0" id="publisher_' + content.publisherId + '">EDIT</button> / <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="publisherDelete_' + content.publisherId + '">Delete</button></td>';
         cell3.className = 'text-center';
         let self = this;
         document.getElementById("publisher_" + content.publisherId).addEventListener('click', function (event) {
@@ -256,7 +256,7 @@ export class ObjectDist {
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button> / <button type="button" class="btn btn-primary" style="margin: 2% 0 2% 0" id="subscriberDelete_' + content.subscriberId + '">Delete</button></td>';
+        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button> <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="subscriberDelete_' + content.subscriberId + '">DELETE</button></td>';
         cell3.className = 'text-center';
         let self = this;
          document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
@@ -343,7 +343,7 @@ export class ObjectDist {
     const queryBuilders = document.querySelectorAll('smart-query-builder');
     let queryBuilder = queryBuilders[0];
     if (isPublisher) {
-      queryBuilder = queryBuilders[1];
+      queryBuilder = queryBuilders[2];
     }
     let queryArray = queryBuilder.value;
     let filters = [];
