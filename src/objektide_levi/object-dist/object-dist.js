@@ -321,8 +321,7 @@ export class ObjectDist {
       'description': document.getElementById('subscriberDescription').value,
       'filter': this.getFilterFromComponent(false)
     };
-    console.log(data);
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'subscribers/create');
   }
 
   publisherPostRequest() {
@@ -333,7 +332,7 @@ export class ObjectDist {
       'description': document.getElementById('publisherDescription').value,
       'filter': this.getFilterFromComponent(true)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/publishers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'publishers/create');
   }
 
   refreshPage() {
@@ -347,7 +346,6 @@ export class ObjectDist {
       queryBuilder = queryBuilders[1];
     }
     let queryArray = queryBuilder.value;
-    console.log(queryArray)
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] == "object") {
