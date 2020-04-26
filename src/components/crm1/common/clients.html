@@ -1,14 +1,32 @@
 <template>
   <require from="../../../css/crm1.css"></require>
   <require from="../common/clientsElement"></require>
-  <div class="card">
-    <div class="card-header">
-      <h6>Clients</h6>
+  <require from="../common/addClient"></require>
+  <div class="card shadow">
+    <div class="card-header p-0 pt-1">
+      <h6>Clients <add-client></add-client></h6>
+
     </div>
-    <ul class="list-group list-group-flush">
-      <clients-element></clients-element>
-      <clients-element></clients-element>
-      <clients-element></clients-element>
-    </ul>
-  </div>
+
+    <div class="scrollbar scrollbar-primary m-0">
+      <div class="force-overflow"></div>
+        <ul class="list-group list-group-flush" style="max-height: 74vh;">
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+          <clients-element></clients-element>
+        </ul>
+      </div>
+    </div>
 </template>
