@@ -11,6 +11,16 @@ export class WorkspaceMenu {
 
   favorites = [];
 
+  constructor(dndService, ea, workspaceService) {
+    this.dndService = dndService;
+    this.ea = ea;
+    this.workspaceService = workspaceService;
+  }
+
+  created() {
+    this.workspaceService.getWorkspaceList({ userId: 'ADMIN' }) //TODO: should not be hardcoded
+      .then(response => this.favorites = response);
+  }
 
   print() {
     var list = [];
@@ -19,25 +29,6 @@ export class WorkspaceMenu {
     }
     console.log(list);
   }
-
-  removeFromFavorites(element) {
-    for (var i = 0; i < favoritesArray.length; i++) {
-      if (element.id == favoritesArray[i].id) {
-        this.favoritesArray.pop(i);
-      }
-    }
-  }
-
-  constructor(dndService, ea, workspaceService) {
-    this.dndService = dndService;
-    this.ea = ea;
-    this.favorites = workspaceService.getWorkspaceList('userId');
-  }
-
-  @bindable
-  changeList(thing) {
-    console.log(thing + ' miracle has happened');
-  };
 
   attached() {
     this.scroll = autoScroll(

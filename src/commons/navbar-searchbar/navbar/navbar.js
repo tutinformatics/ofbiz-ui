@@ -45,9 +45,9 @@ export class Navbar {
   }
 
   handleFavorites() {
-    var url = window.location.href;
-    var name = url.split('/')[url.split('/').length - 1];
-    name = name.charAt(0).toUpperCase() + name.slice(1);
-    this.workspaceService.addWorkspace(name, url);
+    const url = this.router.currentInstruction.config.route;
+    const name = this.router.currentInstruction.config.title;
+
+    this.workspaceService.addWorkspace({title: name, url: url, userId: 'AMDIN'});
   }
 }
