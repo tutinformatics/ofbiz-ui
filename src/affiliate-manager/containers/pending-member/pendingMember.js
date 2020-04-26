@@ -1,11 +1,11 @@
 import '../general/affGeneral.scss';
-import { inject } from 'aurelia-framework';
+import { bindable, inject } from 'aurelia-framework';
 import { AffManagerService } from "../../service/affManagerService";
 
 @inject(AffManagerService)
 export class PendingMember {
 
-  partnerStatus = 'DEFAULT';
+  @bindable partnerStatus;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;

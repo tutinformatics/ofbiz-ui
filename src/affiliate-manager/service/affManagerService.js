@@ -1,16 +1,12 @@
 import { inject } from "aurelia-framework";
 import { HttpClient } from "aurelia-fetch-client";
-import { connectTo } from "aurelia-store";
-import { pluck } from "rxjs/operators";
+import { Store } from "aurelia-store";
+import { setPartyId } from "../../store/store";
 
-@connectTo({
-  selector: (store) => store.state.pipe(pluck('token')),
-  target: 'currentState'
-})
-@inject(HttpClient)
+@inject(HttpClient, Store)
 export class AffManagerService {
 
-  constructor(httpClient) {
+  constructor(httpClient, store) {
     this.httpClient = httpClient;
     this.httpClient.configure(config => {
         config
@@ -24,7 +20,12 @@ export class AffManagerService {
             }
           )
       }
-    )
+    );
+    this.store = store;
+    this.store.registerAction('setPartyId', setPartyId);
+    this.subscription = this.store.state.subscribe(
+      (state) => this.state = state
+    );
   }
 
   async pendingPartnersRequest() {
@@ -78,18 +79,36 @@ export class AffManagerService {
   }
 
   async becomeAffPartner() {
+    return await this.httpClient
+      .fetch("parties/affiliate/create",
+        {
+          method: "POST",
+          body: JSON.stringify(
+            {"userLoginId": this.state.userLoginId}
+          ),
+        }
+      );
+  }
+
+  async getPartyId() {
     try {
-      return await this.httpClient
-        .fetch("parties/affiliate/creae",
+      const response = await this.httpClient
+        .fetch("parties/get-party-id",
           {
             method: "POST",
             body: JSON.stringify(
-              {"userLoginId": "admin"}
+              {"userLoginId": this.state.userLoginId}
             ),
           }
         );
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData['partyId']);
+        this.store.dispatch('setPartyId', responseData['partyId']);
+        return responseData['partyId'];
+      }
     } catch (e) {
-      return null;
+      return null
     }
   }
 
@@ -99,7 +118,7 @@ export class AffManagerService {
         {
           method: 'POST',
           body: JSON.stringify(
-            {"partyId": "DemoUser2"}
+            {"partyId": this.state.partyId}
           )
         }
       )
@@ -122,7 +141,7 @@ export class AffManagerService {
         {
           method: 'POST',
           body: JSON.stringify(
-            {"partyId": "admin"}
+            {"partyId": this.state.partyId}
           )
         }
       );
@@ -138,7 +157,7 @@ export class AffManagerService {
         {
           method: 'POST',
           body: JSON.stringify(
-            {"partyId": "admin"}
+            {"partyId": this.state.partyId}
           )
         }
       )
@@ -154,7 +173,7 @@ export class AffManagerService {
           method: 'DELETE',
           body: JSON.stringify(
             {
-              "partyId": "admin",
+              "partyId": this.state.partyId,
               "affiliateCodeId": codeId,
             }
           )

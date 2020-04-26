@@ -8,7 +8,7 @@
     <member if.bind="authorized === 'MEMBER'"></member>
     <admin if.bind="authorized === 'ADMIN'"></admin>
     <pending-member
-      aff-status.one-way="affiliateStatus"
+      partner-status.one-way="affiliateStatus"
       if.bind="authorized === 'PENDING'"></pending-member >
   </div>
 </template>

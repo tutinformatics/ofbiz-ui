@@ -25,13 +25,13 @@ export class AffManager {
     this.authorizeMe();
   }
 
-
   unbind() {
     this.subscription.unsubscribe();
   }
 
   async authorizeMe() {
-    if (this.view === 'admin') {
+    await this.affManagerService.getPartyId();
+    if (this.view === 'admin' || this.state['userLoginId'] === 'admin') {
       this.authorized = 'ADMIN';
     } else if (this.view === 'member') {
       this.authorized = 'MEMBER';
@@ -41,19 +41,23 @@ export class AffManager {
       this.authorized = 'GUEST';
     } else {
       const pending = await this.affManagerService.pendingPartnersRequest();
-      if (pending.includes(this.state.userLoginId)) {
+      const isPending = pending.filter(partner => partner.partyId === this.state.partyId);
+      if (isPending.length > 0) {
         this.affiliateStatus = 'PENDING';
         this.authorized = 'PENDING'
       } else {
         const all = await this.affManagerService.allAffiliatesRequest();
-        if (all.includes(this.state.userLoginId)) {
+        const isMember = all.filter(partner => partner.partyId === this.state.partyId);
+        if (isMember.length > 0) {
           this.authorized = 'MEMBER'
         } else {
           this.affiliateStatus = 'NONE';
-          this.authorized = 'MEMBER'
+          this.authorized = 'PENDING'
         }
       }
     }
+    console.log(this.authorized);
+    console.log(this.affiliateStatus)
   }
 
 }

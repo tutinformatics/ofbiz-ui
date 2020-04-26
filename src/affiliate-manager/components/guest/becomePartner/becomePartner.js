@@ -6,8 +6,8 @@ import { AffManagerService } from "../../../service/affManagerService";
 @inject(AffManagerService)
 export class BecomePartner {
 
-  affStatus;
   @bindable guest;
+  affStatus;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;

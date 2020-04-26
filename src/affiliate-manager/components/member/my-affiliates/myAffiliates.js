@@ -44,16 +44,16 @@ export class MyAffiliates {
   }
 
   async getMyAffiliatePartners() {
-    // const response = await this.affManagerService.myAffiliatesRequest();
-    // if (response.ok) {
-    //   response.json().then((response) => {
-    //       response['subAffiliates'].forEach(partner => this.myAffiliatePartners.push(
-    //         this.parsePartner(partner)
-    //         )
-    //       )
-    //     }
-    //   )
-    // }
+    const response = await this.affManagerService.myAffiliatesRequest();
+    if (response.ok) {
+      response.json().then((response) => {
+          response['subAffiliates'].forEach(partner => this.myAffiliatePartners.push(
+            this.parsePartner(partner)
+            )
+          )
+        }
+      )
+    }
     this.myAffiliatePartners.push({
       "dateTimeCreated": '03.04.2020',
       "firstName": "Alex",

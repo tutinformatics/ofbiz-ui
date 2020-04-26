@@ -1,7 +1,7 @@
 import "../assets/scss/general-login.scss"
 import { inject } from "aurelia-framework";
 import { LoginService } from "../login/loginService";
-import "./login.scss"
+import "./signUp.scss"
 import { Router } from "aurelia-router";
 
 @inject(LoginService, Router)

@@ -28,7 +28,7 @@
               <status-pending if.bind="partnerStatus === 'PENDING'">
               </status-pending>
 
-              <status-default if.bind="partnerStatus === 'DEFAULT'">
+              <status-default if.bind="partnerStatus === null">
               </status-default>
 
               <status-disapproved if.bind="partnerStatus === 'disapproved'">
