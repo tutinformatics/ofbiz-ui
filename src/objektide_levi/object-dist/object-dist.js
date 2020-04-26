@@ -263,14 +263,23 @@ export class ObjectDist {
     let topic = document.getElementById('editSubscriberTopic');
     let description = document.getElementById('editSubscriberDescription');
     let builder = document.getElementById('editSubscriberBuilder');
-    console.log(JSON.parse(entity.filter));
-    for(let element of entity.filter) {
-      console.log(element);
+    let filterJson = JSON.parse(entity.filter);
+    let builderValues = [];
+    for (let entry in filterJson) {
+      let list = [];
+      for(let property in filterJson[entry]) {
+        console.log(`${property}: ${filterJson[entry][property]}`);
+        list.push([property, "=", filterJson[entry][property][0]])
+        list.push("and");
+      }
+      list.pop()
+      builderValues.push(list);
     }
     name.value = entity.OfbizEntityName;
     topic.value = entity.topic;
     description.value = entity.description;
-    builder.value = entity.filter;
+    builder.value = builderValues;
+    console.log(builderValues.toString())
   }
 
   fetchSubscribers() {
@@ -293,23 +302,24 @@ export class ObjectDist {
   subscriberPostRequest() {
     let data = {
       'OfbizSubscriberId': '0',
-      'OfbizEntityName': document.getElementById('subscriberName').value,
+      'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('subscriberTopic').value,
       'description': document.getElementById('subscriberDescription').value,
       'filter': this.getFilterFromComponent(false)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'subscribers/create');
+    console.log(data);
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
   }
 
   publisherPostRequest() {
     let data = {
       'OfbizPublisherId': '0',
-      'OfbizEntityName': document.getElementById('publisherName').value,
+      'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('publisherTopic').value,
       'description': document.getElementById('publisherDescription').value,
       'filter': this.getFilterFromComponent(true)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'publishers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/publishers/create');
   }
 
   refreshPage() {
@@ -337,7 +347,7 @@ export class ObjectDist {
         filters.push(filter)
       }
     }
-    return filters;
+    return JSON.stringify(filters);
   }
 
   generateKey() {
