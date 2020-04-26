@@ -82,32 +82,32 @@
 
           <th scope="col">Name</th>
           <th scope="col">Company</th>
-          <th scope="col">${selectedPhone}</th>
-          <th scope="col">${selectedEmail}</th>
-          <th scope="col" style="border-bottom: none">
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+<!--          <th scope="col" style="border-bottom: none">-->
 
-            <div class="dropdown">
-              <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <form>
+<!--            <div class="dropdown">-->
+<!--              <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                <i class="fas fa-ellipsis-v"></i></a>-->
+<!--              <form>-->
 
-                <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
-                  <label repeat.for="product of phone">
-                    <a class="dropdown-item"  href="#">
-                      <input type="checkbox" value.bind="product" checked.bind="selectedPhone">
-                      ${product}</a>
+<!--                <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">-->
+<!--                  <label repeat.for="product of phone">-->
+<!--                    <a class="dropdown-item"  href="#">-->
+<!--                      <input type="checkbox" value.bind="product" checked.bind="selectedPhone">-->
+<!--                      ${product}</a>-->
 
-                  </label>
-                  <label repeat.for="prod of mail">
-                    <a class="dropdown-item"  href="#">
-                      <input type="checkbox" value.bind="prod" checked.bind="selectedEmail">
-                      ${prod}</a>
+<!--                  </label>-->
+<!--                  <label repeat.for="prod of mail">-->
+<!--                    <a class="dropdown-item"  href="#">-->
+<!--                      <input type="checkbox" value.bind="prod" checked.bind="selectedEmail">-->
+<!--                      ${prod}</a>-->
 
-                  </label>
-                </div>
-              </form>
-            </div>
-          </th>
+<!--                  </label>-->
+<!--                </div>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </th>-->
         </tr>
         </thead>
 
@@ -115,10 +115,11 @@
 
         <tr repeat.for="contact of contacts">
           <td>${contact.firstName} ${contact.lastName}</td>
-          <td >${contact.phoneNumber}</td>
-          <td >${contact.email}</td>
           <td>${contact.companyName}</td>
-          <td></td>
+          <td>${contact.phoneNumber}</td>
+          <td>${contact.email}</td>
+
+<!--          <td></td>-->
 
         </tr>
         </tbody>
