@@ -11,6 +11,7 @@ export class ObjectDist {
   httpClient = new HttpClient();
   queryBuilder;
   selectedEntity;
+  selectedEntityId;
 
   dataTypeMapping = {
     "ofbiz": "dataType",
@@ -260,6 +261,7 @@ export class ObjectDist {
         cell3.className = 'text-center';
         let self = this;
          document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
+           self.selectedEntityId = event.target.id.substring(11);
            self.httpClient.fetch('generic/v1/entities/OfbizSubscriber?OfbizSubscriberId=' + event.target.id.substring(11))
                .then(response => response.json())
                .then(data => {
@@ -409,5 +411,20 @@ export class ObjectDist {
     for (let queryBuilder of queryBuilders) {
       queryBuilder.value = [];
     }
+  }
+  subscriberPutRequest() {
+    let data = {
+      'OfbizSubscriberId': this.selectedEntityId,
+      'OfbizEntityName': this.selectedEntity,
+      'topic': document.getElementById('editSubscriberTopic').value,
+      'description': document.getElementById('editSubscriberDescription').value,
+      'filter': this.getFilterFromComponent(false)
+    };
+    this.httpClient.fetch('generic/v1/entities/OfbizSubscriber', {
+      method: 'put',
+      body: JSON.stringify(data)
+    }).then(r => {
+      this.refreshPage();
+    });
   }
 }
