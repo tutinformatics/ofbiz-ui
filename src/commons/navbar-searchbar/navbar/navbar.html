@@ -45,6 +45,12 @@
           </a>
         </li>
         <!-- End of Navbar elements -->
+
+        <li click.delegate="handleFavorites()" class="nav-item">
+          <i if.bind="handleStarIcon() == true" class="fa fa-star pt-3" aria-hidden="true"></i>
+          <i else class="fa fa-star-o pt-3" aria-hidden="true"></i>
+        </li>
+        
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
