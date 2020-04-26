@@ -379,7 +379,7 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('subscriberTopic').value,
       'description': document.getElementById('subscriberDescription').value,
-      'filter': this.getEditFilterFromComponent(false)
+      'filter': this.getFilterFromComponent(false)
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
   }
@@ -390,8 +390,9 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('publisherTopic').value,
       'description': document.getElementById('publisherDescription').value,
-      'filter': this.getEditFilterFromComponent(true)
+      'filter': this.getFilterFromComponent(true)
     };
+    console.log(JSON.stringify(data))
     this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/publishers/create');
   }
 
@@ -444,7 +445,7 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('editSubscriberTopic').value,
       'description': document.getElementById('editSubscriberDescription').value,
-      'filter': this.getFilterFromComponent(false)
+      'filter': this.getEditFilterFromComponent(false)
     };
     this.httpClient.fetch('generic/v1/entities/OfbizSubscriber', {
       method: 'put',
@@ -456,6 +457,7 @@ export class ObjectDist {
 
   getEditFilterFromComponent(isPublisher) {
     const queryBuilders = document.querySelectorAll('smart-query-builder');
+    console.log(queryBuilders);
     let queryBuilder = queryBuilders[1];
     if (isPublisher) {
       queryBuilder = queryBuilders[3];
