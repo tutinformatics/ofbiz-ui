@@ -1,17 +1,11 @@
 #query-builder-div {
   --smart-query-builder-default-width: 466px;
 }
-
 @media only screen and (min-width: 990px) {
   #query-builder-div {
     --smart-query-builder-default-width: 767px;
   }
 }
-.ul{
-  padding:415px 105px;
-}
-.dropdown-menu>li>a { padding:415px 105px; }
-
 @media only screen and (max-width: 493px) {
   #query-builder-div {
     --smart-query-builder-default-width: 250px;

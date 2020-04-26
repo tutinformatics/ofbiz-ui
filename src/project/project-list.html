@@ -3,6 +3,27 @@
   <require from="aurelia-kendoui-bridge/grid/col"></require>
   <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
   <require from="aurelia-kendoui-bridge/common/template"></require>
+  <require from="../commons/filter/filter"></require>
+
+  <div id="filter" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Filter</h4>
+        </div>
+        <div class="modal-body">
+          <div style="display: flex; justify-content: center" class="query-builder-div">
+            <filter></filter>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button click.delegate="filterList()" type="submit" class="btn btn-secondary" data-dismiss="modal">Filter</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <div class="card">
     <div class="card-header text-white bg-primary">Project Dashboard</div>
@@ -11,11 +32,16 @@
       <ak-grid k-data-source.bind="datasource">
         <ak-grid-toolbar>
           <ak-template>
+
             <button
               class="btn btn-primary btn-lg float-right rounded-pill"
               click.delegate="handleAddProject()"
             >
               Create Project
+            </button>
+
+            <button type="button" class="btn btn-primary btn-lg float-right rounded-pill" data-toggle="modal" data-target="#filter">
+              Filter
             </button>
           </ak-template>
         </ak-grid-toolbar>
