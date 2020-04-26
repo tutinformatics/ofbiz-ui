@@ -221,8 +221,20 @@ export class ObjectDist {
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = '<td><a class="btn btn-primary" href="../#/object-dist">EDIT</a></td>';
+        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPublisher" style="margin: 2% 0 2% 0" id="publisher_' + content.publisherId + '">EDIT</button> / <button type="button" class="btn btn-primary" style="margin: 2% 0 2% 0" id="publisherDelete_' + content.publisherId + '">Delete</button></td>';
         cell3.className = 'text-center';
+        let self = this;
+        document.getElementById("publisher_" + content.publisherId).addEventListener('click', function (event) {
+          self.httpClient.fetch('generic/v1/entities/OfbizPublisher?OfbizPublisherId=' + event.target.id.substring(10))
+            .then(response => response.json())
+            .then(data => {
+              self.editSubscriber(data);
+            });
+        });
+        document.getElementById("publisherDelete_" + content.publisherId).addEventListener('click', function (event) {
+          self.httpClient.delete('objectdist/publishers/delete/' + event.target.id.substring(16));
+          self.refreshPage();
+        });
       }
     }
   }
@@ -243,7 +255,7 @@ export class ObjectDist {
         cell2.innerHTML = content.description;
 
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button></td>';
+        cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button> / <button type="button" class="btn btn-primary" style="margin: 2% 0 2% 0" id="subscriberDelete_' + content.subscriberId + '">Delete</button></td>';
         cell3.className = 'text-center';
         let self = this;
          document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
@@ -253,6 +265,10 @@ export class ObjectDist {
                  self.editSubscriber(data);
                });
          });
+        document.getElementById("subscriberDelete_" + content.subscriberId).addEventListener('click', function (event) {
+          self.httpClient.delete('objectdist/subscribers/delete/' + event.target.id.substring(17));
+          self.refreshPage();
+        });
       }
     }
   }
