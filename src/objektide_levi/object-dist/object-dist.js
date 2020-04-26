@@ -269,7 +269,7 @@ export class ObjectDist {
   subscriberPostRequest() {
     let data = {
       'OfbizSubscriberId': '0',
-      'OfbizEntityName': document.getElementById('subscriberName').value,
+      'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('subscriberTopic').value,
       'description': document.getElementById('subscriberDescription').value,
       'filter': this.getFilterFromComponent(false)
@@ -280,7 +280,7 @@ export class ObjectDist {
   publisherPostRequest() {
     let data = {
       'OfbizPublisherId': '0',
-      'OfbizEntityName': document.getElementById('publisherName').value,
+      'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('publisherTopic').value,
       'description': document.getElementById('publisherDescription').value,
       'filter': this.getFilterFromComponent(true)
