@@ -10,6 +10,7 @@ export class AffManagerService {
     this.httpClient = httpClient;
     this.httpClient.configure(config => {
         config
+          // change to /api/ in case proxy
           .withBaseUrl('https://localhost:8443/api/')
           .withDefaults({
               credentials: 'same-origin',

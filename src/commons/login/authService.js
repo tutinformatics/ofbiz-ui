@@ -8,6 +8,18 @@ export class AuthService {
 
   constructor(httpClient, store) {
     this.httpClient = httpClient;
+    this.httpClient.configure(config => {
+        config
+          // change to /api/ in case proxy
+          .withBaseUrl('https://localhost:8443/api/')
+          .withDefaults({
+              headers: {
+                'Accept': 'application/json',
+              }
+            }
+          )
+      }
+    );
     this.store = store;
     this.store.registerAction('setUserLoginId', setUserLoginId);
   }
@@ -15,7 +27,7 @@ export class AuthService {
   async loginAttempt(username, password) {
     try {
       const response = await this.httpClient
-        .fetch("https://localhost:8443/api/auth/v1/login",
+        .fetch("auth/v1/login",
           {
             method: 'POST',
             body: json({
@@ -40,7 +52,7 @@ export class AuthService {
   async signUpRequest(username, password, verifiedPassword) {
     try {
       const response = await this.httpClient
-        .fetch("https://localhost:8443/api/auth/v1/register",
+        .fetch("api/auth/v1/register",
           {
             method: 'POST',
             body: json({
