@@ -24,7 +24,9 @@
        }
    }
 
-   -docker-compose -f docker-compose-def.yml up -d
+   - docker-compose -f docker-compose-def.yml up -d
+   - add to webpack.congig.js disableHostCheck: true (it is commented out),
+
     ```
 3. go to login page and log in via
     ```
