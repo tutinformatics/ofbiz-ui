@@ -1,7 +1,6 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <require from="../common/complexViewClient/clientInfo"></require>
-  <require from="../common/complexViewClient/clientQuickAction"></require>
+  <require from="../common/complexViewClient/clientQuickActionElement"></require>
   <require from="../common/complexViewClient/clientContactOption"></require>
   <require from="../common/complexViewClient/clientSaleOption"></require>
   <require from="../common/complexViewClient/clientDocumentOption"></require>
@@ -10,12 +9,31 @@
       <h6 class="p-0 m-0 text-center">Active client</h6>
     </div>
 <!--    Client profile picture, name, position-->
-    <client-info></client-info>
+    <div class=" card rounded-0">
+      <div class="container-fluid" style="width: 70%">
+        <img src="../img/avatar.png" class="card-img-top rounded-circle pt-1" alt="">
+      </div>
+      <div class="text-center">
+        <h6 class="m-0">Maksim Bronnikov</h6>
+        <b class="m-0">Bili-bili Enterprise</b>
+        <p class="m-0 font-weight-normal">CEO</p>
+      </div>
+    </div>
 
+    <hr/>
 
 <!--    Quick action such as edit, call etc.-->
-    <client-quick-action></client-quick-action>
+    <div class="card row no-gutters m-0 rounded-0 ">
+      <div class="btn-toolbar m-0 text-center p-0 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+        <div repeat.for="option of quickActionOptions" >
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-info btn-sm m-1">${option.name}</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <hr/>
 
 <!--    Email, phone, meeting options-->
     <client-contact-option></client-contact-option>
