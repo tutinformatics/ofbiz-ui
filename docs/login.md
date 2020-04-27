@@ -24,8 +24,8 @@
        }
    }
 
-   - docker-compose -f docker-compose-def.yml up -d
-   - add to webpack.congig.js disableHostCheck: true (it is commented out),
+   - docker-compose -f docker-compose-dev.yml up -d
+   - add to webpack.config.js disableHostCheck: true (it is commented out),
 
     ```
 3. go to login page and log in via
@@ -35,7 +35,7 @@
     ```
 4. response has to be 200
     ```
-    as a result, jwt token is returned and is saved in localStorage (we cannot store it in aurelia store since it store is destroyed after page refresh)
+    as a result, jwt token is returned and is saved in localStorage (we cannot store it in aurelia store since store is destroyed after page refresh)
     ```
 
 
