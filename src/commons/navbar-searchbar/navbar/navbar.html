@@ -15,12 +15,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a
             class="navbar-brand dropdown-toggle bg-purple"
-            href="#"
+            click.delegate="navigateTo('/')"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -50,7 +51,7 @@
         <li class="nav-item dropdown">
           <a
             class="navbar-brand dropdown-toggle bg-purple"
-            href="#"
+            click.delegate="navigateTo('/')"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -67,17 +68,31 @@
       <li class="nav navbar-nav navbar-right">
         <a
           class="router-link nav-link bg-purple navbar-right"
-          href="#/workspaces"
+          click.delegate="navigateTo('workspaces')"
         >
           Messages
         </a>
       </li>
-      <li class="nav navbar-nav navbar-right">
+      <li
+        if.bind="!state.userLoginId"
+        class="nav navbar-nav navbar-right"
+      >
         <a
           class="router-link nav-link bg-purple navbar-right"
-          href="#/workspaces"
+          click.delegate="navigateTo('login')"
         >
           Log in
+        </a>
+      </li>
+      <li
+        if.bind="state.userLoginId"
+        class="router-link nav navbar-nav navbar-right"
+        click.delegate="logOut()"
+      >
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+        >
+          Log out
         </a>
       </li>
     </div>

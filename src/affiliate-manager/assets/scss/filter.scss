@@ -1,0 +1,34 @@
+@import "variables";
+
+.dropdown-menu--aff {
+  background: linear-gradient(to bottom, white 0%, white 100%);
+  box-sizing: border-box;
+  max-width: 185px;
+  min-width: 185px;
+}
+
+.aff-filter__dropdown {
+  box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    background: white;
+  }
+}
+
+.aff-filter__select, .aff-all-affiliates__select--input {
+  background: white;
+  border-radius: 5px;
+  &:focus {
+    border-color: $primary-color-hover;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
+  }
+}
+
+.aff-filter-col {
+  max-width: 200px;
+  min-width: 200px;
+}

@@ -50,15 +50,18 @@ export class App {
       {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
-        moduleId: PLATFORM.moduleName('affiliate-manager/view/aff-manager')
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
       },
       {
-        route: 'affiliate-manager/aff-partner/:email?',
-        name: 'aff-partner',
-        moduleId: PLATFORM.moduleName(
-          'affiliate-manager/view/aff-partner/manage-aff-partner'
-        )
-      }
+        route: 'login',
+        name: 'login-page',
+        moduleId: PLATFORM.moduleName('commons/login/login')
+      },
+      {
+        route: 'sign-up',
+        name: 'sign-up page',
+        moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
+      },
     ]);
     this.router = router;
   }

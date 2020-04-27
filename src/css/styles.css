@@ -12,6 +12,7 @@
   background-color: #dddddd !important;
 }
 
+/*thx for pain, bro (please do not override bootstrap like that)*/
 .workspace-dropdown-menu {
   width: 266px;
   background-color: #ababab !important;
@@ -48,6 +49,8 @@ ul.custom-pagination li a.disabled {
   color: darkgrey;
 }
 
-.row {
-  margin: 1% 1% 1% 0%;
-}
+/*Please rename according to BEM convention (It broke my layout)*/
+
+/*.row {*/
+/*  margin: 1% 1% 1% 0%;*/
+/*}*/

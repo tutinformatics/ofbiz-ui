@@ -1,0 +1,35 @@
+<template>
+  <require from="../../general/icons/info/infoIcon"></require>
+  <require from="../../general/icons/handshake/handshakeIcon"></require>
+  <require from="../../general/icons/icon"></require>
+  <require from="../../general/icons/menu/menuIcon"></require>
+  <div class="row h-100 flex-nowrap">
+    <div class="col-10 aff-sidebar-container px-0" class.bind="opened? 'aff-sidebar-container--closed': ''">
+      <div class="row w-100 aff-sidebar mx-0">
+        <div
+          class="col aff-sidebar__col"
+          class.bind="current === 'Become-Partner'? 'aff-sidebar__menu-element--active' : ''"
+          click.trigger="navigateTo('Become-Partner')">
+          <icon
+            icon-label.bind="`Become Partner`">
+            <handshake-icon></handshake-icon>
+          </icon>
+        </div>
+        <div
+          class="col aff-sidebar__col"
+          class.bind="current === 'About'? 'aff-sidebar__col--active' : ''"
+          click.trigger="navigateTo('About')">
+          <icon
+            icon-label.bind="`Info`">
+            <info-icon></info-icon>
+          </icon>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 m-3 aff-sidebar__invoke-button">
+      <icon click.trigger="slide()">
+        <menu-icon></menu-icon>
+      </icon>
+    </div>
+  </div>
+</template>

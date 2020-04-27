@@ -1,0 +1,14 @@
+<template>
+  <require from="../containers/guest/guest"></require>
+  <require from="../containers/member/member"></require>
+  <require from="../containers/admin/admin"></require>
+  <require from="../containers/pending-member/pendingMember"></require>
+  <div>
+    <guest if.bind="authorized === 'GUEST'"></guest>
+    <member if.bind="authorized === 'MEMBER'"></member>
+    <admin if.bind="authorized === 'ADMIN'"></admin>
+    <pending-member
+      partner-status.one-way="affiliateStatus"
+      if.bind="authorized === 'PENDING'"></pending-member >
+  </div>
+</template>

@@ -1,0 +1,30 @@
+<template>
+  <require from="../../components/general/about/about"></require>
+  <require from="../../components/guest/becomePartner/becomePartner"></require>
+  <require from="../../components/guest/sidebar/guestSidebar"></require>
+  <div class="container-fluid container-fluid--with-min">
+    <div class="row">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
+        <guest-sidebar
+          current.two-way="currentPage"
+          opened.two-way="opened"
+        >
+        </guest-sidebar>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col px-0">
+            <about
+              if.bind="currentPage === 'About'">
+            </about>
+            <become-partner
+              if.bind="currentPage === 'Become-Partner'"
+              guest.one-way="true"
+            >
+            </become-partner>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
