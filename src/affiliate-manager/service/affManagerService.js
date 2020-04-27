@@ -10,10 +10,8 @@ export class AffManagerService {
     this.httpClient = httpClient;
     this.httpClient.configure(config => {
         config
-          // change to /api/ in case proxy
           .withBaseUrl('api/')
           .withDefaults({
-              credentials: 'same-origin',
               headers: {
                 'Accept': 'application/json',
                 'Authorization': localStorage.getItem("token")
