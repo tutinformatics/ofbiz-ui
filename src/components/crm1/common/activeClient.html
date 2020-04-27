@@ -1,9 +1,10 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <require from="../common/complexViewClient/clientQuickActionElement"></require>
+  <require from="../common/complexViewClient/clientQuickAction"></require>
   <require from="../common/complexViewClient/clientContactOption"></require>
   <require from="../common/complexViewClient/clientSaleOption"></require>
   <require from="../common/complexViewClient/clientDocumentOption"></require>
+
   <div class="card rounded shadow">
     <div class="card-header p-0 pb-1 m-0">
       <h6 class="p-0 m-0 text-center">Active client</h6>
@@ -36,12 +37,43 @@
     <hr/>
 
 <!--    Email, phone, meeting options-->
-    <client-contact-option></client-contact-option>
+    <div class="card rounded-0">
+      <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+        <div repeat.for="option of contactOptions">
+          <button type="button" class="btn p-1 m-1 btn-primary round">${option.name}</button>
+        </div>
+      </div>
+    </div>
+    <hr/>
 
 <!--    Leads, opportunities, proposals, deals-->
-    <client-sale-option></client-sale-option>
+    <div class="card rounded-0 p-0 m-0 bg-white">
+      <div class="card-header p-0">
+        <h6 class="m-0 pb-2 pt-1 text-center">Sales</h6>
+      </div>
+      <div repeat.for="option of saleOptions" >
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+
 
 <!--    Orders, invoices, claims, returned-->
-    <client-document-option></client-document-option>
+    <div class="card rounded-0 m-0 p-0 bg-white">
+      <div class="card-header p-0">
+        <h6 class="m-0 pb-2 pt-1 text-center">Documents</h6>
+      </div>
+      <div repeat.for="option of options" >
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 </template>

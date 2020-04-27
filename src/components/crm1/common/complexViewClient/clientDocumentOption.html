@@ -1,17 +1,8 @@
 <template>
   <require from="../../../../css/crm1.css"></require>
-  <require from="./clientDocumentOptionElement"></require>
 
-  <div class="card rounded-0 m-0 p-0 bg-white">
-    <div class="card-header p-0">
-      <h6 class="m-0 pb-2 pt-1 text-center">Documents</h6>
-    </div>
-    <div repeat.for="option of options" >
-      <div class="row">
-        <div class="col-12">
-          <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
-        </div>
-      </div>
-    </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-info btn-sm m-1">Action</button>
   </div>
+
 </template>
