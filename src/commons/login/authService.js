@@ -10,8 +10,7 @@ export class AuthService {
     this.httpClient = httpClient;
     this.httpClient.configure(config => {
         config
-          // change to /api/ in case proxy
-          .withBaseUrl('https://localhost:8443/api/')
+          .withBaseUrl('api/')
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
