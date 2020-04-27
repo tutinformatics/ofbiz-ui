@@ -5,7 +5,7 @@ import { inject } from 'aurelia-framework';
 export class OpportunitiesService {
   constructor() {
     this.client = new HttpClient;
-    const baseUrl = '/api/';
+    const baseUrl = 'http://82.131.117.193:7463/api/';
 
     this.client.configure(config => {
       config.withBaseUrl(baseUrl);
