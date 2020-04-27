@@ -15,6 +15,7 @@ export class App {
       { route: 'crm/agents', moduleId: PLATFORM.moduleName('crm/agents/agents'), name: 'agents' },
       { route: 'crm/opportunities', moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'), name: 'opportunities' },
     ]);
+    config.mapUnknownRoutes('not-found');
     this.router = router;
   }
 }
