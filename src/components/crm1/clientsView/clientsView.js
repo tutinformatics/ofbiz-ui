@@ -1,5 +1,7 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
+import {json} from 'aurelia-fetch-client';
+
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
@@ -27,30 +29,49 @@ export class ClientsView {
     await this.getAllContacts()
   }
 
-  async getAllContacts() {
-    console.log('here')
-    let response = await this.http.createRequest('Person')
-      .asGet()
+  async login() {
+    // works with http client
+    await this.http.createRequest('https://localhost:8443/api/auth/v1/register')
+      .asPost()
+      .withContent({
+        "userLoginId": "Crmtiim",
+        "currentPassword": "admin",
+        "currentPasswordVerify": "admin"})
       .send()
-      .then(response => {
-          let resJson = JSON.parse(response.response);
-          for (let i = 0; i < resJson.length; i++) {
-            let contact = new Contact(
-              resJson[i].firstName,
-              resJson[i].lastName,
-              resJson[i].emailAddress,
-              resJson[i].phoneNumber,
-              resJson[i].companyName,
-              resJson[i].roleTypeId,
-              resJson[i].address,
-              resJson[i].postalCode,
-              resJson[i].partyId);
-            this.contacts.push(contact)
-          }
-        }
-      ).catch(
-        console.log("ERROR")
+      .then(response => console.log(response))
+  }
+
+  async getAllContacts() {
+    console.log('here');
+    // await this.login();
+    let response = await this.http.fetch('/services/performFindList', {
+        method: 'post',
+        body: json({
+            "entityName": "PartyExport",
+            "noConditionFind": "Y",
+            "inputFields": {}
+        })
+      })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching clients!');
+    });
+
+    let listOfContacts = response.list
+    for (let i = 0; i < listOfContacts.length; i++) {
+      let contact = new Contact(
+        listOfContacts[i].firstName,
+        listOfContacts[i].lastName,
+        listOfContacts[i].emailAddress,
+        listOfContacts[i].phoneNumber,
+        listOfContacts[i].companyName,
+        listOfContacts[i].roleTypeId,
+        listOfContacts[i].address,
+        listOfContacts[i].postalCode,
+        listOfContacts[i].partyId
       );
+      this.contacts.push(contact);
+    }
   }
 
   getClientInformation(contact) {
@@ -58,14 +79,24 @@ export class ClientsView {
   }
 
   async addContact(contact) {
-    // if (contact != null) {
-    //   let response = await this.http.createRequest('contact')
-    //     .asPost()
-    //     .withContent(JSON.stringify(contact))
-    //     .send()
-    //     .then(() => this.contacts.push(contact))
-    //     .catch(error => console.log(error));
-    // }
+    let response = await this.http.fetch('/services/createContact', {
+      method: 'post',
+      body: json({
+        "userLoginId": "admin",
+        "firstName": contact.firstName,
+        "lastName": contact.lastName,
+        "emailAddress": contact.email,
+        "contactNumber": contact.phoneNumber,
+        "address1": contact.companyAddress,
+        "city": contact.companyAddress,
+        "postalCode": contact.postalCode,
+      })
+    })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching clients!');
+    });
+    console.log(response)
     console.log(contact)
     let person = new Contact(
       contact.firstName,
