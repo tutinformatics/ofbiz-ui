@@ -53,29 +53,30 @@ export class AffManagerService {
     }
   }
 
-  async approveRequest(partyId) {
+  async approveRequest(partnerToBeApproved) {
     try {
-      return await this.httpClient.fetch("parties/affiliate/approve",
+      return await this.httpClient.fetch(
+        "generic/v1/services/approveAffiliatePartner",
         {
-          method: "PUT",
+          method: "POST",
           body: JSON.stringify(
-            {"partyId": partyId}
+            {"partyId": partnerToBeApproved}
           )
         }
       );
     } catch (e) {
       return null;
     }
-
   }
 
-  async disapproveRequest(partyId) {
+  async disapproveRequest(partnerToBeDisapproved) {
     try {
-      return await this.httpClient.fetch("parties/affiliate/disapprove",
+      return await this.httpClient.fetch(
+        "generic/v1/services/disapproveAffiliatePartner",
         {
-          method: "PUT",
+          method: "POST",
           body: JSON.stringify(
-            {"partyId": partyId}
+            {"partyId": partnerToBeDisapproved}
           )
         }
       );
@@ -86,8 +87,20 @@ export class AffManagerService {
 
   async allAffiliatesRequest() {
     try {
-      const response = await this.httpClient
-        .fetch("parties/affiliates");
+      const response = await this.httpClient.fetch(
+        "generic/v1/entityquery/Affiliate",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              "inputFields": {
+                "status": "ACTIVE"
+              },
+              "fieldList": ["partyId", "firstName", "lastName"]
+            }
+          )
+        }
+      );
       return await response.json();
     } catch (e) {
       return null;
@@ -96,11 +109,12 @@ export class AffManagerService {
 
   async becomeAffPartner() {
     return await this.httpClient
-      .fetch("parties/affiliate/create",
+      .fetch(
+        "generic/v1/services/createMultiLvlAffiliate",
         {
           method: "POST",
           body: JSON.stringify(
-            {"userLoginId": this.state.userLoginId}
+            {"partyId": this.state.partyId}
           ),
         }
       );
@@ -129,22 +143,20 @@ export class AffManagerService {
 
   async myAffiliatesRequest() {
     try {
-      return await this.httpClient.fetch("parties/affiliate",
+      return await this.httpClient.fetch(
+        "generic/v1/entityquery/Affiliate",
         {
           method: 'POST',
           body: JSON.stringify(
-            {"partyId": this.state.partyId}
+            {
+              "inputFields": {
+                "rootPartyId": this.state.partyId
+              },
+              "fieldList": ["partyId", "firstName", "lastName"]
+            }
           )
         }
-      )
-    } catch (e) {
-      return null;
-    }
-  }
-
-  async getStatusRequest() {
-    try{
-      return await this.httpClient.fetch("parties/unconfirmedAffiliates")
+      );
     } catch (e) {
       return null;
     }
@@ -152,7 +164,8 @@ export class AffManagerService {
 
   async getAffiliateCodesRequest() {
     try {
-      const response = await this.httpClient.fetch("parties/affiliate/codes",
+      const response = await this.httpClient.fetch(
+        "generic/v1/services/getAffiliateCodes",
         {
           method: 'POST',
           body: JSON.stringify(
@@ -168,7 +181,8 @@ export class AffManagerService {
 
   async generateAffiliateCodeRequest() {
     try {
-      return await this.httpClient.fetch("parties/affiliate/code",
+      return await this.httpClient.fetch(
+        "generic/v1/services/createAffiliateCode",
         {
           method: 'POST',
           body: JSON.stringify(
@@ -183,7 +197,8 @@ export class AffManagerService {
 
   async deleteAffiliateCodeRequest(codeId) {
     try {
-      return await this.httpClient.fetch("parties/affiliate/code",
+      return await this.httpClient.fetch(
+        "generic/v1/services/deleteAffiliateCode",
         {
           method: 'DELETE',
           body: JSON.stringify(

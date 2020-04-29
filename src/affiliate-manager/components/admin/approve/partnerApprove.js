@@ -7,6 +7,7 @@ export class partnerApprove {
 
   pendingPartners = [];
   filteredValues = [];
+  networkError;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
@@ -16,12 +17,16 @@ export class partnerApprove {
 
   async fetchPendingPartners() {
     const responseData = await this.affManagerService.pendingPartnersRequest();
-    responseData.forEach(candidate =>
-      this.pendingPartners.push(
-        this.parseCandidate(candidate)
-      )
-    );
-    this.filteredValues = this.pendingPartners;
+    if (responseData) {
+      responseData.forEach(candidate =>
+        this.pendingPartners.push(
+          this.parseCandidate(candidate)
+        )
+      );
+      this.filteredValues = this.pendingPartners;
+    } else {
+      this.networkError = true;
+    }
   }
 
   async approve(index, partyId) {

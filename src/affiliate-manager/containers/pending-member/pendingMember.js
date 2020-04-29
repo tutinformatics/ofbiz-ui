@@ -15,7 +15,7 @@ export class PendingMember {
   }
 
   async getStatus() {
-    const response = await this.affManagerService.getStatusRequest();
+    const response = await this.affManagerService.pendingPartnersRequest();
     if (response.ok) {
       response.json().then((response) => {
           const unconfirmed = response.filter(

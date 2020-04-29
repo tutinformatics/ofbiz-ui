@@ -37,7 +37,10 @@ export class AffManager {
     } else if (this.state.userLoginId === 'null') {
       this.authorized = 'GUEST';
     } else {
-      const pending = await this.affManagerService.pendingPartnersRequest();
+      let pending = await this.affManagerService.pendingPartnersRequest();
+      if (!pending) {
+        pending = []
+      }
       const isPending = pending.filter(partner => partner.partyId === this.state.partyId);
       if (isPending.length > 0) {
         this.affiliateStatus = 'PENDING';
