@@ -52,7 +52,7 @@ constructor(httpClient, store) {
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': localStorage.getItem("token")
+                'Authorization': `Bearer ${this.state.jwtToken}`
               }
             }
           )
@@ -67,9 +67,8 @@ both userLoginId and token are stored there
 this data is removed from localStorage when user logs out
 
 ### aurelia store
+all the data needed is stored in aurelia store:
+- userLoginId
+- jwtToken
 
-userLoginId is stored there as well - initial value is taken from localStorage
-
-partyId is also stored there, we fetch it in affiliate marketing component (our backend required)
-
-reason: experiments with Aurelia Store
+reason: store allows to dynamically update this data

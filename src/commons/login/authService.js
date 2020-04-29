@@ -1,7 +1,7 @@
 import { inject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
-import { setUserLoginId } from "../../store/store";
+import { setJwtToken, setUserLoginId } from "../../store/store";
 
 @inject(HttpClient, Store)
 export class AuthService {
@@ -21,6 +21,7 @@ export class AuthService {
     );
     this.store = store;
     this.store.registerAction('setUserLoginId', setUserLoginId);
+    this.store.registerAction('setJwtToken', setJwtToken);
   }
 
   async loginAttempt(username, password) {
@@ -39,8 +40,7 @@ export class AuthService {
       if (response.ok) {
         const responseData = await response.json();
         this.store.dispatch('setUserLoginId', responseData['userLoginId']);
-        localStorage.setItem("userLoginId", responseData['userLoginId']);
-        localStorage.setItem("token", responseData['token']);
+        this.store.dispatch('setJwtToken', responseData['token']);
         return true;
       }
     } catch (e) {
@@ -51,7 +51,7 @@ export class AuthService {
   async signUpRequest(username, password, verifiedPassword) {
     try {
       const response = await this.httpClient
-        .fetch("api/auth/v1/register",
+        .fetch("auth/v1/register",
           {
             method: 'POST',
             body: json({

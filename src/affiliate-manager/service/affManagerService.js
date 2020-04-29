@@ -8,28 +8,45 @@ export class AffManagerService {
 
   constructor(httpClient, store) {
     this.httpClient = httpClient;
+    this.store = store;
+    this.store.registerAction('setPartyId', setPartyId);
+    this.subscription = this.store.state.subscribe(
+      (state) => this.state = state
+    );
     this.httpClient.configure(config => {
         config
           .withBaseUrl('api/')
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': localStorage.getItem("token")
+                'Authorization': `Bearer ${this.state.jwtToken}`
               }
             }
           )
       }
     );
-    this.store = store;
-    this.store.registerAction('setPartyId', setPartyId);
-    this.subscription = this.store.state.subscribe(
-      (state) => this.state = state
-    );
+  }
+
+  detached() {
+    this.subscription.dispose();
   }
 
   async pendingPartnersRequest() {
     try {
-      const response = await this.httpClient.fetch("parties/unconfirmedAffiliates");
+      const response = await this.httpClient.fetch(
+        "generic/v1/entityquery/Affiliate",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              "inputFields": {
+                "status": "PENDING"
+              },
+              "fieldList": ["partyId", "firstName", "lastName"]
+            }
+          )
+        }
+      );
       return await response.json();
     } catch (e) {
       return null
