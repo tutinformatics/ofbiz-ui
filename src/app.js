@@ -62,6 +62,20 @@ export class App {
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
       },
+      {
+        route: 'crm/office',
+        moduleId: PLATFORM.moduleName('components/crm1/customerInfoPage/customerInfoPage'),
+        name: 'customerInfoPage'
+      },
+      {
+        route: 'crm/clients',
+        moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'),
+        name: 'clientsView' },
+      {
+        route: 'crm/clients/complex',
+        moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
+        name: 'complexview' },
+
     ]);
     this.router = router;
   }
