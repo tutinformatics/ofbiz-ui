@@ -42,36 +42,10 @@ export class AuthService {
         const responseData = await response.json();
         await this.store.dispatch('setUserLoginId', responseData['userLoginId']);
         await this.store.dispatch('setJwtToken', responseData['token']);
-        this.fetchPartyId(username, password, responseData['token']);
         return true;
       }
     } catch (e) {
       return null
-    }
-  }
-
-  async fetchPartyId(username, password, jwt) {
-    try {
-      const response = await this.httpClient
-        .fetch(
-          "generic/v1/services/getPartyIdForUserId",
-          {
-            method: 'POST',
-            body: json({
-                "userLoginId": username,
-              }
-            ),
-            headers: {
-              'Authorization': `Bearer ${jwt}`
-            }
-          }
-        );
-      if (response.ok) {
-        const responseData = await response.json();
-        this.store.dispatch('setPartyId', responseData['partyId']);
-      }
-    } catch (e) {
-      return null;
     }
   }
 

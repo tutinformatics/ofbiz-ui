@@ -67,6 +67,55 @@ For example, we store userLoginId that is fetched from backend in case of succes
 
     ```
 
+### Unable to sync changes :(
+
+I have encountered difficulties while trying to configure HttpClient.
+I have the following config:
+```
+ constructor(httpClient, store) {
+    this.httpClient = httpClient;
+    this.store = store;
+    this.store.registerAction('setPartyId', setPartyId);
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.state = state;
+      }
+    );
+    this.httpClient.configure(config => {
+        config
+          .withBaseUrl('api/')
+          .withDefaults({
+              headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${this.state.jwtToken}`
+              }
+            }
+          )
+      }
+    );
+  }
+```
+As you can see, I need to configure HttpClient in constructor, but jwt initial value is null. Even after log in (jwt is populated) it remains null and only page refresh could help.
+
+ Solution would be to add property 'myToken' to the class and change
+ 'Authorization': `Bearer ${this.state.jwtToken}`
+ to
+ 'Authorization': `Bearer ${this.myToken}`
+
+ Also we need to listen state changes explicitly by:
+ ```aidl
+  @observable state;
+
+  stateChanged(newState, oldState) {
+    this.token = newState.jwtToken;
+  }
+```
+
+Function 'stateChanges' works out of box, you do not need additional configuration. In other words, every time state changes, we update our jwtToken
+
+
+
+
 ### Redux devtools (strongly advised):
 
 This is already configured.

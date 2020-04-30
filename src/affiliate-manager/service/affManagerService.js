@@ -1,17 +1,28 @@
 import { inject } from "aurelia-framework";
-import { HttpClient } from "aurelia-fetch-client";
-import { Store } from "aurelia-store";
+import { HttpClient, json } from "aurelia-fetch-client";
+import { connectTo, Store } from "aurelia-store";
 import { setPartyId } from "../../store/store";
+import { observable } from "aurelia-binding";
+import { pluck } from "rxjs/operators";
 
 @inject(HttpClient, Store)
+@connectTo({
+  selector: (store) => store.state.pipe(pluck('jwtToken')),
+  target: 'currentState'
+})
 export class AffManagerService {
+
+  @observable state;
+  token;
 
   constructor(httpClient, store) {
     this.httpClient = httpClient;
     this.store = store;
     this.store.registerAction('setPartyId', setPartyId);
     this.subscription = this.store.state.subscribe(
-      (state) => this.state = state
+      (state) => {
+        this.state = state;
+      }
     );
     this.httpClient.configure(config => {
         config
@@ -19,12 +30,24 @@ export class AffManagerService {
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${this.state.jwtToken}`
+                'Authorization': `Bearer ${this.token}`
               }
             }
           )
       }
     );
+  }
+
+  stateChanged(newState, oldState) {
+    this.token = newState.jwtToken;
+  }
+
+  currentStateChanged(stateName, newState, oldState) {
+    // this will be called twice:
+    //   once for stateName='frameworks'
+    //   once for stateName='databases'
+
+    console.log('The state has changed', newState);
   }
 
   detached() {
@@ -120,24 +143,25 @@ export class AffManagerService {
       );
   }
 
-  async getPartyId() {
+  async fetchPartyId() {
     try {
       const response = await this.httpClient
-        .fetch("parties/get-party-id",
+        .fetch(
+          "generic/v1/services/getPartyIdForUserId",
           {
-            method: "POST",
-            body: JSON.stringify(
-              {"userLoginId": this.state.userLoginId}
+            method: 'POST',
+            body: json({
+                "userLoginId": this.state.userLoginId,
+              }
             ),
           }
         );
       if (response.ok) {
         const responseData = await response.json();
         this.store.dispatch('setPartyId', responseData['partyId']);
-        return responseData['partyId'];
       }
     } catch (e) {
-      return null
+      return null;
     }
   }
 
