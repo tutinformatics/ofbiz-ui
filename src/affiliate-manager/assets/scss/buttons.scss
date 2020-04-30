@@ -1,0 +1,47 @@
+.aff-button {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  border-radius: 10px;
+  border: solid 1px $white;
+  padding: 10px;
+  z-index: 1;
+  transition: 0.3s all;
+
+  &:hover:enabled {
+    background-color: $primary-color-hover;
+  }
+}
+
+.aff-button--large {
+  width: 100%;
+  max-width: 300px;
+  min-width: 100px;
+}
+
+.aff-system__button--main {
+  background-color: $table-dark;
+  border: none;
+
+  color: $color-creamy-white;
+
+  &:hover:enabled {
+    cursor: pointer;
+    color: $color-creamy-white;
+    background-color: $table-light;
+  }
+
+  &:hover:disabled {
+    cursor: default;
+    color: $color-creamy-white;
+  }
+
+  &:focus {
+    border-color: $primary-color-hover;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
+  }
+
+}

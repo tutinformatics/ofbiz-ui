@@ -1,0 +1,57 @@
+<template>
+  <div tabindex="-1" role="dialog" aria-hidden="true">
+    <div class=" modal-dialog  modal-lg">
+      <div class="modal-content table-responsive">
+        <div class="modal-header">
+          <h4 class="modal-title">All items</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <table class=" col-12 table  table-striped" aurelia-table="data.bind: products; display-data.bind: $displayData;
+                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems;">
+              <thead>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Commission</th>
+                <th>Code Used</th>
+                <th>Code Owner</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr repeat.for="product of $displayData">
+                <td>${product['id']}</td>
+                <td>${product['name']}</td>
+                <td>${product['commission']}</td>
+                <td>${product['code']}</td>
+                <td>${product['code-owner']}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-12  text-center">
+            <div class="mx-auto aff-paginator">
+              <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems"
+                              pagination-size.bind="5" boundary-links.bind="true"></aut-pagination>
+            </div>
+            <div class="mx-auto form-group w-75">
+              <label for="pageSize">Page Size: </label>
+              <select value.bind="pageSize" id="pageSize" class="form-control">
+                <option model.bind="5">5</option>
+                <option model.bind="10">10</option>
+                <option model.bind="20">20</option>
+                <option model.bind="50">50</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn mx-auto aff-system__button--main" click.trigger="controller.ok()">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

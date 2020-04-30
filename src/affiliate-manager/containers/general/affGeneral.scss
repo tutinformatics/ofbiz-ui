@@ -1,0 +1,31 @@
+@import "src/affiliate-manager/assets/scss/variables";
+
+html, body {
+  height: 100%;
+  background: $background-color;
+  overflow-x: hidden;
+}
+
+.container-fluid--with-min {
+  min-width: 360px;
+}
+
+.aff-sidebar-area {
+  transition: 0.5s ease;
+  z-index: 2;
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+  max-width: $sidebar-width;
+  min-width: $sidebar-width;
+}
+
+.aff-sidebar-sidebar-area--closed {
+  margin-left: -285px;
+}
+
+.detailed-view-modal__profile-image {
+  width: 250px;
+  object-fit: cover;
+}
+

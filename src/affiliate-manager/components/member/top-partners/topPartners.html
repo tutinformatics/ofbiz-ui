@@ -1,0 +1,98 @@
+<template>
+  <require from="../../general/page-title/pageTitle"></require>
+  <require from="../../general/filter/filter"></require>
+
+  <div class="row flex-column mx-3 text-center mt-5">
+    <div class="col-md-9 mx-auto">
+      <page-title
+        main-text.one-way="'This is an overview of all the partners that belong to your multilevel-program'">
+      </page-title>
+    </div>
+    <div class="col-md-9 mx-auto my-3">
+      </filter>
+
+      <filter
+        values-to-filter.one-way="allTopPartnes"
+        options.one-way="topPartnersOptions"
+        callback.call="setFilteredTopPartners($event)"
+        id.one-way="'Member-Top-Partners'"
+      >
+      </filter>
+    </div>
+    <div class="col-md-9 mx-auto table-responsive-md text-center">
+      <table class="table table-striped table-dark table-bordered table-hover">
+        <thead>
+        <tr>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Place
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            First Name
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Last Name
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Email
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Partner Since
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Commission Total
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Partners Invited
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="aff-member-table__row" repeat.for="topPartner of filteredTopPartners">
+          <td class="align-middle">
+            <p>${topPartner['place']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['first-name']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['last-name']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['email']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['partner-since']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['commission-total']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${topPartner['partners-invited']}</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

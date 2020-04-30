@@ -69,19 +69,23 @@ hr {
   height: 60px;
 }
 
+.product-icon {
+  width: 60px;
+  height: 60px;
+}
+
 .icon-wrapper {
   font-size: 12px;
   text-shadow: 2px 2px #444444;
   overflow: hidden;
   width: 80px;
   height: 80px;
-  background: linear-gradient(to bottom, white 0%,#744662 75%,#444444 76%,#444444 100%);
   background-color: #dddddd !important;
 }
 
-.dropdown-menu {
+/*thx for pain, bro (please do not override bootstrap like that)*/
+.workspace-dropdown-menu {
   width: 266px;
-  background: linear-gradient(#744662, #dddddd);
   background-color: #ababab !important;
 }
 
@@ -120,3 +124,36 @@ button-icon {
   background-color: #F5F5F5;
   border-radius: 10px; }
 
+
+.ul.custom-pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ul.custom-pagination li {display: inline;}
+
+ul.custom-pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+ul.custom-pagination li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+ul.custom-pagination li a:hover:not(.active):not(.disabled) {background-color: #ddd;}
+
+ul.custom-pagination li a.disabled {
+  color: darkgrey;
+}
+
+/*Please rename according to BEM convention (It broke my layout)*/
+
+/*.row {*/
+/*  margin: 1% 1% 1% 0%;*/
+/*}*/

@@ -1,17 +1,68 @@
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 
 export class App {
-
   configureRouter(config, router) {
-    config.title = 'Workspace';
+    config.title = 'Ofbiz UI';
+    config.options.pushState = true;
+    config.options.root = '/';
     config.map([
-      { route: '', redirect: 'projects' },
-      { route: 'kanban', moduleId: PLATFORM.moduleName('commons/kanban/kanban'), name: 'kanban' },
-      { route: 'crm/office',  moduleId: PLATFORM.moduleName('components/crm1/customerInfoPage/customerInfoPage'), name: 'customerInfoPage' },
-      { route: 'crm/clients',  moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'), name: 'clientsView' },
-      { route: 'crm/clients/complex',  moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'), name: 'complexiew' },
+      {
+        route: '',
+        moduleId: PLATFORM.moduleName('no-selection'),
+        title: 'Select'
+      },
+      {
+        route: 'kanban',
+        moduleId: PLATFORM.moduleName('commons/kanban/kanban'),
+        name: 'kanban'
+      },
+      {
+        route: 'object-dist/publisher',
+        moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'),
+        name: 'publisher'
+      },
+      {
+        route: 'object-dist',
+        moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
+        name: 'object-dist'
+      },
+      {
+        route: 'crm/agents',
+        moduleId: PLATFORM.moduleName('crm/agents/agents'),
+        name: 'agents'
+      },
+      {
+        route: 'crm/pipeline',
+        moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'),
+        name: 'pipeline'
+      },
+      {
+        route: 'crm/opportunities',
+        moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
+        name: 'opportunities'
+      },
+      {
+        route: 'project',
+        moduleId: PLATFORM.moduleName('project/project'),
+        name: 'project',
+        title: 'Projects'
+      },
+      {
+        route: 'affiliate-manager',
+        name: 'affiliate-manager',
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
+      },
+      {
+        route: 'login',
+        name: 'login-page',
+        moduleId: PLATFORM.moduleName('commons/login/login')
+      },
+      {
+        route: 'sign-up',
+        name: 'sign-up page',
+        moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
+      },
     ]);
-
     this.router = router;
   }
 }

@@ -1,0 +1,41 @@
+@import "../../../assets/scss/variables";
+
+
+.aff-system-settings__pay-frequency, .aff-system-settings__cookie-dur,
+.aff-system-settings__pay-commission, .aff-system-settings__multilevel-aff {
+  width: 50vw;
+  text-align-last: center;
+
+  &:focus {
+    border-color: $primary-color-hover;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
+  }
+
+  &::placeholder{
+   opacity: 0.4;
+  }
+}
+
+
+.aff-system-settings__save-button {
+  width: 30vw;
+  background-color: $secondary-dark;
+  border: none;
+
+  color: $color-creamy-white;
+
+  &:hover {
+    color: $color-creamy-white;
+    background-color: $secondary-light;
+  }
+
+  &:focus {
+    border-color: $primary-color-hover;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 157, 0.36);
+  }
+
+}
+
+

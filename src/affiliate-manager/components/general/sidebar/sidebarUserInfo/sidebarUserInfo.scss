@@ -1,0 +1,19 @@
+@import "src/affiliate-manager/assets/scss/variables";
+
+.sidebar-user-info {
+  background: $secondary-light;
+}
+
+.sidebar-user-info__picture {
+  max-width: 100px;
+
+  img {
+    border-radius: 60px;
+  }
+}
+
+.sidebar-user-info__text{
+  display: flex;
+  align-items: center;
+  color: $white;
+}
