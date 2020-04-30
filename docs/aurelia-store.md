@@ -1,9 +1,7 @@
 # `Aurelia Store`
 
-Official documentation is not as good, as it could be, but it is better that nothing:
+Official documentation
 https://aurelia.io/docs/plugins/store#introduction
-
-All the configuration is done by affiliate-marketing team, so you can just start using.
 
 ### Background:
 We decided to add a global store in order to have a central place to store data that could be useful (or even mandatory) for more than couple components. As a result, you will never fall into the hell of props propagation (parent-children-...-children)
@@ -97,17 +95,24 @@ I have the following config:
 ```
 As you can see, I need to configure HttpClient in constructor, but jwt initial value is null. Even after log in (jwt is populated) it remains null and only page refresh could help.
 
- Solution would be to add property 'myToken' to the class and change
- 'Authorization': `Bearer ${this.state.jwtToken}`
- to
- 'Authorization': `Bearer ${this.myToken}`
-
- Also we need to listen state changes explicitly by:
+ Solution would be to reconfigure httpClient every time state changes
+ (we need to listen state changes explicitly):
  ```aidl
   @observable state;
 
-  stateChanged(newState, oldState) {
-    this.token = newState.jwtToken;
+  stateChanged(newState) {
+    this.httpClient.configure(config => {
+        config
+          .withBaseUrl('api/')
+          .withDefaults({
+              headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${newState.jwtToken}`
+              }
+            }
+          )
+      }
+    );
   }
 ```
 

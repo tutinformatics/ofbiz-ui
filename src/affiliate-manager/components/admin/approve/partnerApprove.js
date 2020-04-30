@@ -46,11 +46,11 @@ export class partnerApprove {
   parseCandidate(candidate) {
     const parsedDate = candidate["createdStamp"]? new Date(candidate["createdStamp"]): null;
     return {
-      "firstName": candidate['firstName'],
-      "lastName": candidate['lastName'],
+      "firstName": candidate['_toOne_Person']['firstName']? candidate['_toOne_Person']['firstName']: 'Missing',
+      "lastName": candidate['_toOne_Person']['lastName']? candidate['_toOne_Person']['lastName']: 'Missing',
       "dateTimeCreated": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Date is missing',
-      "email": `${candidate['firstName']}@gmail.com`,
-      "partyId": candidate['partyId'],
+      "email": candidate['_toOne_Person']['firstName']? `${candidate['_toOne_Person']['firstName']}@gmail.com`: 'Missing',
+      "partyId": candidate['partyId']? candidate['partyId']: 'Missing',
     }
   }
 

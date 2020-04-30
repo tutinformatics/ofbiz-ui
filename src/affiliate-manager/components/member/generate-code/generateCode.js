@@ -65,7 +65,7 @@ export class GenerateCode {
 
   async getAffiliateCodes() {
     const responseData = await this.affManagerService.getAffiliateCodesRequest();
-    responseData.forEach(code =>
+    responseData['affiliateDTOs'].forEach(code =>
       this.affiliateCodes.push(
         this.parseCode(code)
       )
@@ -88,7 +88,7 @@ export class GenerateCode {
     if (response.ok) {
       response.json().then((response) => {
           this.affiliateCodes.push(
-            this.parseCode(response)
+            this.parseCode(response['createdCode'])
           )
         }
       );
@@ -109,11 +109,11 @@ export class GenerateCode {
   parseCode(code) {
     const parsedDate = new Date(code["createdStamp"]);
     return {
-      "dateOfCreation": moment(parsedDate).format('MM-D-YYYY'),
-      "code": code['affiliateCodeId'],
-      "expirationDate": moment(parsedDate).format('MM-D-YYYY'),
+      "dateOfCreation": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Missing',
+      "code": code['affiliateCodeId']? code['affiliateCodeId']: 'Missing',
+      "expirationDate": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Missing',
       "isDefault": code["isDefault"] === 'Y',
-      "category": 'none',
+      "category": 'None',
     }
   }
 

@@ -29,7 +29,7 @@ export class allAffiliates {
         "lastName": "Ojamae",
         "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
         "email": "122@gmail.com",
-        "status": "Active"
+        "status": "ACTIVE"
       },
     );
     this.filteredValues = this.allAffiliatePartners
@@ -67,11 +67,12 @@ export class allAffiliates {
   parsePartner(partner) {
     const parsedDate = new Date(partner["createdStamp"]);
     return {
-      "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
-      "firstName": partner['firstName'],
-      "lastName": partner['lastName'],
-      "email": `${partner['firstName']}@gmail.com`,
-      "status": 'active'
+      "firstName": partner['_toOne_Person']['firstName']? partner['_toOne_Person']['firstName']: 'Missing',
+      "lastName": partner['_toOne_Person']['lastName']? partner['_toOne_Person']['lastName']: 'Missing',
+      "dateTimeCreated": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Date is missing',
+      "email": partner['_toOne_Person']['firstName']? `${partner['_toOne_Person']['firstName']}@gmail.com`: 'Missing',
+      "partyId": partner['partyId']? partner['partyId']: 'Missing',
+      "status": partner['status']? partner['status']: 'Missing',
     }
   }
 

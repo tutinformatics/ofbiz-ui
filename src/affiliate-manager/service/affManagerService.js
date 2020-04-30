@@ -1,19 +1,13 @@
 import { inject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
-import { connectTo, Store } from "aurelia-store";
+import { Store } from "aurelia-store";
 import { setPartyId } from "../../store/store";
 import { observable } from "aurelia-binding";
-import { pluck } from "rxjs/operators";
 
 @inject(HttpClient, Store)
-@connectTo({
-  selector: (store) => store.state.pipe(pluck('jwtToken')),
-  target: 'currentState'
-})
 export class AffManagerService {
 
   @observable state;
-  token;
 
   constructor(httpClient, store) {
     this.httpClient = httpClient;
@@ -24,13 +18,16 @@ export class AffManagerService {
         this.state = state;
       }
     );
+  }
+
+  stateChanged(newState) {
     this.httpClient.configure(config => {
         config
           .withBaseUrl('api/')
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${this.token}`
+                'Authorization': `Bearer ${newState.jwtToken}`
               }
             }
           )
@@ -38,20 +35,8 @@ export class AffManagerService {
     );
   }
 
-  stateChanged(newState, oldState) {
-    this.token = newState.jwtToken;
-  }
-
-  currentStateChanged(stateName, newState, oldState) {
-    // this will be called twice:
-    //   once for stateName='frameworks'
-    //   once for stateName='databases'
-
-    console.log('The state has changed', newState);
-  }
-
-  detached() {
-    this.subscription.dispose();
+  unbind() {
+    this.subscription.unsubscribe();
   }
 
   async pendingPartnersRequest() {
@@ -65,9 +50,14 @@ export class AffManagerService {
               "inputFields": {
                 "status": "PENDING"
               },
-              "fieldList": ["partyId", "firstName", "lastName"]
+              "fieldList": ["partyId", "createdStamp"],
+              "entityRelations" : {
+                "_toOne_Person": {
+                  "fieldList": ["lastName", "firstName"]
+                }
+              }
             }
-          )
+          ),
         }
       );
       return await response.json();
@@ -84,7 +74,7 @@ export class AffManagerService {
           method: "POST",
           body: JSON.stringify(
             {"partyId": partnerToBeApproved}
-          )
+          ),
         }
       );
     } catch (e) {
@@ -100,7 +90,7 @@ export class AffManagerService {
           method: "POST",
           body: JSON.stringify(
             {"partyId": partnerToBeDisapproved}
-          )
+          ),
         }
       );
     } catch (e) {
@@ -119,9 +109,14 @@ export class AffManagerService {
               "inputFields": {
                 "status": "ACTIVE"
               },
-              "fieldList": ["partyId", "firstName", "lastName"]
+              "fieldList": ["partyId", "createdStamp", "status"],
+              "entityRelations" : {
+                "_toOne_Person": {
+                  "fieldList": ["lastName", "firstName"]
+                }
+              }
             }
-          )
+          ),
         }
       );
       return await response.json();
@@ -178,7 +173,7 @@ export class AffManagerService {
               },
               "fieldList": ["partyId", "firstName", "lastName"]
             }
-          )
+          ),
         }
       );
     } catch (e) {
@@ -194,7 +189,7 @@ export class AffManagerService {
           method: 'POST',
           body: JSON.stringify(
             {"partyId": this.state.partyId}
-          )
+          ),
         }
       );
       return await response.json();
@@ -211,7 +206,7 @@ export class AffManagerService {
           method: 'POST',
           body: JSON.stringify(
             {"partyId": this.state.partyId}
-          )
+          ),
         }
       )
     } catch (e) {
@@ -224,13 +219,13 @@ export class AffManagerService {
       return await this.httpClient.fetch(
         "generic/v1/services/deleteAffiliateCode",
         {
-          method: 'DELETE',
+          method: 'POST',
           body: JSON.stringify(
             {
               "partyId": this.state.partyId,
               "affiliateCodeId": codeId,
             }
-          )
+          ),
         }
       )
     } catch (e) {
