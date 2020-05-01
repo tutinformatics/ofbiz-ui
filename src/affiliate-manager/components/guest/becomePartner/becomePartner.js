@@ -15,6 +15,7 @@ export class BecomePartner {
     this.affManagerService = affManagerService;
   }
 
+
   async becomeAffPartner() {
     const response = await this.affManagerService.becomeAffPartner();
     if (response && response.ok) {
