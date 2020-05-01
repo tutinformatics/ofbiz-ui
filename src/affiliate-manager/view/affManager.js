@@ -2,8 +2,8 @@ import { Store } from "aurelia-store";
 import { inject } from "aurelia-dependency-injection";
 import { AffManagerService } from "../services/affManagerService";
 import { observable } from "aurelia-binding";
+import {AureliaCookie} from "aurelia-cookie";@inject(AffManagerService, Store)
 
-@inject(AffManagerService, Store)
 export class AffManager {
 
   @observable state;
@@ -32,6 +32,8 @@ export class AffManager {
   activate(parameters) {
     this.view = parameters.view;
     this.authorizeMe();
+    this.checkCookies();
+
   }
 
   async authorizeMe() {
@@ -67,6 +69,7 @@ export class AffManager {
   }
 
   offlineBackdoor() {
+
     if (this.view === 'admin') {
       this.authorized = 'ADMIN';
       return true;
@@ -80,5 +83,13 @@ export class AffManager {
       return false;
     }
   }
+
+
+  checkCookies() {
+    if (AureliaCookie.get('affCode') === null){
+
+    }
+  }
+
 
 }

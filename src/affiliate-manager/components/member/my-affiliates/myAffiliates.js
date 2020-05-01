@@ -1,7 +1,7 @@
 import "../member-components.scss"
 import moment from "moment";
 import { DialogService } from "aurelia-dialog";
-import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
+import {SingleAffiliate} from '../../general/af-detailed-modal/singleAffiliate';
 import { inject } from "aurelia-dependency-injection";
 import { AffManagerService } from "../../../services/affManagerService";
 
@@ -81,10 +81,11 @@ export class MyAffiliates {
 
 
   detailedView(partner) {
+    const isAdmin = false;
     this.dialogService.open({
       viewModel: SingleAffiliate
-      , model: partner
-    })
+      , model: {partner, isAdmin}
+    });
   }
 }
 

@@ -1,6 +1,6 @@
-import { Store } from "aurelia-store";
-import { inject } from "aurelia-dependency-injection";
-import { setError } from "../../store/store";
+import {Store} from "aurelia-store";
+import {inject} from "aurelia-dependency-injection";
+import {setError} from "../../store/store";
 
 @inject(Store)
 export class HttpInterceptor {
@@ -21,6 +21,7 @@ export class HttpInterceptor {
           }
         );
       } else {
+        console.log(response);
         const responseClone = response.clone();
         const body = await responseClone.json();
         this.store.dispatch('setError',
