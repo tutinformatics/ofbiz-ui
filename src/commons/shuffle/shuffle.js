@@ -39,6 +39,10 @@ export class Shuffle {
     {
       name: 'invoicing',
       url: ''
+    },
+    {
+      name: 'MQTT',
+      url: 'object-dist'
     }
   ];
 

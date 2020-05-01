@@ -17,11 +17,6 @@ export class App {
         name: 'kanban'
       },
       {
-        route: 'object-dist/publisher',
-        moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'),
-        name: 'publisher'
-      },
-      {
         route: 'object-dist',
         moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
         name: 'object-dist'
