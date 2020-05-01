@@ -68,7 +68,8 @@
                        aria-selected="true">Query Builder</a>
                     <a class="nav-item nav-link" id="nav-add-subscriber-properties-tab" data-toggle="tab"
                        href="#nav-add-subscriber-query-builder-content"
-                       role="tab" aria-controls="nav-add-subscriber-query-builder-content" aria-selected="false">Object Properties</a>
+                       role="tab" aria-controls="nav-add-subscriber-query-builder-content" aria-selected="false">Object
+                      Properties</a>
                   </div>
                 </nav>
                 <div class="tab-content" id="nav-add-subscriber">
@@ -127,25 +128,55 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="editSubscriberName" style="margin-bottom: 0">Entity name</label>
-                    <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="editSubscriberName"
-                           readonly>
+                <nav style="margin-bottom: 15px">
+                  <div class="nav nav-tabs" id="nav-tab-edit-subscriber" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-edit-subscriber-query-builder-tab" data-toggle="tab"
+                       href="#nav-edit-subscriber-properties-content" role="tab"
+                       aria-controls="nav-edit-subscriber-properties-content"
+                       aria-selected="true">Query Builder</a>
+                    <a class="nav-item nav-link" id="nav-edit-subscriber-properties-tab" data-toggle="tab"
+                       href="#nav-edit-subscriber-query-builder-content"
+                       role="tab" aria-controls="nav-edit-subscriber-query-builder-content" aria-selected="false">Object
+                      Properties</a>
                   </div>
-                  <div class="form-group">
-                    <label for="editSubscriberTopic" style="margin-bottom: 0">Topic</label>
-                    <input type="text" class="form-control" placeholder="Topic" id="editSubscriberTopic" readonly>
+                </nav>
+                <div class="tab-content" id="nav-edit-subscriber">
+                  <div class="tab-pane fade show active" id="nav-edit-subscriber-properties-content" role="tabpanel"
+                       aria-labelledby="nav-edit-subscriber-query-builder-tab">
+                    <form>
+                      <div class="form-group">
+                        <label for="editSubscriberName" style="margin-bottom: 0">Entity name</label>
+                        <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="editSubscriberName"
+                               readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="editSubscriberTopic" style="margin-bottom: 0">Topic</label>
+                        <input type="text" class="form-control" placeholder="Topic" id="editSubscriberTopic" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="editSubscriberDescription" style="margin-bottom: 0">Subscriber description</label>
+                        <textarea class="form-control" rows="3" placeholder="Subscriber Description"
+                                  id="editSubscriberDescription" required></textarea>
+                      </div>
+                    </form>
+                    <div style="display: flex; justify-content: center" class="query-builder-div">
+                      <query-builder id="editSubscriberBuilder"></query-builder>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="editSubscriberDescription" style="margin-bottom: 0">Subscriber description</label>
-                    <textarea class="form-control" rows="3" placeholder="Subscriber Description"
-                              id="editSubscriberDescription" required></textarea>
+                  <div class="tab-pane fade" id="nav-edit-subscriber-query-builder-content" role="tabpanel"
+                       aria-labelledby="nav-edit-subscriber-properties-tab">
+                    <div class="card">
+                      <ul>
+                        <li>
+                          test1
+                        </li>
+                        <li>
+                          test2
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                </form>
-              </div>
-              <div style="display: flex; justify-content: center" class="query-builder-div">
-                <query-builder id="editSubscriberBuilder"></query-builder>
+                </div>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
                 <button type="submit" class="btn btn-primary" click.trigger="subscriberPutRequest()"
@@ -166,26 +197,56 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <select id="publisherEntitiesSelect" required class="form-control">
-                    </select>
+                <nav style="margin-bottom: 15px">
+                  <div class="nav nav-tabs" id="nav-tab-add-publisher" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-add-publisher-query-builder-tab" data-toggle="tab"
+                       href="#nav-add-publisher-properties-content" role="tab"
+                       aria-controls="nav-add-publisher-properties-content"
+                       aria-selected="true">Query Builder</a>
+                    <a class="nav-item nav-link" id="nav-add-publisher-properties-tab" data-toggle="tab"
+                       href="#nav-add-publisher-query-builder-content"
+                       role="tab" aria-controls="nav-add-publisher-query-builder-content" aria-selected="false">Object
+                      Properties</a>
                   </div>
-                  <div class="form-group">
-                    <label for="publisherTopic" style="margin-bottom: 0">Topic UUID</label>
-                    <input type="text" class="form-control" id="publisherTopic" readonly>
+                </nav>
+                <div class="tab-content" id="nav-add-publisher">
+                  <div class="tab-pane fade show active" id="nav-add-publisher-properties-content" role="tabpanel"
+                       aria-labelledby="nav-add-publisher-query-builder-tab">
+                    <form>
+                      <div class="form-group">
+                        <select id="publisherEntitiesSelect" required class="form-control">
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="publisherTopic" style="margin-bottom: 0">Topic UUID</label>
+                        <input type="text" class="form-control" id="publisherTopic" readonly>
+                      </div>
+                      <div class="alert alert-info">
+                        <strong>NB!</strong> Send this UUID to your clients who wish to subscribe to your data
+                      </div>
+                      <div class="form-group">
+                        <textarea class="form-control" id="publisherDescription" rows="3"
+                                  placeholder="Publisher Description" required></textarea>
+                      </div>
+                    </form>
+                    <div style="display: flex; justify-content: center" class="query-builder-div">
+                      <query-builder></query-builder>
+                    </div>
                   </div>
-                  <div class="alert alert-info">
-                    <strong>NB!</strong> Send this UUID to your clients who wish to subscribe to your data
+                  <div class="tab-pane fade" id="nav-add-publisher-query-builder-content" role="tabpanel"
+                       aria-labelledby="nav-add-publisher-properties-tab">
+                    <div class="card">
+                      <ul>
+                        <li>
+                          test1
+                        </li>
+                        <li>
+                          test2
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <textarea class="form-control" id="publisherDescription" rows="3"
-                              placeholder="Publisher Description" required></textarea>
-                  </div>
-                </form>
-              </div>
-              <div style="display: flex; justify-content: center" class="query-builder-div">
-                <query-builder></query-builder>
+                </div>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
                 <button type="submit" class="btn btn-primary" click.trigger="publisherPostRequest()"
@@ -194,55 +255,86 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="modal fade" id="editPublisher" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">EDIT PUBLISHER</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="editPublisherName"
-                           readonly>
+          <div class="modal fade" id="editPublisher" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">EDIT PUBLISHER</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <nav style="margin-bottom: 15px">
+                    <div class="nav nav-tabs" id="nav-tab-edit-publisher" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-edit-publisher-query-builder-tab" data-toggle="tab"
+                         href="#nav-edit-publisher-properties-content" role="tab"
+                         aria-controls="nav-edit-publisher-properties-content"
+                         aria-selected="true">Query Builder</a>
+                      <a class="nav-item nav-link" id="nav-edit-publisher-properties-tab" data-toggle="tab"
+                         href="#nav-edit-publisher-query-builder-content"
+                         role="tab" aria-controls="nav-edit-publisher-query-builder-content" aria-selected="false">Object
+                        Properties</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-edit-publisher">
+                    <div class="tab-pane fade show active" id="nav-edit-publisher-properties-content" role="tabpanel"
+                         aria-labelledby="nav-edit-publisher-query-builder-tab">
+                      <form>
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="OFBIZ Entity Name" id="editPublisherName"
+                                 readonly>
+                        </div>
+                        <div class="form-group">
+                          <label for="publisherTopic" style="margin-bottom: 0">Topic UUID</label>
+                          <input type="text" class="form-control" id="editPublisherTopic" readonly>
+                        </div>
+                        <div class="alert alert-info">
+                          <strong>NB!</strong> Send this UUID to your clients who wish to subscribe to your data
+                        </div>
+                        <div class="form-group">
+                      <textarea class="form-control" id="editPublisherDescription" rows="3"
+                                placeholder="Publisher Description" required></textarea>
+                        </div>
+                      </form>
+
+                      <div style="display: flex; justify-content: center" class="query-builder-div">
+                        <query-builder></query-builder>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-edit-publisher-query-builder-content" role="tabpanel"
+                         aria-labelledby="nav-edit-publisher-properties-tab">
+                      <div class="card">
+                        <ul>
+                          <li>
+                            test1
+                          </li>
+                          <li>
+                            test2
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="publisherTopic" style="margin-bottom: 0">Topic UUID</label>
-                    <input type="text" class="form-control" id="editPublisherTopic" readonly>
-                  </div>
-                  <div class="alert alert-info">
-                    <strong>NB!</strong> Send this UUID to your clients who wish to subscribe to your data
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control" id="editPublisherDescription" rows="3"
-                              placeholder="Publisher Description" required></textarea>
-                  </div>
-                </form>
-              </div>
-              <div style="display: flex; justify-content: center" class="query-builder-div">
-                <query-builder></query-builder>
-              </div>
-              <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="publisherPutRequest()"
-                        data-dismiss="modal">Submit
-                </button>
+                </div>
+                <div class="modal-footer" style="margin-top: 20px">
+                  <button type="submit" class="btn btn-primary" click.trigger="publisherPutRequest()"
+                          data-dismiss="modal">Submit
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="modal fade" id="showGeneratedBrokerKey" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">ADD SUBSCRIBER</h5>
-              </div>
-              <div class="modal-body">
+            <div class="modal fade" id="showGeneratedBrokerKey" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">ADD SUBSCRIBER</h5>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
