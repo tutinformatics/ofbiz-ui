@@ -1,32 +1,32 @@
 import '../general/affGeneral.scss';
-import { bindable, inject } from 'aurelia-framework';
+import { inject } from "aurelia-dependency-injection";
+import { Store } from "aurelia-store";
 import { AffManagerService } from "../../services/affManagerService";
 
-@inject(AffManagerService)
+@inject(Store, AffManagerService)
 export class PendingMember {
 
-  @bindable partnerStatus;
+  partnerStatus;
 
-  constructor(affManagerService) {
-    this.affManagerService = affManagerService;
+  constructor(store, affManagerService) {
     this.currentPage = 'Become-Partner';
     this.opened = false;
-    this.getStatus()
+    this.store = store;
+    this.affManagerService = affManagerService;
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.state = state;
+      }
+    );
+    this.checkStatus()
   }
 
-  async getStatus() {
-    const response = await this.affManagerService.pendingPartnersRequest();
-    if (response.ok) {
-      response.json().then((response) => {
-          const unconfirmed = response.filter(
-            partner => partner['partyId'] === "admin"
-          );
-          if (unconfirmed.length > 0) {
-            this.partnerStatus = 'PENDING'
-          }
-        }
-      )
-    }
+  unbind() {
+    this.subscription.unsubscribe();
+  }
+
+  async checkStatus() {
+    this.partnerStatus= await this.affManagerService.getAffiliateStatus(this.state.partyId)
   }
 
 }

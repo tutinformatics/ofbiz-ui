@@ -53,7 +53,7 @@ export class AffManager {
           } else if (affStatus === 'ACTIVE') {
             this.authorized = 'MEMBER'
           } else if (affStatus === 'NOT-PARTNER') {
-            this.affiliateStatus = 'NONE';
+            this.affiliateStatus = 'NOT-PARTNER';
             this.authorized = 'PENDING'
           }
         }
