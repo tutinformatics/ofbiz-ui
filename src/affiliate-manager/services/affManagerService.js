@@ -1,8 +1,9 @@
-import { inject } from "aurelia-framework";
-import { json } from "aurelia-fetch-client";
-import { Store } from "aurelia-store";
-import { setPartyId } from "../../store/store";
-import { HttpService } from "./httpService";
+import {inject} from "aurelia-framework";
+import {json} from "aurelia-fetch-client";
+import {Store} from "aurelia-store";
+import {setPartyId} from "../../store/store";
+import {HttpService} from "./httpService";
+import {AureliaCookie} from "aurelia-cookie";
 
 @inject(HttpService, Store)
 export class AffManagerService {
@@ -34,7 +35,7 @@ export class AffManagerService {
                 "status": "PENDING"
               },
               "fieldList": ["partyId", "createdStamp"],
-              "entityRelations" : {
+              "entityRelations": {
                 "_toOne_Person": {
                   "fieldList": ["lastName", "firstName"]
                 }
@@ -96,7 +97,7 @@ export class AffManagerService {
                 "status": "ACTIVE"
               },
               "fieldList": ["partyId", "createdStamp", "status"],
-              "entityRelations" : {
+              "entityRelations": {
                 "_toOne_Person": {
                   "fieldList": ["lastName", "firstName"]
                 }
@@ -112,17 +113,29 @@ export class AffManagerService {
   }
 
   async becomeAffPartner() {
+    AureliaCookie.set('affCode', '10', {
+      expiry: 1, // Expiry in hours, -1 for never expires or minimum 1 for one hour, 2 for two hours and so
+      path: '', // Specify cookie path
+      domain: '', // Domain restricted cookie
+      secure: false // Either true or false
+    });
+    console.log(AureliaCookie.get('affCode'));
+    console.log('---------------------------------------------------');
     return await this.httpService.httpClient
       .fetch(
         "generic/v1/services/createMultiLvlAffiliate",
         {
           method: "POST",
           body: JSON.stringify(
-            {"partyId": this.state.partyId}
+            {
+              "partyId": this.state.partyId,
+              "affCode": AureliaCookie.get('affCode')
+            }
           ),
         }
       );
   }
+
 
   async fetchPartyId() {
     try {

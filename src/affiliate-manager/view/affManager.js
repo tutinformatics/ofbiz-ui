@@ -1,8 +1,9 @@
-import { Store } from "aurelia-store";
-import { inject } from "aurelia-dependency-injection";
-import { AffManagerService } from "../services/affManagerService";
-import { observable } from "aurelia-binding";
-import {AureliaCookie} from "aurelia-cookie";@inject(AffManagerService, Store)
+import {Store} from "aurelia-store";
+import {inject} from "aurelia-dependency-injection";
+import {AffManagerService} from "../services/affManagerService";
+import {observable} from "aurelia-binding";
+
+@inject(AffManagerService, Store)
 
 export class AffManager {
 
@@ -32,8 +33,6 @@ export class AffManager {
   activate(parameters) {
     this.view = parameters.view;
     this.authorizeMe();
-    this.checkCookies();
-
   }
 
   async authorizeMe() {
@@ -81,13 +80,6 @@ export class AffManager {
       return true;
     } else {
       return false;
-    }
-  }
-
-
-  checkCookies() {
-    if (AureliaCookie.get('affCode') != null){
-      AffManagerService.becomeSubPartner();
     }
   }
 

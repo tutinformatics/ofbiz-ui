@@ -1,7 +1,7 @@
 import "./becomePartner.scss"
-import { inject } from 'aurelia-framework';
-import { bindable } from "aurelia-templating";
-import { AffManagerService } from "../../../services/affManagerService";
+import {inject} from 'aurelia-framework';
+import {bindable} from "aurelia-templating";
+import {AffManagerService} from "../../../services/affManagerService";
 
 @inject(AffManagerService)
 export class BecomePartner {
@@ -24,6 +24,7 @@ export class BecomePartner {
     }
     this.setBecomePartnerError(true);
   }
+
 
   setBecomePartnerError(value) {
     this.becomePartnerError = value;
