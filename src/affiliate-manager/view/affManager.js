@@ -86,8 +86,8 @@ export class AffManager {
 
 
   checkCookies() {
-    if (AureliaCookie.get('affCode') === null){
-
+    if (AureliaCookie.get('affCode') != null){
+      AffManagerService.becomeSubPartner();
     }
   }
 
