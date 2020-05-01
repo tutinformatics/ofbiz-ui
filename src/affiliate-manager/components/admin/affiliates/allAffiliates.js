@@ -2,15 +2,18 @@ import "./allAffiliates.scss"
 import { inject } from 'aurelia-framework';
 import moment from 'moment';
 import { AffManagerService } from "../../../services/affManagerService";
+import {SingleAffiliate} from '../../general/af-detailed-modal/singleAffiliate';
+import {DialogService} from "aurelia-dialog";
 
-@inject(AffManagerService)
+@inject(DialogService, AffManagerService)
 export class allAffiliates {
 
   filteredValues = [];
   allAffiliatePartners = [];
   allAffiliatesOptions;
 
-  constructor(affManagerService) {
+  constructor(dialogService, affManagerService) {
+    this.dialogService = dialogService;
     this.affManagerService = affManagerService;
     this.allAffiliatesOptions = this.getAffiliatesOptions();
     this.fetchAffiliatePartners();
@@ -76,4 +79,11 @@ export class allAffiliates {
     }
   }
 
+  manageAffiliate(partner) {
+    const isAdmin = true;
+    this.dialogService.open({
+      viewModel: SingleAffiliate
+      , model: {partner, isAdmin}
+    });
+  }
 }
