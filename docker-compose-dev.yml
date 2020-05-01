@@ -7,6 +7,5 @@ services:
       context: ./proxy
       dockerfile: Dockerfile-dev
     restart: unless-stopped
-    network_mode: "host"
     ports:
       - "80:80"
