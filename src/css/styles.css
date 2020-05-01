@@ -53,3 +53,7 @@ ul.custom-pagination li a.disabled {
 .row {
   margin: 1% 1% 1% 0%;
 }
+
+.object-dist-properties-list-element {
+  list-style-type: none;
+}

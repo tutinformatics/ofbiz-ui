@@ -165,8 +165,11 @@ export class ObjectDist {
         const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isPublisher) {
           queryBuilders[2].fields = customFields;
+          this.populateSubscriberPublisherPropertiesField(isPublisher, data);
         } else {
           queryBuilders[0].fields = customFields;
+          this.populateSubscriberPublisherPropertiesField(isPublisher, data);
+          console.log(data);
         }
       });
   }
@@ -180,6 +183,46 @@ export class ObjectDist {
         this.fetchOfbizEntityFields(false);
         this.fetchOfbizEntityFields(true);
       });
+  }
+
+  populateSubscriberPublisherPropertiesField(isPublisher, data) {
+    let listElement = document.getElementById("add-subscribers-properties-list");
+    listElement.innerHTML = '';
+    for (let field of data) {
+      let listEntry = document.createElement("li");
+      listEntry.className = "object-dist-properties-list-element";
+      listEntry.id = isPublisher + " " + field.name;
+
+      let inputGroup = document.createElement("div");
+      inputGroup.className = "input-group mb-3";
+
+      let headerText = document.createElement("h1");
+      headerText.className = "form-control";
+      headerText.innerHTML = toWords(field.name);
+
+      let inputGroupPrebend = document.createElement("div");
+      inputGroupPrebend.className = "input-group-prepend";
+
+      let inputGroupText = document.createElement("div")
+      inputGroupText.className = "input-group-text";
+
+      let checkboxInput = document.createElement("input");
+      checkboxInput.type = "checkbox";
+
+      listEntry.appendChild(inputGroup);
+      inputGroup.appendChild(headerText);
+      inputGroup.appendChild(inputGroupPrebend);
+      inputGroupPrebend.appendChild(inputGroupText);
+      inputGroupText.appendChild(checkboxInput);
+      listElement.appendChild(listEntry);
+
+      let asd = {
+        label: toWords(field.name),
+        dataField: field.name,
+        dataType: this.dataTypeMapping[field.type],
+        filterOperations: ["="] // ONLY "EQUALS" OPERATOR AVAILABLE
+      };
+    }
   }
 
   populateSubscriberEntitiesDropdown(data) {
