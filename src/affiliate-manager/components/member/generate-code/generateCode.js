@@ -14,6 +14,9 @@ export class GenerateCode {
     this.affManagerService = affManagerService;
     this.affiliateCodeOptions = this.getAffiliateCodeOptions();
     this.productCategories = this.getProductCategories();
+  }
+
+  async attached() {
     this.getAffiliateCodes();
   }
 
@@ -65,21 +68,13 @@ export class GenerateCode {
 
   async getAffiliateCodes() {
     const responseData = await this.affManagerService.getAffiliateCodesRequest();
+    const localAffiliateCodes = [];
     responseData['affiliateDTOs'].forEach(code =>
-      this.affiliateCodes.push(
+      localAffiliateCodes.push(
         this.parseCode(code)
       )
     );
-    this.affiliateCodes.push(
-      {
-        "code": "1472603",
-        "dateOfCreation": "22-03-2020",
-        "status": "Active",
-        "expirationDate": "22-03-2022",
-        "category": "Electronics",
-        "isDefault": false,
-      },
-    );
+    this.affiliateCodes = localAffiliateCodes;
     this.filteredAffiliateCodes = this.affiliateCodes;
   }
 

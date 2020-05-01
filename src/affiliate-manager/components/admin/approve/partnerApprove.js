@@ -7,25 +7,27 @@ export class partnerApprove {
 
   pendingPartners = [];
   filteredValues = [];
-  networkError;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
     this.affApproveFilterOptions = this.getAffApproveFilterOptions();
+  }
+
+  async attached() {
     this.fetchPendingPartners();
   }
 
   async fetchPendingPartners() {
     const responseData = await this.affManagerService.pendingPartnersRequest();
+    const localPendingPartners = [];
     if (responseData) {
       responseData.forEach(candidate =>
-        this.pendingPartners.push(
+        localPendingPartners.push(
           this.parseCandidate(candidate)
         )
       );
+      this.pendingPartners = localPendingPartners;
       this.filteredValues = this.pendingPartners;
-    } else {
-      this.networkError = true;
     }
   }
 

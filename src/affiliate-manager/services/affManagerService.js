@@ -178,9 +178,14 @@ export class AffManagerService {
           body: JSON.stringify(
             {
               "inputFields": {
-                "rootPartyId": this.state.partyId
+                "partyId": this.state.partyId
               },
-              "fieldList": ["partyId", "firstName", "lastName"]
+              "fieldList": ["partyId"],
+              "entityRelations" : {
+                "_toOne_Affiliate": {
+                  "fieldList": ["partyId", "createdStamp", "status", "RootPartyId"]
+                }
+              }
             }
           ),
         }
