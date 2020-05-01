@@ -22,8 +22,6 @@ export class SingleAffiliate {
   }
 
   getMoreInf(partner) {
-    console.log('Hello');
-    console.log(this.isAdmin);
     partner['commission'] = 24;
     partner['date'] = '22/03/2020';
     partner['affiliate_codes'] = 2;

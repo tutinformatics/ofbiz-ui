@@ -1,6 +1,6 @@
 import "../assets/scss/general-login.scss"
 import { inject } from "aurelia-framework";
-import { AuthService } from "../login/authService";
+import { AuthService } from "../services/authService";
 import "./signUp.scss"
 import { Router } from "aurelia-router";
 

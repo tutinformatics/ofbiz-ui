@@ -1,8 +1,8 @@
-import {inject} from "aurelia-framework";
-import {json} from "aurelia-fetch-client";
-import {Store} from "aurelia-store";
-import {setPartyId} from "../../store/store";
-import {HttpService} from "./httpService";
+import { inject } from "aurelia-framework";
+import { json } from "aurelia-fetch-client";
+import { Store } from "aurelia-store";
+import { setPartyId } from "../../store/store";
+import { HttpService } from "../../commons/services/httpService";
 import {AureliaCookie} from "aurelia-cookie";
 
 @inject(HttpService, Store)
@@ -35,7 +35,7 @@ export class AffManagerService {
                 "status": "PENDING"
               },
               "fieldList": ["partyId", "createdStamp"],
-              "entityRelations": {
+              "entityRelations" : {
                 "_toOne_Person": {
                   "fieldList": ["lastName", "firstName"]
                 }
@@ -97,7 +97,7 @@ export class AffManagerService {
                 "status": "ACTIVE"
               },
               "fieldList": ["partyId", "createdStamp", "status"],
-              "entityRelations": {
+              "entityRelations" : {
                 "_toOne_Person": {
                   "fieldList": ["lastName", "firstName"]
                 }
@@ -113,14 +113,6 @@ export class AffManagerService {
   }
 
   async becomeAffPartner() {
-    AureliaCookie.set('affCode', '10', {
-      expiry: 1, // Expiry in hours, -1 for never expires or minimum 1 for one hour, 2 for two hours and so
-      path: '', // Specify cookie path
-      domain: '', // Domain restricted cookie
-      secure: false // Either true or false
-    });
-    console.log(AureliaCookie.get('affCode'));
-    console.log('---------------------------------------------------');
     return await this.httpService.httpClient
       .fetch(
         "generic/v1/services/createMultiLvlAffiliate",
@@ -135,7 +127,6 @@ export class AffManagerService {
         }
       );
   }
-
 
   async fetchPartyId() {
     try {
@@ -153,6 +144,29 @@ export class AffManagerService {
       if (response.ok) {
         const responseData = await response.json();
         this.store.dispatch('setPartyId', responseData['partyId']);
+        return responseData['partyId'];
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async getAffiliateStatus(partyId) {
+    try {
+      const response = await this.httpService.httpClient
+        .fetch(
+          "generic/v1/services/getAffiliateStatus",
+          {
+            method: 'POST',
+            body: json({
+                "partyId": partyId,
+              }
+            ),
+          }
+        );
+      if (response.ok) {
+        const responseData = await response.json();
+        return responseData['status'];
       }
     } catch (e) {
       return null;

@@ -7,7 +7,6 @@ import {AffManagerService} from "../../../services/affManagerService";
 export class BecomePartner {
 
   @bindable guest;
-  affStatus;
   becomePartnerError;
   becomePartnerSuccess;
 
@@ -20,7 +19,6 @@ export class BecomePartner {
     const response = await this.affManagerService.becomeAffPartner();
     if (response && response.ok) {
       this.setBecomePartnerSuccess(true);
-      this.affStatus = 'PENDING';
       return
     }
     this.setBecomePartnerError(true);

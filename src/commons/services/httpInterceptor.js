@@ -21,7 +21,6 @@ export class HttpInterceptor {
           }
         );
       } else {
-        console.log(response);
         const responseClone = response.clone();
         const body = await responseClone.json();
         this.store.dispatch('setError',

@@ -1,10 +1,10 @@
-import {Store} from "aurelia-store";
-import {inject} from "aurelia-dependency-injection";
-import {AffManagerService} from "../services/affManagerService";
-import {observable} from "aurelia-binding";
+import { Store } from "aurelia-store";
+import { inject } from "aurelia-dependency-injection";
+import { AffManagerService } from "../services/affManagerService";
+import { observable } from "aurelia-binding";
+
 
 @inject(AffManagerService, Store)
-
 export class AffManager {
 
   @observable state;
@@ -33,6 +33,8 @@ export class AffManager {
   activate(parameters) {
     this.view = parameters.view;
     this.authorizeMe();
+    this.checkCookies();
+
   }
 
   async authorizeMe() {
@@ -40,27 +42,19 @@ export class AffManager {
       if (this.state['userLoginId'] === null) {
         this.authorized = 'GUEST';
       } else {
-        await this.affManagerService.fetchPartyId();
+        const partyId = await this.affManagerService.fetchPartyId();
         if (this.state['userLoginId'] === 'admin') {
           this.authorized = 'ADMIN';
         } else {
-          let pending = await this.affManagerService.pendingPartnersRequest();
-          if (!pending) {
-            pending = []
-          }
-          const isPending = pending.filter(partner => partner.partyId === this.state.partyId);
-          if (isPending.length > 0) {
+          const affStatus = await this.affManagerService.getAffiliateStatus(partyId);
+          if (affStatus === 'PENDING') {
             this.affiliateStatus = 'PENDING';
             this.authorized = 'PENDING'
-          } else {
-            const all = await this.affManagerService.allAffiliatesRequest();
-            const isMember = all.filter(partner => partner.partyId === this.state.partyId);
-            if (isMember.length > 0) {
-              this.authorized = 'MEMBER'
-            } else {
-              this.affiliateStatus = 'NONE';
-              this.authorized = 'PENDING'
-            }
+          } else if (affStatus === 'ACTIVE') {
+            this.authorized = 'MEMBER'
+          } else if (affStatus === 'NOT-PARTNER') {
+            this.affiliateStatus = 'NOT-PARTNER';
+            this.authorized = 'PENDING'
           }
         }
       }
