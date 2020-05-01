@@ -140,6 +140,29 @@ export class AffManagerService {
       if (response.ok) {
         const responseData = await response.json();
         this.store.dispatch('setPartyId', responseData['partyId']);
+        return responseData['partyId'];
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async getAffiliateStatus(partyId) {
+    try {
+      const response = await this.httpService.httpClient
+        .fetch(
+          "generic/v1/services/getAffiliateStatus",
+          {
+            method: 'POST',
+            body: json({
+                "partyId": partyId,
+              }
+            ),
+          }
+        );
+      if (response.ok) {
+        const responseData = await response.json();
+        return responseData['status'];
       }
     } catch (e) {
       return null;
