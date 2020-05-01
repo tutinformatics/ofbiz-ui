@@ -1,18 +1,18 @@
 import "./becomePartner.scss"
 import { inject } from 'aurelia-framework';
 import { bindable } from "aurelia-templating";
-import { AffManagerService } from "../../../service/affManagerService";
+import { AffManagerService } from "../../../services/affManagerService";
 
 @inject(AffManagerService)
 export class BecomePartner {
 
   @bindable guest;
   affStatus;
+  becomePartnerError;
+  becomePartnerSuccess;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
-    this.becomePartnerError = false;
-    this.becomePartnerSuccess = false;
   }
 
   async becomeAffPartner() {

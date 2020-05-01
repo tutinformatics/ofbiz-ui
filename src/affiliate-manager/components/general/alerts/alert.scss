@@ -1,0 +1,30 @@
+.aff-alert {
+  text-align: center;
+  transition: 0.3s all;
+  position: absolute;
+  width: 350px;
+  top: 300px;
+  left: calc(50% - 175px);
+  z-index: 1;
+}
+
+.aff-alert--hidden {
+  display: none;
+}
+
+.aff-alert__cross-icon {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,12 +1,15 @@
 import { Store } from "aurelia-store";
 import { inject } from "aurelia-dependency-injection";
-import { AffManagerService } from "../service/affManagerService";
+import { AffManagerService } from "../services/affManagerService";
+import { observable } from "aurelia-binding";
 
 @inject(AffManagerService, Store)
 export class AffManager {
 
+  @observable state;
   affiliateStatus = null;
   authorized = null;
+  showError = false;
 
   constructor(affManagerService, store) {
     this.affManagerService = affManagerService;
@@ -15,7 +18,11 @@ export class AffManager {
     this.subscription = this.store.state.subscribe(
       (state) => this.state = state
     );
-    this.authorizeMe();
+  }
+
+  stateChanged(newState) {
+    this.showError = !!newState.error.errorMessage;
+    console.log(this.showError)
   }
 
   unbind() {
@@ -23,7 +30,8 @@ export class AffManager {
   }
 
   activate(parameters) {
-    this.view = parameters.view
+    this.view = parameters.view;
+    this.authorizeMe();
   }
 
   async authorizeMe() {

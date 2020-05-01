@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-framework';
 import moment from "moment";
-import { AffManagerService } from "../../../service/affManagerService";
+import { AffManagerService } from "../../../services/affManagerService";
 
 @inject(AffManagerService)
 export class partnerApprove {

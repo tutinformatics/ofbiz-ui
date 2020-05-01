@@ -1,4 +1,5 @@
 <template>
+  <require from="../../general/alerts/alert"></require>
   <div class="aff-become-partner-img-area">
     <img
       class="aff-become-partner-img-area--img"
@@ -6,22 +7,16 @@
       alt="affiliate-life"
     >
   </div>
-  <div class.bind="!becomePartnerError? 'aff-become-partner__alert--hidden': ''" class="alert alert-danger alert-dismissible aff-become-partner__alert">
-    Something has gone wrong. Please try again
-    <button
-      class="aff-become-partner__alert-cross-icon"
-      click.trigger="setBecomePartnerError(false)">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class.bind="!becomePartnerSuccess? 'aff-become-partner__alert--hidden': ''" class="alert alert-success alert-dismissible aff-become-partner__alert aff-become-partner__alert--success" role="alert">
-    Your status is updated to pending. Check 'status' option in menu for further information
-    <button
-      class="aff-become-partner__alert-cross-icon"
-      click.trigger="setBecomePartnerSuccess(false)">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  <alert
+    is-error.two-way="becomePartnerError"
+    alert-type.one-way="'ERROR'"
+    message.one-way="'Something has gone wrong. Please try again'">
+  </alert>
+  <alert
+    is-error.two-way="becomePartnerSuccess"
+    alert-type.one-way="'SUCCESS'"
+    message.one-way="'Your status is updated to pending. Check status option in menu for further information'">
+  </alert>
   <div class="col-lg-10 mx-auto mt-n5 text-center position-relative">
     <button
       disabled.bind="guest"

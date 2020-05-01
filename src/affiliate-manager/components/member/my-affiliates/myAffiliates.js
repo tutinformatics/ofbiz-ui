@@ -3,7 +3,7 @@ import moment from "moment";
 import { DialogService } from "aurelia-dialog";
 import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
 import { inject } from "aurelia-dependency-injection";
-import { AffManagerService } from "../../../service/affManagerService";
+import { AffManagerService } from "../../../services/affManagerService";
 
 @inject(DialogService, AffManagerService)
 export class MyAffiliates {

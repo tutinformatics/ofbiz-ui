@@ -1,6 +1,6 @@
 import '../general/affGeneral.scss';
 import { bindable, inject } from 'aurelia-framework';
-import { AffManagerService } from "../../service/affManagerService";
+import { AffManagerService } from "../../services/affManagerService";
 
 @inject(AffManagerService)
 export class PendingMember {

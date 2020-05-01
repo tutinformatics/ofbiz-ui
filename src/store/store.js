@@ -1,7 +1,12 @@
 export const initialState = {
   userLoginId: localStorage.getItem('userLoginId'),
   jwtToken: localStorage.getItem('jwtToken'),
-  partyId: '',
+  partyId: null,
+  error: {
+    errorMessage: null,
+    statusCode: null,
+    statusDescription: null,
+  },
 };
 
 export const setUserLoginId = (state, userLoginId) => {
@@ -19,7 +24,14 @@ export const reset = (state) => {
   localStorage.removeItem("userLoginId");
   return Object.assign({}, state,
     {
-      jwtToken: null, userLoginId: null, partyId: null
+      jwtToken: null,
+      userLoginId: null,
+      partyId: null,
+      error: {
+        errorMessage: null,
+        statusCode: null,
+        statusDescription: null,
+      }
     }
   );
 };
@@ -28,4 +40,7 @@ export const setPartyId = (state, partyId) => {
   return Object.assign({}, state, {partyId: partyId});
 };
 
+export const setError = (state, error) => {
+  return Object.assign({}, state, {error: error})
+};
 
