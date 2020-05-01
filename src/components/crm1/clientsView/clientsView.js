@@ -44,12 +44,20 @@ export class ClientsView {
   async getAllContacts() {
     console.log('here');
     // await this.login();
-    let response = await this.http.fetch('/services/performFindList', {
+    let response = await this.http.fetch('/entityquery/PartyExport', {
         method: 'post',
         body: json({
-            "entityName": "PartyExport",
-            "noConditionFind": "Y",
-            "inputFields": {}
+          "fieldList": [
+            "lastName",
+            "firstName",
+            "emailAddress",
+            "phoneNumber",
+            "companyName",
+            "roleTypeId",
+            "address",
+            "postalCode",
+            "partyId"
+          ]
         })
       })
       .then(response => response.json())
@@ -57,18 +65,17 @@ export class ClientsView {
         alert('Error fetching clients!');
     });
 
-    let listOfContacts = response.list
-    for (let i = 0; i < listOfContacts.length; i++) {
+    for (let i = 0; i < response.length; i++) {
       let contact = new Contact(
-        listOfContacts[i].firstName,
-        listOfContacts[i].lastName,
-        listOfContacts[i].emailAddress,
-        listOfContacts[i].phoneNumber,
-        listOfContacts[i].companyName,
-        listOfContacts[i].roleTypeId,
-        listOfContacts[i].address,
-        listOfContacts[i].postalCode,
-        listOfContacts[i].partyId
+        response[i].firstName,
+        response[i].lastName,
+        response[i].emailAddress,
+        response[i].phoneNumber,
+        response[i].companyName,
+        response[i].roleTypeId,
+        response[i].address,
+        response[i].postalCode,
+        response[i].partyId
       );
       this.contacts.push(contact);
     }
