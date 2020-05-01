@@ -226,6 +226,7 @@ export class ObjectDist {
         cell3.className = 'text-center';
         let self = this;
         document.getElementById("publisher_" + content.publisherId).addEventListener('click', function (event) {
+          self.selectedEntityId = event.target.id.substring(10);
           self.httpClient.fetch('generic/v1/entities/OfbizPublisher?OfbizPublisherId=' + event.target.id.substring(10))
             .then(response => response.json())
             .then(data => {
@@ -305,21 +306,18 @@ export class ObjectDist {
   editPublisher(publisher) {
     let entity = publisher[0];
     let builder = document.querySelectorAll('smart-query-builder')[3];
-    console.log(entity);
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
+    let filterList = [];
     for (let entry in filterJson) {
-      if (filterJson.hasOwnProperty(entry)) {
-        let list = [];
-        for (let property in filterJson[entry]) {
-          if (filterJson[entry].hasOwnProperty(property)) {
-            list.push([toWords(property), "=", filterJson[entry][property][0]]);
-            list.push("and");
-          }
-        }
-        list.pop();
-        builderValues.push(list);
+      let list = [];
+      filterList = filterJson[entry];
+      for(let property in filterJson[entry]) {
+        list.push([toWords(property), "=", filterJson[entry][property][0]])
+        list.push("and");
       }
+      list.pop()
+      builderValues.push(list);
     }
     document.getElementById('editPublisherName').value = entity.OfbizEntityName;
     document.getElementById('editPublisherTopic').value = entity.topic;
@@ -406,7 +404,6 @@ export class ObjectDist {
       queryBuilder = queryBuilders[2];
     }
     let queryArray = queryBuilder.value;
-    console.log(queryArray);
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] == "object") {
@@ -447,6 +444,22 @@ export class ObjectDist {
       'filter': this.getEditFilterFromComponent(false)
     };
     this.httpClient.fetch('generic/v1/entities/OfbizSubscriber', {
+      method: 'put',
+      body: JSON.stringify(data)
+    }).then(r => {
+      this.refreshPage();
+    });
+  }
+
+  publisherPutRequest() {
+    let data = {
+      'OfbizPublisherId': this.selectedEntityId,
+      'OfbizEntityName': this.selectedEntity,
+      'topic': document.getElementById('editPublisherTopic').value,
+      'description': document.getElementById('editPublisherDescription').value,
+      'filter': this.getEditFilterFromComponent(true)
+    };
+    this.httpClient.fetch('generic/v1/entities/OfbizPublisher', {
       method: 'put',
       body: JSON.stringify(data)
     }).then(r => {
