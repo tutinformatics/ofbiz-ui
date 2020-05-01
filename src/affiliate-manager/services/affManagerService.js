@@ -2,7 +2,7 @@ import { inject } from "aurelia-framework";
 import { json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
 import { setPartyId } from "../../store/store";
-import { HttpService } from "./httpService";
+import { HttpService } from "../../commons/services/httpService";
 
 @inject(HttpService, Store)
 export class AffManagerService {

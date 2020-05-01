@@ -9,6 +9,7 @@ import "./navbar.scss"
 
 @inject(Router, EventAggregator, MenuItemsService, Store)
 export class Navbar {
+
   constructor(router, ea, menuItemsService,store) {
     this.store = store;
     this.store.registerAction('reset', reset);

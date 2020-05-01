@@ -21,21 +21,23 @@ export class allAffiliates {
 
   async fetchAffiliatePartners() {
     const responseData = await this.affManagerService.allAffiliatesRequest();
-    responseData.forEach(partner =>
+    if (responseData) {
+      responseData.forEach(partner =>
+        this.allAffiliatePartners.push(
+          this.parsePartner(partner)
+        )
+      );
       this.allAffiliatePartners.push(
-        this.parsePartner(partner)
-      )
-    );
-    this.allAffiliatePartners.push(
-      {
-        "firstName": "Nikita",
-        "lastName": "Ojamae",
-        "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
-        "email": "122@gmail.com",
-        "status": "ACTIVE"
-      },
-    );
-    this.filteredValues = this.allAffiliatePartners
+        {
+          "firstName": "Nikita",
+          "lastName": "Ojamae",
+          "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
+          "email": "122@gmail.com",
+          "status": "ACTIVE"
+        },
+      );
+      this.filteredValues = this.allAffiliatePartners
+    }
   }
 
   getAffiliatesOptions() {

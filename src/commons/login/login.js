@@ -2,7 +2,7 @@ import "./login.scss"
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { ValidationControllerFactory, ValidationRules } from "aurelia-validation";
-import { AuthService } from "./authService";
+import { AuthService } from "../services/authService";
 
 @inject(Router, ValidationControllerFactory, AuthService)
 export class Login {

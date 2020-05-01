@@ -22,7 +22,6 @@ export class AffManager {
 
   stateChanged(newState) {
     this.showError = !!newState.error.errorMessage;
-    console.log(this.showError)
   }
 
   unbind() {
