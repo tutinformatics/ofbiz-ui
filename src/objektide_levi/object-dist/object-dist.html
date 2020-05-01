@@ -61,19 +61,17 @@
               </div>
               <div class="modal-body">
                 <nav style="margin-bottom: 15px">
-                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <div class="nav nav-tabs" id="nav-tab-add-subscriber" role="tablist">
                     <a class="nav-item nav-link active" id="nav-add-subscriber-query-builder-tab" data-toggle="tab"
                        href="#nav-add-subscriber-properties-content" role="tab"
                        aria-controls="nav-add-subscriber-properties-content"
                        aria-selected="true">Query Builder</a>
                     <a class="nav-item nav-link" id="nav-add-subscriber-properties-tab" data-toggle="tab"
                        href="#nav-add-subscriber-query-builder-content"
-                       role="tab" aria-controls="nav-add-subscriber-query-builder-content" aria-selected="false">Object
-                      Properties</a>
+                       role="tab" aria-controls="nav-add-subscriber-query-builder-content" aria-selected="false">Object Properties</a>
                   </div>
                 </nav>
                 <div class="tab-content" id="nav-add-subscriber">
-
                   <div class="tab-pane fade show active" id="nav-add-subscriber-properties-content" role="tabpanel"
                        aria-labelledby="nav-add-subscriber-query-builder-tab">
                     <form>
@@ -96,10 +94,20 @@
 
                   <div class="tab-pane fade" id="nav-add-subscriber-query-builder-content" role="tabpanel"
                        aria-labelledby="nav-add-subscriber-properties-tab">
-                    <h1>hello world</h1>
+                    <div class="card">
+                      <ul>
+                        <li>
+                          test1
+                        </li>
+                        <li>
+                          test2
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <div class="modal-footer" style="margin-top: 20px">
                 <button type="submit" class="btn btn-primary" click.trigger="subscriberPostRequest()"
                         data-dismiss="modal">Submit
