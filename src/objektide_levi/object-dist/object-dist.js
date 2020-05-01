@@ -169,7 +169,6 @@ export class ObjectDist {
         } else {
           queryBuilders[0].fields = customFields;
           this.populateSubscriberPublisherPropertiesField(isPublisher, data);
-          console.log(data);
         }
       });
   }
@@ -187,6 +186,9 @@ export class ObjectDist {
 
   populateSubscriberPublisherPropertiesField(isPublisher, data) {
     let listElement = document.getElementById("add-subscribers-properties-list");
+    if (isPublisher) {
+      // listElement = document.getElementById("add-publishers-properties-list");
+    }
     listElement.innerHTML = '';
     for (let field of data) {
       let listEntry = document.createElement("li");
@@ -215,13 +217,6 @@ export class ObjectDist {
       inputGroupPrebend.appendChild(inputGroupText);
       inputGroupText.appendChild(checkboxInput);
       listElement.appendChild(listEntry);
-
-      let asd = {
-        label: toWords(field.name),
-        dataField: field.name,
-        dataType: this.dataTypeMapping[field.type],
-        filterOperations: ["="] // ONLY "EQUALS" OPERATOR AVAILABLE
-      };
     }
   }
 
@@ -532,5 +527,36 @@ export class ObjectDist {
       }
     }
     return JSON.stringify(filters);
+  }
+
+  formCheck(index) {
+    let faulty = false;
+    let form = document.forms[index];
+    console.log(document.forms);
+    for (let input in form) {
+      if (form.hasOwnProperty(input)) {
+        if (form[input].required && ((form[input].type == "text" || form[input].type == "textarea") && form[input].value == "")) {
+          faulty = true;
+        }
+      }
+    }
+    if (faulty) {
+      alert("Please Fill The Fields");
+    } else {
+      switch (index) {
+        case 0:
+          this.subscriberPostRequest();
+          break;
+        case 1:
+          this.subscriberPutRequest();
+          break
+        case 2:
+          this.publisherPostRequest();
+          break;
+        case 3:
+          this.publisherPutRequest();
+          break
+      }
+    }
   }
 }

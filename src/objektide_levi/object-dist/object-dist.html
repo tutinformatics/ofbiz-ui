@@ -98,35 +98,16 @@
                     <div class="alert alert-info">
                       Select The Fields Which <strong>CANNOT</strong> Be Overridden
                     </div>
-                    <ul class="list-group" id="add-subscribers-properties-list">
-                      <li class="object-dist-properties-list-element">
-                        <div class="input-group mb-3">
-                          <h1 class="form-control" aria-label="Text input with checkbox">DATA_FIELD_1</h1>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li style="list-style-type: none;">
-                        <div class="input-group mb-3">
-                          <h1 class="form-control" aria-label="Text input with checkbox">DATA_FIELD_2</h1>
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+                    <div style="overflow-y: scroll; overflow-x: hidden; height: 275px;">
+                      <ul class="list-group" id="add-subscribers-properties-list">
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="subscriberPostRequest()"
-                        data-dismiss="modal">Submit
+                <button type="submit" class="btn btn-primary" click.trigger="formCheck(0)" data-dismiss="modal">Submit
                 </button>
               </div>
             </div>
@@ -164,7 +145,7 @@
                 <query-builder id="editSubscriberBuilder"></query-builder>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="subscriberPutRequest()"
+                <button type="submit" class="btn btn-primary" click.trigger="formCheck(1)"
                         data-dismiss="modal">Submit
                 </button>
               </div>
@@ -204,7 +185,7 @@
                 <query-builder></query-builder>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="publisherPostRequest()"
+                <button type="submit" class="btn btn-primary" click.trigger="formCheck(2)"
                         data-dismiss="modal">Submit
                 </button>
               </div>
@@ -244,7 +225,7 @@
                 <query-builder></query-builder>
               </div>
               <div class="modal-footer" style="margin-top: 20px">
-                <button type="submit" class="btn btn-primary" click.trigger="publisherPutRequest()"
+                <button type="submit" class="btn btn-primary" click.trigger="formCheck(3)"
                         data-dismiss="modal">Submit
                 </button>
               </div>
