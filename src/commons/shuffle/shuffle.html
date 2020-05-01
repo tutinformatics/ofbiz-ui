@@ -1,8 +1,14 @@
 <template>
   <require from="./button-icon"></require>
-  <div id="shuffle-menu" class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1" reorderable-repeat.for="s of stringArray">
-      <button-icon elem-name="${s}"></button-icon>
+  <div
+    id="shuffle-menu"
+    class="icon-wrapper d-inline-block text-center rounded border-primary bg-secondary text-white m-1"
+    reorderable-repeat.for="product of products"
+  >
+    <button-icon
+      elem-name.bind="product.name"
+      click.trigger="handleSelect(product)"
+    >
+    </button-icon>
   </div>
-
-
 </template>

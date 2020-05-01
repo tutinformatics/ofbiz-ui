@@ -7,34 +7,25 @@ import 'font-awesome/css/font-awesome.css';
 import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
+import { initialState } from "./store/store";
 
 
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin(PLATFORM.moduleName('aurelia-fontawesome'));
-
-  aurelia.use
-    .developmentLogging(environment.debug ? 'debug' : 'warn');
-
-  aurelia.use
-    .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'));
-
-  aurelia.use
-    .standardConfiguration()
-    .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
-    .developmentLogging();
-
-  aurelia.use
-    .standardConfiguration()
     .developmentLogging()
-    .plugin(PLATFORM.moduleName('au-table'));
-
-  aurelia.use
     .globalResources([
       PLATFORM.moduleName('commons/converters/status-badge'),
       PLATFORM.moduleName('commons/converters/status')
-    ]);
+    ])
+    .plugin(PLATFORM.moduleName('aurelia-fontawesome'))
+    .plugin(PLATFORM.moduleName('aurelia-dialog'))
+    .plugin(PLATFORM.moduleName('aurelia-validation'))
+    .plugin(PLATFORM.moduleName('aurelia-store'),
+      {initialState})
+    .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'))
+    .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
+    .plugin(PLATFORM.moduleName('au-table'));
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
