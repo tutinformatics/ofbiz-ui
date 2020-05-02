@@ -61,5 +61,7 @@ export class ComplexView {
       );
       this.contacts.push(contact);
     }
+    this.ea.publish("party", response)
   }
+
 }

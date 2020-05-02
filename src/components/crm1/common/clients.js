@@ -12,93 +12,18 @@ export class Clients {
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
+    ea.subscribe("party", payload => {
+      this.contacts = payload
+    })
     this.router = router;
-    this.contacts = [];
     this.simpleView = true;
     this.view = "Card View"
   }
 
-  async attached() {
-    await this.getAllContacts()
-  }
 
-  async getAllContacts() {
-    console.log('here');
-    // await this.login();
-    let response = await this.http.fetch('/entityquery/PartyExport', {
-      method: 'post',
-      body: json({
-        "fieldList": [
-          "lastName",
-          "firstName",
-          "emailAddress",
-          "phoneNumber",
-          "companyName",
-          "roleTypeId",
-          "address",
-          "postalCode",
-          "partyId"
-        ]
-      })
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
-
-    for (let i = 0; i < response.length; i++) {
-      let contact = new Contact(
-        response[i].firstName,
-        response[i].lastName,
-        response[i].emailAddress,
-        response[i].phoneNumber,
-        response[i].companyName,
-        response[i].roleTypeId,
-        response[i].address,
-        response[i].postalCode,
-        response[i].partyId
-      );
-      this.contacts.push(contact);
-    }
-  }
-
-  getClientInformation(contact) {
-    this.router.navigateToRoute('customerInfoPage', {id: contact.partyId})
-  }
-
-  async addContact(contact) {
-    let response = await this.http.fetch('/services/createContact', {
-      method: 'post',
-      body: json({
-        "userLoginId": "admin",
-        "firstName": contact.firstName,
-        "lastName": contact.lastName,
-        "emailAddress": contact.email,
-        "contactNumber": contact.phoneNumber,
-        "address1": contact.companyAddress,
-        "city": contact.companyAddress,
-        "postalCode": contact.postalCode,
-      })
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
-    console.log(response)
-    console.log(contact)
-    let person = new Contact(
-      contact.firstName,
-      contact.lastName,
-      contact.email,
-      contact.phoneNumber,
-      contact.companyName,
-      contact.position,
-      contact.companyAddress,
-      contact.postalCode,
-      contact.partyId
-    );
-
-    this.contacts.push(person) // for testing
+  chooseContact(contact) {
+    console.log(contact);
+    this.ea.publish("contactChosen", contact);
   }
 
   toggleView() {

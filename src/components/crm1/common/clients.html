@@ -1,6 +1,5 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <require from="../common/clientsElement"></require>
   <require from="../common/addClient"></require>
   <div class="card shadow">
     <div class="card-header p-0 text-center">
@@ -12,10 +11,28 @@
         <ul class="list-group list-group-flush" style="max-height: 74vh;">
           <div repeat.for="contact of contacts">
 
-            <clients-element>
-              <div slot="firstName">${ contact.firstName}</div>
-              <div slot="lastName">${ contact.lastName}</div>
-            </clients-element>
+
+            <li  class="list-group-item p-0 text-left">
+
+              <div class="card rounded-0 m-0">
+                <div class="row no-gutters">
+                  <div class="col-5">
+                    <img src="../img/avatar.png" click.delegate="chooseContact(contact)" class="card-img d-inline-block m-0 mx-3"
+                         style="width: 60px; height: 60px; border-radius: 50%" alt="..." >
+                  </div>
+                  <div class="col-7">
+                    <div class="card-body no-gutters text-sm-center text-md-left p-0 pt-2 m-0 d-inline-block text-truncate">
+                        <h6 class="text-truncate">${contact.firstName}</h6>
+                        <h6 class="text-truncate">${contact.lastName}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </li>
+
+
           </div>
 
 

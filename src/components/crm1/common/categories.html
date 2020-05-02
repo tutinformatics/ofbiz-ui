@@ -10,9 +10,29 @@
       <div class="scrollbar scrollbar-primary m-0">
         <div class="force-overflow"></div>
 
-      <ul class="list-group list-group-flush" style="max-height: 78vh;">
+      <ul class="list-group list-group-flush" style="max-height: 74vh;">
         <div repeat.for="category of categories">
-          <category-element></category-element>
+
+            <div class="card m-0 rounded-0" onclick="">
+
+              <div class="panel-group">
+                <div class="panel panel-default m-0 p-2">
+                  <div class="panel-heading">
+                    <h6 class="panel-title">
+                      <a class="text-decoration-none" data-toggle="collapse" href="#${category.value}">Category</a>
+                    </h6>
+                  </div>
+                  <div id="${category.value}" class="panel-collapse collapse">
+                    <ul class="list-group">
+                      <li class="list-group-item p-0">One</li>
+                      <li class="list-group-item p-0">Two</li>
+                      <li class="list-group-item p-0">Three</li>
+                    </ul>
+                    <!--          <div class="panel-footer">Footer</div>-->
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
 
       </ul>

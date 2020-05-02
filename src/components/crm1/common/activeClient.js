@@ -2,9 +2,30 @@ import {clientQuickAction} from './complexViewClient/clientQuickAction';
 import {clientContactOption} from './complexViewClient/clientContactOption';
 import {clientSaleOption} from './complexViewClient/clientSaleOption';
 import {clientDocumentOption} from './complexViewClient/clientDocumentOption';
+import {inject} from "aurelia-dependency-injection";
+import {EventAggregator} from "aurelia-event-aggregator";
+import {HttpClientCRM} from "../../../commons/util/HttpClientCRM";
+import {Router} from "aurelia-router";
 
+@inject(EventAggregator, HttpClientCRM, Router)
 export class ActiveClient {
-  constructor() {
+  constructor(ea, http, router) {
+    this.ea = ea;
+    this.http = http.http;
+
+    this.firstName = "Billy";
+    this.lastName = "Herrington";
+    ea.subscribe("contactChosen", payload => {
+      this.chosenContact = payload
+      this.firstName = this.chosenContact.firstName;
+      this.lastName = this.chosenContact.lastName;
+      console.log(this.chosenContact);
+    })
+
+    this.router = router;
+    this.simpleView = true;
+    this.view = "Card View"
+
     this.quickActionOptions = [new clientQuickAction("Call"),
       new clientQuickAction("Invoices"),
       new clientQuickAction("Notes"),

@@ -2,10 +2,11 @@ import {CategoryElement} from "./categoryElement";
 
 export class Categories {
   constructor() {
-    this.categories = [new CategoryElement("Call"),
-      new CategoryElement("Invoices"),
-      new CategoryElement("Notes"),
-      new CategoryElement("Edit"),
-      new CategoryElement("Add")];
+    this.categories = [new CategoryElement("asd"),
+      new CategoryElement("fdg"),
+      new CategoryElement("dfg"),
+      new CategoryElement("saddfgvb"),
+      new CategoryElement("v")];
   }
+
 }
