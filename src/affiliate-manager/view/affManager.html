@@ -2,14 +2,8 @@
   <require from="../containers/guest/guest"></require>
   <require from="../containers/member/member"></require>
   <require from="../containers/admin/admin"></require>
-  <require from="../components/general/alerts/alert"></require>
   <require from="../containers/pending-member/pendingMember"></require>
   <div>
-    <alert
-      is-error.two-way="showError"
-      alert-type.one-way="'ERROR'"
-      message.one-way="state.error.errorMessage">
-    </alert>
     <guest if.bind="authorized === 'GUEST'"></guest>
     <member if.bind="authorized === 'MEMBER'"></member>
     <admin if.bind="authorized === 'ADMIN'"></admin>

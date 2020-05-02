@@ -21,7 +21,7 @@ export class SignUp {
     if (this.password !== '' && this.password === this.repeatPassword && this.userLoginId !== '') {
       const response = await this.authService.signUpRequest(this.userLoginId, this.password, this.repeatPassword);
       if (response) {
-        this.router.navigate("#/login")
+        this.router.navigate("/")
       } else {
         this.formError = true
       }

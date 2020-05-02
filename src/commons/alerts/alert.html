@@ -1,0 +1,12 @@
+<template>
+  <div class.bind="!isError? 'aff-alert--hidden':
+  alertType === 'ERROR'? 'alert-danger': 'alert-success'"
+       class="alert alert-dismissible aff-alert">
+    ${message}
+    <button
+      class="aff-alert__cross-icon"
+      click.trigger="setError(false)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</template>

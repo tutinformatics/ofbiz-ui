@@ -47,7 +47,7 @@ export class Navbar {
 
   logOut() {
     this.store.dispatch('reset');
-    this.navigateTo('#/login');
+    this.navigateTo('/');
   }
 
   navigateTo(path) {

@@ -1,11 +1,13 @@
 import {Store} from "aurelia-store";
 import {inject} from "aurelia-dependency-injection";
 import {setError} from "../../store/store";
+import { Router } from "aurelia-router";
 
-@inject(Store)
+@inject(Store, Router)
 export class HttpInterceptor {
 
-  constructor(store) {
+  constructor(store, router) {
+    this.router = router;
     this.store = store;
     this.store.registerAction('setError', setError);
   }
@@ -31,6 +33,14 @@ export class HttpInterceptor {
           }
         );
       }
+    } else  {
+      this.store.dispatch('setError',
+        {
+          errorMessage: null,
+          statusCode: null,
+          statusDescription: null
+        }
+      );
     }
     return response;
   }

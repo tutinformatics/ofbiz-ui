@@ -7,8 +7,7 @@ import { HttpInterceptor } from "./httpInterceptor";
 @inject(HttpClient, Store, HttpInterceptor)
 export class HttpService {
 
-  @observable state;
-  error;
+  @observable token;
 
   constructor(httpClient, store, httpInterceptor) {
     this.httpClient = httpClient;
@@ -16,7 +15,7 @@ export class HttpService {
     this.httpInterceptor = httpInterceptor;
     this.subscription = this.store.state.subscribe(
       (state) => {
-        this.state = state;
+        this.token = state.jwtToken;
       }
     );
   }
@@ -25,14 +24,13 @@ export class HttpService {
     this.subscription.unsubscribe();
   }
 
-  stateChanged(newState) {
+  tokenChanged(newState) {
     this.httpClient.configure(config => {
         config
-          .withBaseUrl('api/')
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${newState.jwtToken}`
+                'Authorization': `Bearer ${newState}`
               }
             }
           )

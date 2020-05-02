@@ -22,7 +22,6 @@ export class GlobalSettings {
   }
 
   async attached() {
-    console.log("here")
     this.fetchCategories()
   }
 

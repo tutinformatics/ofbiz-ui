@@ -41,7 +41,7 @@ export class Login {
     if (this.controller.errors.length === 0) {
       const isSuccessful = await this.authService.loginAttempt(this.username, this.password);
       if (isSuccessful) {
-        this.router.navigate("/");
+        this.router.navigate("/select");
         return
       }
     }
