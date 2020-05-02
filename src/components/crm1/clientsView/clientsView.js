@@ -27,6 +27,7 @@ export class ClientsView {
 
   async attached() {
     await this.getAllContacts()
+    await this.getAllParties();
   }
 
   async login() {
@@ -39,6 +40,29 @@ export class ClientsView {
         "currentPasswordVerify": "admin"})
       .send()
       .then(response => console.log(response))
+  }
+
+  async getAllParties() {
+    let response = await this.http.fetch('/entityquery/PartyRoleAndPartyDetail', {
+      method: 'post',
+      body: json({
+        "inputFields":
+          {
+            "roleTypeId": "ACCOUNT"
+          },
+        "fieldList": [
+          "partyId",
+          "roleTypeId",
+          "groupName"
+        ]
+      })
+    })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching clients!');
+      });
+    console.log(response)
+    this.ea.publish("party", response)
   }
 
   async getAllContacts() {
