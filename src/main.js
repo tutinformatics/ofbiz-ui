@@ -1,13 +1,13 @@
 import 'regenerator-runtime/runtime';
 import * as environment from '../config/environment.json';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
-import {initialState} from "./store/store";
+import { initialState } from "./store/store";
 
 
 export function configure(aurelia) {
