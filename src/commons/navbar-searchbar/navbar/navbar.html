@@ -16,13 +16,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse"
-         id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a
             class="navbar-brand dropdown-toggle bg-purple"
-            click.delegate="navigateTo('/')"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -31,8 +29,14 @@
           >
             Applications
           </a>
-          <div class="dropdown-menu workspace-dropdown-menu" aria-labelledby="navbarDropdown">
-            <shuffle select-product.call="setCurrentProduct(product)"></shuffle>
+          <div
+            class="dropdown-menu workspace-dropdown-menu"
+            aria-labelledby="navbarDropdown"
+          >
+            <shuffle
+              products.bind="applications"
+              select-product.call="setCurrentProduct(product)"
+            ></shuffle>
           </div>
         </li>
 
@@ -50,7 +54,7 @@
           <a
             class="nav-link"
             href="javascript:void(0);"
-            click.delegate="handleNavigate(item)"
+            click.delegate="navigateTo(item.route)"
           >
             ${ item.text }
           </a>
@@ -62,7 +66,6 @@
         <li class="nav-item dropdown">
           <a
             class="navbar-brand dropdown-toggle bg-purple"
-            click.delegate="navigateTo('/')"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -72,26 +75,16 @@
             Workspaces
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <workspace-menu
-              view-model.bind="workspaceMenu"
-              view-model.ref="workspaceMenu"
-            >
-            </workspace-menu>
+            <workspace-menu workspaces.bind="workspaces"> </workspace-menu>
           </div>
         </li>
       </ul>
       <li class="nav navbar-nav navbar-right">
-        <a
-          class="router-link nav-link bg-purple navbar-right"
-          click.delegate="navigateTo('workspaces')"
-        >
+        <a class="router-link nav-link bg-purple navbar-right">
           Messages
         </a>
       </li>
-      <li
-        if.bind="!state.userLoginId"
-        class="nav navbar-nav navbar-right"
-      >
+      <li if.bind="!state.userLoginId" class="nav navbar-nav navbar-right">
         <a
           class="router-link nav-link bg-purple navbar-right"
           click.delegate="navigateTo('login')"
@@ -104,9 +97,7 @@
         class="router-link nav navbar-nav navbar-right"
         click.delegate="logOut()"
       >
-        <a
-          class="router-link nav-link bg-purple navbar-right"
-        >
+        <a class="router-link nav-link bg-purple navbar-right">
           Log out
         </a>
       </li>

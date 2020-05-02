@@ -1,34 +1,16 @@
 import { inject, bindable } from 'aurelia-framework';
-import { EventAggregator } from 'aurelia-event-aggregator';
 import { DndService } from 'bcx-aurelia-dnd';
 import autoScroll from 'dom-autoscroller';
-import { WorkspaceService } from './workspace-service';
 import { Router } from 'aurelia-router';
 
-@inject(DndService, EventAggregator, WorkspaceService, Router)
+@inject(DndService, Router)
 export class WorkspaceMenu {
-  @bindable type = '';
+  @bindable workspaces = [];
 
-  favorites = [];
-
-  constructor(dndService, ea, workspaceService, router) {
+  constructor(dndService, router) {
     this.dndService = dndService;
-    this.ea = ea;
-    this.workspaceService = workspaceService;
     this.router = router;
   }
-
-  created() {
-    this.loadWorkspaces();
-  }
-
-  loadWorkspaces() {
-    this.workspaceService
-      .getWorkspaceList({ userId: 'ADMIN' }) //TODO: should not be hardcoded
-      .then((response) => (this.favorites = response));
-  }
-
-  print() {}
 
   attached() {
     this.scroll = autoScroll([this.container], {

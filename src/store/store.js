@@ -8,7 +8,7 @@ export const setUserLoginId =  (state, userLoginId) => {
 };
 
 export const setPartyId =  (state, partyId) => {
-  return Object.assign({}, state, { partyId: partyId });
+  Object.assign({}, state, { partyId: partyId });
 };
 
 

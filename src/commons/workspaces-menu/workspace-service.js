@@ -1,14 +1,22 @@
-import {inject} from 'aurelia-dependency-injection';
+import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { SearchUtils } from '../util/search-utils';
 
 @inject(HttpClient)
 export class WorkspaceService {
-
   baseUrl = 'api/generic/v1/entities';
 
   constructor(httpClient) {
     this.httpClient = httpClient;
+    this.httpClient.configure((config) => {
+      config
+        .withDefaults({
+          headers: {
+            Accept: 'application/json',
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+    });
   }
 
   getAlreadyInMenu(url) {
@@ -21,15 +29,13 @@ export class WorkspaceService {
   }
 
   getWorkspaceList(params) {
-// https://localhost:8443/api/generic/v1/entities/Workspace?userId=ADMIN
-
     const query = SearchUtils.appendQueryParams(params);
 
     return this.httpClient
       .fetch(`${this.baseUrl}/Workspace?${query}`)
-      .then(res => res.json())
-      .catch(error => {
-      /* eslint no-console: ["error", { allow: ["error"] }]*/
+      .then((res) => res.json())
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }]*/
         console.error(error);
       }); // TODO: improve error handling
   }
@@ -37,12 +43,12 @@ export class WorkspaceService {
   addWorkspace(workspace) {
     const body = json(workspace);
     return this.httpClient
-      .fetch(`api/v1/workspaces/new-workspace`, {
+      .fetch('api/v1/workspaces/new-workspace', {
         method: 'post',
         body: body
       })
-      .catch(error => {
-      /* eslint no-console: ["error", { allow: ["error"] }]*/
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }]*/
         console.error(error);
       }); // TODO: improve error handling
   }
@@ -59,5 +65,4 @@ export class WorkspaceService {
         console.error(error);
       }); // TODO: improve error handling*/
   }
-
 }

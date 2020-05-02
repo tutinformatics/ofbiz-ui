@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project",
+    "url": "project"
+  },
+  {
+    "name": "crm",
+    "url": ""
+  },
+  {
+    "name": "accounting",
+    "url": ""
+  },
+  {
+    "name": "contacts",
+    "url": ""
+  },
+  {
+    "name": "manufacturing",
+    "url": ""
+  },
+  {
+    "name": "marketing",
+    "url": "affiliate-manager"
+  },
+  {
+    "name": "invoicing",
+    "url": ""
+  }
+]
