@@ -13,13 +13,13 @@ export class App {
     this.store = store;
     this.subscription = this.store.state.subscribe(
       (state) => {
-        this.state = state;
+        this.error = state.error;
       }
     );
   }
 
-  stateChanged(newState) {
-    this.showError = !!newState.error.errorMessage;
+  errorChanged(newErrorState) {
+    this.showError = !!newErrorState.errorMessage;
   }
 
   unbind() {
