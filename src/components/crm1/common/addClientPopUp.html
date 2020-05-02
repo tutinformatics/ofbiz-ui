@@ -44,10 +44,10 @@
 <!--              </div>-->
               <div class="form-group">
                 <label for="exampleFormControlSelect1" value.bind="contact.companyName">Company Name</label>
-                <select class="form-control" id="exampleFormControlSelect1" value.bind="contact.partyId">
+                <select class="form-control" id="exampleFormControlSelect1" value.bind="contact.partyIdGroupName">
                   <option>None</option>
                   <option repeat.for="party of parties" >
-                    ${party.groupName}-${party.partyId}
+                    ${party.partyId}: ${party.groupName}
                   </option>
                 </select>
               </div>

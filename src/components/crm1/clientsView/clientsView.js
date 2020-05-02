@@ -8,15 +8,6 @@ import {Router} from 'aurelia-router';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
-
-  phone = [ 'Phone'];
-  mail = [ 'Email'];
-  pageSize = 10;
-
-  selectedPhone = [];
-  selectedEmail = [];
-
-
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -27,20 +18,8 @@ export class ClientsView {
   }
 
   async attached() {
-    await this.getAllContacts()
+    await this.getAllContacts();
     await this.getAllParties();
-  }
-
-  async login() {
-    // works with http client
-    await this.http.createRequest('https://localhost:8443/api/auth/v1/register')
-      .asPost()
-      .withContent({
-        "userLoginId": "Crmtiim",
-        "currentPassword": "admin",
-        "currentPasswordVerify": "admin"})
-      .send()
-      .then(response => console.log(response))
   }
 
   async getAllParties() {
@@ -62,13 +41,10 @@ export class ClientsView {
       .catch(() => {
         alert('Error fetching clients!');
       });
-    console.log(response)
     this.ea.publish("party", response)
   }
 
   async getAllContacts() {
-    console.log('here');
-    // await this.login();
     let response = await this.http.fetch('/entityquery/PartyExport', {
         method: 'post',
         body: json({
@@ -129,8 +105,6 @@ export class ClientsView {
       .catch(() => {
         alert('Error fetching clients!');
     });
-    console.log(response)
-    console.log(contact)
     let person = new Contact(
       contact.firstName,
       contact.lastName,
