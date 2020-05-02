@@ -10,7 +10,8 @@ import {Router} from 'aurelia-router';
 export class ClientsView {
 
   phone = [ 'Phone'];
-  mail = [ 'Email']
+  mail = [ 'Email'];
+  pageSize = 10;
 
   selectedPhone = [];
   selectedEmail = [];
@@ -27,8 +28,32 @@ export class ClientsView {
 
   async attached() {
     await this.getAllContacts()
+    await this.getAllParties();
   }
 
+
+  async getAllParties() {
+    let response = await this.http.fetch('/entityquery/PartyRoleAndPartyDetail', {
+      method: 'post',
+      body: json({
+        "inputFields":
+          {
+            "roleTypeId": "ACCOUNT"
+          },
+        "fieldList": [
+          "partyId",
+          "roleTypeId",
+          "groupName"
+        ]
+      })
+    })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching clients!');
+      });
+    console.log(response)
+    this.ea.publish("party", response)
+  }
 
   async getAllContacts() {
     console.log('here');
@@ -66,6 +91,7 @@ export class ClientsView {
         response[i].postalCode,
         response[i].partyId
       );
+
       this.contacts.push(contact);
     }
   }
@@ -117,6 +143,19 @@ export class ClientsView {
     }
     this.simpleView = !this.simpleView;
   }
+  get isPhone() {
+    if(this.selectedPhone.length>0){
+      return (this.selectedPhone);
+    }
+   return false;
+  }
+  get isEmail() {
+    if(this.selectedEmail.length>0){
+      return (this.selectedEmail);
+    }
+    return false;
+  }
+
 
 }
 

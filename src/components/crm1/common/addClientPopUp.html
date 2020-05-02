@@ -36,31 +36,33 @@
                 </div>
               </div>
 
+<!--              <div class="form-group">-->
+<!--                <label class="col-sm-3 col-form-label">Company</label>-->
+<!--                <div class="col-sm-9">-->
+<!--                  <input type="text" placeholder="Company Name" class="form-control" value.bind="contact.companyName">-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="form-group">
-                <label class="col-sm-3 col-form-label">Company</label>
+                <label for="exampleFormControlSelect1" value.bind="contact.companyName">Company Name</label>
+                <select class="form-control" id="exampleFormControlSelect1" value.bind="contact.partyId">
+                  <option>None</option>
+                  <option repeat.for="party of parties" >
+                    ${party.groupName}-${party.partyId}
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Contact Address</label>
                 <div class="col-sm-9">
-                  <input type="text" placeholder="Company Name" class="form-control" value.bind="contact.companyName">
+                  <input type="text" placeholder="Contact Address" class="form-control" value.bind="contact.address">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="col-sm-3 col-form-label">Position</label>
+                <label class="col-sm-3 col-form-label">Contact Post Index</label>
                 <div class="col-sm-9">
-                  <input type="text" placeholder="Position" class="form-control" value.bind="contact.position">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">Company Address</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Company Address" class="form-control" value.bind="contact.companyAddress">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">Company Post Index</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Address Index" class="form-control" value.bind="contact.postalCode">
+                  <input type="text" placeholder="Post Index" class="form-control" value.bind="contact.postalCode">
                 </div>
               </div>
             </form>

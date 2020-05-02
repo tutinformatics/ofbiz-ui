@@ -1,4 +1,5 @@
 import {HttpClient} from 'aurelia-fetch-client';
+
 import {inject} from 'aurelia-dependency-injection';
 
 @inject(HttpClient)
