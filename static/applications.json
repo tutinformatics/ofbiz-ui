@@ -1,30 +1,37 @@
 [
   {
     "name": "project",
-    "url": "project"
+    "url": "project",
+    "title": "Projects"
   },
   {
     "name": "crm",
-    "url": ""
+    "url": "",
+    "title": "CRM"
   },
   {
     "name": "accounting",
-    "url": ""
+    "url": "",
+    "title": "Accounting"
   },
   {
     "name": "contacts",
-    "url": ""
+    "url": "",
+    "title": "Contacts"
   },
   {
     "name": "manufacturing",
-    "url": ""
+    "url": "",
+    "title": "Manufacturing"
   },
   {
     "name": "marketing",
-    "url": "affiliate-manager"
+    "url": "affiliate-manager",
+    "title": "Marketing"
   },
   {
     "name": "invoicing",
-    "url": ""
+    "url": "",
+    "title": "Invoicing"
   }
 ]

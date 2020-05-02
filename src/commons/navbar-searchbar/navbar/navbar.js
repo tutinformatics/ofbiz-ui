@@ -24,6 +24,7 @@ export class Navbar {
     this.workspaceService = workspaceService;
     this.appService = appService;
     this.currentProduct = '';
+    this.title = '';
     this.applications = [];
     this.workspaces = [];
   }
@@ -44,7 +45,8 @@ export class Navbar {
     );
   }
 
-  setCurrentProduct({ url }) {
+  setCurrentProduct({ url, title }) {
+    this.title = title;
     if (!url) {
       return;
     }
@@ -71,7 +73,7 @@ export class Navbar {
       .then((res) => (this.menuItems = res));
   }
 
-  handleFavorites() {
+  handleFavorite() {
     const url = this.router.currentInstruction.fragment;
     const name = this.router.currentInstruction.config.title;
 
