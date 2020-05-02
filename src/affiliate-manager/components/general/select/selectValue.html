@@ -1,0 +1,39 @@
+<template>
+  <div class="row">
+    <div class="col d-flex justify-content-start">
+      <label for.bind="id" class="ml-2 mb-0">
+        <small>${labelText}</small>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 aff-filter-col pr-1">
+      <div class="dropdown w-100">
+        <button class="btn aff-filter__select dropdown-toggle w-100"
+                type="button" id.bind="id"
+                data-toggle="dropdown" aria-haspopup="true">
+          ${selectedValue}
+        </button>
+        <div class="dropdown-menu dropdown-menu--aff" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item aff-filter__dropdown"
+             click.delegate="setSelected(null, null)">
+            Choose
+          </a>
+          <a class="dropdown-item aff-filter__dropdown" repeat.for="option of options"
+             click.delegate="setSelected(option['key'], option['value'])">
+            ${option['value']}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col px-0 d-flex justify-content-start">
+      <button
+        disabled.bind="!selectedKey"
+        click.trigger="callback()"
+        class="btn aff-system__button--main"
+        type="button">Generate
+      </button>
+    </div>
+
+  </div>
+</template>

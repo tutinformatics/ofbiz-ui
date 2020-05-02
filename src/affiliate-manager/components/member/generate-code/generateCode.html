@@ -1,0 +1,97 @@
+<template>
+  <require from="../../general/page-title/pageTitle"></require>
+  <require from="../../general/filter/filter"></require>
+  <require from="../../general/icons/delete/deleteIcon"></require>
+  <require from="../../general/icons/icon"></require>
+  <require from="../../general/select/selectValue"></require>
+
+  <div class="row flex-column mx-3 text-center mt-5">
+    <div class="col-md-9 mx-auto">
+      <page-title
+        main-text.one-way="'All your affiliate codes are represented here'">
+      </page-title>
+    </div>
+    <div class="col-md-9 mx-auto my-3">
+      <select-value
+        class="pl-0 col-3"
+        selected.two-way="selectedCategory"
+        options.one-way="productCategories"
+        id.one-way="'generateCodeId'"
+        label-text="Generate code for a chosen category"
+        callback.call="generateAffiliateCode($event)">
+      </select-value>
+      <filter
+        values-to-filter.one-way="affiliateCodes"
+        options.one-way="affiliateCodeOptions"
+        callback.call="setFilteredAffiliateCodes($event)"
+        id.one-way="'Member-Generated-Codes'"
+      >
+      </filter>
+    </div>
+    <div class="col-md-9 mx-auto table-responsive-md text-center">
+      <table class="table table-striped table-dark table-bordered table-hover">
+        <thead>
+        <tr>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Code
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Date of Creation
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Expiration Date
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Is Default
+          </th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            Category
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="aff-member-table__row" repeat.for="index of filteredAffiliateCodes.length">
+          <td class="align-middle">
+            <p>${filteredAffiliateCodes[index]['code']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${filteredAffiliateCodes[index]['dateOfCreation']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${filteredAffiliateCodes[index]['expirationDate']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${filteredAffiliateCodes[index]['isDefault']}</p>
+          </td>
+          <td class="align-middle">
+            <p>${filteredAffiliateCodes[index]['category']}</p>
+          </td>
+          <td class="aff-table__action-icon aff-table__action-icon--red">
+            <icon
+              click.trigger="deleteAffiliateCode(filteredAffiliateCodes[index]['code'], index)"
+              if.bind="!filteredAffiliateCodes[index]['isDefault']"
+              class="mt-n2">
+              <delete-icon></delete-icon>
+            </icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
