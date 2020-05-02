@@ -1,5 +1,5 @@
 import { inject } from "aurelia-framework";
-import { HttpClient, json } from "aurelia-fetch-client";
+import { json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
 import { setJwtToken, setUserLoginId, setPartyId } from "../../store/store";
 import { HttpService } from "./httpService";

@@ -24,13 +24,13 @@ export class HttpService {
     this.subscription.unsubscribe();
   }
 
-  tokenChanged(newState) {
+  tokenChanged(newToken) {
     this.httpClient.configure(config => {
         config
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${newState}`
+                'Authorization': `Bearer ${newToken}`
               }
             }
           )
