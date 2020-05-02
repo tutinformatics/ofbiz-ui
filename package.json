@@ -46,6 +46,7 @@
     "aurelia-cli": "^1.2.3",
     "aurelia-loader-nodejs": "^1.0.1",
     "aurelia-pal-nodejs": "^1.2.0",
+    "aurelia-router": "^1.7.1",
     "aurelia-testing": "^1.0.0",
     "aurelia-tools": "^2.0.0",
     "aurelia-webpack-plugin": "^3.0.0",
