@@ -1,4 +1,4 @@
-import {bindable, inject} from "aurelia-framework";
+import { bindable, inject } from "aurelia-framework";
 import moment from "moment";
 import { AffManagerService } from "../../../services/affManagerService";
 
@@ -7,34 +7,35 @@ export class GenerateCode {
 
   filteredAffiliateCodes = [];
   affiliateCodes = [];
+  productCategories = [];
   @bindable
   selectedCategory;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
     this.affiliateCodeOptions = this.getAffiliateCodeOptions();
-    this.productCategories = this.getProductCategories();
   }
 
   async attached() {
     this.getAffiliateCodes();
+    this.getProductCategories()
   }
 
-  getProductCategories() {
-    return [
-      {
-        "key": 'services',
-        "value": 'Services',
-      },
-      {
-        "key": 'electronics',
-        "value": 'Electronics',
-      },
-      {
-        "key": 'weapon',
-        "value": 'Weapon',
-      },
-    ]
+  async getProductCategories() {
+    const categories = await this.affManagerService.fetchAllProductCategories();
+    const localCategories = [];
+    if (categories) {
+      categories
+        .filter(c => c['categoryName'] !== null)
+        .forEach(c => localCategories.push(
+          {
+            'key': c['categoryName'],
+            'value': c['categoryName']
+          }
+          )
+        )
+    }
+    this.productCategories = localCategories;
   }
 
   getAffiliateCodeOptions() {

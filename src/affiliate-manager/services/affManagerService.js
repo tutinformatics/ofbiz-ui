@@ -247,4 +247,25 @@ export class AffManagerService {
     }
   }
 
+  async fetchAllProductCategories() {
+    try {
+      const response = await this.httpService.httpClient.fetch(
+        "generic/v1/entityquery/ProductCategory",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              "fieldList": ["categoryName"]
+            }
+          ),
+        }
+      );
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
