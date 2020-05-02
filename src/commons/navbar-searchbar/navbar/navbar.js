@@ -1,14 +1,21 @@
 import { inject } from 'aurelia-dependency-injection';
+import { Store } from "aurelia-store";
+import { setUserLoginId } from "../../../store/store";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
 import { safeGet } from '../../util/utility';
 import { MenuItemsService } from '../../services/menu-items-service';
-import { WorkspaceService } from '../../workspaces-menu/workspace-service';
-import * as toastr from 'toastr';
+import "./navbar.scss"
+import {WorkspaceService} from "../../workspaces-menu/workspace-service";
 
-@inject(Router, EventAggregator, MenuItemsService, WorkspaceService)
+@inject(Router, EventAggregator, MenuItemsService, WorkspaceService, Store)
 export class Navbar {
-  constructor(router, ea, menuItemsService, workspaceService) {
+  constructor(router, ea, menuItemsService,store) {
+    this.store = store;
+    this.store.registerAction('setUserLoginId', setUserLoginId);
+    this.subscription = this.store.state.subscribe(
+      (state) => this.state = state
+    );
     this.router = router;
     this.ea = ea;
     this.menuItemsService = menuItemsService;
@@ -17,7 +24,7 @@ export class Navbar {
   }
 
   created() {
-    this.subscription = this.ea.subscribe('router:navigation:complete', () => {
+    this.routerSubscription = this.ea.subscribe('router:navigation:complete', () => {
       this.currentProduct = safeGet(() => this.router.currentInstruction.config.name, '');
       this.loadMenuItems(this.currentProduct);
     });
@@ -32,15 +39,23 @@ export class Navbar {
 
   loadMenuItems(product) {
     this.menuItemsService.getMenuItems(product)
-      .then((res) => (this.menuItems = res));
-  }
-
-  handleNavigate({ route }) {
-    this.router.navigate(route);
+      .then(res => this.menuItems = res);
   }
 
   detached() {
+    this.routerSubscription.dispose();
     this.subscription.dispose();
+  }
+
+  logOut() {
+    localStorage.removeItem('userLoginId');
+    localStorage.removeItem('token');
+    this.store.dispatch('setUserLoginId', null);
+    this.navigateTo('#/login');
+  }
+
+  navigateTo(path) {
+    this.router.navigate(path)
   }
 
   handleStarIcon() {
