@@ -10,22 +10,11 @@
       <div class="scrollbar scrollbar-primary m-0">
         <div class="force-overflow"></div>
 
-      <ul class="list-group list-group-flush" style="max-height: 74vh;">
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
-        <category-element></category-element>
+      <ul class="list-group list-group-flush" style="max-height: 78vh;">
+        <div repeat.for="category of categories">
+          <category-element></category-element>
+        </div>
+
       </ul>
       </div>
     </div>
