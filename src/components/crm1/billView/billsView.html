@@ -4,13 +4,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
   <div class="container-fluid" style="border-bottom: 1px solid gray;">
+    <br>
     <h3>Bills</h3>
     <div class="mt-3 d-flex flex-row">
-      <div class="m-1 ">
-        <button type="button" class="btn btn-success">Create <i class="fa fa-plus-square" data-toggle="modal" data-target=".bd-example-modal-lg"></i></button>
-      </div>
-
-      <div class="helpers">
+      <div class="helpers" style="margin-top: -45px;margin-bottom: 20px">
         <div class="dropdown">
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-filter"></i> Filters</a>
@@ -51,16 +48,15 @@
 
       <thead>
       <tr >
-        <th scope="col">Number</th>
-        <th scope="col">Vendor</th>
+        <th scope="col">Bill ID</th>
+        <th scope="col">Bill Type</th>
         <th scope="col">Bill Date</th>
-        <th scope="col">Source Document</th>
-        <th scope="col">Company</th>
-        <th scope="col">Due Date</th>
-        <th scope="col">Tax Excluded</th>
+        <th scope="col">Description</th>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Quantity</th>
         <th scope="col">Total</th>
-        <th scope="col">Amount Due</th>
-        <th scope="col">Status</th>
+
 
         <th scope="col">
           <div class="dropdown">
@@ -91,18 +87,16 @@
       </thead>
 
       <tbody>
-
-      <tr repeat.for="contact of contacts">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <!--WTF IS GOING ON HERE , WRAPPED ALL -->
+      <tr repeat.for="bill of bills">
+        <td>${bill.itemDescription}</td>
+        <td>${bill.invoiceDate}</td>
+        <td>${bill.partyIdTrans}</td>
+        <td>${bill.invoiceTypeId}</td>
+        <td>${bill.partyIdFrom}</td>
+        <td>${bill.amount}</td>
+        <td>${bill.invoiceId}</td>
+        <td>${bill.quantity}</td>
         <td></td>
 
       </tr>

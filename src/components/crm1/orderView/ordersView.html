@@ -6,11 +6,7 @@
   <div class="container-fluid" style="border-bottom: 1px solid gray;">
     <h3>Sales Orders</h3>
     <div class="mt-3 d-flex flex-row">
-      <div class="m-1 ">
-        <button type="button" class="btn btn-success">Create <i class="fa fa-plus-square" data-toggle="modal" data-target=".bd-example-modal-lg"></i></button>
-      </div>
-
-      <div class="helpers">
+      <div class="helpers" style="margin-top: -45px;margin-bottom: 20px">
         <div class="dropdown">
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-filter"></i> Filters</a>
@@ -53,14 +49,12 @@
       <tr >
         <th scope="col">Order Number</th>
         <th scope="col">Order Date</th>
-        <th scope="col">Delivery Date</th>
-        <th scope="col">Expected Date</th>
-        <th scope="col">Customer</th>
+        <th scope="col">Shipment Start</th>
+        <th scope="col">Company</th>
         <th scope="col">Website</th>
         <th scope="col">Salesperson</th>
-        <th scope="col">Company</th>
         <th scope="col">Total</th>
-        <th scope="col">Invoice Status</th>
+        <th scope="col">Status</th>
 
         <th scope="col">
           <div class="dropdown">
@@ -92,18 +86,17 @@
 
       <tbody>
 
-      <tr repeat.for="contact of contacts">
+      <tr repeat.for="order of orders">
+        <td>${order.orderId}</td>
+        <td>${order.orderDate}</td>
+        <td>${order.entryDate}</td>
+        <td>${order.partyId}</td>
+        <td>${order.webSiteId}</td>
+        <td>${order.roleTypeId}</td>
+        <td>${order.grandTotal}</td>
+        <td>${order.statusId}</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
 
       </tr>
       </tbody>
