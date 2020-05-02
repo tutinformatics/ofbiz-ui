@@ -50,7 +50,7 @@ export class App {
       {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
-        moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
+        moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager')
       },
       {
         route: 'login',
@@ -72,9 +72,18 @@ export class App {
         moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'),
         name: 'clientsView' },
       {
+        route: 'crm/clients/orders',
+        moduleId: PLATFORM.moduleName('components/crm1/orderView/ordersView'),
+        name: 'ordersView' },
+      {
+        route: 'crm/clients/bills',
+        moduleId: PLATFORM.moduleName('components/crm1/billView/billsView'),
+        name: 'billsView' },
+
+      {
         route: 'crm/clients/complex',
         moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
-        name: 'complexview' },
+        name: 'complexview' }
 
     ]);
     this.router = router;

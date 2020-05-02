@@ -6,10 +6,10 @@
   <div class="container-fluid" style="border-bottom: 1px solid gray;">
     <h3>Customers</h3>
     <div class="mt-3 d-flex flex-row">
-      <div class="m-1 sticky-top">
+      <div class="m-1 ">
         <button type="button" class="btn btn-success">Create <i class="fa fa-plus-square" data-toggle="modal" data-target=".bd-example-modal-lg"></i></button>
       </div>
-      <div class="m-1 sticky-top">
+      <div class="m-1 ">
         <button type="button" class="btn btn-info" click.delegate="toggleView()">${view}</button>
       </div>
       <div class="helpers">
@@ -77,37 +77,36 @@
     <div else class="container-fluid" >
 
       <table class="table" >
+
         <thead>
         <tr >
-
           <th scope="col">Name</th>
           <th scope="col">Company</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Email</th>
-<!--          <th scope="col" style="border-bottom: none">-->
+          <th scope="col">${selectedEmail}</th>
+          <th scope="col">${selectedPhone}</th>
+          <th scope="col" >
+            <div class="dropdown">
+              <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i></a>
+              <form>
 
-<!--            <div class="dropdown">-->
-<!--              <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-ellipsis-v"></i></a>-->
-<!--              <form>-->
+                <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
+                  <label repeat.for="product of phone">
+                    <p class="dropdown-item"  >
+                      <input type="checkbox" value.bind="product" checked.bind="selectedPhone" checked="checked">
+                      ${product}</p>
 
-<!--                <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">-->
-<!--                  <label repeat.for="product of phone">-->
-<!--                    <a class="dropdown-item"  href="#">-->
-<!--                      <input type="checkbox" value.bind="product" checked.bind="selectedPhone">-->
-<!--                      ${product}</a>-->
+                  </label>
+                  <label repeat.for="prod of mail">
+                    <p class="dropdown-item"  >
+                      <input type="checkbox" value.bind="prod" checked.bind="selectedEmail" checked="checked">
+                      ${prod}</p>
 
-<!--                  </label>-->
-<!--                  <label repeat.for="prod of mail">-->
-<!--                    <a class="dropdown-item"  href="#">-->
-<!--                      <input type="checkbox" value.bind="prod" checked.bind="selectedEmail">-->
-<!--                      ${prod}</a>-->
-
-<!--                  </label>-->
-<!--                </div>-->
-<!--              </form>-->
-<!--            </div>-->
-<!--          </th>-->
+                  </label>
+                </div>
+              </form>
+            </div>
+          </th>
         </tr>
         </thead>
 
@@ -116,10 +115,10 @@
         <tr repeat.for="contact of contacts">
           <td>${contact.firstName} ${contact.lastName}</td>
           <td>${contact.companyName}</td>
-          <td>${contact.phoneNumber}</td>
-          <td>${contact.email}</td>
+          <td if.bind="isEmail">${contact.email}</td>
+          <td if.bind="isPhone">${contact.phoneNumber}</td>
 
-<!--          <td></td>-->
+          <td></td>
 
         </tr>
         </tbody>
@@ -136,7 +135,7 @@
 
 
 
-    <add-client-pop-up ></add-client-pop-up>
+  <add-client-pop-up ></add-client-pop-up>
 
 
 </template>

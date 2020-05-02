@@ -7,7 +7,7 @@ import 'font-awesome/css/font-awesome.css';
 import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
-import { initialState } from "./store/store";
+import { initialState } from './store/store';
 
 
 export function configure(aurelia) {
@@ -25,10 +25,18 @@ export function configure(aurelia) {
       {initialState})
     .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'))
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
-    .plugin(PLATFORM.moduleName('au-table'));
+    .plugin(PLATFORM.moduleName('au-table'))
+    .plugin(PLATFORM.moduleName('aurelia-plugins-pagination'), config => {
+      config.options({
+        of: 'of'
+      });
+    })
+
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }
+
+
