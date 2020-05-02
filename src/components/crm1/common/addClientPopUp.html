@@ -1,48 +1,45 @@
 <template>
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog my-0">
       <div class="modal-content">
-        <div class="card">
-          <div class="card-header text-white bg-primary">
-            <h3>Create new contact</h3>
-          </div>
-          <div class="card-body">
-            <form role="form">
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">First Name</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="First Name" class="form-control" value.bind="contact.firstName">
-                </div>
+        <div class="modal-header">
+          <h5 class="modal-title">Create new contact</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group m-0">
+              <label class="col col-form-label">First Name</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="First Name" class="form-control" value.bind="contact.firstName">
               </div>
+            </div>
 
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">Last Name</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Last Name" class="form-control" value.bind="contact.lastName">
-                </div>
+            <div class="form-group m-0">
+              <label class="col col-form-label">Last Name</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Last Name" class="form-control" value.bind="contact.lastName">
               </div>
+            </div>
 
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">E-mail</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Email" class="form-control" value.bind="contact.email">
-                </div>
+            <div class="form-group m-0">
+              <label class="col col-form-label pb-0">E-mail</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Email" class="form-control" value.bind="contact.email">
               </div>
+            </div>
 
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">Phone Number</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Phone number" class="form-control" value.bind="contact.phoneNumber">
-                </div>
+            <div class="form-group m-0">
+              <label class="col col-form-label">Phone Number</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Phone number" class="form-control" value.bind="contact.phoneNumber">
               </div>
+            </div>
 
-<!--              <div class="form-group">-->
-<!--                <label class="col-sm-3 col-form-label">Company</label>-->
-<!--                <div class="col-sm-9">-->
-<!--                  <input type="text" placeholder="Company Name" class="form-control" value.bind="contact.companyName">-->
-<!--                </div>-->
-<!--              </div>-->
-              <div class="form-group">
+            <div class="form-group m-0">
+              <div class="col-sm-9">
                 <label for="exampleFormControlSelect1" value.bind="contact.companyName">Company Name</label>
                 <select class="form-control" id="exampleFormControlSelect1" value.bind="contact.partyIdGroupName">
                   <option>None</option>
@@ -51,28 +48,30 @@
                   </option>
                 </select>
               </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">Contact Address</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Contact Address" class="form-control" value.bind="contact.address">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-3 col-form-label">Contact Post Index</label>
-                <div class="col-sm-9">
-                  <input type="text" placeholder="Post Index" class="form-control" value.bind="contact.postalCode">
-                </div>
-              </div>
-            </form>
-            <div>
-              <button class="btn btn-success float-right" data-dismiss="modal" click.delegate="addContact(contact)">Save</button>
             </div>
+
+            <div class="form-group m-0">
+              <label class="col col-form-label">Contact Address</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Contact Address" class="form-control" value.bind="contact.address">
+              </div>
+            </div>
+
+            <div class="form-group m-0">
+              <label class="col col-form-label ">Contact Post Index</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Post Index" class="form-control" value.bind="contact.postalCode">
+              </div>
+            </div>
+          </form>
+          <div class="mt-1">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-success float-right" click.delegate="addContact(contact)">Save</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
 </template>
