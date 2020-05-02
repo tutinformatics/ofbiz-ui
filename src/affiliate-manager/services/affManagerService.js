@@ -270,4 +270,22 @@ export class AffManagerService {
     }
   }
 
+  async disableAffiliate(partnerToBeDisabled) {
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}generic/v1/services/disableAffiliate`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            {"partyId": partnerToBeDisabled}
+          ),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
+
+
 }

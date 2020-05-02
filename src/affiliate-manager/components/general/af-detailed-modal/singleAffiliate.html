@@ -24,7 +24,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button if.bind="isAdmin === true" type="button" class="btn btn-danger mx-auto">Disable Partnership</button>
+          <button if.bind="isAdmin === true" click.trigger="disableAffiliate(partner['partyId'])" type="button"
+                  class="btn btn-danger mx-auto">Disable Partnership
+          </button>
           <button type="button" class="btn mx-auto aff-system__button--main" click.trigger="controller.ok()">Close
           </button>
         </div>
