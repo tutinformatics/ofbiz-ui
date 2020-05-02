@@ -7,7 +7,6 @@ export class GenerateCode {
 
   filteredAffiliateCodes = [];
   affiliateCodes = [];
-  productCategories = [];
   @bindable
   selectedCategory;
 
