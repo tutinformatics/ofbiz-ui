@@ -1,4 +1,4 @@
-import {bindable, inject} from "aurelia-framework";
+import { bindable, inject } from "aurelia-framework";
 import moment from "moment";
 import { AffManagerService } from "../../../services/affManagerService";
 
@@ -7,31 +7,35 @@ export class GenerateCode {
 
   filteredAffiliateCodes = [];
   affiliateCodes = [];
+  productCategories = [];
   @bindable
   selectedCategory;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
     this.affiliateCodeOptions = this.getAffiliateCodeOptions();
-    this.productCategories = this.getProductCategories();
-    this.getAffiliateCodes();
   }
 
-  getProductCategories() {
-    return [
-      {
-        "key": 'services',
-        "value": 'Services',
-      },
-      {
-        "key": 'electronics',
-        "value": 'Electronics',
-      },
-      {
-        "key": 'weapon',
-        "value": 'Weapon',
-      },
-    ]
+  async attached() {
+    this.getAffiliateCodes();
+    this.getProductCategories()
+  }
+
+  async getProductCategories() {
+    const categories = await this.affManagerService.fetchAllProductCategories();
+    const localCategories = [];
+    if (categories) {
+      categories
+        .filter(c => c['categoryName'] !== null)
+        .forEach(c => localCategories.push(
+          {
+            'key': c['categoryName'],
+            'value': c['categoryName']
+          }
+          )
+        )
+    }
+    this.productCategories = localCategories;
   }
 
   getAffiliateCodeOptions() {
@@ -65,21 +69,13 @@ export class GenerateCode {
 
   async getAffiliateCodes() {
     const responseData = await this.affManagerService.getAffiliateCodesRequest();
+    const localAffiliateCodes = [];
     responseData['affiliateDTOs'].forEach(code =>
-      this.affiliateCodes.push(
+      localAffiliateCodes.push(
         this.parseCode(code)
       )
     );
-    this.affiliateCodes.push(
-      {
-        "code": "1472603",
-        "dateOfCreation": "22-03-2020",
-        "status": "Active",
-        "expirationDate": "22-03-2022",
-        "category": "Electronics",
-        "isDefault": false,
-      },
-    );
+    this.affiliateCodes = localAffiliateCodes;
     this.filteredAffiliateCodes = this.affiliateCodes;
   }
 

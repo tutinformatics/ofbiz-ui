@@ -7,26 +7,17 @@ import {AffManagerService} from "../../../services/affManagerService";
 export class BecomePartner {
 
   @bindable guest;
-  becomePartnerError;
   becomePartnerSuccess;
 
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
   }
 
-
   async becomeAffPartner() {
     const response = await this.affManagerService.becomeAffPartner();
     if (response && response.ok) {
       this.setBecomePartnerSuccess(true);
-      return
     }
-    this.setBecomePartnerError(true);
-  }
-
-
-  setBecomePartnerError(value) {
-    this.becomePartnerError = value;
   }
 
   setBecomePartnerSuccess(value) {

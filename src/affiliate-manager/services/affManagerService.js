@@ -182,9 +182,14 @@ export class AffManagerService {
           body: JSON.stringify(
             {
               "inputFields": {
-                "rootPartyId": this.state.partyId
+                "partyId": this.state.partyId
               },
-              "fieldList": ["partyId", "firstName", "lastName"]
+              "fieldList": ["partyId"],
+              "entityRelations" : {
+                "_toOne_Affiliate": {
+                  "fieldList": ["partyId", "createdStamp", "status", "RootPartyId"]
+                }
+              }
             }
           ),
         }
@@ -241,6 +246,27 @@ export class AffManagerService {
           ),
         }
       )
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async fetchAllProductCategories() {
+    try {
+      const response = await this.httpService.httpClient.fetch(
+        "generic/v1/entityquery/ProductCategory",
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              "fieldList": ["categoryName"]
+            }
+          ),
+        }
+      );
+      if (response.ok) {
+        return await response.json();
+      }
     } catch (e) {
       return null;
     }

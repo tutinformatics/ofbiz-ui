@@ -16,26 +16,22 @@ export class allAffiliates {
     this.dialogService = dialogService;
     this.affManagerService = affManagerService;
     this.allAffiliatesOptions = this.getAffiliatesOptions();
+  }
+
+  async attached() {
     this.fetchAffiliatePartners();
   }
 
   async fetchAffiliatePartners() {
     const responseData = await this.affManagerService.allAffiliatesRequest();
+    const localAllAffiliatePartners = [];
     if (responseData) {
       responseData.forEach(partner =>
-        this.allAffiliatePartners.push(
+        localAllAffiliatePartners.push(
           this.parsePartner(partner)
         )
       );
-      this.allAffiliatePartners.push(
-        {
-          "firstName": "Nikita",
-          "lastName": "Ojamae",
-          "dateTimeCreated": moment(1584223200000).format('MM-D-YYYY'),
-          "email": "122@gmail.com",
-          "status": "ACTIVE"
-        },
-      );
+      this.allAffiliatePartners = localAllAffiliatePartners;
       this.filteredValues = this.allAffiliatePartners
     }
   }
