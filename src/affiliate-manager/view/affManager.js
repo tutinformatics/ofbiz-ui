@@ -1,10 +1,12 @@
-import { Store } from "aurelia-store";
-import { inject } from "aurelia-dependency-injection";
-import { AffManagerService } from "../services/affManagerService";
-import { observable } from "aurelia-binding";
+import {Store} from "aurelia-store";
+import {inject} from "aurelia-dependency-injection";
+import {AffManagerService} from "../services/affManagerService";
+import {observable} from "aurelia-binding";
+import {AureliaCookie} from "aurelia-cookie";
+import {Router} from 'aurelia-router';
 
 
-@inject(AffManagerService, Store)
+@inject(AffManagerService, Store, Router)
 export class AffManager {
 
   @observable state;
@@ -12,13 +14,15 @@ export class AffManager {
   authorized = null;
   showError = false;
 
-  constructor(affManagerService, store) {
+  constructor(affManagerService, store, router) {
+    this.router = router;
     this.affManagerService = affManagerService;
     this.view = null;
     this.store = store;
     this.subscription = this.store.state.subscribe(
       (state) => this.state = state
     );
+
   }
 
   stateChanged(newState) {
@@ -33,8 +37,12 @@ export class AffManager {
   activate(parameters) {
     this.view = parameters.view;
     this.authorizeMe();
-    this.checkCookies();
-
+    if (parameters.affCode != null) {
+      AureliaCookie.set('affCode', parameters.affCode, {
+        expiry: 24, path: '', domain: '', secure: false
+      });
+      this.router.navigate('/affiliate-manager');
+    }
   }
 
   async authorizeMe() {
