@@ -11,7 +11,7 @@
     ```
 4. response has to be 200
     ```
-    as a result, jwt token is returned and is saved in localStorage (we replicate it to aurelia store in order avoid page refresh)
+    as a result, jwt token is returned and is saved in localStorage (we replicate it to aurelia store in order to avoid additional need in page refresh)
     ```
 
 

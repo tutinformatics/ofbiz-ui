@@ -67,7 +67,7 @@ For example, we store userLoginId that is fetched from backend in case of succes
 
 ### Unable to sync changes :(
 
-I have encountered difficulties while trying to configure HttpClient.
+I have encountered difficulties while trying to configure HttpClient (be careful while configuring singleton)
 I have the following config:
 ```
  constructor(httpClient, store) {
@@ -98,16 +98,26 @@ As you can see, I need to configure HttpClient in constructor, but jwt initial v
  Solution would be to reconfigure httpClient every time state changes
  (we need to listen state changes explicitly):
  ```aidl
-  @observable state;
+  @observable token;
 
-  stateChanged(newState) {
+  constructor(store) {
+         this.store = store;
+
+         NB! DO NOT FORGET TO SUBSCRIBE
+         this.subscription = this.store.state.subscribe(
+           (state) => {
+             this.token = state.jwtToken;
+           }
+  }
+
+  tokenChanged(newToken) {
     this.httpClient.configure(config => {
         config
           .withBaseUrl('api/')
           .withDefaults({
               headers: {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${newState.jwtToken}`
+                'Authorization': `Bearer ${newToken}`
               }
             }
           )
@@ -116,9 +126,7 @@ As you can see, I need to configure HttpClient in constructor, but jwt initial v
   }
 ```
 
-Function 'stateChanges' works out of box, you do not need additional configuration. In other words, every time state changes, we update our jwtToken
-
-
+Function 'tokenChanged' works out of box, you do not need additional configuration. In other words, every time jwt changes in state, we update local jwt as well
 
 
 ### Redux devtools (strongly advised):
