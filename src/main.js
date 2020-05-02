@@ -26,11 +26,7 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'))
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
     .plugin(PLATFORM.moduleName('au-table'))
-    .plugin(PLATFORM.moduleName('aurelia-plugins-pagination'), config => {
-      config.options({
-        of: 'of'
-      });
-    })
+
 
 
   if (environment.testing) {
