@@ -3,6 +3,7 @@ import { HttpClient, json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
 import { setPartyId } from "../../store/store";
 import { HttpService } from "../../commons/services/httpService";
+import { AureliaCookie } from "aurelia-cookie";
 
 @inject(HttpClient, Store, HttpService)
 export class AffManagerService {
@@ -120,7 +121,10 @@ export class AffManagerService {
         {
           method: "POST",
           body: JSON.stringify(
-            {"partyId": this.state.partyId}
+            {
+              "partyId": this.state.partyId,
+              "affCode": AureliaCookie.get('affCode')
+            }
           ),
         }
       );

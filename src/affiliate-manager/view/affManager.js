@@ -1,9 +1,9 @@
-import {Store} from "aurelia-store";
-import {inject} from "aurelia-dependency-injection";
-import {AffManagerService} from "../services/affManagerService";
-import {observable} from "aurelia-binding";
-import {AureliaCookie} from "aurelia-cookie";
-import {Router} from 'aurelia-router';
+import { Store } from "aurelia-store";
+import { inject } from "aurelia-dependency-injection";
+import { AffManagerService } from "../services/affManagerService";
+import { observable } from "aurelia-binding";
+import { AureliaCookie } from "aurelia-cookie";
+import { Router } from 'aurelia-router';
 
 
 @inject(AffManagerService, Store, Router)
