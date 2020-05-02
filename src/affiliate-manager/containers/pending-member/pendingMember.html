@@ -1,0 +1,42 @@
+<template>
+  <require from="../../components/general/about/about"></require>
+  <require from="../../components/guest/becomePartner/becomePartner"></require>
+  <require from="../../components/pending-member/status/pending/statusPending"></require>
+  <require from="../../components/pending-member/status/default/statusDefault"></require>
+  <require from="../../components/pending-member/status/disapproved/statusDisapproved"></require>
+  <require from="../../components/pending-member/sidebar/pendingMemberSidebar"></require>
+  <div class="container-fluid container-fluid--with-min">
+    <div class="row">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
+        <pending-member-sidebar
+          current.two-way="currentPage"
+          opened.two-way="opened"
+        >
+        </pending-member-sidebar>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col px-0">
+            <about
+              if.bind="currentPage === 'About'">
+            </about>
+            <become-partner
+              aff-status.two-way="partnerStatus"
+              if.bind="currentPage === 'Become-Partner'">
+            </become-partner>
+            <div if.bind="currentPage === 'Status'">
+              <status-pending if.bind="partnerStatus === 'PENDING'">
+              </status-pending>
+
+              <status-default if.bind="partnerStatus === null">
+              </status-default>
+
+              <status-disapproved if.bind="partnerStatus === 'disapproved'">
+              </status-disapproved>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

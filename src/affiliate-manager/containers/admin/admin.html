@@ -1,0 +1,32 @@
+<template>
+  <require from="../../components/admin/sidebar/adminSidebar"></require>
+  <require from="../../components/admin/affiliates/allAffiliates"></require>
+  <require from="../../components/admin/global-settings/globalSettings"></require>
+  <require from="../../components/admin/approve/partnerApprove"></require>
+  <div class="container-fluid container-fluid--with-min">
+    <div class="row">
+      <div class="col aff-sidebar-area" class.bind="opened? 'aff-sidebar-sidebar-area--closed': ''">
+        <admin-sidebar
+          current.two-way="currentPage"
+          opened.two-way="opened"
+        >
+        </admin-sidebar>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col px-0">
+            <all-affiliates
+              if.bind="currentPage === 'Affiliates'">
+            </all-affiliates>
+            <partner-approve
+              if.bind="currentPage === 'Approve-affiliates'">
+            </partner-approve>
+            <global-settings
+              if.bind="currentPage === 'Global-Settings'">
+            </global-settings>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

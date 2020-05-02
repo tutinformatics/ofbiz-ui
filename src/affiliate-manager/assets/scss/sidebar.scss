@@ -4,7 +4,7 @@
 .aff-sidebar {
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 280px;
   background: $secondary-dark;
   color: $white;
   h6 {
@@ -14,7 +14,10 @@
 }
 
 .aff-sidebar-container {
+  overflow-y: auto;
+  height: 100%;
   transition: 0.5s ease;
+  min-width: $sidebar-width;
 }
 
 .aff-sidebar-container--closed {
@@ -24,6 +27,7 @@
 .aff-sidebar__col {
   max-height: 4rem;
   transition: 0.3s all;
+  background: $secondary-dark;
 
   &:hover {
     background: $secondary-light;
@@ -70,22 +74,11 @@
   opacity: 0.75;
   border-radius: 10px;
   width: 45px;
-  height: 45px;
+  max-height: 45px;
   cursor: pointer;
   transition: 0.3s all;
 
   &:hover {
     opacity: 1;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .aff-sidebar {
-    width: 100%;
-    position: absolute;
-  }
-
-  .aff-sidebar.active {
-    margin-left: -$sidebar-width--widest;
   }
 }

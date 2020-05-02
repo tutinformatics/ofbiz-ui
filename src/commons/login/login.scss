@@ -1,0 +1,127 @@
+@import "src/commons/assets/scss/general-login";
+
+body, html {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+.container-fluid--no-overflow {
+  overflow-y: hidden;
+}
+
+.login {
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  background: $white-color;
+  padding: 30px;
+  max-width: 450px;
+  min-width: 315px;
+  position: relative;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.login__input {
+  background-color: #f6f6f6;
+  color: $black-color;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+
+  &:focus {
+    background-color: #fff;
+    border-bottom: 2px solid $primary-color;
+  }
+}
+
+.login-additional {
+  text-align: center;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+}
+
+.col--sign-up {
+  width: 95px;
+}
+
+.col--forgot-psw {
+  width: 160px;
+}
+
+.login-additional__link {
+  color: $black-color;
+  display: block;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+
+  &:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: $primary-color;
+    content: "";
+    transition: width 0.2s;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $black-color;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.login__form-wrapper {
+  transition: 0.5s;
+  visibility: visible;
+}
+
+.login__form-wrapper--absolute {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.login__form-wrapper--invisible {
+  visibility: hidden;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.error__login {
+  border: solid 2px red;
+
+  &:focus {
+    border-bottom: solid 2px red;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .login {
+    padding-top: 130px;
+    height: 100%;
+    width: 100%;
+  }
+}

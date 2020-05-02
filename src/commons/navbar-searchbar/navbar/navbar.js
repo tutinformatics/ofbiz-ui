@@ -58,6 +58,7 @@ export class Navbar {
     this.router.navigate(path)
   }
 
+
   handleStarIcon() {
     let url = window.location.href;
     return this.workspaceService.getAlreadyInMenu(url);
