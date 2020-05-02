@@ -25,7 +25,10 @@ export class Login {
     ValidationRules
       .ensure('recovery')
       .email()
-      .required()
+      .required();
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate('/select')
+    }
   }
 
   setForgotPassword(value) {

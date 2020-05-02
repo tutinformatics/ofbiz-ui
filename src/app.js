@@ -6,7 +6,7 @@ import { observable } from "aurelia-binding";
 @inject(Store)
 export class App {
 
-  @observable state;
+  @observable error;
   showError;
 
   constructor(store) {

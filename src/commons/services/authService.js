@@ -15,6 +15,15 @@ export class AuthService {
     this.store.registerAction('setUserLoginId', setUserLoginId);
     this.store.registerAction('setJwtToken', setJwtToken);
     this.store.registerAction('setPartyId', setPartyId);
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.jwtToken = state.jwtToken;
+      }
+    );
+  }
+
+  unbind() {
+    this.subscription.unsubscribe();
   }
 
   async loginAttempt(username, password) {
@@ -62,6 +71,10 @@ export class AuthService {
     } catch (e) {
       return null
     }
+  }
+
+  isLoggedIn() {
+    return !!this.jwtToken;
   }
 
 }
