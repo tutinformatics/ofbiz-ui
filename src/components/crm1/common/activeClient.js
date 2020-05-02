@@ -26,7 +26,7 @@ export class ActiveClient {
     this.simpleView = true;
     this.view = "Card View"
 
-    this.quickActionOptions = [new clientQuickAction("Call"),
+    this.quickActionOptions = [new clientQuickAction("Calls"),
       new clientQuickAction("Invoices"),
       new clientQuickAction("Notes"),
       new clientQuickAction("Edit"),
@@ -50,8 +50,10 @@ export class ActiveClient {
       new clientDocumentOption("Claims"),
       new clientDocumentOption("Returned")];
   }
-
-
+  quickAction(activity) {
+    this.ea.publish("changeAction", activity);
+    this.ea.publish("displayActivity", true);
+  }
 
 
 }

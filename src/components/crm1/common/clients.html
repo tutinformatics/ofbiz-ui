@@ -1,23 +1,22 @@
 <template>
   <require from="../../../css/crm1.css"></require>
   <require from="../common/addClient"></require>
-  <div class="card shadow">
+  <div class="card shadow-sm">
     <div class="card-header p-0 text-center">
       <h6 class="m-0">Clients <add-client></add-client></h6>
     </div>
 
     <div class="scrollbar scrollbar-primary m-0">
       <div class="force-overflow"></div>
-        <ul class="list-group list-group-flush" style="max-height: 74vh;">
+        <ul class="list-group list-group-flush" style="max-height: 84vh;">
           <div repeat.for="contact of contacts">
 
-
-            <li  class="list-group-item p-0 text-left">
-
-              <div class="card rounded-0 m-0">
+<!--            Single contact-->
+            <li  class="list-group-item p-0 text-left" click.delegate="chooseContact(contact)">
+              <div class="card pointer canHover rounded-0 m-0">
                 <div class="row no-gutters">
                   <div class="col-5">
-                    <img src="../img/avatar.png" click.delegate="chooseContact(contact)" class="card-img d-inline-block m-0 mx-3"
+                    <img src="../img/avatar.png" class="card-img d-inline-block m-0 mx-3"
                          style="width: 60px; height: 60px; border-radius: 50%" alt="..." >
                   </div>
                   <div class="col-7">
@@ -28,10 +27,8 @@
                   </div>
                 </div>
               </div>
-
-
             </li>
-
+<!--            Single contact end-->
 
           </div>
 

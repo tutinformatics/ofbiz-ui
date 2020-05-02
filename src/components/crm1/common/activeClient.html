@@ -1,21 +1,20 @@
 <template>
-  <require from="../../../css/crm1.css"></require>
   <require from="../common/complexViewClient/clientQuickAction"></require>
   <require from="../common/complexViewClient/clientContactOption"></require>
   <require from="../common/complexViewClient/clientSaleOption"></require>
   <require from="../common/complexViewClient/clientDocumentOption"></require>
 
-  <div class="card rounded shadow pb-2">
+  <div class="card rounded shadow-sm pb-2">
     <div class="card-header p-0 pb-1 m-0">
       <h6 class="p-0 m-0 text-center">Active client</h6>
     </div>
 <!--    Client profile picture, name, position-->
     <div class=" card rounded-0">
-      <div class="container-fluid" style="width: 70%">
+      <div class="container-fluid w-75">
         <img src="../img/avatar.png" class="card-img-top rounded-circle pt-1" alt="">
       </div>
       <div class="text-center">
-        <h6 class="m-0">${firstName}${lastName}</h6>
+        <h6 class="m-0">${firstName} ${lastName}</h6>
         <b class="m-0">Bili-bili Enterprise</b>
         <p class="m-0 font-weight-normal">CEO</p>
       </div>
@@ -28,7 +27,7 @@
       <div class="btn-toolbar m-0 text-center p-0 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
         <div repeat.for="option of quickActionOptions" >
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info btn-sm m-1">${option.name}</button>
+            <button type="button" click.delegate="quickAction(option)" class="btn rounded-pill btn-primary btn-sm m-1">${option.name}</button>
           </div>
         </div>
       </div>
@@ -40,7 +39,7 @@
     <div class="card rounded-0">
       <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
         <div repeat.for="option of contactOptions">
-          <button type="button" class="btn p-1 m-1 btn-primary round">${option.name}</button>
+          <button type="button" click.delegate="quickAction(option)" class="btn p-1 m-1 btn-dark round">${option.name}</button>
         </div>
       </div>
     </div>
@@ -54,7 +53,7 @@
       <div repeat.for="option of saleOptions" >
         <div class="row">
           <div class="col-12">
-            <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+            <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
           </div>
         </div>
       </div>
@@ -70,7 +69,7 @@
       <div repeat.for="option of options" >
         <div class="row">
           <div class="col-12">
-            <button type="button" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+            <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
           </div>
         </div>
       </div>

@@ -1,9 +1,11 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <div class="container-fluid p-0" >
-    <div class="card shadow" style="height: 500px; width: 100%">
-      <div class="card-header p-0 pb-1">
-        <h6 class="p-0 m-0 text-center">Current activity</h6>
+  <div class="container-fluid p-0 w-100" >
+    <div class="card shadow-sm" style="height: 78vh;">
+      <div class="card-header p-0 d-inline-block">
+        <i class="fa fa-window-close  fa-pull-right m-1" click.delegate="closeActivity()"
+           aria-hidden="true" style="color:#a1a6ff;"></i>
+        <h6 class="p-0 m-0 ">Current activity: ${activity}</h6>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Cras justo odio</li>

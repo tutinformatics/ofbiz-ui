@@ -15,9 +15,14 @@ export class ComplexView {
     this.http = http.http;
     this.router = router;
     this.contacts = [];
-    this.simpleView = true;
     this.view = "Card View"
+    this.displayActivity = false;
+    ea.subscribe("displayActivity", boolean => {
+      this.displayActivity = boolean;
+    })
   }
+
+
 
   async attached() {
     await this.getAllContacts()

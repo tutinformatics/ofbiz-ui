@@ -74,7 +74,7 @@ export class App {
       {
         route: 'crm/clients/complex',
         moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
-        name: 'complexview' },
+        name: 'complexView' },
 
     ]);
     this.router = router;
