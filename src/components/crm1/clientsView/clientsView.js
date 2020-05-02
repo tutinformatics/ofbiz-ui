@@ -29,17 +29,6 @@ export class ClientsView {
     await this.getAllContacts()
   }
 
-  async login() {
-    // works with http client
-    await this.http.createRequest('https://localhost:8443/api/auth/v1/register')
-      .asPost()
-      .withContent({
-        "userLoginId": "Crmtiim",
-        "currentPassword": "admin",
-        "currentPasswordVerify": "admin"})
-      .send()
-      .then(response => console.log(response))
-  }
 
   async getAllContacts() {
     console.log('here');
