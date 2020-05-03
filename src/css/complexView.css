@@ -1,0 +1,33 @@
+/*The navigation color scheme is annoying*/
+.bg {
+  background-image: linear-gradient(#bfc2ff, #ececff);
+  height: 93vh;
+}
+.navbar {
+  height: 7vh;
+  background-color: white !important;
+}
+.navbar-brand {
+  color:black !important;
+  background-color: white !important;
+}
+.router-link {
+  color:black !important;
+  background-color: white !important;
+}
+
+
+.card.pointer {
+  cursor: pointer;
+}
+.card.canHover:hover {
+  background-color: rgb(248, 246, 252);
+}
+.card-header {
+  background-color: rgba(255, 255, 255, 0.68);
+}
+
+
+.list-group-item {
+  border: none;
+}

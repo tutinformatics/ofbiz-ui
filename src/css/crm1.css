@@ -33,27 +33,18 @@
 
 }
 
-
 .card.card_internal{
   margin: 20px 10px 10px 25px;
   border: 1px solid gray;
   height: 135px;
 }
 
-
-
-
-
 .helpers{
-
-
   display: flex;
   margin-left:auto;
   margin-right:50px;
   padding-left: 10px;
   justify-content: space-between;
-
-
 }
 
 .card-body.card_selections .btn{

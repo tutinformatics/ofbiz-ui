@@ -89,7 +89,7 @@ hr {
   background-color: #ababab !important;
 }
 
-button-icon {
+.button-icon {
   cursor: pointer
 }
 
@@ -98,6 +98,7 @@ button-icon {
   float: left;
   background: #fff;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-bottom: 25px;
 }
 
@@ -151,6 +152,7 @@ ul.custom-pagination li a:hover:not(.active):not(.disabled) {background-color: #
 ul.custom-pagination li a.disabled {
   color: darkgrey;
 }
+
 
 /*Please rename according to BEM convention (It broke my layout)*/
 
