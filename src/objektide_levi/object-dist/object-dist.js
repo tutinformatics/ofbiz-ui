@@ -31,6 +31,15 @@ export class ObjectDist {
     "comment": "string"
   }
 
+  dataOperatorMapping = {
+    "<=": "lessThanEqualTo",
+    "<": "lessThan",
+    ">": " greaterThan",
+    ">=": " greaterThanEqualTo",
+    "=": "equals",
+    "<>": "notEqual",
+  }
+
   constructor(queryBuilder) {
     this.setHTTPClient();
     this.fetchPublishers();
@@ -159,7 +168,7 @@ export class ObjectDist {
             label: toWords(field.name),
             dataField: field.name,
             dataType: this.dataTypeMapping[field.type],
-            filterOperations: ["="] // ONLY "EQUALS" OPERATOR AVAILABLE
+            filterOperations: ["=", "<=", "<", ">=", ">", "<>"]
           })
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder');
@@ -471,15 +480,19 @@ export class ObjectDist {
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] == "object") {
-        let filter = {};
+        let filterComponent = [];
         for (let j = 0; j < queryArray[i].length; j++) {
           const data = queryArray[i][j];
           if (typeof data == "object") {
-            // filter[data[0]] = [data[1], data[2]];
-            filter[data[0]] = [data[2]];
+            let filter = {
+              "fieldName": data[0],
+              "operation": this.dataOperatorMapping[data[1]],
+              "value": data[2]
+            };
+            filterComponent.push(filter);
           }
         }
-        filters.push(filter)
+        filters.push(filterComponent)
       }
     }
     console.log(JSON.stringify(filters))
