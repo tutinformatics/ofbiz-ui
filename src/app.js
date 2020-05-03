@@ -58,9 +58,9 @@ export class App {
         name: 'object-dist'
       },
       {
-        route: 'crm2',
+        route: 'crm',
         moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
-        name: 'crm2'
+        name: 'crm'
       },
       {
         route: 'project',

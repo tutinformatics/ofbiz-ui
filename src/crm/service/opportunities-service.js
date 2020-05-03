@@ -5,7 +5,7 @@ import { inject } from 'aurelia-framework';
 export class OpportunitiesService {
   constructor() {
     this.client = new HttpClient;
-    const baseUrl = 'http://82.131.117.193:7463/api/';
+    const baseUrl = '/api/generic/v1/';
 
     this.client.configure(config => {
       config.withBaseUrl(baseUrl);
@@ -14,7 +14,7 @@ export class OpportunitiesService {
 
   getOpportunities() {
     return this.client
-      .fetch('opportunities')
+      .fetch('entities/opportunity')
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
@@ -22,19 +22,19 @@ export class OpportunitiesService {
       });
   }
 
-  getOpportunity(id) {
-    return this.client
-      .fetch('opportunities')
-      .then(response => response.json())
-      .catch(reason => {
-        console.error(reason);
-        return [];
-      });
-  }
+  // getOpportunity(id) {
+  //   return this.client
+  //     .fetch('opportunities')
+  //     .then(response => response.json())
+  //     .catch(reason => {
+  //       console.error(reason);
+  //       return [];
+  //     });
+  // }
 
   createNewOpportunity(opportunity) {
     this.client
-      .fetch('opportunity', {
+      .fetch('entities/opportunity', {
         method: 'post',
         body: json(opportunity)
       })

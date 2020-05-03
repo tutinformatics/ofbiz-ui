@@ -6,20 +6,21 @@ export class AgentService {
   constructor() {
     this.client = new HttpClient;
 
-    const baseUrl = 'http://82.131.117.193:7463/api/';
+    const baseUrl = '/api/generic/v1/';
 
     this.client.configure(config => {
       config.withBaseUrl(baseUrl);
     })
   }
 
-  async getAgents() {
-    try {
-      const response = await this.client.fetch('agents');
-      return response.json();
-    } catch (e) {
-      console.log("getagents:", e);
-    }
+  getAgents() {
+    return this.client
+      .fetch('entities/agent')
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
   }
 }
 

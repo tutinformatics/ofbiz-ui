@@ -5,7 +5,7 @@ import { inject } from 'aurelia-framework';
 export class PipelineService {
   constructor() {
     this.client = new HttpClient;
-    const baseUrl = 'http://82.131.117.193:7463/api/';
+    const baseUrl = '/api/generic/v1/';
 
     this.client.configure(config => {
       config
@@ -13,9 +13,9 @@ export class PipelineService {
     });
   }
 
-  getNewOpportunities() {
+  getOpportunitiesByStage(stage) {
     return this.client
-      .fetch('opportunity/1/new')
+      .fetch('entities/opportunity/?stage=' + stage)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
@@ -23,24 +23,34 @@ export class PipelineService {
       });
   }
 
-  getPropositionOpportunities() {
-    return this.client
-      .fetch('opportunity/1/proposition')
-      .then(response => response.json())
-      .catch(reason => {
-        console.error(reason);
-        return [];
-      });
-  }
+  // getNewOpportunities() {
+  //   return this.client
+  //     .fetch('entities/opportunity/?stage=new')
+  //     .then(response => response.json())
+  //     .catch(reason => {
+  //       console.error(reason);
+  //       return [];
+  //     });
+  // }
 
-  getWonOpportunities() {
-    return this.client
-      .fetch('opportunity/1/won')
-      .then(response => response.json())
-      .catch(reason => {
-        console.error(reason);
-        return [];
-      });
-  }
+  // getPropositionOpportunities() {
+  //   return this.client
+  //     .fetch('entities/opportunity/1/proposition')
+  //     .then(response => response.json())
+  //     .catch(reason => {
+  //       console.error(reason);
+  //       return [];
+  //     });
+  // }
+
+  // getWonOpportunities() {
+  //   return this.client
+  //     .fetch('entities/opportunity/1/won')
+  //     .then(response => response.json())
+  //     .catch(reason => {
+  //       console.error(reason);
+  //       return [];
+  //     });
+  // }
 }
 

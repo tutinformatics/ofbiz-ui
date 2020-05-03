@@ -30,15 +30,15 @@ export class Pipeline {
   // }
 
   attached() {
-    this.pipelineService.getNewOpportunities()
+    this.pipelineService.getOpportunitiesByStage("new")
       .then(
         data => this.new = data
       );
-    this.pipelineService.getPropositionOpportunities()
+    this.pipelineService.getOpportunitiesByStage("proposition")
       .then(
         data => this.proposition = data
       );
-    this.pipelineService.getWonOpportunities()
+    this.pipelineService.getOpportunitiesByStage("won")
       .then(
         data => this.won = data
       );
