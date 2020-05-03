@@ -441,7 +441,8 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('subscriberTopic').value,
       'description': document.getElementById('subscriberDescription').value,
-      'filter': this.getFilterFromComponent(false)
+      'filter': this.getFilterFromComponent(false),
+      'properties': this.getProperties()
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
   }
@@ -483,6 +484,18 @@ export class ObjectDist {
       }
     }
     return JSON.stringify(filters);
+  }
+
+  getProperties() {
+    var oTable = document.getElementById('properties-add-subscriber');
+    var properties = {};
+    var rowLength = oTable.rows.length;
+
+    for (var i = 1; i < rowLength; i++){
+      var oCells = oTable.rows.item(i).cells;
+      properties[oCells.item(1).innerHTML] = oCells.item(2).children[0].checked;
+    }
+    return JSON.stringify(properties);
   }
 
   generateKey() {
