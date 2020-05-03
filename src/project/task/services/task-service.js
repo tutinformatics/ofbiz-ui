@@ -12,6 +12,7 @@ export class TaskService {
 
   createTask(task) {
     const body = json(task);
+
     return this.httpClient
       .fetch(`${this.baseUrl}/createProjectTask`, {
         method: 'post',

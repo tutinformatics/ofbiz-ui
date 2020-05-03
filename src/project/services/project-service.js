@@ -25,6 +25,7 @@ export class ProjectService {
 
   createProject(project) {
     const body = json(project);
+
     return this.httpClient
       .fetch(`${this.baseUrl}/createProject`, {
         method: 'post',

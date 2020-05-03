@@ -26,6 +26,7 @@ export class WorkspaceService {
 
   addWorkspace(workspace) {
     const body = json(workspace);
+
     return this.httpClient
       .fetch(`${this.baseUrl}/services/createWorkspaceByJavaService`, {
         method: 'post',
