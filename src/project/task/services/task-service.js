@@ -30,13 +30,13 @@ export class TaskService {
       .fetch(`${this.baseUrl}/task-list?${query}`)
       .then(res => res.json())
       .then(res => {
-        safeGet(() => res.taskList, []).map(task => {
+        return safeGet(() => res.taskList, []).map(task => {
           task.estimatedStartDate = !!task.estimatedStartDate ? new Date(task.estimatedStartDate) : undefined;
           task.startDate = !!task.startDate ? new Date(task.startDate) : undefined;
           task.completionDate = !!task.completionDate ? new Date(task.completionDate) : undefined;
           task.estimatedCompletionDate = !!task.estimatedCompletionDate ? new Date(task.estimatedCompletionDate) : undefined;
+          return task;
         });
-        return safeGet(() => res.taskList, []);
       })
       .catch(error => {
         /* eslint no-console: ["error", { allow: ["error"] }] */

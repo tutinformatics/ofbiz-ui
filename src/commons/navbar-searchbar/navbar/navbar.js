@@ -10,9 +10,23 @@ import { WorkspaceService } from '../../workspaces-menu/workspace-service';
 import * as toastr from 'toastr';
 import { AppService } from '../../services/app-service';
 
-@inject(Router, EventAggregator, MenuItemsService, WorkspaceService, Store, AppService)
+@inject(
+  Router,
+  EventAggregator,
+  MenuItemsService,
+  WorkspaceService,
+  Store,
+  AppService
+)
 export class Navbar {
-  constructor(router, ea, menuItemsService, workspaceService, store, appService) {
+  constructor(
+    router,
+    ea,
+    menuItemsService,
+    workspaceService,
+    store,
+    appService
+  ) {
     this.store = store;
     this.store.registerAction('setUserLoginId', setUserLoginId);
     this.subscription = this.store.state.subscribe(
@@ -45,6 +59,11 @@ export class Navbar {
     );
   }
 
+  get isFavourite() {
+    const url = this.router.currentInstruction.fragment;
+    return this.workspaces.some((x) => x.url === url);
+  }
+
   setCurrentProduct({ url, title }) {
     this.title = title;
     if (!url) {
@@ -59,12 +78,12 @@ export class Navbar {
     }
     this.workspaceService
       .getWorkspaceList({ userId: this.state.userLoginId })
-      .then((response) => (this.workspaces = response));
+      .then((response) => (this.workspaces = response))
+      .catch((error) => toastr.error(error.message));
   }
 
   loadApplications() {
-    this.appService.getApplications()
-      .then(res => this.applications = res);
+    this.appService.getApplications().then((res) => (this.applications = res));
   }
 
   loadMenuItems(product) {
@@ -91,10 +110,7 @@ export class Navbar {
         this.loadWorkspaces();
         toastr.success('Workspace successfully saved!');
       })
-      .catch((error) => {
-        /* eslint no-console: ["error", { allow: ["error"] }] */
-        toastr.error('An error occured while saving workspace');
-      });
+      .catch((error) => toastr.error(error.message));
   }
 
   logOut() {
@@ -106,11 +122,6 @@ export class Navbar {
 
   navigateTo(path) {
     this.router.navigate(path);
-  }
-
-  handleStarIcon() {
-    let url = window.location.href;
-    return this.workspaceService.getAlreadyInMenu(url);
   }
 
   detached() {

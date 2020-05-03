@@ -17,7 +17,9 @@ export class TaskList {
       transport: {
         read: (options) => {
           this.taskService.getProjectTaskList({ projectId: params.id })
-            .then((tasks) => options.success(tasks));
+            .then((tasks) => {
+              options.success(tasks); 
+            });
         }
       },
       schema: {
