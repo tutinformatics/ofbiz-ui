@@ -1,9 +1,9 @@
 import "../member-components.scss"
 import moment from "moment";
 import { DialogService } from "aurelia-dialog";
-import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
+import { SingleAffiliate } from '../../general/af-detailed-modal/singleAffiliate';
 import { inject } from "aurelia-dependency-injection";
-import { AffManagerService } from "../../../service/affManagerService";
+import { AffManagerService } from "../../../services/affManagerService";
 
 @inject(DialogService, AffManagerService)
 export class MyAffiliates {
@@ -15,6 +15,9 @@ export class MyAffiliates {
     this.affManagerService = affManagerService;
     this.dialogService = dialogService;
     this.myAffiliatesOption = this.getMyAffiliateOptions();
+  }
+
+  async attached() {
     this.getMyAffiliatePartners();
   }
 
@@ -45,22 +48,19 @@ export class MyAffiliates {
 
   async getMyAffiliatePartners() {
     const response = await this.affManagerService.myAffiliatesRequest();
+    const localMyAffiliatePartners = [];
     if (response.ok) {
       response.json().then((response) => {
-          response['subAffiliates'].forEach(partner => this.myAffiliatePartners.push(
-            this.parsePartner(partner)
+          if (response['_toOne_Affiliate']) {
+            response['_toOne_Affiliate'].forEach(partner => localMyAffiliatePartners.push(
+              this.parsePartner(partner)
+              )
             )
-          )
+          }
         }
       )
     }
-    this.myAffiliatePartners.push({
-      "dateTimeCreated": '03.04.2020',
-      "firstName": "Alex",
-      "lastName": "Groom",
-      "email": 'ag@gmail.com',
-      "status": 'Active'
-    });
+    this.myAffiliatePartners = localMyAffiliatePartners;
     this.filteredAffiliatePartners = this.myAffiliatePartners;
   }
 
@@ -81,10 +81,11 @@ export class MyAffiliates {
 
 
   detailedView(partner) {
+    const isAdmin = false;
     this.dialogService.open({
       viewModel: SingleAffiliate
-      , model: partner
-    })
+      , model: {partner, isAdmin}
+    });
   }
 }
 

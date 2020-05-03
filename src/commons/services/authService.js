@@ -1,32 +1,34 @@
 import { inject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
-import { setUserLoginId } from "../../store/store";
+import { setJwtToken, setUserLoginId, setPartyId } from "../../store/store";
 
-@inject(HttpClient, Store)
+@inject(Store, HttpClient)
 export class AuthService {
 
-  constructor(httpClient, store) {
+  baseUrl = 'api/';
+
+  constructor(store, httpClient) {
     this.httpClient = httpClient;
-    this.httpClient.configure(config => {
-        config
-          .withBaseUrl('api/')
-          .withDefaults({
-              headers: {
-                'Accept': 'application/json',
-              }
-            }
-          )
-      }
-    );
     this.store = store;
     this.store.registerAction('setUserLoginId', setUserLoginId);
+    this.store.registerAction('setJwtToken', setJwtToken);
+    this.store.registerAction('setPartyId', setPartyId);
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.jwtToken = state.jwtToken;
+      }
+    );
+  }
+
+  unbind() {
+    this.subscription.unsubscribe();
   }
 
   async loginAttempt(username, password) {
     try {
-      const response = await this.httpClient
-        .fetch("auth/v1/login",
+      const response = await this.httpClient.fetch(
+          `${this.baseUrl}auth/v1/login`,
           {
             method: 'POST',
             body: json({
@@ -38,9 +40,8 @@ export class AuthService {
         );
       if (response.ok) {
         const responseData = await response.json();
-        this.store.dispatch('setUserLoginId', responseData['userLoginId']);
-        localStorage.setItem("userLoginId", responseData['userLoginId']);
-        localStorage.setItem("token", responseData['token']);
+        await this.store.dispatch('setUserLoginId', responseData['userLoginId']);
+        await this.store.dispatch('setJwtToken', responseData['token']);
         return true;
       }
     } catch (e) {
@@ -51,7 +52,8 @@ export class AuthService {
   async signUpRequest(username, password, verifiedPassword) {
     try {
       const response = await this.httpClient
-        .fetch("api/auth/v1/register",
+        .fetch(
+          `${this.baseUrl}auth/v1/register`,
           {
             method: 'POST',
             body: json({
@@ -68,6 +70,10 @@ export class AuthService {
     } catch (e) {
       return null
     }
+  }
+
+  isLoggedIn() {
+    return !!this.jwtToken;
   }
 
 }

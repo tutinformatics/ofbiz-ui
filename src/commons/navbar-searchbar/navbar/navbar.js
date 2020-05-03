@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Store } from "aurelia-store";
-import { setUserLoginId } from "../../../store/store";
+import { reset } from "../../../store/store";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
 import { safeGet } from '../../util/utility';
@@ -9,9 +9,10 @@ import "./navbar.scss"
 
 @inject(Router, EventAggregator, MenuItemsService, Store)
 export class Navbar {
+
   constructor(router, ea, menuItemsService,store) {
     this.store = store;
-    this.store.registerAction('setUserLoginId', setUserLoginId);
+    this.store.registerAction('reset', reset);
     this.subscription = this.store.state.subscribe(
       (state) => this.state = state
     );
@@ -45,10 +46,8 @@ export class Navbar {
   }
 
   logOut() {
-    localStorage.removeItem('userLoginId');
-    localStorage.removeItem('token');
-    this.store.dispatch('setUserLoginId', null);
-    this.navigateTo('#/login');
+    this.store.dispatch('reset');
+    this.navigateTo('/');
   }
 
   navigateTo(path) {

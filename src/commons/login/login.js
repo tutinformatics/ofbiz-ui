@@ -2,7 +2,7 @@ import "./login.scss"
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { ValidationControllerFactory, ValidationRules } from "aurelia-validation";
-import { AuthService } from "./authService";
+import { AuthService } from "../services/authService";
 
 @inject(Router, ValidationControllerFactory, AuthService)
 export class Login {
@@ -25,7 +25,10 @@ export class Login {
     ValidationRules
       .ensure('recovery')
       .email()
-      .required()
+      .required();
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate('/select')
+    }
   }
 
   setForgotPassword(value) {
@@ -41,7 +44,7 @@ export class Login {
     if (this.controller.errors.length === 0) {
       const isSuccessful = await this.authService.loginAttempt(this.username, this.password);
       if (isSuccessful) {
-        this.router.navigate("/");
+        this.router.navigate("/select");
         return
       }
     }

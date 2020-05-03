@@ -34,7 +34,7 @@ export class Shuffle {
     },
     {
       name: 'marketing',
-      url: 'affiliate-manager'
+      url: 'affiliate-manager?affCode=10'
     },
     {
       name: 'invoicing',

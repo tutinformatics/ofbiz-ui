@@ -14,6 +14,7 @@
     "au-table": "^0.1.14",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.2",
+    "aurelia-cookie": "latest",
     "aurelia-dependency-injection": "^1.5.2",
     "aurelia-dialog": "^2.0.0",
     "aurelia-event-aggregator": "latest",

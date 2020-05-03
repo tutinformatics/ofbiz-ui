@@ -25,7 +25,8 @@ export function configure(aurelia) {
       {initialState})
     .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'))
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
-    .plugin(PLATFORM.moduleName('au-table'));
+    .plugin(PLATFORM.moduleName('au-table'))
+    .plugin(PLATFORM.moduleName('aurelia-cookie'));
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));

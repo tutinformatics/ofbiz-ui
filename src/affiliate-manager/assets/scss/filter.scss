@@ -5,6 +5,8 @@
   box-sizing: border-box;
   max-width: 185px;
   min-width: 185px;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 .aff-filter__dropdown {
