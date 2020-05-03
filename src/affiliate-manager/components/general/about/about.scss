@@ -1,0 +1,25 @@
+@import "src/affiliate-manager/assets/scss/utils";
+
+.aff-about-top-img {
+  margin-top: -100px;
+  min-height: 200px;
+}
+
+.aff-about-diagram-img{
+  height: 100%;
+  width: 100%;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  .aff-about-top-img {
+    margin-top: -50px;
+  }
+
+  .aff-about-diagram-img{
+    height: 300px;
+    width: 300px;
+  }
+}
+

@@ -1,6 +1,12 @@
 <template>
-    <require from="./css/styles.css"></require>
-    <require from="./commons/navbar-searchbar/navbar-searchbar"></require>
-    <navbar-searchbar></navbar-searchbar>
-    <router-view class=""></router-view>
+  <require from="./css/styles.css"></require>
+  <require from="./commons/navbar-searchbar/navbar-searchbar"></require>
+  <require from="./commons/alerts/alert"></require>
+  <navbar-searchbar></navbar-searchbar>
+  <alert
+    is-error.two-way="showError"
+    alert-type.one-way="'ERROR'"
+    message.one-way="error.errorMessage">
+  </alert>
+  <router-view></router-view>
 </template>

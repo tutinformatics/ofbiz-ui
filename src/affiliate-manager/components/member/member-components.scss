@@ -1,0 +1,20 @@
+@import "src/affiliate-manager/assets/scss/variables";
+
+.aff-member-table__row {
+  transition: 0.3s all;
+}
+
+.aff-table__action-icon {
+  transition: 0.3s all;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.aff-table__action-icon--red {
+  &:hover {
+    color: $red;
+  }
+}

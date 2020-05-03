@@ -1,0 +1,38 @@
+<template>
+  <require from="../../general/alerts/alert"></require>
+  <div class="aff-become-partner-img-area">
+    <img
+      class="aff-become-partner-img-area--img"
+      src="../../../assets/images/become-partner-background.png"
+      alt="affiliate-life"
+    >
+  </div>
+  <alert
+    is-error.two-way="becomePartnerSuccess"
+    alert-type.one-way="'SUCCESS'"
+    message.one-way="'Your status is updated to pending. Check status option in menu for further information'">
+  </alert>
+  <div class="col-lg-10 mx-auto mt-n5 text-center position-relative">
+    <button
+      disabled.bind="guest"
+      click.trigger="becomeAffPartner()"
+      type="button"
+      class="aff-button aff-button--large mx-auto mt-3">
+      JOIN FOR FREE
+    </button>
+    <small if.bind="!status" class="mx-auto">Only logged in user can join to the affiliate partnership</small>
+    <div class="aff-become-partner__motivator mt-4">
+      <h4>
+        <i>Start Earning More! Become Affiliate Partner Right Now</i>
+      </h4>
+    </div>
+    <div class="aff-become-partner__description my-5 text-center">
+      <p>
+        Affiliate Management is a program where an online seller can earn commission just by advertising the third
+        party products on his website. Commission will be earned by publisher every time a user makes a purchase by visiting
+        through affiliate product link. There is zero cost involvement in joining the affiliate program which makes it
+        distinct, low risk and high reward marketing and sales strategy as compared to others.
+      </p>
+    </div>
+  </div>
+</template>

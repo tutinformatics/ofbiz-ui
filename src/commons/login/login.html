@@ -1,0 +1,75 @@
+<template>
+  <div
+    if.bind="!authService.isLoggedIn()"
+    class="container-fluid h-100 container-fluid--no-overflow">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col login mt-n5">
+        <div class="login__form-wrapper" class.bind="forgotPassword? 'login__form-wrapper--invisible': ''">
+          <form role = "form" submit.delegate = "login()">
+            <label class="sr-only" for="username"></label>
+            <input
+              type="text"
+              id="username"
+              class="login__input"
+              placeholder="Username"
+              value.bind="username"
+              autocomplete="off"
+              class.bind="errors? 'error__login': ''"
+            />
+            <label for="password" class="sr-only"></label>
+            <input
+              type="password"
+              id="password"
+              class="login__input"
+              placeholder="Password"
+              autocomplete="off"
+              value.bind="password"
+              class.bind="errors? 'error__login': ''"
+            />
+            <input
+              class="login__btn my-2"
+              type="submit"
+              value="Log In"
+            />
+          </form>
+          <div class="row login-additional flex-column">
+            <div class="col mx-auto mt-2 col--sign-up">
+              <a class="login-additional__link" click.delegate="navigateTO('#/sign-up')">Sign Up</a>
+            </div>
+            <div class="col mx-auto col--forgot-psw">
+              <a class="login-additional__link" click.delegate="setForgotPassword(true)">Forgot Password?</a>
+            </div>
+          </div>
+        </div>
+        <div class="login__form-wrapper login__form-wrapper--absolute" class.bind="!forgotPassword? 'login__form-wrapper--invisible': ''">
+          <div class="row">
+            <div class="col">
+              <form role="form" submit.delegate="sendForgotPasswordRequest()">
+                <label class="sr-only" for="recovery"></label>
+                <input
+                  type="email"
+                  value.bind="recovery"
+                  id="recovery"
+                  class="login__input"
+                  placeholder="Enter email"
+                />
+                <small id="emailHelp" class="form-text text-muted">Instruction for password reset will be sent to this
+                  email</small>
+                <input
+                  class="login__btn my-2"
+                  type="submit"
+                  value="Confirm"
+                  disabled.bind="recovery.length === 0"
+                />
+                <div class="col mx-auto my-2 col--sign-up">
+                  <a class="login-additional__link" click.delegate="setForgotPassword(false)">Back</a>
+                </div>
+                <small if.bind="showFeedback">Instructions are sent</small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
