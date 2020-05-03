@@ -26,7 +26,7 @@
   },
   {
     "name": "marketing",
-    "url": "affiliate-manager",
+    "url": "affiliate-manager?affCode=10",
     "title": "Marketing"
   },
   {

@@ -1,6 +1,7 @@
 import { inject } from 'aurelia-framework';
 import moment from "moment";
-import { AffManagerService } from "../../../service/affManagerService";
+import { AffManagerService } from "../../../services/affManagerService";
+import { safeGet, safeGetExtended } from "../../../../commons/util/utility";
 
 @inject(AffManagerService)
 export class partnerApprove {
@@ -11,17 +12,24 @@ export class partnerApprove {
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
     this.affApproveFilterOptions = this.getAffApproveFilterOptions();
+  }
+
+  async attached() {
     this.fetchPendingPartners();
   }
 
   async fetchPendingPartners() {
     const responseData = await this.affManagerService.pendingPartnersRequest();
-    responseData.forEach(candidate =>
-      this.pendingPartners.push(
-        this.parseCandidate(candidate)
-      )
-    );
-    this.filteredValues = this.pendingPartners;
+    const localPendingPartners = [];
+    if (responseData) {
+      responseData.forEach(candidate =>
+        localPendingPartners.push(
+          this.parseCandidate(candidate)
+        )
+      );
+      this.pendingPartners = localPendingPartners;
+      this.filteredValues = this.pendingPartners;
+    }
   }
 
   async approve(index, partyId) {
@@ -41,11 +49,11 @@ export class partnerApprove {
   parseCandidate(candidate) {
     const parsedDate = candidate["createdStamp"]? new Date(candidate["createdStamp"]): null;
     return {
-      "firstName": candidate['firstName'],
-      "lastName": candidate['lastName'],
-      "dateTimeCreated": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Date is missing',
-      "email": `${candidate['firstName']}@gmail.com`,
-      "partyId": candidate['partyId'],
+      "firstName": safeGet(() => candidate['_toOne_Person']['firstName'], 'Missing'),
+      "lastName": safeGet(() => candidate['_toOne_Person']['lastName'], 'Missing'),
+      "dateTimeCreated": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
+      "email": safeGet(() => candidate['_toOne_Person']['firstName'], `${candidate['_toOne_Person']['firstName']}@email.com`, 'Missing'),
+      "partyId": safeGet(() => candidate['partyId'], 'Missing'),
     }
   }
 

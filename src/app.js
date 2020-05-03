@@ -1,6 +1,32 @@
 import { PLATFORM } from 'aurelia-pal';
+import { inject } from "aurelia-dependency-injection";
+import { Store } from "aurelia-store";
+import { observable } from "aurelia-binding";
+import { HttpService } from "./commons/services/httpService";
 
+@inject(Store, HttpService)
 export class App {
+
+  @observable error;
+  showError;
+
+  constructor(store) {
+    this.store = store;
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.error = state.error;
+      }
+    );
+  }
+
+  errorChanged(newErrorState) {
+    this.showError = !!newErrorState.errorMessage;
+  }
+
+  unbind() {
+    this.subscription.unsubscribe();
+  }
+
   configureRouter(config, router) {
     config.title = 'Ofbiz UI';
     config.options.pushState = true;
@@ -8,6 +34,11 @@ export class App {
     config.map([
       {
         route: '',
+        name: 'login-page',
+        moduleId: PLATFORM.moduleName('commons/login/login')
+      },
+      {
+        route: 'select',
         moduleId: PLATFORM.moduleName('no-selection'),
         title: 'Select'
       },
@@ -51,11 +82,6 @@ export class App {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
-      },
-      {
-        route: 'login',
-        name: 'login-page',
-        moduleId: PLATFORM.moduleName('commons/login/login')
       },
       {
         route: 'sign-up',
