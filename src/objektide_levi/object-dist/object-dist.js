@@ -459,7 +459,7 @@ export class ObjectDist {
   }
 
   refreshPage() {
-    location.reload();
+    location.reload();  // TODO rework
   }
 
   getFilterFromComponent(isPublisher) {
@@ -483,6 +483,7 @@ export class ObjectDist {
         filters.push(filter)
       }
     }
+    console.log(JSON.stringify(filters))
     return JSON.stringify(filters);
   }
 
