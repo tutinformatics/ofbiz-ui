@@ -20,6 +20,7 @@ export class SingleAffiliate {
     this.isAdmin = data['isAdmin'];
     this.partner = data['partner'];
     this.getMoreInf(this.partner);
+    console.log(data);
   }
 
   getMoreInf(partner) {
@@ -32,7 +33,7 @@ export class SingleAffiliate {
   async disableAffiliate(partyId) {
     const response = await this.affManagerService.disableAffiliate(partyId);
     if (response.ok) {
-      this.controller.close();
+      this.controller.ok(partyId);
     }
   }
 }

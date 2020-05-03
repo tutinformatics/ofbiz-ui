@@ -1,7 +1,7 @@
 import "./allAffiliates.scss"
-import { inject } from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import moment from 'moment';
-import { AffManagerService } from "../../../services/affManagerService";
+import {AffManagerService} from "../../../services/affManagerService";
 import {SingleAffiliate} from '../../general/af-detailed-modal/singleAffiliate';
 import {DialogService} from "aurelia-dialog";
 
@@ -62,26 +62,29 @@ export class allAffiliates {
   }
 
   setFilteredValues(filteredValues) {
-    this.filteredValues =  filteredValues;
+    this.filteredValues = filteredValues;
   }
 
   parsePartner(partner) {
     const parsedDate = new Date(partner["createdStamp"]);
     return {
-      "firstName": partner['_toOne_Person']['firstName']? partner['_toOne_Person']['firstName']: 'Missing',
-      "lastName": partner['_toOne_Person']['lastName']? partner['_toOne_Person']['lastName']: 'Missing',
-      "dateTimeCreated": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Date is missing',
-      "email": partner['_toOne_Person']['firstName']? `${partner['_toOne_Person']['firstName']}@gmail.com`: 'Missing',
-      "partyId": partner['partyId']? partner['partyId']: 'Missing',
-      "status": partner['status']? partner['status']: 'Missing',
+      "firstName": partner['_toOne_Person']['firstName'] ? partner['_toOne_Person']['firstName'] : 'Missing',
+      "lastName": partner['_toOne_Person']['lastName'] ? partner['_toOne_Person']['lastName'] : 'Missing',
+      "dateTimeCreated": parsedDate ? moment(parsedDate).format('MM-D-YYYY') : 'Date is missing',
+      "email": partner['_toOne_Person']['firstName'] ? `${partner['_toOne_Person']['firstName']}@gmail.com` : 'Missing',
+      "partyId": partner['partyId'] ? partner['partyId'] : 'Missing',
+      "status": partner['status'] ? partner['status'] : 'Missing',
     }
   }
 
   manageAffiliate(partner) {
     const isAdmin = true;
     this.dialogService.open({
-      viewModel: SingleAffiliate
-      , model: {partner, isAdmin}
+      viewModel: SingleAffiliate,
+      model: {partner, isAdmin},
+    }).whenClosed(response => {
+      this.allAffiliatePartners = this.allAffiliatePartners.filter(partner => partner['partyId'] !== response.output);
+      this.filteredValues = this.filteredValues.filter(partner => partner['partyId'] !== response.output);
     });
   }
 }
