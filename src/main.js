@@ -26,12 +26,7 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
     .plugin(PLATFORM.moduleName('au-table'))
     .plugin(PLATFORM.moduleName('aurelia-cookie'));
-
-  aurelia.use
-    .standardConfiguration()
-    .developmentLogging()
-    .plugin(PLATFORM.moduleName('aurelia-dialog'));
-
+  
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
