@@ -11,7 +11,7 @@ export class PipelineService {
 
   getOpportunitiesByStage(stage) {
     return this.client
-      .fetch(`${this.baseUrl}/entities/opportunity/?stage=` + stage)
+      .fetch(`${this.baseUrl}entities/opportunity/?stage=` + stage)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
