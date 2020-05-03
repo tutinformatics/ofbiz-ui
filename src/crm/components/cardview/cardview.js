@@ -1,8 +1,10 @@
 import { OpportunitiesService } from 'crm/service/opportunities-service';
+import { inject } from 'aurelia-framework';
 
+@inject(OpportunitiesService)
 export class CardView {
-  constructor() {
-    this.opportunitiesService = new OpportunitiesService();
+  constructor(opportunitiesService) {
+    this.opportunitiesService = opportunitiesService;
   }
 
   attached() {

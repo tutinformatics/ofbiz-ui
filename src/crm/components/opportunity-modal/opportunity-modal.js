@@ -2,11 +2,11 @@ import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { OpportunitiesService } from '../../service/opportunities-service.js';
 
-@inject(EventAggregator)
+@inject(EventAggregator, OpportunitiesService)
 export class OpportunityModal {
-  constructor(ea) {
-    this.opportunitiesService = new OpportunitiesService();
+  constructor(ea, opportunitiesService) {
     this.ea = ea;
+    this.opportunitiesService = opportunitiesService;
   }
 
   newOpportunity() {

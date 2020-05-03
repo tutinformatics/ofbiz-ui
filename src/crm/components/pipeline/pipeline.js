@@ -2,7 +2,7 @@ import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { PipelineService } from 'crm/service/pipeline-service';
 
-@inject(EventAggregator)
+@inject(EventAggregator, PipelineService)
 export class Pipeline {
   name = '';
   description = '';
@@ -10,13 +10,13 @@ export class Pipeline {
   stage = '';
   _subscriptions = [];
 
-  constructor(ea) {
+  constructor(ea, pipelineService) {
     this.new = [];
     this.proposition = [];
     this.won = [];
 
-    this.pipelineService = new PipelineService();
     this.ea = ea;
+    this.pipelineService = pipelineService;
 
     ea.subscribe('reorderable-group:intention-changed', intention => {
       this.intention = intention;

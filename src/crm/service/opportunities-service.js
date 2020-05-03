@@ -3,18 +3,15 @@ import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
 export class OpportunitiesService {
-  constructor() {
-    this.client = new HttpClient;
-    const baseUrl = '/api/generic/v1/';
-
-    this.client.configure(config => {
-      config.withBaseUrl(baseUrl);
-    })
+  baseUrl = '/api/generic/v1/';
+  
+  constructor(httpClient) {
+    this.client = httpClient;
   }
 
   getOpportunities() {
     return this.client
-      .fetch('entities/opportunity')
+      .fetch(`${this.baseUrl}/entities/opportunity`)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
@@ -34,7 +31,7 @@ export class OpportunitiesService {
 
   createNewOpportunity(opportunity) {
     this.client
-      .fetch('entities/opportunity', {
+      .fetch(`${this.baseUrl}/entities/opportunity`, {
         method: 'post',
         body: json(opportunity)
       })

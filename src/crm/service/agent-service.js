@@ -3,19 +3,15 @@ import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
 export class AgentService {
-  constructor() {
-    this.client = new HttpClient;
+  baseUrl = '/api/generic/v1/';
 
-    const baseUrl = '/api/generic/v1/';
-
-    this.client.configure(config => {
-      config.withBaseUrl(baseUrl);
-    })
+  constructor(httpClient) {
+    this.client = httpClient;
   }
 
   getAgents() {
     return this.client
-      .fetch('entities/agent')
+      .fetch(`${this.baseUrl}/entities/agent`)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
