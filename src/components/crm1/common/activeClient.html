@@ -5,7 +5,9 @@
   <require from="../common/complexViewClient/clientDocumentOption"></require>
 
   <div class="card rounded shadow-sm pb-2">
-    <div class="card-header p-0 pb-1 m-0">
+    <div class="card-header p-0 m-0">
+      <i class="fa fa-window-close fa-pull-right m-1 pointer" click.delegate="closeActiveClient()"
+         aria-hidden="true" style="color:#a1a6ff;"></i>
       <h6 class="p-0 m-0 text-center">Active client</h6>
     </div>
 <!--    Client profile picture, name, position-->
@@ -15,8 +17,8 @@
       </div>
       <div class="text-center">
         <h6 class="m-0">${firstName} ${lastName}</h6>
-        <b class="m-0">Bili-bili Enterprise</b>
-        <p class="m-0 font-weight-normal">CEO</p>
+        <b class="m-0">${companyName}</b>
+        <p class="m-0 font-weight-normal">${positionType}</p>
       </div>
     </div>
 

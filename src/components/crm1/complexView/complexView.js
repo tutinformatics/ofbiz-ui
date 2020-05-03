@@ -17,8 +17,14 @@ export class ComplexView {
     this.contacts = [];
     this.view = "Card View"
     this.displayActivity = false;
+    this.displayClient = false;
+
+
     ea.subscribe("displayActivity", boolean => {
       this.displayActivity = boolean;
+    })
+    ea.subscribe("displayClient", boolean => {
+      this.displayClient = boolean;
     })
   }
 

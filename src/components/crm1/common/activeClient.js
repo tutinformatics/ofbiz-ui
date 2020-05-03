@@ -15,11 +15,13 @@ export class ActiveClient {
 
     this.firstName = "Billy";
     this.lastName = "Herrington";
+    this.companyName = "Company";
     ea.subscribe("contactChosen", payload => {
       this.chosenContact = payload
       this.firstName = this.chosenContact.firstName;
       this.lastName = this.chosenContact.lastName;
-      console.log(this.chosenContact);
+      this.companyName = this.chosenContact.companyName;
+      this.positionType = this.chosenContact.roleTypeId;
     })
 
     this.router = router;
@@ -51,10 +53,13 @@ export class ActiveClient {
       new clientDocumentOption("Returned")];
   }
   quickAction(activity) {
-    this.ea.publish("changeAction", activity);
     this.ea.publish("displayActivity", true);
+    this.ea.publish("changeAction", activity);
   }
 
+  closeActiveClient() {
+    this.ea.publish("displayClient", false);
+  }
 
 }
 

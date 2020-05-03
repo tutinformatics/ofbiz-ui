@@ -24,6 +24,7 @@ export class Clients {
   chooseContact(contact) {
     console.log(contact);
     this.ea.publish("contactChosen", contact);
+    this.ea.publish("displayClient", true);
   }
 
   toggleView() {

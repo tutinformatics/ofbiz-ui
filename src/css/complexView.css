@@ -17,7 +17,7 @@
 }
 
 
-.card.pointer {
+.pointer {
   cursor: pointer;
 }
 .card.canHover:hover {
@@ -30,4 +30,8 @@
 
 .list-group-item {
   border: none;
+}
+
+.btn-white:hover {
+  background-color: rgb(248, 246, 252);
 }

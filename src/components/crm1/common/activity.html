@@ -1,18 +1,41 @@
 <template>
   <require from="../../../css/crm1.css"></require>
   <div class="container-fluid p-0 w-100" >
-    <div class="card shadow-sm" style="height: 78vh;">
+    <div class="card shadow-sm" style="max-height: 87vh;">
       <div class="card-header p-0 d-inline-block">
-        <i class="fa fa-window-close  fa-pull-right m-1" click.delegate="closeActivity()"
+        <i class="fa fa-window-close fa-pull-right m-1 pointer" click.delegate="closeActivity()"
            aria-hidden="true" style="color:#a1a6ff;"></i>
         <h6 class="p-0 m-0 ">Current activity: ${activity}</h6>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
+      <div class="scrollbar scrollbar-primary m-0">
+        <div class="force-overflow"></div>
+
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <div repeat.for="i of 25">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </div>
+
+        </tbody>
+
+      </table>
+      </div>
 
     </div>
   </div>
+
 </template>

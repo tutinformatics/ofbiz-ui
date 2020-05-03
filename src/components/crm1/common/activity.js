@@ -5,7 +5,7 @@ import {EventAggregator} from "aurelia-event-aggregator";
 export class Activity {
 
   constructor(ea) {
-    this.activity="none";
+    this.activity="Notes";
     this.ea = ea;
     this.ea.subscribe("changeAction", payload => {
       this.activity = payload.name;
