@@ -185,38 +185,35 @@ export class ObjectDist {
   }
 
   populateSubscriberPublisherPropertiesField(isPublisher, data) {
-    let listElement = document.getElementById("add-subscribers-properties-list");
+    let tableBody = document.getElementById("property-table-body-add-subscribers");
     if (isPublisher) {
       // listElement = document.getElementById("add-publishers-properties-list");
     }
-    listElement.innerHTML = '';
+    tableBody.innerHTML = '';
+    let i = 1;
     for (let field of data) {
-      let listEntry = document.createElement("li");
-      listEntry.className = "object-dist-properties-list-element";
-      listEntry.id = isPublisher + " " + field.name;
 
-      let inputGroup = document.createElement("div");
-      inputGroup.className = "input-group mb-3";
+      let tableRow = document.createElement("tr");
+      tableRow.className = "object-dist-properties-table";
+      tableRow.id = isPublisher + " " + field.name;
 
-      let headerText = document.createElement("h1");
-      headerText.className = "form-control";
-      headerText.innerHTML = toWords(field.name);
+      let tableHeader = document.createElement("th");
+      tableHeader.scope = "row";
+      tableHeader.innerHTML = i.toString();
 
-      let inputGroupPrebend = document.createElement("div");
-      inputGroupPrebend.className = "input-group-prepend";
+      let propertyNameTd = document.createElement("td");
+      propertyNameTd.innerHTML = toWords(field.name);
 
-      let inputGroupText = document.createElement("div")
-      inputGroupText.className = "input-group-text";
+      let checkBoxTd = document.createElement("td");
 
       let checkboxInput = document.createElement("input");
       checkboxInput.type = "checkbox";
 
-      listEntry.appendChild(inputGroup);
-      inputGroup.appendChild(headerText);
-      inputGroup.appendChild(inputGroupPrebend);
-      inputGroupPrebend.appendChild(inputGroupText);
-      inputGroupText.appendChild(checkboxInput);
-      listElement.appendChild(listEntry);
+      checkBoxTd.appendChild(checkboxInput);
+      tableRow.append(tableHeader, propertyNameTd, checkBoxTd);
+
+      tableBody.appendChild(tableRow);
+      i++;
     }
   }
 
@@ -540,6 +537,7 @@ export class ObjectDist {
         }
       }
     }
+
     if (faulty) {
       alert("Please Fill The Fields");
     } else {

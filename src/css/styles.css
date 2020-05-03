@@ -55,6 +55,6 @@ ul.custom-pagination li a.disabled {
 /*  margin: 1% 1% 1% 0%;*/
 /*}*/
 
-.object-dist-properties-list-element {
-  list-style-type: none;
+.object-dist-properties-table {
+  text-align: center;
 }
