@@ -5,9 +5,20 @@ import {json} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
+import {search} from '../search/search';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
+
+  phone = [ 'Phone'];
+  mail = [ 'Email'];
+
+  selectedPhone = [];
+  selectedEmail = [];
+  taskName = ''
+
+
+
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -54,7 +65,7 @@ export class ClientsView {
             "emailAddress",
             "phoneNumber",
             "companyName",
-            "roleTypeId",
+          "roleTypeId",
             "address",
             "postalCode",
             "partyId"
@@ -67,6 +78,7 @@ export class ClientsView {
     });
 
     for (let i = 0; i < response.length; i++) {
+
       let contact = new Contact(
         response[i].firstName,
         response[i].lastName,
@@ -80,7 +92,14 @@ export class ClientsView {
       );
 
       this.contacts.push(contact);
+
+
     }
+
+
+
+
+
   }
 
   getClientInformation(contact) {
@@ -141,6 +160,23 @@ export class ClientsView {
     return false;
   }
 
+  queries = [];
+
+  doSearch(contacts) {
+    this.queries.splice(0, 0, contacts);
+  }
+
+  search(){
+
+    for (let i = 0; i < this.contacts.length; i++) {
+        if(this.contacts[i].firstName.toLowerCase().indexOf(this.taskName.toLowerCase()) !== -1){
+          this.taskName = "We have found " + " " + this.contacts[i].firstName + " " + this.contacts[i].lastName;
+      }
+    }
+
+
+
+  }
 
 }
 

@@ -1,6 +1,10 @@
 <template>
   <require from="../../../css/crm1.css"></require>
   <require from="../common/addClientPopUp"></require>
+  <require from="../search/search"></require>
+  <require from="../../../commons/util/sort"></require>
+  <require from="../../../commons/util/take"></require>
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
   <div class="container-fluid" style="border-bottom: 1px solid gray;">
@@ -13,7 +17,24 @@
         <button type="button" class="btn btn-info" click.delegate="toggleView()">${view}</button>
       </div>
       <div class="helpers">
-      <div class="dropdown">
+
+<!--        <label for="column">Sort By:</label>-->
+<!--        <select id="column" ref="column">-->
+<!--          <option value="name_count">Name</option>-->
+<!--          <option value="company_count">Company</option>-->
+
+<!--        </select>-->
+
+
+
+
+        <input  type="text"  value.bind="taskName" style=" width:300px;height: 40px; margin-bottom: 10px;margin-right: 10px">
+        <button type="button" class="btn btn-info" click.delegate="search()" style=" margin-bottom: 10px;margin-right: 10px;height: 40px">Search</button>
+
+
+
+
+        <div class="dropdown">
         <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-filter"></i> Filters</a>
         <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
