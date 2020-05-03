@@ -7,6 +7,10 @@
     {
       "text": "My Tasks",
       "route": "project/new-task"
+    },
+    {
+      "text": "CRM",
+      "route": "crm"
     }
   ]
 }
