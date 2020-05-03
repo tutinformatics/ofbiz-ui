@@ -11,7 +11,7 @@ export class AgentService {
 
   getAgents() {
     return this.client
-      .fetch(`${this.baseUrl}/entities/agent`)
+      .fetch(`${this.baseUrl}entities/agent`)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
