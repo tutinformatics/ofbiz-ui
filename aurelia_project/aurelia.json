@@ -25,7 +25,7 @@
     "open": false,
     "port": 6060,
     "host": "localhost",
-    "output": "public"
+    "output": "dist"
   },
   "name": "aurelia-table",
   "path": "../node_modules/au-table/dist/amd",
