@@ -70,7 +70,11 @@ export class ObjectDist {
             }
           } else if (item.style.left === '11px') {
             for (let element of elements) {
-              element.style.display = '';
+              if (element.value === 'or') {
+                element.style.display = '';
+              } else {
+                element.style.display = 'none';
+              }
             }
           }
         }
@@ -414,15 +418,13 @@ export class ObjectDist {
               label: toWords(field.name),
               dataField: field.name,
               dataType: this.dataTypeMapping[field.type],
-              filterOperations: ["="] // ONLY "EQUALS" OPERATOR AVAILABLE
+              filterOperations: ["=", "<=", ">=", "<", ">", "<>"]
             })
           }
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder'); // TODO: add sorting, ma ei viitsi
         if (isSubscriber) {
           queryBuilders[1].fields = customFields;
-        } else {
-          // TODO add by index
         }
       });
   }
