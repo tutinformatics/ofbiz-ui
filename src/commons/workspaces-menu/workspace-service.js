@@ -8,15 +8,6 @@ export class WorkspaceService {
 
   constructor(httpClient) {
     this.httpClient = httpClient;
-    this.httpClient.configure((config) => {
-      config
-        .withDefaults({
-          headers: {
-            Accept: 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('token')
-          }
-        });
-    });
   }
 
   getWorkspaceList(params) {
