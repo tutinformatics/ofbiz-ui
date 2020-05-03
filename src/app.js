@@ -58,19 +58,9 @@ export class App {
         name: 'object-dist'
       },
       {
-        route: 'crm/agents',
-        moduleId: PLATFORM.moduleName('crm/agents/agents'),
-        name: 'agents'
-      },
-      {
-        route: 'crm/pipeline',
-        moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'),
-        name: 'pipeline'
-      },
-      {
-        route: 'crm/opportunities',
+        route: 'crm',
         moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
-        name: 'opportunities'
+        name: 'crm'
       },
       {
         route: 'project',

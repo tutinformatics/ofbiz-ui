@@ -18,7 +18,7 @@ export class Shuffle {
     },
     {
       name: 'crm',
-      url: '' // TODO: replace with proper url
+      url: 'crm'
     },
     {
       name: 'accounting',
