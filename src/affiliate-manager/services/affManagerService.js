@@ -2,16 +2,15 @@ import { inject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
 import { setPartyId } from "../../store/store";
-import { HttpService } from "../../commons/services/httpService";
 import { AureliaCookie } from "aurelia-cookie";
 
-@inject(Store, HttpService)
+@inject(Store, HttpClient)
 export class AffManagerService {
 
   baseUrl = 'api/';
 
-  constructor(store, httpService) {
-    this.httpService = httpService;
+  constructor(store, httpClient) {
+    this.httpClient = httpClient;
     this.store = store;
     this.store.registerAction('setPartyId', setPartyId);
     this.subscription = this.store.state.subscribe(
@@ -27,7 +26,7 @@ export class AffManagerService {
 
   async pendingPartnersRequest() {
     try {
-      const response = await this.httpService.httpClient.fetch(
+      const response = await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/entityquery/Affiliate`,
         {
           method: 'POST',
@@ -57,7 +56,7 @@ export class AffManagerService {
 
   async approveRequest(partnerToBeApproved) {
     try {
-      return await this.httpService.httpClient.fetch(
+      return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/approveAffiliatePartner`,
         {
           method: "POST",
@@ -73,7 +72,7 @@ export class AffManagerService {
 
   async disapproveRequest(partnerToBeDisapproved) {
     try {
-      return await this.httpService.httpClient.fetch(
+      return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/disapproveAffiliatePartner`,
         {
           method: "POST",
@@ -89,7 +88,7 @@ export class AffManagerService {
 
   async allAffiliatesRequest() {
     try {
-      const response = await this.httpService.httpClient.fetch(
+      const response = await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/entityquery/Affiliate`,
         {
           method: 'POST',
@@ -115,7 +114,7 @@ export class AffManagerService {
   }
 
   async becomeAffPartner() {
-    return await this.httpService.httpClient
+    return await this.httpClient
       .fetch(
         `${this.baseUrl}generic/v1/services/createMultiLvlAffiliate`,
         {
@@ -132,7 +131,7 @@ export class AffManagerService {
 
   async fetchPartyId() {
     try {
-      const response = await this.httpService.httpClient
+      const response = await this.httpClient
         .fetch(
           `${this.baseUrl}generic/v1/services/getPartyIdForUserId`,
           {
@@ -155,7 +154,7 @@ export class AffManagerService {
 
   async getAffiliateStatus(partyId) {
     try {
-      const response = await this.httpService.httpClient
+      const response = await this.httpClient
         .fetch(
           `${this.baseUrl}generic/v1/services/getAffiliateStatus`,
           {
@@ -177,7 +176,7 @@ export class AffManagerService {
 
   async myAffiliatesRequest() {
     try {
-      return await this.httpService.httpClient.fetch(
+      return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/entityquery/Affiliate`,
         {
           method: 'POST',
@@ -203,7 +202,7 @@ export class AffManagerService {
 
   async getAffiliateCodesRequest() {
     try {
-      const response = await this.httpService.httpClient.fetch(
+      const response = await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/getAffiliateCodes`,
         {
           method: 'POST',
@@ -220,7 +219,7 @@ export class AffManagerService {
 
   async generateAffiliateCodeRequest() {
     try {
-      return await this.httpService.httpClient.fetch(
+      return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/createAffiliateCode`,
         {
           method: 'POST',
@@ -236,7 +235,7 @@ export class AffManagerService {
 
   async deleteAffiliateCodeRequest(codeId) {
     try {
-      return await this.httpService.httpClient.fetch(
+      return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/deleteAffiliateCode`,
         {
           method: 'POST',
@@ -255,7 +254,7 @@ export class AffManagerService {
 
   async fetchAllProductCategories() {
     try {
-      const response = await this.httpService.httpClient.fetch(
+      const response = await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/entityquery/ProductCategory`,
         {
           method: 'POST',
@@ -276,7 +275,7 @@ export class AffManagerService {
 
   async disableAffiliate(partnerToBeDisabled) {
     try {
-      return await this.httpService.httpClient.fetch(
+      return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/disableAffiliate`,
         {
           method: "POST",

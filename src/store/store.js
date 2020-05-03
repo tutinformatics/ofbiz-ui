@@ -14,9 +14,9 @@ export const setUserLoginId = (state, userLoginId) => {
   return Object.assign({}, state, {userLoginId: userLoginId});
 };
 
-export const setJwtToken = (state, jwtToken) => {
-  localStorage.setItem("jwtToken", jwtToken);
-  return Object.assign({}, state, {jwtToken: jwtToken});
+export const setJwtToken = (state, token) => {
+  localStorage.setItem("jwtToken", token);
+  return Object.assign({}, state, {jwtToken: token});
 };
 
 export const reset = (state) => {

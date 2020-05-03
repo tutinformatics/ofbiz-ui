@@ -1,6 +1,7 @@
 import { bindable, inject } from "aurelia-framework";
 import moment from "moment";
 import { AffManagerService } from "../../../services/affManagerService";
+import { safeGet, safeGetExtended } from "../../../../commons/util/utility";
 
 @inject(AffManagerService)
 export class GenerateCode {
@@ -104,9 +105,9 @@ export class GenerateCode {
   parseCode(code) {
     const parsedDate = new Date(code["createdStamp"]);
     return {
-      "dateOfCreation": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Missing',
-      "code": code['affiliateCodeId']? code['affiliateCodeId']: 'Missing',
-      "expirationDate": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Missing',
+      "dateOfCreation": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
+      "code": safeGet(() =>  code['affiliateCodeId'], 'Missing'),
+      "expirationDate": safeGetExtended(() =>  parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
       "isDefault": code["isDefault"] === 'Y',
       "category": 'None',
     }

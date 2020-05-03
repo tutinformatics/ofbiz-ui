@@ -1,16 +1,15 @@
 import { inject } from "aurelia-framework";
-import { json } from "aurelia-fetch-client";
+import { HttpClient, json } from "aurelia-fetch-client";
 import { Store } from "aurelia-store";
 import { setJwtToken, setUserLoginId, setPartyId } from "../../store/store";
-import { HttpService } from "./httpService";
 
-@inject(Store, HttpService)
+@inject(Store, HttpClient)
 export class AuthService {
 
   baseUrl = 'api/';
 
-  constructor(store, httpService) {
-    this.httpService = httpService;
+  constructor(store, httpClient) {
+    this.httpClient = httpClient;
     this.store = store;
     this.store.registerAction('setUserLoginId', setUserLoginId);
     this.store.registerAction('setJwtToken', setJwtToken);
@@ -28,7 +27,7 @@ export class AuthService {
 
   async loginAttempt(username, password) {
     try {
-      const response = await this.httpService.httpClient.fetch(
+      const response = await this.httpClient.fetch(
           `${this.baseUrl}auth/v1/login`,
           {
             method: 'POST',
@@ -52,7 +51,7 @@ export class AuthService {
 
   async signUpRequest(username, password, verifiedPassword) {
     try {
-      const response = await this.httpService.httpClient
+      const response = await this.httpClient
         .fetch(
           `${this.baseUrl}auth/v1/register`,
           {

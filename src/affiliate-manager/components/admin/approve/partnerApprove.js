@@ -1,6 +1,7 @@
 import { inject } from 'aurelia-framework';
 import moment from "moment";
 import { AffManagerService } from "../../../services/affManagerService";
+import { safeGet, safeGetExtended } from "../../../../commons/util/utility";
 
 @inject(AffManagerService)
 export class partnerApprove {
@@ -48,11 +49,11 @@ export class partnerApprove {
   parseCandidate(candidate) {
     const parsedDate = candidate["createdStamp"]? new Date(candidate["createdStamp"]): null;
     return {
-      "firstName": candidate['_toOne_Person']['firstName']? candidate['_toOne_Person']['firstName']: 'Missing',
-      "lastName": candidate['_toOne_Person']['lastName']? candidate['_toOne_Person']['lastName']: 'Missing',
-      "dateTimeCreated": parsedDate? moment(parsedDate).format('MM-D-YYYY'): 'Date is missing',
-      "email": candidate['_toOne_Person']['firstName']? `${candidate['_toOne_Person']['firstName']}@gmail.com`: 'Missing',
-      "partyId": candidate['partyId']? candidate['partyId']: 'Missing',
+      "firstName": safeGet(() => candidate['_toOne_Person']['firstName'], 'Missing'),
+      "lastName": safeGet(() => candidate['_toOne_Person']['lastName'], 'Missing'),
+      "dateTimeCreated": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
+      "email": safeGet(() => candidate['_toOne_Person']['firstName'], `${candidate['_toOne_Person']['firstName']}@email.com`, 'Missing'),
+      "partyId": safeGet(() => candidate['partyId'], 'Missing'),
     }
   }
 

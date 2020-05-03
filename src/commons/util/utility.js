@@ -10,3 +10,12 @@ export function safeGet(func, defaultValue) {
     return defaultValue;
   }
 }
+
+export function safeGetExtended(func, isTruthyValue, defaultValue) {
+  try {
+    let value = func();
+    return (!!value) ? isTruthyValue : defaultValue;
+  } catch (e) {
+    return defaultValue;
+  }
+}

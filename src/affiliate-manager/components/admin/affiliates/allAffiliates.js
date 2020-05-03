@@ -1,9 +1,10 @@
 import "./allAffiliates.scss"
-import {inject} from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import moment from 'moment';
-import {AffManagerService} from "../../../services/affManagerService";
-import {SingleAffiliate} from '../../general/af-detailed-modal/singleAffiliate';
-import {DialogService} from "aurelia-dialog";
+import { AffManagerService } from "../../../services/affManagerService";
+import { SingleAffiliate } from '../../general/af-detailed-modal/singleAffiliate';
+import { DialogService } from "aurelia-dialog";
+import { safeGet, safeGetExtended } from "../../../../commons/util/utility";
 
 @inject(DialogService, AffManagerService)
 export class allAffiliates {
@@ -68,12 +69,12 @@ export class allAffiliates {
   parsePartner(partner) {
     const parsedDate = new Date(partner["createdStamp"]);
     return {
-      "firstName": partner['_toOne_Person']['firstName'] ? partner['_toOne_Person']['firstName'] : 'Missing',
-      "lastName": partner['_toOne_Person']['lastName'] ? partner['_toOne_Person']['lastName'] : 'Missing',
-      "dateTimeCreated": parsedDate ? moment(parsedDate).format('MM-D-YYYY') : 'Date is missing',
-      "email": partner['_toOne_Person']['firstName'] ? `${partner['_toOne_Person']['firstName']}@gmail.com` : 'Missing',
-      "partyId": partner['partyId'] ? partner['partyId'] : 'Missing',
-      "status": partner['status'] ? partner['status'] : 'Missing',
+      "firstName": safeGet(() => partner['_toOne_Person']['firstName'], 'Missing'),
+      "lastName": safeGet(() => partner['_toOne_Person']['lastName'], 'Missing'),
+      "dateTimeCreated": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
+      "email": safeGetExtended(() => partner['_toOne_Person']['firstName'], `${partner['_toOne_Person']['firstName']}@email.com`, 'Missing'),
+      "partyId": safeGet(() => partner['partyId'], 'Missing'),
+      "status": safeGet(() => partner['status'], 'Missing'),
     }
   }
 

@@ -2,8 +2,9 @@ import { PLATFORM } from 'aurelia-pal';
 import { inject } from "aurelia-dependency-injection";
 import { Store } from "aurelia-store";
 import { observable } from "aurelia-binding";
+import { HttpService } from "./commons/services/httpService";
 
-@inject(Store)
+@inject(Store, HttpService)
 export class App {
 
   @observable error;
