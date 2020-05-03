@@ -370,6 +370,7 @@ export class ObjectDist {
     document.getElementById('editSubscriberName').value = entity.OfbizEntityName;
     document.getElementById('editSubscriberTopic').value = entity.topic;
     document.getElementById('editSubscriberDescription').value = entity.description;
+    this.addProperties(JSON.parse(entity.properties), 'properties-add-subscriber')
     this.selectedEntity = entity.OfbizEntityName;
     this.populateEditFields(true, filterList);
     builder.value = builderValues;
@@ -510,6 +511,19 @@ export class ObjectDist {
       properties[oCells.item(1).innerHTML] = oCells.item(2).children[0].checked;
     }
     return JSON.stringify(properties);
+  }
+
+  addProperties(properties, name) {
+    var oTable = document.getElementById(name);
+    var rowLength = oTable.rows.length;
+    for (var i = 1; i < rowLength; i++){
+      var oCells = oTable.rows.item(i).cells;
+      oCells.item(2).children[0].click();
+      if (properties[oCells.item(1).innerHTML] === true) {
+        console.log(oCells.item(1).innerHTML);
+        oCells.item(2).children[0].click();
+      }
+    }
   }
 
   generateKey() {
