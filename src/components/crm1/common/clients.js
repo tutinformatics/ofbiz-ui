@@ -1,9 +1,6 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
-import {json} from 'aurelia-fetch-client';
-
 import {inject} from 'aurelia-dependency-injection';
-import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
 
 @inject(EventAggregator, HttpClientCRM, Router)

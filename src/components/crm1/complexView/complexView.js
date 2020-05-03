@@ -28,11 +28,10 @@ export class ComplexView {
     })
   }
 
-
-
   async attached() {
     await this.getAllContacts()
   }
+
 
   async getAllContacts() {
     console.log('here');
@@ -72,7 +71,7 @@ export class ComplexView {
       );
       this.contacts.push(contact);
     }
-    this.ea.publish("party", response)
+    this.ea.publish("party", response);
   }
 
 }
