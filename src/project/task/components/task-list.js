@@ -16,9 +16,10 @@ export class TaskList {
     this.datasource = {
       transport: {
         read: (options) => {
-          this.taskService.getProjectTaskList({ projectId: params.id })
+          this.taskService
+            .getProjectTaskList({ projectId: params.id })
             .then((tasks) => {
-              options.success(tasks); 
+              options.success(tasks);
             });
         }
       },

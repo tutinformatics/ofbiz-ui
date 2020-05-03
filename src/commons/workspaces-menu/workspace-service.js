@@ -4,7 +4,7 @@ import { SearchUtils } from '../util/search-utils';
 
 @inject(HttpClient)
 export class WorkspaceService {
-  baseUrl = 'api/generic/v1/entities';
+  baseUrl = 'api/generic/v1';
 
   constructor(httpClient) {
     this.httpClient = httpClient;
@@ -14,7 +14,7 @@ export class WorkspaceService {
     const query = SearchUtils.appendQueryParams(params);
 
     return this.httpClient
-      .fetch(`${this.baseUrl}/Workspace?${query}`)
+      .fetch(`${this.baseUrl}/entities/Workspace?${query}`)
       .then((response) => {
         if (!response.ok) {
           // TODO: improve error handling
@@ -27,7 +27,7 @@ export class WorkspaceService {
   addWorkspace(workspace) {
     const body = json(workspace);
     return this.httpClient
-      .fetch('api/v1/workspaces/new-workspace', {
+      .fetch(`${this.baseUrl}/services/createWorkspaceByJavaService`, {
         method: 'post',
         body: body
       })

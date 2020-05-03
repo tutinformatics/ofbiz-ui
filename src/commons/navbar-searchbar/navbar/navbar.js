@@ -38,7 +38,6 @@ export class Navbar {
     this.workspaceService = workspaceService;
     this.appService = appService;
     this.currentProduct = '';
-    this.title = '';
     this.applications = [];
     this.workspaces = [];
   }
@@ -64,8 +63,7 @@ export class Navbar {
     return this.workspaces.some((x) => x.url === url);
   }
 
-  setCurrentProduct({ url, title }) {
-    this.title = title;
+  setCurrentProduct({ url }) {
     if (!url) {
       return;
     }

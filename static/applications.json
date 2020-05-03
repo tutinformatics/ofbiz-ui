@@ -1,13 +1,11 @@
 [
   {
     "name": "project",
-    "url": "project",
-    "title": "Projects"
+    "url": "project"
   },
   {
     "name": "crm",
-    "url": "crm",
-    "title": "CRM"
+    "url": "crm"
   },
   {
     "name": "accounting",
@@ -26,8 +24,7 @@
   },
   {
     "name": "marketing",
-    "url": "affiliate-manager?affCode=10",
-    "title": "Marketing"
+    "url": "affiliate-manager?affCode=10"
   },
   {
     "name": "invoicing",
