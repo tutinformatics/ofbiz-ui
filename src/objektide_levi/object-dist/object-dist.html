@@ -104,32 +104,16 @@
                         <tr style="text-align: center">
                           <th scope="col">#</th>
                           <th scope="col">PROPERTY NAME</th>
-                          <th scope="col">CANNOT BE OVERRIDEN</th>
+                          <th scope="col">CANNOT BE OVERRIDDEN</th>
                         </tr>
                         </thead>
                         <tbody id="property-table-body-add-subscribers">
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Mark</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Jacob</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>Larry</td>
-                        </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div class="modal-footer" style="margin-top: 20px">
                 <button type="submit" class="btn btn-primary" click.trigger="formCheck(0)" data-dismiss="modal">Submit
                 </button>
@@ -185,15 +169,21 @@
                   </div>
                   <div class="tab-pane fade" id="nav-edit-subscriber-query-builder-content" role="tabpanel"
                        aria-labelledby="nav-edit-subscriber-properties-tab">
-                    <div class="card">
-                      <ul>
-                        <li>
-                          test1
-                        </li>
-                        <li>
-                          test2
-                        </li>
-                      </ul>
+                    <div class="alert alert-info">
+                      Select The Fields Which <strong>CANNOT</strong> Be Overridden
+                    </div>
+                    <div style="overflow-y: scroll; overflow-x: hidden; height: 275px;">
+                      <table class="table">
+                        <thead>
+                        <tr style="text-align: center">
+                          <th scope="col">#</th>
+                          <th scope="col">PROPERTY NAME</th>
+                          <th scope="col">CANNOT BE OVERRIDDEN</th>
+                        </tr>
+                        </thead>
+                        <tbody id="property-table-body-edit-subscribers">
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -255,15 +245,21 @@
                   </div>
                   <div class="tab-pane fade" id="nav-add-publisher-query-builder-content" role="tabpanel"
                        aria-labelledby="nav-add-publisher-properties-tab">
-                    <div class="card">
-                      <ul>
-                        <li>
-                          test1
-                        </li>
-                        <li>
-                          test2
-                        </li>
-                      </ul>
+                    <div class="alert alert-info">
+                      Select The Fields Which <strong>CANNOT</strong> Be Overridden
+                    </div>
+                    <div style="overflow-y: scroll; overflow-x: hidden; height: 275px;">
+                      <table class="table">
+                        <thead>
+                        <tr style="text-align: center">
+                          <th scope="col">#</th>
+                          <th scope="col">PROPERTY NAME</th>
+                          <th scope="col">CANNOT BE OVERRIDDEN</th>
+                        </tr>
+                        </thead>
+                        <tbody id="property-table-body-add-publishers">
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -326,36 +322,40 @@
                     </div>
                     <div class="tab-pane fade" id="nav-edit-publisher-query-builder-content" role="tabpanel"
                          aria-labelledby="nav-edit-publisher-properties-tab">
-                      <div class="card">
-                        <ul>
-                          <li>
-                            test1
-                          </li>
-                          <li>
-                            test2
-                          </li>
-                        </ul>
+                      <div class="alert alert-info">
+                        Select The Fields Which <strong>CANNOT</strong> Be Overridden
+                      </div>
+                      <div style="overflow-y: scroll; overflow-x: hidden; height: 275px;">
+                        <table class="table">
+                          <thead>
+                          <tr style="text-align: center">
+                            <th scope="col">#</th>
+                            <th scope="col">PROPERTY NAME</th>
+                            <th scope="col">CANNOT BE OVERRIDDEN</th>
+                          </tr>
+                          </thead>
+                          <tbody id="property-table-body-edit-publishers">
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer" style="margin-top: 20px">
-                  <button type="submit" class="btn btn-primary" click.trigger="publisherPutRequest()"
+                  <button type="submit" class="btn btn-primary" click.trigger="formCheck(3)"
                           data-dismiss="modal">Submit
                   </button>
                 </div>
               </div>
             </div>
 
-            <div class="modal fade" id="showGeneratedBrokerKey" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">ADD SUBSCRIBER</h5>
-                  </div>
-                  <div class="modal-body">
-                  </div>
-                </div>
+        <div class="modal fade" id="showGeneratedBrokerKey" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">ADD SUBSCRIBER</h5>
+              </div>
+              <div class="modal-body">
               </div>
             </div>
           </div>

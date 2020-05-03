@@ -82,11 +82,11 @@ export class ObjectDist {
         })
         .withInterceptor({
           request(request) {
-            console.log(`Requesting ${request.method} ${request.url}`);
+            //console.log(`Requesting ${request.method} ${request.url}`);
             return request;
           },
           response(response) {
-            console.log(`Received ${response.status} ${response.url}`);
+            //console.log(`Received ${response.status} ${response.url}`);
             return response;
           }
         });
@@ -165,10 +165,10 @@ export class ObjectDist {
         const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isPublisher) {
           queryBuilders[2].fields = customFields;
-          this.populateSubscriberPublisherPropertiesField(isPublisher, data);
+          this.populateSubscriberPublisherPropertiesField(isPublisher, false, data);
         } else {
           queryBuilders[0].fields = customFields;
-          this.populateSubscriberPublisherPropertiesField(isPublisher, data);
+          this.populateSubscriberPublisherPropertiesField(isPublisher, false, data);
         }
       });
   }
@@ -184,18 +184,45 @@ export class ObjectDist {
       });
   }
 
-  populateSubscriberPublisherPropertiesField(isPublisher, data) {
-    let tableBody = document.getElementById("property-table-body-add-subscribers");
-    if (isPublisher) {
-      // listElement = document.getElementById("add-publishers-properties-list");
+  async getEntityFieldsByName(entityName, table) {
+    this.httpClient.fetch('generic/v1/structure/entities/' + entityName)
+      .then(response => response.json())
+      .then(data => {
+        data.sort(function(a, b) {
+          let textA = a.name.toUpperCase();
+          let textB = b.name.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        this.populateTable(table, data);
+      });
+  }
+
+  populateSubscriberPublisherPropertiesField(isPublisher, edit, data) {
+    let tableBody;
+    if (!edit) {
+      tableBody = document.getElementById("property-table-body-add-subscribers");
+      if (isPublisher) {
+        tableBody = document.getElementById("property-table-body-add-publishers");
+      }
+      this.populateTable(tableBody, data);
+    } else {
+      tableBody = document.getElementById("property-table-body-edit-subscribers");
+      if (isPublisher) {
+        tableBody = document.getElementById("property-table-body-edit-publishers");
+      }
+
+      this.getEntityFieldsByName(data.OfbizEntityName, tableBody);
     }
+  }
+
+  populateTable(tableBody, data) {
+
     tableBody.innerHTML = '';
     let i = 1;
     for (let field of data) {
 
       let tableRow = document.createElement("tr");
       tableRow.className = "object-dist-properties-table";
-      tableRow.id = isPublisher + " " + field.name;
 
       let tableHeader = document.createElement("th");
       tableHeader.scope = "row";
@@ -315,6 +342,7 @@ export class ObjectDist {
 
   editSubscriber(subscriber) {
     let entity = subscriber[0];
+    this.populateSubscriberPublisherPropertiesField(false, true, entity);
     let builder = document.querySelectorAll('smart-query-builder')[1];
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
@@ -340,6 +368,7 @@ export class ObjectDist {
 
   editPublisher(publisher) {
     let entity = publisher[0];
+    this.populateSubscriberPublisherPropertiesField(true, true, entity);
     let builder = document.querySelectorAll('smart-query-builder')[3];
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
@@ -529,7 +558,6 @@ export class ObjectDist {
   formCheck(index) {
     let faulty = false;
     let form = document.forms[index];
-    console.log(document.forms);
     for (let input in form) {
       if (form.hasOwnProperty(input)) {
         if (form[input].required && ((form[input].type == "text" || form[input].type == "textarea") && form[input].value == "")) {
