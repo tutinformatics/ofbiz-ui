@@ -1,4 +1,4 @@
-##Querybuilderist tuleva filtri kuju<br>
+## Querybuilderist tuleva filtri kuju <br>
 Sellisest päringust genereeritakse järgnev filter<br>
 ![Query Builder Image](https://cdn.discordapp.com/attachments/634804302149451776/706518639515402300/unknown.png)
 ```
