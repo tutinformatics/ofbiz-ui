@@ -3,7 +3,7 @@ import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
 export class OpportunityService {
-  baseUrl = 'https://sometotallyrandomapplicationonarandomurl.com:8443/api/api/generic/v1/';
+  baseUrl = '/api/generic/v1/';
 
   constructor(httpClient) {
     this.client = httpClient;
