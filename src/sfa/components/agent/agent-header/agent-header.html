@@ -1,0 +1,51 @@
+<template>
+  <div class="row">
+
+    <div class="col-8">
+      <div class="row">
+        <h1>Agents</h1>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="dropdown float-right">
+        <button type="button" class="btn btn-secondary">Filter</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" href="#agentModal">Add new agent</button>
+
+        <div class="modal fade" id="agentModal" tabindex="-1" role="dialog"
+          aria-labelledby="agentModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="agentModalLabel">Add new agent</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form role="form" id="agentForm" submit.delegate="newAgent()">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control" id="agent-name" value.bind="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Phone number</label>
+                    <input type="text" class="form-control" id="agent-phone" value.bind="phone">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">E-mail</label>
+                    <input type="text" class="form-control" id="agent-email" value.bind="email">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" click.delegate="newAgent()"
+                      data-dismiss="modal">Save changes</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

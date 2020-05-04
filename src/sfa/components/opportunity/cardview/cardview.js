@@ -1,8 +1,8 @@
-import { OpportunitiesService } from 'crm/service/opportunities-service';
+import { OpportunitiesService } from '../../../service/opportunities-service';
 import { inject } from 'aurelia-framework';
 
 @inject(OpportunitiesService)
-export class ListView {
+export class CardView {
   constructor(opportunitiesService) {
     this.opportunitiesService = opportunitiesService;
   }
@@ -13,10 +13,4 @@ export class ListView {
         data => this.opportunities = data
       );
   }
-
-  // deleteOpportunity(id) {
-  //   this.opportunities.filter(function(obj) {
-  //     return obj.id !== id;
-  //   });
-  // }
 }

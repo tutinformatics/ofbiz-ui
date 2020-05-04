@@ -8,14 +8,8 @@
     </div>
     <div class="col-4">
       <div class="dropdown float-right">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Add new
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" data-toggle="modal" href="#opportunityModal">Opportunity</a>
-          <a class="dropdown-item" href="#">Column</a>
-        </div>
+        <button type="button" class="btn btn-secondary">Filter</button>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" href="#opportunityModal">Add new opportunity</button>
 
         <div class="modal fade" id="opportunityModal" tabindex="-1" role="dialog"
           aria-labelledby="opportunityModalLabel" aria-hidden="true">
@@ -57,7 +51,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" click.delegate="newOpportunity(contact)"
+                    <button type="button" class="btn btn-primary" click.delegate="newOpportunity()"
                       data-dismiss="modal">Save changes</button>
                   </div>
                 </form>

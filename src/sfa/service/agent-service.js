@@ -18,5 +18,19 @@ export class AgentService {
         return [];
       });
   }
+
+  createNewAgent(agent) {
+    this.client
+      .fetch(`${this.baseUrl}entities/agent`, {
+        method: 'post',
+        body: json(agent)
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(reason => {
+        // do something useful here
+        console.error(reason);
+      });
+  }
 }
 

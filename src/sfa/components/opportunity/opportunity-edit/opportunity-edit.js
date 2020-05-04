@@ -1,4 +1,3 @@
-import { RouteConfig, NavigationInstruction} from 'aurelia-router';
 import { OpportunitiesService } from '../service/opportunities-service';
 import { inject } from 'aurelia-framework';
 

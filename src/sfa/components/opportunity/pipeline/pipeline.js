@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { PipelineService } from 'crm/service/pipeline-service';
+import { PipelineService } from '../../../service/pipeline-service';
 
 @inject(EventAggregator, PipelineService)
 export class Pipeline {
