@@ -17,8 +17,8 @@ export class Shuffle {
       url: 'project'
     },
     {
-      name: 'crm',
-      url: 'crm'
+      name: 'sfa',
+      url: 'sfa'
     },
     {
       name: 'accounting',

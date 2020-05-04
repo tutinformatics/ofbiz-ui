@@ -1,10 +1,10 @@
-import { OpportunitiesService } from '../service/opportunities-service';
 import { inject } from 'aurelia-framework';
+import { OpportunityService } from '../../../service/opportunity-service';
 
-@inject(OpportunitiesService)
+@inject(OpportunityService)
 export class OpportunityEdit {
-    constructor(opportunitiesService) {
-      this.opportunitiesService = opportunitiesService;
+    constructor(opportunityService) {
+      this.opportunityService = opportunityService;
     }
 
     attached() {

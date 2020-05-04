@@ -60,7 +60,7 @@ export class App {
       {
         route: 'sfa',
         moduleId: PLATFORM.moduleName('sfa/sfa'),
-        name: 'afa'
+        name: 'sfa'
       },
       {
         route: 'project',

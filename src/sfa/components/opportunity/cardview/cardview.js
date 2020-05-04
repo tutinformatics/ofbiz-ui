@@ -1,14 +1,14 @@
-import { OpportunitiesService } from '../../../service/opportunities-service';
+import { OpportunityService } from '../../../service/opportunity-service';
 import { inject } from 'aurelia-framework';
 
-@inject(OpportunitiesService)
+@inject(OpportunityService)
 export class CardView {
-  constructor(opportunitiesService) {
-    this.opportunitiesService = opportunitiesService;
+  constructor(opportunityService) {
+    this.opportunityService = opportunityService;
   }
 
   attached() {
-    this.opportunitiesService.getOpportunities()
+    this.opportunityService.getOpportunities()
       .then(
         data => this.opportunities = data
       );

@@ -2,7 +2,7 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 
 @inject(HttpClient)
-export class OpportunitiesService {
+export class OpportunityService {
   baseUrl = '/api/generic/v1/';
 
   constructor(httpClient) {
@@ -12,6 +12,16 @@ export class OpportunitiesService {
   getOpportunities() {
     return this.client
       .fetch(`${this.baseUrl}entities/opportunity`)
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
+  }
+
+  getOpportunitiesByStage(stage) {
+    return this.client
+      .fetch(`${this.baseUrl}entities/opportunity/?stage=` + stage)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
