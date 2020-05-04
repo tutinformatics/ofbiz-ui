@@ -5,7 +5,7 @@ import {json} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
-import {search} from '../search/search';
+
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
@@ -160,19 +160,18 @@ export class ClientsView {
     return false;
   }
 
-  queries = [];
 
-  doSearch(contacts) {
-    this.queries.splice(0, 0, contacts);
-  }
 
   search(){
+
     if(this.taskName === ''){
       this.getAllContacts();
       this.contacts = []
     }
-    for (let i = 0; i < this.contacts.length; i++) {
+
+    for (let i = 0; i <= this.contacts.length; i++) {
         if(this.contacts[i].firstName.toLowerCase().indexOf(this.taskName.toLowerCase()) !== -1){
+
           let person = new Contact(
             this.contacts[i].firstName ,
             this.contacts[i].lastName,
