@@ -167,12 +167,30 @@ export class ClientsView {
   }
 
   search(){
-
+    if(this.taskName === ''){
+      this.getAllContacts();
+      this.contacts = []
+    }
     for (let i = 0; i < this.contacts.length; i++) {
         if(this.contacts[i].firstName.toLowerCase().indexOf(this.taskName.toLowerCase()) !== -1){
-          this.taskName = "We have found " + " " + this.contacts[i].firstName + " " + this.contacts[i].lastName;
-      }
+          let person = new Contact(
+            this.contacts[i].firstName ,
+            this.contacts[i].lastName,
+            this.contacts[i].email,
+            this.contacts[i].phoneNumber,
+            this.contacts[i].companyName,
+            this.contacts[i].position,
+            this.contacts[i].companyAddress,
+            this.contacts[i].postalCode,
+            this.contacts[i].partyId
+          );
+          this.taskName = ''
+          this.contacts = []
+          this.contacts.push(person)
+        }
+
     }
+
 
 
 
