@@ -217,14 +217,17 @@ export class AffManagerService {
     }
   }
 
-  async generateAffiliateCodeRequest() {
+  async generateAffiliateCodeRequest(productCategoryId) {
     try {
       return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/createAffiliateCode`,
         {
           method: 'POST',
           body: JSON.stringify(
-            {"partyId": this.state.partyId}
+            {
+              "partyId": this.state.partyId,
+              "productCategoryId": productCategoryId
+            }
           ),
         }
       )
@@ -260,7 +263,7 @@ export class AffManagerService {
           method: 'POST',
           body: JSON.stringify(
             {
-              "fieldList": ["categoryName"]
+              "fieldList": ["categoryName", "productCategoryId"]
             }
           ),
         }

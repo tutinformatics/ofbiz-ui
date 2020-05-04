@@ -28,10 +28,10 @@ export class GenerateCode {
       categories
         .filter(c => c['categoryName'] !== null)
         .forEach(c => localCategories.push(
-          {
-            'key': c['categoryName'],
-            'value': c['categoryName']
-          }
+            {
+              'key': c['productCategoryId'],
+              'value': c['categoryName'],
+            }
           )
         )
     }
@@ -80,7 +80,7 @@ export class GenerateCode {
   }
 
   async generateAffiliateCode() {
-    const response = await this.affManagerService.generateAffiliateCodeRequest();
+    const response = await this.affManagerService.generateAffiliateCodeRequest(this.selectedCategory);
     if (response.ok) {
       response.json().then((response) => {
           this.affiliateCodes.push(

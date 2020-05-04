@@ -32,10 +32,11 @@ export class GlobalSettings {
       responseData
         .filter(category => category['categoryName'] !== null)
         .forEach(category => localProductCategories.push(
-        {
-          'categoryName': category['categoryName'],
-          'commission': (Math.random() / 2).toFixed(2)
-        }
+          {
+            'categoryName': category['categoryName'],
+            'productCategoryId': category['productCategoryId'],
+            'commission': (Math.random() / 2).toFixed(2)
+          }
         )
       );
     }
