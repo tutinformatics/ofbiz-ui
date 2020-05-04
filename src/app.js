@@ -62,6 +62,11 @@ export class App {
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
       },
+      {
+        route: 'marketdata',
+        moduleId: PLATFORM.moduleName('marketdata/marketdata'),
+        name: 'marketdata'
+      }
     ]);
     this.router = router;
   }

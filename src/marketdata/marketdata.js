@@ -3,7 +3,7 @@ import { HttpClient } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class Marketdata {
-  baseUrl = 'api/marketdata';
+  baseUrl = 'api/generic/v1/entities/MarketdataModel';
   companies = [];
   test = null;
   pageSize = 10;
@@ -16,7 +16,7 @@ export class Marketdata {
   }
 
   bind() {
-    console.log('Getting data ...')
+    console.log('Getting data ...');
     return this.httpClient
       .fetch(`${this.baseUrl}`)
       .then(res => res.json())

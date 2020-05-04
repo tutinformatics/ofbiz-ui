@@ -49,8 +49,10 @@ ul.custom-pagination li a.disabled {
   color: darkgrey;
 }
 
-/*Please rename according to BEM convention (It broke my layout)*/
+.row_marketdata-table {
+  margin: 1% 1% 1% 0;
+}
 
-/*.row {*/
-/*  margin: 1% 1% 1% 0%;*/
-/*}*/
+.search_marketdata {
+  width: 300px;
+}
