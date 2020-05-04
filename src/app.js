@@ -59,7 +59,7 @@ export class App {
       },
       {
         route: 'crm',
-        moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
+        moduleId: PLATFORM.moduleName('crm/crm'),
         name: 'crm'
       },
       {
