@@ -3,7 +3,7 @@ import { Router } from 'aurelia-router';
 import { TimesheetService } from '../services/timesheet-service.js';
 import { activationStrategy } from 'aurelia-router';
 
-@inject(Router, TaskService)
+@inject(Router, TimesheetService)
 export class TimesheetList {
   constructor(router, timesheetService) {
     this.router = router;
@@ -18,8 +18,8 @@ export class TimesheetList {
         read: (options) => {
           this.timesheetService
             .getTimesheetList({ timesheetId: params.id })
-            .then((tasks) => {
-              options.success(tasks);
+            .then((timesheets) => {
+              options.success(timesheets);
             });
         }
       },
