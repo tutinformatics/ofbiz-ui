@@ -1,6 +1,6 @@
 # `Ofbiz-UI`
 
-_Currently deployed to: [35.228.129.189](http://35.228.129.189)_
+_Currently deployed to: [35.228.60.244](http://35.228.60.244)_
 
 ## Install dependencies
 _(Only needed for developing / running in dev mode)_
