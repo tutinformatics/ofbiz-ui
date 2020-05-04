@@ -1,1 +1,13 @@
-<template><h1>hello</h1></template>
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="agent of agents">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">${agent.name}</h5>
+          <p class="card-text">${agent.telecomNumber}</p>
+          <p class="card-text">${agent.emailAddress}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

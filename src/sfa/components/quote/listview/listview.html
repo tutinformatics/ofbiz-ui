@@ -3,18 +3,20 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th scope="col">ID</th>
           <th scope="col">Name</th>
-          <th scope="col">Phone number</th>
-          <th scope="col">E-mail address</th>
+          <th scope="col">Party</th>
+          <th scope="col">Issue date</th>
           <th scope="col"></th>
         </tr>
       </thead>
 
       <tbody>
-        <tr repeat.for="agent of agents">
-          <td>${agent.name}</td>
-          <td>${agent.telecomNumber}</td>
-          <td>${agent.emailAddress}</td>
+        <tr repeat.for="quote of quotes">
+          <td>${quote.quoteId}</td>
+          <td>${quote.quoteName}</td>
+          <td>${quote.partyId}</td>
+          <td>${quote.issueDate}</td>
           <td>
             <a href="#">Edit</a>
             <!-- <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity }">Edit</a> | -->
