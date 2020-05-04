@@ -19,6 +19,8 @@
 
 You only need to add 'Authorization' header to each request (exampled in affiliate-marketing branch)
 
+**This part is done in httpService, you do not need to care about it anymore. It intercepts all the request and inserts jwt**
+
 ```
 'Authorization': `Bearer ${this.state.jwtToken}
 ```
