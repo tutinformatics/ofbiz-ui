@@ -121,7 +121,7 @@ export class Navbar {
   }
 
   detached() {
-    this.routerSubscription.dispose();
-    this.subscription.dispose();
+    this.routerSubscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
