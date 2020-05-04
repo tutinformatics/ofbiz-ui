@@ -1,17 +1,17 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { OpportunitiesService } from '../../../service/opportunities-service.js';
+import { OpportunityService } from '../../../service/opportunity-service.js';
 
-@inject(EventAggregator, OpportunitiesService)
+@inject(EventAggregator, OpportunityService)
 export class OpportunityHeader {
-  constructor(ea, opportunitiesService) {
+  constructor(ea, opportunityService) {
     this.ea = ea;
-    this.opportunitiesService = opportunitiesService;
+    this.opportunityService = opportunityService;
   }
 
   newOpportunity() {
     let opportunity = { name: this.name, description: this.description, price: this.price, pipelineId: "SAMPLE_ID1", customerId: "SAMPLE_ID1", contactId: "SAMPLE_ID1", stage: this.stage };
-    this.opportunitiesService.createNewOpportunity(opportunity);
+    this.opportunityService.createNewOpportunity(opportunity);
     // this.ea.publish('newOpportunityCreation', 'jou');
   };
 }

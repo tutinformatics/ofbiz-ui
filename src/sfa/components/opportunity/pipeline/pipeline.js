@@ -1,8 +1,8 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { PipelineService } from '../../../service/pipeline-service';
+import { OpportunityService } from '../../../service/opportunity-service';
 
-@inject(EventAggregator, PipelineService)
+@inject(EventAggregator, OpportunityService)
 export class Pipeline {
   name = '';
   description = '';
@@ -10,13 +10,13 @@ export class Pipeline {
   stage = '';
   _subscriptions = [];
 
-  constructor(ea, pipelineService) {
+  constructor(ea, opportunityService) {
     this.new = [];
     this.proposition = [];
     this.won = [];
 
     this.ea = ea;
-    this.pipelineService = pipelineService;
+    this.opportunityService = opportunityService;
 
     ea.subscribe('reorderable-group:intention-changed', intention => {
       this.intention = intention;
@@ -30,15 +30,15 @@ export class Pipeline {
   // }
 
   attached() {
-    this.pipelineService.getOpportunitiesByStage("new")
+    this.opportunityService.getOpportunitiesByStage("new")
       .then(
         data => this.new = data
       );
-    this.pipelineService.getOpportunitiesByStage("proposition")
+    this.opportunityService.getOpportunitiesByStage("proposition")
       .then(
         data => this.proposition = data
       );
-    this.pipelineService.getOpportunitiesByStage("won")
+    this.opportunityService.getOpportunitiesByStage("won")
       .then(
         data => this.won = data
       );
