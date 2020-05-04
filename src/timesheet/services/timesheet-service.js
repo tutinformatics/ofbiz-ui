@@ -1,6 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
-import { safeGet } from '../../../commons/util/utility';
 
 @inject(HttpClient)
 export class TimesheetService {
