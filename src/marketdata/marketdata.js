@@ -8,7 +8,8 @@ export class Marketdata {
   test = null;
   pageSize = 10;
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']}
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']},
+    {value: '', custom: this.statusFilter}
   ];
 
   constructor(httpClient) {
@@ -24,6 +25,10 @@ export class Marketdata {
       .catch(error => {
         console.error(error);
       });
+  }
+
+  statusFilter(filterValue, row) {
+    return filterValue || row.companyStatus;
   }
 
   submitData() {
