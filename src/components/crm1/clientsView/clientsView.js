@@ -171,7 +171,6 @@ export class ClientsView {
 
     for (let i = 0; i <= this.contacts.length; i++) {
         if(this.contacts[i].firstName.toLowerCase().indexOf(this.taskName.toLowerCase()) !== -1){
-
           let person = new Contact(
             this.contacts[i].firstName ,
             this.contacts[i].lastName,
