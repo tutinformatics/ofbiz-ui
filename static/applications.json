@@ -1,0 +1,34 @@
+[
+  {
+    "name": "project",
+    "url": "project"
+  },
+  {
+    "name": "crm",
+    "url": "crm"
+  },
+  {
+    "name": "accounting",
+    "url": "",
+    "title": "Accounting"
+  },
+  {
+    "name": "contacts",
+    "url": "",
+    "title": "Contacts"
+  },
+  {
+    "name": "manufacturing",
+    "url": "",
+    "title": "Manufacturing"
+  },
+  {
+    "name": "marketing",
+    "url": "affiliate-manager?affCode=10"
+  },
+  {
+    "name": "invoicing",
+    "url": "",
+    "title": "Invoicing"
+  }
+]

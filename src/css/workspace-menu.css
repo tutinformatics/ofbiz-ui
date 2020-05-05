@@ -1,0 +1,16 @@
+.bg-1 {
+  background-image: url("https://free-images.com/sm/cfd6/gesanghua_scenery_small_fresh.jpg") !important;
+  color: black !important;
+}
+
+.bg-2 {
+  background-image: url("https://www.macupdate.com/images/user_img/3002188") !important;
+  /* background-image: linear-gradient(to right, rgba(245, 246, 252, 0) 0%, rgba(245, 246, 252, 0) 20%, rgba(117, 19, 93, 0.73) 26%, rgba(117, 19, 93, 0.73) 100%), url("https://www.macupdate.com/images/user_img/3002188") !important; */
+  color: white !important;
+}
+
+.bg-3 {
+  background-image: url("https://m.media-amazon.com/images/I/51xKqCx35pL._AA256_.jpg") !important;
+  /* background-image: linear-gradient(to right, rgba(245, 246, 252, 0) 0%, rgba(245, 246, 252, 0) 20%, rgba(117, 19, 93, 0.73) 26%, rgba(117, 19, 93, 0.73) 100%), url("https://www.macupdate.com/images/user_img/3002188") !important; */
+  color: white !important;
+}

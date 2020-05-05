@@ -1,12 +1,18 @@
 {
   "project": [
     {
-      "text": "Main",
+      "text": "Projects",
       "route": "project"
     },
     {
       "text": "My Tasks",
-      "route": "project"
+      "route": "project/new-task"
+    }
+  ],
+  "crm": [
+    {
+      "text": "CRM",
+      "route": "crm"
     }
   ]
 }

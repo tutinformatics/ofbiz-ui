@@ -54,3 +54,6 @@ docker-compose up [--build]
 
 ## Running fully in docker architecture/diagram
 ![img](./readme/deploy-proxy.png)
+
+
+[Dynamic Menu Guide](docs/dynamic-menu.md)

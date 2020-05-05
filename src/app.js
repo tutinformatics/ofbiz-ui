@@ -1,12 +1,11 @@
 import { PLATFORM } from 'aurelia-pal';
-import { inject } from "aurelia-dependency-injection";
-import { Store } from "aurelia-store";
-import { observable } from "aurelia-binding";
-import { HttpService } from "./commons/services/httpService";
+import { inject } from 'aurelia-dependency-injection';
+import { Store } from 'aurelia-store';
+import { observable } from 'aurelia-binding';
+import { HttpService } from './commons/services/httpService';
 
 @inject(Store, HttpService)
 export class App {
-
   @observable error;
   showError;
 
@@ -58,19 +57,10 @@ export class App {
         name: 'object-dist'
       },
       {
-        route: 'crm/agents',
-        moduleId: PLATFORM.moduleName('crm/agents/agents'),
-        name: 'agents'
-      },
-      {
-        route: 'crm/pipeline',
-        moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'),
-        name: 'pipeline'
-      },
-      {
-        route: 'crm/opportunities',
+        route: 'crm',
         moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
-        name: 'opportunities'
+        name: 'crm',
+        title: 'CRM'
       },
       {
         route: 'project',
@@ -82,12 +72,18 @@ export class App {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
+        title: 'Marketing'
       },
       {
         route: 'sign-up',
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
       },
+      {
+        route: 'timesheet',
+        name: 'timesheet',
+        moduleId: PLATFORM.moduleName('timesheet/timesheet')
+      }
     ]);
     this.router = router;
   }
