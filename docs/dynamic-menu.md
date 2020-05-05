@@ -1,22 +1,12 @@
-# Ofbiz frontend
+# Dynamic Menu Guide(Temporary solution with static resources)
 
-In order to start project run:
-
-```bash
-npm install -g aurelia-cli
-npm install
-au run
-```
-
-# Dynamic Menu Guide
-
-## Register you product in `shuffle.js` e.g:
-```javascript
-products = [
-    {
-      name: 'project',
-      url: 'project'
-    },
+## Register you product in `applications.json` e.g:
+```json
+  {
+    "name": "project",
+    "url": "project",
+    "title": "Projects"
+  },
 ```  
 
 *url attribute represents the path to your main screen.*
@@ -33,7 +23,7 @@ Don't worry about icons at this stage, this topic will be revisited.
     },
     {
       "text": "My Tasks",
-      "route": "project"
+      "route": "project/new-task"
     }
   ]
 }
