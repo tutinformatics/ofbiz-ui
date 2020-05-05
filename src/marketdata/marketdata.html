@@ -56,11 +56,11 @@
   </div>
   </div>
 
-  <table class="table table-striped" aurelia-table="data.bind: companies; display-data.bind: $displayData;
+  <table class="table table-hover" aurelia-table="data.bind: companies; display-data.bind: $displayData;
                                               current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
     <thead>
     <tr>
-      <th></th>
+      <th>Select</th>
       <th>Company name</th>
       <th>Company code</th>
       <th>Status</th>
@@ -69,15 +69,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr repeat.for="company of $displayData"  aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info"
+    <tr repeat.for="company of $displayData" click.delegate="handleClick(company)"
+        aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info"
         select.delegate="rowSelected($event)">
-      <td><input type="checkbox" checked.bind="user.$isSelected"/></td>
-      <td>${company.companyName}</td>
+      <td><input type="checkbox"/></td>
+      <td data-toggle="modal" data-target="#detailedCompany" style="color:blue">${company.companyName}</td>
       <td>${company.registryCode}</td>
       <td>${company.companyStatus}</td>
       <td>${company.companyAddress}</td>
       <td>
-        <button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button>
         <button class="btn btn-secondary" style="margin: 0 0 0 0"><i class="fa fa-trash"></i></button>
       </td>
     </tr>
@@ -127,6 +127,24 @@
         </div>
       </div>
     </div>
+  </div>
+
+
+  <div class="modal fade" id="detailedCompany" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${company.companyName}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Valitud "${clickedName}"</p>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 

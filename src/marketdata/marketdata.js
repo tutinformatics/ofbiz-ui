@@ -33,8 +33,8 @@ export class Marketdata {
       });
   }
 
-  rowSelected($event){
-    console.log($event.detail.row);
+  handleClick(company) {
+    this.clickedName = company.companyName;
   }
 
   submitData() {
@@ -47,16 +47,5 @@ export class Marketdata {
     };
 
     this.companies.unshift(company);
-  }
-
-  filterStatuses() {
-    this.eyeColors.push('');
-    for (let next of this.companies) {
-      let nextStatus = next.companyStatus;
-
-      if (this.companyStatuses.indexOf(nextStatus) === -1) {
-        this.companyStatuses.push(nextStatus);
-      }
-    }
   }
 }
