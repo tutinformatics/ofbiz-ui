@@ -33,7 +33,7 @@ export class Marketdata {
       });
   }
 
-  handleClick(company) {
+  handleClick(company, $event) {
     this.selectedCompanyName = company.companyName;
     this.selectedRegistryCode = company.registryCode;
     this.selectedCompanyStatus = company.companyStatus;
@@ -41,6 +41,11 @@ export class Marketdata {
     this.selectedCompanyBusinessModel = company.companyBusinessModel;
     this.selectedCompanySector = company.companySector;
     this.selectedCompanyEmployeeCount = company.employeeCount;
+    this.rowSelected($event);
+  }
+
+  rowSelected(event) {
+    console.log($event.detail.row);
   }
 
   submitData() {

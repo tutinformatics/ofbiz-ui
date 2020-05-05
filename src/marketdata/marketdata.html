@@ -69,10 +69,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr repeat.for="company of $displayData" click.delegate="handleClick(company)"
-        aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info"
-        select.delegate="rowSelected($event)">
-      <td><input type="checkbox"/></td>
+    <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
+        aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
+      <td><input type="checkbox" checked.bind="company.$isSelected"/></td>
       <td data-toggle="modal" data-target="#detailedCompany" style="color:blue">${company.companyName}</td>
       <td>${company.registryCode}</td>
       <td>${company.companyStatus}</td>
