@@ -4,19 +4,23 @@
       <div class="row-4 mb-4">
         <h4>New</h4>
       </div>
-      <div class="list-group-item-secondary rounded border-primary p-2 m-1" reorderable-repeat.for="oppurtunity of new"
+      <div class="list-group-item-secondary rounded border-primary p-2 m-1" reorderable-repeat.for="opportunity of new"
         reorderable-after-reordering="fruitsOrdered" reorderable-group="lifes">
         <div class="row">
           <div class="col">
-            <h5>${oppurtunity.name}</h5>
+            <h5>${opportunity.name}</h5>
           </div>
           <div class="col text-right">
-            <img src="assets/img/edit.svg" alt="edit">
-            <img src="assets/img/delete.svg" alt="delete" click.delegate="deleteNewOpportunity($index)">
+            <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
+              <img src="./../assets/img/edit.svg" alt="edit">
+            </a>
+            <a>
+              <img src="./../assets/img/delete.svg" alt="delete" click.delegate="deleteNewOpportunity($index, opportunity.opportunityId)">
+            </a>
           </div>
         </div>
-        <div>${oppurtunity.description}</div>
-        <div>${oppurtunity.price}€</div>
+        <div>${opportunity.description}</div>
+        <div>${opportunity.price}€</div>
       </div>
     </div>
     <div class="col-4" reorderable-group-for.bind="proposition">
@@ -24,40 +28,46 @@
         <h4>Proposition</h4>
       </div>
       <div class="list-group-item-primary rounded border-primary p-2 m-1"
-        reorderable-repeat.for="oppurtunity of proposition" reorderable-after-reordering="animalsOrdered"
+        reorderable-repeat.for="opportunity of proposition" reorderable-after-reordering="animalsOrdered"
         reorderable-group="lifes">
         <div>
           <div class="row">
             <div class="col">
-              <h5>${oppurtunity.name}</h5>
+              <h5>${opportunity.name}</h5>
             </div>
             <div class="col text-right">
-              <img src="assets/img/edit.svg" alt="edit">
-              <img src="assets/img/delete.svg" alt="delete" click.delegate="deletePropositionOpportunity($index)">
+              <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
+                <img src="./../assets/img/edit.svg" alt="edit">
+              </a>
+              <img src="./../assets/img/delete.svg" alt="delete" click.delegate="deletePropositionOpportunity($index, opportunity.opportunityId)">
             </div>
           </div>
         </div>
-        <div>${oppurtunity.description}</div>
-        <div>${oppurtunity.price}€</div>
+        <div>${opportunity.description}</div>
+        <div>${opportunity.price}€</div>
       </div>
     </div>
     <div class="col-4" reorderable-group-for.bind="won">
       <div class="row-4 mb-4">
         <h4>Won</h4>
       </div>
-      <div class="list-group-item-success rounded border-primary p-2 m-1" reorderable-repeat.for="oppurtunity of won"
+      <div class="list-group-item-success rounded border-primary p-2 m-1" reorderable-repeat.for="opportunity of won"
         reorderable-after-reordering="insectsOrdered" reorderable-group="lifes">
         <div class="row">
           <div class="col">
-            <h5>${oppurtunity.name}</h5>
+            <h5>${opportunity.name}</h5>
           </div>
           <div class="col text-right">
-            <img src="assets/img/edit.svg" alt="edit">
-            <img src="assets/img/delete.svg" alt="delete" click.delegate="deleteOpportunity($index)">
+            <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
+              <img src="./../assets/img/edit.svg" alt="edit">
+            </a>
+            <a>
+              <img src="./../assets/img/delete.svg" alt="delete" click.delegate="deleteWonOpportunity(opportunity.opportunityId, $index)">
+            </a>
           </div>
         </div>
-        <div>${oppurtunity.description}</div>
-        <div>${oppurtunity.price}€</div>
+        <div>${opportunity.description}</div>
+        <div>${opportunity.price}€</div>
       </div>
     </div>
   </div>

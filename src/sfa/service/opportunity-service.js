@@ -1,5 +1,6 @@
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
+import {AureliaCookie} from "aurelia-cookie";
 
 @inject(HttpClient)
 export class OpportunityService {
@@ -38,10 +39,27 @@ export class OpportunityService {
   //       return [];
   //     });
   // }
+   deleteOpportunityById(id) {
+     return this.client
+       .fetch(
+         `${this.baseUrl}entities/opportunity/?opportunityId=` + id,
+         {
+           method: "DELETE"
+         }
+       );
+   }
+
+   editOpportunity(opportunity) {
+     this.client
+       .fetch(`${this.baseUrl}entities/opportunity`, {
+         method: 'PUT',
+         body: json(opportunity)
+       })
+   }
 
   createNewOpportunity(opportunity) {
     this.client
-      .fetch(`${this.baseUrl}entities/opportunity`, {
+      .fetch(`${this.baseUrl}entities/opportunity/`, {
         method: 'post',
         body: json(opportunity)
       })

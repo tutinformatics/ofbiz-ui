@@ -44,36 +44,44 @@ export class Pipeline {
       );
   }
 
-  deleteWonOpportunity(index) {
+  deleteWonOpportunity(id, index) {
     this.won.splice(index, 1);
+    this.opportunityService.deleteOpportunityById(id);
   }
 
-  deleteNewOpportunity(index) {
+  deleteNewOpportunity(index, id) {
     this.new.splice(index, 1);
+    this.opportunityService.deleteOpportunityById(id);
   }
 
-  deletePropositionOpportunity(index) {
+  deletePropositionOpportunity(index, id) {
     this.proposition.splice(index, 1);
+    this.opportunityService.deleteOpportunityById(id);
   }
 
   objArrayReordered(objArray, change) {
-    /* eslint no-console: 0 */
     console.log(JSON.stringify(objArray));
     console.log('change', change);
   }
 
   fruitsOrdered(list, change) {
-    console.log('newFruits: ' + list);
-    console.log('change', change);
+    if (change.item.stage !== "new") {
+      change.item.stage = "new";
+      this.opportunityService.editOpportunity(change.item);
+    }
   }
 
   animalsOrdered(list, change) {
-    console.log('animals: ' + list);
-    console.log('change', change);
+    if (change.item.stage !== "proposition") {
+      change.item.stage = "proposition";
+      this.opportunityService.editOpportunity(change.item);
+    }
   }
 
   insectsOrdered(list, change) {
-    console.log('insects: ' + list);
-    console.log('change', change);
+    if (change.item.stage !== "won") {
+      change.item.stage = "won";
+      this.opportunityService.editOpportunity(change.item);
+    }
   }
 }
