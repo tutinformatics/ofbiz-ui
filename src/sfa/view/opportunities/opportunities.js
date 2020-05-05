@@ -10,7 +10,16 @@ export class Opportunities {
       { route: 'pipeline', moduleId: PLATFORM.moduleName('sfa/components/opportunity/pipeline/pipeline'), name: 'pipeline' },
       { route: 'listview', moduleId: PLATFORM.moduleName('sfa/components/opportunity/listview/listview'), name: 'listview' },
       { route: 'cardview', moduleId: PLATFORM.moduleName('sfa/components/opportunity/cardview/cardview'), name: 'cardview' },
+      { route: 'opportunity-edit', moduleId: PLATFORM.moduleName('sfa/components/opportunity/opportunity-edit/opportunity-edit'), name: 'opportunity-edit' },
     ]);
     this.router = router;
+
+  }
+
+  goBack() {
+    history.back();
+  }
+  goForward() {
+    history.forward();
   }
 }

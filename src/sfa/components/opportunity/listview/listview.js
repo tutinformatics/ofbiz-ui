@@ -10,13 +10,13 @@ export class ListView {
   attached() {
     this.opportunityService.getOpportunities()
       .then(
-        data => this.opportunities = data
+        data => this.opportunities = data.slice().reverse()
       );
+
   }
 
-  // deleteOpportunity(id) {
-  //   this.opportunities.filter(function(obj) {
-  //     return obj.id !== id;
-  //   });
-  // }
+   deleteOpportunity(id, index) {
+     this.opportunities.splice(index, 1);
+     this.opportunityService.deleteOpportunityById(id);
+   }
 }

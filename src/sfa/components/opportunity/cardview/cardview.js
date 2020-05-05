@@ -13,4 +13,9 @@ export class CardView {
         data => this.opportunities = data
       );
   }
+
+  deleteOpportunity(index, id) {
+    this.opportunities.splice(index, 1);
+    this.opportunityService.deleteOpportunityById(id);
+  }
 }
