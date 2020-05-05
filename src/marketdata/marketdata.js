@@ -14,7 +14,7 @@ export class Marketdata {
   models = ['B2B', 'B2B2C', 'B2C', 'B2G'];
   selectedModels = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']},
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeNum']},
     {value: '', keys: ['companyStatus']}
   ];
 
@@ -34,7 +34,13 @@ export class Marketdata {
   }
 
   handleClick(company) {
-    this.clickedName = company.companyName;
+    this.selectedCompanyName = company.companyName;
+    this.selectedRegistryCode = company.registryCode;
+    this.selectedCompanyStatus = company.companyStatus;
+    this.selectedCompanyAddress = company.companyAddress;
+    this.selectedCompanyBusinessModel = company.companyBusinessModel;
+    this.selectedCompanySector = company.companySector;
+    this.selectedCompanyEmployeeNum = company.employeeNum;
   }
 
   submitData() {
@@ -43,7 +49,9 @@ export class Marketdata {
       registryCode: this.registryCode,
       companyStatus: this.companyStatus,
       companyAddress: this.companyAddress,
-      city: this.city
+      companyBusinessModel: this.companyBusinessModel,
+      companySector: this.companySector,
+      employeeNum: this.employeeNum
     };
 
     this.companies.unshift(company);
