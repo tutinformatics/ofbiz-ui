@@ -57,9 +57,10 @@
   </div>
 
   <table class="table table-striped" aurelia-table="data.bind: companies; display-data.bind: $displayData;
-                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters; ">
+                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
     <thead>
     <tr>
+      <th></th>
       <th>Company name</th>
       <th>Company code</th>
       <th>Status</th>
@@ -68,7 +69,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr repeat.for="company of $displayData">
+    <tr repeat.for="company of $displayData"  aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info"
+        select.delegate="rowSelected($event)">
+      <td><input type="checkbox" checked.bind="user.$isSelected"/></td>
       <td>${company.companyName}</td>
       <td>${company.registryCode}</td>
       <td>${company.companyStatus}</td>

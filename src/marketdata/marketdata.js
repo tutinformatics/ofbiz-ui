@@ -14,7 +14,8 @@ export class Marketdata {
   models = ['B2B', 'B2B2C', 'B2C', 'B2G'];
   selectedModels = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']}
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']},
+    {value: '', keys: ['companyStatus']}
   ];
 
   constructor(httpClient) {
@@ -32,6 +33,10 @@ export class Marketdata {
       });
   }
 
+  rowSelected($event){
+    console.log($event.detail.row);
+  }
+
   submitData() {
     let company = {
       companyName: this.companyName,
@@ -42,5 +47,16 @@ export class Marketdata {
     };
 
     this.companies.unshift(company);
+  }
+
+  filterStatuses() {
+    this.eyeColors.push('');
+    for (let next of this.companies) {
+      let nextStatus = next.companyStatus;
+
+      if (this.companyStatuses.indexOf(nextStatus) === -1) {
+        this.companyStatuses.push(nextStatus);
+      }
+    }
   }
 }
