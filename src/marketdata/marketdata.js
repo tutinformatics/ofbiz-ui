@@ -14,7 +14,7 @@ export class Marketdata {
   models = ['B2B', 'B2B2C', 'B2C', 'B2G'];
   selectedModels = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeNum']},
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount']},
     {value: '', keys: ['companyStatus']}
   ];
 
@@ -40,7 +40,7 @@ export class Marketdata {
     this.selectedCompanyAddress = company.companyAddress;
     this.selectedCompanyBusinessModel = company.companyBusinessModel;
     this.selectedCompanySector = company.companySector;
-    this.selectedCompanyEmployeeNum = company.employeeNum;
+    this.selectedCompanyEmployeeCount = company.employeeCount;
   }
 
   submitData() {
@@ -51,7 +51,7 @@ export class Marketdata {
       companyAddress: this.companyAddress,
       companyBusinessModel: this.companyBusinessModel,
       companySector: this.companySector,
-      employeeNum: this.employeeNum
+      employeeNum: this.employeeCount
     };
 
     this.companies.unshift(company);
