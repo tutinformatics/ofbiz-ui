@@ -7,7 +7,6 @@
     </button>
   </div>
 
-
   <div class="btn-group" role="group">
     <div class="dropdown">
       <button class="btn btn-light dropdown-toggle" type="button" id="filterTableSector" data-toggle="dropdown"
@@ -15,30 +14,13 @@
         Sector
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            AdTech & Creative Tech
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            Advanced Manufacturing
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            Business software
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            CleanTech
-          </label>
-        </div>
+        <label repeat.for="sector of sectors">
+          <input
+            type="checkbox"
+            value.bind="sector"
+            checked.bind="selectedSectors">
+          ${sector}
+        </label>
       </div>
     </div>
     <div class="dropdown">
@@ -47,24 +29,13 @@
         Status
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            Registrisse kantud
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            Pole registris
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            Teadmata
-          </label>
-        </div>
+        <label repeat.for="status of statuses">
+          <input
+            type="checkbox"
+            value.bind="status"
+            checked.bind="selectedStatuses">
+          ${status}
+        </label>
       </div>
     </div>
     <div class="dropdown">
@@ -73,37 +44,20 @@
         Business model
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            B2B
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            B2B2C
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            B2C
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" checked.bind="filters[0].value">
-            B2G
-          </label>
-        </div>
+        <label repeat.for="model of models">
+          <input
+            type="checkbox"
+            value.bind="model"
+            checked.bind="selectedModels">
+          ${model}
+        </label>
       </div>
     </div>
   </div>
   </div>
 
   <table class="table table-striped" aurelia-table="data.bind: companies; display-data.bind: $displayData;
-                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
+                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters; ">
     <thead>
     <tr>
       <th>Company name</th>

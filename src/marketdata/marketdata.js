@@ -7,9 +7,14 @@ export class Marketdata {
   companies = [];
   test = null;
   pageSize = 10;
+  statuses = ['Registrisse kantud', 'Pole registris', 'Teadmata'];
+  selectedStatuses = [];
+  sectors = ['AdTech & Creative Tech', 'Advanced Manufacturing', 'Business software', 'CleanTech'];
+  selectedSectors = [];
+  models = ['B2B', 'B2B2C', 'B2C', 'B2G'];
+  selectedModels = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']},
-    {value: '', custom: this.statusFilter}
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']}
   ];
 
   constructor(httpClient) {
@@ -25,10 +30,6 @@ export class Marketdata {
       .catch(error => {
         console.error(error);
       });
-  }
-
-  statusFilter(filterValue, row) {
-    return filterValue || row.companyStatus;
   }
 
   submitData() {
