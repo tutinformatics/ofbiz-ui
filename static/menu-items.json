@@ -9,10 +9,22 @@
       "route": "project/new-task"
     }
   ],
-  "crm": [
+  "sfa": [
     {
       "text": "SFA",
       "route": "sfa"
+    },
+    {
+      "text": "Opportunities",
+      "route": "sfa/opportunities"
+    },
+    {
+      "text": "Quotes",
+      "route": "sfa/quotes"
+    },
+    {
+      "text": "Agents",
+      "route": "sfa/agents"
     }
   ]
 }

@@ -4,8 +4,9 @@
     "url": "project"
   },
   {
-    "name": "crm",
-    "url": "crm"
+    "name": "sfa",
+    "url": "sfa",
+    "title": "SFA"
   },
   {
     "name": "accounting",
