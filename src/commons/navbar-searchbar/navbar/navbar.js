@@ -4,28 +4,29 @@ import { reset } from '../../../store/store';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Router } from 'aurelia-router';
 import { safeGet } from '../../util/utility';
-import { MenuItemsService } from '../../services/menu-items-service';
 import './navbar.scss';
 import { WorkspaceService } from '../../workspaces-menu/workspace-service';
 import * as toastr from 'toastr';
 import { AppService } from '../../services/app-service';
+import { NavigationService } from '../../services/navigation-service';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
 
 @inject(
   Router,
   EventAggregator,
-  MenuItemsService,
   WorkspaceService,
   Store,
-  AppService
+  AppService,
+  NavigationService
 )
 export class Navbar {
   constructor(
     router,
     ea,
-    menuItemsService,
     workspaceService,
     store,
-    appService
+    appService,
+    navigationService
   ) {
     this.store = store;
     this.store.registerAction('reset', reset);
@@ -34,12 +35,13 @@ export class Navbar {
     );
     this.router = router;
     this.ea = ea;
-    this.menuItemsService = menuItemsService;
     this.workspaceService = workspaceService;
     this.appService = appService;
+    this.navigationService = navigationService;
     this.currentProduct = '';
     this.applications = [];
     this.workspaces = [];
+    this.gridIcon = faTh;
   }
 
   created() {
@@ -52,6 +54,10 @@ export class Navbar {
         this.currentProduct = safeGet(
           () => this.router.currentInstruction.config.name,
           ''
+        );
+        this.title =  safeGet(
+          () => this.router.currentInstruction.config.title,
+          'Select'
         );
         this.loadMenuItems(this.currentProduct);
       }
@@ -85,9 +91,9 @@ export class Navbar {
   }
 
   loadMenuItems(product) {
-    this.menuItemsService
-      .getMenuItems(product)
-      .then((res) => (this.menuItems = res));
+    this.navigationService.getRoutes(this.currentProduct).then((response) => {
+      this.menuItems = response;
+    });
   }
 
   handleFavorite() {
@@ -118,6 +124,10 @@ export class Navbar {
 
   navigateTo(path) {
     this.router.navigate(path);
+  }
+
+  navigateToChildRoute(path) {
+    this.router.navigate(`${this.currentProduct}/${path}`);
   }
 
   detached() {

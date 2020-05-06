@@ -1,31 +1,20 @@
-import { PLATFORM } from 'aurelia-pal';
+import { inject } from 'aurelia-dependency-injection';
+import { NavigationService } from '../commons/services/navigation-service';
 
+@inject(NavigationService)
 export class ProjectMainComponent {
-  configureRouter(config) {
+  constructor(navigationService) {
+    this.navigationService = navigationService;
+    this.navigationService
+      .getRoutes('project')
+      .then((response) => (this.routes = response));
+  }
+
+  configureRouter(config, router) {
     config.options.pushState = true;
     config.options.root = '/';
-    config.map([
-      {
-        route: '',
-        moduleId: PLATFORM.moduleName('project/components/project-list'),
-        name: 'project'
-      },
-      {
-        route: 'new-task',
-        moduleId: PLATFORM.moduleName('project/task/components/task-edit'),
-        name: 'new-task'
-      },
-      {
-        route: 'project/:id',
-        moduleId: PLATFORM.moduleName('project/task/components/task-list'),
-        name: 'project-view'
-      },
-      {
-        route: 'new-project',
-        moduleId: PLATFORM.moduleName('project/components/project-edit'),
-        name: 'new-project',
-        title: 'Create Project'
-      }
-    ]);
+    config.map(this.routes);
+    this.router = router;
+    this.router.refreshNavigation();
   }
 }

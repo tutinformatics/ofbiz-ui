@@ -20,7 +20,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a
-            class="navbar-brand dropdown-toggle bg-purple"
+            class="navbar-brand"
             href="javascript:void(0);"
             id="navbarDropdown"
             role="button"
@@ -28,7 +28,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Applications
+            <font-awesome-icon icon.bind="gridIcon" size="lg"></font-awesome-icon>
           </a>
           <div
             class="dropdown-menu workspace-dropdown-menu"
@@ -48,11 +48,12 @@
         <!-- Navbar elements -->
         <li repeat.for="item of menuItems" class="nav-item">
           <a
+            if.bind="item.nav === true"
             class="nav-link"
             href="javascript:void(0);"
-            click.delegate="navigateTo(item.route)"
-          >
-            ${ item.text }
+            click.delegate="navigateToChildRoute(item.route)"
+            >
+            ${ item.title }
           </a>
         </li>
         <!-- End of Navbar elements -->
@@ -63,18 +64,14 @@
         class="btn btn-secondary mr-2"
         type="button"
       >
-        <i
-          if.bind="isFavourite"
-          class="fa fa-star"
-          aria-hidden="true"
-        ></i>
+        <i if.bind="isFavourite" class="fa fa-star" aria-hidden="true"></i>
         <i else class="fa fa-star-o" aria-hidden="true"></i>
       </button>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
           <a
-            class="navbar-brand dropdown-toggle bg-purple"
+            class="navbar-brand dropdown-toggle"
             href="javascript:void(0);"
             id="navbarDropdown"
             role="button"
@@ -90,13 +87,13 @@
         </li>
       </ul>
       <li class="nav navbar-nav navbar-right">
-        <a class="router-link nav-link bg-purple navbar-right">
+        <a class="router-link nav-link navbar-right">
           Messages
         </a>
       </li>
       <li if.bind="!state.userLoginId" class="nav navbar-nav navbar-right">
         <a
-          class="router-link nav-link bg-purple navbar-right"
+          class="router-link nav-link navbar-right"
           click.delegate="navigateTo('/')"
         >
           Log in
@@ -107,7 +104,7 @@
         class="router-link nav navbar-nav navbar-right"
         click.delegate="logOut()"
       >
-        <a class="router-link nav-link bg-purple navbar-right">
+        <a class="router-link nav-link navbar-right">
           Log out
         </a>
       </li>
