@@ -292,6 +292,18 @@ export class AffManagerService {
     }
   }
 
-
+  async getAffiliateDiscounts() {
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}generic/v1/services/getAffiliateDiscounts`,
+        {
+          method: "POST",
+          body: JSON.stringify({}),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
 
 }
