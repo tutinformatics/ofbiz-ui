@@ -7,9 +7,10 @@ import './reviwAll.scss';
 export class ReviewAll {
 
 
-  pageSize = 3;
+  pageSize = 20;
 
   products;
+  productKeys = [];
 
 
   constructor(dialogController) {
@@ -18,5 +19,8 @@ export class ReviewAll {
 
   activate(data) {
     this.products = data;
+    this.productKeys = Object.keys(this.products[0]);
+    console.log(Object.keys(this.products[0]));
+    console.log(Object.keys(this.products));
   }
 }
