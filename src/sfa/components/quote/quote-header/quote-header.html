@@ -3,25 +3,30 @@
     <div class="col-8">
       <div class="row">
         <h1>Quotes</h1>
+        <img class="ml-3" src="assets/img/favorite.svg" alt="fave">
+        <div>
+          <button type="button" class="btn btn-secondary mt-2 ml-3" data-toggle="modal" href="#agentModal">Add new
+            quote</button>
+        </div>
       </div>
     </div>
     <div class="col-4">
       <div class="dropdown float-right">
         <button type="button" class="btn btn-secondary">Filter</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" href="#opportunityModal">Add new quote</button>
 
-        <div class="modal fade" id="opportunityModal" tabindex="-1" role="dialog"
-          aria-labelledby="opportunityModalLabel" aria-hidden="true">
+        <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog"
+          aria-labelledby="quoteModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="opportunityModalLabel">Add new quote</h5>
+                <h5 class="modal-title" id="quoteModalLabel">Add new quote</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <form role="form" id="opportunityForm" submit.delegate="newOpportunity()">
+                <!-- form fields need to be changed! -->
+                <form role="form" id="quoteForm" submit.delegate="newQuote()">
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Name</label>
                     <input type="text" class="form-control" id="opportunity-name" value.bind="name">
@@ -50,7 +55,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" click.delegate="newOpportunity()"
+                    <button type="button" class="btn btn-primary" click.delegate="newQuote()"
                       data-dismiss="modal">Save changes</button>
                   </div>
                 </form>
