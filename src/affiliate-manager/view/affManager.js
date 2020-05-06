@@ -45,44 +45,42 @@ export class AffManager {
   }
 
   async authorizeMe() {
-    if (!this.offlineBackdoor()) {
-      if (this.state['userLoginId'] === null) {
-        this.authorized = 'GUEST';
+    if (this.state['userLoginId'] === null) {
+      this.authorized = 'GUEST';
+    } else {
+      const partyId = await this.affManagerService.fetchPartyId();
+      if (this.state['userLoginId'] === 'admin') {
+        this.authorized = 'ADMIN';
       } else {
-        const partyId = await this.affManagerService.fetchPartyId();
-        if (this.state['userLoginId'] === 'admin') {
-          this.authorized = 'ADMIN';
-        } else {
-          const affStatus = await this.affManagerService.getAffiliateStatus(partyId);
-          if (affStatus === 'PENDING') {
-            this.affiliateStatus = 'PENDING';
-            this.authorized = 'PENDING'
-          } else if (affStatus === 'ACTIVE') {
-            this.authorized = 'MEMBER'
-          } else if (affStatus === 'NOT-PARTNER') {
-            this.affiliateStatus = 'NOT-PARTNER';
-            this.authorized = 'PENDING'
-          }
+        const affStatus = await this.affManagerService.getAffiliateStatus(partyId);
+        if (affStatus === 'PENDING') {
+          this.affiliateStatus = 'PENDING';
+          this.authorized = 'PENDING'
+        } else if (affStatus === 'ACTIVE') {
+          this.authorized = 'MEMBER'
+        } else if (affStatus === 'NOT-PARTNER') {
+          this.affiliateStatus = 'NOT-PARTNER';
+          this.authorized = 'PENDING'
         }
       }
     }
   }
 
-  offlineBackdoor() {
-
-    if (this.view === 'admin') {
-      this.authorized = 'ADMIN';
-      return true;
-    } else if (this.view === 'member') {
-      this.authorized = 'MEMBER';
-      return true;
-    } else if (this.view === 'pending') {
-      this.authorized = 'PENDING';
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // offlineBackdoor() {
+  //
+  //   if (this.view === 'admin') {
+  //     this.authorized = 'ADMIN';
+  //     return true;
+  //   } else if (this.view === 'member') {
+  //     this.authorized = 'MEMBER';
+  //     return true;
+  //   } else if (this.view === 'pending') {
+  //     this.authorized = 'PENDING';
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
 
 }

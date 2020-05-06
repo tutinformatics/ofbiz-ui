@@ -306,4 +306,23 @@ export class AffManagerService {
     }
   }
 
+  async setAffiliateDiscount(productCategoryId, amount) {
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}/generic/v1/services/setAffiliateDiscount`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            {
+              "productCategoryId": productCategoryId,
+              "amount": amount
+            }
+          ),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
 }

@@ -15,6 +15,7 @@ export class GlobalSettings {
   userGroups = ["affiliate-partners", "legacy-affiliate-partners"];
   globalSettings;
   productCategories;
+  discounts;
 
 
   constructor(affManagerService) {
@@ -22,7 +23,12 @@ export class GlobalSettings {
   }
 
   async attached() {
-    this.fetchCategories()
+    await this.fetchDiscounts();
+    this.fetchCategories();
+  }
+
+  setDiscount(productCategoryId) {
+    console.log(productCategoryId)
   }
 
   async fetchCategories() {
@@ -36,7 +42,7 @@ export class GlobalSettings {
             'categoryName': category['categoryName'],
             'productCategoryId': category['productCategoryId'],
             'commission': (Math.random() / 2).toFixed(2),
-            'discount': (Math.random() * 10).toFixed(2),
+            'discount': this.discounts.find(d => d['productCategoryId'] === category['productCategoryId'])['discount'],
           }
         )
       );
@@ -53,5 +59,14 @@ export class GlobalSettings {
     };
   }
 
+  async fetchDiscounts() {
+    const response = await this.affManagerService.getAffiliateDiscounts();
+    const localDiscounts = [];
+    if (response.ok) {
+      const jsonData = await response.json();
+      jsonData['discounts'].forEach(d => localDiscounts.push(d))
+    }
+    this.discounts = localDiscounts;
+  }
 
 }
