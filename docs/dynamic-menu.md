@@ -26,7 +26,7 @@ Don't worry about icons at this stage, this topic will be revisited.
 ```
 **Please note that name of this parent route must match your product name defined in `applications.json`.**
 
-Define child routes in routes object in `router-service.js` e.g:
+Define child routes in routes object in `navigation-service.js` e.g:
 ```javascript
 const routes = {
   project: [
@@ -79,17 +79,17 @@ const routes = {
 ```
 Provide a title and set `nav: true` for routes, you want to be displayed in the navbar. 
 
-Inject the `RoutingService` in your child router component and get routes for your app e.g:
+Inject the `NavigationService` in your child router component and get routes for your app e.g:
 `project.js` (child router):
 ```javascript
 import { inject } from 'aurelia-dependency-injection';
-import { RoutingService } from '../commons/services/routing-service';
+import { NavigationService } from '../commons/services/navigation-service';
 
-@inject(RoutingService)
+@inject(NavigationService)
 export class ProjectMainComponent {
-  constructor(routingService) {
-    this.routingService = routingService;
-    this.routingService
+  constructor(navigationService) {
+    this.navigationService = navigationService;
+    this.navigationService
       .getRoutes('crm') // your project name here
       .then((response) => (this.routes = response));
   }
