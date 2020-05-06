@@ -1,12 +1,11 @@
 import { PLATFORM } from 'aurelia-pal';
-import { inject } from "aurelia-dependency-injection";
-import { Store } from "aurelia-store";
-import { observable } from "aurelia-binding";
-import { HttpService } from "./commons/services/httpService";
+import { inject } from 'aurelia-dependency-injection';
+import { Store } from 'aurelia-store';
+import { observable } from 'aurelia-binding';
+import { HttpService } from './commons/services/httpService';
 
 @inject(Store, HttpService)
 export class App {
-
   @observable error;
   showError;
 
@@ -72,12 +71,18 @@ export class App {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
+        title: 'Marketing'
       },
       {
         route: 'sign-up',
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
       },
+      {
+        route: 'timesheet',
+        name: 'timesheet',
+        moduleId: PLATFORM.moduleName('timesheet/timesheet')
+      }
     ]);
     this.router = router;
   }
