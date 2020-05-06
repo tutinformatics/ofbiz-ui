@@ -83,6 +83,11 @@ export class App {
         route: 'timesheet',
         name: 'timesheet',
         moduleId: PLATFORM.moduleName('timesheet/timesheet')
+      },
+      {
+        route: 'resource',
+        name: 'resource',
+        moduleId: PLATFORM.moduleName('resource/resource')
       }
     ]);
     this.router = router;
