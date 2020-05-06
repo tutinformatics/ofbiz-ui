@@ -35,7 +35,8 @@ export class GlobalSettings {
           {
             'categoryName': category['categoryName'],
             'productCategoryId': category['productCategoryId'],
-            'commission': (Math.random() / 2).toFixed(2)
+            'commission': (Math.random() / 2).toFixed(2),
+            'discount': (Math.random() * 10).toFixed(2),
           }
         )
       );
