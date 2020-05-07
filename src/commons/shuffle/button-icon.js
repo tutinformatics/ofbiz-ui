@@ -1,43 +1,31 @@
 import { customElement, bindable } from 'aurelia-framework';
 import {
   faCalendarAlt,
-  faListAlt,
-  faAddressBook,
   faIndustry,
   faFileInvoice,
-  faPoll,
   faMagic,
   faFax,
-  faCalculator
+  faCalculator,
+  faAt,
+  faIdCard
 } from '@fortawesome/free-solid-svg-icons';
 
 @customElement('button-icon')
 export class ButtonIcon {
   @bindable elemName = '';
 
-  assetPath = '/icons/';
-  svgFile = '.svg';
-  active = '';
   colors = 'gray';
   bgColors = 'white';
   faIcon;
 
-  constructor() {
-    // this.element = {
-    //   active: ''
-    // };
-  }
-
   mouseOver() {
     this.colors = '#1555bd';
     this.bgColors = '#c7d7f2';
-    // this.element.active = '-active';
   }
 
   mouseOut() {
     this.colors = 'gray';
     this.bgColors = 'white';
-    // this.element.active = '';
   }
 
   elemNameChanged() {
@@ -47,7 +35,7 @@ export class ButtonIcon {
   iconController() {
     switch (this.elemName) {
     case 'project':
-      this.faIcon = faListAlt;
+      this.faIcon = faCalendarAlt;
       break;
     case 'crm':
       this.faIcon = faFax;
@@ -56,7 +44,7 @@ export class ButtonIcon {
       this.faIcon = faCalculator;
       break;
     case 'contacts':
-      this.faIcon = faAddressBook;
+      this.faIcon = faIdCard;
       break;
     case 'manufacturing':
       this.faIcon = faIndustry;
@@ -65,11 +53,13 @@ export class ButtonIcon {
       this.faIcon = faMagic;
       break;
     case 'marketing':
-      this.faIcon = faPoll;
+      this.faIcon = faAt;
       break;
     case 'invoicing':
       this.faIcon = faFileInvoice;
       break;
+    default:
+      undefined;
     }
   }
 }

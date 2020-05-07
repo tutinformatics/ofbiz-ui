@@ -23,17 +23,7 @@
     "title": "Contacts"
   },
   {
-    "name": "manufacturing",
-    "url": "",
-    "title": "Manufacturing"
-  },
-  {
     "name": "marketing",
     "url": "affiliate-manager?affCode=10"
-  },
-  {
-    "name": "invoicing",
-    "url": "",
-    "title": "Invoicing"
   }
 ]

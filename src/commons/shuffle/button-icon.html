@@ -1,15 +1,12 @@
 <template>
   <div
+    class="p-2"
     mouseover.delegate="mouseOver()"
     mouseout.delegate="mouseOut()"
     style="color:${colors}; background-color:${bgColors}"
   >
-    <!-- <img
-      class="product-icon svg-image pt-1"
-      src="${assetPath}${elemName}${element.active}${svgFile}"
-    /> -->
     <font-awesome-icon icon.bind="faIcon" size="4x"></font-awesome-icon>
-    <br/>
+    <br />
     <div class="text-capitalize">
       ${elemName & oneTime}
     </div>
