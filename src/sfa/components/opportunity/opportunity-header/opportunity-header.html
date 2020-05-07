@@ -12,7 +12,7 @@
     </div>
     <div class="col-4">
       <div class="dropdown float-right">
-        <button type="button" class="btn btn-secondary">Filter</button>
+        <input class="form-control mt-2" type="text" placeholder="Filter" aria-label="Search">
 
         <div class="modal fade" id="opportunityModal" tabindex="-1" role="dialog"
           aria-labelledby="opportunityModalLabel" aria-hidden="true">
@@ -55,7 +55,14 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" click.delegate="newOpportunity()"
-                      data-dismiss="modal">Save changes</button>
+                      data-dismiss="modal">Save</button>
+                      <button type="button" class="btn btn-primary" click.delegate="newOpportunity()"
+                              data-dismiss="modal">
+                        <a style="color: #ffffff; text-decoration: none" route-href="route: opportunity-edit; params.bind: { name: name, description: description, price: price, stage: stage}">
+                          Save and edit
+                        </a>
+                      </button>
+
                   </div>
                 </form>
               </div>

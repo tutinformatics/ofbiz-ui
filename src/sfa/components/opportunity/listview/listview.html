@@ -18,8 +18,8 @@
           <td>${opportunity.price}€</td>
           <td>${opportunity.stage}</td>
           <td>
-            <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">Edit</a> |
-            <a click.trigger="deleteOpportunity(opportunity.opportunityId, $index)">Delete</a>
+            <a style="color: #000000; text-decoration: none" route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">Edit</a> |
+            <a style="cursor: pointer" click.trigger="deleteOpportunity(opportunity.opportunityId, $index)">Delete</a>
         </td>
         </tr>
       </tbody>

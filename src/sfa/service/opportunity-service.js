@@ -48,7 +48,6 @@ export class OpportunityService {
          }
        );
    }
-
    editOpportunity(opportunity) {
      this.client
        .fetch(`${this.baseUrl}entities/opportunity`, {
@@ -58,17 +57,12 @@ export class OpportunityService {
    }
 
   createNewOpportunity(opportunity) {
-    this.client
+    console.log("neeee");
+    return this.client
       .fetch(`${this.baseUrl}entities/opportunity/`, {
-        method: 'post',
+        method: 'POST',
         body: json(opportunity)
       })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(reason => {
-        // do something useful here
-        console.error(reason);
-      });
   }
 }
 
