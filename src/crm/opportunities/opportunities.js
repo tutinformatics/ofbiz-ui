@@ -1,16 +1,20 @@
-import { PLATFORM } from 'aurelia-pal';
+import { inject } from 'aurelia-dependency-injection';
+import { NavigationService } from '../../commons/services/navigation-service';
 
+@inject(NavigationService)
 export class OpportunitiesTest {
+  constructor(navigationService) {
+    this.navigationService = navigationService;
+    this.navigationService
+      .getRoutes('crm')
+      .then((response) => (this.routes = response));
+  }
   configureRouter(config, router) {
     config.title = 'Opportunities';
     config.options.pushState = true;
     // config.options.root = '/';
-    config.map([
-      { route: ['', 'pipeline'], moduleId: PLATFORM.moduleName('crm/components/pipeline/pipeline'), name: 'pipeline' },
-      { route: 'listview', moduleId: PLATFORM.moduleName('crm/components/listview/listview'), name: 'listview' },
-      { route: 'cardview', moduleId: PLATFORM.moduleName('crm/components/cardview/cardview'), name: 'cardview' },
-
-    ]);
+    config.map(this.routes);
     this.router = router;
+    this.router.refreshNavigation();
   }
 }
