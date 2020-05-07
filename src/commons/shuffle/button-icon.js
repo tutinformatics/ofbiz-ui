@@ -11,11 +11,10 @@ export class ButtonIcon {
   colors = 'gray';
   faIcon;
 
-  constructor(elemName) {
+  constructor() {
     this.element = {
       active: ''
     };
-    this.iconController(elemName);
   }
 
   mouseOver() {
