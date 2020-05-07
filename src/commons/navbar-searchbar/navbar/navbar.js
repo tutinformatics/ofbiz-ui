@@ -127,7 +127,7 @@ export class Navbar {
   }
 
   navigateToChildRoute(path) {
-    // TODO: could be better, maybe some kind of resolver needs to be added for child routes
+    // TODO: kind of hack, maybe some kind of resolver needs to be added for child routes
     // https://discourse.aurelia.io/t/aurelia-child-route-navigation/2201/6
     this.router.navigate(`${this.currentProduct}/${path}`);
   }
