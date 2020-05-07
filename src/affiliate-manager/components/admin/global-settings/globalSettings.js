@@ -1,18 +1,16 @@
 import "./globalSettings.scss"
-import { bindable, inject } from 'aurelia-framework';
-import { AffManagerService } from "../../../services/affManagerService";
+import {bindable, inject} from 'aurelia-framework';
+import {AffManagerService} from "../../../services/affManagerService";
 
 @inject(AffManagerService)
 export class GlobalSettings {
 
   @bindable paymentFrequency;
-  @bindable commissionPercent;
   @bindable multiLevelAff;
-  @bindable userGroup;
   @bindable codeInCookieDuration;
   possibleFrequency = ["Each month", "Each week", "Each year", "Each half-year"];
+  possibleFrequencyDays = {"Each month": 30, "Each week": 7, "Each year": 365, "Each half-year": 180};
   possibleMultiLevel = ["available", "not available"];
-  userGroups = ["affiliate-partners", "legacy-affiliate-partners"];
   globalSettings;
   productCategories;
   discounts;
@@ -44,19 +42,19 @@ export class GlobalSettings {
             'commission': (Math.random() / 2).toFixed(2),
             'discount': this.discounts.find(d => d['productCategoryId'] === category['productCategoryId'])['discount'],
           }
-        )
-      );
+          )
+        );
     }
     this.productCategories = localProductCategories;
   }
 
-  saveSettings() {
+  async saveGlobalSettings() {
     let newSettings = {
-      "paymentFrequency": this.paymentFrequency,
-      "commissionPercent": this.commissionPercent,
+      "paymentFrequency": this.possibleFrequencyDays[this.paymentFrequency],
       "multiLevelAff": this.multiLevelAff === "available",
       "codeInCookieDuration": this.codeInCookieDuration
     };
+    const response = await this.affManagerService.setGlobalSettings(newSettings);
   }
 
   async fetchDiscounts() {

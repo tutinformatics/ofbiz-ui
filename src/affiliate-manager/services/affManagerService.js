@@ -325,4 +325,20 @@ export class AffManagerService {
     }
   }
 
+  async setGlobalSettings(settings){
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}/generic/v1/services/setAffiliateSettings`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            settings
+          ),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
