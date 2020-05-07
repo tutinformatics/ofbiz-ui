@@ -15,11 +15,4 @@ export class Opportunities {
     this.router = router;
 
   }
-
-  goBack() {
-    history.back();
-  }
-  goForward() {
-    history.forward();
-  }
 }

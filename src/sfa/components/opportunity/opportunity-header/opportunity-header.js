@@ -15,6 +15,5 @@ export class OpportunityHeader {
       opportunity.stage = "new";
     }
     this.opportunityService.createNewOpportunity(opportunity);
-    // this.ea.publish('newOpportunityCreation', 'jou');
   };
 }
