@@ -1,5 +1,15 @@
 import { customElement, bindable } from 'aurelia-framework';
-import { faCalendarAlt, faListAlt, faAddressBook, faIndustry, faFileInvoice, faPoll, faMagic, faFax, faCalculator } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCalendarAlt,
+  faListAlt,
+  faAddressBook,
+  faIndustry,
+  faFileInvoice,
+  faPoll,
+  faMagic,
+  faFax,
+  faCalculator
+} from '@fortawesome/free-solid-svg-icons';
 
 @customElement('button-icon')
 export class ButtonIcon {
@@ -35,31 +45,31 @@ export class ButtonIcon {
   }
 
   iconController() {
-    switch (this.elemName){
-      case "project":
-        this.faIcon = faListAlt;
-        break;
-      case "crm":
-        this.faIcon = faFax;
-        break;
-      case "accounting":
-        this.faIcon = faCalculator;
-        break;
-      case "contacts":
-        this.faIcon = faAddressBook;
-        break;
-      case "manufacturing":
-        this.faIcon = faIndustry;
-        break;
-      case "sfa":
-        this.faIcon = faMagic;
-        break;
-      case "marketing":
-        this.faIcon = faPoll;
-        break;
-      case "invoicing":
-        this.faIcon = faFileInvoice;
-        break;
+    switch (this.elemName) {
+    case 'project':
+      this.faIcon = faListAlt;
+      break;
+    case 'crm':
+      this.faIcon = faFax;
+      break;
+    case 'accounting':
+      this.faIcon = faCalculator;
+      break;
+    case 'contacts':
+      this.faIcon = faAddressBook;
+      break;
+    case 'manufacturing':
+      this.faIcon = faIndustry;
+      break;
+    case 'sfa':
+      this.faIcon = faMagic;
+      break;
+    case 'marketing':
+      this.faIcon = faPoll;
+      break;
+    case 'invoicing':
+      this.faIcon = faFileInvoice;
+      break;
     }
   }
 }
