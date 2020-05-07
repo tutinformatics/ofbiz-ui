@@ -98,15 +98,15 @@ export class Navbar {
 
   handleFavorite() {
     const url = this.router.currentInstruction.fragment;
-    const name = this.router.currentInstruction.config.title;
+    const title = document.title.split('|')[0]; // router cannot access titles of child routes
 
-    if (!url) {
+    if (!url || this.isFavourite) {
       return;
     }
 
     this.workspaceService
       .addWorkspace({
-        title: name,
+        title: title,
         url: url,
         userId: this.state.userLoginId
       })
