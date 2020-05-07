@@ -3,18 +3,19 @@
   height: 60px;
 }
 
-.icon-wrapper {
+.appicon-wrapper {
   font-size: 12px;
-  text-shadow: 2px 2px #444444;
+  /* text-shadow: 2px 2px #444444; */
   overflow: hidden;
+  color: gray !important;
   width: 80px;
   height: 80px;
-  background-color: #dddddd !important;
+  background-color: white !important;
 }
 
 .workspace-dropdown-menu {
   width: 266px;
-  background-color: #ababab !important;
+  background-color: white !important;
 }
 
 button-icon {
