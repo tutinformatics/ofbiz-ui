@@ -98,7 +98,7 @@ export class Navbar {
 
   handleFavorite() {
     const url = this.router.currentInstruction.fragment;
-    const title = document.title.split('|')[0]; // router cannot access titles of child routes
+    const title = document.title.split('|')[0].trim(); // router cannot access titles of child routes
 
     if (!url || this.isFavourite) {
       return;
