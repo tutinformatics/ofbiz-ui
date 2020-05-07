@@ -3,12 +3,13 @@
     mouseover.delegate="mouseOver()"
     mouseout.delegate="mouseOut()"
   >
-    <img
+    <!-- <img
       class="product-icon svg-image pt-1"
       src="${assetPath}${elemName}${element.active}${svgFile}"
-    />
-    <br />
-    <div class="text-uppercase">
+    /> -->
+    <font-awesome-icon icon.bind="faIcon" size="5x" style="color=${colors}"></font-awesome-icon>
+    <br/>
+    <div class="text-capitalize">
       ${elemName & oneTime}
     </div>
   </div>

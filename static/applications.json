@@ -8,6 +8,11 @@
     "url": "crm"
   },
   {
+    "name": "sfa",
+    "url": "sfa",
+    "title": "SFA"
+  },
+  {
     "name": "accounting",
     "url": "",
     "title": "Accounting"
