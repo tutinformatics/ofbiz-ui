@@ -8,8 +8,12 @@ This view has no functionality. The main point of this view is to attract users 
 
 ### Authorised user
 
-User who is authorised to the system has next views (can be found in navigation side panel)
+User who is authorised to the system.
 
+Functional:
+   * Can send request on becoming an affiliate partner.
+
+Views:
    * Become Partner - Can become an affiliate partner. When clicking button "Join for free" your cookies are
    checked for existence of somebodies affiliate code and if it exists you are becoming somebodies subpartner (multilevel affiliation)
    if not, you become independent affiliate partner. But only after admin user confirmation.
@@ -20,7 +24,19 @@ User who is authorised to the system has next views (can be found in navigation 
 ### Member view
 
 After authorised user joining request and admin confirmation user becomes a member of affiliate partnership.
-Next views:
+
+Functional:
+   * Can generate new affiliate code for a chosen product category
+   * Can remove an affiliate code
+   * Can use several affiliate codes to increase e-shop popularity and personal bonuses
+   * Can make subscribes (affiliate partners who became an affiliate partner using root code)
+   * Can see sub partners
+   * Can see personal statistics
+        * Top sub-partners
+        * Recent transactions
+
+
+Views:
 
    * My Affiliates - Shows all affiliate subpartners or subaffiliates of current user. All affiliates can be filtered by any value for
    better management. When clicking on the eye icon the detailed view modal is opened where you can find a profile photo and more
@@ -43,7 +59,20 @@ password: ofbiz
 
 Admin is main system user who can manage affiliates and affiliate marketing global settings
 
-Next views:
+Functional:
+
+   * Can manage all affiliate partners,
+        * Can approve a candidate
+        * Can disapprove a candidate
+        * Can deactivate an active affiliate partner
+        * Can see some general information about a partner
+   * Can manage commissions per product category
+   * Can manage product discounts for product category
+   * Can manage affiliate partners payouts
+   * Can see all statistics and productivity of all affiliate partners and affiliate codes
+   * Can manage affiliate code presence duration in cookies
+
+Views:
    *  Affiliates - Shows all system affiliate partners and and their detailed information. Allows to deactivate affiliate partner
    partnership and automatically erase all affiliate codes connected to deactivated partner. Table can be filtered by any table value.
    *  Approve - Allows to approve or disapprove new request of joining affiliate partnership.
