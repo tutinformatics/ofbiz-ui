@@ -8,6 +8,7 @@ export class GlobalSettings {
   @bindable paymentFrequency;
   @bindable multiLevelAff;
   @bindable codeInCookieDuration;
+  @bindable alert;
   possibleFrequency = ["Each month", "Each week", "Each year", "Each half-year"];
   possibleFrequencyDays = {"Each month": 30, "Each week": 7, "Each year": 365, "Each half-year": 180};
   possibleMultiLevel = ["available", "not available"];
@@ -50,11 +51,15 @@ export class GlobalSettings {
 
   async saveGlobalSettings() {
     let newSettings = {
-      "paymentFrequency": this.possibleFrequencyDays[this.paymentFrequency],
-      "multiLevelAff": this.multiLevelAff === "available",
-      "codeInCookieDuration": this.codeInCookieDuration
+      "settingsType": "general",
+      "commissionFrequency": this.possibleFrequencyDays[this.paymentFrequency],
+      "multiLevelAffiliation": this.multiLevelAff === "available" ? "Y" : "N",
+      "codeCookieDuration": this.codeInCookieDuration
     };
     const response = await this.affManagerService.setGlobalSettings(newSettings);
+    if (response && response.ok) {
+      this.alert = true;
+    }
   }
 
   async fetchDiscounts() {
