@@ -61,6 +61,9 @@ export class AffManager {
         } else if (affStatus === 'NOT-PARTNER') {
           this.affiliateStatus = 'NOT-PARTNER';
           this.authorized = 'PENDING'
+        } else if (affStatus === 'DECLINED') {
+          this.affiliateStatus = 'DECLINED';
+          this.authorized = 'PENDING'
         }
       }
     }

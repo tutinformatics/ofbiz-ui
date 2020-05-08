@@ -25,8 +25,9 @@ export class GlobalSettings {
     this.fetchCategories();
   }
 
-  setDiscount(productCategoryId) {
-    console.log(productCategoryId)
+  async saveDiscounts(partyId, newDiscount) {
+    if (newDiscount && newDiscount >= 0 && newDiscount < 100)
+    await this.affManagerService.setAffiliateDiscount(partyId, newDiscount)
   }
 
   async fetchCategories() {

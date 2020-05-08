@@ -18,7 +18,10 @@ export class PendingMember {
         this.state = state;
       }
     );
-    this.checkStatus()
+  }
+
+  async attached() {
+    await this.checkStatus();
   }
 
   unbind() {

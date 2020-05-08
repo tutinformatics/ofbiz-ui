@@ -20,7 +20,5 @@ export class ReviewAll {
   activate(data) {
     this.products = data;
     this.productKeys = Object.keys(this.products[0]);
-    console.log(Object.keys(this.products[0]));
-    console.log(Object.keys(this.products));
   }
 }

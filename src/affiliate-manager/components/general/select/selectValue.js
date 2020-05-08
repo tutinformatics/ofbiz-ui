@@ -11,7 +11,6 @@ export class SelectValue {
   @bindable selectedValue = 'Choose';
 
   setSelected(key, value) {
-    console.log(this.selectedKey)
     this.selectedKey = key;
     this.selectedValue = value;
     if (this.selectedKey === null) {
