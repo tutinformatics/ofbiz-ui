@@ -1,0 +1,92 @@
+<template>
+  <require from="aurelia-kendoui-bridge/numerictextbox/numerictextbox"></require>
+  <require from="aurelia-kendoui-bridge/datepicker/datepicker"></require>
+  <require from="aurelia-kendoui-bridge/dropdownlist/dropdownlist"></require>
+
+  <div class="card mx-auto" style="width: 60vw;">
+    <div class="card-header text-white bg-primary">New Resource</div>
+
+    <div class="card-body">
+      <form role="form">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Resource Name</label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              placeholder="Enter Party ID"
+              class="form-control"
+              value.bind="resource.partyId"
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Party Role</label>
+          <div class="col-md-9">
+            <ak-drop-down-list
+              k-data-text-field="text"
+              k-data-value-field="value"
+              k-data-source.bind="roleList"
+              k-value.two-way="resource.roleTypeId"
+              style="width: 100%;"
+            >
+            </ak-drop-down-list>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">First Name</label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              placeholder="Enter First Name"
+              class="form-control"
+              value.bind="resource.firstName"
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Middle Name</label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              placeholder="Enter Middle Name"
+              class="form-control"
+              value.bind="resource.middleName"
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Last Name</label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              placeholder="Enter Last Name"
+              class="form-control"
+              value.bind="resource.lastName"
+            >
+          </div>
+        </div>
+
+      </form>
+
+      <div>
+        <button
+          class="btn btn-primary btn-lg float-right rounded-pill"
+          click.delegate="addResource()"
+        >
+          Create Resource
+        </button>
+
+        <button
+          class="btn btn-secondary btn-lg float-left rounded-pill"
+          click.delegate="handleBack()"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
