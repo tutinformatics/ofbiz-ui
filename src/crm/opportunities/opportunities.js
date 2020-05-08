@@ -6,7 +6,7 @@ export class OpportunitiesTest {
   constructor(navigationService) {
     this.navigationService = navigationService;
     this.navigationService
-      .getRoutes('crm')
+      .getRoutes('sfa')
       .then((response) => (this.routes = response));
   }
   configureRouter(config, router) {
