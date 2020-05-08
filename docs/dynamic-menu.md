@@ -11,7 +11,7 @@
 
 *url attribute represents the path to your main screen.*
 
-Don't worry about icons at this stage, this topic will be revisited.
+Set you fontawesome icon in `button-icon.js`.
 
 ## Introduce child router to your module. In the parent router config `app.js` you simply link to a view model that is itself a router.
 
