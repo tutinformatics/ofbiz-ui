@@ -8,7 +8,6 @@
     "title": "Projects"
   },
 ```  
-
 *url attribute represents the path to your main screen.*
 
 Set you fontawesome icon in `button-icon.js`.
