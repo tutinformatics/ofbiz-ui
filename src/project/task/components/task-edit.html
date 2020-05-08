@@ -24,9 +24,9 @@
                     <label class="col-md-3 col-form-label">Parent Phase</label>
                     <div class="col-md-9">
                         <ak-drop-down-list 
-                            k-data-text-field="text" 
-                            k-data-value-field="value" 
-                            k-data-source.bind="parentPhaseList"
+                            k-data-text-field="projectPhaseName" 
+                            k-data-value-field="phaseId"
+                            k-data-source.bind="datasource"
                             k-value.two-way="task.workEffortParentId" 
                             style="width: 100%;"
                         >
