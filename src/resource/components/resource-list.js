@@ -36,4 +36,8 @@ export class ResourceList {
   determineActivationStrategy() {
     return activationStrategy.replace;
   }
+
+  handleAddResource() {
+    this.router.navigate('new-resource');
+  }
 }

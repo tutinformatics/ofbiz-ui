@@ -9,6 +9,11 @@ export class Resource {
         route: '',
         moduleId: PLATFORM.moduleName('resource/components/resource-list'),
         name: 'resource'
+      },
+      {
+        route: 'new-resource',
+        moduleId: PLATFORM.moduleName('resource/components/resource-edit'),
+        name: 'new-resource'
       }
     ]);
   }

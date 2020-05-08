@@ -6,8 +6,16 @@
 
   <div class="card">
     <div class="card-header text-white bg-primary">Resource Dashboard</div>
-
+    <ak-grid-toolbar>
+      <button
+        class="btn btn-primary btn-lg float-right rounded-pill"
+        click.delegate="handleAddResource()"
+      >
+        Create Resource
+      </button>
+    </ak-grid-toolbar>
     <div class="card-body">
+
       <ak-grid k-data-source.bind="datasource">
         <ak-col k-title="Party Id" k-field="partyId"></ak-col>
       </ak-grid>
