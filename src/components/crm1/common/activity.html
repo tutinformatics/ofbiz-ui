@@ -19,13 +19,10 @@
         </thead>
         <tbody>
 
-          <tr repeat.for="entry of tableData " class="text-center pointer" click.delegate="test(entry)">
-
-            <td>${entry.data1}</td>
-            <td>${entry.data2}</td>
-            <td>${entry.data3}</td>
-            <td>${entry.data4}</td>
-
+          <tr repeat.for="entry of tableData" class="text-center pointer" click.delegate="test(entry)">
+            <td repeat.for="data of entry.data">
+              ${data}
+            </td>
           </tr>
 
         </tbody>

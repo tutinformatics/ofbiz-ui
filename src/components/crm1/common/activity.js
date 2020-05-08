@@ -14,8 +14,9 @@ export class Activity {
     this.http=http.http;
     this.ea = ea;
     this.data = [];
-    this.tableHeaders = []
+    this.tableHeaders = ["A", "B", "C", "D"]
     this.tableData = [];
+    //Predefined table headers for each category
 
     this.ea.subscribe("changeAction", payload => {
       this.activity = payload.name;
@@ -30,63 +31,70 @@ export class Activity {
   async getData(activity) {
     // await this.login();
     if (activity === "Notes") {
-      await this.fetchNotes();
+      await this.fetch("notes");
     } else {
       console.log("else");
       this.data = [];
       this.tableData = []
     }
-
   }
 
   test(entry) {
-    console.log(this.data[this.tableData.indexOf(entry)]);
+    console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
+  }
+  resolveBody(entity) {
+    switch (entity) {
+      case "notes":
+        return json({
+          "fieldList": [
+            "lastName",
+            "firstName",
+            "emailAddress",
+            "phoneNumber",
+            "companyName",
+            "roleTypeId",
+            "address",
+            "postalCode",
+            "partyId"
+          ]
+        })
+      default:
+        return "none";
+    }
   }
 
-  async fetchNotes() {
-    this.tableHeaders = ["First", "Last", "Email", "Phone"]
+  async fetch() {
     let response = await this.http.fetch('/entityquery/PartyExport', {
       method: 'post',
-      body: json({
-        "fieldList": [
-          "lastName",
-          "firstName",
-          "emailAddress",
-          "phoneNumber",
-          "companyName",
-          "roleTypeId",
-          "address",
-          "postalCode",
-          "partyId"
-        ]
-      })
+      body: this.resolveBody("notes")
     })
       .then(response => response.json())
       .catch(() => {
-        alert('Error fetching clients!');
+        alert('Error fetching!');
       });
+
+
     for (let i = 0; i < response.length; i++) {
-      let contact = new Contact(
-        response[i].firstName,
-        response[i].lastName,
-        response[i].emailAddress,
-        response[i].phoneNumber,
-        response[i].companyName,
-        response[i].roleTypeId,
-        response[i].address,
-        response[i].postalCode,
-        response[i].partyId
-      );
-      this.data.push(contact);
-      let entry = new TableEntry(
-        "contact",
-        response[i].partyId,
-        response[i].firstName,
-        response[i].lastName,
-        response[i].emailAddress,
-        response[i].phoneNumber
-      );
+      //Hard copied in case we make any other requests
+      this.data.push(Object.create(response[i]));
+
+      let entry = new TableEntry(this.defineDataFor("notes", response[i]));
       this.tableData.push(entry);
     }
+  }
+
+  defineDataFor(entityName, responseEntry) {
+    switch (entityName) {
+      case "notes":
+        return [
+          responseEntry.partyId,
+          responseEntry.firstName,
+          responseEntry.lastName,
+          responseEntry.emailAddress,
+          responseEntry.phoneNumber
+      ]
+      default: return undefined;
+    }
+
   }
 }
