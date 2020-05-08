@@ -1,14 +1,19 @@
 <template>
   <require from="../../general/page-title/pageTitle"></require>
   <require from="../../general/filter/filter"></require>
+  <require from="../../general/alerts/alert"></require>
 
   <div class="row mt-5">
     <div class="col-sm-8 mx-auto text-center mb-3">
       <page-title
-        main-text.one-way="'Affiliate System Settings'"
-      >
+        main-text.one-way="'Affiliate System Settings'">
       </page-title>
     </div>
+    <alert
+      is-error.two-way="alert"
+      alert-type.one-way="'SUCCESS'"
+      message.one-way="'Settings are saved'">
+    </alert>
     <div class="col-sm-8 mx-auto text-center">
       <form>
         <div class="form-group aff-system-settings__single-input">

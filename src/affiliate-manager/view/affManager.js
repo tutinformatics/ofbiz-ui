@@ -38,7 +38,7 @@ export class AffManager {
     this.authorizeMe();
     if (parameters.affCode != null) {
       AureliaCookie.set('affCode', parameters.affCode, {
-        expiry: 24, path: '', domain: '', secure: false
+        expiry: 30240, path: '', domain: '', secure: false
       });
       this.router.navigate('/affiliate-manager');
     }
