@@ -28,15 +28,17 @@ export class ActiveClient {
     this.simpleView = true;
     this.view = "Card View"
 
-    this.quickActionOptions = [new clientQuickAction("Calls"),
-      new clientQuickAction("Invoices"),
+    this.quickActionOptions = [
       new clientQuickAction("Notes"),
-      new clientQuickAction("Edit"),
-      new clientQuickAction("Add")];
+      new clientQuickAction("Edit")];
 
     this.contactOptions = [new clientContactOption("Call"),
       new clientContactOption("Email"),
       new clientContactOption("Meeting")];
+
+    this.contactsListingOptions = [new clientContactOption("Calls"),
+      new clientContactOption("Emails"),
+      new clientContactOption("Meetings")];
 
     this.contactOptions = [new clientContactOption("Call"),
       new clientContactOption("Email"),

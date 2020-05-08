@@ -15,6 +15,7 @@ export class Activity {
     this.ea = ea;
     this.data = [];
     this.tableHeaders = ["A", "B", "C", "D"]
+    this.notesHeaders = ["First name", "Last name", "status", "email", "phone"]
     this.tableData = [];
     //Predefined table headers for each category
 
@@ -31,6 +32,7 @@ export class Activity {
   async getData(activity) {
     // await this.login();
     if (activity === "Notes") {
+      this.tableHeaders = this.notesHeaders;
       await this.fetch("notes");
     } else {
       console.log("else");

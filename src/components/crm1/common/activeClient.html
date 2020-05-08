@@ -3,6 +3,7 @@
   <require from="../common/complexViewClient/clientContactOption"></require>
   <require from="../common/complexViewClient/clientSaleOption"></require>
   <require from="../common/complexViewClient/clientDocumentOption"></require>
+  <require from="../common/add"></require>
 
   <div class="card rounded shadow-sm pb-2">
     <div class="card-header p-0 m-0">
@@ -12,7 +13,7 @@
     </div>
 <!--    Client profile picture, name, position-->
     <div class=" card rounded-0">
-      <div class="container-fluid w-75">
+      <div class="container-fluid" style="width: 60%">
         <img src="../img/avatar.png" class="card-img-top rounded-circle pt-1" alt="">
       </div>
       <div class="text-center">
@@ -48,6 +49,21 @@
     <hr/>
 
 <!--    Leads, opportunities, proposals, deals-->
+<div class="card rounded-0 p-0 m-0 bg-white">
+  <div class="card-header p-0">
+    <h6 class="m-0 pb-2 pt-1 text-center">Sales</h6>
+  </div>
+  <div repeat.for="option of contactsListingOptions" >
+    <div class="row">
+      <div class="col-12">
+        <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+
+<!--    Leads, opportunities, proposals, deals-->
     <div class="card rounded-0 p-0 m-0 bg-white">
       <div class="card-header p-0">
         <h6 class="m-0 pb-2 pt-1 text-center">Sales</h6>
@@ -55,7 +71,7 @@
       <div repeat.for="option of saleOptions" >
         <div class="row">
           <div class="col-12">
-            <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+            <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}<add></add></button>
           </div>
         </div>
       </div>
@@ -71,7 +87,7 @@
       <div repeat.for="option of options" >
         <div class="row">
           <div class="col-12">
-            <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+            <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}<add></add></button>
           </div>
         </div>
       </div>
