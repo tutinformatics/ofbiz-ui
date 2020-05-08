@@ -20,12 +20,8 @@ export class ComplexView {
     this.displayClient = false;
 
 
-    ea.subscribe("displayActivity", boolean => {
-      this.displayActivity = boolean;
-    })
-    ea.subscribe("displayClient", boolean => {
-      this.displayClient = boolean;
-    })
+
+
   }
 
   async attached() {

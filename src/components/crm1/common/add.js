@@ -1,3 +1,4 @@
 export class add {
-
+  constructor() {
+  }
 }

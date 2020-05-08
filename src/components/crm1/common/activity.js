@@ -11,12 +11,14 @@ export class Activity {
 
   constructor(ea, http) {
     this.activity="Notes";
+    this.showModal = false
     this.http=http.http;
     this.ea = ea;
     this.data = [];
     this.tableHeaders = ["A", "B", "C", "D"]
     this.notesHeaders = ["First name", "Last name", "status", "email", "phone"]
     this.tableData = [];
+    this.displayActivity = false
     //Predefined table headers for each category
 
     this.ea.subscribe("changeAction", payload => {
@@ -24,7 +26,17 @@ export class Activity {
       this.tableData.length = 0;
       this.getData(this.activity).then(r =>{console.log("table fetch OK")});
     })
+
+    this.ea.subscribe("changeModalState", payload => {
+      this.showModal = payload;
+    })
+
+    this.ea.subscribe("displayActivity", boolean => {
+      this.displayActivity = boolean;
+    })
   }
+
+
 
   closeActivity() {
     this.ea.publish("displayActivity", false);

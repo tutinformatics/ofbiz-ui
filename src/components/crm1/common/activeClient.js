@@ -16,12 +16,19 @@ export class ActiveClient {
     this.firstName = "Billy";
     this.lastName = "Herrington";
     this.companyName = "Company";
+    this.displayClient = false;
+
     ea.subscribe("contactChosen", payload => {
-      this.chosenContact = payload
-      this.firstName = this.chosenContact.firstName;
-      this.lastName = this.chosenContact.lastName;
-      this.companyName = this.chosenContact.companyName;
-      this.positionType = this.chosenContact.roleTypeId;
+        this.chosenContact = payload
+        this.firstName = this.chosenContact.firstName;
+        this.lastName = this.chosenContact.lastName;
+        this.companyName = this.chosenContact.companyName;
+        this.positionType = this.chosenContact.roleTypeId;
+
+      }
+      )
+    ea.subscribe("displayClient", boolean => {
+      this.displayClient = boolean;
     })
 
     this.router = router;
@@ -55,12 +62,18 @@ export class ActiveClient {
       new clientDocumentOption("Returned")];
   }
   quickAction(activity) {
-    this.ea.publish("displayActivity", true);
     this.ea.publish("changeAction", activity);
+    this.ea.publish("displayActivity", true);
+
   }
 
   closeActiveClient() {
     this.ea.publish("displayClient", false);
+  }
+
+  openModal(name) {
+    this.ea.publish("openModal", true);
+    event.stopPropagation();
   }
 
 }

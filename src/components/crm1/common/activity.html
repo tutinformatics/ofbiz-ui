@@ -1,36 +1,39 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <div class="container-fluid p-0 w-100" >
-    <div class="card shadow-sm" style="max-height: 87vh;">
-      <div class="card-header p-0 d-inline-block">
-        <i class="fa fa-window-close fa-pull-right m-1 pointer" click.delegate="closeActivity()"
-           aria-hidden="true" style="color:#a1a6ff;"></i>
-        <h6 class="p-0 m-0 ">Current activity: ${activity}</h6>
+
+  <template if.bind="displayActivity">
+    <div class="container-fluid p-0 w-100" >
+      <div class="card shadow-sm" style="max-height: 87vh;">
+        <div class="card-header p-0 d-inline-block">
+          <i class="fa fa-window-close fa-pull-right m-1 pointer" click.delegate="closeActivity()"
+             aria-hidden="true" style="color:#a1a6ff;"></i>
+          <h6 class="p-0 m-0 ">Current activity: ${activity}</h6>
+
+        </div>
+        <div class="scrollbar scrollbar-primary m-0">
+          <div class="force-overflow"></div>
+
+        <table class="table table-striped tableFixHead table-hover p-0">
+          <thead>
+            <tr class="text-center sticky">
+              <th repeat.for="header of tableHeaders" scope="col" class="p-1">${header}</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr repeat.for="entry of tableData" class="text-center pointer" click.delegate="test(entry)">
+              <td repeat.for="data of entry.data">
+                ${data}
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+        </div>
 
       </div>
-      <div class="scrollbar scrollbar-primary m-0">
-        <div class="force-overflow"></div>
-
-      <table class="table table-striped tableFixHead table-hover p-0">
-        <thead>
-          <tr class="text-center sticky">
-            <th repeat.for="header of tableHeaders" scope="col" class="p-1">${header}</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr repeat.for="entry of tableData" class="text-center pointer" click.delegate="test(entry)">
-            <td repeat.for="data of entry.data">
-              ${data}
-            </td>
-          </tr>
-
-        </tbody>
-
-      </table>
-      </div>
-
     </div>
-  </div>
+  </template>
 
 </template>

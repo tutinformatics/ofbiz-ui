@@ -22,34 +22,14 @@
 
 
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 p-1">
-        <div if.bind="displayClient">
           <!--ActiveClient-->
           <active-client></active-client>
-        </div>
       </div>
 
-
-      <template if.bind="displayActivity">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p-1">
-          <!--Activity-->
-          <activity></activity>
-        </div>
-      </template>
-
-      <template if.bind="!displayActivity">
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-3 p-1 m-0">
-          <!--Create space-->
-        </div>
-        <div class="col-xs-11 col-sm-5 col-md-2 col-lg-3 p-1 m-0">
-          <!--Activity history-->
-          <history></history>
-        </div>
-      </template>
-
-
-
-
-
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-1">
+        <!--Activity-->
+        <activity></activity>
+      </div>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 /*The navigation color scheme is annoying*/
 .bg {
   background-image: linear-gradient(#bfc2ff, #ececff);
-  height: 93vh;
+  min-height: 93vh;
 }
 .navbar {
   height: 7vh;
@@ -77,4 +77,11 @@ th     { background: #f6f6f6;
   box-shadow: 0 -6px 0 #e8e8e8;
 }
 
+.add {
+  display:inline;
+  color: #a1a6ff
+}
+.add :hover {
+  color: #564195;
+}
 
