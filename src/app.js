@@ -66,7 +66,7 @@ export class App {
         route: 'project',
         moduleId: PLATFORM.moduleName('project/project'),
         name: 'project',
-        title: 'Projects'
+        title: 'Project Management'
       },
       {
         route: 'affiliate-manager',
