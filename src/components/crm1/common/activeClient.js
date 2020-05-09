@@ -56,10 +56,10 @@ export class ActiveClient {
       new clientDocumentOption("Claims"),
       new clientDocumentOption("Returned")];
   }
+
   quickAction(activity) {
     this.ea.publish("changeAction", activity);
     this.ea.publish("displayActivity", true);
-
   }
 
   closeActiveClient() {
