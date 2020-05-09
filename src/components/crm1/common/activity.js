@@ -1,7 +1,6 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-dependency-injection';
 import {json} from "aurelia-fetch-client";
-import {Contact} from "../models/contact";
 import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {Router} from "aurelia-router";
 import {TableEntry} from "../models/tableEntry";
@@ -58,7 +57,7 @@ export class Activity {
   }
   resolveBody(entity) {
     switch (entity) {
-      case "notes":
+      case "Notes":
         return json({
           "fieldList": [
             "lastName",
@@ -77,10 +76,11 @@ export class Activity {
     }
   }
 
-  async fetch() {
-    let response = await this.http.fetch('/entityquery/PartyExport', {
+  async fetch(entityName) {
+
+    let response = await this.http.fetch('/entityquery/'+ this.resolveEntity(entityName), {
       method: 'post',
-      body: this.resolveBody("notes")
+      body: this.resolveBody(entityName)
     })
       .then(response => response.json())
       .catch(() => {
@@ -97,9 +97,19 @@ export class Activity {
     }
   }
 
+  resolveEntity(entityName) {
+    switch (entityName) {
+      case "Notes":
+        return "PartyExport";
+      default:
+        return "PartyExport";
+    }
+
+  }
+
   defineDataFor(entityName, responseEntry) {
     switch (entityName) {
-      case "notes":
+      case "Notes":
         return [
           responseEntry.partyId,
           responseEntry.firstName,

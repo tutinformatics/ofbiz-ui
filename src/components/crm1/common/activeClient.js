@@ -24,9 +24,7 @@ export class ActiveClient {
         this.lastName = this.chosenContact.lastName;
         this.companyName = this.chosenContact.companyName;
         this.positionType = this.chosenContact.roleTypeId;
-
-      }
-      )
+    })
     ea.subscribe("displayClient", boolean => {
       this.displayClient = boolean;
     })
@@ -46,10 +44,6 @@ export class ActiveClient {
     this.contactsListingOptions = [new clientContactOption("Calls"),
       new clientContactOption("Emails"),
       new clientContactOption("Meetings")];
-
-    this.contactOptions = [new clientContactOption("Call"),
-      new clientContactOption("Email"),
-      new clientContactOption("Meeting")];
 
     this.saleOptions = [new clientSaleOption("Leads"),
       new clientSaleOption("Opportunities"),
