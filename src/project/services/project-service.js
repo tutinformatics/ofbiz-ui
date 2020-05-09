@@ -10,6 +10,20 @@ export class ProjectService {
     this.httpClient = httpClient;
   }
 
+  getProject(params) {
+    const query = SearchUtils.appendQueryParams(params);
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}/entities/WorkEffort?${query}`)
+      .then((response) => {
+        if (!response.ok) {
+          // TODO: improve error handling
+          throw new Error('An error occured while fetching project');
+        }
+        return response.json();
+      });
+  }
+
   getProjectList() {
     return this.httpClient
       .fetch(`${this.baseUrl}/services/getAllProjectList`, {

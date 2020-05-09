@@ -1,31 +1,84 @@
 <template>
-    <require from="aurelia-kendoui-bridge/grid/grid"></require>
-    <require from="aurelia-kendoui-bridge/grid/col"></require>
-    <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
-    <require from="aurelia-kendoui-bridge/common/template"></require>
+  <require from="aurelia-kendoui-bridge/grid/grid"></require>
+  <require from="aurelia-kendoui-bridge/grid/col"></require>
+  <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
+  <require from="aurelia-kendoui-bridge/common/template"></require>
 
-    <div class="card">
-        <div class="card-header text-white bg-primary">Tasks Dashboard</div>
-
-        <div class="card-body">
-            <ak-grid k-data-source.bind="datasource">
-                <ak-col k-title="Task ID" k-field="workEffortId"></ak-col>
-                <ak-col k-title="Task" k-field="workEffortName"></ak-col>
-                <ak-col k-title="Phase Name" k-field="phaseName"></ak-col>
-                <ak-col k-title="Current Status ID" k-field="currentStatusId">
-                    <ak-template>
-                        <span class="badge badge-pill ${currentStatusId | statusBadge}">
-                            ${currentStatusId | status}
-                        </span>
-                    </ak-template>
-                </ak-col>
-                <ak-col k-title="Priority" k-field="priority"></ak-col>
-                <ak-col k-title="Est.Start Date" k-field="estimatedStartDate" k-format="{0:MM/dd/yyyy}"></ak-col>
-                <ak-col k-title="Start Date" k-field="startDate" k-format="{0:dd/MM/yyyy}"></ak-col>
-                <ak-col k-title="Est.Compl" k-field="estimatedCompletionDate" k-format="{0:MM/dd/yyyy}"></ak-col>
-                <ak-col k-title="Act.Compl" k-field="completionDate" k-format="{0:MM/dd/yyyy}"></ak-col>
-                <ak-col k-title="Planned Hours" k-field="plannedHours"></ak-col>
-            </ak-grid>
-        </div>
+  <div class="card">
+    <div class="card-header text-white bg-primary">
+      Current Project ID: ${project.workEffortId}
     </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <form>
+                <div class="form-group row">
+                  <label for="projectName" class="col-sm-2 col-form-label"
+                    >Project Name</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      readonly
+                      class="form-control-plaintext"
+                      id="projectName"
+                      value.bind="project.workEffortName"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"
+                    >Status</label
+                  >
+                  <div class="col-sm-10">
+                    <span class="badge badge-pill ${project.currentStatusId | statusBadge}">
+                        ${project.currentStatusId | status}
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <ak-grid k-data-source.bind="datasource">
+        <ak-col k-title="Task ID" k-field="workEffortId"></ak-col>
+        <ak-col k-title="Task" k-field="workEffortName"></ak-col>
+        <ak-col k-title="Phase Name" k-field="phaseName"></ak-col>
+        <ak-col k-title="Current Status ID" k-field="currentStatusId">
+          <ak-template>
+            <span class="badge badge-pill ${currentStatusId | statusBadge}">
+              ${currentStatusId | status}
+            </span>
+          </ak-template>
+        </ak-col>
+        <ak-col k-title="Priority" k-field="priority"></ak-col>
+        <ak-col
+          k-title="Est.Start Date"
+          k-field="estimatedStartDate"
+          k-format="{0:MM/dd/yyyy}"
+        ></ak-col>
+        <ak-col
+          k-title="Start Date"
+          k-field="startDate"
+          k-format="{0:dd/MM/yyyy}"
+        ></ak-col>
+        <ak-col
+          k-title="Est.Compl"
+          k-field="estimatedCompletionDate"
+          k-format="{0:MM/dd/yyyy}"
+        ></ak-col>
+        <ak-col
+          k-title="Act.Compl"
+          k-field="completionDate"
+          k-format="{0:MM/dd/yyyy}"
+        ></ak-col>
+        <ak-col k-title="Planned Hours" k-field="plannedHours"></ak-col>
+      </ak-grid>
+    </div>
+  </div>
 </template>

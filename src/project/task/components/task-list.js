@@ -2,16 +2,23 @@ import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
 import { TaskService } from '../services/task-service';
 import { activationStrategy } from 'aurelia-router';
+import { ProjectService } from '../../services/project-service';
 
-@inject(Router, TaskService)
+@inject(Router, TaskService, ProjectService)
 export class TaskList {
-  constructor(router, taskService) {
+  constructor(router, taskService, projectService) {
     this.router = router;
     this.taskService = taskService;
+    this.projectService = projectService;
+    this.project = {};
   }
 
   activate(params, routeConfig) {
     routeConfig.navModel.setTitle(`Project ID: ${params.id}`);
+
+    this.projectService
+      .getProject({ workEffortId: params.id })
+      .then((response) => (this.project = response[0]));
 
     this.datasource = {
       transport: {

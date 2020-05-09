@@ -7,6 +7,8 @@ export class StatusValueConverter {
         return 'CREATED';
       case 'TIMESHEET_IN_PROCESS':
         return 'IN PROGRESS';
+      case 'PRJ_ACTIVE':
+        return 'ACTIVE';
       default:
         return 'UNKNOWN';
     }
