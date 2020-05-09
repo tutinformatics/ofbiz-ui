@@ -44,8 +44,17 @@
             </div>
             <div id="byName" class="panel-collapse collapse hide">
               <label>
-                <input type="text" class="form-control rounded-pill" placeholder="Search..." value.bind="nameSearchInput"  style="height: 26px;">
+                <input type="text" class="form-control rounded-pill" placeholder="Enter name..." value.bind="nameSearchInput"  style="height: 26px;">
               </label>
+
+              <div class="container px-1 rounded" style="background-color: #f8f8f8">
+              <label class="btn p-0 m-0">
+                <input type="checkbox" class="hugeInput" checked.bind="includeFirstName" autocomplete="off"> <b>First name</b>
+              </label>
+              <label class="btn p-0 m-0">
+                <input type="checkbox" class="hugeInput" checked.bind="includeLastName" autocomplete="off"> <b>Last name</b>
+              </label>
+              </div>
 
               <div repeat.for="name of names" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByName(name)">
                 ${capitalizeFirstLetter(name)}
@@ -55,10 +64,6 @@
         </div>
 
 
-        <div repeat.for="category of categories">
-
-
-        </div>
 
       </ul>
       </div>

@@ -51,7 +51,13 @@ export class ComplexView {
       alert('Error fetching clients!');
     });
     for (let i = 0; i < response.length; i++) {
-      if (response[i].roleTypeId !== "_NA_") {
+      if (
+        response[i].roleTypeId !== "_NA_" &&
+        response[i].firstName != null &&
+        response[i].firstName.length > 2 &&
+        response[i].lastName != null &&
+        response[i].lastName.length > 2
+      ) {
         let contact = new Contact(
           response[i].firstName,
           response[i].lastName,

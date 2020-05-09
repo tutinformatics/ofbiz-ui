@@ -8,7 +8,7 @@
     <div class="scrollbar scrollbar-primary m-0">
       <div class="force-overflow"></div>
         <ul class="list-group list-group-flush" style="max-height: 84vh;">
-          <div repeat.for="contact of contacts">
+          <div repeat.for="contact of filteredContacts">
 
 <!--            Single contact-->
             <li  class="list-group-item p-0 text-left" click.delegate="chooseContact(contact)">
