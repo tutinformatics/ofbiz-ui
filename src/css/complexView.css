@@ -95,4 +95,8 @@ th     { background: #f6f6f6;
 .category:hover {
   color: black;
 }
+.hugeInput {
+  width: 18px;
+  height: 18px;
+}
 

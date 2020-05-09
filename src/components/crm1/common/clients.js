@@ -9,8 +9,10 @@ export class Clients {
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
+    this.router = router;
     this.contacts = [];
     this.filteredContacts = []
+
     ea.subscribe("party", payload => {
       this.contacts = payload
       this.filteredContacts = this.contacts;
@@ -27,10 +29,12 @@ export class Clients {
         this.contacts.map(contact => contact.lastName).filter(this.unique)
       );
     })
+
     ea.subscribe("unfilteredCustomers", payload => {
       console.log(this.contacts)
       this.filteredContacts = this.contacts
     })
+
     ea.subscribe("filterByParty", (party) => {
       this.filteredContacts = this.contacts.filter(
         contact => contact.partyId === party
@@ -42,8 +46,6 @@ export class Clients {
         contact => (contact.firstName === name) ||  (contact.lastName === name)
       )
     })
-
-    this.router = router;
   }
 
   unique(value, index, self) {
@@ -53,6 +55,5 @@ export class Clients {
   chooseContact(contact) {
     this.ea.publish("contactChosen", contact);
     this.ea.publish("displayClient", true);
-
   }
 }

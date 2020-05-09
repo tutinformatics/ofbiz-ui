@@ -8,17 +8,17 @@
     <div class="scrollbar scrollbar-primary m-0">
       <div class="force-overflow"></div>
         <ul class="list-group list-group-flush" style="max-height: 84vh;">
-          <div repeat.for="contact of contacts">
+          <div repeat.for="contact of filteredContacts">
 
 <!--            Single contact-->
             <li  class="list-group-item p-0 text-left" click.delegate="chooseContact(contact)">
               <div class="card pointer canHover rounded-0 m-0">
                 <div class="row no-gutters">
-                  <div class="col-5">
+                  <div class="col-4">
                     <img src="../img/avatar.png" class="card-img d-inline-block m-0 mr-3 ml-1"
                          style="width: 60px; height: 60px; border-radius: 50%" alt="..." >
                   </div>
-                  <div class="col-7">
+                  <div class="col-8">
                     <div class="card-body no-gutters text-sm-center text-md-left p-0 pt-2 m-0 d-inline-block text-truncate">
                         <h6 class="text-truncate">${contact.firstName}</h6>
                         <h6 class="text-truncate">${contact.lastName}</h6>
