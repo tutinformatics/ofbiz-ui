@@ -25,10 +25,10 @@ export class ActiveClient {
         this.lastName = this.chosenContact.lastName;
         this.companyName = this.chosenContact.companyName;
         this.positionType = this.chosenContact.roleTypeId;
-    })
+    });
     ea.subscribe("displayClient", boolean => {
       this.displayClient = boolean;
-    })
+    });
 
     this.router = router;
     this.simpleView = true;
