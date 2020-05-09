@@ -76,19 +76,20 @@ export class ClientsView {
     });
 
     for (let i = 0; i < response.length; i++) {
-      let contact = new Contact(
-        response[i].firstName,
-        response[i].lastName,
-        response[i].emailAddress,
-        response[i].phoneNumber,
-        response[i].companyName,
-        response[i].roleTypeId,
-        response[i].address,
-        response[i].postalCode,
-        response[i].partyId
-      );
-      this.contacts.push(contact);
-
+      if (response[i].roleTypeId !== "_NA_") {
+        let contact = new Contact(
+          response[i].firstName,
+          response[i].lastName,
+          response[i].emailAddress,
+          response[i].phoneNumber,
+          response[i].companyName,
+          response[i].roleTypeId,
+          response[i].address,
+          response[i].postalCode,
+          response[i].partyId
+        );
+        this.contacts.push(contact);
+      }
     }
   }
 

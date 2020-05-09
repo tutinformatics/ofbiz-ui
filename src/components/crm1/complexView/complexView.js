@@ -30,10 +30,8 @@ export class ComplexView {
 
 
   async getAllContacts() {
-    console.log('here');
-    // await this.login();
     let response = await this.http.fetch('/entityquery/PartyExport', {
-      method: 'post',
+    method: 'post',
       body: json({
         "fieldList": [
           "lastName",
@@ -48,26 +46,27 @@ export class ComplexView {
         ]
       })
     })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
-
+    .then(response => response.json())
+    .catch(() => {
+      alert('Error fetching clients!');
+    });
     for (let i = 0; i < response.length; i++) {
-      let contact = new Contact(
-        response[i].firstName,
-        response[i].lastName,
-        response[i].emailAddress,
-        response[i].phoneNumber,
-        response[i].companyName,
-        response[i].roleTypeId,
-        response[i].address,
-        response[i].postalCode,
-        response[i].partyId
-      );
-      this.contacts.push(contact);
+      if (response[i].roleTypeId !== "_NA_") {
+        let contact = new Contact(
+          response[i].firstName,
+          response[i].lastName,
+          response[i].emailAddress,
+          response[i].phoneNumber,
+          response[i].companyName,
+          response[i].roleTypeId,
+          response[i].address,
+          response[i].postalCode,
+          response[i].partyId
+        );
+        this.contacts.push(contact);
+      }
     }
-    this.ea.publish("party", response);
+    this.ea.publish("party", this.contacts);
   }
 
 }
