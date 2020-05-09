@@ -84,4 +84,9 @@ th     { background: #f6f6f6;
 .add :hover {
   color: #564195;
 }
-
+.transparent {
+  background-color: transparent;
+}
+.transparent :hover {
+  background-color: #a1a6ff;
+}

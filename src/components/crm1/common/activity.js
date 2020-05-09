@@ -24,6 +24,7 @@ export class Activity {
       this.activity = payload.name;
       this.tableData.length = 0;
       this.getData(this.activity).then(r =>{console.log("table fetch OK")});
+
     });
 
     this.ea.subscribe("changeModalState", payload => {
@@ -185,9 +186,4 @@ export class Activity {
   test(entry) {
     console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
   }
-
-
-
-
-
 }
