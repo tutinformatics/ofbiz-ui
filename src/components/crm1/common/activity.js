@@ -10,14 +10,14 @@ export class Activity {
 
   constructor(ea, http) {
     this.activity="Notes";
-    this.showModal = false
+    this.showModal = false;
     this.http=http.http;
     this.ea = ea;
     this.data = [];
-    this.tableHeaders = ["A", "B", "C", "D"]
+    this.tableHeaders = ["A", "B", "C", "D"];
     this.notesHeaders = ["First name", "Last name", "status", "email", "phone"]
     this.tableData = [];
-    this.displayActivity = false
+    this.displayActivity = false;
     //Predefined table headers for each category
 
     this.ea.subscribe("changeAction", payload => {
@@ -35,12 +35,13 @@ export class Activity {
       this.displayActivity = boolean;
     });
 
-    this.ea.subscribe("contactChosen", payload => {
+    ea.subscribe("contactChosen", payload => {
       this.chosenContact = payload;
       this.firstName = this.chosenContact.firstName;
       this.lastName = this.chosenContact.lastName;
       this.companyName = this.chosenContact.companyName;
       this.positionType = this.chosenContact.roleTypeId;
+
     });
   }
 
@@ -53,6 +54,39 @@ export class Activity {
     // await this.login();
     if (activity === "Notes") {
       this.tableHeaders = this.notesHeaders;
+      this.data = [];
+      this.tableData = []
+    }
+    else if(activity === "Leads"){
+      this.tableHeaders = ["Name", "Status", "Contact", "ID"];
+      this.data = [];
+      this.tableData = []
+    }
+    else if(activity === "Opportunities") {
+      this.tableHeaders = ["Opportunity name","Description","ID", "Role Type"];
+      this.data = [];
+      this.tableData = []
+    }
+    else if(activity === "Returned") {
+      this.tableHeaders = ['Return ID', 'From', 'To', 'Date', 'Status'];
+      this.data = [];
+      this.tableData = []
+    } else if (activity === "Invoices") {
+      this.tableHeaders = ['Invoice Id', 'From', 'To', 'Total amount $']
+      this.data = [];
+      this.tableData = []
+    } else if (activity === "Orders") {
+      this.tableHeaders = ['Order Id', 'Order Date', 'From', 'Total amount']
+      this.data = [];
+      this.tableData = []
+    } else if (activity === "Emails") {
+      this.tableHeaders = ['From', 'To', 'Created Date', 'Send Date']
+      this.data = [];
+      this.tableData = []
+    } else if (activity === "Calls") {
+      this.tableHeaders = ['From', 'To', 'Created Date', 'Send Date']
+      this.data = [];
+      this.tableData = []
     } else {
       console.log("else");
       this.data = [];
@@ -75,7 +109,7 @@ export class Activity {
       //Hard copied in case we make any other requests
       this.data.push(Object.create(response[i]));
 
-      let entry = new TableEntry(this.defineDataFor("Notes", response[i]));
+      let entry = new TableEntry(this.defineDataFor(activity, response[i]));
       this.tableData.push(entry);
     }
   }
@@ -96,21 +130,42 @@ export class Activity {
             "partyId"
           ]
         });
-      case "Invoices":
-        return json({
-          "fieldList": [
-            "partyIdFrom",
-            "partyIdTrans",
-            "amount",
-            "quantity",
-            "invoiceId",
-            "itemDescription",
-            "invoiceTypeId",
-            "invoiceDate"
-          ]
-        });
-      case "Orders":
-        return json({
+    case "Leads":
+      return json({
+        "inputFields":
+          {
+            "partyId": this.chosenContact.partyId,
+            "roleTypeId": "LEAD"
+
+          },
+        "fieldList": [
+          "firstName",
+          "roleTypeId",
+          "partyId",
+          "statusId"
+        ]
+      });
+    case "Invoices":
+      return json({
+        "inputFields": {
+          "partyIdFrom": this.chosenContact.partyId,
+        },
+        "fieldList": [
+          "partyIdFrom",
+          "partyIdTrans",
+          "amount",
+          "quantity",
+          "invoiceId",
+          "itemDescription",
+          "invoiceTypeId",
+          "invoiceDate"
+        ]
+      });
+    case "Orders":
+      return json({
+        "inputFields": {
+          "partyId": this.chosenContact.partyId,
+        },
         "fieldList": [
           "orderId",
           "orderDate",
@@ -121,49 +176,81 @@ export class Activity {
           "grandTotal",
           "statusId"
         ]
+    });
+    case "Emails":
+      return json({
+        "inputFields": {
+          "partyId": this.chosenContact.partyId,
+          "communicationEventTypeId": "EMAIL_COMMUNICATION"
+        },
+        "fieldList": [
+          "partyIdFrom",
+          "partyIdTo",
+          "entryDate",
+          "datetimeStarted"
+        ]
       });
-      case "Emails":
-        return json({
-          "inputFields": {
-            "partyIdFrom": this.chosenContact.partyId,
-            "communicationEventTypeId": "EMAIL_COMMUNICATION"
-          },
-          "fieldList": [
-            "partyIdFrom",
-            "partyIdTo",
-            "entryDate"
-          ]
-        });
-      case "Calls":
-        return json({
-          "inputFields": {
-            "partyIdFrom": this.chosenContact.partyId,
-            "communicationEventTypeId": "PHONE_COMMUNICATION"
-          },
-          "fieldList": [
-            "partyIdFrom",
-            "partyIdTo",
-            "entryDate"
-          ]
-        });
+    case "Calls":
+      return json({
+        "inputFields": {
+          "partyId": this.chosenContact.partyId,
+          "communicationEventTypeId": "PHONE_COMMUNICATION"
+        },
+        "fieldList": [
+          "partyIdFrom",
+          "partyIdTo",
+          "entryDate"
+        ]
+      });
+    case "Opportunities":
+      return json({
+        "inputFields": {
+          "partyId": this.chosenContact.partyId,
+        },
+        "fieldList": [
+          "opportunityName",
+          "description",
+          "partyId",
+          "roleTypeId"
+        ]
+      });
+
+    case "Returned":
+      return json({
+        "inputFields": {
+          "toPartyId": this.chosenContact.partyId,
+        },
+        "fieldList": [
+          "returnHeaderTypeId",
+          "fromPartyId",
+          "toPartyId",
+          "entryDate",
+          "statusId"
+        ]
+      });
       default:
         return "none";
     }
   }
 
   resolveEntity(entityName) {
-    console.log(entityName)
     switch (entityName) {
       case "Notes":
         return "PartyExport";
-      case "Invoices":
-        return "InvoiceExport";
-      case "Orders":
-        return "OrderHeaderItemAndInvRoles";
-      case "Emails":
-        return "CommunicationEventAndRole";
-      case "Calls":
-        return "CommunicationEventAndRole";
+    case "Leads":
+      return "PartyRoleAndContactMechDetail";
+    case "Opportunities":
+      return "SalesOpportunityAndRole";
+    case "Invoices":
+      return "InvoiceExport";
+    case "Orders":
+      return "OrderHeaderItemAndInvRoles";
+    case "Emails":
+      return "CommunicationEventAndRole";
+    case "Calls":
+      return "CommunicationEventAndRole";
+    case "Returned":
+      return "ReturnHeader";
       default:
         return "PartyExport";
     }
@@ -178,8 +265,62 @@ export class Activity {
           responseEntry.lastName,
           responseEntry.emailAddress,
           responseEntry.phoneNumber
-        ]
-      default: return undefined;
+        ];
+    case "Leads":
+      return [
+        responseEntry.firstName,
+        responseEntry.statusId,
+        responseEntry.partyId,
+        responseEntry.roleTypeId
+      ];
+    case "Invoices":
+      return [
+        responseEntry.invoiceId,
+        responseEntry.partyIdFrom,
+        responseEntry.partyIdTrans,
+        responseEntry.amount
+      ];
+    case "Orders":
+      return [
+        responseEntry.orderId,
+        responseEntry.orderDate,
+        responseEntry.roleTypeId,
+        responseEntry.grandTotal
+      ];
+    case "Emails":
+      return [
+        responseEntry.partyIdFrom,
+        responseEntry.partyIdTo,
+        responseEntry.datetimeStarted,
+        responseEntry.entryDate
+      ];
+    case "Calls":
+      return [
+        responseEntry.partyIdFrom,
+        responseEntry.partyIdTo,
+        responseEntry.datetimeStarted,
+        responseEntry.entryDate
+    ];
+    case "Returned":
+      return [
+        responseEntry.returnHeaderTypeId,
+        responseEntry.fromPartyId,
+        responseEntry.toPartyId,
+        responseEntry.entryDate,
+        responseEntry.statusId
+
+
+      ];
+    case "Opportunities":
+      return [
+        responseEntry.opportunityName,
+        responseEntry.description,
+        responseEntry.partyId,
+        responseEntry.roleTypeId
+
+      ]
+
+    default: return undefined;
     }
   }
 
