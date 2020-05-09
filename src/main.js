@@ -9,7 +9,6 @@ import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
 import { initialState } from './store/store';
 
-
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
@@ -21,18 +20,14 @@ export function configure(aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-fontawesome'))
     .plugin(PLATFORM.moduleName('aurelia-dialog'))
     .plugin(PLATFORM.moduleName('aurelia-validation'))
-    .plugin(PLATFORM.moduleName('aurelia-store'),
-      {initialState})
+    .plugin(PLATFORM.moduleName('aurelia-store'), { initialState })
     .plugin(PLATFORM.moduleName('bcx-aurelia-reorderable-repeat'))
     .plugin(PLATFORM.moduleName('aurelia-kendoui-bridge'))
     .plugin(PLATFORM.moduleName('au-table'))
-
-
+    .plugin(PLATFORM.moduleName('aurelia-cookie'));
 
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }
-
-

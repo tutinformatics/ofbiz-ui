@@ -1,9 +1,9 @@
-import {inject} from 'aurelia-dependency-injection';
+import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class ProjectService {
-  baseUrl = 'api/v1/projects';
+  baseUrl = 'api/generic/v1/services';
 
   constructor(httpClient) {
     this.httpClient = httpClient;
@@ -11,24 +11,28 @@ export class ProjectService {
 
   getProjectList() {
     return this.httpClient
-      .fetch(`${this.baseUrl}/project-list`)
-      .then(res => res.json())
-      .then(res => res.projectList)
-      .catch(error => {
-      /* eslint no-console: ["error", { allow: ["error"] }] */
+      .fetch(`${this.baseUrl}/getAllProjectList`, {
+        method: 'post',
+        body: json({})
+      })
+      .then((res) => res.json())
+      .then((res) => res.projectList)
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
         console.error(error);
       }); // TODO: improve error handling
   }
 
   createProject(project) {
     const body = json(project);
+
     return this.httpClient
-      .fetch(`${this.baseUrl}/new-project`, {
+      .fetch(`${this.baseUrl}/createProject`, {
         method: 'post',
         body: body
       })
-      .catch(error => {
-      /* eslint no-console: ["error", { allow: ["error"] }] */
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
         console.error(error);
       }); // TODO: improve error handling
   }

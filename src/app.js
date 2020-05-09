@@ -1,6 +1,31 @@
 import { PLATFORM } from 'aurelia-pal';
+import { inject } from 'aurelia-dependency-injection';
+import { Store } from 'aurelia-store';
+import { observable } from 'aurelia-binding';
+import { HttpService } from './commons/services/httpService';
 
+@inject(Store, HttpService)
 export class App {
+  @observable error;
+  showError;
+
+  constructor(store) {
+    this.store = store;
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.error = state.error;
+      }
+    );
+  }
+
+  errorChanged(newErrorState) {
+    this.showError = !!newErrorState.errorMessage;
+  }
+
+  unbind() {
+    this.subscription.unsubscribe();
+  }
+
   configureRouter(config, router) {
     config.title = 'Ofbiz UI';
     config.options.pushState = true;
@@ -8,6 +33,11 @@ export class App {
     config.map([
       {
         route: '',
+        name: 'login-page',
+        moduleId: PLATFORM.moduleName('commons/login/login')
+      },
+      {
+        route: 'select',
         moduleId: PLATFORM.moduleName('no-selection'),
         title: 'Select'
       },
@@ -27,35 +57,22 @@ export class App {
         name: 'object-dist'
       },
       {
-        route: 'crm/agents',
-        moduleId: PLATFORM.moduleName('crm/agents/agents'),
-        name: 'agents'
-      },
-      {
-        route: 'crm/pipeline',
-        moduleId: PLATFORM.moduleName('./crm/pipeline/pipeline'),
-        name: 'pipeline'
-      },
-      {
-        route: 'crm/opportunities',
+        route: 'sfa',
         moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
-        name: 'opportunities'
+        name: 'sfa',
+        title: 'Salesforce Automation'
       },
       {
         route: 'project',
         moduleId: PLATFORM.moduleName('project/project'),
         name: 'project',
-        title: 'Projects'
+        title: 'Project Management'
       },
       {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
-      },
-      {
-        route: 'login',
-        name: 'login-page',
-        moduleId: PLATFORM.moduleName('commons/login/login')
+        title: 'Affiliate Marketing'
       },
       {
         route: 'sign-up',
@@ -63,27 +80,10 @@ export class App {
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
       },
       {
-        route: 'crm/office',
-        moduleId: PLATFORM.moduleName('components/crm1/customerInfoPage/customerInfoPage'),
-        name: 'customerInfoPage'
-      },
-      {
-        route: 'crm/clients',
-        moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'),
-        name: 'clientsView' },
-      {
-        route: 'crm/clients/orders',
-        moduleId: PLATFORM.moduleName('components/crm1/orderView/ordersView'),
-        name: 'ordersView' },
-      {
-        route: 'crm/clients/bills',
-        moduleId: PLATFORM.moduleName('components/crm1/billView/billsView'),
-        name: 'billsView' },
-      {
-        route: 'crm/clients/complex',
-        moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
-        name: 'complexView' },
-
+        route: 'timesheet',
+        name: 'timesheet',
+        moduleId: PLATFORM.moduleName('timesheet/timesheet')
+      }
     ]);
     this.router = router;
   }

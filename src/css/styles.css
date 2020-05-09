@@ -74,19 +74,19 @@ hr {
   height: 60px;
 }
 
-.icon-wrapper {
+.appicon-wrapper {
   font-size: 12px;
-  text-shadow: 2px 2px #444444;
+  /* text-shadow: 2px 2px #444444; */
   overflow: hidden;
+  color: gray !important;
   width: 80px;
   height: 80px;
-  background-color: #dddddd !important;
+  background-color: white !important;
 }
 
-/*thx for pain, bro (please do not override bootstrap like that)*/
 .workspace-dropdown-menu {
   width: 266px;
-  background-color: #ababab !important;
+  background-color: white !important;
 }
 
 .button-icon {
@@ -127,3 +127,53 @@ ul.custom-pagination li a.disabled {
 /*.row {*/
 /*  margin: 1% 1% 1% 0%;*/
 /*}*/
+
+.workspace-menu {
+  width: 266px;
+  background-color: white !important;
+  width: 266px;
+  margin: 5px;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.flex-item {
+  position: relative;
+  display: block;
+  background-color: white;
+  border: 1px solid #333;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.flex-item:not(:last-child) {
+  margin-bottom: -1px;
+}
+
+.list-container {
+  width: 200px;
+  margin: 5px;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.workspace-item {
+  height: 45px;
+  width: 220px;
+}
+
+button-icon {
+  cursor: pointer
+}
+
+.badge-wrapper {
+  cursor: pointer
+}
+
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}

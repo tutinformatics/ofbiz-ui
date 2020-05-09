@@ -1,6 +1,7 @@
-import {bindable, inject} from "aurelia-framework";
+import { bindable, inject } from "aurelia-framework";
 import moment from "moment";
-import { AffManagerService } from "../../../service/affManagerService";
+import { AffManagerService } from "../../../services/affManagerService";
+import { safeGet, safeGetExtended } from "../../../../commons/util/utility";
 
 @inject(AffManagerService)
 export class GenerateCode {
@@ -13,25 +14,28 @@ export class GenerateCode {
   constructor(affManagerService) {
     this.affManagerService = affManagerService;
     this.affiliateCodeOptions = this.getAffiliateCodeOptions();
-    this.productCategories = this.getProductCategories();
-    this.getAffiliateCodes();
   }
 
-  getProductCategories() {
-    return [
-      {
-        "key": 'services',
-        "value": 'Services',
-      },
-      {
-        "key": 'electronics',
-        "value": 'Electronics',
-      },
-      {
-        "key": 'weapon',
-        "value": 'Weapon',
-      },
-    ]
+  async attached() {
+    this.getAffiliateCodes();
+    this.getProductCategories()
+  }
+
+  async getProductCategories() {
+    const categories = await this.affManagerService.fetchAllProductCategories();
+    const localCategories = [];
+    if (categories) {
+      categories
+        .filter(c => c['categoryName'] !== null)
+        .forEach(c => localCategories.push(
+          {
+            'key': c['categoryName'],
+            'value': c['categoryName']
+          }
+          )
+        )
+    }
+    this.productCategories = localCategories;
   }
 
   getAffiliateCodeOptions() {
@@ -65,21 +69,13 @@ export class GenerateCode {
 
   async getAffiliateCodes() {
     const responseData = await this.affManagerService.getAffiliateCodesRequest();
-    responseData.forEach(code =>
-      this.affiliateCodes.push(
+    const localAffiliateCodes = [];
+    responseData['affiliateDTOs'].forEach(code =>
+      localAffiliateCodes.push(
         this.parseCode(code)
       )
     );
-    this.affiliateCodes.push(
-      {
-        "code": "1472603",
-        "dateOfCreation": "22-03-2020",
-        "status": "Active",
-        "expirationDate": "22-03-2022",
-        "category": "Electronics",
-        "isDefault": false,
-      },
-    );
+    this.affiliateCodes = localAffiliateCodes;
     this.filteredAffiliateCodes = this.affiliateCodes;
   }
 
@@ -88,7 +84,7 @@ export class GenerateCode {
     if (response.ok) {
       response.json().then((response) => {
           this.affiliateCodes.push(
-            this.parseCode(response)
+            this.parseCode(response['createdCode'])
           )
         }
       );
@@ -109,11 +105,11 @@ export class GenerateCode {
   parseCode(code) {
     const parsedDate = new Date(code["createdStamp"]);
     return {
-      "dateOfCreation": moment(parsedDate).format('MM-D-YYYY'),
-      "code": code['affiliateCodeId'],
-      "expirationDate": moment(parsedDate).format('MM-D-YYYY'),
+      "dateOfCreation": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
+      "code": safeGet(() =>  code['affiliateCodeId'], 'Missing'),
+      "expirationDate": safeGetExtended(() =>  parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
       "isDefault": code["isDefault"] === 'Y',
-      "category": 'none',
+      "category": 'None',
     }
   }
 
