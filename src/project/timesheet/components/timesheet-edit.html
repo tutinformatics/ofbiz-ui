@@ -1,0 +1,43 @@
+<template>
+  <require from="aurelia-kendoui-bridge/numerictextbox/numerictextbox"></require>
+  <require from="aurelia-kendoui-bridge/datepicker/datepicker"></require>
+  <require from="aurelia-kendoui-bridge/dropdownlist/dropdownlist"></require>
+
+  <div class="card mx-auto" style="width: 60vw;">
+    <div class="card-header text-white bg-primary">New Timesheet</div>
+
+    <div class="card-body">
+      <form role="form">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Party</label>
+          <div class="col-md-9">
+            <ak-drop-down-list
+              k-data-text-field="name"
+              k-data-value-field="partyId"
+              k-data-source.bind="datasource"
+              style="width: 100%;"
+            >
+            </ak-drop-down-list>
+          </div>
+        </div>
+
+      </form>
+
+      <div>
+        <button
+          class="btn btn-primary btn-lg float-right rounded-pill"
+          click.delegate="addTimesheet()"
+        >
+          Create Timesheet
+        </button>
+
+        <button
+          class="btn btn-secondary btn-lg float-left rounded-pill"
+          click.delegate="handleBack()"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</template>

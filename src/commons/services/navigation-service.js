@@ -45,7 +45,13 @@ const routes = {
       moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-list'),
       title: 'Timesheets',
       name: 'timesheets',
-      nav: true,
+      nav: true
+    },
+    {
+      route: 'new-timesheet',
+      moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-edit'),
+      title: 'Create timesheet',
+      name: 'new-timesheet'
     }
   ],
   sfa: [

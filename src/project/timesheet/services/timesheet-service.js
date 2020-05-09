@@ -1,16 +1,18 @@
 import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { safeGet } from '../../../commons/util/utility';
+import { ResourceEntities } from '../../resource/entities/resource-entities';
 
-@inject(HttpClient)
+@inject(HttpClient, ResourceEntities)
 export class TimesheetService {
   baseUrl = 'api/generic/v1';
 
-  constructor(httpClient) {
+  constructor(httpClient, resourceEntities) {
     this.httpClient = httpClient;
+    this.resourceEntities = resourceEntities;
   }
 
-  createTimesheet(timesheet) {
+  handleAddTimesheet(timesheet) {
     const body = json(timesheet);
 
     return this.httpClient
@@ -43,6 +45,7 @@ export class TimesheetService {
           timesheet.thruDate = !!timesheet.thruDate
             ? new Date(timesheet.thruDate)
             : undefined;
+
           return timesheet;
         });
       })
@@ -50,5 +53,10 @@ export class TimesheetService {
         /* eslint no-console: ["error", { allow: ["error"] }] */
         console.error(error);
       }); // TODO: improve error handling
+  }
+
+  getProjectParty() {
+    console.log(this.resourceEntities.getResourceList(' '));
+    return this.resourceEntities.getResourceList(' ');
   }
 }

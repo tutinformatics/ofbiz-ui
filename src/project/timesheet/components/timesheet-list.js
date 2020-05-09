@@ -40,4 +40,8 @@ export class TimesheetList {
   determineActivationStrategy() {
     return activationStrategy.replace;
   }
+
+  handleAddTimesheet() {
+    this.router.navigate('new-timesheet');
+  }
 }

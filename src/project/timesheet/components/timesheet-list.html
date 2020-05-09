@@ -9,9 +9,19 @@
 
         <div class="card-body">
             <ak-grid k-data-source.bind="datasource">
+              <ak-grid-toolbar>
+                <ak-template>
+                  <button
+                    class="btn btn-primary btn-lg float-left rounded-pill"
+                    click.delegate="handleAddTimesheet()"
+                  >
+                    Create Timesheet
+                  </button>
+                </ak-template>
+              </ak-grid-toolbar>
                 <ak-col k-title="Timesheet ID" k-field="timesheetId"></ak-col>
                 <ak-col k-title="Party" k-field="partyId"></ak-col>
-                <ak-col k-title="Actual hours" k-field="partyId"></ak-col>
+                <ak-col k-title="Actual hours"></ak-col>
                 <ak-col k-title="Status" k-field="statusId"></ak-col>
                 <ak-col k-title="From date" k-field="fromDate" k-format="{0:MM/dd/yyyy}"></ak-col>
                 <ak-col k-title="Through date" k-field="thruDate" k-format="{0:MM/dd/yyyy}"></ak-col>
