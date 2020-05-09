@@ -1,9 +1,9 @@
 import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { safeGet } from '../../../commons/util/utility';
-import { ResourceEntities } from '../../resource/entities/resource-entities';
+import { ResourceService } from '../../resource/services/resource-service';
 
-@inject(HttpClient, ResourceEntities)
+@inject(HttpClient, ResourceService)
 export class TimesheetService {
   baseUrl = 'api/generic/v1';
 

@@ -1,26 +1,31 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
-import { ResourceEntities } from '../entities/resource-entities';
+import { ResourceService } from '../services/resource-service';
 
-@inject(Router, ResourceEntities)
+@inject(Router, ResourceService)
 export class ProjectEditComponent {
-  constructor(router, resourceEntities) {
+  constructor(router, resourceServices) {
     this.router = router;
-    this.resourceEntities = resourceEntities;
-    this.resource = {
+    this.resourceServices = resourceServices;
+    this.resource = {};
+    this.datasource = {
+      transport: {
+        read: (options) => {
+          this.resourceServices.getRolesList({parentTypeId:'PROJECT_TEAM'})
+            .then((resource) => {
+              options.success(resource);
+          });
+        }
+      }
     };
-    this.roleList = [{
-      text: 'Part of a project',
-      value: 'PROJECT_TEAM'
-    }];
   }
 
   get canSave() {
-    return !!this.project.workEffortName;
+    return !!this.resource.partyId;
   }
 
   addResource() {
-    this.resourceEntities.createResource(this.resource)
+    this.resourceServices.createResource(this.resource)
       .then(() => this.router.navigate(''));
   }
 

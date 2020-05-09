@@ -1,17 +1,17 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
-import { ResourceEntities } from '../entities/resource-entities';
+import { ResourceService } from '../services/resource-service';
 import { activationStrategy } from 'aurelia-router';
 import {
   faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
-@inject(Router, ResourceEntities)
+@inject(Router, ResourceService)
 export class ResourceList {
-  constructor(router, resourceEntities, faP) {
+  constructor(router, resourceServices) {
     this.button = faPlus;
     this.router = router;
-    this.resourceEntities = resourceEntities;
+    this.resourceServices = resourceServices;
   }
 
   activate(params, routeConfig) {
@@ -20,8 +20,8 @@ export class ResourceList {
     this.datasource = {
       transport: {
         read: (options) => {
-          this.resourceEntities
-            .getResourceList()
+          this.resourceServices
+            .getResourceList({roleTypeId:'PROJECT_TEAM'})
             .then((resource) => {
               options.success(resource);
             });
