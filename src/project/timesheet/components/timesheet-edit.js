@@ -1,17 +1,16 @@
 import { inject } from 'aurelia-dependency-injection';
 import { TimesheetService } from '../services/timesheet-service.js';
 import { Router } from 'aurelia-router';
-import {ResourceService} from "../../resource/services/resource-service";
+import {ResourceService} from '../../resource/services/resource-service';
 
 @inject(TimesheetService, Router, ResourceService)
 export class Timesheet {
-
   constructor(timesheetService, router, resourceService) {
     this.router = router;
     this.timesheetService = timesheetService;
     this.resourceService = resourceService;
     this.timesheet = {
-      statusId: "TIMESHEET_IN_PROCESS"
+      statusId: 'TIMESHEET_IN_PROCESS'
     };
   }
 
@@ -19,7 +18,7 @@ export class Timesheet {
     this.datasource = {
       transport: {
         read: (options) => {
-          this.resourceService.getResourceList({roleTypeId:'PROJECT_TEAM'})
+          this.resourceService.getResourceList({roleTypeId: 'PROJECT_TEAM'})
             .then((response) => {
               options.success(response);
             });
@@ -30,7 +29,7 @@ export class Timesheet {
 
   addTimesheet() {
     this.timesheetService.createTimesheet(this.timesheet)
-      .then(() => this.router.navigate('/project/timesheets'));
+      .then(() => this.router.navigate('timesheets'));
   }
 
   handleBack() {
