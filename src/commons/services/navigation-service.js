@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import {PLATFORM} from "aurelia-pal";
 
 const routes = {
   project: [
@@ -26,6 +27,18 @@ const routes = {
       moduleId: PLATFORM.moduleName('project/components/project-edit'),
       name: 'new-project',
       title: 'Create Project'
+    },
+    {
+      route: 'resources',
+      moduleId: PLATFORM.moduleName('project/resource/components/resource-list'),
+      name: 'resource',
+      title: 'Resources',
+      nav: true
+    },
+    {
+      route: 'new-resource',
+      moduleId: PLATFORM.moduleName('project/resource/components/resource-edit'),
+      name: 'new-resource'
     }
   ],
   sfa: [

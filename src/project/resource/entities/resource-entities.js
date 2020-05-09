@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
-import {SearchUtils} from "../../commons/util/search-utils";
+import {SearchUtils} from "../../../commons/util/search-utils";
 
 @inject(HttpClient)
 export class ResourceEntities {
@@ -11,7 +11,7 @@ export class ResourceEntities {
   }
 
   createResource(resource) {
-    const body = json(timesheet);
+    const body = json(resource);
 
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/PartyRoleAndPartyDetail`, {
