@@ -44,17 +44,33 @@ export class Activity {
     // await this.login();
     if (activity === "Notes") {
       this.tableHeaders = this.notesHeaders;
-      await this.fetch("notes");
     } else {
       console.log("else");
       this.data = [];
       this.tableData = []
     }
+    await this.fetch(activity);
   }
 
-  test(entry) {
-    console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
+  async fetch(activity) {
+    let response = await this.http.fetch('/entityquery/' + this.resolveEntity(activity), {
+      method: 'post',
+      body: this.resolveBody(activity)
+    })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching!');
+      });
+    console.log(response.data)
+    for (let i = 0; i < response.length; i++) {
+      //Hard copied in case we make any other requests
+      this.data.push(Object.create(response[i]));
+
+      let entry = new TableEntry(this.defineDataFor("Notes", response[i]));
+      this.tableData.push(entry);
+    }
   }
+
   resolveBody(entity) {
     switch (entity) {
       case "Notes":
@@ -76,27 +92,6 @@ export class Activity {
     }
   }
 
-  async fetch(entityName) {
-
-    let response = await this.http.fetch('/entityquery/'+ this.resolveEntity(entityName), {
-      method: 'post',
-      body: this.resolveBody(entityName)
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching!');
-      });
-
-
-    for (let i = 0; i < response.length; i++) {
-      //Hard copied in case we make any other requests
-      this.data.push(Object.create(response[i]));
-
-      let entry = new TableEntry(this.defineDataFor("notes", response[i]));
-      this.tableData.push(entry);
-    }
-  }
-
   resolveEntity(entityName) {
     switch (entityName) {
       case "Notes":
@@ -104,7 +99,6 @@ export class Activity {
       default:
         return "PartyExport";
     }
-
   }
 
   defineDataFor(entityName, responseEntry) {
@@ -116,9 +110,17 @@ export class Activity {
           responseEntry.lastName,
           responseEntry.emailAddress,
           responseEntry.phoneNumber
-      ]
+        ]
       default: return undefined;
     }
-
   }
+
+  test(entry) {
+    console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
+  }
+
+
+
+
+
 }
