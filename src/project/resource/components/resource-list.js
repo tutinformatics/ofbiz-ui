@@ -2,16 +2,20 @@ import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
 import { ResourceEntities } from '../entities/resource-entities';
 import { activationStrategy } from 'aurelia-router';
+import {
+  faPlus
+} from '@fortawesome/free-solid-svg-icons';
 
 @inject(Router, ResourceEntities)
 export class ResourceList {
-  constructor(router, resourceEntities) {
+  constructor(router, resourceEntities, faP) {
+    this.button = faPlus;
     this.router = router;
     this.resourceEntities = resourceEntities;
   }
 
   activate(params, routeConfig) {
-    routeConfig.navModel.setTitle(`Party ID: ${params.id}`);
+    routeConfig.navModel.setTitle(`Resources`);
 
     this.datasource = {
       transport: {
