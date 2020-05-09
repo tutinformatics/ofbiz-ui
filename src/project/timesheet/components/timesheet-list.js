@@ -1,7 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
 import { TimesheetService } from '../services/timesheet-service.js';
-import { activationStrategy } from 'aurelia-router';
 import {
   faPlus
 } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +13,7 @@ export class TimesheetList {
     this.button = faPlus;
   }
 
-  activate() {
+  created() {
     this.datasource = {
       transport: {
         read: (options) => {
@@ -37,10 +36,6 @@ export class TimesheetList {
         }
       }
     };
-  }
-
-  determineActivationStrategy() {
-    return activationStrategy.replace;
   }
 
   handleAddTimesheet() {
