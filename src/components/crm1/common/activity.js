@@ -152,7 +152,7 @@ export class Activity {
     case "Emails":
       return json({
         "inputFields": {
-          "partyIdFrom": this.chosenContact.partyId,
+          "partyId": this.chosenContact.partyId,
           "communicationEventTypeId": "EMAIL_COMMUNICATION"
         },
         "fieldList": [
@@ -165,7 +165,7 @@ export class Activity {
     case "Calls":
       return json({
         "inputFields": {
-          "partyIdFrom": this.chosenContact.partyId,
+          "partyId": this.chosenContact.partyId,
           "communicationEventTypeId": "PHONE_COMMUNICATION"
         },
         "fieldList": [
