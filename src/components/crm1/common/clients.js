@@ -18,10 +18,13 @@ export class Clients {
       this.parties = this.contacts.map(contact => contact.partyId).filter(this.unique);
       this.ea.publish("categoryParties", this.parties);
     })
-    ea.subscribe("defilterCustomers", () => {
-      this.filteredContacts.length = 0;
+    ea.subscribe("unfilteredCustomers", payload => {
+      console.log(this.contacts)
+      this.filteredContacts = this.contacts
+    })
+    ea.subscribe("filterByParty", (party) => {
       this.filteredContacts = this.contacts.filter(
-        true
+        contact => contact.partyId === party
       )
     })
 
@@ -32,10 +35,7 @@ export class Clients {
     return self.indexOf(value) === index;
   }
 
-
-
   chooseContact(contact) {
-    console.log(contact);
     this.ea.publish("contactChosen", contact);
     this.ea.publish("displayClient", true);
 

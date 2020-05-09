@@ -11,32 +11,32 @@
       <div class="scrollbar scrollbar-primary m-0">
         <div class="force-overflow"></div>
 
-      <ul class="list-group list-group-flush" id="group" style="max-height: 74vh;">
-        <div class="card pointer canHover rounded-0 m-0 ml-2">
-          <b class="p-0 py-2" click.delegate="unfilteredCustomers">All customers</b>
+      <ul class="list-group list-group-flush" id="group" style="max-height: 84vh;">
+        <div class="card pointer rounded-0 m-0 ml-2" click.delegate="unfilteredCustomers()">
+          <b class="category p-0 py-2" >All customers</b>
         </div>
 
-        <div class="card pointer canHover m-0 rounded-0" onclick="">
-          <div class="panel-group">
-            <div class="panel panel-default m-0 p-2 rounded-pill">
+        <div class="card   m-0 rounded-0" onclick="">
+
+            <div class="m-0 p-2 rounded-pill">
               <div class="panel-heading">
                 <h6 class="panel-title">
-                  <a class="text-decoration-none" data-toggle="collapse"  href="#byParty">By party</a>
+                  <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byParty"><b class="category">By party</b></a>
                 </h6>
               </div>
 
               <div id="byParty" class="panel-collapse collapse hide">
-                <input type="text" class="form-control rounded-pill"  value.bind="partySearchInput"  style="height: 26px;">
-                <ul class="list-group">
-                  <div repeat.for="party of filteredParties">
-                    <li class="list-group-item p-0 pl-3 transparent">${capitalizeFirstLetter(party)}</li>
+                <input type="text" class="form-control rounded-pill" placeholder="Search..." value.bind="partySearchInput"  style="height: 26px;">
+
+                  <div repeat.for="party of filteredParties" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByParty(party)">
+                    ${capitalizeFirstLetter(party)}
                   </div>
 
-                </ul>
+
                 <!--          <div class="panel-footer">Footer</div>-->
               </div>
             </div>
-          </div>
+
         </div>
 
 

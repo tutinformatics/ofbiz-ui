@@ -81,12 +81,17 @@ th     { background: #f6f6f6;
   display:inline;
   color: #a1a6ff
 }
-.add :hover {
+.add:hover {
   color: #564195;
 }
-.transparent {
-  background-color: transparent;
+.entry:hover{
+  background-color: rgb(248, 246, 252);
+  font-weight: bold;
 }
-.transparent :hover {
-  background-color: #a1a6ff;
+
+.category {
+  color: #623b7f;
+}
+.category:hover {
+  color: black;
 }

@@ -31,13 +31,16 @@ export class Categories {
   }
 
   unfilteredCustomers() {
-      this.ea.publish("defilterCustomers");
+      this.ea.publish("unfilteredCustomers", true);
   }
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  filterByParty(party) {
+    this.ea.publish("filterByParty", party);
+  }
 
 
 
