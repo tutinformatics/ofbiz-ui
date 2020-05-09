@@ -27,8 +27,15 @@ export class GlobalSettings {
   }
 
   async saveDiscounts(partyId, newDiscount) {
-    if (newDiscount && newDiscount >= 0 && newDiscount < 100)
-    await this.affManagerService.setAffiliateDiscount(partyId, newDiscount)
+    if (newDiscount && newDiscount >= 0 && newDiscount < 100) {
+      await this.affManagerService.setAffiliateDiscount(partyId, newDiscount)
+    }
+  }
+
+  async saveCommission(partyId, newCommission) {
+    if (newCommission > 0 && newCommission < 100) {
+      await this.affManagerService.setCommission(partyId, newCommission)
+    }
   }
 
   async fetchCategories() {

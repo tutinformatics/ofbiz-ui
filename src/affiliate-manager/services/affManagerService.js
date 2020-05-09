@@ -327,6 +327,25 @@ export class AffManagerService {
     }
   }
 
+  async setCommission(commission, productCategoryId) {
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}/generic/v1/services/setCommission`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            {
+              "productCategoryId": productCategoryId,
+              "affiliateCommission": commission
+            }
+          ),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
   async setGlobalSettings(settings){
     try {
       return await this.httpClient.fetch(

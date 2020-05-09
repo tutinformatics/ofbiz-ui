@@ -59,7 +59,8 @@
           <td class="align-middle">${category['categoryName']}</td>
           <td class="align-middle">
             <input type="number" class="mx-auto form-control border aff-admin__category-commissions w-25"
-                   min="0.0" step="0.01" max="0.99" value.bind="category['commission']">
+                   change.delegate="saveCommission(category['productCategoryId'], category['commission'])"
+                   min="0" step="1" max="99" value.bind="category['commission']">
           </td>
           <td class="align-middle">
             <input type="number" class="mx-auto form-control border aff-admin__category-commissions w-25"
