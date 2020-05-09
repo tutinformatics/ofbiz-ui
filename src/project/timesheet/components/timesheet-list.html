@@ -1,0 +1,21 @@
+<template>
+    <require from="aurelia-kendoui-bridge/grid/grid"></require>
+    <require from="aurelia-kendoui-bridge/grid/col"></require>
+    <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
+    <require from="aurelia-kendoui-bridge/common/template"></require>
+
+    <div class="card">
+        <div class="card-header text-white bg-primary">Timesheet Dashboard</div>
+
+        <div class="card-body">
+            <ak-grid k-data-source.bind="datasource">
+                <ak-col k-title="Timesheet ID" k-field="timesheetId"></ak-col>
+                <ak-col k-title="Party" k-field="partyId"></ak-col>
+                <ak-col k-title="Actual hours" k-field="partyId"></ak-col>
+                <ak-col k-title="Status" k-field="statusId"></ak-col>
+                <ak-col k-title="From date" k-field="fromDate" k-format="{0:MM/dd/yyyy}"></ak-col>
+                <ak-col k-title="Through date" k-field="thruDate" k-format="{0:MM/dd/yyyy}"></ak-col>
+            </ak-grid>
+        </div>
+    </div>
+</template>

@@ -39,6 +39,13 @@ const routes = {
       route: 'new-resource',
       moduleId: PLATFORM.moduleName('project/resource/components/resource-edit'),
       name: 'new-resource'
+    },
+    {
+      route: 'timesheets',
+      moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-list'),
+      title: 'Timesheets',
+      name: 'timesheets',
+      nav: true,
     }
   ],
   sfa: [
