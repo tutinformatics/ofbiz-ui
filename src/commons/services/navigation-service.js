@@ -49,28 +49,35 @@ const routes = {
     }
   ],
   crm: [
-    { route: '', redirect: 'clients' },
+    { route: '', redirect: 'complex' },
+    {
+      route: 'complex',
+      moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
+      name: 'complexview',
+      title: 'Complex View',
+      nav: true
+    },
     {
       route: 'clients',
       moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'),
       name: 'clients',
-      title: 'clients',
+      title: 'Clients',
       nav: true
     },
-    {
-      route: 'clients/complex',
-      moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
-      name: 'complexview'
-    },
+
     {
       route: 'bills',
       moduleId: PLATFORM.moduleName('components/crm1/billView/billsView'),
-      name: 'bills'
+      name: 'bills',
+      title: 'Bills',
+      nav: true
     },
     {
       route: 'orders',
       moduleId: PLATFORM.moduleName('components/crm1/orderView/ordersView'),
-      name: 'orders'
+      name: 'orders',
+      title: 'Orders',
+      nav: true
     },
   ],
   cms: [], // TODO: add cms child routes here

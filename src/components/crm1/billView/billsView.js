@@ -23,8 +23,6 @@ export class billsView {
 
   }
 
-
-
   async getAllBills() {
     let response = await this.http.fetch('/entityquery/InvoiceExport', {
       method: 'post',
@@ -45,7 +43,6 @@ export class billsView {
       .catch(() => {
         alert('Error fetching clients!');
       });
-
 
     for (let i = 0; i < response.length; i++) {
       let invoicedate = getDate(response[i].invoiceDate);

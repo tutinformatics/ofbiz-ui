@@ -9,15 +9,12 @@ import {getDate} from '../../../commons/util/dateConverter';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ordersView {
-
   // phone = [ 'Phone'];
   // mail = [ 'Email'];
   // pageSize = 10;
   //
   // selectedPhone = [];
   // selectedEmail = [];
-
-
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -28,11 +25,7 @@ export class ordersView {
 
   async attached() {
     await this.getAllOrders();
-
   }
-
-
-
   async getAllOrders() {
     console.log('here');
     // await this.login();
@@ -56,7 +49,6 @@ export class ordersView {
         alert('Error fetching clients!');
       });
 
-
     for (let i = 0; i < response.length; i++) {
       let orderDate = getDate(response[i].orderDate);
       let entryDate = getDate(response[i].entryDate);
@@ -74,11 +66,6 @@ export class ordersView {
       this.orders.push(order);
     }
   }
-
-
-
-
-
   // get isPhone() {
   //   if(this.selectedPhone.length>0){
   //     return (this.selectedPhone);
@@ -91,7 +78,5 @@ export class ordersView {
   //   }
   //   return false;
   // }
-
-
 }
 
