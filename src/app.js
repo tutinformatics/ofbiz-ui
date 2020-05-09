@@ -83,7 +83,13 @@ export class App {
         route: 'timesheet',
         name: 'timesheet',
         moduleId: PLATFORM.moduleName('timesheet/timesheet')
-      }
+      },
+      {
+        route: 'crm',
+        moduleId: PLATFORM.moduleName('./components/crm1/baseui/baseui'),
+        name: 'crm',
+        title: 'Customer Relations'
+      },
     ]);
     this.router = router;
   }

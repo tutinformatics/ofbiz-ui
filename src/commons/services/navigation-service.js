@@ -48,7 +48,31 @@ const routes = {
       name: 'cardview'
     }
   ],
-  crm: [], // TODO: add crm child routes here
+  crm: [
+    { route: '', redirect: 'clients' },
+    {
+      route: 'clients',
+      moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'),
+      name: 'clients',
+      title: 'clients',
+      nav: true
+    },
+    {
+      route: 'clients/complex',
+      moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
+      name: 'complexview'
+    },
+    {
+      route: 'bills',
+      moduleId: PLATFORM.moduleName('components/crm1/billView/billsView'),
+      name: 'bills'
+    },
+    {
+      route: 'orders',
+      moduleId: PLATFORM.moduleName('components/crm1/orderView/ordersView'),
+      name: 'orders'
+    },
+  ],
   cms: [], // TODO: add cms child routes here
   marketdata: [], // TODO: add marketdata child routes here
   objectdist: [] // TODO: add objectdist child routes here
