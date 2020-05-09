@@ -4,7 +4,7 @@ import {AureliaCookie} from "aurelia-cookie";
 
 @inject(HttpClient)
 export class OpportunityService {
-  baseUrl = '/api/generic/v1/';
+  baseUrl = 'https://82.131.87.143:8443/api/generic/v1/';
 
   constructor(httpClient) {
     this.client = httpClient;
