@@ -1,12 +1,17 @@
 import { inject } from 'aurelia-dependency-injection';
 import { TimesheetService } from '../services/timesheet-service.js';
 import { activationStrategy } from 'aurelia-router';
+import { Router } from 'aurelia-router';
 
-@inject(TimesheetService)
+@inject(TimesheetService, Router)
 export class Timesheet {
 
-  constructor(timesheetService) {
+  constructor(timesheetService, router) {
+    this.router = router;
     this.timesheetService = timesheetService;
+    this.timesheet = {
+      statusId: "TIMESHEET_IN_PROCESS"
+    };
   }
 
   activate() {
@@ -35,5 +40,14 @@ export class Timesheet {
   }
   determineActivationStrategy() {
     return activationStrategy.replace;
+  }
+
+  addTimesheet() {
+    this.timesheetService.createTimesheet(this.timesheet)
+      .then(() => this.router.navigate('/project/timesheets'));
+  }
+
+  handleBack() {
+    this.router.navigateBack();
   }
 }

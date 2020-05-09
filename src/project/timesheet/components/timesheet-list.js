@@ -2,12 +2,16 @@ import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
 import { TimesheetService } from '../services/timesheet-service.js';
 import { activationStrategy } from 'aurelia-router';
+import {
+  faPlus
+} from '@fortawesome/free-solid-svg-icons';
 
 @inject(Router, TimesheetService)
 export class TimesheetList {
   constructor(router, timesheetService) {
     this.router = router;
     this.timesheetService = timesheetService;
+    this.button = faPlus;
   }
 
   activate() {

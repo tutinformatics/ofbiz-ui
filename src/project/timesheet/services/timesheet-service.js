@@ -10,13 +10,14 @@ export class TimesheetService {
   constructor(httpClient, resourceEntities) {
     this.httpClient = httpClient;
     this.resourceEntities = resourceEntities;
+
   }
 
-  handleAddTimesheet(timesheet) {
+  createTimesheet(timesheet) {
     const body = json(timesheet);
 
     return this.httpClient
-      .fetch(`${this.baseUrl}/services/createTimesheetByJavaService`, {
+      .fetch(`${this.baseUrl}/entities/Timesheet`, {
         method: 'post',
         body: body
       })
