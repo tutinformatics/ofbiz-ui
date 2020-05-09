@@ -6,7 +6,7 @@ import { setJwtToken, setUserLoginId, setPartyId } from "../../store/store";
 @inject(Store, HttpClient)
 export class AuthService {
 
-  baseUrl = 'api/';
+  baseUrl = 'https://sometotallyrandomapplicationonarandomurl.com:8443/api/';
 
   constructor(store, httpClient) {
     this.httpClient = httpClient;
