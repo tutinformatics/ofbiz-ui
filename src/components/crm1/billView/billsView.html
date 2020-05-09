@@ -11,41 +11,19 @@
         <div class="dropdown">
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-filter"></i> Filters</a>
-          <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-columns"></i> Group by</a>
-          <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-star"></i> Favorites</a>
-
-
-
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
         </div>
       </div>
-
     </div>
   </div>
 
-
   <div class="container-fluid" >
-
     <table class="table" >
-
       <thead>
       <tr >
         <th scope="col">Bill ID</th>
@@ -56,28 +34,21 @@
         <th scope="col">To</th>
         <th scope="col">Quantity</th>
         <th scope="col">Total</th>
-
-
         <th scope="col">
           <div class="dropdown">
             <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v"></i></a>
             <form>
-
               <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
-
                 <p class="dropdown-item"  >
                   <input type="checkbox" value.bind="product" checked.bind="selectedPhone" checked="checked">
                   KEK</p>
-
                 <p class="dropdown-item"  >
                   <input type="checkbox" value.bind="prod" checked.bind="selectedEmail" checked="checked">
                   LOL</p>
-
                 <p class="dropdown-item"  >
                   <input type="checkbox" value.bind="prod" checked.bind="selectedEmail" checked="checked">
                   LOL KEK</p>
-
 
               </div>
             </form>
@@ -85,7 +56,6 @@
         </th>
       </tr>
       </thead>
-
       <tbody>
     <!--WTF IS GOING ON HERE , WRAPPED ALL -->
       <tr repeat.for="bill of bills">
@@ -98,21 +68,11 @@
         <td>${bill.invoiceId}</td>
         <td>${bill.quantity}</td>
         <td></td>
-
       </tr>
       </tbody>
     </table>
 
   </div>
-
-
-
-
-
-
-
-
-
 
   <add-client-pop-up ></add-client-pop-up>
 
