@@ -1,6 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
 import { TimesheetService } from '../services/timesheet-service.js';
-import { activationStrategy } from 'aurelia-router';
 import { Router } from 'aurelia-router';
 
 @inject(TimesheetService, Router)
@@ -14,8 +13,7 @@ export class Timesheet {
     };
   }
 
-  activate() {
-
+  created() {
     this.datasource = {
       transport: {
         read: (options) => {
@@ -37,9 +35,6 @@ export class Timesheet {
         }
       }
     };
-  }
-  determineActivationStrategy() {
-    return activationStrategy.replace;
   }
 
   addTimesheet() {
