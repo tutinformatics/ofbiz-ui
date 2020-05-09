@@ -4,7 +4,7 @@ import {AureliaCookie} from "aurelia-cookie";
 
 @inject(HttpClient)
 export class CustomerService {
-  baseUrl = '/api/generic/v1/';
+  baseUrl = 'https://sometotallyrandomapplicationonarandomurl.com:8443/api/generic/v1/';
 
   constructor(httpClient) {
     this.client = httpClient;
