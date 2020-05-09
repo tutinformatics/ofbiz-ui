@@ -263,7 +263,11 @@ export class AffManagerService {
           method: 'POST',
           body: JSON.stringify(
             {
-              "fieldList": ["categoryName", "productCategoryId"]
+              "fieldList": [
+                "categoryName",
+                "productCategoryId",
+                "affiliateCommission",
+              ]
             }
           ),
         }

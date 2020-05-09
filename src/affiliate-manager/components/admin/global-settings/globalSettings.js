@@ -34,7 +34,7 @@ export class GlobalSettings {
 
   async saveCommission(partyId, newCommission) {
     if (newCommission > 0 && newCommission < 100) {
-      await this.affManagerService.setCommission(partyId, newCommission)
+      await this.affManagerService.setCommission(newCommission, partyId)
     }
   }
 
@@ -48,7 +48,7 @@ export class GlobalSettings {
           {
             'categoryName': category['categoryName'],
             'productCategoryId': category['productCategoryId'],
-            'commission': (Math.random() / 2).toFixed(2),
+            'commission': category['affiliateCommission'],
             'discount': this.discounts.find(d => d['productCategoryId'] === category['productCategoryId'])['discount'],
           }
           )
