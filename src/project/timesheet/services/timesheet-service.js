@@ -30,8 +30,7 @@ export class TimesheetService {
       });
   }
 
-  getTimesheetList(params) {
-    const body = json(params);
+  getTimesheetList() {
 
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/Timesheet`, {

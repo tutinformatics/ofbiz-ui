@@ -15,13 +15,11 @@ export class TimesheetList {
   }
 
   activate() {
-    // console.log(this.timesheetService
-    //   .getTimesheetList({partyId: 'admin'}));
     this.datasource = {
       transport: {
         read: (options) => {
           this.timesheetService
-            .getTimesheetList({partyId: 'admin'})
+            .getTimesheetList()
             .then((timesheets) => {
               options.success(timesheets);
             });
