@@ -16,48 +16,50 @@
           <b class="category p-0 py-2" >All customers</b>
         </div>
 
-        <div class="card  m-0 rounded-0">
+        <div id="allPanels">
+          <div class="card  m-0 rounded-0">
+              <div class="m-0 p-2 rounded-pill">
+                <div class="panel-heading">
+                  <h6 class="panel-title">
+                    <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byParty"><b class="category">By party</b></a>
+                  </h6>
+                </div>
+                <div id="byParty" class="panel-collapse collapse hide" data-parent="#allPanels">
+                  <label>
+                    <input type="text" class="form-control rounded-pill" placeholder="Enter partyId...?" value.bind="partySearchInput"  style="height: 26px;">
+                  </label>
+
+                  <div repeat.for="party of filteredParties" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByParty(party)">
+                    ${capitalizeFirstLetter(party)}
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="card  m-0 rounded-0">
             <div class="m-0 p-2 rounded-pill">
               <div class="panel-heading">
                 <h6 class="panel-title">
-                  <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byParty"><b class="category">By party</b></a>
+                  <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byName"><b class="category">By name</b></a>
                 </h6>
               </div>
-              <div id="byParty" class="panel-collapse collapse hide">
+              <div id="byName" class="panel-collapse collapse hide" data-parent="#allPanels" >
                 <label>
-                  <input type="text" class="form-control rounded-pill" placeholder="Search..." value.bind="partySearchInput"  style="height: 26px;">
+                  <input type="text" class="form-control rounded-pill" placeholder="Enter name..." value.bind="nameSearchInput"  style="height: 26px;">
                 </label>
 
-                <div repeat.for="party of filteredParties" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByParty(party)">
-                  ${capitalizeFirstLetter(party)}
+                <div class="container px-1 rounded" style="background-color: #f8f8f8">
+                <label class="btn p-0 m-0">
+                  <input type="checkbox" class="hugeInput" checked.bind="includeFirstName" autocomplete="off"> <b>First name</b>
+                </label>
+                <label class="btn p-0 m-0">
+                  <input type="checkbox" class="hugeInput" checked.bind="includeLastName" autocomplete="off"> <b>Last name</b>
+                </label>
                 </div>
-              </div>
-            </div>
-        </div>
 
-        <div class="card  m-0 rounded-0">
-          <div class="m-0 p-2 rounded-pill">
-            <div class="panel-heading">
-              <h6 class="panel-title">
-                <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byName"><b class="category">By name</b></a>
-              </h6>
-            </div>
-            <div id="byName" class="panel-collapse collapse hide">
-              <label>
-                <input type="text" class="form-control rounded-pill" placeholder="Enter name..." value.bind="nameSearchInput"  style="height: 26px;">
-              </label>
-
-              <div class="container px-1 rounded" style="background-color: #f8f8f8">
-              <label class="btn p-0 m-0">
-                <input type="checkbox" class="hugeInput" checked.bind="includeFirstName" autocomplete="off"> <b>First name</b>
-              </label>
-              <label class="btn p-0 m-0">
-                <input type="checkbox" class="hugeInput" checked.bind="includeLastName" autocomplete="off"> <b>Last name</b>
-              </label>
-              </div>
-
-              <div repeat.for="name of names" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByName(name)">
-                ${capitalizeFirstLetter(name)}
+                <div repeat.for="name of names" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByName(name)">
+                  ${capitalizeFirstLetter(name)}
+                </div>
               </div>
             </div>
           </div>
