@@ -163,12 +163,10 @@ export class ClientsView {
 
 
   search(){
-
     if(this.taskName === ''){
       this.getAllContacts();
       this.contacts = []
     }
-
     for (let i = 0; i <= this.contacts.length; i++) {
         if(this.contacts[i].firstName.toLowerCase().indexOf(this.taskName.toLowerCase()) !== -1){
           let person = new Contact(
@@ -186,7 +184,6 @@ export class ClientsView {
           this.contacts = []
           this.contacts.push(person)
         }
-
     }
 
 

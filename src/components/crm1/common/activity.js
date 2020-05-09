@@ -40,6 +40,7 @@ export class Activity {
       this.lastName = this.chosenContact.lastName;
       this.companyName = this.chosenContact.companyName;
       this.positionType = this.chosenContact.roleTypeId;
+
     });
   }
 
@@ -52,17 +53,41 @@ export class Activity {
     // await this.login();
     if (activity === "Notes") {
       this.tableHeaders = this.notesHeaders;
-    } else if(activity === "Leads"){
-      this.tableHeaders = this.notesHeaders;
+      this.data = [];
+      this.tableData = []
+    }
+    else if(activity === "Leads"){
+      this.tableHeaders = ["Name", "Status", "Contact", "ID"];
+      this.data = [];
+      this.tableData = []
+    }
+    else if(activity === "Opportunities") {
+      this.tableHeaders = ["Opportunity name","Description","ID", "Role Type"];
+      this.data = [];
+      this.tableData = []
+    }
+    else if(activity === "Returned") {
+      this.tableHeaders = ['Return ID', 'From', 'To', 'Date', 'Status'];
+      this.data = [];
+      this.tableData = []
     } else if (activity === "Invoices") {
       this.tableHeaders = ['Invoice Id', 'From', 'To', 'Total amount $']
+      this.data = [];
+      this.tableData = []
     } else if (activity === "Orders") {
       this.tableHeaders = ['Order Id', 'Order Date', 'From', 'Total amount']
+      this.data = [];
+      this.tableData = []
     } else if (activity === "Emails") {
       this.tableHeaders = ['From', 'To', 'Created Date', 'Send Date']
+      this.data = [];
+      this.tableData = []
     } else if (activity === "Calls") {
       this.tableHeaders = ['From', 'To', 'Created Date', 'Send Date']
+      this.data = [];
+      this.tableData = []
     } else {
+      console.log("else");
       this.data = [];
       this.tableData = []
     }
@@ -108,7 +133,9 @@ export class Activity {
       return json({
         "inputFields":
           {
+            "partyId": this.chosenContact.partyId,
             "roleTypeId": "LEAD"
+
           },
         "fieldList": [
           "firstName",
@@ -174,6 +201,32 @@ export class Activity {
           "entryDate"
         ]
       });
+    case "Opportunities":
+      return json({
+        "inputFields": {
+          "partyId": this.chosenContact.partyId,
+        },
+        "fieldList": [
+          "opportunityName",
+          "description",
+          "partyId",
+          "roleTypeId"
+        ]
+      });
+
+    case "Returned":
+      return json({
+        "inputFields": {
+          "toPartyId": this.chosenContact.partyId,
+        },
+        "fieldList": [
+          "returnHeaderTypeId",
+          "fromPartyId",
+          "toPartyId",
+          "entryDate",
+          "statusId"
+        ]
+      });
       default:
         return "none";
     }
@@ -186,7 +239,7 @@ export class Activity {
     case "Leads":
       return "PartyRoleAndContactMechDetail";
     case "Opportunities":
-      return "SalesOpportunity";
+      return "SalesOpportunityAndRole";
     case "Invoices":
       return "InvoiceExport";
     case "Orders":
@@ -195,6 +248,8 @@ export class Activity {
       return "CommunicationEventAndRole";
     case "Calls":
       return "CommunicationEventAndRole";
+    case "Returned":
+      return "ReturnHeader";
       default:
         return "PartyExport";
     }
@@ -245,6 +300,25 @@ export class Activity {
         responseEntry.datetimeStarted,
         responseEntry.entryDate
     ];
+    case "Returned":
+      return [
+        responseEntry.returnHeaderTypeId,
+        responseEntry.fromPartyId,
+        responseEntry.toPartyId,
+        responseEntry.entryDate,
+        responseEntry.statusId
+
+
+      ];
+    case "Opportunities":
+      return [
+        responseEntry.opportunityName,
+        responseEntry.description,
+        responseEntry.partyId,
+        responseEntry.roleTypeId
+
+      ]
+
     default: return undefined;
     }
   }
