@@ -1,16 +1,13 @@
 import { inject } from 'aurelia-dependency-injection';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { safeGet } from '../../../commons/util/utility';
-import { ResourceService } from '../../resource/services/resource-service';
 
-@inject(HttpClient, ResourceService)
+@inject(HttpClient)
 export class TimesheetService {
   baseUrl = 'api/generic/v1';
 
-  constructor(httpClient, resourceEntities) {
+  constructor(httpClient) {
     this.httpClient = httpClient;
-    this.resourceEntities = resourceEntities;
-
   }
 
   createTimesheet(timesheet) {
@@ -31,7 +28,6 @@ export class TimesheetService {
   }
 
   getTimesheetList() {
-
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/Timesheet`, {
         method: 'get'
@@ -53,10 +49,5 @@ export class TimesheetService {
         /* eslint no-console: ["error", { allow: ["error"] }] */
         console.error(error);
       }); // TODO: improve error handling
-  }
-
-  getProjectParty() {
-    console.log(this.resourceEntities.getResourceList(' '));
-    return this.resourceEntities.getResourceList(' ');
   }
 }

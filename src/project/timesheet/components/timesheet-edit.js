@@ -1,13 +1,15 @@
 import { inject } from 'aurelia-dependency-injection';
 import { TimesheetService } from '../services/timesheet-service.js';
 import { Router } from 'aurelia-router';
+import {ResourceService} from "../../resource/services/resource-service";
 
-@inject(TimesheetService, Router)
+@inject(TimesheetService, Router, ResourceService)
 export class Timesheet {
 
-  constructor(timesheetService, router) {
+  constructor(timesheetService, router, resourceService) {
     this.router = router;
     this.timesheetService = timesheetService;
+    this.resourceService = resourceService;
     this.timesheet = {
       statusId: "TIMESHEET_IN_PROCESS"
     };
@@ -17,21 +19,10 @@ export class Timesheet {
     this.datasource = {
       transport: {
         read: (options) => {
-          this.timesheetService
-            .getProjectParty()
-            .then((party) => {
-              options.success(party);
+          this.resourceService.getResourceList({roleTypeId:'PROJECT_TEAM'})
+            .then((response) => {
+              options.success(response);
             });
-        }
-      },
-      schema: {
-        model: {
-          fields: {
-            partyId: { type: 'string' },
-            firstName: { type: 'string' },
-            lastName: { type: 'string' },
-            name: { type: 'string' }
-          }
         }
       }
     };

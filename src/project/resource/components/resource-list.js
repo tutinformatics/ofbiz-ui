@@ -1,7 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
 import { ResourceService } from '../services/resource-service';
-import { activationStrategy } from 'aurelia-router';
 import {
   faPlus
 } from '@fortawesome/free-solid-svg-icons';
@@ -14,9 +13,7 @@ export class ResourceList {
     this.resourceServices = resourceServices;
   }
 
-  activate(params, routeConfig) {
-    routeConfig.navModel.setTitle(`Resources`);
-
+  created() {
     this.datasource = {
       transport: {
         read: (options) => {
@@ -37,10 +34,6 @@ export class ResourceList {
         }
       }
     };
-  }
-
-  determineActivationStrategy() {
-    return activationStrategy.replace;
   }
 
   handleAddResource() {

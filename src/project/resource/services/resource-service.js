@@ -11,24 +11,9 @@ export class ResourceService {
     this.httpClient = httpClient;
   }
 
-  createResource(resource) {
-    const body = json(resource);
-
-    return this.httpClient
-      .fetch(`${this.baseUrl}/entities/PartyRoleAndPartyDetail`, {
-        method: 'post',
-        body: body
-      })
-      .then((response) => {
-        if (!response.ok) {
-          // TODO: improve error handling
-          throw new Error('An error occured while creating resource');
-        }
-        return response.json();
-      });
-  }
   getRolesList(params) {
     const query = SearchUtils.appendQueryParams(params);
+
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/RoleType?${query}`, {
         method: 'get'
@@ -42,7 +27,7 @@ export class ResourceService {
 
   getResourceList(params) {
     const query = SearchUtils.appendQueryParams(params);
-    console.log(query);
+
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/PartyRoleAndPartyDetail?${query}`, {
         method: 'get'
@@ -50,7 +35,7 @@ export class ResourceService {
       .then((res) => res.json())
       .then((res) => {
         return safeGet(() => res, []).map((resource) => {
-          (resource.name = `${resource.firstName} ${resource.lastName}`)
+          (resource.name = `${resource.firstName} ${resource.lastName}`);
           return resource;
         });
       })

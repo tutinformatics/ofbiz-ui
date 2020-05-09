@@ -4,9 +4,9 @@ import { ResourceService } from '../services/resource-service';
 
 @inject(Router, ResourceService)
 export class ProjectEditComponent {
-  constructor(router, resourceServices) {
+  constructor(router, resourceService) {
     this.router = router;
-    this.resourceServices = resourceServices;
+    this.resourceServices = resourceService;
     this.resource = {};
     this.datasource = {
       transport: {
@@ -25,8 +25,7 @@ export class ProjectEditComponent {
   }
 
   addResource() {
-    this.resourceServices.createResource(this.resource)
-      .then(() => this.router.navigate(''));
+    // TODO: first, search party component has to be implemented
   }
 
   handleBack() {
