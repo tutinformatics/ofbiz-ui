@@ -1,0 +1,13 @@
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="order of orders">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <h5 class="card-subtitle">${order.orderId} | ${order.orderName}</h5>
+          <p class="card-text">Status: ${order.statusId}</p>
+          <p class="card-text">Sum: ${order.grandTotal} ${order.currencyUom}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,16 +1,21 @@
-import { PLATFORM } from 'aurelia-pal';
+import { inject } from 'aurelia-dependency-injection';
+import { NavigationService } from '../commons/services/navigation-service';
 
-export class Crm {
+@inject(NavigationService)
+export class Sfa {
+
+  constructor(navigationService) {
+    this.navigationService = navigationService;
+    this.navigationService
+      .getRoutes('sfa')
+      .then((response) => (this.routes = response));
+  }
+
   configureRouter(config, router) {
-    config.title = 'Crm';
     config.options.pushState = true;
-    // config.options.root = '/';
-    config.map([
-      { route: '', redirect: 'opportunities' },
-      { route: 'opportunities', moduleId: PLATFORM.moduleName('sfa/view/opportunities/opportunities'), nav: true, name: 'opportunities', title: 'Opportunities'},
-      { route: 'quotes', moduleId: PLATFORM.moduleName('sfa/view/quotes/quotes'), nav: true, name: 'quotes', title: 'Quotes'},
-      { route: 'agents', moduleId: PLATFORM.moduleName('sfa/view/agents/agents'), nav: true, name: 'agents', title: 'Agents'},
-    ]);
+    config.options.root = '/';
+    config.map(this.routes);
     this.router = router;
+    this.router.refreshNavigation();
   }
 }

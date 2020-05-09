@@ -1,0 +1,28 @@
+<template>
+  <div class="row mt-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Status</th>
+        <th scope="col">Total sum</th>
+        <th scope="col">Last Edited</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr repeat.for="order of orders">
+        <td>${order.orderId}</td>
+        <td>${order.statusId}</td>
+        <td>${order.grandTotal} ${order.currencyUom}</td>
+        <td>${timeConverter(order.lastUpdatedStamp)}</td>
+        <td>
+          <a route-href="route: order-edit; params.bind: { order: order}">Edit</a> |
+          <a click.trigger="deleteOrder(order.orderId, $index)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

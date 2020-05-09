@@ -29,24 +29,35 @@ const routes = {
     }
   ],
   sfa: [
-    { route: '', redirect: 'pipeline' },
+    { route: '', redirect: 'opportunities' },
     {
-      route: 'pipeline',
-      moduleId: PLATFORM.moduleName('crm/components/pipeline/pipeline'),
-      name: 'pipeline',
-      title: 'CRM',
+      route: 'opportunities',
+      moduleId: PLATFORM.moduleName('sfa/view/opportunities/opportunities'),
+      name: 'opportunities',
+      title: 'Opportunities',
       nav: true
     },
     {
-      route: 'listview',
-      moduleId: PLATFORM.moduleName('crm/components/listview/listview'),
-      name: 'listview'
+      route: 'quotes',
+      moduleId: PLATFORM.moduleName('sfa/view/quotes/quotes'),
+      name: 'quotes',
+      title: 'Quotes',
+      nav: true
     },
     {
-      route: 'cardview',
-      moduleId: PLATFORM.moduleName('crm/components/cardview/cardview'),
-      name: 'cardview'
-    }
+      route: 'agents',
+      moduleId: PLATFORM.moduleName('sfa/view/agents/agents'),
+      nav: true,
+      title: 'Agents',
+      name: 'agents'
+    },
+    {
+      route: 'orders',
+      moduleId: PLATFORM.moduleName('sfa/view/orders/orders'),
+      nav: true,
+      title: 'Orders',
+      name: 'orders'
+    },
   ],
   crm: [], // TODO: add crm child routes here
   cms: [], // TODO: add cms child routes here
