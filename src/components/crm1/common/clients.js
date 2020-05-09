@@ -11,12 +11,21 @@ export class Clients {
     this.http = http.http;
     this.contacts = [];
     this.filteredContacts = []
-    this.parties = []
     ea.subscribe("party", payload => {
       this.contacts = payload
       this.filteredContacts = this.contacts;
-      this.parties = this.contacts.map(contact => contact.partyId).filter(this.unique);
-      this.ea.publish("categoryParties", this.parties);
+
+      this.ea.publish("categoryParties",
+        this.contacts.map(contact => contact.partyId).filter(this.unique)
+      );
+
+      this.ea.publish("categoryFirstNames",
+        this.contacts.map(contact => contact.firstName).filter(this.unique)
+      );
+
+      this.ea.publish("categoryLastNames",
+        this.contacts.map(contact => contact.lastName).filter(this.unique)
+      );
     })
     ea.subscribe("unfilteredCustomers", payload => {
       console.log(this.contacts)
@@ -25,6 +34,12 @@ export class Clients {
     ea.subscribe("filterByParty", (party) => {
       this.filteredContacts = this.contacts.filter(
         contact => contact.partyId === party
+      )
+    })
+
+    ea.subscribe("filterByName", (name) => {
+      this.filteredContacts = this.contacts.filter(
+        contact => (contact.firstName === name) ||  (contact.lastName === name)
       )
     })
 

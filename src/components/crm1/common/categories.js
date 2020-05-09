@@ -10,14 +10,23 @@ export class Categories {
   constructor(ea) {
     this.ea = ea;
     this.partySearchInput = ""
+    this.nameSearchInput = ""
     this.categories = [new CategoryElement("asdasdasd"),
       new CategoryElement("fdg"),
       new CategoryElement("dfg")]
     ;
     this.parties = []
+    this.firstNames = []
+    this.lastNames = []
     ea.subscribe("categoryParties", payload => {
       this.parties = payload;
       console.log(this.parties)
+    })
+    ea.subscribe("categoryFirstNames", payload => {
+      this.firstNames = payload;
+    })
+    ea.subscribe("categoryLastNames", payload => {
+      this.lastNames = payload;
     })
   }
 
@@ -30,17 +39,30 @@ export class Categories {
     )
   }
 
-  unfilteredCustomers() {
-      this.ea.publish("unfilteredCustomers", true);
+  get names() {
+    return this.firstNames.concat(this.lastNames)
   }
 
-  capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  unfilteredCustomers() {
+      this.ea.publish("unfilteredCustomers", true);
   }
 
   filterByParty(party) {
     this.ea.publish("filterByParty", party);
   }
+
+  filterByName(name) {
+    this.ea.publish("filterByName", name);
+  }
+
+  capitalizeFirstLetter(string) {
+    if (string != null) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    return "null";
+  }
+
+
 
 
 

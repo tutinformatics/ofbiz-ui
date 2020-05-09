@@ -11,32 +11,47 @@
       <div class="scrollbar scrollbar-primary m-0">
         <div class="force-overflow"></div>
 
-      <ul class="list-group list-group-flush" id="group" style="max-height: 84vh;">
-        <div class="card pointer rounded-0 m-0 ml-2" click.delegate="unfilteredCustomers()">
+      <ul class="list-group list-group-flush " id="group" style="max-height: 84vh;">
+        <div class="card  pointer rounded-0 m-0 ml-2" click.delegate="unfilteredCustomers()">
           <b class="category p-0 py-2" >All customers</b>
         </div>
 
-        <div class="card   m-0 rounded-0" onclick="">
-
+        <div class="card  m-0 rounded-0">
             <div class="m-0 p-2 rounded-pill">
               <div class="panel-heading">
                 <h6 class="panel-title">
                   <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byParty"><b class="category">By party</b></a>
                 </h6>
               </div>
-
               <div id="byParty" class="panel-collapse collapse hide">
-                <input type="text" class="form-control rounded-pill" placeholder="Search..." value.bind="partySearchInput"  style="height: 26px;">
+                <label>
+                  <input type="text" class="form-control rounded-pill" placeholder="Search..." value.bind="partySearchInput"  style="height: 26px;">
+                </label>
 
-                  <div repeat.for="party of filteredParties" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByParty(party)">
-                    ${capitalizeFirstLetter(party)}
-                  </div>
-
-
-                <!--          <div class="panel-footer">Footer</div>-->
+                <div repeat.for="party of filteredParties" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByParty(party)">
+                  ${capitalizeFirstLetter(party)}
+                </div>
               </div>
             </div>
+        </div>
 
+        <div class="card  m-0 rounded-0">
+          <div class="m-0 p-2 rounded-pill">
+            <div class="panel-heading">
+              <h6 class="panel-title">
+                <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byName"><b class="category">By name</b></a>
+              </h6>
+            </div>
+            <div id="byName" class="panel-collapse collapse hide">
+              <label>
+                <input type="text" class="form-control rounded-pill" placeholder="Search..." value.bind="nameSearchInput"  style="height: 26px;">
+              </label>
+
+              <div repeat.for="name of names" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByName(name)">
+                ${capitalizeFirstLetter(name)}
+              </div>
+            </div>
+          </div>
         </div>
 
 
