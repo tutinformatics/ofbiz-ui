@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade bd-example-modal" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal fade bd-example-modal" id="client-detail-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog my-0">
       <div class="modal-content">
         <div class="modal-header">
@@ -13,65 +13,50 @@
             <div class="form-group m-0">
               <label class="col col-form-label">First Name</label>
               <div class="col-sm-9">
-                <input type="text" placeholder="First Name" class="form-control" value.bind="contact.firstName">
+                <input type="text" class="form-control" value.bind="contact.firstName">
               </div>
             </div>
 
             <div class="form-group m-0">
               <label class="col col-form-label">Last Name</label>
               <div class="col-sm-9">
-                <input type="text" placeholder="Last Name" class="form-control" value.bind="contact.lastName">
+                <input type="text" class="form-control" value.bind="contact.lastName">
               </div>
             </div>
 
             <div class="form-group m-0">
               <label class="col col-form-label pb-0">E-mail</label>
               <div class="col-sm-9">
-                <input type="text" placeholder="Email" class="form-control" value.bind="contact.email">
+                <input type="text" class="form-control" value.bind="contact.email">
               </div>
             </div>
 
             <div class="form-group m-0">
               <label class="col col-form-label">Phone Number</label>
               <div class="col-sm-9">
-                <input type="text" placeholder="Phone number" class="form-control" value.bind="contact.phoneNumber">
-              </div>
-            </div>
-
-            <div class="form-group m-0">
-              <div class="col-sm-9">
-                <label for="exampleFormControlSelect1" value.bind="contact.companyName">Company Name</label>
-                <select class="form-control" id="exampleFormControlSelect1" value.bind="contact.partyIdGroupName">
-                  <option>None</option>
-                  <option repeat.for="party of parties" >
-                    ${party.partyId}: ${party.groupName}
-                  </option>
-                </select>
+                <input type="text" class="form-control" value.bind="contact.phoneNumber">
               </div>
             </div>
 
             <div class="form-group m-0">
               <label class="col col-form-label">Contact Address</label>
               <div class="col-sm-9">
-                <input type="text" placeholder="Contact Address" class="form-control" value.bind="contact.address">
+                <input type="text" class="form-control" value.bind="contact.address">
               </div>
             </div>
 
             <div class="form-group m-0">
               <label class="col col-form-label ">Contact Post Index</label>
               <div class="col-sm-9">
-                <input type="text" placeholder="Post Index" class="form-control" value.bind="contact.postalCode">
+                <input type="text" class="form-control" value.bind="contact.postalCode">
               </div>
             </div>
           </form>
           <div class="mt-1">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button class="btn btn-success float-right" click.delegate="addContact(contact)">Save</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
 </template>

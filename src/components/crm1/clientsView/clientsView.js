@@ -23,7 +23,7 @@ export class ClientsView {
     this.router = router;
     this.contacts = [];
     this.simpleView = true;
-    this.view = "Card View"
+    this.view = "Card View";
   }
 
   async attached() {
@@ -94,7 +94,7 @@ export class ClientsView {
   }
 
   getClientInformation(contact) {
-    this.router.navigateToRoute('customerInfoPage', {id: contact.partyId})
+    this.ea.publish("currentClient", contact)
   }
 
   async addContact(contact) {
@@ -174,11 +174,6 @@ export class ClientsView {
           this.contacts.push(person)
         }
     }
-
-
-
-
   }
-
 }
 
