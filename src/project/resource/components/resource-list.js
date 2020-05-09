@@ -30,7 +30,9 @@ export class ResourceList {
       schema: {
         model: {
           fields: {
-            partyId: { type: 'string' }
+            partyId: { type: 'string' },
+            firstName: { type: 'string' },
+            lastName: { type: 'string' }
           }
         }
       }
