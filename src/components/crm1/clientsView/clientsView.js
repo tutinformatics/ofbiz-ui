@@ -17,8 +17,6 @@ export class ClientsView {
   selectedEmail = [];
   taskName = ''
 
-
-
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -78,7 +76,6 @@ export class ClientsView {
     });
 
     for (let i = 0; i < response.length; i++) {
-
       let contact = new Contact(
         response[i].firstName,
         response[i].lastName,
@@ -90,16 +87,9 @@ export class ClientsView {
         response[i].postalCode,
         response[i].partyId
       );
-
       this.contacts.push(contact);
 
-
     }
-
-
-
-
-
   }
 
   getClientInformation(contact) {
@@ -159,8 +149,6 @@ export class ClientsView {
     }
     return false;
   }
-
-
 
   search(){
     if(this.taskName === ''){

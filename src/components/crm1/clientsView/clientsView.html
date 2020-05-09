@@ -22,7 +22,6 @@
 <!--        <select id="column" ref="column">-->
 <!--          <option value="name_count">Name</option>-->
 <!--          <option value="company_count">Company</option>-->
-
 <!--        </select>-->
 
         <input  type="text"  value.bind="taskName" style=" width:300px;height: 38px; margin-bottom: 10px;margin-right: 10px">
@@ -98,21 +97,16 @@
           </th>
         </tr>
         </thead>
-
         <tbody>
-
         <tr repeat.for="contact of contacts">
           <td>${contact.firstName} ${contact.lastName}</td>
           <td>${contact.companyName}</td>
           <td if.bind="isEmail">${contact.email}</td>
           <td if.bind="isPhone">${contact.phoneNumber}</td>
-
           <td></td>
-
         </tr>
         </tbody>
       </table>
-
     </div>
 
   <add-client-pop-up ></add-client-pop-up>
