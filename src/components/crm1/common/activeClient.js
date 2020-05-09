@@ -38,9 +38,6 @@ export class ActiveClient {
 
       new clientQuickAction("Edit")];
 
-    this.contactOptions = [new clientContactOption("Call"),
-      new clientContactOption("Email"),
-      new clientContactOption("Meeting")];
 
     this.contactsListingOptions = [new clientContactOption("Calls"),
       new clientContactOption("Emails"),

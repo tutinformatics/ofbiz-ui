@@ -24,23 +24,15 @@ export class Activity {
       this.activity = payload.name;
       this.tableData.length = 0;
       this.getData(this.activity).then(r =>{console.log("table fetch OK")});
-    });
+    })
 
     this.ea.subscribe("changeModalState", payload => {
       this.showModal = payload;
-    });
+    })
 
     this.ea.subscribe("displayActivity", boolean => {
       this.displayActivity = boolean;
-    });
-
-    this.ea.subscribe("contactChosen", payload => {
-      this.chosenContact = payload;
-      this.firstName = this.chosenContact.firstName;
-      this.lastName = this.chosenContact.lastName;
-      this.companyName = this.chosenContact.companyName;
-      this.positionType = this.chosenContact.roleTypeId;
-    });
+    })
   }
 
 
@@ -52,6 +44,10 @@ export class Activity {
     // await this.login();
     if (activity === "Notes") {
       this.tableHeaders = this.notesHeaders;
+    }
+      else if(activity === "Leads"){
+      this.tableHeaders = this.notesHeaders;
+
     } else {
       console.log("else");
       this.data = [];
@@ -74,7 +70,7 @@ export class Activity {
       //Hard copied in case we make any other requests
       this.data.push(Object.create(response[i]));
 
-      let entry = new TableEntry(this.defineDataFor("Notes", response[i]));
+      let entry = new TableEntry(this.defineDataFor(activity, response[i]));
       this.tableData.push(entry);
     }
   }
@@ -94,75 +90,34 @@ export class Activity {
             "postalCode",
             "partyId"
           ]
-        });
-      case "Invoices":
-        return json({
-          "fieldList": [
-            "partyIdFrom",
-            "partyIdTrans",
-            "amount",
-            "quantity",
-            "invoiceId",
-            "itemDescription",
-            "invoiceTypeId",
-            "invoiceDate"
-          ]
-        });
-      case "Orders":
-        return json({
+        })
+    case "Leads":
+      return json({
+        "inputFields":
+          {
+            "roleTypeId": "LEAD"
+          },
         "fieldList": [
-          "orderId",
-          "orderDate",
-          "entryDate",
-          "partyId",
-          "webSiteId",
+          "firstName",
           "roleTypeId",
-          "grandTotal",
+          "partyId",
           "statusId"
         ]
-      });
-      case "Emails":
-        return json({
-          "inputFields": {
-            "partyIdFrom": this.chosenContact.partyId,
-            "communicationEventTypeId": "EMAIL_COMMUNICATION"
-          },
-          "fieldList": [
-            "partyIdFrom",
-            "partyIdTo",
-            "entryDate"
-          ]
-        });
-      case "Calls":
-        return json({
-          "inputFields": {
-            "partyIdFrom": this.chosenContact.partyId,
-            "communicationEventTypeId": "PHONE_COMMUNICATION"
-          },
-          "fieldList": [
-            "partyIdFrom",
-            "partyIdTo",
-            "entryDate"
-          ]
-        });
+      })
       default:
         return "none";
     }
   }
 
   resolveEntity(entityName) {
-    console.log(entityName)
     switch (entityName) {
       case "Notes":
         return "PartyExport";
-      case "Invoices":
-        return "InvoiceExport";
-      case "Orders":
-        return "OrderHeaderItemAndInvRoles";
-      case "Emails":
-        return "CommunicationEventAndRole";
-      case "Calls":
-        return "CommunicationEventAndRole";
+    case "Leads":
+      return "PartyRoleAndContactMechDetail";
+    case "Opportunities":
+      return "SalesOpportunity";
+
       default:
         return "PartyExport";
     }
@@ -178,6 +133,14 @@ export class Activity {
           responseEntry.emailAddress,
           responseEntry.phoneNumber
         ]
+    case "Leads":
+      return [
+        responseEntry.firstName,
+        responseEntry.statusId,
+        responseEntry.partyId,
+        responseEntry.roleTypeId
+
+      ]
       default: return undefined;
     }
   }
