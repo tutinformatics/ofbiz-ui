@@ -4,6 +4,7 @@
   <require from="../common/complexViewClient/clientSaleOption"></require>
   <require from="../common/complexViewClient/clientDocumentOption"></require>
   <require from="../common/add"></require>
+  <require from="../common/modals/changeCustomerDetails.html"></require>
 
   <div if.bind="displayClient">
     <div class="card rounded shadow-sm pb-2">
@@ -26,14 +27,16 @@
 
       <hr/>
 
-  <!--    Quick action such as edit, call etc.-->
+  <!--    Quick action such as edit etc.-->
       <div class="card row no-gutters m-0 rounded-0 ">
         <div class="btn-toolbar m-0 text-center p-0 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-          <div repeat.for="option of quickActionOptions" >
             <div class="btn-group" role="group">
-              <button type="button" click.delegate="quickAction(option)" class="btn rounded-pill  btn-primary btn-sm m-1">${option.name}</button>
+              <button type="button" click.delegate="quickAction(notes)"  class="btn rounded-pill  btn-primary btn-sm m-1">Notes</button>
             </div>
+          <div class="btn-group" role="group">
+            <button type="button" data-toggle="modal" data-target="#changeCustomerData"  class="btn rounded-pill  btn-primary btn-sm m-1">Edit</button>
           </div>
+
         </div>
       </div>
 
@@ -49,10 +52,10 @@
       </div>
       <hr/>
 
-  <!--    Leads, opportunities, proposals, deals-->
+  <!--   View conversation history-->
   <div class="card rounded-0 p-0 m-0 bg-white">
     <div class="card-header p-0">
-      <h6 class="m-0 pb-2 pt-1 text-center">Sales</h6>
+      <h6 class="m-0 pb-2 pt-1 text-center">Conversations</h6>
     </div>
     <div repeat.for="option of contactsListingOptions" >
       <div class="row">
@@ -72,7 +75,8 @@
         <div repeat.for="option of saleOptions" >
           <div class="row">
             <div class="col-12">
-              <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}<add click.delegate="openModal(option.name) && stopPropagation"></add></button>
+              <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}
+                <add data-toggle="modal" data-target="#changeCustomerData" click.delegate="preventPropagation(event)"></add></button>
             </div>
           </div>
         </div>
@@ -88,11 +92,85 @@
         <div repeat.for="option of options" >
           <div class="row">
             <div class="col-12">
-              <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}<add click.delegate="openModal(option.name) && stopPropagation"></add></button>
+              <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}<add data-toggle="modal" data-target="#changeCustomerData"></add></button>
             </div>
           </div>
         </div>
       </div>
   </div>
 </div>
+
+  <div class="modal fade bd-example-modal-lg" id="changeCustomerData" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="card">
+          <div class="card-header text-white bg-primary">
+            <h3>${firstName} ${lastName} Details</h3>
+          </div>
+          <div class="card-body">
+            <form role="form">
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">First Name</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${firstName}" class="form-control" value.bind="contact.url">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${lastName}" class="form-control" value.bind="contact.code">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">E-mail</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${email}" class="form-control" value.bind="contact.userid">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Phone Number</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${phoneNumber}" class="form-control" value.bind="contact.name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Company</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${companyName}" class="form-control" value.bind="contact.workspace_group_id">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Position</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${position}" class="form-control" value.bind="contact.workspace_group_id">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Company Address</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${companyAddress}" class="form-control" value.bind="contact.workspace_group_id">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 col-form-label">Company Post Index</label>
+                <div class="col-sm-9">
+                  <input type="text" placeholder="${addressIndex}" class="form-control" value.bind="contact.workspace_group_id">
+                </div>
+              </div>
+            </form>
+            <div>
+              <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

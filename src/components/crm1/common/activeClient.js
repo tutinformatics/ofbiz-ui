@@ -17,6 +17,7 @@ export class ActiveClient {
     this.lastName = "Herrington";
     this.companyName = "Company";
     this.displayClient = false;
+    this.notes = new clientQuickAction("Notes")
 
     ea.subscribe("contactChosen", payload => {
         this.chosenContact = payload
@@ -34,7 +35,7 @@ export class ActiveClient {
     this.view = "Card View"
 
     this.quickActionOptions = [
-      new clientQuickAction("Notes"),
+
       new clientQuickAction("Edit")];
 
     this.contactOptions = [new clientContactOption("Call"),
@@ -69,6 +70,8 @@ export class ActiveClient {
     this.ea.publish("openModal", true);
     event.stopPropagation();
   }
-
+  preventPropagation(event) {
+    event.stopPropagation();
+  }
 }
 
