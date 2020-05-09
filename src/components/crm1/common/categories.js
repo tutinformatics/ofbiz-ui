@@ -20,9 +20,15 @@ export class Categories {
     })
     ea.subscribe("categoryFirstNames", payload => {
       this.firstNames = payload
+      this.firstNames = this.firstNames.stream(
+        firstName => this.capitalizeFirstLetter(firstName)
+      )
     })
     ea.subscribe("categoryLastNames", payload => {
       this.lastNames = payload
+      this.lastNames = this.lastNames.stream(
+        lastName => this.capitalizeFirstLetter(lastName)
+      )
     })
   }
 
@@ -53,7 +59,7 @@ export class Categories {
   @computedFrom('nameSearchInput','firstNames', 'lastNames', 'includeFirstName', 'includeLastName')
   get names() {
     if (this.nameSearchInput.trim() === "") {
-      return this.getFirstNames.concat(this.getLastNames);
+      return this.getFirstNames.concat(this.getLastNames).sort();
     }
     return this.getFirstNames.concat(this.getLastNames)
       .filter(
