@@ -1,11 +1,11 @@
 import { inject } from 'aurelia-dependency-injection';
 import { Router } from 'aurelia-router';
-import { TaskService } from '../services/task-service';
+import { TaskService } from '../task/services/task-service';
 import { activationStrategy } from 'aurelia-router';
-import { ProjectService } from '../../services/project-service';
+import { ProjectService } from '../services/project-service';
 
 @inject(Router, TaskService, ProjectService)
-export class TaskList {
+export class ProjectView {
   constructor(router, taskService, projectService) {
     this.router = router;
     this.taskService = taskService;

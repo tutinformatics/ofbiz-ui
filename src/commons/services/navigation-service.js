@@ -11,15 +11,15 @@ const routes = {
       title: 'Projects'
     },
     {
-      route: 'new-task',
-      moduleId: PLATFORM.moduleName('project/task/components/task-edit'),
-      name: 'new-task',
+      route: 'my-tasks',
+      moduleId: PLATFORM.moduleName('project/task/components/task-list'),
+      name: 'my-tasks',
       nav: true,
       title: 'My Tasks'
     },
     {
       route: 'project/:id',
-      moduleId: PLATFORM.moduleName('project/task/components/task-list'),
+      moduleId: PLATFORM.moduleName('project/components/project-view'),
       name: 'project-view'
     },
     {
