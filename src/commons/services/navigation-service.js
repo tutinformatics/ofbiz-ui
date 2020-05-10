@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
-import {PLATFORM} from "aurelia-pal";
+import {PLATFORM} from 'aurelia-pal';
 
 const routes = {
-  project: [
+  'project': [
     {
       route: '',
       moduleId: PLATFORM.moduleName('project/components/project-list'),
@@ -54,7 +54,7 @@ const routes = {
       name: 'new-timesheet'
     }
   ],
-  sfa: [
+  'sfa': [
     { route: '', redirect: 'pipeline' },
     {
       route: 'pipeline',
@@ -74,10 +74,10 @@ const routes = {
       name: 'cardview'
     }
   ],
-  crm: [], // TODO: add crm child routes here
-  cms: [], // TODO: add cms child routes here
-  marketdata: [], // TODO: add marketdata child routes here
-  objectdist: [] // TODO: add objectdist child routes here
+  'crm': [], // TODO: add crm child routes here
+  'cms': [], // TODO: add cms child routes here
+  'marketdata': [], // TODO: add marketdata child routes here
+  'object-dist': [] // TODO: add objectdist child routes here
 };
 
 export class NavigationService {
