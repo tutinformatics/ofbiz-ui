@@ -73,19 +73,20 @@
       </tr>
       </thead>
       <tbody>
+
       <tr repeat.for="bill of filteredBills">
-        <td>${bill.itemDescription}</td>
+        <td>${bill.invoiceId}</td>
+        <td>${bill.invoiceTypeId}</td>
         <td>${bill.invoiceDate}</td>
-        <td>${bill.partyIdTrans}</td>
-        <td if.bind="isDesc">${bill.invoiceTypeId}</td>
+        <td if.bind="isDesc">${bill.itemDescription}</td>
         <td else></td>
         <td if.bind="isFrom">${bill.partyIdFrom}</td>
         <td else></td>
-        <td if.bind="isTo">${bill.amount}</td>
+        <td if.bind="isTo">${bill.partyIdTrans}</td>
         <td else></td>
-        <td if.bind="isQuality">${bill.invoiceId}</td>
+        <td if.bind="isQuality">${bill.quantity}</td>
         <td else></td>
-        <td if.bind="isTotal">${bill.quantity}</td>
+        <td if.bind="isTotal">${bill.amount}</td>
         <td else></td>
         <td></td>
       </tr>
