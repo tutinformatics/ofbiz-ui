@@ -20,19 +20,20 @@ export class ordersView {
     }
   ]
 
-  selectedOrder = [];
-  selectedShip = [];
-  selectedWeb = [];
-  selectedSale = [];
-  selectedTt = [];
-  selectedStatus = [];
 
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
     this.router = router;
     this.orders = [];
+    this.searchArgument = ""
 
+    this.selectedOrder = [];
+    this.selectedShip = [];
+    this.selectedWeb = [];
+    this.selectedSale = [];
+    this.selectedTt = [];
+    this.selectedStatus = [];
   }
 
   async attached() {
@@ -78,12 +79,7 @@ export class ordersView {
       this.orders.push(order);
     }
   }
-  selectedOrder = [];
-  selectedShip = [];
-  selectedWeb = [];
-  selectedSale = [];
-  selectedTt = [];
-  selectedStatus = [];
+
   get isOrder() {
     if(this.selectedOrder.length>0){
       return (this.selectedOrder);
@@ -120,5 +116,15 @@ export class ordersView {
     return false;
   }
 
+  get searchArg() {
+    return this.searchArgument.trim()
+  }
+
+  get filteredOrders() {
+    if (this.searchArg === "") {
+      return this.orders
+    }
+    return [];
+  }
 }
 

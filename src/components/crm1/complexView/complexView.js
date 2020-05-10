@@ -19,10 +19,6 @@ export class ComplexView {
     this.view = "Card View"
     this.displayActivity = false;
     this.displayClient = false;
-
-
-
-
   }
 
   async attached() {
