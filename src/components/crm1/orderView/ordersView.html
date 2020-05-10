@@ -20,9 +20,12 @@
 
           <div class="dropdown-menu sm_filter" aria-labelledby="dropdownMenuLink" >
             <h5 class="ml-3">Select filters:</h5>
-            <label class="btn p-0 ml-3">
-              <input type="checkbox" class="hugeInput" checked.bind="includeFirstName" autocomplete="off"> <b>First name</b>
-            </label>
+              <div style=" width: 100px; height: 100px; padding-left: 20px">
+                <input type="checkbox" class="hugeInput" checked.bind="searchParty" autocomplete="on">
+                <b>Party</b><br/>
+                <input type="checkbox" class="hugeInput" checked.bind="searchWebsite" autocomplete="on">
+                <b>Website</b><br/>
+              </div>
           </div>
         </div>
       </div>

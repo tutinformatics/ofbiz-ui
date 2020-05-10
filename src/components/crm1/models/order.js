@@ -8,6 +8,5 @@ export class Order {
     this.roleTypeId = roleTypeId;
     this.grandTotal = grandTotal;
     this.statusId = statusId;
-
   }
 }
