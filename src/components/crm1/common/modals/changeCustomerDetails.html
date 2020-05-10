@@ -3,17 +3,17 @@
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="card">
-          <div class="card-header text-white bg-primary p-0">
-            <h3>${firstName} ${lastName} Details</h3>
+          <div class="card-header modalHeader p-0">
+            <h3>${firstName} ${lastName}' Details</h3>
           </div>
-          <div class="card-body p-3">
+          <div class="card-body modalBody p-3">
             <form role="form">
 
               <div class="row py-2">
                 <div class="col">
                   <div class="form-group m-0">
-                    <label class="col col-form-label p-0">First Name:</label>
-                      <input type="text" placeholder="${firstName}" class="form-control rounded-pill" value.bind="contact.firstName">
+                    <label for="inputFirstName">First Name:</label>
+                    <input value="${firstName}" type="text" id="inputFirstName" class="form-control">
                   </div>
                 </div>
               </div>
@@ -21,36 +21,8 @@
               <div class="row py-2">
                 <div class="col">
                   <div class="form-group m-0">
-                    <label class="col col-form-label p-0">Last Name:</label>
-                      <input type="text" placeholder="${lastName}" class="form-control rounded-pill" value.bind="contact.lastName">
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="row py-2">
-                <div class="col">
-                  <div class="form-group m-0">
-                    <label class="col col-form-label p-0">E-mail:</label>
-                      <input type="text" placeholder="${email}" class="form-control rounded-pill" value.bind="contact.userid">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row py-2">
-                <div class="col">
-                  <div class="form-group m-0">
-                    <label class="col col-form-label p-0">Phone Number:</label>
-                      <input type="text" placeholder="${phoneNumber}" class="form-control rounded-pill" value.bind="contact.name">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row py-2">
-                <div class="col">
-                  <div class="form-group m-0">
-                    <label class="col col-form-label p-0">Company:</label>
-                    <input type="text" placeholder="${companyName}" class="form-control rounded-pill" value.bind="contact.companyName">
+                    <label for="inputLastName">Last Name:</label>
+                    <input value="${lastName}" type="text" id="inputLastName" class="form-control">
                   </div>
                 </div>
               </div>
@@ -59,8 +31,36 @@
               <div class="row py-2">
                 <div class="col">
                   <div class="form-group m-0">
-                    <label class="col col-form-label p-0">Position:</label>
-                    <input type="text" placeholder="${position}" class="form-control rounded-pill" value.bind="contact.workspace_group_id">
+                    <label for="inputEmail">Email:</label>
+                    <input value="${email}" type="text" id="inputEmail" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputPhoneNumber">Phone number:</label>
+                    <input value="${phoneNumber}" type="text" id="inputPhoneNumber" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputCompany">Company:</label>
+                    <input value="${companyName}" disabled type="text" id="inputCompany" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputPosition">Position:</label>
+                    <input value="${position}" disabled type="text" id="inputPosition" class="form-control">
                   </div>
                 </div>
               </div>

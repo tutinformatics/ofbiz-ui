@@ -15,16 +15,24 @@ export class Activity {
     this.ea = ea;
     this.data = [];
     this.tableHeaders = ["A", "B", "C", "D"];
-    this.notesHeaders = ["First name", "Last name", "status", "email", "phone"]
     this.tableData = [];
     this.displayActivity = false;
+
+    this.headerDict = {};
     //Predefined table headers for each category
+    this.headerDict["Notes"] = ["First name", "Last name", "Status", "Email", "Phone"];
+    this.headerDict["Leads"] = ["Name", "Status", "Contact", "ID"];
+    this.headerDict["Opportunities"] = ["Opportunity name","Description","ID", "Role Type"];
+    this.headerDict["Returned"] = ['Return ID', 'From', 'To', 'Date', 'Status'];
+    this.headerDict["Invoices"] = ['Invoice Id', 'From', 'To', 'Total amount $']
+    this.headerDict["Orders"] = ['Order Id', 'Order Date', 'From', 'Total amount']
+    this.headerDict["Emails"] = ['From', 'To', 'Created Date', 'Send Date']
+    this.headerDict["Calls"] = ['From', 'To', 'Created Date', 'Send Date']
 
     this.ea.subscribe("changeAction", payload => {
       this.activity = payload.name;
       this.tableData.length = 0;
       this.getData(this.activity).then(r =>{console.log("table fetch OK")});
-
     });
 
     this.ea.subscribe("changeModalState", payload => {
@@ -41,7 +49,6 @@ export class Activity {
       this.lastName = this.chosenContact.lastName;
       this.companyName = this.chosenContact.companyName;
       this.positionType = this.chosenContact.roleTypeId;
-
     });
   }
 
@@ -52,46 +59,8 @@ export class Activity {
   }
   async getData(activity) {
     // await this.login();
-    if (activity === "Notes") {
-      this.tableHeaders = this.notesHeaders;
-      this.data = [];
-      this.tableData = []
-    }
-    else if(activity === "Leads"){
-      this.tableHeaders = ["Name", "Status", "Contact", "ID"];
-      this.data = [];
-      this.tableData = []
-    }
-    else if(activity === "Opportunities") {
-      this.tableHeaders = ["Opportunity name","Description","ID", "Role Type"];
-      this.data = [];
-      this.tableData = []
-    }
-    else if(activity === "Returned") {
-      this.tableHeaders = ['Return ID', 'From', 'To', 'Date', 'Status'];
-      this.data = [];
-      this.tableData = []
-    } else if (activity === "Invoices") {
-      this.tableHeaders = ['Invoice Id', 'From', 'To', 'Total amount $']
-      this.data = [];
-      this.tableData = []
-    } else if (activity === "Orders") {
-      this.tableHeaders = ['Order Id', 'Order Date', 'From', 'Total amount']
-      this.data = [];
-      this.tableData = []
-    } else if (activity === "Emails") {
-      this.tableHeaders = ['From', 'To', 'Created Date', 'Send Date']
-      this.data = [];
-      this.tableData = []
-    } else if (activity === "Calls") {
-      this.tableHeaders = ['From', 'To', 'Created Date', 'Send Date']
-      this.data = [];
-      this.tableData = []
-    } else {
-      console.log("else");
-      this.data = [];
-      this.tableData = []
-    }
+    this.data = this.tableData = [];
+    this.tableHeaders = this.headerDict[activity];
     await this.fetch(activity);
   }
 
@@ -237,20 +206,20 @@ export class Activity {
     switch (entityName) {
       case "Notes":
         return "PartyExport";
-    case "Leads":
-      return "PartyRoleAndContactMechDetail";
-    case "Opportunities":
-      return "SalesOpportunityAndRole";
-    case "Invoices":
-      return "InvoiceExport";
-    case "Orders":
-      return "OrderHeaderItemAndInvRoles";
-    case "Emails":
-      return "CommunicationEventAndRole";
-    case "Calls":
-      return "CommunicationEventAndRole";
-    case "Returned":
-      return "ReturnHeader";
+      case "Leads":
+        return "PartyRoleAndContactMechDetail";
+      case "Opportunities":
+        return "SalesOpportunityAndRole";
+      case "Invoices":
+        return "InvoiceExport";
+      case "Orders":
+        return "OrderHeaderItemAndInvRoles";
+      case "Emails":
+        return "CommunicationEventAndRole";
+      case "Calls":
+        return "CommunicationEventAndRole";
+      case "Returned":
+        return "ReturnHeader";
       default:
         return "PartyExport";
     }
@@ -308,8 +277,6 @@ export class Activity {
         responseEntry.toPartyId,
         responseEntry.entryDate,
         responseEntry.statusId
-
-
       ];
     case "Opportunities":
       return [
@@ -317,14 +284,13 @@ export class Activity {
         responseEntry.description,
         responseEntry.partyId,
         responseEntry.roleTypeId
-
       ]
-
     default: return undefined;
     }
   }
 
   test(entry) {
-    console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
+    console.log(this.tableData.isUndefined)
+    // console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
   }
 }
