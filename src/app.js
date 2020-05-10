@@ -80,11 +80,6 @@ export class App {
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
       },
       {
-        route: 'timesheet',
-        name: 'timesheet',
-        moduleId: PLATFORM.moduleName('timesheet/timesheet')
-      },
-      {
         route: 'crm',
         moduleId: PLATFORM.moduleName('./components/crm1/baseui/baseui'),
         name: 'crm',
