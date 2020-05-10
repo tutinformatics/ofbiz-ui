@@ -25,7 +25,8 @@ export class AddClientPopUp {
       let response = await this.createPartyContactRelationship(contactId, partyId);
       console.log("created connection")
     }
-    this.ea.publish("addClient", new Contact(
+    if (contactId !== null)  {
+      this.ea.publish("addClient", new Contact(
         contact.firstName,
         contact.lastName,
         contact.email,
@@ -36,9 +37,9 @@ export class AddClientPopUp {
         contact.city,
         contact.postalCode,
         contactId
+        )
       )
-    )
-    console.log("published")
+    }
   }
 
   async createContact(contact) {
