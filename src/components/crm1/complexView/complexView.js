@@ -75,7 +75,7 @@ export class ComplexView {
         this.contacts.push(contact);
       }
     }
-    this.ea.publish("party", collectClients(this.contacts));
+    this.ea.publish("partyIds", collectClients(this.contacts));
   }
 
 }

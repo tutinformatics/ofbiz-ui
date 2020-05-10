@@ -13,7 +13,7 @@ export class Clients {
     this.contacts = [];
     this.filteredContacts = []
 
-    ea.subscribe("party", payload => {
+    ea.subscribe("partyIds", payload => {
       this.contacts = payload
       console.log(this.contacts)
       this.filteredContacts = this.contacts;
