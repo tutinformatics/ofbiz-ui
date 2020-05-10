@@ -5,6 +5,8 @@ export class StatusValueConverter {
         return 'ASSIGNED';
       case 'PTS_CREATED':
         return 'CREATED';
+      case 'TIMESHEET_IN_PROCESS':
+        return 'IN PROGRESS';
       default:
         return 'UNKNOWN';
     }
