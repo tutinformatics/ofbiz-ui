@@ -28,6 +28,7 @@ export class Activity {
     this.headerDict["Orders"] = ['Order Id', 'Order Date', 'From', 'Total amount']
     this.headerDict["Emails"] = ['From', 'To', 'Created Date', 'Send Date']
     this.headerDict["Calls"] = ['From', 'To', 'Created Date', 'Send Date']
+    this.headerDict["Meetings"] = ['With', 'With', 'Started', 'Ended']
 
     this.ea.subscribe("changeAction", payload => {
       this.activity = payload.name;
@@ -171,6 +172,20 @@ export class Activity {
           "entryDate"
         ]
       });
+
+      case "Meetings":
+        return json({
+          "inputFields": {
+            "partyId": this.chosenContact.partyId,
+            "communicationEventTypeId": "FACE_TO_FACE_COMMUNICATION"
+          },
+          "fieldList": [
+            "partyIdFrom",
+            "partyIdTo",
+            "datetimeStarted",
+            "datetimeEnded"
+          ]
+        });
     case "Opportunities":
       return json({
         "inputFields": {
@@ -217,6 +232,8 @@ export class Activity {
       case "Emails":
         return "CommunicationEventAndRole";
       case "Calls":
+        return "CommunicationEventAndRole";
+      case "Meetings":
         return "CommunicationEventAndRole";
       case "Returned":
         return "ReturnHeader";

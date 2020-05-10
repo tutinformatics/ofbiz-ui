@@ -10,25 +10,26 @@ export class Categories {
     this.ea = ea;
     this.partySearchInput = ""
     this.nameSearchInput = ""
+    this.companySearchInput = ""
     this.parties = []
     this.firstNames = []
     this.lastNames = []
+    this.companies = []
     this.includeFirstName = true;
     this.includeLastName = false;
+
+    ea.subscribe("categoryCompany", payload => {
+      this.companies = payload
+    })
+
     ea.subscribe("categoryParties", payload => {
       this.parties = payload
     })
     ea.subscribe("categoryFirstNames", payload => {
       this.firstNames = payload
-      this.firstNames = this.firstNames.stream(
-        firstName => this.capitalizeFirstLetter(firstName)
-      )
     })
     ea.subscribe("categoryLastNames", payload => {
       this.lastNames = payload
-      this.lastNames = this.lastNames.stream(
-        lastName => this.capitalizeFirstLetter(lastName)
-      )
     })
   }
 
@@ -44,6 +45,15 @@ export class Categories {
     ).sort(function (a, b) {
       return a.toLowerCase().localeCompare(b.toLowerCase());
     });
+  }
+
+  get getCompanies() {
+    if (this.companySearchInput.trim() === "") {
+      return this.companies.sort();
+    }
+    return this.companies.filter(
+      company => company.toUpperCase().startsWith(this.companySearchInput.toUpperCase())
+    ).sort();
   }
 
   get getFirstNames() {
@@ -83,6 +93,11 @@ export class Categories {
   filterByName(name) {
     this.ea.publish("filterByName", name)
   }
+
+  filterByCompany(company) {
+    this.ea.publish("filterByCompany", company)
+  }
+
 
   capitalizeFirstLetter(string) {
     if (string != null) {

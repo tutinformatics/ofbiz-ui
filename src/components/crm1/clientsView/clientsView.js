@@ -73,7 +73,6 @@ export class ClientsView {
         alert('Error fetching clients!');
     });
 
-    console.log(response)
     for (let i = 0; i < response.length; i++) {
         let contact = new Contact(
           response[i].firstName,

@@ -21,10 +21,10 @@
               <div class="m-0 p-2 rounded-pill">
                 <div class="panel-heading">
                   <h6 class="panel-title">
-                    <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byParty"><b class="category">By party</b></a>
+                    <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byPartyId"><b class="category">By partyId</b></a>
                   </h6>
                 </div>
-                <div id="byParty" class="panel-collapse collapse hide" data-parent="#allPanels">
+                <div id="byPartyId" class="panel-collapse collapse hide" data-parent="#allPanels">
                   <label>
                     <input type="text" class="form-control rounded-pill" placeholder="Enter party..." value.bind="partySearchInput"  style="height: 26px;">
                   </label>
@@ -34,6 +34,26 @@
                   </div>
                 </div>
               </div>
+          </div>
+
+
+          <div class="card  m-0 rounded-0">
+            <div class="m-0 p-2 rounded-pill">
+              <div class="panel-heading">
+                <h6 class="panel-title">
+                  <a class="text-decoration-none pointer canHover" data-toggle="collapse"  href="#byCompany"><b class="category">By company</b></a>
+                </h6>
+              </div>
+              <div id="byCompany" class="panel-collapse collapse hide" data-parent="#allPanels">
+                <label>
+                  <input type="text" class="form-control rounded-pill" placeholder="Enter company..." value.bind="companySearchInput"  style="height: 26px;">
+                </label>
+
+                <div repeat.for="company of getCompanies" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByCompany(company)">
+                  ${capitalizeFirstLetter(company)}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card  m-0 rounded-0">

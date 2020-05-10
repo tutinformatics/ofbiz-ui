@@ -15,7 +15,12 @@ export class Clients {
 
     ea.subscribe("party", payload => {
       this.contacts = payload
+      console.log(this.contacts)
       this.filteredContacts = this.contacts;
+
+      this.ea.publish("categoryCompany",
+        this.contacts.map(contact => contact.companyName).filter(this.unique)
+      );
 
       this.ea.publish("categoryParties",
         this.contacts.map(contact => contact.partyId).filter(this.unique)
@@ -41,6 +46,11 @@ export class Clients {
       )
     })
 
+    ea.subscribe("filterByCompany", (company) => {
+      this.filteredContacts = this.contacts.filter(
+        contact => contact.companyName === company
+      )
+    })
     ea.subscribe("filterByName", (name) => {
       this.filteredContacts = this.contacts.filter(
         contact => (contact.firstName === name) ||  (contact.lastName === name)
