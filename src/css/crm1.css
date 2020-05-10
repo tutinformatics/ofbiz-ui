@@ -92,4 +92,10 @@ input{
   right: 50px;
 }
 
+.dropdown-menu.sm_filter{
+  width: 100px;
+  height: 100px;
+
+}
+
 

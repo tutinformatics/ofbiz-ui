@@ -29,7 +29,7 @@ export class Activity {
     this.headerDict["Orders"] = ['Order Id', 'Order Date', 'From', 'Total amount']
     this.headerDict["Emails"] = ['From', 'To', 'Created Date', 'Send Date']
     this.headerDict["Calls"] = ['From', 'To', 'Created Date', 'Send Date']
-    this.headerDict["Meetings"] = ['With', 'With', 'Started', 'Ended']
+    this.headerDict["Meetings"] = ['Compamy', 'With', 'Started', 'Ended']
     this.headerDict["Proposals"] = ['ID', 'Created Date', 'Description', 'Status']
     this.headerDict["Deals"] = ['ID', 'Company', 'Started', 'Ended']
     this.headerDict["Claims"] = ['ID', 'Company', 'Started', 'Ended']
