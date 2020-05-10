@@ -4,6 +4,7 @@ import {json} from "aurelia-fetch-client";
 import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {Router} from "aurelia-router";
 import {TableEntry} from "../models/tableEntry";
+import {getDate} from '../../../commons/util/dateConverter';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class Activity {
@@ -29,6 +30,9 @@ export class Activity {
     this.headerDict["Emails"] = ['From', 'To', 'Created Date', 'Send Date']
     this.headerDict["Calls"] = ['From', 'To', 'Created Date', 'Send Date']
     this.headerDict["Meetings"] = ['With', 'With', 'Started', 'Ended']
+    this.headerDict["Proposals"] = ['ID', 'Created Date', 'Description', 'Status']
+    this.headerDict["Deals"] = ['ID', 'Company', 'Started', 'Ended']
+    this.headerDict["Claims"] = ['ID', 'Company', 'Started', 'Ended']
 
     this.ea.subscribe("changeAction", payload => {
       this.activity = payload.name;
@@ -212,6 +216,33 @@ export class Activity {
           "statusId"
         ]
       });
+    case "Deals":
+      return json({
+        "inputFields": {
+
+        },
+        "fieldList": [
+
+        ]
+      });
+    case "Proposals":
+      return json({
+        "inputFields": {
+
+        },
+        "fieldList": [
+
+        ]
+      });
+    case "Claims":
+      return json({
+        "inputFields": {
+
+        },
+        "fieldList": [
+
+        ]
+      });
       default:
         return "none";
     }
@@ -237,6 +268,12 @@ export class Activity {
         return "CommunicationEventAndRole";
       case "Returned":
         return "ReturnHeader";
+      case "Claims":
+        return "SalesOpportunityAndRole";
+      case "Proposals":
+        return "SalesOpportunityAndRole";
+      case "Deals":
+        return "SalesOpportunityAndRole";
       default:
         return "PartyExport";
     }
@@ -267,32 +304,38 @@ export class Activity {
         responseEntry.amount
       ];
     case "Orders":
+      let entryDate = getDate(responseEntry.orderDate);
       return [
         responseEntry.orderId,
-        responseEntry.orderDate,
+        entryDate,
         responseEntry.roleTypeId,
         responseEntry.grandTotal
       ];
     case "Emails":
+      let datetimeStarted = getDate(responseEntry.datetimeStarted);
+      let entry = getDate(responseEntry.entryDate);
       return [
         responseEntry.partyIdFrom,
         responseEntry.partyIdTo,
-        responseEntry.datetimeStarted,
-        responseEntry.entryDate
+        datetimeStarted,
+        entry
       ];
     case "Calls":
+      let datetimeStarted1 = getDate(responseEntry.datetimeStarted);
+      let entry1 = getDate(responseEntry.entryDate);
       return [
         responseEntry.partyIdFrom,
         responseEntry.partyIdTo,
-        responseEntry.datetimeStarted,
-        responseEntry.entryDate
+        datetimeStarted1,
+        entry1
     ];
     case "Returned":
+      let entryD = getDate(responseEntry.entryDate);
       return [
         responseEntry.returnHeaderTypeId,
         responseEntry.fromPartyId,
         responseEntry.toPartyId,
-        responseEntry.entryDate,
+        entryD,
         responseEntry.statusId
       ];
     case "Opportunities":
@@ -301,6 +344,20 @@ export class Activity {
         responseEntry.description,
         responseEntry.partyId,
         responseEntry.roleTypeId
+      ]
+
+    case "Proposals":
+      return [
+
+      ]
+    case "Deals":
+      return [
+
+
+      ]
+    case "Claims":
+      return [
+
       ]
     default: return undefined;
     }

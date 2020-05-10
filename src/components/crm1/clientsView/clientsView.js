@@ -22,7 +22,7 @@ export class ClientsView {
 
   selectedPhone = [];
   selectedEmail = [];
-  taskName = ''
+
 
   constructor(ea, http, router) {
     this.ea = ea;
