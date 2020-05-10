@@ -1,19 +1,25 @@
 <template>
-  <div class="row">
 
-    <div class="col-8">
-      <div class="row">
-        <h1>Opportunities</h1>
-        <img class="ml-3" src="./../assets/img/favorite.svg" alt="fave">
-        <div>
-          <button type="button" class="btn btn-secondary mt-2 ml-3" data-toggle="modal" href="#opportunityModal">Add new opportunity</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
+      <span class="navbar-brand mb-0 h1">Opportunities</span>
+      <img src="../../../assets/img/favorite.svg" alt="fave">
+      <button type="button" class="btn btn-outline-dark col-2" data-toggle="modal" href="#opportunityModal">
+        <img src="../../../assets/img/add.svg" alt="">
+        New opportunity
+      </button>
+      <form class="form-inline col-3">
+        <input class="form-control" type="search" placeholder="Search Opportunities..." aria-label="Search" style="width:100%">
+      </form>
+      <button type="button" class="btn btn-outline-dark col-2">
+        Opportunity Filter
+      </button>
+      <button type="button" class="btn btn-outline-dark col-3">
+        <img src="../../../assets/img/favourite.svg" alt="">
+        Opportunity Favourites
+      </button>
+    </nav>
+    <div class="col-12">
       <div class="dropdown float-right">
-        <input class="form-control mt-2" type="text" placeholder="Filter" aria-label="Search">
-
         <div class="modal fade" id="opportunityModal" tabindex="-1" role="dialog"
           aria-labelledby="opportunityModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -71,5 +77,4 @@
         </div>
       </div>
     </div>
-  </div>
 </template>

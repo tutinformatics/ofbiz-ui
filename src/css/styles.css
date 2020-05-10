@@ -18,7 +18,7 @@
   background-color: white !important;
 }
 
-button-icon {
+.button-icon {
   cursor: pointer
 }
 
@@ -98,7 +98,7 @@ ul.custom-pagination li a.disabled {
   width: 220px;
 }
 
-button-icon {
+.button-icon {
   cursor: pointer
 }
 

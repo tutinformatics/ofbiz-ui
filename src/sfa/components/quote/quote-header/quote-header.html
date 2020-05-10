@@ -1,65 +1,69 @@
 <template>
-  <div class="row">
-    <div class="col-8">
-      <div class="row">
-        <h1>Quotes</h1>
-        <img class="ml-3" src="assets/img/favorite.svg" alt="fave">
-        <div>
-          <button type="button" class="btn btn-secondary mt-2 ml-3" data-toggle="modal" href="#agentModal">Add new
-            quote</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="dropdown float-right">
-        <button type="button" class="btn btn-secondary">Filter</button>
-
-        <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog"
-          aria-labelledby="quoteModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="quoteModalLabel">Add new quote</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- form fields need to be changed! -->
-                <form role="form" id="quoteForm" submit.delegate="newQuote()">
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Name</label>
-                    <input type="text" class="form-control" id="opportunity-name" value.bind="name">
-                  </div>
-                  <div class="form-group">
-                    <label for="message-text" class="col-form-label">Description</label>
-                    <textarea class="form-control" id="opportunity-description" value.bind="description"></textarea>
-                  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
+    <span class="navbar-brand mb-0 h1">Quotes</span>
+    <img src="../../../assets/img/favorite.svg" alt="fave">
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#quoteModal">
+      <img src="../../../assets/img/add.svg" alt="">
+      New quote
+    </button>
+      <form class="form-inline col-6">
+        <input class="form-control" type="search" placeholder="Search Quotes..." aria-label="Search" style="width:100%">
+      </form>
+      <button type="button" class="btn btn-outline-dark">
+        Quote Filter
+      </button>
+      <button type="button" class="btn btn-outline-dark">
+        <img src="../../../assets/img/favourite.svg" alt="">
+        Quote Favourites
+      </button>
+  </nav>
+  <div class="col-12">
+    <div class="dropdown float-right">
+      <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog"
+        aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quoteModalLabel">New quote</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- form fields need to be changed! -->
+              <form role="form" id="quoteForm" submit.delegate="newQuote()">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Name</label>
+                  <input type="text" class="form-control" id="opportunity-name" value.bind="name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Description</label>
+                  <textarea class="form-control" id="opportunity-description" value.bind="description"></textarea>
+                </div>
+                <div class="input-group">
+                  <label for="message-text" class="col-form-label">Price</label>
                   <div class="input-group">
-                    <label for="message-text" class="col-form-label">Price</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
-                        value.bind="price">
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">€</span>
-                      </div>
+                    <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
+                      value.bind="price">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">€</span>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="message-text" class="col-form-label">Stage</label>
-                    <select class="form-control" value.bind="stage">
-                      <option value="new">New</option>
-                      <option value="proposition">Proposition</option>
-                      <option value="won">Won</option>
-                    </select>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" click.delegate="newQuote()"
-                      data-dismiss="modal">Save changes</button>
-                  </div>
-                </form>
-              </div>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Stage</label>
+                  <select class="form-control" value.bind="stage">
+                    <option value="new">New</option>
+                    <option value="proposition">Proposition</option>
+                    <option value="won">Won</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" click.delegate="newQuote()"
+                    data-dismiss="modal">Save changes</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
