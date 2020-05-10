@@ -5,6 +5,7 @@ import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {Bill} from '../models/bill';
+import {filter} from "minimatch";
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class billsView {
@@ -31,6 +32,7 @@ export class billsView {
     this.http = http.http;
     this.router = router;
     this.bills = [];
+    this.searchArgument = ""
 
   }
 
@@ -55,26 +57,26 @@ export class billsView {
         ]
       })
     })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
+    .then(response => response.json())
+    .catch(() => {
+      alert('Error fetching clients!');
+    });
 
     for (let i = 0; i < response.length; i++) {
-      let invoicedate = getDate(response[i].invoiceDate);
         let bill = new Bill(
         response[i].partyIdFrom,
-          invoicedate,
         response[i].partyIdTrans,
         response[i].amount,
         response[i].quantity,
         response[i].invoiceId,
         response[i].itemDescription,
-        response[i].invoiceTypeId
+        response[i].invoiceTypeId,
+        getDate(response[i].invoiceDate)
       );
       this.bills.push(bill);
     }
   }
+
   get isDesc() {
     if(this.selectedDesc.length>0){
       return (this.selectedDesc);
@@ -105,7 +107,22 @@ export class billsView {
     return false;
   }
 
+  get searchArg() {
+    return this.searchArgument.trim().toUpperCase();
+  }
 
+  get filteredBills() {
+
+    if (this.searchArg === "") {
+      return this.bills;
+    }
+    console.log(this.bills)
+    return this.bills.filter(
+      bill => bill.itemDescription != null &&
+        bill.itemDescription.toUpperCase().split(" ").length > 1
+
+    )
+  }
 
 }
 

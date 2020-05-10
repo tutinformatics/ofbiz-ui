@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-6" >
         <div class="m-1 helpers">
-          <input class="input_inside" type="text"  value.bind="taskName" placeholder="    Search Tasks..." >
+          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Tasks..." >
         </div>
       </div>
       <div class="col-md-3 d-flex flex-row" >
@@ -73,7 +73,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr repeat.for="bill of bills">
+      <tr repeat.for="bill of filteredBills">
         <td>${bill.itemDescription}</td>
         <td>${bill.invoiceDate}</td>
         <td>${bill.partyIdTrans}</td>
