@@ -5,14 +5,21 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @inject(Router, ProjectService)
 export class ProjectList {
-  datasource = {
-    transport: {
-      read: (options) => {
-        this.projectService.getProjectList()
-          .then(projects => options.success(projects));
-      }
-    }
-  };
+
+  attached() {
+    const grid = document.querySelector('vaadin-grid');
+    this.projectService
+      .getProjectList()
+      .then((response) => {
+          response.map(
+            project => {
+              project.currentStatusId = !!project.currentStatusId ? project.currentStatusId : 'UNKNOWN'; //TODO: change this workaround
+            }
+          );
+          grid.items = response;
+        }
+      );
+  }
 
   constructor(router, projectService) {
     this.router = router;
@@ -22,5 +29,8 @@ export class ProjectList {
 
   handleAddProject() {
     this.router.navigate('new-project');
+  }
+  handleSelectProject(projectId){
+    console.log(projectId);
   }
 }

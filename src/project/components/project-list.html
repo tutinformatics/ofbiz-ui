@@ -1,39 +1,30 @@
 <template>
-  <require from="aurelia-kendoui-bridge/grid/grid"></require>
-  <require from="aurelia-kendoui-bridge/grid/col"></require>
-  <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
-  <require from="aurelia-kendoui-bridge/common/template"></require>
-
   <div class="card">
-    <div class="card-header text-white bg-primary">Project Dashboard</div>
-
+    <div class="card-header">
+      <h2 class="float-left mr-4">Project Dashboard</h2>
+      <button class="btn btn-primary float-left" click.delegate="handleAddProject()">
+        <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+        Create Project
+      </button>
+    </div>
     <div class="card-body">
-      <ak-grid k-data-source.bind="datasource">
-        <ak-grid-toolbar>
-          <ak-template>
-            <button
-              class="btn btn-primary float-left"
-              click.delegate="handleAddProject()"
-            >
-            <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
-              Create Project
-            </button>
-          </ak-template>
-        </ak-grid-toolbar>
-        <ak-col k-title="Project ID" k-field="projectId">
-          <ak-template>
-            <a route-href="route: project-view; params.bind: {id: projectId}">${projectId}</a>
-          </ak-template>
-        </ak-col>
-        <ak-col k-title="Project Name" k-field="projectName"></ak-col>
-        <ak-col k-title="Project Status ID" k-field="currentStatusId">
-          <ak-template>
-            <span class="badge badge-pill ${currentStatusId | statusBadge}">
-              ${currentStatusId | status}
-            </span>
-          </ak-template>
-        </ak-col>
-      </ak-grid>
+      <vaadin-grid theme="row-stripes" column-reordering-allowed height-by-rows>
+        <vaadin-grid-column path="projectId" header="Project ID">
+          <template>
+            <a href="javascript:void(0);"
+               click.delegate="handleSelectProject([item.projectId])"
+            >[[item.projectId]]</a>
+          </template>
+        </vaadin-grid-column>
+        <vaadin-grid-column path="projectName" header="Project Name"></vaadin-grid-column>
+        <vaadin-grid-column path="currentStatusId" header="Current Status">
+          <template>
+                <span class="badge badge-success">
+                  [[item.currentStatusId]]
+                </span>
+          </template>
+        </vaadin-grid-column>
+      </vaadin-grid>
     </div>
   </div>
 </template>
