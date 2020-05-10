@@ -5,6 +5,7 @@ import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {json} from 'aurelia-fetch-client';
 import {inject} from "aurelia-dependency-injection";
 import {EventAggregator} from "aurelia-event-aggregator";
+import {collectClients} from "../utils/collectClients";
 
 
 @inject(EventAggregator, HttpClientCRM, Router)
@@ -72,7 +73,7 @@ export class ComplexView {
         this.contacts.push(contact);
       }
     }
-    this.ea.publish("party", this.contacts);
+    this.ea.publish("party", collectClients(this.contacts));
   }
 
 }
