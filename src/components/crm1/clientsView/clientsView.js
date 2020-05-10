@@ -11,18 +11,14 @@ import {computedFrom} from 'aurelia-framework';
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
 
-
   categories = [
     {
       "phone": 'Phone',
       "mail" : 'Email'
     }
   ]
-
-
   selectedPhone = [];
   selectedEmail = [];
-
 
   constructor(ea, http, router) {
     this.ea = ea;
