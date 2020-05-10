@@ -1,11 +1,12 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../../commons/util/HttpClientCRM';
+import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
 import {json} from 'aurelia-fetch-client';
-import {Contact} from '../../models/contact';
+import {Contact} from '../models/contact';
 import * as toastr from 'toastr';
-import {errorAlert} from '../../config/alertConf'
-import {readErrorMsg} from '../../utils/alertHandling'
+import {alertConfig} from '../config/alertConf'
+import {readErrorMsg} from '../utils/alertHandling'
+import $ from 'jquery';
 
 @inject(EventAggregator, HttpClientCRM)
 export class AddClientPopUp {
@@ -39,7 +40,16 @@ export class AddClientPopUp {
         contactId
         )
       );
-      toastr.success("Client successfully saved!");
+      toastr.success("Client successfully saved!", "", alertConfig);
+      return "success"
+    }
+    return "error"
+  }
+
+  async addContactAndClose(contact) {
+    let response = await this.addContact(contact)
+    if (response === "success") {
+      $('#create-modal').modal('hide');
     }
   }
 
@@ -63,7 +73,7 @@ export class AddClientPopUp {
 
     if (response.responseMessage === "error") {
       let errMsg = readErrorMsg(response);
-      toastr.error(errMsg, "", errorAlert);
+      toastr.error(errMsg, "", alertConfig);
       return null;
     }
     return response.partyId;
@@ -85,7 +95,7 @@ export class AddClientPopUp {
       });
     if (response.responseMessage === "error") {
       let errMsg = readErrorMsg(response);
-      toastr.error(errMsg, "", errorAlert);
+      toastr.error(errMsg, "", alertConfig);
       return null;
     }
     return response

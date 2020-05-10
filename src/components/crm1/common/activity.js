@@ -57,8 +57,6 @@ export class Activity {
     });
   }
 
-
-
   closeActivity() {
     this.ea.publish("displayActivity", false);
   }
