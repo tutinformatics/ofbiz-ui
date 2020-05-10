@@ -1,11 +1,11 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
+import {HttpClientCRM} from '../../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
 import {json} from 'aurelia-fetch-client';
-import {Contact} from '../models/contact';
+import {Contact} from '../../models/contact';
 import * as toastr from 'toastr';
-import {errorAlert} from '../config/alertConf'
-import {readErrorMsg} from '../utils/alertHandling'
+import {errorAlert} from '../../config/alertConf'
+import {readErrorMsg} from '../../utils/alertHandling'
 
 @inject(EventAggregator, HttpClientCRM)
 export class AddClientPopUp {
