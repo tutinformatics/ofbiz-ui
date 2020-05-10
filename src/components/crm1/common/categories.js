@@ -19,15 +19,16 @@ export class Categories {
     this.includeLastName = false;
 
     ea.subscribe("categoryCompany", payload => {
+      console.log(payload)
       this.companies = payload
-    })
+    });
 
-    ea.subscribe("categoryParties", payload => {
+    ea.subscribe("categoryPartiesIds", payload => {
       this.parties = payload
-    })
+    });
     ea.subscribe("categoryFirstNames", payload => {
       this.firstNames = payload
-    })
+    });
     ea.subscribe("categoryLastNames", payload => {
       this.lastNames = payload
     })

@@ -11,6 +11,8 @@ export class AddClientPopUp {
     this.ea = ea;
     this.http = http.http;
     ea.subscribe("party", payload => {
+      console.log("subscribe");
+      console.log(payload)
       this.parties = payload
     });
   }

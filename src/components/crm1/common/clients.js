@@ -2,6 +2,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
+import {json} from 'aurelia-fetch-client';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 
@@ -11,18 +12,19 @@ export class Clients {
     this.http = http.http;
     this.router = router;
     this.contacts = [];
-    this.filteredContacts = []
+    this.filteredContacts = [];
+    this.parties = [];
 
     ea.subscribe("partyIds", payload => {
-      this.contacts = payload
-      console.log(this.contacts)
+      this.contacts = payload;
+      console.log(this.contacts);
       this.filteredContacts = this.contacts;
 
       this.ea.publish("categoryCompany",
         this.contacts.map(contact => contact.companyName).filter(this.unique)
       );
 
-      this.ea.publish("categoryParties",
+      this.ea.publish("categoryPartiesIds",
         this.contacts.map(contact => contact.partyId).filter(this.unique)
       );
 
@@ -33,12 +35,12 @@ export class Clients {
       this.ea.publish("categoryLastNames",
         this.contacts.map(contact => contact.lastName).filter(this.unique)
       );
-    })
+    });
 
     ea.subscribe("unfilteredCustomers", payload => {
-      console.log(this.contacts)
+      console.log(this.contacts);
       this.filteredContacts = this.contacts
-    })
+    });
 
     ea.subscribe("filterByParty", (party) => {
       this.filteredContacts = this.contacts.filter(
@@ -58,6 +60,10 @@ export class Clients {
     })
   }
 
+  async attached() {
+    await this.getAllParties();
+  }
+
   unique(value, index, self) {
     return self.indexOf(value) === index;
   }
@@ -65,5 +71,27 @@ export class Clients {
   chooseContact(contact) {
     this.ea.publish("contactChosen", contact);
     this.ea.publish("displayClient", true);
+  }
+
+  async getAllParties() {
+    let response = await this.http.fetch('/entityquery/PartyRoleAndPartyDetail', {
+      method: 'post',
+      body: json({
+        "inputFields":
+          {
+            "roleTypeId": "ACCOUNT"
+          },
+        "fieldList": [
+          "partyId",
+          "roleTypeId",
+          "groupName"
+        ]
+      })
+    })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching clients!');
+      });
+    this.ea.publish("party", response)
   }
 }
