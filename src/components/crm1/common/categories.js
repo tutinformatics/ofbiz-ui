@@ -35,11 +35,15 @@ export class Categories {
   @computedFrom('partySearchInput','parties')
   get filteredParties() {
     if (this.partySearchInput.trim() === "") {
-      return this.parties.sort();
+      return this.parties.sort(function (a, b) {
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+      });
     }
     return this.parties.filter(
       party => party.toUpperCase().startsWith(this.partySearchInput.toUpperCase())
-    ).sort()
+    ).sort(function (a, b) {
+      return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
   }
 
   get getFirstNames() {
