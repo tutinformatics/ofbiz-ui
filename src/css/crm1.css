@@ -36,6 +36,13 @@ body{
   border-radius: 5px;
 
 }
+
+.dropdown-menu.filter{
+  width: 300px;
+  height: 300px;
+
+}
+
 input{
   background-color: #F5F6F7;
 }
