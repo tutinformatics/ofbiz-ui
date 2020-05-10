@@ -10,7 +10,7 @@ export class AgentHeader {
   }
 
   newAgent() {
-    let agent = { name: this.name, phone: this.phone, email: this.email };
+    let agent = { name: this.name, telecomNumber: this.phone, emailAddress: this.email };
     this.agentService.createNewAgent(agent);
   };
 }
