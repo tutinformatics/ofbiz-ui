@@ -72,9 +72,12 @@ input{
 .helpers input:focus{
   outline: none
 }
-
+.card-body.card_selections{
+  margin-top: 20px;
+}
 
 .card-body.card_selections .btn{
+
   position: absolute;
   right: 25px;
   bottom: 10px;
