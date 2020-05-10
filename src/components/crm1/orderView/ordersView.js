@@ -34,6 +34,9 @@ export class ordersView {
     this.selectedSale = [];
     this.selectedTt = [];
     this.selectedStatus = [];
+
+    this.searchParty = true
+    this.searchWebsite = true
   }
 
   async attached() {
@@ -117,14 +120,18 @@ export class ordersView {
   }
 
   get searchArg() {
-    return this.searchArgument.trim()
+    return this.searchArgument.trim().toUpperCase()
   }
 
   get filteredOrders() {
-    if (this.searchArg === "") {
+    if (this.searchArg === "" || (!this.searchParty && !this.searchWebsite)) {
       return this.orders
     }
-    return [];
+    return this.orders.filter(
+      order =>
+        (this.searchParty && order.partyId.toUpperCase().startsWith(this.searchArg )) ||
+        (this.searchWebsite && order.webSiteId.toUpperCase().startsWith(this.searchArg))
+    )
   }
 }
 

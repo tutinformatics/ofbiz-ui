@@ -5,7 +5,6 @@ import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {Bill} from '../models/bill';
-import {filter} from "minimatch";
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class billsView {
