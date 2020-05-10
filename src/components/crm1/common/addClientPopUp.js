@@ -2,6 +2,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
 import {json} from 'aurelia-fetch-client';
+import {Contact} from '../models/contact';
 
 @inject(EventAggregator, HttpClientCRM)
 export class AddClientPopUp {
@@ -11,15 +12,31 @@ export class AddClientPopUp {
     this.http = http.http;
     ea.subscribe("party", payload => {
       this.parties = payload
-    })
+    });
   }
 
   async addContact(contact) {
     let contactId = await this.createContact(contact);
     if (contactId !== null && contact.partyIdGroupName.toLowerCase() !== "none") {
       let partyId = contact.partyIdGroupName.split(":")[0];
+      console.log("create")
       let response = await this.createPartyContactRelationship(contactId, partyId);
+      console.log("created connection")
     }
+    this.ea.publish("addClient", new Contact(
+        contact.firstName,
+        contact.lastName,
+        contact.email,
+        contact.phoneNumber,
+        contact.partyIdGroupName.split(":")[1],
+        contact.roleTypeId,
+        contact.address,
+        contact.city,
+        contact.postalCode,
+        contactId
+      )
+    )
+    console.log("published")
   }
 
   async createContact(contact) {
@@ -31,7 +48,8 @@ export class AddClientPopUp {
           "lastName": contact.lastName,
           "emailAddress": contact.email,
           "contactNumber": contact.phoneNumber,
-          "address2": contact.address,
+          "address1": contact.address,
+          "city": contact.city,
           "postalCode": contact.postalCode,
           "login.username": "admin",
           "login.password": "ofbiz"
@@ -45,7 +63,6 @@ export class AddClientPopUp {
       alert('please check your data');
       return null;
     }
-    console.log(response)
     return response.partyId;
   }
 
@@ -63,6 +80,10 @@ export class AddClientPopUp {
       .catch((error) => {
         alert(error);
       });
+    if (response.responseMessage === "error") {
+      alert('Can not add client to company!');
+      return null;
+    }
     return response
   }
 }

@@ -17,6 +17,10 @@ export class ClientsView {
     this.contacts = [];
     this.simpleView = true;
     this.view = "Card View";
+
+    this.ea.subscribe("addClient", payload => {
+      this.contacts.push(payload);
+    })
   }
 
   async attached() {
@@ -58,6 +62,7 @@ export class ClientsView {
             "companyName",
             "roleTypeId",
             "address1",
+            "city",
             "postalCode",
             "partyId"
           ]
@@ -68,6 +73,7 @@ export class ClientsView {
         alert('Error fetching clients!');
     });
 
+    console.log(response)
     for (let i = 0; i < response.length; i++) {
         let contact = new Contact(
           response[i].firstName,
@@ -77,13 +83,13 @@ export class ClientsView {
           response[i].companyName,
           response[i].roleTypeId,
           response[i].address1,
+          response[i].city,
           response[i].postalCode,
           response[i].partyId
         );
         this.contacts.push(contact);
     }
     this.contacts = collectClients(this.contacts);
-    console.log(this.contacts)
   }
 
   getClientInformation(contact) {
