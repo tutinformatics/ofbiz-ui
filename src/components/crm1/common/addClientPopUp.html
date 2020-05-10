@@ -2,13 +2,13 @@
   <div class="modal fade bd-example-modal" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog my-0">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header pt-0 pb-0">
           <h5 class="modal-title">Create new contact</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body pt-0">
           <form role="form">
             <div class="form-group m-0">
               <label class="col col-form-label">First Name</label>
@@ -54,6 +54,13 @@
               <label class="col col-form-label">Contact Address</label>
               <div class="col-sm-9">
                 <input type="text" placeholder="Contact Address" class="form-control" value.bind="contact.address">
+              </div>
+            </div>
+
+            <div class="form-group m-0">
+              <label class="col col-form-label">Contact City</label>
+              <div class="col-sm-9">
+                <input type="text" placeholder="Contact Address" class="form-control" value.bind="contact.city">
               </div>
             </div>
 
