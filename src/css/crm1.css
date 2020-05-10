@@ -36,9 +36,9 @@ body{
 }
 
 .dropdown-menu.filter{
-  width: 80px;
+  width: 100px;
   height: 150px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 input{
@@ -92,11 +92,7 @@ input{
   right: 50px;
 }
 
-.dropdown-menu.sm_filter{
-  width: 100px;
-  height: 100px;
 
-}
 
 .col-form-label.required:after{
   content:"*";
