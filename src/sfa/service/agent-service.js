@@ -32,5 +32,22 @@ export class AgentService {
         console.error(reason);
       });
   }
+
+  deleteAgentById(id) {
+    return this.client
+      .fetch(
+        `${this.baseUrl}entities/agent/?agentId=` + id,
+        {
+          method: "DELETE"
+        }
+      );
+  }
+  editAgent(agent) {
+    this.client
+      .fetch(`${this.baseUrl}entities/agent`, {
+        method: 'PUT',
+        body: json(agent)
+      })
+  }
 }
 

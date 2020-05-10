@@ -12,6 +12,5 @@ export class AgentHeader {
   newAgent() {
     let agent = { name: this.name, phone: this.phone, email: this.email };
     this.agentService.createNewAgent(agent);
-    // this.ea.publish('newOpportunityCreation', 'jou');
   };
 }

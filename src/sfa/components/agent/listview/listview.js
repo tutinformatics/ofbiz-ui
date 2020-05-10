@@ -13,5 +13,9 @@ export class ListView {
         data => this.agents = data
       );
   }
+  deleteAgent(id, index) {
+    this.agents.splice(index, 1);
+    this.agentService.deleteAgentById(id);
+  }
 }
 

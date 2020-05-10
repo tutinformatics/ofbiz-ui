@@ -8,18 +8,18 @@
               <h5>${opportunity.name}</h5>
             </div>
             <div class="col text-right">
-              <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
+              <a style="text-decoration: none; cursor: pointer" route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
                 <img src="./../assets/img/edit.svg" alt="edit">
               </a>
-              <a click.delegate="deleteOpportunity($index, opportunity.opportunityId)">
+              <a style="cursor: pointer" click.delegate="deleteOpportunity($index, opportunity.opportunityId)">
                 <img src="./../assets/img/delete.svg" alt="delete">
               </a>
             </div>
           </div>
           <p class="card-text">${opportunity.description}</p>
-          <div class="row ml-1 mr-1">
-          <p class="card-text">${opportunity.stage}</p>
-          <p class="card-text col text-right"><b>${opportunity.price}€</b></p>
+          <div class="row ml-1 mr-1" style="position: absolute; bottom: 0; width: 90%">
+            <p class="card-text">${opportunity.stage}</p>
+            <p class="card-text col text-right"><b>${opportunity.price}€</b></p>
           </div>
         </div>
       </div>

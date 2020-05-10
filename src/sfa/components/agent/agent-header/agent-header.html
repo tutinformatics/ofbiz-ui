@@ -6,7 +6,7 @@
         <h1>Agents</h1>
         <img class="ml-3" src="assets/img/favorite.svg" alt="fave">
         <div>
-          <button type="button" class="btn btn-secondary mt-2 ml-3" data-toggle="modal" href="#agentModal">Add new
+          <button if.bind="!edit" type="button" class="btn btn-secondary mt-2 ml-3" data-toggle="modal" href="#agentModal">Add new
             agent</button>
         </div>
       </div>
@@ -26,7 +26,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form role="form" id="agentForm" submit.delegate="newAgent()">
+                <form role="form" id="agentForm">
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Name</label>
                     <input type="text" class="form-control" id="agent-name" value.bind="name">
@@ -41,8 +41,15 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" click.delegate="newAgent()" data-dismiss="modal">Save
-                      changes</button>
+                    <button type="button" class="btn btn-primary" click.delegate="newAgent()"
+                            data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-primary" click.delegate="newAgent()"
+                            data-dismiss="modal">
+                      <a style="color: #ffffff; btext-decoration: none" route-href="route: agent-edit; params.bind: { name: name, phone: phone, email: email}">
+                        Save and edit
+                      </a>
+                    </button>
+
                   </div>
                 </form>
               </div>
