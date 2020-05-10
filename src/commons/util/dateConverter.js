@@ -1,7 +1,4 @@
-
-
 export function getDate(value){
-
       let d = new Date(value);
       let formattedDate = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear();
       let hours = (d.getHours() < 10) ? "0" + d.getHours() : d.getHours();
@@ -10,6 +7,4 @@ export function getDate(value){
 
       formattedDate = formattedDate + " " + formattedTime;
       return formattedDate;
-
-
 }
