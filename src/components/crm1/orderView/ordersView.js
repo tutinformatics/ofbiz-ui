@@ -9,12 +9,24 @@ import {getDate} from '../../../commons/util/dateConverter';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ordersView {
-  // phone = [ 'Phone'];
-  // mail = [ 'Email'];
-  // pageSize = 10;
-  //
-  // selectedPhone = [];
-  // selectedEmail = [];
+  categories = [
+    {
+      "orderDate": 'Order Date',
+      "shipment" : 'Shipment Start',
+      "website" : "Website",
+      "salesperson" : "Salesperson",
+      "total" : "Total",
+      "status" : "Status",
+    }
+  ]
+
+  selectedOrder = [];
+  selectedShip = [];
+  selectedWeb = [];
+  selectedSale = [];
+  selectedTt = [];
+  selectedStatus = [];
+
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -66,17 +78,47 @@ export class ordersView {
       this.orders.push(order);
     }
   }
-  // get isPhone() {
-  //   if(this.selectedPhone.length>0){
-  //     return (this.selectedPhone);
-  //   }
-  //   return false;
-  // }
-  // get isEmail() {
-  //   if(this.selectedEmail.length>0){
-  //     return (this.selectedEmail);
-  //   }
-  //   return false;
-  // }
+  selectedOrder = [];
+  selectedShip = [];
+  selectedWeb = [];
+  selectedSale = [];
+  selectedTt = [];
+  selectedStatus = [];
+  get isOrder() {
+    if(this.selectedOrder.length>0){
+      return (this.selectedOrder);
+    }
+    return false;
+  }
+  get isShip() {
+    if(this.selectedShip.length>0){
+      return (this.selectedShip);
+    }
+    return false;
+  }
+  get isWeb() {
+    if(this.selectedWeb.length>0){
+      return (this.selectedWeb);
+    }
+    return false;
+  }
+  get isSale() {
+    if(this.selectedSale.length>0){
+      return (this.selectedSale);
+    }
+    return false;
+  }get isTotal() {
+    if(this.selectedTt.length>0){
+      return (this.selectedTt);
+    }
+    return false;
+  }
+  get isStatus() {
+    if(this.selectedStatus.length>0){
+      return (this.selectedStatus);
+    }
+    return false;
+  }
+
 }
 

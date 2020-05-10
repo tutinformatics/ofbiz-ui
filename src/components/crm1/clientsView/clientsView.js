@@ -10,6 +10,19 @@ import {collectClients} from '../utils/collectClients'
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
 
+
+  categories = [
+    {
+      "phone": 'Phone',
+      "mail" : 'Email'
+    }
+  ]
+
+
+  selectedPhone = [];
+  selectedEmail = [];
+  taskName = ''
+
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -95,13 +108,14 @@ export class ClientsView {
     this.ea.publish("currentClient", contact)
   }
 
-  toggleView() {
-    if (this.simpleView) {
-      this.view = "Table View"
-    } else {
-      this.view = "Card view"
-    }
-    this.simpleView = !this.simpleView;
+
+  cardView(){
+    this.view = "Card view"
+    this.simpleView = true;
+  }
+  tableView(){
+    this.view = "Table View"
+    this.simpleView = false;
   }
   get isPhone() {
     if(this.selectedPhone.length>0){
@@ -115,6 +129,7 @@ export class ClientsView {
     }
     return false;
   }
+
 
   search(){
     if(this.taskName === ''){

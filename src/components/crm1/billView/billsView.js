@@ -9,6 +9,22 @@ import {Bill} from '../models/bill';
 @inject(EventAggregator, HttpClientCRM, Router)
 export class billsView {
 
+  categories = [
+    {
+      "description": 'Description',
+      "from" : 'From',
+      "to" : "To",
+      "quantity" : "Quantity",
+      "total" : "Total"
+    }
+  ]
+
+  selectedDesc = [];
+  selectedFr = [];
+  selectedTo = [];
+  selectedQa = [];
+  selectedTt = [];
+
 
   constructor(ea, http, router) {
     this.ea = ea;
@@ -56,10 +72,39 @@ export class billsView {
         response[i].itemDescription,
         response[i].invoiceTypeId
       );
-
       this.bills.push(bill);
     }
   }
+  get isDesc() {
+    if(this.selectedDesc.length>0){
+      return (this.selectedDesc);
+    }
+    return false;
+  }
+  get isFrom() {
+    if(this.selectedFr.length>0){
+      return (this.selectedFr);
+    }
+    return false;
+  }
+  get isTo() {
+    if(this.selectedTo.length>0){
+      return (this.selectedTo);
+    }
+    return false;
+  }
+  get isQuality() {
+    if(this.selectedQa.length>0){
+      return (this.selectedQa);
+    }
+    return false;
+  }get isTotal() {
+    if(this.selectedTt.length>0){
+      return (this.selectedTt);
+    }
+    return false;
+  }
+
 
 
 }
