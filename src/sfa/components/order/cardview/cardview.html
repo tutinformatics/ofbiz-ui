@@ -6,7 +6,7 @@
           <div class="row">
             <h5 class="card-subtitle">${order.orderId}</h5>
             <div class="col text-right">
-              <a style="text-decoration: none; cursor: pointer" route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
+              <a style="text-decoration: none; cursor: pointer" route-href="route: order-edit; params.bind: { order: order}">
                 <img src="./../../assets/img/edit.svg" alt="edit">
               </a>
               <a style="cursor: pointer" click.delegate="deleteOrder($index, order.orderId)">
@@ -16,8 +16,13 @@
           </div>
           <br>
           <h5 class="card-subtitle">${order.orderName}</h5>
-          <p class="card-text">Status: ${order.statusId}</p>
-          <p class="card-text">Sum: ${order.grandTotal} ${order.currencyUom}</p>
+          <div class="card-text">Status: ${order.statusId}</div>
+          <div class="card-text">Sum: ${order.grandTotal} ${order.currencyUom}</div>
+          <div class="col text-right">
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#">
+              Details
+            </button>
+          </div>
         </div>
       </div>
     </div>
