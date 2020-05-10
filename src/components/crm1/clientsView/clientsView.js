@@ -10,13 +10,6 @@ import {Router} from 'aurelia-router';
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
 
-  phone = [ 'Phone'];
-  mail = [ 'Email'];
-
-  selectedPhone = [];
-  selectedEmail = [];
-  taskName = ''
-
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
@@ -61,10 +54,10 @@ export class ClientsView {
             "lastName",
             "firstName",
             "emailAddress",
-            "phoneNumber",
+            "telContactNumber",
             "companyName",
-          "roleTypeId",
-            "address",
+            "roleTypeId",
+            "address2",
             "postalCode",
             "partyId"
           ]
@@ -77,57 +70,26 @@ export class ClientsView {
 
     for (let i = 0; i < response.length; i++) {
       if (response[i].roleTypeId !== "_NA_") {
+        console.log(response[i].roleTypeId)
         let contact = new Contact(
           response[i].firstName,
           response[i].lastName,
           response[i].emailAddress,
-          response[i].phoneNumber,
+          response[i].telContactNumber,
           response[i].companyName,
           response[i].roleTypeId,
-          response[i].address,
+          response[i].address2,
           response[i].postalCode,
           response[i].partyId
         );
         this.contacts.push(contact);
       }
     }
+    console.log(this.contacts)
   }
 
   getClientInformation(contact) {
     this.ea.publish("currentClient", contact)
-  }
-
-  async addContact(contact) {
-    let response = await this.http.fetch('/services/createContact', {
-      method: 'post',
-      body: json({
-        "userLoginId": "admin",
-        "firstName": contact.firstName,
-        "lastName": contact.lastName,
-        "emailAddress": contact.email,
-        "contactNumber": contact.phoneNumber,
-        "address1": contact.companyAddress,
-        "city": contact.companyAddress,
-        "postalCode": contact.postalCode,
-      })
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-    });
-    let person = new Contact(
-      contact.firstName,
-      contact.lastName,
-      contact.email,
-      contact.phoneNumber,
-      contact.companyName,
-      contact.position,
-      contact.companyAddress,
-      contact.postalCode,
-      contact.partyId
-    );
-
-    this.contacts.push(person) // for testing
   }
 
   toggleView() {

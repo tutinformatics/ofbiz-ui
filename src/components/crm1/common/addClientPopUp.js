@@ -23,14 +23,15 @@ export class AddClientPopUp {
   }
 
   async createContact(contact) {
+    console.log(contact)
     let response = await this.http.fetch('/services/createContact', {
         method: 'post',
         body: json({
           "firstName": contact.firstName,
           "lastName": contact.lastName,
           "emailAddress": contact.email,
-          "phoneNumber": contact.phoneNumber,
-          "address": contact.address,
+          "contactNumber": contact.phoneNumber,
+          "address2": contact.address,
           "postalCode": contact.postalCode,
           "login.username": "admin",
           "login.password": "ofbiz"
