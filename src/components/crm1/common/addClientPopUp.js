@@ -3,6 +3,9 @@ import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
 import {json} from 'aurelia-fetch-client';
 import {Contact} from '../models/contact';
+import * as toastr from 'toastr';
+import {errorAlert} from '../config/alertConf'
+import {readErrorMsg} from '../utils/alertHandling'
 
 @inject(EventAggregator, HttpClientCRM)
 export class AddClientPopUp {
@@ -11,7 +14,6 @@ export class AddClientPopUp {
     this.ea = ea;
     this.http = http.http;
     ea.subscribe("party", payload => {
-      console.log("subscribe");
       console.log(payload)
       this.parties = payload
     });
@@ -21,9 +23,7 @@ export class AddClientPopUp {
     let contactId = await this.createContact(contact);
     if (contactId !== null && contact.partyIdGroupName.toLowerCase() !== "none") {
       let partyId = contact.partyIdGroupName.split(":")[0];
-      console.log("create")
       let response = await this.createPartyContactRelationship(contactId, partyId);
-      console.log("created connection")
     }
     if (contactId !== null)  {
       this.ea.publish("addClient", new Contact(
@@ -38,7 +38,8 @@ export class AddClientPopUp {
         contact.postalCode,
         contactId
         )
-      )
+      );
+      toastr.success("Client successfully saved!");
     }
   }
 
@@ -59,11 +60,10 @@ export class AddClientPopUp {
         })
       })
       .then(response => response.json())
-      .catch((error) => {
-        alert(error);
-      });
+
     if (response.responseMessage === "error") {
-      alert('please check your data');
+      let errMsg = readErrorMsg(response);
+      toastr.error(errMsg, "", errorAlert);
       return null;
     }
     return response.partyId;
@@ -84,7 +84,8 @@ export class AddClientPopUp {
         alert(error);
       });
     if (response.responseMessage === "error") {
-      alert('Can not add client to company!');
+      let errMsg = readErrorMsg(response);
+      toastr.error(errMsg, "", errorAlert);
       return null;
     }
     return response
