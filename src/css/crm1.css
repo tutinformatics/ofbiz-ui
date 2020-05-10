@@ -83,4 +83,9 @@ input{
   text-align: center;
 }
 
+.side_window{
+  position: fixed;
+  right: 50px;
+}
+
 

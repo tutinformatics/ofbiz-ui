@@ -29,7 +29,7 @@
         <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-filter"></i> Filters</a>
 
-        <div class="dropdown-menu filter" aria-labelledby="dropdownMenuLink" >
+        <div class="dropdown-menu filter " aria-labelledby="dropdownMenuLink" >
           <h6 class="ml-3">Select filters:</h6>
 
             <input type="checkbox" class="hugeInput" checked.bind="searchFirstName" autocomplete="on">
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div class="side_window d-flex flex-column ">
+    <div class="side_window d-flex flex-column fixed-right" >
       <a href="#" role="button" click.delegate="cardView()"><img src="../baseui/assets/img/card.svg"></a>
       <a href="#" role="button" click.delegate="tableView()"><img src="../baseui/assets/img/list.svg"></a>
     </div>
