@@ -12,16 +12,17 @@ export class OrderEdit {
     }
 
     activate(params, routeConfig, navigationInstruction) {
+      this.billingAccounts = this.orderService.getBillingAccounts();
+      console.log(this.billingAccounts);
         if (params.order.orderId && typeof(params.order.orderId) === 'string') {
             this.order = params.order;
-            console.log(this.order);
             this.orderId = params.order.orderId;
         }
     }
-    editOpportunity() {
-      let order = { name: this.order.name, description: this.order.description, price: this.order.price, pipelineId: "SAMPLE_ID1", customerId: "SAMPLE_ID1", contactId: "SAMPLE_ID1", stage: this.stage, opportunityId: this.opportunityId };
-      this.orderService.editOpportunity(order);
-      OrderEdit.goBack();
+    editOrder() {
+      let order = { grandTotal: this.order.grandTotal, statusId: this.order.statusId, orderId: this.order.orderId };
+      this.orderService.editOrder(order);
+      this.goBack();
     };
 
     goBack() {

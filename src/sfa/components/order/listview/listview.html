@@ -18,8 +18,8 @@
         <td>${order.grandTotal} ${order.currencyUom}</td>
         <td>${timeConverter(order.lastUpdatedStamp)}</td>
         <td>
-          <a route-href="route: order-edit; params.bind: { order: order}">Edit</a> |
-          <a click.trigger="deleteOrder(order.orderId, $index)">Delete</a>
+          <a style="text-decoration: none" route-href="route: order-edit; params.bind: { order: order}">Edit</a> |
+          <a style="color: #007bff; cursor: pointer" click.trigger="deleteOrder(order.orderId, $index)">Delete</a>
         </td>
       </tr>
       </tbody>

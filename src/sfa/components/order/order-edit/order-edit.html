@@ -3,26 +3,24 @@
     <h4>Edit order</h4>
     <hr />
     <form role="form" id="orderForm">
-      <label for="recipient-name" class="col-form-label">Order ID: ${order.orderId}</label>
-      <label for="message-text" class="col-form-label">Order name: ${order.orderName}</label>
+      <label for="recipient-name" class="col-form-label">Order: ${order.orderId}</label>
+      <hr>
+      <label if.bind="order.orderName" for="message-text" class="col-form-label">Order name: ${order.orderName}</label>
       <div class="input-group">
         <label for="message-text" class="col-form-label">Price</label>
         <div class="input-group">
-          <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2" value.bind="opportunity.price">
+          <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2" value.bind="order.grandTotal">
           <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">€</span>
+            <span class="input-group-text" id="basic-addon2">${order.currencyUom}</span>
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label for="message-text" class="col-form-label">Stage</label>
-        <select class="form-control" value.bind="stage">
-          <option value="Order Approved" selected.bind="order.statusId == 'ORDER_APPROVED'">Approved</option>
-          <option value="Proposition" selected.bind="order.statusId == 'ORDER_APPROVED'">Proposition</option>
-          <option value="Won" selected.bind="opportunity.stage == 'won'">Won</option>
-          <option value="New" selected.bind="opportunity.stage == 'new'">New</option>
-          <option value="Proposition" selected.bind="opportunity.stage == 'proposition'">Proposition</option>
-          <option value="Won" selected.bind="opportunity.stage == 'won'">Won</option>
+        <label for="message-text" class="col-form-label">Status</label>
+        <select class="form-control" value.bind="statusId">
+          <option value="ORDER_CREATED" selected.bind="order.statusId == 'ORDER_CREATED'">Created</option>
+          <option value="ORDER_APPROVED" selected.bind="order.statusId == 'ORDER_APPROVED'">Approved</option>
+          <option value="ORDER_COMPLETED" selected.bind="order.statusId == 'ORDER_COMPLETED'">Completed</option>
         </select>
       </div>
       <div class="form-group">
@@ -31,13 +29,18 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="message-text" class="col-form-label">Customer</label>
-        <select class="form-control" value.bind="opportunity.customer">
+        <label for="message-text" class="col-form-label">Billing account</label>
+        <select class="form-control" value.bind="order.billingAccountId">
+          <option>empty</option>
+          <option repeat.for="billingAccount of billingAccounts._value"
+                  model.bind="billingAccount.billingAccountId">
+            ${billingAccount.description}
+          </option>
         </select>
       </div>
       <div class="modal-footer">
         <a click.delegate="goBack()">Back to List</a>
-        <button class="btn btn-primary" click.delegate="editOpportunity()" type="submit">Save changes</button>
+        <button class="btn btn-primary" click.delegate="editOrder()" type="submit">Save changes</button>
       </div>
     </form>
   </div>

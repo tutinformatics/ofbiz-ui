@@ -27,7 +27,31 @@ export class OrderService {
         return [];
       });
   }
-
+  getBillingAccounts() {
+    return this.client
+      .fetch(`${this.baseUrl}entities/BillingAccount`)
+      .then(response => response.json())
+      .catch(reason => {
+        console.error(reason);
+        return [];
+      });
+  }
+  deleteOrder(id) {
+    return this.client
+      .fetch(
+        `${this.baseUrl}entities/OrderHeader?orderId=` + id,
+        {
+          method: "DELETE"
+        }
+      );
+  }
+  editOrder(order) {
+    this.client
+      .fetch(`${this.baseUrl}entities/OrderHeader`, {
+        method: 'PUT',
+        body: json(order)
+      })
+  }
   createNewOrder(order) {
     this.client
       .fetch(`${this.baseUrl}entities/OrderHeader`, {
