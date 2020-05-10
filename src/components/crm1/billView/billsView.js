@@ -33,12 +33,9 @@ export class billsView {
     this.router = router;
     this.bills = [];
     this.searchArgument = ""
-
   }
-
   async attached() {
     await this.getAllBills();
-
   }
 
   async getAllBills() {
@@ -112,7 +109,6 @@ export class billsView {
   }
 
   get filteredBills() {
-
     if (this.searchArg === "") {
       return this.bills;
     }
@@ -120,9 +116,7 @@ export class billsView {
     return this.bills.filter(
       bill => bill.itemDescription != null &&
         bill.itemDescription.toUpperCase().split(" ").length > 1
-
     )
   }
-
 }
 
