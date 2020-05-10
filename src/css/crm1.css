@@ -79,7 +79,7 @@ input{
 .card-body.card_selections .btn{
 
   position: absolute;
-  right: 25px;
+  right: 5px;
   bottom: 10px;
 }
 .card-header{
@@ -88,6 +88,7 @@ input{
 
 .side_window{
   position: fixed;
+  margin-top: 20px;
   right: 50px;
 }
 
