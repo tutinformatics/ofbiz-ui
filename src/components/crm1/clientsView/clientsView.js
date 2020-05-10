@@ -5,7 +5,7 @@ import {json} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
-
+import {collectClients} from '../utils/collectClients'
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
@@ -57,7 +57,7 @@ export class ClientsView {
             "telContactNumber",
             "companyName",
             "roleTypeId",
-            "address2",
+            "address1",
             "postalCode",
             "partyId"
           ]
@@ -69,8 +69,6 @@ export class ClientsView {
     });
 
     for (let i = 0; i < response.length; i++) {
-      if (response[i].roleTypeId !== "_NA_") {
-        console.log(response[i].roleTypeId)
         let contact = new Contact(
           response[i].firstName,
           response[i].lastName,
@@ -78,13 +76,13 @@ export class ClientsView {
           response[i].telContactNumber,
           response[i].companyName,
           response[i].roleTypeId,
-          response[i].address2,
+          response[i].address1,
           response[i].postalCode,
           response[i].partyId
         );
         this.contacts.push(contact);
-      }
     }
+    this.contacts = collectClients(this.contacts);
     console.log(this.contacts)
   }
 
