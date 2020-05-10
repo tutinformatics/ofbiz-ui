@@ -10,32 +10,22 @@ export class TimesheetList {
   constructor(router, timesheetService) {
     this.router = router;
     this.timesheetService = timesheetService;
-    this.button = faPlus;
+    this.faPlus = faPlus;
   }
 
-  created() {
-    this.datasource = {
-      transport: {
-        read: (options) => {
-          this.timesheetService
-            .getTimesheetList()
-            .then((timesheets) => {
-              options.success(timesheets);
-            });
+  attached() {
+    const grid = document.querySelector('vaadin-grid');
+    this.timesheetService
+      .getTimesheetList()
+      .then((response) => {
+          response.map(
+            sheet => {
+              sheet.statusId = !!sheet.statusId ? sheet.statusId : 'UNKNOWN'; //TODO: change this workaround
+            }
+          );
+          grid.items = response;
         }
-      },
-      schema: {
-        model: {
-          fields: {
-            timesheetId: { type: 'number' },
-            statusId: { type: 'string' },
-            partyId: { type: 'string' },
-            fromDate: { type: 'date' },
-            thruDate: { type: 'date' }
-          }
-        }
-      }
-    };
+      );
   }
 
   handleAddTimesheet() {
