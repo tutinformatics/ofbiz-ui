@@ -38,10 +38,11 @@ export class ComplexView {
           "lastName",
           "firstName",
           "emailAddress",
-          "phoneNumber",
+          "telContactNumber",
           "companyName",
           "roleTypeId",
-          "address",
+          "address1",
+          "city",
           "postalCode",
           "partyId"
         ]
@@ -66,7 +67,8 @@ export class ComplexView {
           response[i].phoneNumber,
           response[i].companyName,
           response[i].roleTypeId,
-          response[i].address,
+          response[i].address1,
+          response[i].city,
           response[i].postalCode,
           response[i].partyId
         );
