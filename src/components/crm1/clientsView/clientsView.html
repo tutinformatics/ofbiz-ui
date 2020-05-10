@@ -84,17 +84,15 @@
               <a class="btn btn-outline-dark" style="border: none;" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v"></i></a>
               <form>
-
+                <div repeat.for="product of categories">
                 <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
-                  <label repeat.for="product of categories">
                     <p class="dropdown-item"  >
-                      <input type="checkbox" value.bind="product.phone" checked.bind="selectedPhone" checked="checked">
+                      <input type="checkbox" value.bind="product.phone" checked.bind="selectedPhone" >
                       ${product.phone}</p>
                     <p class="dropdown-item"  >
-                      <input type="checkbox" value.bind="product.mail" checked.bind="selectedEmail" checked="checked">
+                      <input type="checkbox" value.bind="product.mail" checked.bind="selectedEmail">
                       ${product.mail}</p>
-
-                  </label>
+                </div>
                 </div>
               </form>
             </div>
