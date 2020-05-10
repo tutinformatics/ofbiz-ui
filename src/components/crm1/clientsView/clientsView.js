@@ -6,6 +6,7 @@ import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
 import {collectClients} from '../utils/collectClients'
+import {computedFrom} from 'aurelia-framework';
 
 @inject(EventAggregator, HttpClientCRM, Router)
 export class ClientsView {
@@ -30,6 +31,12 @@ export class ClientsView {
     this.contacts = [];
     this.simpleView = true;
     this.view = "Card View";
+    this.searchArgument = "";
+    this.sortedContacts = []
+    this.searchFirstName = true
+    this.searchLastName = true
+    this.searchEmail = true
+    this.searchPhoneNumber = true
 
     this.ea.subscribe("addClient", payload => {
       this.contacts.push(payload);
@@ -129,31 +136,22 @@ export class ClientsView {
     }
     return false;
   }
-
-
-  search(){
-    if(this.taskName === ''){
-      this.getAllContacts();
-      this.contacts = []
+  @computedFrom('searchArgument')
+  get searchArg() {
+    return this.searchArgument.trim().toUpperCase()
+  }
+  @computedFrom('searchArg','contacts','searchFirstName','searchLastName','searchEmail','searchPhoneNumber')
+  get filteredContacts() {
+    if (this.searchArg === "" || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber)) {
+      return this.contacts;
     }
-    for (let i = 0; i <= this.contacts.length; i++) {
-        if(this.contacts[i].firstName.toLowerCase().indexOf(this.taskName.toLowerCase()) !== -1){
-          let person = new Contact(
-            this.contacts[i].firstName ,
-            this.contacts[i].lastName,
-            this.contacts[i].email,
-            this.contacts[i].phoneNumber,
-            this.contacts[i].companyName,
-            this.contacts[i].position,
-            this.contacts[i].companyAddress,
-            this.contacts[i].postalCode,
-            this.contacts[i].partyId
-          );
-          this.taskName = ''
-          this.contacts = []
-          this.contacts.push(person)
-        }
-    }
+    return this.contacts.filter(
+      contact =>
+        (this.searchFirstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchLastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchEmail && contact.email.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchPhoneNumber && contact.phoneNumber != null && contact.phoneNumber.replace('-','').startsWith(this.searchArg.replace('-','')))
+    )
   }
 }
 
