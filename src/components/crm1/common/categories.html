@@ -26,7 +26,7 @@
                 </div>
                 <div id="byParty" class="panel-collapse collapse hide" data-parent="#allPanels">
                   <label>
-                    <input type="text" class="form-control rounded-pill" placeholder="Enter party..." value.bind="partySearchInput"  style="height: 26px;">
+                    <input type="text" class="form-control rounded-pill" placeholder="Enter partyId...?" value.bind="partySearchInput"  style="height: 26px;">
                   </label>
 
                   <div repeat.for="party of filteredParties" class="entry pointer rounded p-0 pl-3 py-2" click.delegate="filterByParty(party)">

@@ -17,13 +17,18 @@ export class Categories {
     this.includeLastName = false;
     ea.subscribe("categoryParties", payload => {
       this.parties = payload
-      this.parties = this.parties.map(function(x){ return x.toUpperCase() })
     })
     ea.subscribe("categoryFirstNames", payload => {
       this.firstNames = payload
+      this.firstNames = this.firstNames.stream(
+        firstName => this.capitalizeFirstLetter(firstName)
+      )
     })
     ea.subscribe("categoryLastNames", payload => {
       this.lastNames = payload
+      this.lastNames = this.lastNames.stream(
+        lastName => this.capitalizeFirstLetter(lastName)
+      )
     })
   }
 
