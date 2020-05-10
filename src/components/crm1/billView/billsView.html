@@ -65,7 +65,7 @@
                   <input type="checkbox" value.bind="product.total" checked.bind="selectedTt" checked="checked">
                   ${product.total}</p>
 
-              </div>
+                </div>
               </div>
             </form>
           </div>
@@ -73,7 +73,6 @@
       </tr>
       </thead>
       <tbody>
-    <!--WTF IS GOING ON HERE , WRAPPED ALL -->
       <tr repeat.for="bill of bills">
         <td>${bill.itemDescription}</td>
         <td>${bill.invoiceDate}</td>
