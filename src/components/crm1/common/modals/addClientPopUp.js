@@ -1,11 +1,11 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
+import {HttpClientCRM} from '../../../../commons/util/HttpClientCRM';
 import {inject} from 'aurelia-dependency-injection';
 import {json} from 'aurelia-fetch-client';
-import {Contact} from '../models/contact';
+import {Contact} from '../../models/contact';
 import * as toastr from 'toastr';
-import {alertConfig} from '../config/alertConf'
-import {readErrorMsg} from '../utils/alertHandling'
+import {alertConfig} from '../../config/alertConf'
+import {readErrorMsg} from '../../utils/alertHandling'
 import $ from 'jquery';
 
 @inject(EventAggregator, HttpClientCRM)
