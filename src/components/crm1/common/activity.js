@@ -108,7 +108,6 @@ export class Activity {
           {
             "partyId": this.chosenContact.partyId,
             "roleTypeId": "LEAD"
-
           },
         "fieldList": [
           "firstName",
@@ -217,28 +216,22 @@ export class Activity {
     case "Deals":
       return json({
         "inputFields": {
-
         },
         "fieldList": [
-
         ]
       });
     case "Proposals":
       return json({
         "inputFields": {
-
         },
         "fieldList": [
-
         ]
       });
     case "Claims":
       return json({
         "inputFields": {
-
         },
         "fieldList": [
-
         ]
       });
       default:
@@ -346,23 +339,27 @@ export class Activity {
 
     case "Proposals":
       return [
-
+        responseEntry.orderId,
+        responseEntry.partyId,
+        responseEntry.roleTypeId,
+        responseEntry.grandTotal
       ]
     case "Deals":
       return [
-
+        responseEntry.orderId,
+        responseEntry.partyId,
+        responseEntry.roleTypeId,
+        responseEntry.grandTotal
 
       ]
     case "Claims":
       return [
-
+        responseEntry.orderId,
+        responseEntry.partyId,
+        responseEntry.roleTypeId,
+        responseEntry.grandTotal
       ]
     default: return undefined;
     }
-  }
-
-  test(entry) {
-    console.log(this.tableData.isUndefined)
-    // console.log(this.data[this.tableData.indexOf(entry)].emailAddress);
   }
 }
