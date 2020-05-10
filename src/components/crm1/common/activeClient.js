@@ -12,10 +12,6 @@ export class ActiveClient {
   constructor(ea, http, router) {
     this.ea = ea;
     this.http = http.http;
-
-    this.firstName = "Billy";
-    this.lastName = "Herrington";
-    this.companyName = "Company";
     this.displayClient = false;
     this.notes = new clientQuickAction("Notes")
 

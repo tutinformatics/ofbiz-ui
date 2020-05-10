@@ -18,7 +18,7 @@
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-filter"></i> Filters</a>
 
-          <div class="dropdown-menu filter" aria-labelledby="dropdownMenuLink" >
+          <div class="dropdown-menu sm_filter" aria-labelledby="dropdownMenuLink" >
             <h5 class="ml-3">Select filters:</h5>
             <label class="btn p-0 ml-3">
               <input type="checkbox" class="hugeInput" checked.bind="includeFirstName" autocomplete="off"> <b>First name</b>
@@ -28,11 +28,10 @@
       </div>
     </div>
   </div>
-
   <div class="container-fluid" >
     <table class="table" >
       <thead>
-      <tr >
+      <tr>
         <th scope="col">Bill ID</th>
         <th scope="col">Bill Type</th>
         <th scope="col">Bill Date</th>
@@ -48,7 +47,6 @@
             <form>
               <div repeat.for="product of categories">
               <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
-
                 <p class="dropdown-item"  >
                   <input type="checkbox" value.bind="product.description" checked.bind="selectedDesc" checked="checked">
                   ${product.description}</p>
@@ -64,7 +62,6 @@
                 <p class="dropdown-item"  >
                   <input type="checkbox" value.bind="product.total" checked.bind="selectedTt" checked="checked">
                   ${product.total}</p>
-
                 </div>
               </div>
             </form>
@@ -74,24 +71,23 @@
       </thead>
       <tbody>
       <tr repeat.for="bill of filteredBills">
-        <td>${bill.itemDescription}</td>
+        <td>${bill.invoiceId}</td>
+        <td>${bill.invoiceTypeId}</td>
         <td>${bill.invoiceDate}</td>
-        <td>${bill.partyIdTrans}</td>
-        <td if.bind="isDesc">${bill.invoiceTypeId}</td>
+        <td if.bind="isDesc">${bill.itemDescription}</td>
         <td else></td>
         <td if.bind="isFrom">${bill.partyIdFrom}</td>
         <td else></td>
-        <td if.bind="isTo">${bill.amount}</td>
+        <td if.bind="isTo">${bill.partyIdTrans}</td>
         <td else></td>
-        <td if.bind="isQuality">${bill.invoiceId}</td>
+        <td if.bind="isQuality">${bill.quantity}</td>
         <td else></td>
-        <td if.bind="isTotal">${bill.quantity}</td>
+        <td if.bind="isTotal">${bill.amount}</td>
         <td else></td>
         <td></td>
       </tr>
       </tbody>
     </table>
-
   </div>
 
   <add-client-pop-up ></add-client-pop-up>
