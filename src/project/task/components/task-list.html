@@ -1,3 +1,24 @@
 <template>
-    Task List Works!
+    <div class="card">
+        <div class="card-header">
+            <h2 class="float-left mr-4">All Tasks</h2>
+            <button class="btn btn-primary float-left" click.delegate="handleAddTask()">
+                <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+                New Task
+            </button>
+        </div>
+        <div class="card-body">
+            <vaadin-grid theme="row-stripes" column-reordering-allowed multi-sort>
+                <vaadin-grid-column path="workEffortName" header="Task Name"></vaadin-grid-column>
+                <vaadin-grid-column path="phaseName" header="Phase Name"></vaadin-grid-column>
+                <vaadin-grid-column path="projectName" header="Project Name"></vaadin-grid-column>
+                <vaadin-grid-column path="priority" header="Priority"></vaadin-grid-column>
+                <vaadin-grid-column path="estimatedStartDate" header="Estimated Start Date"></vaadin-grid-column>
+                <vaadin-grid-column path="estimatedCompletionDate" header="Estimated Completion Date"></vaadin-grid-column>
+                <vaadin-grid-column path="statusId" header="Status"></vaadin-grid-column>
+                <vaadin-grid-column path="partyId" header="Party Id"></vaadin-grid-column>
+                <vaadin-grid-column path="roleTypeId" header="Role"></vaadin-grid-column>
+            </vaadin-grid>
+        </div>
+    </div>
 </template>
