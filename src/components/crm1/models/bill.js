@@ -8,6 +8,5 @@ export class Bill {
     this.itemDescription = itemDescription;
     this.invoiceTypeId = invoiceTypeId;
     this.invoiceDate = invoiceDate;
-
   }
 }

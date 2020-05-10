@@ -10,7 +10,7 @@
       </div>
       <div class="col-sm-6" >
         <div class="m-1 helpers">
-          <input class="input_inside" type="text"  value.bind="taskName" placeholder="    Search Tasks..." >
+          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Tasks..." >
         </div>
       </div>
       <div class="col-sm-3 d-flex flex-row" >
@@ -76,7 +76,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr repeat.for="order of orders">
+      <tr repeat.for="order of filteredOrders">
         <td>${order.orderId}</td>
         <td if.bind="isOrder">${order.orderDate}</td>
         <td else></td>
