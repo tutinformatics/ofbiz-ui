@@ -1,5 +1,4 @@
-import {HttpClient, json} from 'aurelia-fetch-client';
-import {Router} from 'aurelia-router';
+import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {v1 as uuidv1} from 'uuid';
 import {QueryBuilder} from "./query-builder/query-builder";
@@ -56,7 +55,7 @@ export class ObjectDist {
 
     let queryBuilders = document.querySelectorAll('smart-query-builder');
     for (let queryBuilder of queryBuilders) {
-      queryBuilder.addEventListener('click', function() {
+      queryBuilder.addEventListener('click', function () {
         var list = this.getElementsByClassName('smart-conditions-menu');
         var elements = this.getElementsByClassName('smart-element smart-menu-item smart-unselectable');
         for (let item of list) {
@@ -83,6 +82,8 @@ export class ObjectDist {
   }
 
   setHTTPClient() {
+    //log in via postman, add your jwt
+    const jwt = 'eyJraWQiOiJrMSIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJBcGFjaGUgT2ZiaXoiLCJhdWQiOiJUbyB3aG9tIGl0IG1heSBjb25jZXJuIiwiZXhwIjoxNTg5MjI4MTMyLCJqdGkiOiJNMVBHZWZkcTlwT3RWUm1hc0lRR1NRIiwiaWF0IjoxNTg5MjI3NTMyLCJuYmYiOjE1ODkyMjc0MTIsInNlY3JldCI6ImV5SmhiR2NpT2lKQk1USTRTMWNpTENKbGJtTWlPaUpCTVRJNFEwSkRMVWhUTWpVMkluMC5XUC0wUHhQUW5DSTNNaE1aMWoxbThrU05jUjhsdEoydWxPbnY3M1lRemR3dDk1TmFpeVRSUWcuV0RCRG1FYWhpYV96akhtNm1LTFFudy40Sk1yZXoxQW1SR1RfaFk0ZUhyR1E3aW9vQkNBRHRvMDhwcjdRb3M1UWgxZkRtVTlvelhIWm9UcjFQdzlSLUp0U3NEZ2xaYmg3eEdGNmhrbXJYZTh0QS41S01xR2kza2pETGdnZTZiNDJfYkF3IiwiZ3JvdXBzIjpbIkZVTExBRE1JTiJdfQ.lY6a2FNqVfBHaJaK0rjR2e7Lb4wHc67SZM9G0sPDLqZiZU0xPn8IEzgcT6FP1JX7uTgEiG2Tn2O3O2nHiCfQvsgWJTev8erNogL_iXtESuSsDMsU-C56RUzfEoF3FeIVYQhcVtlvP2sOvaEM7QnMf9_m6_3RDvKNnRFsp_Ughm2oCq3yk9Vz4BxdFYGFm9SeSz9nj4We1_dpv5QZSEWi-oeS53xySVZBuKy48yCEh36CCWxrISk9QHO4Ksa3bqpQVfc1NxxBtdXi5IJbKnOKZ3M_9p1IMlqVXJwM_yD-MWEyGa49eHrClOz4r3YZweKe6Q8Jtv4pUuXeiObwvGIcLg'
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
@@ -90,7 +91,8 @@ export class ObjectDist {
         .withDefaults({
           credentials: 'same-origin',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwt}`
           }
         })
         .withInterceptor({
@@ -162,7 +164,7 @@ export class ObjectDist {
       .then(response => response.json())
       .then(data => {
         let customFields = []
-        data.sort(function(a, b) {
+        data.sort(function (a, b) {
           let textA = a.name.toUpperCase();
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -201,7 +203,7 @@ export class ObjectDist {
     this.httpClient.fetch('generic/v1/structure/entities/' + entityName)
       .then(response => response.json())
       .then(data => {
-        data.sort(function(a, b) {
+        data.sort(function (a, b) {
           let textA = a.name.toUpperCase();
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -336,14 +338,14 @@ export class ObjectDist {
         cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button> <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="subscriberDelete_' + content.subscriberId + '">DELETE</button></td>';
         cell3.className = 'text-center';
         let self = this;
-         document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
-           self.selectedEntityId = event.target.id.substring(11);
-           self.httpClient.fetch('generic/v1/entities/OfbizSubscriber?OfbizSubscriberId=' + event.target.id.substring(11))
-               .then(response => response.json())
-               .then(data => {
-                 self.editSubscriber(data);
-               });
-         });
+        document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
+          self.selectedEntityId = event.target.id.substring(11);
+          self.httpClient.fetch('generic/v1/entities/OfbizSubscriber?OfbizSubscriberId=' + event.target.id.substring(11))
+            .then(response => response.json())
+            .then(data => {
+              self.editSubscriber(data);
+            });
+        });
         document.getElementById("subscriberDelete_" + content.subscriberId).addEventListener('click', function (event) {
           self.httpClient.delete('objectdist/subscribers/delete/' + event.target.id.substring(17)).then(r => {
             self.refreshPage()
@@ -363,7 +365,7 @@ export class ObjectDist {
     for (let entry in filterJson) {
       let list = [];
       filterList = filterJson[entry];
-      for(let property in filterJson[entry]) {
+      for (let property in filterJson[entry]) {
         list.push([toWords(property), "=", filterJson[entry][property][0]])
         list.push("and");
       }
@@ -389,7 +391,7 @@ export class ObjectDist {
     for (let entry in filterJson) {
       let list = [];
       filterList = filterJson[entry];
-      for(let property in filterJson[entry]) {
+      for (let property in filterJson[entry]) {
         list.push([toWords(property), "=", filterJson[entry][property][0]])
         list.push("and");
       }
@@ -407,7 +409,7 @@ export class ObjectDist {
       .then(response => response.json())
       .then(data => {
         let customFields = []
-        data.sort(function(a, b) {
+        data.sort(function (a, b) {
           let textA = a.name.toUpperCase();
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -507,7 +509,7 @@ export class ObjectDist {
     var properties = {};
     var rowLength = oTable.rows.length;
 
-    for (var i = 1; i < rowLength; i++){
+    for (var i = 1; i < rowLength; i++) {
       var oCells = oTable.rows.item(i).cells;
       properties[oCells.item(1).innerHTML] = oCells.item(2).children[0].checked;
     }
@@ -528,6 +530,7 @@ export class ObjectDist {
       queryBuilder.value = [];
     }
   }
+
   subscriberPutRequest() {
     let data = {
       'OfbizSubscriberId': this.selectedEntityId,
