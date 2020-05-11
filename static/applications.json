@@ -5,25 +5,26 @@
   },
   {
     "name": "crm",
-    "url": "crm"
+    "url": "" 
   },
   {
     "name": "sfa",
-    "url": "sfa",
-    "title": "SFA"
-  },
-  {
-    "name": "accounting",
-    "url": "",
-    "title": "Accounting"
-  },
-  {
-    "name": "contacts",
-    "url": "",
-    "title": "Contacts"
+    "url": "sfa"
   },
   {
     "name": "marketing",
     "url": "affiliate-manager?affCode=10"
+  },
+  {
+    "name": "object dist",
+    "url": ""
+  },
+  {
+    "name": "marketdata",
+    "url": ""
+  },
+  {
+    "name": "cms",
+    "url": ""
   }
 ]

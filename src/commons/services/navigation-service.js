@@ -1,7 +1,8 @@
 import * as _ from 'lodash';
+import {PLATFORM} from 'aurelia-pal';
 
 const routes = {
-  project: [
+  'project': [
     {
       route: '',
       moduleId: PLATFORM.moduleName('project/components/project-list'),
@@ -26,9 +27,34 @@ const routes = {
       moduleId: PLATFORM.moduleName('project/components/project-edit'),
       name: 'new-project',
       title: 'Create Project'
+    },
+    {
+      route: 'resources',
+      moduleId: PLATFORM.moduleName('project/resource/components/resource-list'),
+      name: 'resource',
+      title: 'Resources',
+      nav: true
+    },
+    {
+      route: 'new-resource',
+      moduleId: PLATFORM.moduleName('project/resource/components/resource-edit'),
+      name: 'new-resource'
+    },
+    {
+      route: 'timesheets',
+      moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-list'),
+      title: 'Timesheets',
+      name: 'timesheets',
+      nav: true
+    },
+    {
+      route: 'new-timesheet',
+      moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-edit'),
+      title: 'Create timesheet',
+      name: 'new-timesheet'
     }
   ],
-  crm: [
+  'sfa': [
     { route: '', redirect: 'pipeline' },
     {
       route: 'pipeline',
@@ -46,12 +72,17 @@ const routes = {
       route: 'cardview',
       moduleId: PLATFORM.moduleName('crm/components/cardview/cardview'),
       name: 'cardview'
-    }]
+    }
+  ],
+  'crm': [], // TODO: add crm child routes here
+  'cms': [], // TODO: add cms child routes here
+  'marketdata': [], // TODO: add marketdata child routes here
+  'object-dist': [] // TODO: add objectdist child routes here
 };
 
 export class NavigationService {
   getRoutes(app) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       resolve(_.cloneDeep(routes[app]));
     });
   }

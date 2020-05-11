@@ -57,10 +57,10 @@ export class App {
         name: 'object-dist'
       },
       {
-        route: 'crm',
+        route: 'sfa',
         moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
-        name: 'crm',
-        title: 'CRM'
+        name: 'sfa',
+        title: 'Salesforce Automation'
       },
       {
         route: 'project',
@@ -72,17 +72,12 @@ export class App {
         route: 'affiliate-manager',
         name: 'affiliate-manager',
         moduleId: PLATFORM.moduleName('affiliate-manager/view/affManager'),
-        title: 'Marketing'
+        title: 'Affiliate Marketing'
       },
       {
         route: 'sign-up',
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
-      },
-      {
-        route: 'timesheet',
-        name: 'timesheet',
-        moduleId: PLATFORM.moduleName('timesheet/timesheet')
       }
     ]);
     this.router = router;
