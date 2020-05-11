@@ -1,14 +1,12 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
-import {json} from 'aurelia-fetch-client';
-
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
 import {collectClients} from '../utils/collectClients'
 import {computedFrom} from 'aurelia-framework';
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator, HttpClient, Router)
 export class ClientsView {
 
   categories = [
@@ -20,9 +18,10 @@ export class ClientsView {
   selectedPhone = [];
   selectedEmail = [];
 
+
   constructor(ea, http, router) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
     this.router = router;
     this.contacts = [];
     this.simpleView = true;
@@ -33,6 +32,7 @@ export class ClientsView {
     this.searchLastName = true
     this.searchEmail = true
     this.searchPhoneNumber = true
+    this.baseUrl = '/api/generic/v1/';
 
     this.ea.subscribe("addClient", payload => {
       this.contacts.push(payload);
@@ -45,7 +45,7 @@ export class ClientsView {
   }
 
   async getAllParties() {
-    let response = await this.http.fetch('/entityquery/PartyRoleAndPartyDetail', {
+    let response = await this.http.fetch(`${this.baseUrl}/entityquery/PartyRoleAndPartyDetail`, {
       method: 'post',
       body: json({
         "inputFields":
@@ -67,7 +67,7 @@ export class ClientsView {
   }
 
   async getAllContacts() {
-    let response = await this.http.fetch('/entityquery/PartyExport', {
+    let response = await this.http.fetch(`${this.baseUrl}entityquery/PartyExport`, {
         method: 'post',
         body: json({
           "fieldList": [

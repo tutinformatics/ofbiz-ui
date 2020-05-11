@@ -1,18 +1,17 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-dependency-injection';
-import {json} from "aurelia-fetch-client";
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {Router} from "aurelia-router";
 import {TableEntry} from "../models/tableEntry";
 import {getDate} from '../../../commons/util/dateConverter';
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator, HttpClient, Router)
 export class Activity {
 
   constructor(ea, http) {
     this.activity="Notes";
     this.showModal = false;
-    this.http=http.http;
+    this.http=http;
     this.ea = ea;
     this.data = [];
     this.tableHeaders = ["A", "B", "C", "D"];

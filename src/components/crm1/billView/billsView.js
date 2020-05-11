@@ -1,12 +1,11 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
-import {json} from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {Bill} from '../models/bill';
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator, HttpClient, Router)
 export class billsView {
 
   categories = [
@@ -28,17 +27,18 @@ export class billsView {
 
   constructor(ea, http, router) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
     this.router = router;
     this.bills = [];
     this.searchArgument = ""
+    this.baseUrl = '/api/generic/v1/';
   }
   async attached() {
     await this.getAllBills();
   }
 
   async getAllBills() {
-    let response = await this.http.fetch('/entityquery/InvoiceExport', {
+    let response = await this.http.fetch(`${this.baseUrl}entityquery/InvoiceExport`, {
       method: 'post',
       body: json({
         "fieldList": [

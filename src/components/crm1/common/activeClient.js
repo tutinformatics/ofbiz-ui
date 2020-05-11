@@ -4,14 +4,12 @@ import {clientSaleOption} from './complexViewClient/clientSaleOption';
 import {clientDocumentOption} from './complexViewClient/clientDocumentOption';
 import {inject} from "aurelia-dependency-injection";
 import {EventAggregator} from "aurelia-event-aggregator";
-import {HttpClientCRM} from "../../../commons/util/HttpClientCRM";
 import {Router} from "aurelia-router";
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator , Router)
 export class ActiveClient {
-  constructor(ea, http, router) {
+  constructor(ea , router) {
     this.ea = ea;
-    this.http = http.http;
     this.displayClient = false;
     this.notes = new clientQuickAction("Notes")
 

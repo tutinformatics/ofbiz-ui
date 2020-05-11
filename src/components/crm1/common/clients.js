@@ -1,19 +1,19 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
-import {json} from 'aurelia-fetch-client';
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator,HttpClient , Router)
 
 export class Clients {
   constructor(ea, http, router) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
     this.router = router;
     this.contacts = [];
     this.filteredContacts = [];
     this.parties = [];
+    this.baseUrl = '/api/generic/v1/';
 
     ea.subscribe("partyIds", payload => {
       this.contacts = payload;
@@ -74,7 +74,7 @@ export class Clients {
   }
 
   async getAllParties() {
-    let response = await this.http.fetch('/entityquery/PartyRoleAndPartyDetail', {
+    let response = await this.http.fetch(`${this.baseUrl}entityquery/PartyRoleAndPartyDetail`, {
       method: 'post',
       body: json({
         "inputFields":

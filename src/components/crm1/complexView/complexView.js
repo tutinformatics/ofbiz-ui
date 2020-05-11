@@ -1,19 +1,18 @@
-import {Category} from '../models/category';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
-import {json} from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
+
 import {inject} from "aurelia-dependency-injection";
 import {EventAggregator} from "aurelia-event-aggregator";
 import {collectClients} from "../utils/collectClients";
 
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator, HttpClient, Router)
 export class ComplexView {
-
+  baseUrl = '';
   constructor(ea, http, router) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
     this.router = router;
     this.contacts = [];
     this.view = "Card View"
@@ -27,7 +26,7 @@ export class ComplexView {
 
 
   async getAllContacts() {
-    let response = await this.http.fetch('/entityquery/PartyExport', {
+    let response = await this.http.fetch(`/api/generic/v1/entityquery/PartyExport`, {
     method: 'post',
       body: json({
         "fieldList": [

@@ -1,19 +1,20 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../../commons/util/HttpClientCRM';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
-import {json} from 'aurelia-fetch-client';
 import {Contact} from '../../models/contact';
 import * as toastr from 'toastr';
 import {alertConfig} from '../../config/alertConf'
 import {readErrorMsg} from '../../utils/alertHandling'
 import $ from 'jquery';
 
-@inject(EventAggregator, HttpClientCRM)
+@inject(EventAggregator, HttpClient)
 export class AddClientPopUp {
 
   constructor(ea, http) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
+    this.baseUrl = '/api/generic/v1/';
+
     ea.subscribe("party", payload => {
       console.log(payload)
       this.parties = payload
@@ -55,7 +56,7 @@ export class AddClientPopUp {
 
   async createContact(contact) {
     console.log(contact)
-    let response = await this.http.fetch('/services/createContact', {
+    let response = await this.http.fetch(`${this.baseUrl}services/createContact`, {
         method: 'post',
         body: json({
           "firstName": contact.firstName,
@@ -80,7 +81,7 @@ export class AddClientPopUp {
   }
 
   async createPartyContactRelationship(contactId, partyId) {
-    let response = await this.http.fetch('/services/createPartyRelationshipContactAccount', {
+    let response = await this.http.fetch(`${this.baseUrl}/services/createPartyRelationshipContactAccount`, {
         method: 'post',
         body: json({
           "accountPartyId": partyId,

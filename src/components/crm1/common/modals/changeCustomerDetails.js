@@ -1,16 +1,15 @@
 import {inject} from "aurelia-dependency-injection";
 import {EventAggregator} from "aurelia-event-aggregator";
 import {Router} from "aurelia-router";
-import {HttpClientCRM} from '../../../../commons/util/HttpClientCRM';
-import {json} from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {readErrorMsg} from '../../utils/alertHandling';
 import * as toastr from 'toastr';
 import {alertConfig} from '../../config/alertConf';
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator, HttpClient, Router)
 export class ChangeCustomerDetails {
   constructor(ea, http, router) {
-    this.http = http.http;
+    this.http = http;
     this.ea = ea;
     ea.subscribe("contactChosen", payload => {
       this.chosenContact = payload

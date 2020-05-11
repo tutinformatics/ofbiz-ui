@@ -1,13 +1,11 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
-import {json} from 'aurelia-fetch-client';
-
+import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Order} from '../models/order';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 
-@inject(EventAggregator, HttpClientCRM, Router)
+@inject(EventAggregator, HttpClient, Router)
 export class ordersView {
   categories = [
     {
@@ -23,7 +21,7 @@ export class ordersView {
 
   constructor(ea, http, router) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
     this.router = router;
     this.orders = [];
     this.searchArgument = ""
@@ -37,6 +35,7 @@ export class ordersView {
 
     this.searchParty = true
     this.searchWebsite = true
+    this.baseUrl = '/api/generic/v1/';
   }
 
   async attached() {
@@ -45,7 +44,7 @@ export class ordersView {
   async getAllOrders() {
     console.log('here');
     // await this.login();
-    let response = await this.http.fetch('/entityquery/OrderHeaderItemAndInvRoles', {
+    let response = await this.http.fetch(`${this.baseUrl}entityquery/OrderHeaderItemAndInvRoles`, {
       method: 'post',
       body: json({
         "fieldList": [

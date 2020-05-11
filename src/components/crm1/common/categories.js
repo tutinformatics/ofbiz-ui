@@ -1,4 +1,3 @@
-import {CategoryElement} from "./categoryElement";
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-dependency-injection';
 import {computedFrom} from 'aurelia-framework';
