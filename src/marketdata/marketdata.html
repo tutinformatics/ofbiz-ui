@@ -53,6 +53,7 @@
           ${model}
         </label>
       </div>
+      <button type="button" class="btn btn-link">Clear all filters</button>
     </div>
   </div>
   </div>
@@ -73,7 +74,7 @@
     <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
         aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
       <td><input type="checkbox" checked.bind="company.$isSelected"/></td>
-      <td data-toggle="modal" data-target="#detailedCompany" style="color:blue">${company.companyName}</td>
+      <td data-toggle="modal" data-target="#detailedCompany" style="color:#d900ff">${company.companyName}</td>
       <td>${company.registryCode}</td>
       <td>${company.companyStatus}</td>
       <td>${company.companyAddress}</td>
