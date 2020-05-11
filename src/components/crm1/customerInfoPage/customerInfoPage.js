@@ -1,13 +1,13 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {HttpClientCRM} from '../../../commons/util/HttpClientCRM';
+import { HttpClient } from "aurelia-fetch-client";
 import {inject} from 'aurelia-dependency-injection';
 
-@inject(EventAggregator, HttpClientCRM)
+@inject(EventAggregator, HttpClient)
 export class CustomerInfoPage {
 
   constructor(ea, http) {
     this.ea = ea;
-    this.http = http.http;
+    this.http = http;
     // this.ea.subscribe("clientId", async id => {
     //   console.log('subscribe')
     //   await this.getContact(id)
