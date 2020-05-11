@@ -1,12 +1,20 @@
-import { OpportunitiesService } from './opportunities-service';
+import { inject } from 'aurelia-dependency-injection';
+import { NavigationService } from '../../commons/services/navigation-service';
 
-export class OpportunitiesList {
-  constructor() {
-    this.opportunitiesService = new OpportunitiesService();
+@inject(NavigationService)
+export class OpportunitiesTest {
+  constructor(navigationService) {
+    this.navigationService = navigationService;
+    this.navigationService
+      .getRoutes('sfa')
+      .then((response) => (this.routes = response));
   }
-  
-  async attached() {
-    this.opportunities = await this.opportunitiesService.getOpportunities();
+  configureRouter(config, router) {
+    config.title = 'Opportunities';
+    config.options.pushState = true;
+    // config.options.root = '/';
+    config.map(this.routes);
+    this.router = router;
+    this.router.refreshNavigation();
   }
 }
-

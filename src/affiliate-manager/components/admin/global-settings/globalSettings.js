@@ -1,6 +1,8 @@
 import "./globalSettings.scss"
-import { bindable } from 'aurelia-framework';
+import { bindable, inject } from 'aurelia-framework';
+import { AffManagerService } from "../../../services/affManagerService";
 
+@inject(AffManagerService)
 export class GlobalSettings {
 
   @bindable paymentFrequency;
@@ -12,21 +14,33 @@ export class GlobalSettings {
   possibleMultiLevel = ["available", "not available"];
   userGroups = ["affiliate-partners", "legacy-affiliate-partners"];
   globalSettings;
-  productCategories = [
-    {
-      "category": "Smart Devices",
-      "currentCommission": 0.5,
-    },
-    {
-      "category": "Services",
-      "currentCommission": 1.5,
-    },
-    {
-      "category": "Clothes",
-      "currentCommission": 0.3,
-    },
-  ];
+  productCategories;
 
+
+  constructor(affManagerService) {
+    this.affManagerService = affManagerService;
+  }
+
+  async attached() {
+    this.fetchCategories()
+  }
+
+  async fetchCategories() {
+    const responseData = await this.affManagerService.fetchAllProductCategories();
+    const localProductCategories = [];
+    if (responseData) {
+      responseData
+        .filter(category => category['categoryName'] !== null)
+        .forEach(category => localProductCategories.push(
+        {
+          'categoryName': category['categoryName'],
+          'commission': (Math.random() / 2).toFixed(2)
+        }
+        )
+      );
+    }
+    this.productCategories = localProductCategories;
+  }
 
   saveSettings() {
     let newSettings = {

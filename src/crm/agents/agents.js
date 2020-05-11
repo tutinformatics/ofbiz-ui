@@ -1,5 +1,5 @@
 import { HttpClient } from 'aurelia-fetch-client';
-import { AgentService } from './agent-service';
+import { AgentService } from '../service/agent-service';
 
 export class Agents {
   constructor() {

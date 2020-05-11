@@ -1,5 +1,6 @@
 <template>
   <require from="../../shuffle/shuffle"></require>
+  <require from="../../workspaces-menu/workspace-menu"></require>
   <nav
     class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top"
   >
@@ -15,43 +16,63 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse"
-         id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a
-            class="navbar-brand dropdown-toggle bg-purple"
-            click.delegate="navigateTo('/')"
+            class="navbar-brand"
+            href="javascript:void(0);"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Products
+            <font-awesome-icon icon.bind="gridIcon" size="lg"></font-awesome-icon>
           </a>
-          <div class="dropdown-menu workspace-dropdown-menu" aria-labelledby="navbarDropdown">
-            <shuffle select-product.call="setCurrentProduct(product)"></shuffle>
+          <div
+            class="dropdown-menu workspace-dropdown-menu"
+            aria-labelledby="navbarDropdown"
+          >
+            <shuffle
+              products.bind="applications"
+              select-product.call="setCurrentProduct(product)"
+            ></shuffle>
           </div>
         </li>
 
+        <li class="nav-item">
+          <span class="navbar-brand mb-0 h1">${title}</span>
+        </li>
+
         <!-- Navbar elements -->
-        <li
-          repeat.for="item of menuItems"
-          class="nav-item"
-        >
-          <a class="nav-link" route-href="route.bind: item.route">
-            ${ item.text }
+        <li repeat.for="item of menuItems" class="nav-item">
+          <a
+            if.bind="item.nav === true"
+            class="nav-link"
+            href="javascript:void(0);"
+            click.delegate="navigateToChildRoute(item.route)"
+            >
+            ${ item.title }
           </a>
         </li>
         <!-- End of Navbar elements -->
       </ul>
 
+      <button
+        click.delegate="handleFavorite()"
+        class="btn btn-secondary mr-2"
+        type="button"
+      >
+        <i if.bind="isFavourite" class="fa fa-star" aria-hidden="true"></i>
+        <i else class="fa fa-star-o" aria-hidden="true"></i>
+      </button>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
           <a
-            class="navbar-brand dropdown-toggle bg-purple"
-            click.delegate="navigateTo('/')"
+            class="navbar-brand dropdown-toggle"
+            href="javascript:void(0);"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -61,25 +82,19 @@
             Workspaces
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <shuffle></shuffle>
+            <workspace-menu workspaces.bind="workspaces"> </workspace-menu>
           </div>
         </li>
       </ul>
       <li class="nav navbar-nav navbar-right">
-        <a
-          class="router-link nav-link bg-purple navbar-right"
-          click.delegate="navigateTo('workspaces')"
-        >
+        <a class="router-link nav-link navbar-right">
           Messages
         </a>
       </li>
-      <li
-        if.bind="!state.userLoginId"
-        class="nav navbar-nav navbar-right"
-      >
+      <li if.bind="!state.userLoginId" class="nav navbar-nav navbar-right">
         <a
-          class="router-link nav-link bg-purple navbar-right"
-          click.delegate="navigateTo('login')"
+          class="router-link nav-link navbar-right"
+          click.delegate="navigateTo('/')"
         >
           Log in
         </a>
@@ -89,9 +104,7 @@
         class="router-link nav navbar-nav navbar-right"
         click.delegate="logOut()"
       >
-        <a
-          class="router-link nav-link bg-purple navbar-right"
-        >
+        <a class="router-link nav-link navbar-right">
           Log out
         </a>
       </li>

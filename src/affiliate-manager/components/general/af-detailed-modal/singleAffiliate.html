@@ -1,0 +1,38 @@
+<template>
+  <div tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog pl-0 aff-manage__modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detailed View:</h4>
+        </div>
+        <div class="modal-body aff-manager__detailed-modal-view">
+          <div class="row">
+            <div class="col-12 col-md-6 ">
+              <img class="d-block mx-auto detailed-view-modal__profile-image px-0"
+                   src="../../../assets/images/user-default.jpg" alt="user image">
+            </div>
+            <div class="col-12 col-md-6">
+              <ul class="d-block mx-auto list-group list-group-flush">
+                <li class="list-group-item mt-2">Name: ${partner['firstName']} ${partner['lastName']}</li>
+                <li class="list-group-item mt-2">Email: ${partner["email"]}</li>
+                <li class="list-group-item">Partner Since: ${partner["date"]}</li>
+                <li class="list-group-item">Commission: ${partner["commission"]}</li>
+                <li class="list-group-item">Affiliate Codes: ${partner["affiliate_codes"]}</li>
+                <li class="list-group-item">Sub Partners: ${partner["sub_affiliates"]}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button if.bind="isAdmin === true" click.trigger="disableAffiliate(partner['partyId'])" type="button"
+                  class="btn btn-danger mx-auto">Disable Partnership
+          </button>
+          <button type="button" class="btn mx-auto aff-system__button--main" click.trigger="controller.ok()">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>

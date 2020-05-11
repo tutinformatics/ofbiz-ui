@@ -1,5 +1,5 @@
 export class NoSelection {
   constructor() {
-    this.message = 'Please Select a Product.';
+    this.message = 'Please Select an Application.';
   }
 }

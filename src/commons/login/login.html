@@ -1,5 +1,7 @@
 <template>
-  <div class="container-fluid h-100 container-fluid--no-overflow">
+  <div
+    if.bind="!authService.isLoggedIn()"
+    class="container-fluid h-100 container-fluid--no-overflow">
     <div class="row justify-content-center align-items-center h-100">
       <div class="col login mt-n5">
         <div class="login__form-wrapper" class.bind="forgotPassword? 'login__form-wrapper--invisible': ''">
