@@ -1,0 +1,39 @@
+<template>
+  <div class="row">
+    <div class="col">
+      <label for.bind="id" class="w-100 text-left ml-2 mb-n1">
+        <small>Choose filter to search by and start the search</small>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 pr-0 aff-filter-col">
+      <div class="dropdown w-100">
+        <button class="btn aff-filter__select dropdown-toggle w-100"
+                type="button" id.bind="id"
+                data-toggle="dropdown" aria-haspopup="true">
+          ${selectedValue}
+        </button>
+        <div class="dropdown-menu dropdown-menu--aff" aria-labelledby="dropdownMenuButton">
+          <a
+            class="dropdown-item aff-filter__dropdown"
+            click.delegate="setSelected(null, null)">
+            Choose
+          </a>
+          <a class="dropdown-item aff-filter__dropdown" repeat.for="option of options"
+             click.delegate="setSelected(option['key'], option['value'])">
+            ${option['value']}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col pl-1">
+      <input
+        disabled.bind="!selectedKey"
+        type="text"
+        class="form-control aff-all-affiliates__select--input"
+        placeholder="Enter filter text"
+        input.delegate="setFilteredValues($event.target.value)"/>
+    </div>
+  </div>
+</template>

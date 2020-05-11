@@ -1,77 +1,156 @@
 <template>
-  <div class="row">
-    <div class="col-50">
-      <input type="text" value.bind="filters[0].value" placeholder="Find" class="form-control"/>
-    </div>
+  <div class="row_marketdata-table">
+    <input type="text" value.bind="filters[0].value" placeholder="Find" class="search_marketdata"/>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
             style="margin: 0 0 0 1%">
       Add Contact
     </button>
   </div>
-  <table class="table table-striped" aurelia-table="data.bind: companies; display-data.bind: $displayData;
+
+  <div class="btn-group" role="group">
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableSector" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Sector
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <label repeat.for="sector of sectors">
+          <input
+            type="checkbox"
+            value.bind="sector"
+            checked.bind="selectedSectors">
+          ${sector}
+        </label>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableStatus" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Status
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <label repeat.for="status of statuses">
+          <input
+            type="checkbox"
+            value.bind="status"
+            checked.bind="selectedStatuses">
+          ${status}
+        </label>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableBusinessModel" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Business model
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <label repeat.for="model of models">
+          <input
+            type="checkbox"
+            value.bind="model"
+            checked.bind="selectedModels">
+          ${model}
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <table class="table table-hover" aurelia-table="data.bind: companies; display-data.bind: $displayData;
                                               current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
     <thead>
     <tr>
+      <th>Select</th>
       <th>Company name</th>
       <th>Company code</th>
       <th>Status</th>
       <th>Address</th>
-      <th> </th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr repeat.for="company of $displayData">
-      <td>${company.companyName}</td>
+    <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
+        aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
+      <td><input type="checkbox" checked.bind="company.$isSelected"/></td>
+      <td data-toggle="modal" data-target="#detailedCompany" style="color:blue">${company.companyName}</td>
       <td>${company.registryCode}</td>
       <td>${company.companyStatus}</td>
       <td>${company.companyAddress}</td>
-      <td><button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button></td>
+      <td>
+        <button class="btn btn-secondary" style="margin: 0 0 0 0"><i class="fa fa-trash"></i></button>
+      </td>
     </tr>
     </tbody>
   </table>
 
-  <div class="row">
+  <div class="row_marketdata-table">
     <div class="col-md-9">
       <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems"
-                      pagination-size.bind="5" boundary-links.bind="true"> </aut-pagination>
+                      pagination-size.bind="5" boundary-links.bind="true"></aut-pagination>
     </div>
 
-  <div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ADD CONTACT</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" submit.delegate="submitData()">
+              <div class="form-group">
+                <label for="company">Company name</label>
+                <input type="text" value.bind="company" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="code">Company code</label>
+                <input type="text" value.bind="code" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="active">Status</label>
+                <input type="text" value.bind="active" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" value.bind="address" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" value.bind="city" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="detailedCompany" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">ADD CONTACT</h5>
+          <h5 class="modal-title">${selectedCompanyName}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form role="form" submit.delegate="submitData()">
-            <div class="form-group">
-              <label for="company">Company name</label>
-              <input type="text" value.bind="company" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="code">Company code</label>
-              <input type="text" value.bind="code" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="active">Status</label>
-              <input type="text" value.bind="active" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" value.bind="address" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" value.bind="city" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          <ul>
+            <li>Company code: ${selectedRegistryCode}</li>
+            <li>Status: ${selectedCompanyStatus}</li>
+            <li>Address: ${selectedCompanyAddress}</li>
+            <li>Business model: ${selectedCompanyBusinessModel}</li>
+            <li>Sector: ${selectedCompanySector}</li>
+            <li>Number of employees: ${selectedCompanyEmployeeCount}</li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 

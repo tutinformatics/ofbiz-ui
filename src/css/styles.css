@@ -1,4 +1,4 @@
-.icon {
+.product-icon {
   width: 60px;
   height: 60px;
 }
@@ -9,13 +9,12 @@
   overflow: hidden;
   width: 80px;
   height: 80px;
-  background: linear-gradient(to bottom, white 0%,#744662 75%,#444444 76%,#444444 100%);
   background-color: #dddddd !important;
 }
 
-.dropdown-menu {
+/*thx for pain, bro (please do not override bootstrap like that)*/
+.workspace-dropdown-menu {
   width: 266px;
-  background: linear-gradient(#744662, #dddddd);
   background-color: #ababab !important;
 }
 
@@ -50,6 +49,10 @@ ul.custom-pagination li a.disabled {
   color: darkgrey;
 }
 
-.row {
-  margin: 1% 1% 1% 0%;
+.row_marketdata-table {
+  margin: 1% 1% 1% 0;
+}
+
+.search_marketdata {
+  width: 300px;
 }

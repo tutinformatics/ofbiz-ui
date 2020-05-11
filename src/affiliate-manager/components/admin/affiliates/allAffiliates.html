@@ -1,53 +1,72 @@
 <template>
   <require from="../../general/icons/manage/manageIcon"></require>
-  <require from="../../general/icons/affIcon"></require>
-  <require from="../../general/page-title/affPageTitle"></require>
-  <require from="../../general/filter/affFilter"></require>
+  <require from="../../general/icons/icon"></require>
+  <require from="../../general/page-title/pageTitle"></require>
+  <require from="../../general/filter/filter"></require>
 
   <div class="row flex-column mx-3 text-center mt-5">
     <div class="col-md-9 mx-auto">
-      <aff-page-title
+      <page-title
         main-text.one-way="'Here you can find information about all affiliate partners'">
-      </aff-page-title>
+      </page-title>
     </div>
     <div class="col-md-9 mx-auto my-3">
-      <label for="selectFilter">Choose filter to search by and start the search</label>
-      <div class="input-group my-4">
-        <select id="selectFilter" class=" custom-select col-3 aff-all-affiliates__select--filter"
-                value.bind="selectedFilter">
-          <option model.bind=null>Choose</option>
-          <option class="option" repeat.for="key of allKeys"
-                  model.bind="key">
-            ${key}
-          </option>
-        </select>
-        <input type="text" class="form-control aff-all-affiliates__select--input" placeholder="Enter filter text"
-               class="form-control" input.delegate="getFilteredValues($event.target.value)"/>
-      </div>
+      <filter
+        values-to-filter.one-way="allAffiliatePartners"
+        options.one-way="allAffiliatesOptions"
+        callback.call="setFilteredValues($event)"
+        id.one-way="'Admin-All-Affiliates'"
+      >
+      </filter>
     </div>
     <div class="col-md-9 mx-auto table-responsive-md text-center">
       <table class="table table-striped table-dark table-bordered table-hover">
         <thead>
         <tr>
-          <th scope="col">First name</th>
-          <th scope="col">Last name</th>
-          <th scope="col">Date</th>
-          <th scope="col">Email</th>
-          <th scope="col">Status</th>
+          <th
+            class="align-middle"
+            scope="col"
+          >
+            First name
+          </th>
+          <th
+            scope="col"
+            class="align-middle"
+          >
+            Last name
+          </th>
+          <th
+            scope="col"
+            class="align-middle"
+          >
+            Date
+          </th>
+          <th
+            scope="col"
+            class="align-middle"
+          >
+            Email
+          </th>
+          <th
+            scope="col"
+            class="align-middle"
+          >
+            Status
+          </th>
         </tr>
         </thead>
         <tbody>
-        <tr class="aff-member-table__row" repeat.for="user of affiliatePartners">
+        <tr class="aff-member-table__row" repeat.for="user of filteredValues">
           <td class="align-middle">${user['firstName']}</td>
           <td class="align-middle">${user['lastName']}</td>
           <td class="align-middle"> ${user['dateTimeCreated']}</td>
           <td class="align-middle"><a href="mailto:${user['email']}">${user['email']}</a></td>
           <td class="align-middle">${user['status']}</td>
           <td class="aff-table__action-icon">
-            <aff-icon
+            <icon
               click.trigger="managePartner(user['email'])">
               <manage-icon></manage-icon>
-            </aff-icon>
+            </icon>
           </td>
         </tr>
         </tbody>

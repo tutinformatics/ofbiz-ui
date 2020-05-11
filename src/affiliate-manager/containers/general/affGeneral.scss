@@ -3,8 +3,11 @@
 html, body {
   height: 100%;
   background: $background-color;
-  font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+
+.container-fluid--with-min {
+  min-width: 360px;
 }
 
 .aff-sidebar-area {
@@ -18,5 +21,11 @@ html, body {
 }
 
 .aff-sidebar-sidebar-area--closed {
-  margin-left: -296px;
+  margin-left: -285px;
 }
+
+.detailed-view-modal__profile-image {
+  width: 250px;
+  object-fit: cover;
+}
+

@@ -3,12 +3,19 @@ import { HttpClient } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class Marketdata {
-  baseUrl = 'api/marketdata';
+  baseUrl = 'api/generic/v1/entities/MarketdataModel';
   companies = [];
   test = null;
   pageSize = 10;
+  statuses = ['Registrisse kantud', 'Pole registris', 'Teadmata'];
+  selectedStatuses = [];
+  sectors = ['AdTech & Creative Tech', 'Advanced Manufacturing', 'Business software', 'CleanTech'];
+  selectedSectors = [];
+  models = ['B2B', 'B2B2C', 'B2C', 'B2G'];
+  selectedModels = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress']}
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount']},
+    {value: '', keys: ['companyStatus']}
   ];
 
   constructor(httpClient) {
@@ -16,7 +23,7 @@ export class Marketdata {
   }
 
   bind() {
-    console.log('Getting data ...')
+    console.log('Getting data ...');
     return this.httpClient
       .fetch(`${this.baseUrl}`)
       .then(res => res.json())
@@ -26,13 +33,30 @@ export class Marketdata {
       });
   }
 
+  handleClick(company, $event) {
+    this.selectedCompanyName = company.companyName;
+    this.selectedRegistryCode = company.registryCode;
+    this.selectedCompanyStatus = company.companyStatus;
+    this.selectedCompanyAddress = company.companyAddress;
+    this.selectedCompanyBusinessModel = company.companyBusinessModel;
+    this.selectedCompanySector = company.companySector;
+    this.selectedCompanyEmployeeCount = company.employeeCount;
+    this.rowSelected($event);
+  }
+
+  rowSelected(event) {
+    console.log($event.detail.row);
+  }
+
   submitData() {
     let company = {
       companyName: this.companyName,
       registryCode: this.registryCode,
       companyStatus: this.companyStatus,
       companyAddress: this.companyAddress,
-      city: this.city
+      companyBusinessModel: this.companyBusinessModel,
+      companySector: this.companySector,
+      employeeNum: this.employeeCount
     };
 
     this.companies.unshift(company);

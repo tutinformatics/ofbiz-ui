@@ -1,0 +1,12 @@
+{
+  "project": [
+    {
+      "text": "Main",
+      "route": "project"
+    },
+    {
+      "text": "My Tasks",
+      "route": "project"
+    }
+  ]
+}
