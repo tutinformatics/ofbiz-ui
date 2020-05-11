@@ -8,7 +8,7 @@ export class HttpClientCRM{
   constructor(http){
     this.http = http;
 
-    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1';
+    this.baseUrl = '/api/generic/v1/';
     // token is only valid for 30min
     // TODO: change for production solution
     // Live long token
