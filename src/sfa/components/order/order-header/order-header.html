@@ -1,59 +1,59 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
-      <span class="navbar-brand mb-0 h1">Orders</span>
-      <img src="../../../assets/img/favorite.svg" alt="fave">
-      <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#orderModal">
-        <img src="../../../assets/img/add.svg" alt="">
-        New order
-      </button>
-      <form class="form-inline col-6">
-        <input class="form-control" type="search" placeholder="Search Orders..." aria-label="Search" style="width:100%">
-      </form>
-      <button type="button" class="btn btn-outline-dark">
-        Order Filter
-      </button>
-      <button type="button" class="btn btn-outline-dark">
-        <img src="../../../assets/img/favourite.svg" alt="">
-        Order Favourites
-      </button>
-    </nav>
-    <div class="dropdown float-right">
-      <div class="modal fade" id="orderModal" tabindex="-1" role="dialog"
-           aria-labelledby="orderModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="orderModalLabel">Add new order</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form role="form" id="orderForm" submit.delegate="newOrder()">
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Order ID</label>
-                  <input type="text" class="form-control" id="orderId" value.bind="orderId">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Order name</label>
-                  <input type="text" class="form-control" id="orderName" value.bind="orderName">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Billing Account ID</label>
-                  <input type="text" class="form-control" id="billingAccountId" value.bind="billingAccountId">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
+    <span class="navbar-brand mb-0 h1">Orders</span>
+    <img src="../../../assets/img/favorite.svg" alt="fave">
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal">
+      <img src="../../../assets/img/add.svg" alt="">
+      <a style="color: #000000; text-decoration: none" route-href="route: order-edit">New order</a>
+    </button>
+    <form class="form-inline col-6">
+      <input class="form-control" type="search" placeholder="Search Orders..." aria-label="Search" style="width:100%">
+    </form>
+    <button type="button" class="btn btn-outline-dark">
+      Order Filter
+    </button>
+    <button type="button" class="btn btn-outline-dark">
+      <img src="../../../assets/img/favourite.svg" alt="">
+      Order Favourites
+    </button>
+  </nav>
+  <div class="dropdown float-right">
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog"
+         aria-labelledby="orderModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="orderModalLabel">Add new order</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" id="orderForm" submit.delegate="newOrder()">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Order ID</label>
+                <input type="text" class="form-control" id="orderId" value.bind="orderId">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Order name</label>
+                <input type="text" class="form-control" id="orderName" value.bind="orderName">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Billing Account ID</label>
+                <input type="text" class="form-control" id="billingAccountId" value.bind="billingAccountId">
+              </div>
+              <div class="input-group">
+                <label for="message-text" class="col-form-label">Price</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
+                         value.bind="grandTotal">
                 </div>
                 <div class="input-group">
-                  <label for="message-text" class="col-form-label">Price</label>
+                  <label for="message-text" class="col-form-label">Currency</label>
                   <div class="input-group">
                     <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
-                           value.bind="grandTotal">
+                           value.bind="currencyUom">
                   </div>
-                  <div class="input-group">
-                    <label for="message-text" class="col-form-label">Currency</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
-                             value.bind="currencyUom">
-                    </div>
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="col-form-label">Sales Channel</label>
@@ -69,10 +69,10 @@
                   <button type="button" class="btn btn-primary" click.delegate="newOrder()"
                           data-dismiss="modal">Save changes</button>
                 </div>
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </template>

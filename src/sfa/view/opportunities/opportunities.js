@@ -11,6 +11,7 @@ export class Opportunities {
       { route: 'listview', moduleId: PLATFORM.moduleName('sfa/components/opportunity/listview/listview'), name: 'listview' },
       { route: 'cardview', moduleId: PLATFORM.moduleName('sfa/components/opportunity/cardview/cardview'), name: 'cardview' },
       { route: 'opportunity-edit', moduleId: PLATFORM.moduleName('sfa/components/opportunity/opportunity-edit/opportunity-edit'), name: 'opportunity-edit' },
+      { route: 'formview', moduleId: PLATFORM.moduleName('sfa/components/opportunity/formview/formview'), name: 'formview' },
     ]);
     this.router = router;
 

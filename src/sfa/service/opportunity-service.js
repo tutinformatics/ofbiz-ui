@@ -57,7 +57,6 @@ export class OpportunityService {
    }
 
   createNewOpportunity(opportunity) {
-    console.log("neeee");
     return this.client
       .fetch(`${this.baseUrl}entities/opportunity/`, {
         method: 'POST',

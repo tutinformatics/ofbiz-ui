@@ -27,9 +27,18 @@ export class OrderService {
         return [];
       });
   }
-  getBillingAccounts() {
+  post() {
     return this.client
-      .fetch(`${this.baseUrl}entities/BillingAccount`)
+      .fetch(`localhost:8443/api/auth/v1/token`, {
+        method: 'post',
+        body: json({
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyTG9naW5JZCI6Imluc2VydF91c2VybmFtZV9oZXJlIiwiaXNzIjoiQXBhY2hlT0ZCaXoiLCJleHAiOjE1ODc4NDEzMzgsImlhdCI6MTU4NzgzOTUzOH0.Gw3tafcMOaSq-7jj2Tgc_RnvMlc6hGMmDKU9xdC6wo00Lud_BBFVZEaACXn2gI4rrIZEzZD85yUDrKW-69CKIA"
+        })
+      })
+  }
+  get(type) {
+    return this.client
+      .fetch(`${this.baseUrl}entities/` + type)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);

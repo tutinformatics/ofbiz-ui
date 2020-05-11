@@ -11,8 +11,8 @@ export class ListView {
     this.opportunityService.getOpportunities()
       .then(
         data => this.opportunities = data.slice().reverse()
-      );
 
+  );
   }
 
    deleteOpportunity(id, index) {

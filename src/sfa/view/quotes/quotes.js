@@ -9,6 +9,7 @@ export class Quotes {
       { route: '', redirect: 'listview' },
       { route: 'listview', moduleId: PLATFORM.moduleName('sfa/components/quote/listview/listview'), name: 'listview' },
       { route: 'cardview', moduleId: PLATFORM.moduleName('sfa/components/quote/cardview/cardview'), name: 'cardview' },
+      { route: 'quote-edit', moduleId: PLATFORM.moduleName('sfa/components/quote/quote-edit/quote-edit'), name: 'quote-edit' },
     ]);
     this.router = router;
   }

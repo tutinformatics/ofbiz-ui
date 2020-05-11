@@ -15,10 +15,6 @@ export class OrderHeader {
     );
   }
 
-  // unbind() {
-  //   this.subscription.unsubscribe();
-  // }
-
   newOrder() {
     let order = {
       orderName: this.orderName,

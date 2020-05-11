@@ -13,4 +13,8 @@ export class ListView {
         data => this.quotes = data
       );
   }
+  deleteQuote(id, index) {
+    this.quotes.splice(index, 1);
+    this.quoteService.deleteQuoteById(id);
+  }
 }
