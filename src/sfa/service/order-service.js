@@ -4,7 +4,7 @@ import { Store } from "aurelia-store";
 
 @inject(HttpClient, Store)
 export class OrderService {
-  baseUrl = '/api/generic/v1/';
+  baseUrl = 'api/generic/v1/';
 
   constructor(httpClient, store) {
     this.client = httpClient;
