@@ -15,9 +15,9 @@ export class ListView {
 
   }
 
-  deleteOrders(id, index) {
+  deleteOrder(id, index) {
     this.orders.splice(index, 1);
-    this.orderService.deleteOrders(id);
+    this.orderService.deleteOrder(id);
   }
 
   timeConverter(UNIX_timestamp){

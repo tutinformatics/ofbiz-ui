@@ -13,4 +13,9 @@ export class CardView {
         data => this.agents = data
       );
   }
+
+  deleteAgent(index, id) {
+    this.agents.splice(index, 1);
+    this.agentService.deleteAgentById(id);
+  }
 }

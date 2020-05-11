@@ -21,7 +21,6 @@ export class OrderHeader {
 
   newOrder() {
     let order = {
-      orderId: this.orderId,
       orderName: this.orderName,
       grandTotal: this.grandTotal,
       currencyUom: this.currencyUom,

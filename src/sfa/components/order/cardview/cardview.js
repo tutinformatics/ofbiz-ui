@@ -14,8 +14,8 @@ export class CardView {
       );
   }
 
-  deleteOpportunity(index, id) {
+  deleteOrder(id, index) {
     this.orders.splice(index, 1);
-    this.orderService.deleteOrderById(id);
+    this.orderService.deleteOrder(id);
   }
 }
