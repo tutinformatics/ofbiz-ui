@@ -32,7 +32,7 @@ export class ClientsView {
     this.searchLastName = true
     this.searchEmail = true
     this.searchPhoneNumber = true
-    this.baseUrl = '/api/generic/v1/';
+    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/';
 
     this.ea.subscribe("addClient", payload => {
       this.contacts.push(payload);
@@ -45,7 +45,7 @@ export class ClientsView {
   }
 
   async getAllParties() {
-    let response = await this.http.fetch(`${this.baseUrl}/entityquery/PartyRoleAndPartyDetail`, {
+    let response = await this.http.fetch(`${this.baseUrl}entityquery/PartyRoleAndPartyDetail`, {
       method: 'post',
       body: json({
         "inputFields":

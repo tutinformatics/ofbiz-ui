@@ -18,6 +18,8 @@ export class Activity {
     this.tableData = [];
     this.displayActivity = false;
 
+
+
     this.headerDict = {};
     //Predefined table headers for each category
     this.headerDict["Notes"] = ["First name", "Last name", "Status", "Email", "Phone"];

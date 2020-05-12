@@ -28,7 +28,7 @@ export class AuthService {
   async loginAttempt(username, password) {
     try {
       const response = await this.httpClient.fetch(
-          `${this.baseUrl}auth/v1/login`,
+          `https://35.228.134.15:8443/api/auth/v1/login`,
           {
             method: 'POST',
             body: json({
@@ -53,7 +53,7 @@ export class AuthService {
     try {
       const response = await this.httpClient
         .fetch(
-          `${this.baseUrl}auth/v1/register`,
+          `https://35.228.134.15:8443/api/auth/v1/register`,
           {
             method: 'POST',
             body: json({
