@@ -1,5 +1,5 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import { HttpClient, json } from 'aurelia-fetch-client';
+import { HttpClient } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
@@ -8,33 +8,29 @@ import {EntityQueryService} from "../services/entityQueryService";
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class billsView {
-
-  categories = [
-    {
-      "description": 'Description',
-      "from" : 'From',
-      "to" : "To",
-      "quantity" : "Quantity",
-      "total" : "Total"
-    }
-  ]
-
-  selectedDesc = [];
-  selectedFr = [];
-  selectedTo = [];
-  selectedQa = [];
-  selectedTt = [];
-
-
   constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
     this.router = router;
-    this.bills = [];
-    this.searchArgument = ""
-    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/';
     this.entityQueryService = entityQueryService;
+    this.bills = [];
 
+    this.categories = [
+      {
+        "description": 'Description',
+        "from" : 'From',
+        "to" : "To",
+        "quantity" : "Quantity",
+        "total" : "Total"
+      }
+    ]
+    this.selectedDesc = [];
+    this.selectedFr = [];
+    this.selectedTo = [];
+    this.selectedQa = [];
+    this.selectedTt = [];
+
+    this.searchArgument = ""
   }
   async attached() {
     await this.getAllBills();
@@ -56,6 +52,21 @@ export class billsView {
       );
       this.bills.push(bill);
     }
+  }
+
+  get searchArg() {
+    return this.searchArgument.trim().toUpperCase();
+  }
+
+  get filteredBills() {
+    if (this.searchArg === "") {
+      return this.bills;
+    }
+    console.log(this.bills)
+    return this.bills.filter(
+      bill => bill.itemDescription != null &&
+        bill.itemDescription.toUpperCase().split(" ").length > 1
+    )
   }
 
   get isDesc() {
@@ -86,21 +97,6 @@ export class billsView {
       return (this.selectedTt);
     }
     return false;
-  }
-
-  get searchArg() {
-    return this.searchArgument.trim().toUpperCase();
-  }
-
-  get filteredBills() {
-    if (this.searchArg === "") {
-      return this.bills;
-    }
-    console.log(this.bills)
-    return this.bills.filter(
-      bill => bill.itemDescription != null &&
-        bill.itemDescription.toUpperCase().split(" ").length > 1
-    )
   }
 }
 
