@@ -39,7 +39,7 @@ export class HttpInterceptor {
         );
       } else if ([401, 403].includes(response.status)) {
         this.store.dispatch('reset');
-        //this.router.navigate('/');
+        this.router.navigate('/');
       } else {
         const responseClone = response.clone();
         const body = await responseClone.json();

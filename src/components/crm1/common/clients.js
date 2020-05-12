@@ -19,7 +19,6 @@ export class Clients {
 
     ea.subscribe("partyIds", payload => {
       this.contacts = payload;
-      console.log(this.contacts);
       this.filteredContacts = this.contacts;
 
       this.ea.publish("categoryCompany",
@@ -69,6 +68,7 @@ export class Clients {
   unique(value, index, self) {
     return self.indexOf(value) === index;
   }
+
 
   chooseContact(contact) {
     this.ea.publish("contactChosen", contact);
