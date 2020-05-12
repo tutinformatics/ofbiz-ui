@@ -50,7 +50,9 @@ export class Activity {
       ['ID', 'Company', 'Started', 'Ended']
 
     this.ea.subscribe("changeAction", payload => {
-      this.activity = payload.name;
+      if (payload !== "refresh") {
+        this.activity = payload.name;
+      }
       this.tableData.length = 0;
       this.getData(this.activity).then(r =>{console.log("table fetch OK")});
     });

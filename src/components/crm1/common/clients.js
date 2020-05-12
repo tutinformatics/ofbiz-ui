@@ -72,6 +72,7 @@ export class Clients {
 
   chooseContact(contact) {
     this.ea.publish("contactChosen", contact);
+    this.ea.publish("changeAction", "refresh");
     this.ea.publish("displayClient", true);
   }
 
