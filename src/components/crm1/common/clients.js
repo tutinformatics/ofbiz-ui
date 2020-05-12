@@ -2,11 +2,12 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
+import {EntityQueryService} from "../services/entityQueryService";
 
-@inject(EventAggregator,HttpClient , Router)
+@inject(EventAggregator,HttpClient , Router, EntityQueryService)
 
 export class Clients {
-  constructor(ea, http, router) {
+  constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
     this.router = router;
@@ -14,6 +15,7 @@ export class Clients {
     this.filteredContacts = [];
     this.parties = [];
     this.baseUrl = '/api/generic/v1/';
+    this.entityQueryService = entityQueryService;
 
     ea.subscribe("partyIds", payload => {
       this.contacts = payload;
@@ -74,24 +76,7 @@ export class Clients {
   }
 
   async getAllParties() {
-    let response = await this.http.fetch(`${this.baseUrl}entityquery/PartyRoleAndPartyDetail`, {
-      method: 'post',
-      body: json({
-        "inputFields":
-          {
-            "roleTypeId": "ACCOUNT"
-          },
-        "fieldList": [
-          "partyId",
-          "roleTypeId",
-          "groupName"
-        ]
-      })
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
+    let response = await this.entityQueryService.getAllParties()
     this.ea.publish("party", response)
   }
 }

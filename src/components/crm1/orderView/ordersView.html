@@ -49,27 +49,27 @@
             <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v"></i></a>
             <form>
-              <div repeat.for="product of categories">
+              <div repeat.for="category of categories">
               <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
 
                   <p class="dropdown-item"  >
-                    <input type="checkbox" value.bind="product.orderDate" checked.bind="selectedOrder" checked="checked">
-                    ${product.orderDate}</p>
+                    <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" checked="checked">
+                    ${category.orderDate}</p>
                   <p class="dropdown-item" >
-                    <input type="checkbox" value.bind="product.shipment" checked.bind="selectedShip" checked="checked">
-                    ${product.shipment}</p>
+                    <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" checked="checked">
+                    ${category.shipment}</p>
                   <p class="dropdown-item" >
-                    <input type="checkbox" value.bind="product.website" checked.bind="selectedWeb" checked="checked">
-                    ${product.website}</p>
+                    <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" checked="checked">
+                    ${category.website}</p>
                 <p class="dropdown-item" >
-                  <input type="checkbox" value.bind="product.salesperson" checked.bind="selectedSale" checked="checked">
-                  ${product.salesperson}</p>
+                  <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
+                  ${category.salesperson}</p>
                 <p class="dropdown-item" >
-                  <input type="checkbox" value.bind="product.total" checked.bind="selectedTt" checked="checked">
-                  ${product.total}</p>
+                  <input type="checkbox" value.bind="category.total" checked.bind="selectedTt" checked="checked">
+                  ${category.total}</p>
                 <p class="dropdown-item" >
-                  <input type="checkbox" value.bind="product.status" checked.bind="selectedStatus" checked="checked">
-                  ${product.status}</p>
+                  <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
+                  ${category.status}</p>
 
               </div>
               </div>

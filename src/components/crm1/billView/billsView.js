@@ -4,8 +4,9 @@ import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {Bill} from '../models/bill';
+import {EntityQueryService} from "../services/entityQueryService";
 
-@inject(EventAggregator, HttpClient, Router)
+@inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class billsView {
 
   categories = [
@@ -25,38 +26,22 @@ export class billsView {
   selectedTt = [];
 
 
-  constructor(ea, http, router) {
+  constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
     this.router = router;
     this.bills = [];
     this.searchArgument = ""
-    this.baseUrl = '/api/generic/v1/';
+    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/';
+    this.entityQueryService = entityQueryService;
+
   }
   async attached() {
     await this.getAllBills();
   }
 
   async getAllBills() {
-    let response = await this.http.fetch(`${this.baseUrl}entityquery/InvoiceExport`, {
-      method: 'post',
-      body: json({
-        "fieldList": [
-          "partyIdFrom",
-          "partyIdTrans",
-          "amount",
-          "quantity",
-          "invoiceId",
-          "itemDescription",
-          "invoiceTypeId",
-          "invoiceDate"
-        ]
-      })
-    })
-    .then(response => response.json())
-    .catch(() => {
-      alert('Error fetching clients!');
-    });
+    let response = await this.entityQueryService.getAllBills()
 
     for (let i = 0; i < response.length; i++) {
         let bill = new Bill(

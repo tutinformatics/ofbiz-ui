@@ -1,31 +1,29 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import { HttpClient, json } from 'aurelia-fetch-client';
+import { HttpClient } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Order} from '../models/order';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
+import {EntityQueryService} from "../services/entityQueryService";
 
-@inject(EventAggregator, HttpClient, Router)
+@inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ordersView {
-  categories = [
-    {
-      "orderDate": 'Order Date',
-      "shipment" : 'Shipment Start',
-      "website" : "Website",
-      "salesperson" : "Salesperson",
-      "total" : "Total",
-      "status" : "Status",
-    }
-  ]
-
-
-  constructor(ea, http, router) {
+  constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
     this.router = router;
     this.orders = [];
     this.searchArgument = ""
-
+    this.categories = [
+      {
+        "orderDate": 'Order Date',
+        "shipment" : 'Shipment Start',
+        "website" : "Website",
+        "salesperson" : "Salesperson",
+        "total" : "Total",
+        "status" : "Status",
+      }
+    ]
     this.selectedOrder = [];
     this.selectedShip = [];
     this.selectedWeb = [];
@@ -35,93 +33,33 @@ export class ordersView {
 
     this.searchParty = true
     this.searchWebsite = true
-    this.baseUrl = '/api/generic/v1/';
+    this.entityQueryService = entityQueryService
   }
 
   async attached() {
     await this.getAllOrders();
   }
   async getAllOrders() {
-    console.log('here');
-    // await this.login();
-    let response = await this.http.fetch(`${this.baseUrl}entityquery/OrderHeaderItemAndInvRoles`, {
-      method: 'post',
-      body: json({
-        "fieldList": [
-          "orderId",
-          "orderDate",
-          "entryDate",
-          "partyId",
-          "webSiteId",
-          "roleTypeId",
-          "grandTotal",
-          "statusId"
-        ]
-      })
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
-
+    let response = await this.entityQueryService.getAllOrders()
     for (let i = 0; i < response.length; i++) {
-      let orderDate = getDate(response[i].orderDate);
-      let entryDate = getDate(response[i].entryDate);
+
       let order = new Order(
         response[i].orderId,
-        orderDate,
-        entryDate,
+        getDate(response[i].orderDate),
+        getDate(response[i].entryDate),
         response[i].partyId,
         response[i].webSiteId,
         response[i].roleTypeId,
         response[i].grandTotal,
         response[i].statusId
       );
-
       this.orders.push(order);
     }
-  }
-
-  get isOrder() {
-    if(this.selectedOrder.length>0){
-      return (this.selectedOrder);
-    }
-    return false;
-  }
-  get isShip() {
-    if(this.selectedShip.length>0){
-      return (this.selectedShip);
-    }
-    return false;
-  }
-  get isWeb() {
-    if(this.selectedWeb.length>0){
-      return (this.selectedWeb);
-    }
-    return false;
-  }
-  get isSale() {
-    if(this.selectedSale.length>0){
-      return (this.selectedSale);
-    }
-    return false;
-  }get isTotal() {
-    if(this.selectedTt.length>0){
-      return (this.selectedTt);
-    }
-    return false;
-  }
-  get isStatus() {
-    if(this.selectedStatus.length>0){
-      return (this.selectedStatus);
-    }
-    return false;
   }
 
   get searchArg() {
     return this.searchArgument.trim().toUpperCase()
   }
-
   get filteredOrders() {
     if (this.searchArg === "" || (!this.searchParty && !this.searchWebsite)) {
       return this.orders
@@ -131,6 +69,42 @@ export class ordersView {
         (this.searchParty && order.partyId.toUpperCase().startsWith(this.searchArg )) ||
         (this.searchWebsite && order.webSiteId.toUpperCase().startsWith(this.searchArg))
     )
+  }
+
+  get isOrder() {
+    if(this.selectedOrder.length > 0){
+      return (this.selectedOrder);
+    }
+    return false;
+  }
+  get isShip() {
+    if(this.selectedShip.length > 0){
+      return (this.selectedShip);
+    }
+    return false;
+  }
+  get isWeb() {
+    if(this.selectedWeb.length > 0){
+      return (this.selectedWeb);
+    }
+    return false;
+  }
+  get isSale() {
+    if(this.selectedSale.length > 0){
+      return (this.selectedSale);
+    }
+    return false;
+  }get isTotal() {
+    if(this.selectedTt.length > 0){
+      return (this.selectedTt);
+    }
+    return false;
+  }
+  get isStatus() {
+    if(this.selectedStatus.length > 0){
+      return (this.selectedStatus);
+    }
+    return false;
   }
 }
 

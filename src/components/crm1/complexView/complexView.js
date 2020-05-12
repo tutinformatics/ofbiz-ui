@@ -5,12 +5,13 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from "aurelia-dependency-injection";
 import {EventAggregator} from "aurelia-event-aggregator";
 import {collectClients} from "../utils/collectClients";
+import {EntityQueryService} from "../services/entityQueryService";
 
 
-@inject(EventAggregator, HttpClient, Router)
+@inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ComplexView {
   baseUrl = '';
-  constructor(ea, http, router) {
+  constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
     this.router = router;
@@ -18,6 +19,8 @@ export class ComplexView {
     this.view = "Card View"
     this.displayActivity = false;
     this.displayClient = false;
+    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/'
+    this.entityQueryService = entityQueryService
   }
 
   async attached() {
@@ -26,27 +29,7 @@ export class ComplexView {
 
 
   async getAllContacts() {
-    let response = await this.http.fetch(`/api/generic/v1/entityquery/PartyExport`, {
-    method: 'post',
-      body: json({
-        "fieldList": [
-          "lastName",
-          "firstName",
-          "emailAddress",
-          "telContactNumber",
-          "companyName",
-          "roleTypeId",
-          "address1",
-          "city",
-          "postalCode",
-          "partyId"
-        ]
-      })
-    })
-    .then(response => response.json())
-    .catch(() => {
-      alert('Error fetching clients!');
-    });
+    let response = await this.entityQueryService.getAllContacts()
     for (let i = 0; i < response.length; i++) {
       if (
         response[i].roleTypeId !== "_NA_" &&
