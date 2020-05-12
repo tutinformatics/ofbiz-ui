@@ -1,22 +1,21 @@
 <template>
   <require from="../../../css/crm1.css"></require>
   <require from="../common/modals/addClientPopUp"></require>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
-  <div class="container-fluid" >
+  <div class="container-fluid">
     <div class="mt-3 d-flex flex-row">
-      <div class="col-sm-3 d-flex justify-content-start" >
+      <div class="col-sm-3 d-flex justify-content-start">
         <h3 class="m-1">Sales Orders</h3>
       </div>
-      <div class="col-sm-6" >
+      <div class="col-sm-6">
         <div class="m-1 helpers">
-          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Tasks..." >
+          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Tasks...">
         </div>
       </div>
-      <div class="col-sm-3 d-flex flex-row" >
+      <div class="col-sm-3 d-flex flex-row">
         <div class="dropdown m-1">
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-filter"></i> Filters</a>
+            <i class="fa fa-filter"></i> Filters</a>
 
           <div class="dropdown-menu filter" aria-labelledby="dropdownMenuLink" >
             <h5 class="ml-3">Select filters:</h5>
@@ -32,10 +31,10 @@
     </div>
   </div>
 
-  <div class="container-fluid" >
-    <table class="table" >
+  <div class="container-fluid">
+    <table class="table">
       <thead>
-      <tr >
+      <tr>
         <th scope="col">Order Number</th>
         <th scope="col">${selectedOrder}</th>
         <th scope="col">${selectedShip}</th>
@@ -47,28 +46,40 @@
         <th scope="col">
           <div class="dropdown">
             <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-ellipsis-v"></i></a>
+              <i class="fa fa-ellipsis-v"></i></a>
             <form>
               <div repeat.for="category of categories">
               <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
 
-                  <p class="dropdown-item"  >
+                  <p class="dropdown-item">
+                  <label>
                     <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" checked="checked">
+                  </label>
                     ${category.orderDate}</p>
-                  <p class="dropdown-item" >
+                  <p class="dropdown-item">
+                  <label>
                     <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" checked="checked">
-                    ${category.shipment}</p>
-                  <p class="dropdown-item" >
+                  </label>
+                  ${category.shipment}</p>
+                  <p class="dropdown-item">
+                  <label>
                     <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" checked="checked">
-                    ${category.website}</p>
-                <p class="dropdown-item" >
-                  <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
+                  </label>
+                  ${category.website}</p>
+                 <p class="dropdown-item">
+                  <label>
+                    <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
+                  </label>
                   ${category.salesperson}</p>
-                <p class="dropdown-item" >
-                  <input type="checkbox" value.bind="category.total" checked.bind="selectedTt" checked="checked">
+                  <p class="dropdown-item">
+                  <label>
+                    <input type="checkbox" value.bind="category.total" checked.bind="selectedTt" checked="checked">
+                  </label>
                   ${category.total}</p>
-                <p class="dropdown-item" >
-                  <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
+                  <p class="dropdown-item">
+                  <label>
+                    <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
+                  </label>
                   ${category.status}</p>
 
               </div>

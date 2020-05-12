@@ -12,8 +12,9 @@ export class ordersView {
     this.ea = ea;
     this.http = http;
     this.router = router;
+    this.entityQueryService = entityQueryService
+
     this.orders = [];
-    this.searchArgument = ""
     this.categories = [
       {
         "orderDate": 'Order Date',
@@ -31,9 +32,9 @@ export class ordersView {
     this.selectedTt = [];
     this.selectedStatus = [];
 
+    this.searchArgument = ""
     this.searchParty = true
     this.searchWebsite = true
-    this.entityQueryService = entityQueryService
   }
 
   async attached() {
