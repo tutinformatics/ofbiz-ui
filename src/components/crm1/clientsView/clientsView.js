@@ -5,34 +5,34 @@ import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
 import {collectClients} from '../utils/collectClients'
 import {computedFrom} from 'aurelia-framework';
+import {EntityQueryService} from "../services/entityQueryService";
 
-@inject(EventAggregator, HttpClient, Router)
+@inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ClientsView {
 
-  categories = [
-    {
-      "phone": 'Phone',
-      "mail" : 'Email'
-    }
-  ]
-  selectedPhone = [];
-  selectedEmail = [];
-
-
-  constructor(ea, http, router) {
+  constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
     this.router = router;
+    this.entityQueryService = entityQueryService;
+
     this.contacts = [];
     this.simpleView = true;
     this.view = "Card View";
+    this.categories = [
+      {
+        "phone": 'Phone',
+        "mail" : 'Email'
+      }
+    ]
+
     this.searchArgument = "";
-    this.sortedContacts = []
     this.searchFirstName = true
     this.searchLastName = true
     this.searchEmail = true
     this.searchPhoneNumber = true
-    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/'
+    this.selectedPhone = [];
+    this.selectedEmail = [];
 
     this.ea.subscribe("addClient", payload => {
       this.contacts.push(payload);
@@ -45,49 +45,12 @@ export class ClientsView {
   }
 
   async getAllParties() {
-    let response = await this.http.fetch(`${this.baseUrl}entityquery/PartyRoleAndPartyDetail`, {
-      method: 'post',
-      body: json({
-        "inputFields":
-          {
-            "roleTypeId": "ACCOUNT"
-          },
-        "fieldList": [
-          "partyId",
-          "roleTypeId",
-          "groupName"
-        ]
-      })
-    })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-      });
+    let response = await this.entityQueryService.getAllParties()
     this.ea.publish("party", response)
   }
 
   async getAllContacts() {
-    let response = await this.http.fetch(`${this.baseUrl}entityquery/PartyExport`, {
-        method: 'post',
-        body: json({
-          "fieldList": [
-            "lastName",
-            "firstName",
-            "emailAddress",
-            "telContactNumber",
-            "companyName",
-            "roleTypeId",
-            "address1",
-            "city",
-            "postalCode",
-            "partyId"
-          ]
-        })
-      })
-      .then(response => response.json())
-      .catch(() => {
-        alert('Error fetching clients!');
-    });
+    let response = await this.entityQueryService.getAllContacts()
 
     for (let i = 0; i < response.length; i++) {
         let contact = new Contact(
@@ -111,6 +74,23 @@ export class ClientsView {
     this.ea.publish("currentClient", contact)
   }
 
+  @computedFrom('searchArgument')
+  get searchArg() {
+    return this.searchArgument.trim().toUpperCase()
+  }
+  @computedFrom('searchArg','contacts','searchFirstName','searchLastName','searchEmail','searchPhoneNumber')
+  get filteredContacts() {
+    if (this.searchArg === "" || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber)) {
+      return this.contacts;
+    }
+    return this.contacts.filter(
+      contact =>
+        (this.searchFirstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchLastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchEmail && contact.email.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchPhoneNumber && contact.phoneNumber != null && contact.phoneNumber.replace('-','').startsWith(this.searchArg.replace('-','')))
+    )
+  }
 
   cardView(){
     this.view = "Card view"
@@ -131,23 +111,6 @@ export class ClientsView {
       return (this.selectedEmail);
     }
     return false;
-  }
-  @computedFrom('searchArgument')
-  get searchArg() {
-    return this.searchArgument.trim().toUpperCase()
-  }
-  @computedFrom('searchArg','contacts','searchFirstName','searchLastName','searchEmail','searchPhoneNumber')
-  get filteredContacts() {
-    if (this.searchArg === "" || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber)) {
-      return this.contacts;
-    }
-    return this.contacts.filter(
-      contact =>
-        (this.searchFirstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchLastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchEmail && contact.email.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchPhoneNumber && contact.phoneNumber != null && contact.phoneNumber.replace('-','').startsWith(this.searchArg.replace('-','')))
-    )
   }
 }
 

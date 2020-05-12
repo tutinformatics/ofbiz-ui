@@ -9,7 +9,7 @@
       </div>
       <div class="col-sm-6">
         <div class="m-1 helpers">
-          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Tasks...">
+          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Orders...">
         </div>
       </div>
       <div class="col-sm-3 d-flex flex-row">
@@ -52,37 +52,24 @@
               <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
 
                   <p class="dropdown-item">
-                  <label>
-                    <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" checked="checked">
-                  </label>
-                    ${category.orderDate}</p>
+                  <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" checked="checked">
+                  ${category.orderDate}</p>
                   <p class="dropdown-item">
-                  <label>
-                    <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" checked="checked">
-                  </label>
+                  <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" checked="checked">
                   ${category.shipment}</p>
                   <p class="dropdown-item">
-                  <label>
-                    <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" checked="checked">
-                  </label>
+                  <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" checked="checked">
                   ${category.website}</p>
                  <p class="dropdown-item">
-                  <label>
-                    <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
-                  </label>
+                  <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
                   ${category.salesperson}</p>
                   <p class="dropdown-item">
-                  <label>
-                    <input type="checkbox" value.bind="category.total" checked.bind="selectedTt" checked="checked">
-                  </label>
+                  <input type="checkbox" value.bind="category.total" checked.bind="selectedTt" checked="checked">
                   ${category.total}</p>
                   <p class="dropdown-item">
-                  <label>
-                    <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
-                  </label>
+                  <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
                   ${category.status}</p>
-
-              </div>
+                </div>
               </div>
             </form>
           </div>

@@ -99,5 +99,26 @@ export class EntityQueryService {
       });
 
   }
+
+  getAllParties() {
+    return  this.http.fetch(`${this.baseUrl}entityquery/PartyRoleAndPartyDetail`, {
+      method: 'post',
+      body: json({
+        "inputFields":
+          {
+            "roleTypeId": "ACCOUNT"
+          },
+        "fieldList": [
+          "partyId",
+          "roleTypeId",
+          "groupName"
+        ]
+      })
+    })
+      .then(response => response.json())
+      .catch(() => {
+        alert('Error fetching clients!');
+      });
+  }
 }
 
