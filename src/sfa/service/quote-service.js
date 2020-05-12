@@ -28,7 +28,6 @@ export class QuoteService {
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(reason => {
-        // do something useful here
         console.error(reason);
       });
   }

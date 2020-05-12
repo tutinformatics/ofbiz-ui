@@ -10,11 +10,9 @@ export class QuoteEdit {
     attached() {
       this.quotes = this.quoteService.getQuotes();
       this.parties = this.quoteService.get("Party");
-      console.log(this.parties);
     }
 
     activate(params, routeConfig, navigationInstruction) {
-      console.log(params.quote);
       this.quote = params.quote;
     }
     editQuote() {

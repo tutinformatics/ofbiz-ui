@@ -64,22 +64,25 @@ export class Pipeline {
     console.log('change', change);
   }
 
-  fruitsOrdered(list, change) {
-    if (change.item.stage !== "new") {
+  newOrdered(list, change) {
+    if (change.item.stage !== "new" && this.lastChange !== change) {
+      this.lastChange = change;
       change.item.stage = "new";
       this.opportunityService.editOpportunity(change.item);
     }
   }
 
-  animalsOrdered(list, change) {
-    if (change.item.stage !== "proposition") {
+  propositionOrdered(list, change) {
+    if (change.item.stage !== "proposition" && this.lastChange !== change) {
+      this.lastChange = change;
       change.item.stage = "proposition";
       this.opportunityService.editOpportunity(change.item);
     }
   }
 
-  insectsOrdered(list, change) {
-    if (change.item.stage !== "won") {
+  wonOrdered(list, change) {
+    if (change.item.stage !== "won" && this.lastChange !== change) {
+      this.lastChange = change;
       change.item.stage = "won";
       this.opportunityService.editOpportunity(change.item);
     }

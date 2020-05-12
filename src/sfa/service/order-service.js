@@ -53,6 +53,7 @@ export class OrderService {
           method: "DELETE"
         }
       );
+    */
   }
   editOrder(order) {
     this.client
