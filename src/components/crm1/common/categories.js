@@ -15,7 +15,7 @@ export class Categories {
     this.lastNames = []
     this.companies = []
     this.includeFirstName = true;
-    this.includeLastName = false;
+    this.includeLastName = true;
 
     ea.subscribe("categoryCompany", payload => {
       console.log(payload)

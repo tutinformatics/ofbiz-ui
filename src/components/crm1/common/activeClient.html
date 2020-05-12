@@ -10,7 +10,7 @@
     <div class="card rounded shadow-sm pb-2">
       <div class="card-header p-0 m-0">
         <i class="fa fa-window-close fa-pull-right m-1 pointer" click.delegate="closeActiveClient()"
-           aria-hidden="true" style="color:#a1a6ff;"></i>
+           aria-hidden="true"></i>
         <h6 class="p-0 m-0 text-center">Active client</h6>
       </div>
   <!--    Client profile picture, name, position-->
@@ -19,9 +19,9 @@
           <img src="../img/avatar.png" class="card-img-top rounded-circle pt-1" alt="">
         </div>
         <div class="text-center">
-          <h6 class="m-0">${firstName} ${lastName}</h6>
-          <b class="m-0">${companyName}</b>
-          <p class="m-0 font-weight-normal">${positionType}</p>
+          <b class="m-0">${firstName} ${lastName}</b>
+          <p class="m-0">${companyName}</p>
+          <p class="m-0 font-weight-lighter">${positionType}</p>
         </div>
       </div>
 
@@ -31,10 +31,10 @@
       <div class="card row no-gutters m-0 rounded-0 ">
         <div class="btn-toolbar m-0 text-center p-0 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group" role="group">
-              <button type="button" click.delegate="quickAction(notes)"  class="btn btn-outline-dark btn-sm m-1">Notes</button>
+              <button type="button" click.delegate="quickAction(notes)"  class="btn quickAction btn-outline-dark btn-sm m-1">Notes</button>
             </div>
           <div class="btn-group" role="group">
-            <button type="button" data-toggle="modal" data-target="#changeCustomerData"  class="btn btn-outline-dark btn-sm m-1">Edit</button>
+            <button type="button" data-toggle="modal" data-target="#changeCustomerData"  class="btn quickAction btn-outline-dark btn-sm m-1">Edit</button>
           </div>
 
         </div>
@@ -46,7 +46,7 @@
       <div class="card rounded-0">
         <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
           <div repeat.for="option of contactOptions">
-            <button type="button" click.delegate="quickAction(option)" class="btn p-1 m-1 btn-secondary round">${option.name}</button>
+            <button type="button" click.delegate="quickAction(option)" class="btn btnInteraction p-1 m-1 round">${option.name}</button>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
   <!--   View conversation history-->
   <div class="card rounded-0 p-0 m-0 bg-white">
     <div class="card-header p-0">
-      <h6 class="m-0 pb-2 pt-1 text-center">Conversations</h6>
+      <h6 class="m-0 py-1 text-center">Conversations</h6>
     </div>
     <div repeat.for="option of contactsListingOptions" >
       <div class="row">
@@ -70,13 +70,13 @@
   <!--    Leads, opportunities, proposals, deals-->
       <div class="card rounded-0 p-0 m-0 bg-white">
         <div class="card-header p-0">
-          <h6 class="m-0 pb-2 pt-1 text-center">Sales</h6>
+          <h6 class="m-0 py-1 text-center">Sales</h6>
         </div>
         <div repeat.for="option of saleOptions" >
           <div class="row">
             <div class="col-12">
               <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}
-                <add data-toggle="modal" data-target="#changeCustomerData" click.delegate="preventPropagation(event)"></add></button>
+                <add class="pb-1" data-toggle="modal" data-target="#changeCustomerData" click.delegate="preventPropagation(event)"></add></button>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
   <!--    Orders, invoices, claims, returned-->
       <div class="card rounded-0 m-0 p-0 bg-white">
         <div class="card-header p-0">
-          <h6 class="m-0 pb-2 pt-1 text-center">Documents</h6>
+          <h6 class="m-0 py-1 text-center">Documents</h6>
         </div>
         <div repeat.for="option of options" >
           <div class="row">

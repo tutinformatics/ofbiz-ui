@@ -92,13 +92,6 @@ input{
   right: 50px;
 }
 
-
-
-.col-form-label.required:after{
-  content:"*";
-  color:red;
-}
-
 .table td {
   text-align: center;
 }

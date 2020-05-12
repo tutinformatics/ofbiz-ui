@@ -8,7 +8,7 @@
 
     <div class="scrollbar scrollbar-primary m-0">
       <div class="force-overflow"></div>
-        <ul class="list-group list-group-flush" style="max-height: 84vh;">
+        <ul class="list-group list-group-flush mt-1" style="max-height: 84vh;">
           <div repeat.for="contact of filteredContacts">
 
 <!--            Single contact-->
@@ -21,8 +21,8 @@
                   </div>
                   <div class="col-8">
                     <div class="card-body no-gutters text-sm-center text-md-left p-0 pt-2 m-0 d-inline-block text-truncate">
-                        <h6 class="text-truncate">${contact.firstName}</h6>
-                        <h6 class="text-truncate">${contact.lastName}</h6>
+                        <div class="text-truncate">${contact.firstName}</div>
+                        <div class="text-truncate">${contact.lastName}</div>
                     </div>
                   </div>
                 </div>
