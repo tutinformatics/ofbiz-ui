@@ -17,18 +17,18 @@ export class billsView {
 
     this.categories = [
       {
-        "description": 'Description',
-        "from" : 'From',
+        "description": "Description",
+        "from" : "From",
         "to" : "To",
         "quantity" : "Quantity",
         "total" : "Total"
       }
     ]
     this.selectedDesc = [];
-    this.selectedFr = [];
+    this.selectedFr = ["From"];
     this.selectedTo = [];
     this.selectedQa = [];
-    this.selectedTt = [];
+    this.selectedTt = ["Total"];
 
     this.searchArgument = ""
   }

@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="mt-3 d-flex flex-row">
       <div class="col-sm-3 d-flex justify-content-start">
-        <h3 class="m-1">Sales Orders</h3>
+        <h3 class="m-1">Orders</h3>
       </div>
       <div class="col-sm-6">
         <div class="m-1 helpers">
@@ -36,13 +36,13 @@
       <thead>
       <tr>
         <th scope="col">Order Number</th>
+        <th scope="col">Company</th>
         <th scope="col">${selectedOrder}</th>
         <th scope="col">${selectedShip}</th>
-        <th scope="col">Company</th>
         <th scope="col">${selectedWeb}</th>
         <th scope="col">${selectedSale}</th>
-        <th scope="col">${selectedTt}</th>
         <th scope="col">${selectedStatus}</th>
+        <th scope="col">Total</th>
         <th scope="col">
           <div class="dropdown">
             <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,9 +64,6 @@
                   <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
                   ${category.salesperson}</p>
                   <p class="dropdown-item">
-                  <input type="checkbox" value.bind="category.total" checked.bind="selectedTt" checked="checked">
-                  ${category.total}</p>
-                  <p class="dropdown-item">
                   <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
                   ${category.status}</p>
                 </div>
@@ -79,19 +76,18 @@
       <tbody>
       <tr repeat.for="order of filteredOrders">
         <td>${order.orderId}</td>
+        <td>${order.partyId}</td>
         <td if.bind="isOrder">${order.orderDate}</td>
         <td else></td>
         <td if.bind="isShip">${order.entryDate}</td>
         <td else></td>
-        <td>${order.partyId}</td>
         <td if.bind="isWeb">${order.webSiteId}</td>
         <td else></td>
         <td if.bind="isSale">${order.roleTypeId}</td>
         <td else></td>
-        <td if.bind="isTotal">${order.grandTotal}</td>
-        <td else></td>
         <td if.bind="isStatus">${order.statusId}</td>
         <td else></td>
+        <td>${order.grandTotal} €</td>
         <td></td>
       </tr>
       </tbody>

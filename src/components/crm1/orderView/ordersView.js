@@ -20,17 +20,16 @@ export class ordersView {
         "orderDate": 'Order Date',
         "shipment" : 'Shipment Start',
         "website" : "Website",
-        "salesperson" : "Salesperson",
-        "total" : "Total",
+        "salesperson" : "Type",
         "status" : "Status",
       }
     ]
     this.selectedOrder = [];
-    this.selectedShip = [];
+    this.selectedShip = ["Shipment Start"];
     this.selectedWeb = [];
     this.selectedSale = [];
-    this.selectedTt = [];
-    this.selectedStatus = [];
+    this.selectedTt = ["Total"];
+    this.selectedStatus = ["Status"];
 
     this.searchArgument = ""
     this.searchParty = true

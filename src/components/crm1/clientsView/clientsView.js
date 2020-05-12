@@ -31,8 +31,8 @@ export class ClientsView {
     this.searchLastName = true
     this.searchEmail = true
     this.searchPhoneNumber = true
-    this.selectedPhone = [];
-    this.selectedEmail = [];
+    this.selectedPhone = ["Phone"];
+    this.selectedEmail = ["Email"];
 
     this.ea.subscribe("addClient", payload => {
       this.contacts.push(payload);

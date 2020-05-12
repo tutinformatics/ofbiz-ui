@@ -75,14 +75,14 @@ export class Activity {
   closeActivity() {
     this.ea.publish("displayActivity", false);
   }
-  async getData(activity) {
+  async getData(entity) {
     this.data = this.tableData = [];
-    this.tableHeaders = this.headerDict[activity];
+    this.tableHeaders = this.headerDict[entity];
 
-    let response = await this.entityQueryService.getActivity(activity, this.chosenContact.partyId)
+    let response = await this.entityQueryService.getEntity(entity, this.chosenContact.partyId)
     this.data = response
     for (let i = 0; i < response.length; i++) {
-      let entry = new TableEntry(this.defineDataFor(activity, response[i]));
+      let entry = new TableEntry(this.defineDataFor(entity, response[i]));
       this.tableData.push(entry);
     }
   }
