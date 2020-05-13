@@ -6,7 +6,7 @@ export class Marketdata {
   baseUrl = 'api/generic/v1/entities/MarketdataModel';
   companies = [];
   test = null;
-  pageSize = 10;
+  pageSize = 5;
   statuses = ['Registrisse kantud', 'Pole registris', 'Teadmata'];
   selectedStatuses = [];
   sectors = ['AdTech & Creative Tech', 'Advanced Manufacturing', 'Business software', 'CleanTech'];
