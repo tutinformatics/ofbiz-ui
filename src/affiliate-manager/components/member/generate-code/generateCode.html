@@ -14,7 +14,7 @@
     <div class="col-md-9 mx-auto my-3">
       <select-value
         class="pl-0 col-3"
-        selected.two-way="selectedCategory"
+        selected-key.two-way="selectedCategory"
         options.one-way="productCategories"
         id.one-way="'generateCodeId'"
         label-text="Generate code for a chosen category"
@@ -88,8 +88,7 @@
             <p>${filteredAffiliateCodes[index]['category']}</p>
           </td>
           <td class="align-middle">
-            <p>${filteredAffiliateCodes[index]['discount'] ? filteredAffiliateCodes[index]['discount'] + '%' :
-              'NaN'}</p>
+            <p>${filteredAffiliateCodes[index]['discount']}</p>
           </td>
           <td class="aff-table__action-icon aff-table__action-icon--red">
             <icon

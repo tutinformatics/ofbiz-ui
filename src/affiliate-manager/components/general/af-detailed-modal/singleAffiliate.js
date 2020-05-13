@@ -20,7 +20,6 @@ export class SingleAffiliate {
     this.isAdmin = data['isAdmin'];
     this.partner = data['partner'];
     this.getMoreInf(this.partner);
-    console.log(data);
   }
 
   getMoreInf(partner) {

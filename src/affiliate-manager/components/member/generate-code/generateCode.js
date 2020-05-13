@@ -8,6 +8,7 @@ export class GenerateCode {
 
   filteredAffiliateCodes = [];
   affiliateCodes = [];
+  discounts = {};
   @bindable
   selectedCategory;
 
@@ -17,8 +18,9 @@ export class GenerateCode {
   }
 
   async attached() {
+    await this.getProductCategories();
+    await this.getDiscounts();
     this.getAffiliateCodes();
-    this.getProductCategories()
   }
 
   async getProductCategories() {
@@ -28,10 +30,10 @@ export class GenerateCode {
       categories
         .filter(c => c['categoryName'] !== null)
         .forEach(c => localCategories.push(
-          {
-            'key': c['categoryName'],
-            'value': c['categoryName']
-          }
+            {
+              'key': c['productCategoryId'],
+              'value': c['categoryName'],
+            }
           )
         )
     }
@@ -67,6 +69,18 @@ export class GenerateCode {
     ];
   }
 
+  async getDiscounts() {
+    const response = await this.affManagerService.getAffiliateDiscounts();
+    const localDiscounts = [];
+    if (response.ok) {
+      const jsonData = await response.json();
+      jsonData['discounts'].forEach(d => {
+        localDiscounts.push(d)
+      })
+    }
+    this.discounts = localDiscounts;
+  }
+
   async getAffiliateCodes() {
     const responseData = await this.affManagerService.getAffiliateCodesRequest();
     const localAffiliateCodes = [];
@@ -80,7 +94,7 @@ export class GenerateCode {
   }
 
   async generateAffiliateCode() {
-    const response = await this.affManagerService.generateAffiliateCodeRequest();
+    const response = await this.affManagerService.generateAffiliateCodeRequest(this.selectedCategory);
     if (response.ok) {
       response.json().then((response) => {
           this.affiliateCodes.push(
@@ -106,11 +120,21 @@ export class GenerateCode {
     const parsedDate = new Date(code["createdStamp"]);
     return {
       "dateOfCreation": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
-      "code": safeGet(() =>  code['affiliateCodeId'], 'Missing'),
-      "expirationDate": safeGetExtended(() =>  parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
+      "code": safeGet(() => code['affiliateCodeId'], 'Missing'),
+      "expirationDate": safeGetExtended(() => parsedDate, moment(parsedDate).format('MM-D-YYYY'), 'Missing'),
       "isDefault": code["isDefault"] === 'Y',
-      "category": 'None',
+      "discount": safeGet(() => this.getDiscount(code['productCategoryId']), 'Missing'),
+      "category": code['productCategoryId'] ? this.productCategories.find(c => c['key'] === code['productCategoryId'])['value'] : 'Missing'
     }
   }
 
+  getDiscount(productCategoryId) {
+    if (productCategoryId) {
+      const discount = this.discounts.find(d => d['productCategoryId'] === productCategoryId);
+      if (discount) {
+        return `${discount['discount']}%`
+      }
+    }
+    return null
+  }
 }
