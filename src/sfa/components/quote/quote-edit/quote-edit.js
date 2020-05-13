@@ -16,7 +16,10 @@ export class QuoteEdit {
       this.quote = params.quote;
     }
     editQuote() {
-      history.back();
+      let quote = {quoteId: this.quote.quoteId, name: this.quote.name, description: this.quote.description, agentId: this.quote.agentId };
+
+      this.quoteService.editQuote(quote);
+      this.back();
     };
     back() {
       history.back();

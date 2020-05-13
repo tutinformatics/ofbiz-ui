@@ -14,8 +14,8 @@
       <tbody>
       <tr repeat.for="order of orders">
         <td>${order.orderId}</td>
-        <td>${order.statusId}</td>
-        <td>${order.grandTotal} ${order.currencyUom}</td>
+        <td>${order.status}</td>
+        <td>${order.totalSum} ${order.currencyUom}</td>
         <td>${timeConverter(order.lastUpdatedStamp)}</td>
         <td>
           <a style="text-decoration: none" route-href="route: order-edit; params.bind: { order: order}">Edit</a> |

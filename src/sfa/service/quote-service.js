@@ -11,7 +11,7 @@ export class QuoteService {
 
   getQuotes() {
     return this.client
-      .fetch(`${this.baseUrl}entities/Quote`)
+      .fetch(`${this.baseUrl}entities/salesQuote`)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
@@ -21,7 +21,7 @@ export class QuoteService {
 
   createNewQuote(quote) {
     this.client
-      .fetch(`${this.baseUrl}entities/Quote`, {
+      .fetch(`${this.baseUrl}entities/salesQuote`, {
         method: 'post',
         body: json(quote)
       })
@@ -34,7 +34,7 @@ export class QuoteService {
   deleteQuoteById(id) {
     return this.client
       .fetch(
-        `${this.baseUrl}entities/Quote?quoteId=` + id,
+        `${this.baseUrl}entities/salesQuote?quoteId=` + id,
         {
           method: "DELETE"
         }
@@ -51,7 +51,7 @@ export class QuoteService {
   }
   editQuote(quote) {
     this.client
-      .fetch(`${this.baseUrl}entities/Quote`, {
+      .fetch(`${this.baseUrl}entities/salesQuote`, {
         method: 'PUT',
         body: json(quote)
       })

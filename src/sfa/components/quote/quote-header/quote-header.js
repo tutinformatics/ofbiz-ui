@@ -7,12 +7,11 @@ export class QuoteHeader {
   constructor(ea, quoteService) {
     this.ea = ea;
     this.quoteService = quoteService;
-    console.log(this.quoteService.getQuotes());
     this.parties = this.quoteService.get("Party");
   }
 
   newQuote() {
-    let quote = { quoteName: this.quote.quoteName, partyId: this.quote.partyId, quoteTypeId: "CQ0001", productStoreId: "9000", statusId: "QUO_CREATED" };
+    let quote = { name: this.quote.name, partyId: this.quote.partyId, description: this.quote.description, issueDate: new Date().valueOf() };
     this.quoteService.createNewQuote(quote);
   };
 }

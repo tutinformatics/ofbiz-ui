@@ -12,7 +12,6 @@ export class OrderService {
     this.subscription = this.store.state.subscribe(
       (state) => this.state = state
     );
-
   }
   unbind() {
     this.subscription.unsubscribe();
@@ -20,21 +19,12 @@ export class OrderService {
 
   getOrders() {
     return this.client
-      .fetch(`${this.baseUrl}entities/OrderHeader?createdBy=` + this.state.userLoginId)
+      .fetch(`${this.baseUrl}entities/salesOrder`)
       .then(response => response.json())
       .catch(reason => {
         console.error(reason);
         return [];
       });
-  }
-  post() {
-    return this.client
-      .fetch(`localhost:8443/api/auth/v1/token`, {
-        method: 'post',
-        body: json({
-          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyTG9naW5JZCI6Imluc2VydF91c2VybmFtZV9oZXJlIiwiaXNzIjoiQXBhY2hlT0ZCaXoiLCJleHAiOjE1ODc4NDEzMzgsImlhdCI6MTU4NzgzOTUzOH0.Gw3tafcMOaSq-7jj2Tgc_RnvMlc6hGMmDKU9xdC6wo00Lud_BBFVZEaACXn2gI4rrIZEzZD85yUDrKW-69CKIA"
-        })
-      })
   }
   get(type) {
     return this.client
@@ -48,23 +38,23 @@ export class OrderService {
   deleteOrder(id) {
     return this.client
       .fetch(
-        `${this.baseUrl}entities/OrderHeader?orderId=` + id,
+        `${this.baseUrl}entities/salesOrder?orderId=` + id,
         {
           method: "DELETE"
         }
       );
-    */
+
   }
   editOrder(order) {
     this.client
-      .fetch(`${this.baseUrl}entities/OrderHeader`, {
+      .fetch(`${this.baseUrl}entities/salesOrder`, {
         method: 'PUT',
         body: json(order)
       })
   }
   createNewOrder(order) {
     this.client
-      .fetch(`${this.baseUrl}entities/OrderHeader`, {
+      .fetch(`${this.baseUrl}entities/salesOrder`, {
         method: 'post',
         body: json(order)
       })

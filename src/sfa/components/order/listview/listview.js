@@ -16,10 +16,10 @@ export class ListView {
   }
 
   deleteOrder(id, index) {
+    console.log(this.orders);
     this.orders.splice(index, 1);
     this.orderService.deleteOrder(id);
   }
-
   timeConverter(UNIX_timestamp){
     let a = new Date(UNIX_timestamp);
     let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
