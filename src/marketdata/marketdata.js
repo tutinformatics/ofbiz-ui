@@ -15,7 +15,7 @@ export class Marketdata {
   selectedModels = [];
   filters = [
     {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount']},
-    {value: '', keys: ['companyStatus']}
+    {value: this.selectedStatuses, keys: ['companyStatus']}
   ];
 
   constructor(httpClient) {
