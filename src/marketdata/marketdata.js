@@ -13,8 +13,9 @@ export class Marketdata {
   selectedSectors = [];
   models = ['B2B', 'B2B2C', 'B2C', 'B2G'];
   selectedModels = [];
+  selectedCompanies = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount']},
+    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount', 'contactEmail']},
     {value: this.selectedStatuses, keys: ['companyStatus']}
   ];
 
@@ -41,6 +42,7 @@ export class Marketdata {
     this.selectedCompanyBusinessModel = company.companyBusinessModel;
     this.selectedCompanySector = company.companySector;
     this.selectedCompanyEmployeeCount = company.employeeCount;
+    this.selectedCompanyContactEmail = company.contactEmail;
     this.rowSelected($event);
   }
 
@@ -56,7 +58,8 @@ export class Marketdata {
       companyAddress: this.companyAddress,
       companyBusinessModel: this.companyBusinessModel,
       companySector: this.companySector,
-      employeeNum: this.employeeCount
+      employeeNum: this.employeeCount,
+      contactEmail: this.contactEmail
     };
 
     this.companies.unshift(company);

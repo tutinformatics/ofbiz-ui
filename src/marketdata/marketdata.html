@@ -9,7 +9,7 @@
   </div>
 
   <div class="btn-group" role="group">
-    <button class="btn btn-light"><i class="fa fa-plus-square"></i></button>
+    <button class="btn btn-light"><a href="mailto:${selectedCompanies}"><i class="fa fa-plus-square"></i></a></button>
     <div class="dropdown">
       <button class="btn btn-light dropdown-toggle" type="button" id="filterTableSector" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -74,7 +74,7 @@
     <tbody>
     <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
         aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
-      <td><input type="checkbox" checked.bind="company.$isSelected"/></td>
+      <td><input type="checkbox" model.bind="company.contactEmail" checked.bind="selectedCompanies"/></td>
       <td data-toggle="modal" data-target="#detailedCompany" style="color:#007bff">${company.companyName}</td>
       <td>${company.registryCode}</td>
       <td>${company.companyStatus}</td>
@@ -170,6 +170,7 @@
             <li>Business model: ${selectedCompanyBusinessModel}</li>
             <li>Sector: ${selectedCompanySector}</li>
             <li>Number of employees: ${selectedCompanyEmployeeCount}</li>
+            <li>Contact email: ${selectedCompanyContactEmail}</li>
           </ul>
         </div>
       </div>
