@@ -10,9 +10,8 @@ export function collectClients(clients) {
         }
       }
     } else {
-      clientsMap.set(curClient.partyId, curClient)
+      clientsMap.set(curClient.partyId, curClient);
     }
-
   }
   return Array.from(clientsMap.values());
 }

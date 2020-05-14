@@ -4,7 +4,7 @@ export class Order {
     this.orderDate = orderDate;
     this.entryDate = entryDate;
     this.partyId = partyId;
-    this.webSiteId = webSiteId ;
+    this.webSiteId = webSiteId;
     this.roleTypeId = roleTypeId;
     this.grandTotal = grandTotal;
     this.statusId = statusId;

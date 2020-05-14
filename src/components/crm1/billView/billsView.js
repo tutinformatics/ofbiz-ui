@@ -4,7 +4,7 @@ import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {Bill} from '../models/bill';
-import {EntityQueryService} from "../services/entityQueryService";
+import {EntityQueryService} from '../services/entityQueryService';
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class billsView {
@@ -17,30 +17,30 @@ export class billsView {
 
     this.categories = [
       {
-        "description": "Description",
-        "from" : "From",
-        "to" : "To",
-        "quantity" : "Quantity",
-        "total" : "Total"
+        'description': 'Description',
+        'from': 'From',
+        'to': 'To',
+        'quantity': 'Quantity',
+        'total': 'Total'
       }
-    ]
+    ];
     this.selectedDesc = [];
-    this.selectedFr = ["From"];
+    this.selectedFr = ['From'];
     this.selectedTo = [];
     this.selectedQa = [];
-    this.selectedTt = ["Total"];
+    this.selectedTt = ['Total'];
 
-    this.searchArgument = ""
+    this.searchArgument = '';
   }
   async attached() {
     await this.getAllBills();
   }
 
   async getAllBills() {
-    let response = await this.entityQueryService.getAllBills()
+    let response = await this.entityQueryService.getAllBills();
 
     for (let i = 0; i < response.length; i++) {
-        let bill = new Bill(
+      let bill = new Bill(
         response[i].partyIdFrom,
         response[i].partyIdTrans,
         response[i].amount,
@@ -59,41 +59,41 @@ export class billsView {
   }
 
   get filteredBills() {
-    if (this.searchArg === "") {
+    if (this.searchArg === '') {
       return this.bills;
     }
-    console.log(this.bills)
+    console.log(this.bills);
     return this.bills.filter(
       bill => bill.itemDescription != null &&
-        bill.itemDescription.toUpperCase().split(" ").length > 1
-    )
+        bill.itemDescription.toUpperCase().split(' ').length > 1
+    );
   }
 
   get isDesc() {
-    if(this.selectedDesc.length>0){
+    if (this.selectedDesc.length > 0) {
       return (this.selectedDesc);
     }
     return false;
   }
   get isFrom() {
-    if(this.selectedFr.length>0){
+    if (this.selectedFr.length > 0) {
       return (this.selectedFr);
     }
     return false;
   }
   get isTo() {
-    if(this.selectedTo.length>0){
+    if (this.selectedTo.length > 0) {
       return (this.selectedTo);
     }
     return false;
   }
   get isQuality() {
-    if(this.selectedQa.length>0){
+    if (this.selectedQa.length > 0) {
       return (this.selectedQa);
     }
     return false;
-  }get isTotal() {
-    if(this.selectedTt.length>0){
+  } get isTotal() {
+    if (this.selectedTt.length > 0) {
       return (this.selectedTt);
     }
     return false;

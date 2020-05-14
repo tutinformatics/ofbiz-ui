@@ -4,7 +4,7 @@ export class Bill {
     this.partyIdTrans = partyIdTrans;
     this.amount = amount;
     this.quantity = quantity;
-    this.invoiceId = invoiceId ;
+    this.invoiceId = invoiceId;
     this.itemDescription = itemDescription;
     this.invoiceTypeId = invoiceTypeId;
     this.invoiceDate = invoiceDate;

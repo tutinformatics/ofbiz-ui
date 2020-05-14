@@ -3,13 +3,12 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
-import {collectClients} from '../utils/collectClients'
+import {collectClients} from '../utils/collectClients';
 import {computedFrom} from 'aurelia-framework';
-import {EntityQueryService} from "../services/entityQueryService";
+import {EntityQueryService} from '../services/entityQueryService';
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ClientsView {
-
   constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
@@ -18,25 +17,25 @@ export class ClientsView {
 
     this.contacts = [];
     this.simpleView = true;
-    this.view = "Card View";
+    this.view = 'Card View';
     this.categories = [
       {
-        "phone": 'Phone',
-        "mail" : 'Email'
+        'phone': 'Phone',
+        'mail': 'Email'
       }
-    ]
+    ];
 
-    this.searchArgument = "";
-    this.searchFirstName = true
-    this.searchLastName = true
-    this.searchEmail = true
-    this.searchPhoneNumber = true
-    this.selectedPhone = ["Phone"];
-    this.selectedEmail = ["Email"];
+    this.searchArgument = '';
+    this.searchFirstName = true;
+    this.searchLastName = true;
+    this.searchEmail = true;
+    this.searchPhoneNumber = true;
+    this.selectedPhone = ['Phone'];
+    this.selectedEmail = ['Email'];
 
-    this.ea.subscribe("addClient", payload => {
+    this.ea.subscribe('addClient', payload => {
       this.contacts.push(payload);
-    })
+    });
   }
 
   async attached() {
@@ -45,42 +44,42 @@ export class ClientsView {
   }
 
   async getAllParties() {
-    let response = await this.entityQueryService.getAllParties()
-    this.ea.publish("party", response)
+    let response = await this.entityQueryService.getAllParties();
+    this.ea.publish('party', response);
   }
 
   async getAllContacts() {
-    let response = await this.entityQueryService.getAllContacts()
+    let response = await this.entityQueryService.getAllContacts();
 
     for (let i = 0; i < response.length; i++) {
-        let contact = new Contact(
-          response[i].firstName,
-          response[i].lastName,
-          response[i].emailAddress,
-          response[i].telContactNumber,
-          response[i].companyName,
-          response[i].roleTypeId,
-          response[i].address1,
-          response[i].city,
-          response[i].postalCode,
-          response[i].partyId
-        );
-        this.contacts.push(contact);
+      let contact = new Contact(
+        response[i].firstName,
+        response[i].lastName,
+        response[i].emailAddress,
+        response[i].telContactNumber,
+        response[i].companyName,
+        response[i].roleTypeId,
+        response[i].address1,
+        response[i].city,
+        response[i].postalCode,
+        response[i].partyId
+      );
+      this.contacts.push(contact);
     }
     this.contacts = collectClients(this.contacts);
   }
 
   getClientInformation(contact) {
-    this.ea.publish("currentClient", contact)
+    this.ea.publish('currentClient', contact);
   }
 
   @computedFrom('searchArgument')
   get searchArg() {
-    return this.searchArgument.trim().toUpperCase()
+    return this.searchArgument.trim().toUpperCase();
   }
-  @computedFrom('searchArg','contacts','searchFirstName','searchLastName','searchEmail','searchPhoneNumber')
+  @computedFrom('searchArg', 'contacts', 'searchFirstName', 'searchLastName', 'searchEmail', 'searchPhoneNumber')
   get filteredContacts() {
-    if (this.searchArg === "" || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber)) {
+    if (this.searchArg === '' || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber)) {
       return this.contacts;
     }
     return this.contacts.filter(
@@ -88,29 +87,33 @@ export class ClientsView {
         (this.searchFirstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
         (this.searchLastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
         (this.searchEmail && contact.email.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchPhoneNumber && contact.phoneNumber != null && contact.phoneNumber.replace('-','').startsWith(this.searchArg.replace('-','')))
-    )
+        (this.searchPhoneNumber && contact.phoneNumber != null && contact.phoneNumber.replace('-', '').startsWith(this.searchArg.replace('-', '')))
+    );
   }
 
-  cardView(){
-    this.view = "Card view"
+  cardView() {
+    this.view = 'Card view';
     this.simpleView = true;
   }
-  tableView(){
-    this.view = "Table View"
+  tableView() {
+    this.view = 'Table View';
     this.simpleView = false;
   }
   get isPhone() {
-    if(this.selectedPhone.length>0){
+    if (this.selectedPhone.length > 0) {
       return (this.selectedPhone);
     }
-   return false;
+    return false;
   }
   get isEmail() {
-    if(this.selectedEmail.length>0){
+    if (this.selectedEmail.length > 0) {
       return (this.selectedEmail);
     }
     return false;
+  }
+
+  selectContact(contact) {
+    console.log(contact);
   }
 }
 

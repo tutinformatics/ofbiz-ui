@@ -4,7 +4,7 @@ import {inject} from 'aurelia-dependency-injection';
 import {Order} from '../models/order';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
-import {EntityQueryService} from "../services/entityQueryService";
+import {EntityQueryService} from '../services/entityQueryService';
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ordersView {
@@ -12,37 +12,36 @@ export class ordersView {
     this.ea = ea;
     this.http = http;
     this.router = router;
-    this.entityQueryService = entityQueryService
+    this.entityQueryService = entityQueryService;
 
     this.orders = [];
     this.categories = [
       {
-        "orderDate": 'Order Date',
-        "shipment" : 'Shipment Start',
-        "website" : "Website",
-        "salesperson" : "Type",
-        "status" : "Status",
+        'orderDate': 'Order Date',
+        'shipment': 'Shipment Start',
+        'website': 'Website',
+        'salesperson': 'Type',
+        'status': 'Status'
       }
-    ]
+    ];
     this.selectedOrder = [];
-    this.selectedShip = ["Shipment Start"];
+    this.selectedShip = ['Shipment Start'];
     this.selectedWeb = [];
     this.selectedSale = [];
-    this.selectedTt = ["Total"];
-    this.selectedStatus = ["Status"];
+    this.selectedTt = ['Total'];
+    this.selectedStatus = ['Status'];
 
-    this.searchArgument = ""
-    this.searchParty = true
-    this.searchWebsite = true
+    this.searchArgument = '';
+    this.searchParty = true;
+    this.searchWebsite = true;
   }
 
   async attached() {
     await this.getAllOrders();
   }
   async getAllOrders() {
-    let response = await this.entityQueryService.getAllOrders()
+    let response = await this.entityQueryService.getAllOrders();
     for (let i = 0; i < response.length; i++) {
-
       let order = new Order(
         response[i].orderId,
         getDate(response[i].orderDate),
@@ -58,50 +57,50 @@ export class ordersView {
   }
 
   get searchArg() {
-    return this.searchArgument.trim().toUpperCase()
+    return this.searchArgument.trim().toUpperCase();
   }
   get filteredOrders() {
-    if (this.searchArg === "" || (!this.searchParty && !this.searchWebsite)) {
-      return this.orders
+    if (this.searchArg === '' || (!this.searchParty && !this.searchWebsite)) {
+      return this.orders;
     }
     return this.orders.filter(
       order =>
         (this.searchParty && order.partyId.toUpperCase().startsWith(this.searchArg )) ||
         (this.searchWebsite && order.webSiteId.toUpperCase().startsWith(this.searchArg))
-    )
+    );
   }
 
   get isOrder() {
-    if(this.selectedOrder.length > 0){
+    if (this.selectedOrder.length > 0) {
       return (this.selectedOrder);
     }
     return false;
   }
   get isShip() {
-    if(this.selectedShip.length > 0){
+    if (this.selectedShip.length > 0) {
       return (this.selectedShip);
     }
     return false;
   }
   get isWeb() {
-    if(this.selectedWeb.length > 0){
+    if (this.selectedWeb.length > 0) {
       return (this.selectedWeb);
     }
     return false;
   }
   get isSale() {
-    if(this.selectedSale.length > 0){
+    if (this.selectedSale.length > 0) {
       return (this.selectedSale);
     }
     return false;
-  }get isTotal() {
-    if(this.selectedTt.length > 0){
+  } get isTotal() {
+    if (this.selectedTt.length > 0) {
       return (this.selectedTt);
     }
     return false;
   }
   get isStatus() {
-    if(this.selectedStatus.length > 0){
+    if (this.selectedStatus.length > 0) {
       return (this.selectedStatus);
     }
     return false;

@@ -2,9 +2,9 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Router} from 'aurelia-router';
-import {EntityQueryService} from "../services/entityQueryService";
+import {EntityQueryService} from '../services/entityQueryService';
 
-@inject(EventAggregator,HttpClient , Router, EntityQueryService)
+@inject(EventAggregator, HttpClient, Router, EntityQueryService)
 
 export class Clients {
   constructor(ea, http, router, entityQueryService) {
@@ -17,48 +17,48 @@ export class Clients {
     this.baseUrl = '/api/generic/v1/';
     this.entityQueryService = entityQueryService;
 
-    ea.subscribe("partyIds", payload => {
+    ea.subscribe('partyIds', payload => {
       this.contacts = payload;
       this.filteredContacts = this.contacts;
 
-      this.ea.publish("categoryCompany",
+      this.ea.publish('categoryCompany',
         this.contacts.map(contact => contact.companyName).filter(this.unique)
       );
 
-      this.ea.publish("categoryPartiesIds",
+      this.ea.publish('categoryPartiesIds',
         this.contacts.map(contact => contact.partyId).filter(this.unique)
       );
 
-      this.ea.publish("categoryFirstNames",
+      this.ea.publish('categoryFirstNames',
         this.contacts.map(contact => contact.firstName).filter(this.unique)
       );
 
-      this.ea.publish("categoryLastNames",
+      this.ea.publish('categoryLastNames',
         this.contacts.map(contact => contact.lastName).filter(this.unique)
       );
     });
 
-    ea.subscribe("unfilteredCustomers", payload => {
+    ea.subscribe('unfilteredCustomers', payload => {
       console.log(this.contacts);
-      this.filteredContacts = this.contacts
+      this.filteredContacts = this.contacts;
     });
 
-    ea.subscribe("filterByParty", (party) => {
+    ea.subscribe('filterByParty', (party) => {
       this.filteredContacts = this.contacts.filter(
         contact => contact.partyId === party
-      )
-    })
+      );
+    });
 
-    ea.subscribe("filterByCompany", (company) => {
+    ea.subscribe('filterByCompany', (company) => {
       this.filteredContacts = this.contacts.filter(
         contact => contact.companyName === company
-      )
-    })
-    ea.subscribe("filterByName", (name) => {
+      );
+    });
+    ea.subscribe('filterByName', (name) => {
       this.filteredContacts = this.contacts.filter(
         contact => (contact.firstName === name) ||  (contact.lastName === name)
-      )
-    })
+      );
+    });
   }
 
   async attached() {
@@ -71,13 +71,13 @@ export class Clients {
 
 
   chooseContact(contact) {
-    this.ea.publish("contactChosen", contact);
-    this.ea.publish("changeAction", "refresh");
-    this.ea.publish("displayClient", true);
+    this.ea.publish('contactChosen', contact);
+    this.ea.publish('changeAction', 'refresh');
+    this.ea.publish('displayClient', true);
   }
 
   async getAllParties() {
-    let response = await this.entityQueryService.getAllParties()
-    this.ea.publish("party", response)
+    let response = await this.entityQueryService.getAllParties();
+    this.ea.publish('party', response);
   }
 }

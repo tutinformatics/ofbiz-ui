@@ -1,5 +1,5 @@
 export class TableEntry {
   constructor(dataArray) {
-    this.data = dataArray
+    this.data = dataArray;
   }
 }

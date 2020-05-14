@@ -1,8 +1,8 @@
 export function readErrorMsg(response) {
   let errArray = [];
-  for (let i = 0; i < response.errorMessageList.length; i++){
+  for (let i = 0; i < response.errorMessageList.length; i++) {
     let msg = response.errorMessageList[i].message;
-    errArray.push(msg)
+    errArray.push(msg);
   }
-  return errArray.join(" and ")
+  return errArray.join(' and ');
 }

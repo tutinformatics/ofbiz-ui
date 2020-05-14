@@ -102,7 +102,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr repeat.for="contact of filteredContacts">
+          <tr repeat.for="contact of filteredContacts"
+            data-toggle="modal" data-target="#client-detail-modal" click.delegate="getClientInformation(contact)">
             <td>${contact.firstName} ${contact.lastName}</td>
             <td>${contact.companyName}</td>
             <td if.bind="isEmail">${contact.email}</td>
