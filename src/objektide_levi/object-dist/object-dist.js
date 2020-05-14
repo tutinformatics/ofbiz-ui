@@ -1,16 +1,20 @@
-import {HttpClient} from 'aurelia-fetch-client';
+//import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {v1 as uuidv1} from 'uuid';
 import {QueryBuilder} from "./query-builder/query-builder";
 import toWords from 'split-camelcase-to-words';
+import {HttpClient} from "aurelia-fetch-client";
 
-@inject(QueryBuilder)
+@inject(HttpClient, QueryBuilder)
 export class ObjectDist {
 
-  httpClient = new HttpClient();
+  httpClient;
   queryBuilder;
   selectedEntity;
   selectedEntityId;
+
+  baseUrl = "api/generic/v1";
+  objectDistBaseUrl = "api/object-dist"
 
   dataTypeMapping = {
     "ofbiz": "dataType",
@@ -39,8 +43,9 @@ export class ObjectDist {
     "<>": "notEqual",
   }
 
-  constructor(queryBuilder) {
-    this.setHTTPClient();
+  constructor(queryBuilder, httpClient) {
+    this.httpClient = httpClient;
+    //this.setHTTPClient();
     this.fetchPublishers();
     this.fetchSubscribers();
     this.fetchOfbizEntities();
@@ -87,7 +92,7 @@ export class ObjectDist {
     this.httpClient.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('https://localhost:8443/api/')
+        .withBaseUrl('https://84.50.67.113:8443/api/')
         .withDefaults({
           credentials: 'same-origin',
           headers: {
@@ -152,7 +157,7 @@ export class ObjectDist {
   }
 
   fetchPublishers() {
-    this.httpClient.fetch('objectdist/publishers')
+    this.httpClient.fetch(`${this.objectDistBaseUrl}/publishers`)
       .then(response => response.json())
       .then(data => {
         this.populatePublishers(data);
@@ -160,7 +165,7 @@ export class ObjectDist {
   }
 
   fetchOfbizEntityFields(isPublisher) {
-    this.httpClient.fetch('generic/v1/structure/entities/' + this.selectedEntity)
+    this.httpClient.fetch(`${this.baseUrl}/structure/entities/${this.selectedEntity}`)
       .then(response => response.json())
       .then(data => {
         let customFields = []
@@ -189,7 +194,7 @@ export class ObjectDist {
   }
 
   fetchOfbizEntities() {
-    this.httpClient.fetch('generic/v1/structure/entities/')
+    this.httpClient.fetch(`${this.baseUrl}/structure/entities/`)
       .then(response => response.json())
       .then(data => {
         this.populateSubscriberEntitiesDropdown(data);
@@ -200,7 +205,7 @@ export class ObjectDist {
   }
 
   async getEntityFieldsByName(entityName, table) {
-    this.httpClient.fetch('generic/v1/structure/entities/' + entityName)
+    this.httpClient.fetch(`${this.baseUrl}/structure/entities/${entityName}`)
       .then(response => response.json())
       .then(data => {
         data.sort(function (a, b) {
@@ -304,14 +309,14 @@ export class ObjectDist {
         let self = this;
         document.getElementById("publisher_" + content.publisherId).addEventListener('click', function (event) {
           self.selectedEntityId = event.target.id.substring(10);
-          self.httpClient.fetch('generic/v1/entities/OfbizPublisher?OfbizPublisherId=' + event.target.id.substring(10))
+          self.httpClient.fetch(`${self.baseUrl}/entities/OfbizPublisher?OfbizPublisherId=${event.target.id.substring(10)}`)
             .then(response => response.json())
             .then(data => {
               self.editPublisher(data);
             });
         });
         document.getElementById("publisherDelete_" + content.publisherId).addEventListener('click', function (event) {
-          self.httpClient.delete('objectdist/publishers/delete/' + event.target.id.substring(16)).then(r => {
+          self.httpClient.delete(`${self.objectDistBaseUrl}/publishers/delete/${event.target.id.substring(16)}`).then(r => {
             self.refreshPage();
           });
         });
@@ -340,14 +345,14 @@ export class ObjectDist {
         let self = this;
         document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
           self.selectedEntityId = event.target.id.substring(11);
-          self.httpClient.fetch('generic/v1/entities/OfbizSubscriber?OfbizSubscriberId=' + event.target.id.substring(11))
+          self.httpClient.fetch(`${self.baseUrl}/entities/OfbizSubscriber?OfbizSubscriberId=${event.target.id.substring(11)}`)
             .then(response => response.json())
             .then(data => {
               self.editSubscriber(data);
             });
         });
         document.getElementById("subscriberDelete_" + content.subscriberId).addEventListener('click', function (event) {
-          self.httpClient.delete('objectdist/subscribers/delete/' + event.target.id.substring(17)).then(r => {
+          self.httpClient.delete(`${self.objectDistBaseUrl}/subscribers/delete/${event.target.id.substring(17)}`).then(r => {
             self.refreshPage()
           });
         });
@@ -405,7 +410,7 @@ export class ObjectDist {
   }
 
   populateEditFields(isSubscriber, existingFilter) {
-    this.httpClient.fetch('generic/v1/structure/entities/' + this.selectedEntity)
+    this.httpClient.fetch(`${this.baseUrl}/structure/entities/${this.selectedEntity}`)
       .then(response => response.json())
       .then(data => {
         let customFields = []
@@ -432,7 +437,7 @@ export class ObjectDist {
   }
 
   fetchSubscribers() {
-    this.httpClient.fetch('objectdist/subscribers')
+    this.httpClient.fetch(`${this.objectDistBaseUrl}/subscribers`)
       .then(response => response.json())
       .then(data => {
         this.populateSubscribers(data);
@@ -457,7 +462,7 @@ export class ObjectDist {
       'filter': this.getFilterFromComponent(false),
       'properties': this.getProperties()
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/subscribers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), `${this.objectDistBaseUrl}/subscribers/create`);
   }
 
   publisherPostRequest() {
@@ -468,7 +473,7 @@ export class ObjectDist {
       'description': document.getElementById('publisherDescription').value,
       'filter': this.getFilterFromComponent(true)
     };
-    this.makePostSubscriberPublisher(JSON.stringify(data), 'objectdist/publishers/create');
+    this.makePostSubscriberPublisher(JSON.stringify(data), `${this.objectDistBaseUrl}/publishers/create`);
   }
 
   refreshPage() {
@@ -539,7 +544,7 @@ export class ObjectDist {
       'description': document.getElementById('editSubscriberDescription').value,
       'filter': this.getEditFilterFromComponent(false)
     };
-    this.httpClient.fetch('generic/v1/entities/OfbizSubscriber', {
+    this.httpClient.fetch(`${this.baseUrl}/entities/OfbizSubscriber`, {
       method: 'put',
       body: JSON.stringify(data)
     }).then(r => {
@@ -555,7 +560,7 @@ export class ObjectDist {
       'description': document.getElementById('editPublisherDescription').value,
       'filter': this.getEditFilterFromComponent(true)
     };
-    this.httpClient.fetch('generic/v1/entities/OfbizPublisher', {
+    this.httpClient.fetch(`${this.baseUrl}/entities/OfbizPublisher`, {
       method: 'put',
       body: JSON.stringify(data)
     }).then(r => {

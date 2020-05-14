@@ -40,7 +40,6 @@
     "smart-webcomponents-community": "^7.4.0",
     "split-camelcase-to-words": "^1.0.1",
     "uuid": "^7.0.3",
-    "popper.js": "^1.16.1",
     "toastr": "^2.1.4"
   },
   "devDependencies": {
