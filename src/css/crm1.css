@@ -35,12 +35,6 @@ body{
 
 }
 
-.dropdown-menu.filter{
-  width: 100px;
-  height: 150px;
-  padding-left: 5px;
-}
-
 input{
   background-color: #F5F6F7;
 }
@@ -99,3 +93,11 @@ input{
   text-align: center;
 }
 
+.form-control:disabled {
+  color: black !important;
+  background-color: #fafafa !important;
+}
+
+tr:hover {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
