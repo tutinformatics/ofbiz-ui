@@ -11,20 +11,12 @@
                                               current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems;">
               <thead>
               <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Commission</th>
-                <th>Code Used</th>
-                <th>Code Owner</th>
+                <th repeat.for="productKey of productKeys">${productKey}</th>
               </tr>
               </thead>
               <tbody>
               <tr repeat.for="product of $displayData">
-                <td>${product['id']}</td>
-                <td>${product['name']}</td>
-                <td>${product['commission']}</td>
-                <td>${product['code']}</td>
-                <td>${product['code-owner']}</td>
+                <td repeat.for="productKey of productKeys">${product[productKey]}</td>
               </tr>
               </tbody>
             </table>
@@ -38,10 +30,10 @@
             <div class="mx-auto form-group w-75">
               <label for="pageSize">Page Size: </label>
               <select value.bind="pageSize" id="pageSize" class="form-control">
-                <option model.bind="5">5</option>
-                <option model.bind="10">10</option>
                 <option model.bind="20">20</option>
                 <option model.bind="50">50</option>
+                <option model.bind="75">75</option>
+                <option model.bind="100">100</option>
               </select>
             </div>
 
