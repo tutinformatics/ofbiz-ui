@@ -11,6 +11,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@progress/kendo-ui": "^2020.1.219",
+    "@vaadin/vaadin": "^15.0.6",
     "@vaadin/vaadin-grid": "^5.6.1",
     "au-table": "^0.1.14",
     "aurelia-animator-css": "^1.0.4",

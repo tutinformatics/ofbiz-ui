@@ -2,28 +2,19 @@
   <div class="card">
     <div class="card-header">
       <h2 class="float-left mr-4">Project Dashboard</h2>
-      <button class="btn btn-primary float-left" click.delegate="handleAddProject()">
+      <button
+        class="btn btn-primary float-left"
+        click.delegate="handleAddProject()"
+      >
         <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
         Create Project
       </button>
     </div>
     <div class="card-body">
-      <vaadin-grid theme="row-stripes" column-reordering-allowed height-by-rows>
-        <vaadin-grid-column path="projectId" header="Project ID">
-          <template>
-            <a href="javascript:void(0);"
-               click.delegate="handleSelectProject([item.projectId])"
-            >[[item.projectId]]</a>
-          </template>
-        </vaadin-grid-column>
+      <vaadin-grid theme="compact row-stripes" column-reordering-allowed height-by-rows>
+        <vaadin-grid-column path="projectId" header="Project ID"></vaadin-grid-column>
         <vaadin-grid-column path="projectName" header="Project Name"></vaadin-grid-column>
-        <vaadin-grid-column path="currentStatusId" header="Current Status">
-          <template>
-                <span class="badge badge-success">
-                  [[item.currentStatusId]]
-                </span>
-          </template>
-        </vaadin-grid-column>
+        <vaadin-grid-column path="currentStatusId" header="Current Status"></vaadin-grid-column>
       </vaadin-grid>
     </div>
   </div>

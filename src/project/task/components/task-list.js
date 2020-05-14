@@ -1,8 +1,9 @@
-import { inject } from 'aurelia-dependency-injection';
-import { TaskService } from '../services/task-service';
-import { Store } from 'aurelia-store';
+import { inject } from "aurelia-dependency-injection";
+import { TaskService } from "../services/task-service";
+import { Store } from "aurelia-store";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Router } from "aurelia-router";
+import { getStatusBadge, convertStatus } from "../../../commons/util/status-utils";
 
 @inject(TaskService, Store, Router)
 export class TaskList {
@@ -17,16 +18,29 @@ export class TaskList {
   }
 
   attached() {
-    const grid = document.querySelector('vaadin-grid');
+    const grid = document.querySelector("vaadin-grid");
+    this.initGridColumns();
     this.taskService
       .getTasks({
         partyId: this.state.userLoginId,
         statusId: "PAS_ASSIGNED",
       })
-      .then((response) => (grid.items = response));  
+      .then((response) => (grid.items = response));
+  }
+
+  initGridColumns() {
+    const columns = document.querySelectorAll("vaadin-grid-column");
+    columns[6].renderer = (root, columnm, rowData) => {
+      const status = rowData.item.statusId;
+      root.innerHTML = `
+          <span class="badge ${getStatusBadge(status)}">
+            ${convertStatus(status)}
+          </span >
+        `;
+    };
   }
 
   handleAddTask() {
-    this.router.navigate('new-task');
+    this.router.navigate("new-task");
   }
 }
