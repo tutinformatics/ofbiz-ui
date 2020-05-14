@@ -18,7 +18,6 @@ export class Categories {
     this.includeLastName = true;
 
     ea.subscribe('categoryCompany', payload => {
-      console.log(payload);
       this.companies = payload;
     });
 
@@ -30,6 +29,9 @@ export class Categories {
     });
     ea.subscribe('categoryLastNames', payload => {
       this.lastNames = payload;
+    });
+    ea.subscribe('searchByCompany', payload => {
+      this.companySearchInput = payload;
     });
   }
 
@@ -47,6 +49,7 @@ export class Categories {
     });
   }
 
+  @computedFrom('companySearchInput', 'companies')
   get getCompanies() {
     if (this.companySearchInput.trim() === '') {
       return this.companies.sort();
@@ -55,14 +58,14 @@ export class Categories {
       company => company.toUpperCase().startsWith(this.companySearchInput.toUpperCase())
     ).sort();
   }
-
+  @computedFrom('includeFirstName', 'firstNames')
   get getFirstNames() {
     if (this.includeFirstName) {
       return this.firstNames;
     }
     return [];
   }
-
+  @computedFrom('includeLastName', 'lastNames')
   get getLastNames() {
     if (this.includeLastName) {
       return this.lastNames;
@@ -77,7 +80,7 @@ export class Categories {
     }
     return this.getFirstNames.concat(this.getLastNames)
       .filter(
-        name => name != null
+        name => name !== null
           && name.toUpperCase().startsWith(this.nameSearchInput.toUpperCase())
       ).sort();
   }
@@ -100,7 +103,7 @@ export class Categories {
 
 
   capitalizeFirstLetter(string) {
-    if (string != null) {
+    if (string !== null) {
       return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
     }
     return 'null';

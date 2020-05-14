@@ -1,6 +1,6 @@
 <template>
   <require from="../../../css/crm1.css"></require>
-  <require from="../common/modals/addClientPopUp"></require>
+  <require from="../common/modals/billPopUp"></require>
 
   <div class="container-fluid">
     <div class="mt-3 d-flex flex-row">
@@ -70,7 +70,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr repeat.for="bill of filteredBills">
+      <tr repeat.for="bill of filteredBills" data-toggle="modal" data-target="#bill-modal" click.delegate="getBillInformation(bill)">
         <td>${bill.invoiceId}</td>
         <td>${bill.invoiceTypeId}</td>
         <td>${bill.invoiceDate}</td>
@@ -82,7 +82,7 @@
         <td else></td>
         <td if.bind="isQuality">${bill.quantity}</td>
         <td else></td>
-        <td if.bind="isTotal">${bill.amount} €</td>
+        <td if.bind="isTotal">${bill.amount}€</td>
         <td else></td>
         <td></td>
       </tr>
@@ -90,6 +90,6 @@
     </table>
   </div>
 
-  <add-client-pop-up ></add-client-pop-up>
+  <bill-pop-up ></bill-pop-up>
 
 </template>

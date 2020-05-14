@@ -36,6 +36,11 @@ export class billsView {
     await this.getAllBills();
   }
 
+  getBillInformation(bill) {
+    console.log(bill)
+    this.ea.publish('currentBill', bill);
+  }
+
   async getAllBills() {
     let response = await this.entityQueryService.getAllBills();
 

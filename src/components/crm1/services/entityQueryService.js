@@ -86,16 +86,7 @@ export class EntityQueryService {
         'inputFields': {
           'partyIdFrom': targetPartyId
         },
-        'fieldList': [
-          'partyIdFrom',
-          'partyIdTrans',
-          'amount',
-          'quantity',
-          'invoiceId',
-          'itemDescription',
-          'invoiceTypeId',
-          'invoiceDate'
-        ]
+        'fieldList': []
       });
     case 'Orders':
       return json({
