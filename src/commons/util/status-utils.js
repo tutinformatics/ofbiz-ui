@@ -22,7 +22,7 @@ export function getStatusBadge(status) {
         case 'PTS_CREATED_AS':
             return 'badge-success';
         case 'PTS_CREATED':
-            return 'badge-primary';
+            return 'badge-info';
         case 'TIMESHEET_IN_PROCESS':
             return 'badge-secondary';
         default:
