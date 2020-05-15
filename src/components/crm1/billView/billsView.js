@@ -5,6 +5,7 @@ import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {Bill} from '../models/bill';
 import {EntityQueryService} from '../services/entityQueryService';
+import {computedFrom} from 'aurelia-framework';
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class billsView {
@@ -31,13 +32,18 @@ export class billsView {
     this.selectedTt = ['Total'];
 
     this.searchArgument = '';
+
+    this.searchDescription = false;
+    this.searchFrom = true;
+    this.searchTo = true;
+    this.searchType = true;
   }
   async attached() {
     await this.getAllBills();
   }
 
   getBillInformation(bill) {
-    console.log(bill)
+    console.log(bill);
     this.ea.publish('currentBill', bill);
   }
 
@@ -58,21 +64,32 @@ export class billsView {
       this.bills.push(bill);
     }
   }
-
+  @computedFrom('searchArgument')
   get searchArg() {
     return this.searchArgument.trim().toUpperCase();
   }
-
+  @computedFrom('searchArg')
   get filteredBills() {
     if (this.searchArg === '') {
       return this.bills;
     }
-    console.log(this.bills);
+    console.log(this.searchArg);
+    console.log(this.searchArg.split(' '));
+    console.log(this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')));
+
+    let totalMethods = this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')).map(arg => arg.substring(5, 6));
+    let totalArguments = this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')).map(arg => arg.substring(6));
+
+    let length = totalMethods.length;
+
+    console.log(totalMethods);
+    console.log(totalArguments);
+
     return this.bills.filter(
-      bill => bill.itemDescription != null &&
-        bill.itemDescription.toUpperCase().split(' ').length > 1
-    );
+
+    )
   }
+
 
   get isDesc() {
     if (this.selectedDesc.length > 0) {
