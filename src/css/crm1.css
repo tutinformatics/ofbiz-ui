@@ -98,7 +98,6 @@ input{
   color: black !important;
   background-color: #fafafa !important;
 }
-
 tr:hover {
   background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
   cursor: pointer
