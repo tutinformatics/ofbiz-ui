@@ -1,15 +1,15 @@
-import { inject } from "aurelia-dependency-injection";
-import { Store } from "aurelia-store";
-import { reset } from "../../../store/store";
-import { EventAggregator } from "aurelia-event-aggregator";
-import { Router } from "aurelia-router";
-import { safeGet } from "../../util/utility";
-import "./navbar.scss";
-import { WorkspaceService } from "../../workspaces-menu/workspace-service";
-import * as toastr from "toastr";
-import { AppService } from "../../services/app-service";
-import { NavigationService } from "../../services/navigation-service";
-import { faTh } from "@fortawesome/free-solid-svg-icons";
+import { inject } from 'aurelia-dependency-injection';
+import { Store } from 'aurelia-store';
+import { reset } from '../../../store/store';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { Router } from 'aurelia-router';
+import { safeGet } from '../../util/utility';
+import './navbar.scss';
+import { WorkspaceService } from '../../workspaces-menu/workspace-service';
+import * as toastr from 'toastr';
+import { AppService } from '../../services/app-service';
+import { NavigationService } from '../../services/navigation-service';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
 
 @inject(
   Router,
@@ -29,7 +29,7 @@ export class Navbar {
     navigationService
   ) {
     this.store = store;
-    this.store.registerAction("reset", reset);
+    this.store.registerAction('reset', reset);
     this.subscription = this.store.state.subscribe(
       (state) => (this.state = state)
     );
@@ -38,7 +38,7 @@ export class Navbar {
     this.workspaceService = workspaceService;
     this.appService = appService;
     this.navigationService = navigationService;
-    this.currentProduct = "";
+    this.currentProduct = '';
     this.applications = [];
     this.workspaces = [];
     this.gridIcon = faTh;
@@ -49,15 +49,15 @@ export class Navbar {
     this.loadApplications();
     this.loadWorkspaces();
     this.routerSubscription = this.ea.subscribe(
-      "router:navigation:complete",
+      'router:navigation:complete',
       () => {
         this.currentProduct = safeGet(
           () => this.router.currentInstruction.config.name,
-          ""
+          ''
         );
         this.title = safeGet(
           () => this.router.currentInstruction.config.title,
-          "Select"
+          'Select'
         );
         this.loadMenuItems(this.currentProduct);
       }
@@ -103,7 +103,7 @@ export class Navbar {
 
   handleFavorite() {
     const url = this.router.currentInstruction.fragment;
-    const title = document.title.split("|")[0].trim(); // router cannot access titles of child routes
+    const title = document.title.split('|')[0].trim(); // router cannot access titles of child routes
 
     if (!url || this.isFavourite) {
       return;
@@ -113,18 +113,18 @@ export class Navbar {
       .addWorkspace({
         title: title,
         url: url,
-        userId: this.state.userLoginId,
+        userId: this.state.userLoginId
       })
       .then(() => {
         this.loadWorkspaces();
-        toastr.success("Workspace successfully saved!");
+        toastr.success('Workspace successfully saved!');
       })
       .catch((error) => toastr.error(error.message));
   }
 
   logOut() {
-    this.store.dispatch("reset");
-    this.navigateTo("/");
+    this.store.dispatch('reset');
+    this.navigateTo('/');
   }
 
   navigateTo(path) {

@@ -1,48 +1,46 @@
-import { inject } from 'aurelia-dependency-injection';
-import { Router } from 'aurelia-router';
-import { TaskService } from '../services/task-service';
-import { activationStrategy } from 'aurelia-router';
+import { inject } from "aurelia-dependency-injection";
+import { TaskService } from "../services/task-service";
+import { Store } from "aurelia-store";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Router } from "aurelia-router";
+import { getStatusBadge, convertStatus } from "../../../commons/util/status-utils";
 
-@inject(Router, TaskService)
+@inject(TaskService, Store, Router)
 export class TaskList {
-  constructor(router, taskService) {
-    this.router = router;
+  constructor(taskService, store, router) {
     this.taskService = taskService;
+    this.store = store;
+    this.router = router;
+    this.faPlus = faPlus;
+    this.subscription = this.store.state.subscribe(
+      (state) => (this.state = state)
+    );
   }
 
-  activate(params, routeConfig) {
-    routeConfig.navModel.setTitle(`Project ID: ${params.id}`);
+  attached() {
+    const grid = document.querySelector("vaadin-grid");
+    this.initGridColumns();
+    this.taskService
+      .getTasks({
+        partyId: this.state.userLoginId,
+        statusId: "PAS_ASSIGNED",
+      })
+      .then((response) => (grid.items = response));
+  }
 
-    this.datasource = {
-      transport: {
-        read: (options) => {
-          this.taskService
-            .getProjectTaskList({ projectId: params.id })
-            .then((tasks) => {
-              options.success(tasks);
-            });
-        }
-      },
-      schema: {
-        model: {
-          fields: {
-            workEffortId: { type: 'number' },
-            workEffortName: { type: 'string' },
-            phaseName: { type: 'string' },
-            currentStatusId: { type: 'string' },
-            priority: { type: 'number' },
-            estimatedStartDate: { type: 'date' },
-            startDate: { type: 'date' },
-            estimatedCompletionDate: { type: 'date' },
-            completionDate: { type: 'date' },
-            plannedHours: { type: 'number' }
-          }
-        }
-      }
+  initGridColumns() {
+    const columns = document.querySelectorAll("vaadin-grid-column");
+    columns[6].renderer = (root, columnm, rowData) => {
+      const status = rowData.item.statusId;
+      root.innerHTML = `
+          <span class="badge ${getStatusBadge(status)}">
+            ${convertStatus(status)}
+          </span >
+        `;
     };
   }
 
-  determineActivationStrategy() {
-    return activationStrategy.replace;
+  handleAddTask() {
+    this.router.navigate("new-task");
   }
 }
