@@ -75,10 +75,6 @@ export class EntityQueryService {
               'roleTypeId': 'LEAD'
             },
         'fieldList': [
-          'firstName',
-          'roleTypeId',
-          'partyId',
-          'statusId'
         ]
       });
     case 'Invoices':
@@ -94,14 +90,6 @@ export class EntityQueryService {
           'partyId': targetPartyId
         },
         'fieldList': [
-          'orderId',
-          'orderDate',
-          'entryDate',
-          'partyId',
-          'webSiteId',
-          'roleTypeId',
-          'grandTotal',
-          'statusId'
         ]
       });
     case 'Emails':
@@ -111,10 +99,6 @@ export class EntityQueryService {
           'communicationEventTypeId': 'EMAIL_COMMUNICATION'
         },
         'fieldList': [
-          'partyIdFrom',
-          'partyIdTo',
-          'entryDate',
-          'datetimeStarted'
         ]
       });
     case 'Calls':
@@ -124,9 +108,6 @@ export class EntityQueryService {
           'communicationEventTypeId': 'PHONE_COMMUNICATION'
         },
         'fieldList': [
-          'partyIdFrom',
-          'partyIdTo',
-          'entryDate'
         ]
       });
 
@@ -137,10 +118,6 @@ export class EntityQueryService {
           'communicationEventTypeId': 'FACE_TO_FACE_COMMUNICATION'
         },
         'fieldList': [
-          'partyIdFrom',
-          'partyIdTo',
-          'datetimeStarted',
-          'datetimeEnded'
         ]
       });
     case 'Opportunities':
@@ -149,10 +126,6 @@ export class EntityQueryService {
           'partyId': targetPartyId
         },
         'fieldList': [
-          'opportunityName',
-          'description',
-          'partyId',
-          'roleTypeId'
         ]
       });
 
@@ -162,11 +135,6 @@ export class EntityQueryService {
           'toPartyId': targetPartyId
         },
         'fieldList': [
-          'returnHeaderTypeId',
-          'fromPartyId',
-          'toPartyId',
-          'entryDate',
-          'statusId'
         ]
       });
     case 'Deals':
@@ -193,14 +161,6 @@ export class EntityQueryService {
     case 'Bills':
       return json({
         'fieldList': [
-          'partyIdFrom',
-          'partyIdTrans',
-          'amount',
-          'quantity',
-          'invoiceId',
-          'itemDescription',
-          'invoiceTypeId',
-          'invoiceDate'
         ]
       }
       );
@@ -211,16 +171,6 @@ export class EntityQueryService {
               'roleTypeId': 'CONTACT'
             },
         'fieldList': [
-          'lastName',
-          'firstName',
-          'emailAddress',
-          'telContactNumber',
-          'companyName',
-          'roleTypeId',
-          'address1',
-          'city',
-          'postalCode',
-          'partyId'
         ]
       });
     case 'Parties' :
@@ -230,9 +180,6 @@ export class EntityQueryService {
               'roleTypeId': 'ACCOUNT'
             },
         'fieldList': [
-          'partyId',
-          'roleTypeId',
-          'groupName'
         ]
       });
     default:

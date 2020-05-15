@@ -1,5 +1,5 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import { HttpClient, json } from 'aurelia-fetch-client';
+import { HttpClient } from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Contact} from '../models/contact';
 import {Router} from 'aurelia-router';
@@ -30,6 +30,7 @@ export class ClientsView {
     this.searchLastName = true;
     this.searchEmail = true;
     this.searchPhoneNumber = true;
+    this.searchCompany = true;
     this.selectedPhone = ['Phone'];
     this.selectedEmail = ['Email'];
 
@@ -77,9 +78,9 @@ export class ClientsView {
   get searchArg() {
     return this.searchArgument.trim().toUpperCase();
   }
-  @computedFrom('searchArg', 'contacts', 'searchFirstName', 'searchLastName', 'searchEmail', 'searchPhoneNumber')
+  @computedFrom('searchArg', 'contacts', 'searchFirstName', 'searchLastName', 'searchEmail', 'searchPhoneNumber', 'searchCompany')
   get filteredContacts() {
-    if (this.searchArg === '' || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber)) {
+    if (this.searchArg === '' || (!this.searchFirstName && !this.searchLastName && !this.searchEmail && !this.searchPhoneNumber && !this.searchCompany)) {
       return this.contacts;
     }
     return this.contacts.filter(
@@ -87,8 +88,9 @@ export class ClientsView {
         (this.searchFirstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
         (this.searchLastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
         (this.searchEmail && contact.email.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchPhoneNumber && contact.phoneNumber != null && contact.phoneNumber.replace('-', '').startsWith(this.searchArg.replace('-', '')))
-    );
+        (this.searchPhoneNumber && contact.phoneNumber !== null && contact.phoneNumber.replace('-', '').startsWith(this.searchArg.replace('-', ''))) ||
+        (this.searchCompany && contact.companyName.toUpperCase().split(' ')
+          .map( el => el.startsWith(this.searchArg)).indexOf(true) > -1));
   }
 
   cardView() {
@@ -110,10 +112,6 @@ export class ClientsView {
       return (this.selectedEmail);
     }
     return false;
-  }
-
-  selectContact(contact) {
-    console.log(contact);
   }
 }
 
