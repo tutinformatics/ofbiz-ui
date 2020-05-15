@@ -1,7 +1,9 @@
 <template>
+  <require from="../../commons/workspaces-menu/workspace-favourite"></require>
   <div class="card">
-    <div class="card-header text-white bg-primary">
-      Current Project ID: ${project.workEffortId}
+    <div class="card-header">
+      <h2 class="text-capitalize float-left">${project.workEffortName}</h2>
+      <workspace-favourite class="float-left mx-2"></workspace-favourite>
     </div>
 
     <div class="card-body">

@@ -1,7 +1,10 @@
 <template>
+  <require from="../../commons/workspaces-menu/workspace-favourite"></require>
+
   <div class="card">
     <div class="card-header">
-      <h2 class="float-left mr-4">Project Dashboard</h2>
+      <h2 class="float-left">Project Dashboard</h2>
+      <workspace-favourite class="float-left mx-2"></workspace-favourite>
       <button
         class="btn btn-primary float-left"
         click.delegate="handleAddProject()"
