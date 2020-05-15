@@ -31,7 +31,8 @@ export const reset = (state) => {
       errorMessage: null,
       statusCode: null,
       statusDescription: null
-    }
+    },
+    workspaces: []
   });
 };
 

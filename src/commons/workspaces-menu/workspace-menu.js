@@ -35,7 +35,7 @@ export class WorkspaceMenu {
   }
 
   userLoginIdChanged(newUserLoginId) {
-    this.workspaceService.getWorkspaceList({ userId: this.userLoginId });
+    this.workspaceService.getWorkspaceList({ userId: newUserLoginId });
   }
 
   handleSelect({ url }) {
