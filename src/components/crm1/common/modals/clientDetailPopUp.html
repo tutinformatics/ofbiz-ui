@@ -13,14 +13,16 @@
             <div class="form-group m-0">
               <label class="col col-form-label" >First Name</label>
               <div class="col">
-                <input disabled type="text"  class="form-control" value.bind="contact.firstName">
+                <input disabled if.bind="!canEdit" type="text"  class="form-control" value.bind="contact.firstName">
+                <input if.bind="canEdit" type="text"  class="form-control" value.bind="contact.firstName">
               </div>
             </div>
 
             <div class="form-group m-0">
               <label class="col col-form-label">Last Name</label>
               <div class="col">
-                <input disabled type="text" class="form-control" value.bind="contact.lastName">
+                <input disabled if.bind="!canEdit" type="text" class="form-control" value.bind="contact.lastName">
+                <input if.bind="canEdit" type="text" class="form-control" value.bind="contact.lastName">
               </div>
             </div>
 
@@ -68,10 +70,9 @@
 
             <div class="mt-3">
               <button type="button" class="btn btn-dark ml-3" data-dismiss="modal">Close</button>
-              <button class="btn btn-dark float-right mr-3"data-dismiss="modal"  data-toggle="modal" data-target="#create-modal">${value}</button>
+              <button type="button" class="btn btn-dark float-right mr-3" click.delegate="openEdit()">${value}</button>
 
-              <button if.bind="showSaveAndClose" class="btn btn-dark float-right mx-2" click.delegate="addContactAndClose(contact)"  data-dismiss="modal">Save and Close</button>
-
+              <button if.bind="showSaveAndClose" class="btn btn-dark float-right mx-1" click.delegate="updateContactAndClose(contact)">Save and Close</button>
             </div>
           </form>
 
