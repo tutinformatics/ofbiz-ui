@@ -1,10 +1,11 @@
 import { inject } from 'aurelia-framework';
 import {OrderService} from "../../../service/order-service";
+import { Store } from 'aurelia-store';
 
-@inject(OrderService)
+@inject(OrderService, Store)
 export class OrderEdit {
-    constructor(orderService, router) {
-      this.router = router;
+    constructor(orderService, store) {
+      this.store = store;
       this.orderService = orderService;
     }
 
@@ -19,7 +20,6 @@ export class OrderEdit {
         this.order = {orderId: "New order"};
         return;
       }
-      console.log(params.order);
       this.date = new Date(params.order.lastUpdatedStamp * 1).toLocaleDateString();
         if (params.order.orderId && typeof(params.order.orderId) === 'string') {
             this.order = params.order;

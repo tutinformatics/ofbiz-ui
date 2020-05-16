@@ -66,10 +66,26 @@ export class OpportunityHeader {
     });
     this.store.opportunities = newData;
 
+    this.seperateOpportunities(newData);
+  }
+  search() {
+    var opportunities = [];
+    var searchInput = this.searchInput;
+    this.store.opportunitiesCopy.forEach(function (opportunity) {
+      if (opportunity.opportunityId.toLowerCase().includes(searchInput.toLowerCase())
+        || opportunity.name.toLowerCase().includes(searchInput.toLowerCase())) {
+        opportunities.push(opportunity);
+      }
+    });
+    this.store.opportunities = opportunities;
+    this.seperateOpportunities(opportunities);
+  }
+
+  seperateOpportunities(data) {
     var newOpportunities = [];
     var wonOpportunities = [];
     var propositionOpportunities = [];
-    newData.forEach(function (opportunity) {
+    data.forEach(function (opportunity) {
       if (opportunity.stage === "new") {
         newOpportunities.push(opportunity);
       } else if (opportunity.stage === "won") {
@@ -82,7 +98,4 @@ export class OpportunityHeader {
     this.store.wonOpp = wonOpportunities;
     this.store.propositionOpp = propositionOpportunities;
   }
-}
-function toggleClick() {
-  console.log("me");
 }

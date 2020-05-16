@@ -7,9 +7,9 @@
         <img src="../../../assets/img/add.svg" alt="">
         New opportunity
       </button>
-      <form class="form-inline col-3">
-        <input class="form-control" type="search" placeholder="Search Opportunities..." aria-label="Search" style="width:100%">
-      </form>
+      <div class="form-inline col-3">
+        <input class="form-control" type="search" placeholder="Search Opportunities..." aria-label="Search" style="width:100%" value.bind="searchInput" change.delegate="search()">
+      </div>
       <button type="button" class="btn btn-outline-dark col-2" data-toggle="modal" href="#filterModal">
         Opportunity Filter
       </button>

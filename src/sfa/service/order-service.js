@@ -54,6 +54,21 @@ export class OrderService {
         }
       );
   }
+  async filter(body) {
+    body.push({
+      "fieldName": "createdBy",
+      "operation": "equals",
+      "value": this.state.userLoginId
+    });
+    return this.client
+      .fetch(`${this.baseUrl}services/performFilteredSearch`, {
+        method: 'POST',
+        body: json({
+          "filterParameters": body,
+          "entityName": "OrderHeader"
+        })
+      }).then(response => response.json());
+  }
   editOrder(order) {
     this.client
       .fetch(`${this.baseUrl}entities/OrderHeader`, {

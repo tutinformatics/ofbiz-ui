@@ -1,22 +1,27 @@
 import { OrderService } from '../../../service/order-service';
 import { inject } from 'aurelia-framework';
+import { Store } from 'aurelia-store';
 
-@inject(OrderService)
+@inject(OrderService, Store)
 export class ListView {
-  constructor(orderService) {
+  constructor(orderService, store) {
+    this.store = store;
     this.orderService = orderService;
   }
 
   attached() {
     this.orderService.getOrders()
       .then(
-        data => this.orders = data
+        data => this.store.orders = data
       );
+    this.orderService.getOrders()
+      .then(
+        data => this.store.ordersCopy = data
+      )
   }
 
   deleteOrder(id, index) {
-    console.log(this.orders);
-    this.orders.splice(index, 1);
+    this.store.orders.splice(index, 1);
     this.orderService.deleteOrder(id);
   }
   timeConverter(UNIX_timestamp){

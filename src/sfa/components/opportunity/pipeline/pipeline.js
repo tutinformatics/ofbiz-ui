@@ -40,6 +40,10 @@ export class Pipeline {
         .then(
           data => this.store.wonOpp = data
         );
+    this.opportunityService.getOpportunities()
+      .then(
+        data => this.store.opportunitiesCopy = data
+      )
   }
   deleteWonOpportunity(id, index) {
     this.store.wonOpp.splice(index, 1);

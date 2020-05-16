@@ -1,20 +1,26 @@
 import { inject } from 'aurelia-framework';
 import { QuoteService } from '../../../service/quote-service';
+import { Store } from 'aurelia-store';
 
-@inject(QuoteService)
+@inject(QuoteService, Store)
 export class ListView {
-  constructor(quoteService) {
+  constructor(quoteService, store) {
     this.quoteService = quoteService;
+    this.store = store;
   }
 
   attached() {
     this.quoteService.getQuotes()
       .then(
-        data => this.quotes = data,
+        data => this.store.quotes = data,
+      );
+    this.quoteService.getQuotes()
+      .then(
+        data => this.store.quotesCopy = data,
       );
   }
   deleteQuote(id, index) {
-    this.quotes.splice(index, 1);
+    this.store.quotes.splice(index, 1);
     this.quoteService.deleteQuoteById(id);
   }
 }

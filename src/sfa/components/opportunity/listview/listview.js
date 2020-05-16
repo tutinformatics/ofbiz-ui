@@ -14,6 +14,10 @@ export class ListView {
       .then(
         data => this.store.opportunities = data.slice().reverse()
       );
+    this.opportunityService.getOpportunities()
+      .then(
+        data => this.store.opportunitiesCopy = data
+      )
   }
 
    deleteOpportunity(id, index) {

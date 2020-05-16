@@ -14,6 +14,10 @@ export class CardView {
       .then(
         data => this.store.opportunities = data.slice().reverse()
       );
+    this.opportunityService.getOpportunities()
+      .then(
+        data => this.store.opportunitiesCopy = data
+      )
   }
 
   deleteOpportunity(index, id) {
