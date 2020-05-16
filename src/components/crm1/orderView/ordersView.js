@@ -27,7 +27,8 @@ export class ordersView {
     this.router = router;
     this.orders = [];
     this.searchArgument = ""
-
+    this.simpleView = true;
+    this.view = "Card View";
     this.selectedOrder = [];
     this.selectedShip = [];
     this.selectedWeb = [];
@@ -117,6 +118,14 @@ export class ordersView {
       return (this.selectedStatus);
     }
     return false;
+  }
+  cardView(){
+    this.view = "Card view"
+    this.simpleView = true;
+  }
+  tableView(){
+    this.view = "Table View"
+    this.simpleView = false;
   }
 
   get searchArg() {

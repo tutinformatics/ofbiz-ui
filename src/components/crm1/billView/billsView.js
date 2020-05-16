@@ -19,11 +19,7 @@ export class billsView {
     }
   ]
 
-  selectedDesc = [];
-  selectedFr = [];
-  selectedTo = [];
-  selectedQa = [];
-  selectedTt = [];
+
 
 
   constructor(ea, http, router) {
@@ -31,7 +27,14 @@ export class billsView {
     this.http = http.http;
     this.router = router;
     this.bills = [];
+    this.simpleView = true;
+    this.view = "Card View";
     this.searchArgument = ""
+    this.selectedDesc = [];
+    this.selectedFr = [];
+    this.selectedTo = [];
+    this.selectedQa = [];
+    this.selectedTt = [];
   }
   async attached() {
     await this.getAllBills();
@@ -101,6 +104,14 @@ export class billsView {
       return (this.selectedTt);
     }
     return false;
+  }
+  cardView(){
+    this.view = "Card view"
+    this.simpleView = true;
+  }
+  tableView(){
+    this.view = "Table View"
+    this.simpleView = false;
   }
 
   get searchArg() {
