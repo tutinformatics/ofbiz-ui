@@ -1,0 +1,80 @@
+<template>
+  <div class="card">
+    <div show.bind="timesheet.timesheetId">
+      <div class="card-header text-white bg-primary">
+        Current Timesheet ID: ${timesheet.timesheetId}
+      </div>
+      <div class="card-body">
+        <vaadin-grid id="vaadin-grid-one" theme="compact row-stripes" height-by-rows>
+          <vaadin-grid-column path="timesheetId" header="Task Name"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Check Complete"></vaadin-grid-column>
+          <vaadin-grid-column path="rates" header="Rate Type Id">
+
+          </vaadin-grid-column>
+          <vaadin-grid-column path="" header="Mon"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Tue"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Wen"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Thu"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Fri"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Sat"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Sun"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Actual Hours"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Act Total"></vaadin-grid-column>
+          <vaadin-grid-column path="" header="Plan Hours"></vaadin-grid-column>
+        </vaadin-grid>
+      </div>
+    </div>
+
+<!--
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <form>
+                <div class="form-group row">
+                  <label for="projectName" class="col-sm-2 col-form-label"
+                    >Project Name</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      readonly
+                      class="form-control-plaintext"
+                      id="projectName"
+                      value.bind="project.workEffortName"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Status</label>
+                  <div class="col-sm-10">
+                    <span
+                      class="badge badge ${project.currentStatusId | statusBadge}"
+                    >
+                      ${project.currentStatusId | status}
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+
+      <div class="card-body">
+      <h2>My Timesheets</h2>
+
+        <vaadin-grid id="vaadin-grid-two" theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
+          <vaadin-grid-column path="timesheetId" header="Timesheet ID"></vaadin-grid-column>
+          <vaadin-grid-column path="partyId" header="Party"></vaadin-grid-column>
+          <vaadin-grid-column path="0" header="Actual hours"></vaadin-grid-column>
+          <vaadin-grid-column path="statusId" header="Priority"></vaadin-grid-column>
+          <vaadin-grid-column path="fromDate" header="From date"></vaadin-grid-column>
+          <vaadin-grid-column path="thruDate" header="Through date"></vaadin-grid-column>
+        </vaadin-grid>
+      </div>
+  </div>
+</template>
