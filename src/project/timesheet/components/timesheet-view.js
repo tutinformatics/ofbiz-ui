@@ -74,10 +74,10 @@ export class TimesheetView {
         partyId: this.state.userLoginId
       })
       .then((response) => (grid.items = response));
-
-    this.timesheetService
-      .getMyTime({ workEffortTypeId: 'TASK', partyId: this.state.userLoginId })
-      .then((response) => (timetable.items = response));
+      //TODO: Add logic to get only items with parameter 'actualMilliSeconds' being not null
+    // this.timesheetService
+    //   .getMyTime({ workEffortTypeId: 'TASK', partyId: this.state.userLoginId })
+    //   .then((response) => (timetable.items = response));
 
     columns[2].renderer = (root, column, rowData) => this.addListObjects(root);
     columns[0].renderer = (root, column, rowData) => this.getYourTaskList(root);
