@@ -4,7 +4,7 @@ import { activationStrategy } from "aurelia-router";
 import { TimesheetService } from "../services/timesheet-service";
 import { Store } from "aurelia-store";
 import { getStatusBadge, convertStatus } from "../../../commons/util/status-utils";
-
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @inject(Router, TimesheetService, Store)
 export class TimesheetView {
@@ -15,6 +15,9 @@ export class TimesheetView {
     this.timesheets = {};
     this.rates = {};
     this.store = store;
+    this.tasks = {};
+    this.faPlus = faPlus;
+    this.myTimes = {};
     this.subscription = this.store.state.subscribe(
       (state) => (this.state = state)
     );
@@ -32,6 +35,9 @@ export class TimesheetView {
       .getRateTypes()
       .then((response) => (this.rates = response));
 
+    this.timesheetService
+      .getProjectAndPhaseAndTaskParty({ partyId: this.state.userLoginId })
+      .then((response) => (this.tasks = response));
   }
 
   initGridColumns() {
@@ -52,6 +58,7 @@ export class TimesheetView {
           </span >
         `;
     };
+
   }
 
   attached() {
@@ -68,37 +75,45 @@ export class TimesheetView {
       })
       .then((response) => (grid.items = response));
 
-      columns[2].renderer = (root, column, rowData) => {
-        const select = window.document.createElement('vaadin-select');
-        const listBox = window.document.createElement('vaadin-list-box');
-        this.rates.forEach(function(item) {
-          const vaadinItem = window.document.createElement('vaadin-item');
-          vaadinItem.textContent = item.description;
-          listBox.appendChild(vaadinItem);
-          vaadinItem.setAttribute('value', item.rateTypeId);
-        });
-        select.appendChild(listBox);
-        root.appendChild(select);
-      };
+    this.timesheetService
+      .getMyTime({ workEffortTypeId: 'TASK', partyId: this.state.userLoginId })
+      .then((response) => (timetable.items = response));
 
+    columns[2].renderer = (root, column, rowData) => this.addListObjects(root);
+    columns[0].renderer = (root, column, rowData) => this.getYourTaskList(root);
   }
 
   addListObjects(root) {
-    // if (root.firstChild) {
-    //   return;
-    // }
-
     const select = window.document.createElement('vaadin-select');
     const listBox = window.document.createElement('vaadin-list-box');
 
-    // this.rates.forEach(function(item) {
-    //   const vaadinItem = listBox.createElement('vaadin-item');
-    //   vaadinItem.textContent = item.description;
-    //   listBox.appendChild(vaadinItem);
-    //   vaadinItem.setAttribute('value', item.rateTypeId);
-    // });
-    // update the content
-    root.appendChild(listBox);
+    this.rates.forEach(function(item) {
+      const vaadinItem = window.document.createElement('vaadin-item');
+      vaadinItem.textContent = item.description;
+      listBox.appendChild(vaadinItem);
+      vaadinItem.setAttribute('value', item.rateTypeId);
+    });
+    select.appendChild(listBox);
+    root.appendChild(select);
+  }
+
+  getYourTaskList(root) {
+    const select = window.document.createElement('vaadin-select');
+    const listBox = window.document.createElement('vaadin-list-box');
+
+    this.tasks.forEach(function(item) {
+      const vaadinItem = window.document.createElement('vaadin-item');
+      vaadinItem.textContent = item.projectId
+                              + " "
+                              + item.projectName
+                              + "-"
+                              + item.phaseName
+                              + "-" + item.workEffortName;
+      listBox.appendChild(vaadinItem);
+      vaadinItem.setAttribute('value', item.workEffortId);
+    });
+    select.appendChild(listBox);
+    root.appendChild(select);
   }
 
   handleSelectTimesheet(timesheetId) {

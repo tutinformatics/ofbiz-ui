@@ -1,29 +1,33 @@
 <template>
-  <div class="card">
-    <div show.bind="timesheet.timesheetId">
-      <div class="card-header text-white bg-primary">
-        Current Timesheet ID: ${timesheet.timesheetId}
-      </div>
-      <div class="card-body">
-        <vaadin-grid id="vaadin-grid-one" theme="compact row-stripes" height-by-rows>
-          <vaadin-grid-column path="timesheetId" header="Task Name"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Check Complete"></vaadin-grid-column>
-          <vaadin-grid-column path="rates" header="Rate Type Id">
-
-          </vaadin-grid-column>
-          <vaadin-grid-column path="" header="Mon"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Tue"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Wen"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Thu"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Fri"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Sat"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Sun"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Actual Hours"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Act Total"></vaadin-grid-column>
-          <vaadin-grid-column path="" header="Plan Hours"></vaadin-grid-column>
-        </vaadin-grid>
-      </div>
+  <div show.bind="timesheet.timesheetId" class="card">
+    <div class="card-header">
+      <h2 class="float-left mr-4">Current Timesheet ID: ${timesheet.timesheetId}</h2>
+      <button class="btn btn-primary float-left">
+          <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+          New Task Time
+      </button>
     </div>
+
+    <div class="card-body">
+      <vaadin-grid id="vaadin-grid-one" theme="compact row-stripes" height-by-rows>
+        <vaadin-grid-column path="timesheetId" header="Task Name"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Check Complete"></vaadin-grid-column>
+        <vaadin-grid-column path="rates" header="Rate Type Id">
+
+        </vaadin-grid-column>
+        <vaadin-grid-column path="" header="Mon"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Tue"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Wen"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Thu"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Fri"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Sat"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Sun"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Actual Hours"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Act Total"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Plan Hours"></vaadin-grid-column>
+      </vaadin-grid>
+    </div>
+  </div>
 
 <!--
     <div class="card-body">
@@ -61,11 +65,12 @@
           </div>
         </div>
       </div> -->
-
-
+  <div class="card">
+      <div class="card-header">
+        <h2 class="float-left mr-4">My Timesheets</h2>
+      </div>
 
       <div class="card-body">
-      <h2>My Timesheets</h2>
 
         <vaadin-grid id="vaadin-grid-two" theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
           <vaadin-grid-column path="timesheetId" header="Timesheet ID"></vaadin-grid-column>
