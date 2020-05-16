@@ -26,9 +26,9 @@ export class billsView {
       }
     ];
     this.selectedDesc = [];
-    this.selectedFr = ['From'];
-    this.selectedTo = [];
+    this.selectedTo = ['To'];
     this.selectedQa = [];
+    this.selectedFr = ['From'];
     this.selectedTt = ['Total'];
 
     this.searchArgument = '';
@@ -68,25 +68,18 @@ export class billsView {
   get searchArg() {
     return this.searchArgument.trim().toUpperCase();
   }
-  @computedFrom('searchArg')
+  @computedFrom('searchArg', 'bills', 'searchFrom', 'searchTo')
   get filteredBills() {
-    if (this.searchArg === '') {
+    if (this.searchArg === '' || (!this.searchFrom && !this.searchTo)) {
       return this.bills;
     }
-    console.log(this.searchArg);
-    console.log(this.searchArg.split(' '));
-    console.log(this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')));
-
-    let totalMethods = this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')).map(arg => arg.substring(5, 6));
-    let totalArguments = this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')).map(arg => arg.substring(6));
-
-    let length = totalMethods.length;
-
-    console.log(totalMethods);
-    console.log(totalArguments);
-
+    // console.log(this.searchArg);
+    // console.log(this.searchArg.split(' '));
+    // console.log(this.searchArg.split(' ').filter(arg => arg.startsWith('TOTAL')));
     return this.bills.filter(
-
+      bill =>
+        this.searchFrom && bill.partyIdFrom && bill.partyIdFrom.toUpperCase().startsWith(this.searchArg) ||
+        this.searchTo && bill.partyIdTrans && bill.partyIdTrans.toUpperCase().startsWith(this.searchArg)
     )
   }
 
@@ -119,6 +112,11 @@ export class billsView {
       return (this.selectedTt);
     }
     return false;
+  }
+
+  applyTotal() {
+    this.searchArgument = "total>"
+    console.log("sad")
   }
 }
 

@@ -1,12 +1,14 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-dependency-injection';
 import {computedFrom} from 'aurelia-framework';
+import {EntityQueryService} from '../services/entityQueryService';
 
-@inject(EventAggregator)
+@inject(EventAggregator, EntityQueryService)
 
 export class Categories {
-  constructor(ea) {
+  constructor(ea, entityQueryService) {
     this.ea = ea;
+    this.entityQueryService = entityQueryService;
     this.partySearchInput = '';
     this.nameSearchInput = '';
     this.companySearchInput = '';
@@ -20,7 +22,6 @@ export class Categories {
     ea.subscribe('categoryCompany', payload => {
       this.companies = payload;
     });
-
     ea.subscribe('categoryPartiesIds', payload => {
       this.parties = payload;
     });
@@ -35,28 +36,45 @@ export class Categories {
     });
   }
 
-  @computedFrom('partySearchInput', 'parties')
+  async attached() {
+    await this.getClassification();
+  }
+
+  @computedFrom('partySearchInput')
+  get partySearchInputProcessed() {
+    return this.partySearchInput.trim().toUpperCase()
+  }
+  @computedFrom('companySearchInput')
+  get companySearchInputProcessed() {
+    return this.companySearchInput.trim().toUpperCase()
+  }
+
+  get nameSearchInputProcessed() {
+    return this.nameSearchInput.trim().toUpperCase()
+  }
+
+  @computedFrom('partySearchInputProcessed', 'parties')
   get filteredParties() {
-    if (this.partySearchInput.trim() === '') {
+    if (this.partySearchInputProcessed === '') {
       return this.parties.sort(function(a, b) {
-        return a.toLowerCase().localeCompare(b.toLowerCase());
+        return a.toUpperCase().localeCompare(b.toUpperCase());
       });
     }
     return this.parties.filter(
-      party => party.toUpperCase().startsWith(this.partySearchInput.toUpperCase())
+      party => party && party.toUpperCase().startsWith(this.partySearchInputProcessed)
     ).sort(function(a, b) {
-      return a.toLowerCase().localeCompare(b.toLowerCase());
+      return a.toUpperCase().localeCompare(b.toUpperCase());
     });
   }
 
-  @computedFrom('companySearchInput', 'companies')
+  @computedFrom('companySearchInputProcessed', 'companies')
   get getCompanies() {
-    if (this.companySearchInput.trim() === '') {
+    if (this.companySearchInputProcessed === '') {
       return this.companies.sort();
     }
     return this.companies.filter(
-      company => company.toUpperCase().split(' ')
-        .map( el => el.startsWith(this.companySearchInput.toUpperCase())).indexOf(true) > -1).sort()
+      company => company && company.toUpperCase().split(' ')
+        .map( el => el.startsWith(this.companySearchInputProcessed)).indexOf(true) > -1).sort()
   }
   @computedFrom('includeFirstName', 'firstNames')
   get getFirstNames() {
@@ -80,8 +98,7 @@ export class Categories {
     }
     return this.getFirstNames.concat(this.getLastNames)
       .filter(
-        name => name !== null
-          && name.toUpperCase().startsWith(this.nameSearchInput.toUpperCase())
+        name => name && name.toUpperCase().startsWith(this.nameSearchInputProcessed)
       ).sort();
   }
 
@@ -103,9 +120,15 @@ export class Categories {
 
 
   capitalizeFirstLetter(string) {
-    if (string !== null) {
+    if (string) {
       return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
     }
     return 'null';
+  }
+
+  async getClassification() {
+    let response = await this.entityQueryService.getClassification()
+    console.log(response)
+
   }
 }

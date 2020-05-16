@@ -5,6 +5,7 @@ import {Order} from '../models/order';
 import {Router} from 'aurelia-router';
 import {getDate} from '../../../commons/util/dateConverter';
 import {EntityQueryService} from '../services/entityQueryService';
+import {computedFrom} from 'aurelia-framework';
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ordersView {
@@ -56,17 +57,20 @@ export class ordersView {
     }
   }
 
+  @computedFrom('searchArgument')
   get searchArg() {
     return this.searchArgument.trim().toUpperCase();
   }
+
+  @computedFrom('searchArgument', 'searchParty', 'searchWebsite')
   get filteredOrders() {
     if (this.searchArg === '' || (!this.searchParty && !this.searchWebsite)) {
       return this.orders;
     }
     return this.orders.filter(
       order =>
-        (this.searchParty && order.partyId.toUpperCase().startsWith(this.searchArg )) ||
-        (this.searchWebsite && order.webSiteId.toUpperCase().startsWith(this.searchArg))
+        (this.searchParty && order.partyId && order.partyId.toUpperCase().startsWith(this.searchArg )) ||
+        (this.searchWebsite && order.webSiteId && order.webSiteId.toUpperCase().startsWith(this.searchArg))
     );
   }
 

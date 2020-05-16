@@ -17,11 +17,14 @@
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-filter"></i> Filters</a>
 
-          <div class="dropdown-menu filter" aria-labelledby="dropdownMenuLink" >
+          <div class="dropdown-menu filter" style=";height: 100px; width: 80px; padding-left: 7px;background-color: #F5F6F7; border-radius: 8px;"
+               aria-labelledby="dropdownMenuLink" >
             <h5 class="ml-3">Select filters:</h5>
-            <label class="btn p-0 ml-3">
-              <input type="checkbox" class="hugeInput" checked.bind="includeFirstName" autocomplete="off"> <b>First name</b>
-            </label>
+              <input type="checkbox" class="hugeInput pt-2" checked.bind="searchFrom" autocomplete="on">
+              From<br>
+              <input type="checkbox" class="hugeInput" checked.bind="searchTo" autocomplete="on">
+              To<br>
+          </div>
           </div>
         </div>
       </div>
@@ -91,5 +94,12 @@
   </div>
 
   <bill-pop-up ></bill-pop-up>
+
+  <style>
+    .btn:focus,.btn:active {
+      outline: none !important;
+      box-shadow: none;
+    }
+  </style>
 
 </template>

@@ -52,6 +52,8 @@ export class EntityQueryService {
       return 'PartyExport';
     case 'Parties':
       return 'PartyRoleAndPartyDetail';
+    case 'Classification':
+      return 'PartyClassification';
     default:
       return undefined;
     }
@@ -182,6 +184,11 @@ export class EntityQueryService {
         'fieldList': [
         ]
       });
+    case 'Classification' :
+      return json({
+        'fieldList': [
+        ]
+      });
     default:
       return 'none';
     }
@@ -201,6 +208,9 @@ export class EntityQueryService {
 
   getAllOrders() {
     return this.getEntity('Orders');
+  }
+  getClassification() {
+    return this.getEntity('Classification')
   }
 }
 

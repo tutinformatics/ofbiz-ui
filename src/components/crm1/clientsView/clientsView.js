@@ -85,11 +85,11 @@ export class ClientsView {
     }
     return this.contacts.filter(
       contact =>
-        (this.searchFirstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchLastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchEmail && contact.email.toUpperCase().startsWith(this.searchArg)) ||
-        (this.searchPhoneNumber && contact.phoneNumber !== null && contact.phoneNumber.replace('-', '').startsWith(this.searchArg.replace('-', ''))) ||
-        (this.searchCompany && contact.companyName.toUpperCase().split(' ')
+        (this.searchFirstName && contact.firstName && contact.firstName.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchLastName && contact.lastName && contact.lastName.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchEmail && contact.email && contact.email.toUpperCase().startsWith(this.searchArg)) ||
+        (this.searchPhoneNumber && contact.phoneNumber && contact.phoneNumber.replace('-', '').startsWith(this.searchArg.replace('-', ''))) ||
+        (this.searchCompany && contact.companyName && contact.companyName.toUpperCase().split(' ')
           .map( el => el.startsWith(this.searchArg)).indexOf(true) > -1));
   }
 
