@@ -55,8 +55,8 @@ export class Categories {
       return this.companies.sort();
     }
     return this.companies.filter(
-      company => company.toUpperCase().startsWith(this.companySearchInput.toUpperCase())
-    ).sort();
+      company => company.toUpperCase().split(' ')
+        .map( el => el.startsWith(this.companySearchInput.toUpperCase())).indexOf(true) > -1).sort()
   }
   @computedFrom('includeFirstName', 'firstNames')
   get getFirstNames() {
