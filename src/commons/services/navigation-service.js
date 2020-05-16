@@ -60,6 +60,22 @@ const routes = {
       nav: true
     },
     {
+      route: 'timesheet',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-view'
+      ),
+      title: 'My Time',
+      name: 'my-timesheet',
+      nav: true
+    },
+    {
+      route: 'timesheet/:id',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-view'
+      ),
+      name: 'timesheet-view'
+    },
+    {
       route: 'new-timesheet',
       moduleId: PLATFORM.moduleName(
         'project/timesheet/components/timesheet-edit'
