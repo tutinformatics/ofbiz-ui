@@ -30,7 +30,7 @@ export class TimesheetService {
 
   getTimesheet(params) {
     const query = SearchUtils.appendQueryParams(params);
-    
+
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/Timesheet?${query}`)
       .then((response) => {
@@ -77,6 +77,44 @@ export class TimesheetService {
       .then((res) => {
         return safeGet(() => res, []).map((rates) => {
           return rates;
+        });
+      })
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error(error);
+      }); // TODO: improve error handling
+  }
+
+  getProjectAndPhaseAndTaskParty(params) {
+    const query = SearchUtils.appendQueryParams(params);
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}/entities/ProjectAndPhaseAndTaskParty?${query}`, {
+        method: 'get'
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        return safeGet(() => res, []).map((taskParty) => {
+          return taskParty;
+        });
+      })
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error(error);
+      }); // TODO: improve error handling
+  }
+
+  getMyTime(params) {
+    const query = SearchUtils.appendQueryParams(params);
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}/entities/ProjectPartyAndPhaseAndTask?${query}`, {
+        method: 'get'
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        return safeGet(() => res, []).map((taskParty) => {
+          return taskParty;
         });
       })
       .catch((error) => {
