@@ -1,15 +1,26 @@
-import { inject, bindable } from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import { DndService } from 'bcx-aurelia-dnd';
 import autoScroll from 'dom-autoscroller';
 import { Router } from 'aurelia-router';
+import { WorkspaceService } from './workspace-service';
+import { observable } from 'aurelia-binding';
+import { Store } from 'aurelia-store';
+import { setWorkspaces } from '../../store/store';
 
-@inject(DndService, Router)
+@inject(DndService, Router, Store, WorkspaceService)
 export class WorkspaceMenu {
-  @bindable workspaces = [];
+  @observable userLoginId;
 
-  constructor(dndService, router) {
+  constructor(dndService, router, store, workspaceService) {
     this.dndService = dndService;
     this.router = router;
+    this.workspaceService = workspaceService;
+    this.store = store;
+    this.store.registerAction('setWorkspaces', setWorkspaces);
+    this.subscription = this.store.state.subscribe((state) => {
+      this.workspaces = state.workspaces;
+      this.userLoginId = state.userLoginId;
+    });
   }
 
   attached() {
@@ -23,6 +34,13 @@ export class WorkspaceMenu {
     });
   }
 
+  userLoginIdChanged(newUserLoginId) {
+    if (!newUserLoginId) {
+      return;
+    }
+    this.workspaceService.getWorkspaceList({ userId: newUserLoginId });
+  }
+
   handleSelect({ url }) {
     if (!!url) {
       this.router.navigate(url);
@@ -30,6 +48,7 @@ export class WorkspaceMenu {
   }
 
   detached() {
+    this.subscription.unsubscribe();
     if (this.scroll) {
       this.scroll.destroy(true);
       delete this.scroll;

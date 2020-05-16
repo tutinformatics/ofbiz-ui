@@ -1,7 +1,9 @@
 <template>
+  <require from="../../../commons/workspaces-menu/workspace-favourite"></require>
     <div class="card">
         <div class="card-header">
-            <h2 class="float-left mr-4">All Timesheets</h2>
+            <h2 class="float-left">All Timesheets</h2>
+            <workspace-favourite class="float-left mx-2"></workspace-favourite>
             <button class="btn btn-primary float-left" click.delegate="handleAddTimesheet()">
                 <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
                 New Timesheet
