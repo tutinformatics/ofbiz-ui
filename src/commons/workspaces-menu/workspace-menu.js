@@ -35,6 +35,9 @@ export class WorkspaceMenu {
   }
 
   userLoginIdChanged(newUserLoginId) {
+    if (!newUserLoginId) {
+      return;
+    }
     this.workspaceService.getWorkspaceList({ userId: newUserLoginId });
   }
 
