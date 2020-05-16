@@ -1,10 +1,7 @@
 import {inject} from 'aurelia-dependency-injection';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {Router} from 'aurelia-router';
-import { HttpClient, json } from 'aurelia-fetch-client';
-import {readErrorMsg} from '../../utils/alertHandling';
-import * as toastr from 'toastr';
-import {alertConfig} from '../../config/alertConf';
+import { HttpClient } from 'aurelia-fetch-client';
 import {EntityUpdateService} from '../../services/entityUpdateService';
 
 @inject(EventAggregator, HttpClient, Router, EntityUpdateService)
