@@ -82,12 +82,11 @@ export class EntityUpdateService {
     if (response.responseMessage === 'error') {
       let errMsg = readErrorMsg(response);
       toastr.error(errMsg, '', alertConfig);
-      return null;
+      return response;
     } else if(response.responseMessage === 'success') {
       toastr.success('Contact Successfully Updated', '', alertConfig);
-      return null;
+      return response;
     }
-    console.log(response)
   }
 }
 

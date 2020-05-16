@@ -25,7 +25,14 @@ export class ChangeCustomerDetails {
   }
 
   async updatePerson(firstName, lastName) {
-    let response = this.entityUpdateService.updatePerson(firstName, lastName, this.partyId)
+    let response = await this.entityUpdateService.updatePerson(firstName, lastName, this.partyId);
+    if(response.responseMessage === 'success') {
+      this.ea.publish('updateContact', {
+        firstName,
+        lastName,
+        "partyId": this.partyId
+      })
+    }
   }
 }
 
