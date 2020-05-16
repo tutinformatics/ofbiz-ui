@@ -1,9 +1,13 @@
-import { inject } from "aurelia-dependency-injection";
-import { TaskService } from "../services/task-service";
-import { Store } from "aurelia-store";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { Router } from "aurelia-router";
-import { getStatusBadge, convertStatus } from "../../../commons/util/status-utils";
+import { inject } from 'aurelia-dependency-injection';
+import { TaskService } from '../services/task-service';
+import { Store } from 'aurelia-store';
+import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Router } from 'aurelia-router';
+import {
+  getStatusBadge,
+  convertStatus
+} from '../../../commons/util/status-utils';
+import * as toastr from 'toastr';
 
 @inject(TaskService, Store, Router)
 export class TaskList {
@@ -12,24 +16,33 @@ export class TaskList {
     this.store = store;
     this.router = router;
     this.faPlus = faPlus;
+    this.faCheck = faCheck;
     this.subscription = this.store.state.subscribe(
       (state) => (this.state = state)
     );
   }
 
+  get tasksSelected() {
+    return !!this.grid && this.grid.selectedItems.length > 0;
+  }
+
   attached() {
-    const grid = document.querySelector("vaadin-grid");
+    this.grid = document.querySelector('vaadin-grid');
     this.initGridColumns();
+    this.loadTasks();
+  }
+
+  loadTasks() {
     this.taskService
       .getTasks({
         partyId: this.state.userLoginId,
-        statusId: "PAS_ASSIGNED",
+        statusId: 'PAS_ASSIGNED'
       })
-      .then((response) => (grid.items = response));
+      .then((response) => (this.grid.items = response));
   }
 
   initGridColumns() {
-    const columns = document.querySelectorAll("vaadin-grid-column");
+    const columns = document.querySelectorAll('vaadin-grid-column');
     columns[6].renderer = (root, columnm, rowData) => {
       const status = rowData.item.statusId;
       root.innerHTML = `
@@ -40,7 +53,28 @@ export class TaskList {
     };
   }
 
+  handleComplete() {
+    const tasks = this.grid.selectedItems.map(
+      (task) =>
+        (task = {
+          workEffortId: task.workEffortId,
+          partyId: task.partyId,
+          roleTypeId: task.roleTypeId,
+          fromDate: task.fromDate,
+          statusId: 'PAS_COMPLETED'
+        })
+    );
+    this.taskService
+      .completeTasks(tasks)
+      .then(() => {
+        this.grid.selectedItems = [];
+        this.loadTasks();
+        toastr.success('Tasks successfully completed!');
+      })
+      .catch((error) => toastr.error(error.message));
+  }
+
   handleAddTask() {
-    this.router.navigate("new-task");
+    this.router.navigate('new-task');
   }
 }

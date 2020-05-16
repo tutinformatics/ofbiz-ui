@@ -8,9 +8,18 @@
                 <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
                 New Task
             </button>
+            <button
+                class="btn btn-primary float-left"
+                click.delegate="handleComplete()"
+                disabled.bind="!tasksSelected"
+            >
+                <font-awesome-icon icon.bind="faCheck"></font-awesome-icon>
+                Complete
+            </button>
         </div>
         <div class="card-body">
             <vaadin-grid theme="compact row-stripes" column-reordering-allowed height-by-rows>
+                <vaadin-grid-selection-column auto-select></vaadin-grid-selection-column>
                 <vaadin-grid-column path="workEffortName" header="Task Name"></vaadin-grid-column>
                 <vaadin-grid-column path="phaseName" header="Phase Name"></vaadin-grid-column>
                 <vaadin-grid-column path="projectName" header="Project Name"></vaadin-grid-column>
