@@ -46,7 +46,7 @@ export class WorkspaceService {
     const url = this.router.currentInstruction.fragment;
     const title = document.title.split('|')[0].trim(); // router cannot access titles of child routes
 
-    if (!url || this.isFavourite) {
+    if (!url || this.workspaces.some(x => x.url === url)) {
       return;
     }
 
