@@ -1,19 +1,17 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { OpportunityService } from '../../../service/opportunity-service';
+import { Store } from 'aurelia-store';
 
-@inject(EventAggregator, OpportunityService)
+@inject(EventAggregator, OpportunityService, Store)
 export class Pipeline {
-  name = '';
-  description = '';
-  price = '';
-  stage = '';
   _subscriptions = [];
 
-  constructor(ea, opportunityService) {
-    this.new = [];
-    this.proposition = [];
-    this.won = [];
+  constructor(ea, opportunityService, store) {
+    this.store = store;
+    this.store.newOpp = [];
+    this.store.propositionOpp = [];
+    this.store.wonOpp = [];
 
     this.ea = ea;
     this.opportunityService = opportunityService;
@@ -29,33 +27,32 @@ export class Pipeline {
   // eventNewOpportunityCreation(description) {
   // }
 
-  attached() {
-    this.opportunityService.getOpportunitiesByStage("new")
-      .then(
-        data => this.new = data
-      );
-    this.opportunityService.getOpportunitiesByStage("proposition")
-      .then(
-        data => this.proposition = data
-      );
-    this.opportunityService.getOpportunitiesByStage("won")
-      .then(
-        data => this.won = data
-      );
+  attached(params) {
+      this.opportunityService.getOpportunitiesByStage("new")
+        .then(
+          data => this.store.newOpp = data
+        );
+      this.opportunityService.getOpportunitiesByStage("proposition")
+        .then(
+          data => this.store.propositionOpp = data
+        );
+      this.opportunityService.getOpportunitiesByStage("won")
+        .then(
+          data => this.store.wonOpp = data
+        );
   }
-
   deleteWonOpportunity(id, index) {
-    this.won.splice(index, 1);
+    this.store.wonOpp.splice(index, 1);
     this.opportunityService.deleteOpportunityById(id);
   }
 
   deleteNewOpportunity(index, id) {
-    this.new.splice(index, 1);
+    this.store.newOpp.splice(index, 1);
     this.opportunityService.deleteOpportunityById(id);
   }
 
   deletePropositionOpportunity(index, id) {
-    this.proposition.splice(index, 1);
+    this.store.propositionOpp.splice(index, 1);
     this.opportunityService.deleteOpportunityById(id);
   }
 

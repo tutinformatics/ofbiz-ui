@@ -10,6 +10,16 @@ export class OpportunityService {
     this.client = httpClient;
   }
 
+  async filter(body) {
+    return this.client
+        .fetch(`${this.baseUrl}services/performFilteredSearch`, {
+          method: 'POST',
+          body: json({
+            "filterParameters": body,
+            "entityName": "opportunity"
+          })
+        }).then(response => response.json());
+  }
   getOpportunities() {
     return this.client
       .fetch(`${this.baseUrl}entities/opportunity`)
@@ -30,15 +40,6 @@ export class OpportunityService {
       });
   }
 
-  // getOpportunity(id) {
-  //   return this.client
-  //     .fetch('opportunities')
-  //     .then(response => response.json())
-  //     .catch(reason => {
-  //       console.error(reason);
-  //       return [];
-  //     });
-  // }
    deleteOpportunityById(id) {
      return this.client
        .fetch(

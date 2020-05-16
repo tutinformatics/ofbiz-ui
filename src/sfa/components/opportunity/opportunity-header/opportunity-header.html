@@ -10,7 +10,7 @@
       <form class="form-inline col-3">
         <input class="form-control" type="search" placeholder="Search Opportunities..." aria-label="Search" style="width:100%">
       </form>
-      <button type="button" class="btn btn-outline-dark col-2">
+      <button type="button" class="btn btn-outline-dark col-2" data-toggle="modal" href="#filterModal">
         Opportunity Filter
       </button>
       <button type="button" class="btn btn-outline-dark col-3">
@@ -74,7 +74,56 @@
               </div>
             </div>
           </div>
+
         </div>
+        <div class="modal fade" id="filterModal" tabindex="1" role="dialog"
+             aria-labelledby="filterModalLabel">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel">Filter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form role="form" id="filterForm">
+                  <div class="form-group row">
+                    <label for="recipient-name" class="col-form-label col-sm-3">Price</label>
+                    <input type="text" class="form-control col-sm-3" value.bind="filter.price">
+                    <button class="form-control col-sm-1" click.delegate="toggleClickPrice()">
+                      <span if.bind="priceToggle === 'equal'">=</span>
+                      <span if.bind="priceToggle === 'greater'">+</span>
+                      <span if.bind="priceToggle === 'lower'">-</span>
+                    </button>
+                  </div>
+                  <div class="form-group row">
+                    <label for="message-text" class="col-form-label col-sm-3">Stage</label>
+                    <select class="form-control col-sm-4" value.bind="filter.stage">
+                      <option value="" selected>(empty)</option>
+                      <option value="new">New</option>
+                      <option value="proposition">Proposition</option>
+                      <option value="won">Won</option>
+                    </select>
+                  </div>
+                  <div class="form-group row">
+                    <label for="recipient-name" class="col-form-label col-sm-3">Date created</label>
+                    <input type="text" class="form-control col-sm-3" value.bind="filter.date" placeholder="DD/MM/YYYY">
+                    <button class="form-control col-sm-1" click.delegate="toggleClickDate()">
+                      <span if.bind="dateToggle === 'greater'">+</span>
+                      <span if.bind="dateToggle === 'lower'">-</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" click.delegate="applyFilter()"
+                            data-dismiss="modal">Filter</button>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
 </template>

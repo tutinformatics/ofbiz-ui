@@ -3,40 +3,41 @@ import {OrderService} from "../../../service/order-service";
 
 @inject(OrderService)
 export class OrderEdit {
-      constructor(orderService, router) {
-        this.router = router;
-        this.orderService = orderService;
-      }
+    constructor(orderService, router) {
+      this.router = router;
+      this.orderService = orderService;
+    }
 
-      attached() {
-      }
+    attached() {
+    }
 
-      activate(params, routeConfig, navigationInstruction) {
-        this.billingAccounts = this.orderService.get("BillingAccount");
-        this.customers = this.orderService.get("customer");
-        if (params.order === undefined) {
-          this.date = new Date().toLocaleDateString();
-          this.order = {orderId: "New order"};
-          return;
+    activate(params, routeConfig, navigationInstruction) {
+      this.billingAccounts = this.orderService.get("BillingAccount");
+      this.contacts = this.orderService.get("Person");
+      if (params.order === undefined) {
+        this.date = new Date().toLocaleDateString();
+        this.order = {orderId: "New order"};
+        return;
+      }
+      console.log(params.order);
+      this.date = new Date(params.order.lastUpdatedStamp * 1).toLocaleDateString();
+        if (params.order.orderId && typeof(params.order.orderId) === 'string') {
+            this.order = params.order;
+            this.orderId = params.order.orderId;
         }
-        this.date = new Date(params.order.lastUpdatedStamp * 1).toLocaleDateString();
-          if (params.order.orderId && typeof(params.order.orderId) === 'string') {
-              this.order = params.order;
-              this.orderId = params.order.orderId;
-          }
-      }
-      editOrder() {
-        let order = { salesChannel: this.salesChannel, totalSum: this.order.totalSum, status: this.order.status, orderId: this.order.orderId, billingAccountId: this.order.billingAccountId, customerId: this.order.customerId};
-        this.orderService.editOrder(order);
-        this.goBack();
-      };
-      createOrder() {
-        let order = { salesChannel: this.salesChannel, currencyUom: this.order.currencyUom, totalSum: this.order.totalSum, status: this.order.status, billingAccountId: this.order.billingAccountId, customerId: this.order.customerId};
-        this.orderService.createNewOrder(order);
-        this.goBack();
-      };
+    }
+    editOrder() {
+      let order = { orderId: this.order.orderId, grandTotal: this.order.grandTotal, statusId: this.order.statusId, billingAccountId: this.order.billingAccountId, contactId: this.order.contactId, salesChannelEnumId: this.order.salesChannelEnumId, currencyUom: this.order.currencyUom};
+      this.orderService.editOrder(order);
+      this.goBack();
+    };
+  createOrder() {
+    let order = { salesChannelEnumId: this.order.salesChannelEnumId, currencyUom: this.order.currencyUom, grandTotal: this.order.grandTotal, statusId: this.order.statusId, billingAccountId: this.order.billingAccountId, contactId: this.order.contactId};
+    this.orderService.createNewOrder(order);
+    this.goBack();
+  };
 
-      goBack() {
-        history.back();
-      }
+    goBack() {
+      history.back();
+    }
 }

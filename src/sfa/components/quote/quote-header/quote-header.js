@@ -11,7 +11,7 @@ export class QuoteHeader {
   }
 
   newQuote() {
-    let quote = { name: this.quote.name, partyId: this.quote.partyId, description: this.quote.description, issueDate: new Date().valueOf() };
+    let quote = { quoteName: this.quote.quoteName, partyId: this.quote.partyId, issueDate: new Date().valueOf() };
     this.quoteService.createNewQuote(quote);
   };
 }

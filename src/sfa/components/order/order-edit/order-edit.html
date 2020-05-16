@@ -9,11 +9,11 @@
       <div class="form-group">
         <div class="row form-group">
           <label class="col-sm-3 col-form-label">Client</label>
-          <select class="col-sm-3 form-control" value.bind="order.customerId">
+          <select class="col-sm-3 form-control" value.bind="order.contactId">
             <option>empty</option>
-            <option repeat.for="customer of customers._value"
-                    model.bind="customer.customerId">
-              ${customer.name}
+            <option repeat.for="contact of contacts._value"
+                    model.bind="contact.contactId">
+              ${contact.lastName}
             </option>
           </select>
         </div>
@@ -33,25 +33,25 @@
         <div class="form-group">
           <div class="row form-group">
           <label for="message-text" class="col-form-label col-sm-3">Status</label>
-          <select class="form-control col-sm-3" value.bind="order.status">
-            <option value="ORDER_CREATED" selected.bind="order.status == 'ORDER_CREATED'">Created</option>
-            <option value="ORDER_APPROVED" selected.bind="order.status == 'ORDER_APPROVED'">Approved</option>
-            <option value="ORDER_COMPLETED" selected.bind="order.status == 'ORDER_COMPLETED'">Completed</option>
+          <select class="form-control col-sm-3" value.bind="order.statusId">
+            <option value="ORDER_CREATED" selected.bind="order.statusId == 'ORDER_CREATED'">Created</option>
+            <option value="ORDER_APPROVED" selected.bind="order.statusId == 'ORDER_APPROVED'">Approved</option>
+            <option value="ORDER_COMPLETED" selected.bind="order.statusId == 'ORDER_COMPLETED'">Completed</option>
           </select>
           </div>
         </div>
         <div class="row form-group">
           <label for="message-text" class="col-sm-3 col-form-label">Sales Channel</label>
-          <select class="form-control col-sm-2" value.bind="order.salesChannel">
-            <option value="eMail">E-Mail</option>
-            <option value="phone">Phone</option>
-            <option value="fax">Fax</option>
-            <option value="web">Web</option>
+          <select class="form-control col-sm-2" value.bind="order.salesChannelEnumId">
+            <option value="EMAIL_SALES_CHANNEL">E-Mail</option>
+            <option value="PHONE_SALES_CHANNEL">Phone</option>
+            <option value="FAX_SALES_CHANNEL">Fax</option>
+            <option value="WEB_SALES_CHANNEL">Web</option>
           </select>
         </div>
         <div class="row form-group">
           <label for="message-text" class="col-sm-3 col-form-label">Price</label>
-          <input type="number" class="form-control col-sm-2" aria-label="Price" aria-describedby="basic-addon2" value.bind="order.totalSum">
+          <input type="number" class="form-control col-sm-2" aria-label="Price" aria-describedby="basic-addon2" value.bind="order.grandTotal">
           <input class="input-group-text col-sm-1" value.bind="order.currencyUom" id="basic-addon2" placeholder="${order.currencyUom}">
         </div>
       </div>

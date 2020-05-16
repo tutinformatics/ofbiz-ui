@@ -12,7 +12,6 @@ export class ListView {
       .then(
         data => this.orders = data
       );
-
   }
 
   deleteOrder(id, index) {

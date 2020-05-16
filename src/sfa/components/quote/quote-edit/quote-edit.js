@@ -16,7 +16,7 @@ export class QuoteEdit {
       this.quote = params.quote;
     }
     editQuote() {
-      let quote = {quoteId: this.quote.quoteId, name: this.quote.name, description: this.quote.description, agentId: this.quote.agentId };
+      let quote = {quoteId: this.quote.quoteId, quoteName: this.quote.quoteName, partyId: this.quote.partyId };
 
       this.quoteService.editQuote(quote);
       this.back();

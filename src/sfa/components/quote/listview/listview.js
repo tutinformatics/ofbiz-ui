@@ -10,7 +10,7 @@ export class ListView {
   attached() {
     this.quoteService.getQuotes()
       .then(
-        data => this.quotes = data
+        data => this.quotes = data,
       );
   }
   deleteQuote(id, index) {
