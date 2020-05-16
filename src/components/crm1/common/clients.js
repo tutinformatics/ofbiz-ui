@@ -17,6 +17,15 @@ export class Clients {
     this.baseUrl = '/api/generic/v1/';
     this.entityQueryService = entityQueryService;
 
+    this.ea.subscribe('updateContact', payload => {
+      for (let i = 0; i < this.contacts.length; i++) {
+        if (this.contacts[i].partyId === payload.partyId) {
+          this.contacts[i].firstName = payload.firstName;
+          this.contacts[i].lastName = payload.lastName;
+        }
+      }
+    });
+
     ea.subscribe('partyIds', payload => {
       this.contacts = payload;
       this.filteredContacts = this.contacts;

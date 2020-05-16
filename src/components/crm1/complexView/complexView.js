@@ -10,7 +10,6 @@ import {EntityQueryService} from '../services/entityQueryService';
 
 @inject(EventAggregator, HttpClient, Router, EntityQueryService)
 export class ComplexView {
-  baseUrl = '';
   constructor(ea, http, router, entityQueryService) {
     this.ea = ea;
     this.http = http;
@@ -19,14 +18,12 @@ export class ComplexView {
     this.view = 'Card View';
     this.displayActivity = false;
     this.displayClient = false;
-    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/';
     this.entityQueryService = entityQueryService;
   }
 
   async attached() {
     await this.getAllContacts();
   }
-
 
   async getAllContacts() {
     let response = await this.entityQueryService.getAllContacts();
