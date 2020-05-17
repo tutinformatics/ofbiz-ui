@@ -134,7 +134,7 @@ ul.custom-pagination li a.disabled {
   width: 266px;
   margin: 5px;
   padding: 0;
-  max-height: 200px;
+  max-height: 600px;
   overflow-y: auto;
 }
 

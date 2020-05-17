@@ -49,6 +49,19 @@ export class Task {
     return !!this.task.workEffortName;
   }
 
+  attached() {
+    const estStartDate = document.querySelector('#estStartDate');
+    const estComplDate = document.querySelector('#estComplDate');
+
+    estStartDate.addEventListener('change',
+      (event) => (this.task.estimatedStartDate = event.target.value)
+    );
+
+    estComplDate.addEventListener('change',
+      (event) => (this.task.estimatedCompletionDate = event.target.value)
+    );
+  }
+
   addTask() {
     this.taskService
       .createTask(this.task)

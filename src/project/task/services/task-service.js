@@ -91,5 +91,21 @@ export class TaskService {
         console.error(error);
       }); // TODO: improve error handling
   }
-}
 
+  completeTasks(tasks) {
+    const body = json({tasks: tasks});
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}/services/completeTasks`, {
+        method: 'post',
+        body: body
+      })
+      .then((response) => {
+        if (!response.ok) {
+          // TODO: improve error handling
+          throw new Error('An error occured while completing tasks!');
+        }
+        return response.json();
+      });
+  }
+}

@@ -34,3 +34,25 @@ initGridColumns() {
 ```
 
 More infomation: [Docs](https://vaadin.com/components/vaadin-grid/html-examples)
+
+## Vaadin Date Picker
+
+Basic usage:
+```html
+<vaadin-date-picker label="Label"></vaadin-date-picker>
+<vaadin-date-picker placeholder="Placeholder"></vaadin-date-picker>
+<vaadin-date-picker value="1990-01-28"></vaadin-date-picker>
+```
+
+Value binding:
+```javascript
+attached() {
+    const datePicker = document.querySelector('vaadin-date-picker');
+    datePicker.addEventListener('change', (event) =>
+      (this.timesheet.fromDate = event.target.value)
+    );
+  }
+```
+
+More information: [Docs](https://vaadin.com/components/vaadin-date-picker/html-examples)
+
