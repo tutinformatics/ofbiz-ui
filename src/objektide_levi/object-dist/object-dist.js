@@ -496,7 +496,6 @@ export class ObjectDist {
         filters.push(filterComponent);
       }
     }
-    console.log(filters);
     return JSON.stringify(filters);
   }
 
@@ -576,7 +575,7 @@ export class ObjectDist {
           const data = queryArray[i][j];
           if (typeof data === 'object') {
             let filter = {
-              'fieldName': data[0],
+              'fieldName': camelCase(data[0]),
               'operation': this.dataOperatorMapping[data[1]],
               'value': data[2]
             };
