@@ -20,7 +20,7 @@ export class AddClientPopUp {
   }
 
   async addContact(contact) {
-    let contactId = this.entityUpdateService.addContact(contact);
+    let contactId = await this.entityUpdateService.addContact(contact);
     if (contactId !== null)  {
       this.ea.publish('addClient', new Contact(
         contact.firstName,
@@ -44,6 +44,7 @@ export class AddClientPopUp {
   async addContactAndClose(contact) {
     let response = await this.addContact(contact);
     if (response === 'success') {
+      console.log(response)
       $('#create-modal').modal('hide');
     }
   }
