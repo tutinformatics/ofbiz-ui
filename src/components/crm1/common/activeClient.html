@@ -43,12 +43,12 @@
 
       <hr/>
 
-  <!--    Email, phone, meeting options-->
+      <!--    Email, phone, meeting options-->
       <div class="card rounded-0">
         <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-          <div repeat.for="option of contactOptions">
-            <button type="button" click.delegate="quickAction(option)" class="btn btnInteraction p-1 m-1 round">${option.name}</button>
-          </div>
+          <a href="mailto:${email}" target="_blank" class="btn btnInteraction p-1 m-1 round">Email</a>
+          <a href="discord:" target="_blank" class="btn btnInteraction p-1 m-1 round">Call</a>
+          <a target="_blank" href="discord:" class="btn btnInteraction p-1 m-1 round white-text">Meeting</a>
         </div>
       </div>
       <hr/>
