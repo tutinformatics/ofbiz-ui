@@ -13,9 +13,10 @@ export class TimesheetView {
     this.timesheetService = timesheetService;
     this.timesheet = {};
     this.timesheets = {};
+    this.tasks = {};
     this.rates = {};
     this.store = store;
-    this.tasks = {};
+
     this.faPlus = faPlus;
     this.myTimes = {};
     this.subscription = this.store.state.subscribe(
@@ -114,6 +115,10 @@ export class TimesheetView {
     });
     select.appendChild(listBox);
     root.appendChild(select);
+  }
+
+  handleAddTaskTime() {
+    this.router.navigateToRoute("new-time");
   }
 
   handleSelectTimesheet(timesheetId) {
