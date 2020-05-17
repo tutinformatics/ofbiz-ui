@@ -88,9 +88,6 @@
                               id="subscriberDescription" required></textarea>
                       </div>
                     </form>
-                    <div style="display: flex; justify-content: center" class="query-builder-div">
-                      <query-builder></query-builder>
-                    </div>
                   </div>
 
                   <div class="tab-pane fade" id="nav-add-subscriber-query-builder-content" role="tabpanel"
@@ -163,9 +160,6 @@
                                   id="editSubscriberDescription" required></textarea>
                       </div>
                     </form>
-                    <div style="display: flex; justify-content: center" class="query-builder-div">
-                      <query-builder id="editSubscriberBuilder"></query-builder>
-                    </div>
                   </div>
                   <div class="tab-pane fade" id="nav-edit-subscriber-query-builder-content" role="tabpanel"
                        aria-labelledby="nav-edit-subscriber-properties-tab">
@@ -173,7 +167,7 @@
                       Select The Fields Which <strong>CANNOT</strong> Be Overridden
                     </div>
                     <div style="overflow-y: scroll; overflow-x: hidden; height: 300px;">
-                      <table class="table">
+                      <table class="table" id="properties-edit-subscriber">
                         <thead>
                         <tr style="text-align: center">
                           <th scope="col">#</th>
@@ -213,10 +207,6 @@
                        href="#nav-add-publisher-properties-content" role="tab"
                        aria-controls="nav-add-publisher-properties-content"
                        aria-selected="true">Query Builder</a>
-                    <a class="nav-item nav-link" id="nav-add-publisher-properties-tab" data-toggle="tab"
-                       href="#nav-add-publisher-query-builder-content"
-                       role="tab" aria-controls="nav-add-publisher-query-builder-content" aria-selected="false">Object
-                      Properties</a>
                   </div>
                 </nav>
                 <div class="tab-content" id="nav-add-publisher">
@@ -241,25 +231,6 @@
                     </form>
                     <div style="display: flex; justify-content: center" class="query-builder-div">
                       <query-builder></query-builder>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="nav-add-publisher-query-builder-content" role="tabpanel"
-                       aria-labelledby="nav-add-publisher-properties-tab">
-                    <div class="alert alert-info">
-                      Select The Fields Which <strong>CANNOT</strong> Be Overridden
-                    </div>
-                    <div style="overflow-y: scroll; overflow-x: hidden; height: 300px;">
-                      <table class="table">
-                        <thead>
-                        <tr style="text-align: center">
-                          <th scope="col">#</th>
-                          <th scope="col">PROPERTY NAME</th>
-                          <th scope="col">CANNOT BE OVERRIDDEN</th>
-                        </tr>
-                        </thead>
-                        <tbody id="property-table-body-add-publishers">
-                        </tbody>
-                      </table>
                     </div>
                   </div>
                 </div>
@@ -289,10 +260,6 @@
                          href="#nav-edit-publisher-properties-content" role="tab"
                          aria-controls="nav-edit-publisher-properties-content"
                          aria-selected="true">Query Builder</a>
-                      <a class="nav-item nav-link" id="nav-edit-publisher-properties-tab" data-toggle="tab"
-                         href="#nav-edit-publisher-query-builder-content"
-                         role="tab" aria-controls="nav-edit-publisher-query-builder-content" aria-selected="false">Object
-                        Properties</a>
                     </div>
                   </nav>
                   <div class="tab-content" id="nav-edit-publisher">
@@ -318,25 +285,6 @@
 
                       <div style="display: flex; justify-content: center" class="query-builder-div">
                         <query-builder></query-builder>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-edit-publisher-query-builder-content" role="tabpanel"
-                         aria-labelledby="nav-edit-publisher-properties-tab">
-                      <div class="alert alert-info">
-                        Select The Fields Which <strong>CANNOT</strong> Be Overridden
-                      </div>
-                      <div style="overflow-y: scroll; overflow-x: hidden; height: 300px;">
-                        <table class="table">
-                          <thead>
-                          <tr style="text-align: center">
-                            <th scope="col">#</th>
-                            <th scope="col">PROPERTY NAME</th>
-                            <th scope="col">CANNOT BE OVERRIDDEN</th>
-                          </tr>
-                          </thead>
-                          <tbody id="property-table-body-edit-publishers">
-                          </tbody>
-                        </table>
                       </div>
                     </div>
                   </div>

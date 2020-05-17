@@ -128,7 +128,6 @@ export class ObjectDist {
     function addActivityItemSubscriber() {
       _self.clearFields();
       _self.selectedEntity = document.getElementById('subscriberEntitiesSelect').options[document.getElementById('subscriberEntitiesSelect').selectedIndex].text;
-      _self.getEntityFields(false);
     }
   }
 
@@ -166,10 +165,9 @@ export class ObjectDist {
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isPublisher) {
-          queryBuilders[2].fields = customFields;
+          queryBuilders[0].fields = customFields;
           this.populateSubscriberPublisherPropertiesField(isPublisher, false, data);
         } else {
-          queryBuilders[0].fields = customFields;
           this.populateSubscriberPublisherPropertiesField(isPublisher, false, data);
         }
       });
@@ -186,8 +184,9 @@ export class ObjectDist {
       });
   }
 
-  async getEntityFieldsByName(entityName, table) {
-    this.httpClient.fetch(`${this.baseUrl}/structure/entities/${entityName}`)
+  async getEntityFieldsByName(entity, table) {
+    let name = entity.OfbizEntityName;
+    this.httpClient.fetch(`${this.baseUrl}/structure/entities/${name}`)
       .then(response => response.json())
       .then(data => {
         data.sort(function(a, b) {
@@ -195,7 +194,7 @@ export class ObjectDist {
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
-        this.populateTable(table, data);
+        this.populateTable(table, data, entity);
       });
   }
 
@@ -205,18 +204,20 @@ export class ObjectDist {
       tableBody = document.getElementById('property-table-body-add-subscribers');
       if (isPublisher) {
         tableBody = document.getElementById('property-table-body-add-publishers');
+      } else {
+        this.populateTable(tableBody, data);
       }
-      this.populateTable(tableBody, data);
     } else {
       tableBody = document.getElementById('property-table-body-edit-subscribers');
       if (isPublisher) {
         tableBody = document.getElementById('property-table-body-edit-publishers');
+      } else {
+        this.getEntityFieldsByName(data, tableBody);
       }
-      this.getEntityFieldsByName(data.OfbizEntityName, tableBody);
     }
   }
 
-  populateTable(tableBody, data) {
+  populateTable(tableBody, data, entity = null) {
     tableBody.innerHTML = '';
     let i = 1;
     for (let field of data) {
@@ -235,7 +236,9 @@ export class ObjectDist {
 
         let checkboxInput = document.createElement('input');
         checkboxInput.type = 'checkbox';
-
+        if (entity != null && entity.properties.includes(field.name)) {
+          checkboxInput.checked = true;
+        }
         checkBoxTd.appendChild(checkboxInput);
         tableRow.append(tableHeader, propertyNameTd, checkBoxTd);
 
@@ -373,7 +376,7 @@ export class ObjectDist {
   editPublisher(publisher) {
     let entity = publisher[0];
     this.populateSubscriberPublisherPropertiesField(true, true, entity);
-    let builder = document.querySelectorAll('smart-query-builder')[3];
+    let builder = document.querySelectorAll('smart-query-builder')[1];
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
     let filterList = [];
@@ -418,11 +421,11 @@ export class ObjectDist {
             });
           }
         }
-        const queryBuilders = document.querySelectorAll('smart-query-builder'); // TODO: add sorting, ma ei viitsi
+        const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isSubscriber) {
           queryBuilders[1].fields = customFields;
         } else {
-          queryBuilders[3].fields = customFields;
+          queryBuilders[1].fields = customFields;
         }
       });
   }
@@ -451,7 +454,7 @@ export class ObjectDist {
       'topic': document.getElementById('subscriberTopic').value,
       'description': document.getElementById('subscriberDescription').value,
       'filter': this.getFilterFromComponent(false),
-      'properties': this.getProperties()
+      'properties': this.getProperties('properties-add-subscriber')
     };
     this.makePostSubscriberPublisher(JSON.stringify(data), `${this.objectDistBaseUrl}/subscribers/create`);
   }
@@ -468,14 +471,14 @@ export class ObjectDist {
   }
 
   refreshPage() {
-    location.reload();  // TODO rework
+    location.reload();
   }
 
   getFilterFromComponent(isPublisher) {
     const queryBuilders = document.querySelectorAll('smart-query-builder');
     let queryBuilder = queryBuilders[0];
     if (isPublisher) {
-      queryBuilder = queryBuilders[2];
+      queryBuilder = queryBuilders[0];
     }
     let queryArray = queryBuilder.value; // will change, thats why its duplicate
     let filters = [];
@@ -499,8 +502,8 @@ export class ObjectDist {
     return JSON.stringify(filters);
   }
 
-  getProperties() {
-    let oTable = document.getElementById('properties-add-subscriber');
+  getProperties(id) {
+    let oTable = document.getElementById(id);
     let properties = [];
     let rowLength = oTable.rows.length;
 
@@ -534,7 +537,8 @@ export class ObjectDist {
       'OfbizEntityName': this.selectedEntity,
       'topic': document.getElementById('editSubscriberTopic').value,
       'description': document.getElementById('editSubscriberDescription').value,
-      'filter': this.getEditFilterFromComponent(false)
+      'filter': this.getEditFilterFromComponent(false),
+      'properties': this.getProperties('properties-edit-subscriber')
     };
     this.httpClient.fetch(`${this.baseUrl}/entities/OfbizSubscriber`, {
       method: 'put',
@@ -564,7 +568,7 @@ export class ObjectDist {
     const queryBuilders = document.querySelectorAll('smart-query-builder');
     let queryBuilder = queryBuilders[1];
     if (isPublisher) {
-      queryBuilder = queryBuilders[3];
+      queryBuilder = queryBuilders[1];
     }
     let queryArray = queryBuilder.value;
     let filters = [];
