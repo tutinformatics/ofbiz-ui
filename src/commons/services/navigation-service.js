@@ -82,6 +82,14 @@ const routes = {
       ),
       title: 'Create timesheet',
       name: 'new-timesheet'
+    },
+    {
+      route: 'new-time',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/my-task-time'
+      ),
+      title: 'My Task Time',
+      name: 'new-time'
     }
   ],
   'sfa': [
