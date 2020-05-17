@@ -18,7 +18,7 @@
   background-color: white !important;
 }
 
-button-icon {
+.button-icon {
   cursor: pointer
 }
 
@@ -28,7 +28,9 @@ button-icon {
   margin: 0;
 }
 
-ul.custom-pagination li {display: inline;}
+ul.custom-pagination li {
+  display: inline;
+}
 
 ul.custom-pagination li a {
   color: black;
@@ -43,7 +45,9 @@ ul.custom-pagination li a.active {
   color: white;
 }
 
-ul.custom-pagination li a:hover:not(.active):not(.disabled) {background-color: #ddd;}
+ul.custom-pagination li a:hover:not(.active):not(.disabled) {
+  background-color: #ddd;
+}
 
 ul.custom-pagination li a.disabled {
   color: darkgrey;
@@ -52,7 +56,9 @@ ul.custom-pagination li a.disabled {
 /*Please rename according to BEM convention (It broke my layout)*/
 
 /*.row {*/
+
 /*  margin: 1% 1% 1% 0%;*/
+
 /*}*/
 
 .workspace-menu {
@@ -92,7 +98,7 @@ ul.custom-pagination li a.disabled {
   width: 220px;
 }
 
-button-icon {
+.button-icon {
   cursor: pointer
 }
 
@@ -103,4 +109,11 @@ button-icon {
 .my-auto {
   margin-top: auto !important;
   margin-bottom: auto !important;
+}
+
+.kanban-card {
+  --box-shadow-color: #ccc;
+  -webkit-box-shadow: -3px 2px 3px var(--box-shadow-color);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    -3px 2px 3px var(--box-shadow-color);  /* Firefox 3.5 - 3.6 */
+  box-shadow:         -3px 2px 3px var(--box-shadow-color);
 }

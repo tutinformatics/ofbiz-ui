@@ -1,0 +1,29 @@
+<template>
+  <div class="row mt-4">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Party</th>
+          <th scope="col">Issue date</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr repeat.for="quote of store.quotes">
+          <td>${quote.quoteId}</td>
+          <td>${quote.quoteName}</td>
+          <td>${quote.partyId}</td>
+          <td>${quote.issueDate}</td>
+          <td>
+            <a style="text-decoration: none" route-href="route: quote-edit; params.bind: { quote: quote}">Edit</a> |
+            <a style="color: #007bff; cursor: pointer" click.trigger="deleteQuote(quote.quoteId, $index)">Delete</a>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

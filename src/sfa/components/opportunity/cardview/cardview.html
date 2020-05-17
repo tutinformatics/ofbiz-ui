@@ -1,0 +1,28 @@
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="opportunity of store.opportunities">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5>${opportunity.name}</h5>
+            </div>
+            <div class="col text-right">
+              <a style="text-decoration: none; cursor: pointer" route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">
+                <img src="../../../assets/img/edit.svg" alt="edit">
+              </a>
+              <a style="cursor: pointer" click.delegate="deleteOpportunity($index, opportunity.opportunityId)">
+                <img src="../../../assets/img/delete.svg" alt="delete">
+              </a>
+            </div>
+          </div>
+          <p class="card-text">${opportunity.description}</p>
+          <div class="row ml-1 mr-1" style="position: absolute; bottom: 0; width: 90%">
+            <p class="card-text">${opportunity.stage}</p>
+            <p class="card-text col text-right"><b>${opportunity.price}€</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

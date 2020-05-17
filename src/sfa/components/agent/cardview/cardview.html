@@ -1,0 +1,25 @@
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="agent of store.agents">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <div class="row">
+          <div class="col h-25 w-75">
+            <h5>${agent.name}</h5>
+          </div>
+          <div class="text-right">
+            <a style="text-decoration: none; cursor: pointer" route-href="route: agent-edit; params.bind: { agent: agent}">
+              <img src="../../../assets/img/edit.svg" alt="edit">
+            </a>
+            <a style="cursor: pointer" click.delegate="deleteAgent($index, agent.agentId)">
+              <img src="../../../assets/img/delete.svg" alt="delete">
+            </a>
+          </div>
+          </div>
+          <p class="card-text">${agent.telecomNumber}</p>
+          <p class="card-text">${agent.emailAddress}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
