@@ -55,7 +55,7 @@ const routes = {
     }
   ],
   'sfa': [
-    { route: '', redirect: 'pipeline' },
+    {route: '', redirect: 'pipeline'},
     {
       route: 'pipeline',
       moduleId: PLATFORM.moduleName('crm/components/pipeline/pipeline'),
@@ -77,7 +77,7 @@ const routes = {
   'crm': [], // TODO: add crm child routes here
   'cms': [], // TODO: add cms child routes here
   'marketdata': [], // TODO: add marketdata child routes here
-  'object-dist': [] // TODO: add objectdist child routes here
+  'object-dist': []
 };
 
 export class NavigationService {

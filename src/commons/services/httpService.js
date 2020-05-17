@@ -16,6 +16,7 @@ export class HttpService {
               }
             }
           )
+          //.withBaseUrl("http://84.50.67.113/")
           .withInterceptor(this.httpInterceptor);
       }
     );

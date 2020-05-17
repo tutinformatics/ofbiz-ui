@@ -4,6 +4,7 @@ import {v1 as uuidv1} from 'uuid';
 import {QueryBuilder} from "./query-builder/query-builder";
 import toWords from 'split-camelcase-to-words';
 import {HttpClient} from "aurelia-fetch-client";
+import {NavigationService} from "../../commons/services/navigation-service";
 
 @inject(HttpClient, QueryBuilder)
 export class ObjectDist {
@@ -14,7 +15,7 @@ export class ObjectDist {
   selectedEntityId;
 
   baseUrl = "api/generic/v1";
-  objectDistBaseUrl = "api/object-dist"
+  objectDistBaseUrl = "api/objectdist"
 
   dataTypeMapping = {
     "ofbiz": "dataType",
@@ -43,7 +44,9 @@ export class ObjectDist {
     "<>": "notEqual",
   }
 
-  constructor(queryBuilder, httpClient) {
+  constructor(httpClient, queryBuilder) {
+
+
     this.httpClient = httpClient;
     //this.setHTTPClient();
     this.fetchPublishers();
@@ -505,7 +508,6 @@ export class ObjectDist {
         filters.push(filterComponent)
       }
     }
-    console.log(JSON.stringify(filters))
     return JSON.stringify(filters);
   }
 
