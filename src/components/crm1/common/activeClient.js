@@ -5,6 +5,7 @@ import {clientDocumentOption} from './complexViewClient/clientDocumentOption';
 import {inject} from 'aurelia-dependency-injection';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {Router} from 'aurelia-router';
+import $ from 'jquery';
 
 @inject(EventAggregator, Router)
 export class ActiveClient {
@@ -63,7 +64,15 @@ export class ActiveClient {
     this.ea.publish('openModal', true);
     event.stopPropagation();
   }
-  preventPropagation(event) {
+  preventPropagation(activity) {
+    console.log(activity)
+    switch (activity.name) {
+      case "Leads":
+        $('#create-lead').modal('show');
+        break;
+      default:
+        break
+    }
     event.stopPropagation();
   }
 }

@@ -4,7 +4,8 @@
   <require from="../common/complexViewClient/clientSaleOption"></require>
   <require from="../common/complexViewClient/clientDocumentOption"></require>
   <require from="../common/add"></require>
-  <require from="../common/modals/changeCustomerDetails"></require>
+<!--  <require from="../common/modals/changeCustomerDetails"></require>-->
+  <require from="../common/modals/addLeadPopUp"></require>
 
   <div if.bind="displayClient">
     <div class="card rounded shadow-sm pb-2">
@@ -76,7 +77,7 @@
           <div class="row">
             <div class="col-12">
               <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}
-                <add class="pb-1" data-toggle="modal" data-target="#changeCustomerData" click.delegate="preventPropagation(event)"></add></button>
+<!--                <add class="pb-1" data-toggle="modal" click.delegate="preventPropagation(option)"></add></button>-->
             </div>
           </div>
         </div>
@@ -99,6 +100,5 @@
       </div>
     </div>
   </div>
-
-  <change-customer-details></change-customer-details>
+  <add-lead-pop-up></add-lead-pop-up>
 </template>

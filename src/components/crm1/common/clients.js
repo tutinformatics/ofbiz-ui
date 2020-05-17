@@ -48,7 +48,6 @@ export class Clients {
     });
 
     ea.subscribe('unfilteredCustomers', payload => {
-      console.log(this.contacts);
       this.filteredContacts = this.contacts;
     });
 
