@@ -18,17 +18,22 @@
             </button>
         </div>
         <div class="card-body">
+            <vaadin-context-menu style="text-align: end;">
+                <vaadin-button theme="icon" aria-label="Hide column menu">
+                    <font-awesome-icon icon.bind="faBars"></font-awesome-icon>
+                </vaadin-button>
+            </vaadin-context-menu>
             <vaadin-grid theme="compact row-stripes" column-reordering-allowed height-by-rows>
                 <vaadin-grid-selection-column auto-select></vaadin-grid-selection-column>
-                <vaadin-grid-column path="workEffortName" header="Task Name"></vaadin-grid-column>
-                <vaadin-grid-column path="phaseName" header="Phase Name"></vaadin-grid-column>
-                <vaadin-grid-column path="projectName" header="Project Name"></vaadin-grid-column>
-                <vaadin-grid-column path="priority" header="Priority"></vaadin-grid-column>
-                <vaadin-grid-column path="estimatedStartDate" header="Estimated Start Date"></vaadin-grid-column>
-                <vaadin-grid-column path="estimatedCompletionDate" header="Estimated Completion Date"></vaadin-grid-column>
-                <vaadin-grid-column path="statusId" header="Status"></vaadin-grid-column>
-                <vaadin-grid-column path="partyId" header="Party Id"></vaadin-grid-column>
-                <vaadin-grid-column path="roleTypeId" header="Role"></vaadin-grid-column>
+                <vaadin-grid-column path="workEffortName" header="Task Name" name="name"></vaadin-grid-column>
+                <vaadin-grid-column path="phaseName" header="Phase Name" name="phase"></vaadin-grid-column>
+                <vaadin-grid-column path="projectName" header="Project Name" name="project"></vaadin-grid-column>
+                <vaadin-grid-column path="priority" header="Priority" name="project"></vaadin-grid-column>
+                <vaadin-grid-column path="estimatedStartDate" header="Estimated Start Date" name="start"></vaadin-grid-column>
+                <vaadin-grid-column path="estimatedCompletionDate" header="Estimated Completion Date" name="end"></vaadin-grid-column>
+                <vaadin-grid-column path="statusId" header="Status" name="status"></vaadin-grid-column>
+                <vaadin-grid-column path="partyId" header="Party Id" name="party"></vaadin-grid-column>
+                <vaadin-grid-column path="roleTypeId" header="Role" name="role"></vaadin-grid-column>
             </vaadin-grid>
         </div>
     </div>

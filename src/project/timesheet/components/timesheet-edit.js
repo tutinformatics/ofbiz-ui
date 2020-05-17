@@ -31,13 +31,8 @@ export class Timesheet {
   attached() {
     const datePicker = document.querySelector('vaadin-date-picker');
     datePicker.addEventListener('change', (event) =>
-      this.updateTimesheet(event)
+      (this.timesheet.fromDate = event.target.value)
     );
-  }
-
-  updateTimesheet(event) {
-    this.timesheet.fromDate = event.target.value;
-    console.log(this.timesheet.fromDate);
   }
 
   addTimesheet() {

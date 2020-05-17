@@ -1,7 +1,7 @@
 import { inject } from 'aurelia-dependency-injection';
 import { TaskService } from '../services/task-service';
 import { Store } from 'aurelia-store';
-import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faCheck, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Router } from 'aurelia-router';
 import {
   getStatusBadge,
@@ -17,6 +17,7 @@ export class TaskList {
     this.router = router;
     this.faPlus = faPlus;
     this.faCheck = faCheck;
+    this.faBars = faBars;
     this.subscription = this.store.state.subscribe(
       (state) => (this.state = state)
     );
@@ -50,6 +51,27 @@ export class TaskList {
             ${convertStatus(status)}
           </span >
         `;
+    };
+
+    const contextMenu = document.querySelector('vaadin-context-menu');
+    contextMenu.listenOn = document.querySelector('vaadin-button');
+    contextMenu.openOn = 'click';
+    contextMenu.renderer = (root) => {
+      root.innerHTML = '';
+      columns.forEach((column) => {
+        const checkbox = window.document.createElement('vaadin-checkbox');
+        checkbox.style.display = 'block';
+        checkbox.textContent = column.getAttribute('name');
+        checkbox.checked = !column.hidden;
+        checkbox.addEventListener('change', () => {
+          column.hidden = !checkbox.checked;
+        });
+        // Prevent the context menu from closing when clicking a checkbox
+        checkbox.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+        root.appendChild(checkbox);
+      });
     };
   }
 
