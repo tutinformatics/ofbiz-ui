@@ -40,8 +40,8 @@ export class AuthService {
         );
       if (response.ok) {
         const responseData = await response.json();
-        await this.store.dispatch('setUserLoginId', responseData['userLoginId']);
         await this.store.dispatch('setJwtToken', responseData['token']);
+        await this.store.dispatch('setUserLoginId', responseData['userLoginId']);
         return true;
       }
     } catch (e) {

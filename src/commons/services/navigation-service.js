@@ -11,15 +11,21 @@ const routes = {
       title: 'Projects'
     },
     {
-      route: 'new-task',
-      moduleId: PLATFORM.moduleName('project/task/components/task-edit'),
-      name: 'new-task',
+      route: 'my-tasks',
+      moduleId: PLATFORM.moduleName('project/task/components/task-list'),
+      name: 'my-tasks',
       nav: true,
       title: 'My Tasks'
     },
     {
+      route: 'new-task',
+      moduleId: PLATFORM.moduleName('project/task/components/task-edit'),
+      name: 'new-task',
+      title: 'Create Task'
+    },
+    {
       route: 'project/:id',
-      moduleId: PLATFORM.moduleName('project/task/components/task-list'),
+      moduleId: PLATFORM.moduleName('project/components/project-view'),
       name: 'project-view'
     },
     {
@@ -30,26 +36,34 @@ const routes = {
     },
     {
       route: 'resources',
-      moduleId: PLATFORM.moduleName('project/resource/components/resource-list'),
+      moduleId: PLATFORM.moduleName(
+        'project/resource/components/resource-list'
+      ),
       name: 'resource',
       title: 'Resources',
       nav: true
     },
     {
       route: 'new-resource',
-      moduleId: PLATFORM.moduleName('project/resource/components/resource-edit'),
+      moduleId: PLATFORM.moduleName(
+        'project/resource/components/resource-edit'
+      ),
       name: 'new-resource'
     },
     {
       route: 'timesheets',
-      moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-list'),
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-list'
+      ),
       title: 'Timesheets',
       name: 'timesheets',
       nav: true
     },
     {
       route: 'new-timesheet',
-      moduleId: PLATFORM.moduleName('project/timesheet/components/timesheet-edit'),
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-edit'
+      ),
       title: 'Create timesheet',
       name: 'new-timesheet'
     }

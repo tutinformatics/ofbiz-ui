@@ -8,6 +8,7 @@ import '@progress/kendo-ui/js/kendo.all';
 import '@progress/kendo-ui/css/web/kendo.common.min.css';
 import '@progress/kendo-ui/css/web/kendo.bootstrap.min.css';
 import { initialState } from './store/store';
+import '@vaadin/vaadin';
 
 export function configure(aurelia) {
   aurelia.use

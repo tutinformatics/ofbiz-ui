@@ -9,6 +9,12 @@ export class Alert {
 
   setError = (value) => {
     this.isError = value;
+  };
+
+  attached() {
+    if (this.message) {
+      this.message = this.message.substring(0, 20) + "..."
+    }
   }
 
 }

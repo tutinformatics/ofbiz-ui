@@ -6,32 +6,17 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 @inject(Router, ResourceService)
 export class ResourceList {
   constructor(router, resourceService) {
-    this.button = faPlus;
+    this.faPlus = faPlus;
     this.router = router;
     this.resourceService = resourceService;
   }
 
-  created() {
-    this.datasource = {
-      transport: {
-        read: (options) => {
-          this.resourceService
-            .getResourceList({ roleTypeId: 'PROJECT_TEAM' })
-            .then((resource) => {
-              options.success(resource);
-            });
-        }
-      },
-      schema: {
-        model: {
-          fields: {
-            partyId: { type: 'string' },
-            firstName: { type: 'string' },
-            lastName: { type: 'string' }
-          }
-        }
-      }
-    };
+  attached() {
+    const grid = document.querySelector('vaadin-grid');
+    this.resourceService
+      .getResourceList({ roleTypeId: 'PROJECT_TEAM' })
+      .then((response) => grid.items = response
+      );
   }
 
   handleAddResource() {

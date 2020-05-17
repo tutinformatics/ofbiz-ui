@@ -1,6 +1,7 @@
 <template>
   <require from="../../shuffle/shuffle"></require>
   <require from="../../workspaces-menu/workspace-menu"></require>
+
   <nav
     class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top"
   >
@@ -59,15 +60,6 @@
         <!-- End of Navbar elements -->
       </ul>
 
-      <button
-        click.delegate="handleFavorite()"
-        class="btn btn-secondary mr-2"
-        type="button"
-      >
-        <i if.bind="isFavourite" class="fa fa-star" aria-hidden="true"></i>
-        <i else class="fa fa-star-o" aria-hidden="true"></i>
-      </button>
-
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
           <a
@@ -82,7 +74,7 @@
             Workspaces
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <workspace-menu workspaces.bind="workspaces"> </workspace-menu>
+            <workspace-menu></workspace-menu>
           </div>
         </li>
       </ul>
