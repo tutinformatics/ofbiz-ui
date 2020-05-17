@@ -29,8 +29,37 @@
     </div>
   </div>
 
-  <div class="container-fluid">
-    <table class="table">
+  <div if.bind="simpleView" class="container-fluid"  >
+    <div class="row outside " style="float: left; width: 95%"  >
+      <div repeat.for="order of filteredOrders" >
+        <div class="card card_internal p-0" style=" max-width: 370px; max-height: 135px">
+          <div class="row" style="width: 100%; height: 100%">
+            <div class="col-5">
+              <img class="card-img-top rounded-circle" src="../img/avatar.png" alt="Card image cap" style="height: 100%; width: 100%">
+            </div>
+            <div class="col-7">
+              <div class="card-body card_selections p-0">
+                <p class="card-title" style="font-size: 12px; font-weight: bold">${order.orderId} ${order.partyId}</p>
+                <p class="card-title" style="font-size: 10px">Status: ${order.statusId}</p>
+                <button class="btn btn-outline-dark btn-sm " data-toggle="modal" data-target="#client-detail-modal" click.delegate="getClientInformation(contact)">Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side_window d-flex flex-column fixed-right" >
+      <a href="#" role="button" click.delegate="cardView()"><img src="../baseui/assets/img/card.svg"></a>
+      <a href="#" role="button" click.delegate="tableView()"><img src="../baseui/assets/img/list.svg"></a>
+    </div>
+  </div>
+
+  <div else class="container-fluid" >
+
+    <div class="row">
+      <div class="col-md-11">
+        <table class="table" >
       <thead>
       <tr>
         <th scope="col">Order Number</th>
@@ -50,19 +79,19 @@
               <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
 
                   <p class="dropdown-item">
-                  <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" checked="checked">
+                  <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" autocomplete="on">
                   ${category.orderDate}</p>
                   <p class="dropdown-item">
-                  <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" checked="checked">
+                  <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" autocomplete="on">
                   ${category.shipment}</p>
                   <p class="dropdown-item">
-                  <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" checked="checked">
+                  <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" cautocomplete="on">
                   ${category.website}</p>
                  <p class="dropdown-item">
-                  <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" checked="checked">
+                  <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" autocomplete="on">
                   ${category.salesperson}</p>
                   <p class="dropdown-item">
-                  <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" checked="checked">
+                  <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" autocomplete="on">
                   ${category.status}</p>
                 </div>
               </div>
@@ -90,6 +119,14 @@
       </tr>
       </tbody>
     </table>
+  </div>
+      <div class="col-md-1 ">
+        <div class="side_window d-flex flex-column ">
+          <a href="#" role="button" click.delegate="cardView()"><img src="../baseui/assets/img/card.svg"></a>
+          <a href="#" role="button" click.delegate="tableView()"><img src="../baseui/assets/img/list.svg"></a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <add-client-pop-up ></add-client-pop-up>

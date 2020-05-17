@@ -25,14 +25,14 @@ export class billsView {
         'total': 'Total'
       }
     ];
+    this.simpleView = true;
+    this.view = "Card View";
+    this.searchArgument = ""
     this.selectedDesc = [];
-    this.selectedTo = ['To'];
+    this.selectedFr = [];
+    this.selectedTo = [];
     this.selectedQa = [];
-    this.selectedFr = ['From'];
-    this.selectedTt = ['Total'];
-
-    this.searchArgument = '';
-
+    this.selectedTt = [];
     this.searchDescription = false;
     this.searchFrom = true;
     this.searchTo = true;
@@ -112,6 +112,14 @@ export class billsView {
       return (this.selectedTt);
     }
     return false;
+  }
+  cardView(){
+    this.view = "Card view"
+    this.simpleView = true;
+  }
+  tableView(){
+    this.view = "Table View"
+    this.simpleView = false;
   }
 
   applyTotal() {

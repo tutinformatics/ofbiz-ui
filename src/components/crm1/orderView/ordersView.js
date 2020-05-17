@@ -26,12 +26,13 @@ export class ordersView {
       }
     ];
     this.selectedOrder = [];
-    this.selectedShip = ['Shipment Start'];
+    this.selectedShip = [];
     this.selectedWeb = [];
     this.selectedSale = [];
-    this.selectedTt = ['Total'];
-    this.selectedStatus = ['Status'];
-
+    this.selectedTt = [];
+    this.selectedStatus = [];
+    this.simpleView = true;
+    this.view = "Card View";
     this.searchArgument = '';
     this.searchParty = true;
     this.searchWebsite = true;
@@ -109,5 +110,14 @@ export class ordersView {
     }
     return false;
   }
+  cardView(){
+    this.view = "Card view"
+    this.simpleView = true;
+  }
+  tableView(){
+    this.view = "Table View"
+    this.simpleView = false;
+  }
+
 }
 

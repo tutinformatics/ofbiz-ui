@@ -89,10 +89,10 @@
                   <div repeat.for="product of categories">
                     <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
                       <p class="dropdown-item"  >
-                        <input type="checkbox" value.bind="product.phone" checked.bind="selectedPhone" >
+                        <input type="checkbox" value.bind="product.phone" checked.bind="selectedPhone" autocomplete="on">
                         ${product.phone}</p>
                       <p class="dropdown-item"  >
-                        <input type="checkbox" value.bind="product.mail" checked.bind="selectedEmail">
+                        <input type="checkbox" value.bind="product.mail" checked.bind="selectedEmail" autocomplete="on">
                         ${product.mail}</p>
                     </div>
                   </div>
