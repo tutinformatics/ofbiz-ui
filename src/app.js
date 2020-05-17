@@ -49,7 +49,8 @@ export class App {
       {
         route: 'object-dist',
         moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
-        name: 'object-dist'
+        name: 'object-dist',
+        title: 'Object Distribution'
       },
       {
         route: 'sfa',
