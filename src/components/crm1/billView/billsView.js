@@ -107,7 +107,8 @@ export class billsView {
       return (this.selectedQa);
     }
     return false;
-  } get isTotal() {
+  }
+  get isTotal() {
     if (this.selectedTt.length > 0) {
       return (this.selectedTt);
     }

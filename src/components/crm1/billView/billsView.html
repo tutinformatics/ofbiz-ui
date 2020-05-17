@@ -32,23 +32,25 @@
   </div>
   <div if.bind="simpleView" class="container-fluid"  >
     <div class="row outside " style="float: left; width: 95%"  >
+
       <div repeat.for="bill of filteredBills" >
-      <div class="card card_internal1 p-0" style=" max-width: 370px; max-height: 135px">
-        <div class="row" style="width: 100%; height: 100%">
-          <div class="col-5">
-            <img class="card-img-top rounded-circle" src="../img/avatar.png" alt="Card image cap" style="height: 100%; width: 100%">
-          </div>
-          <div class="col-7">
-            <div class="card-body card_selections p-0">
-              <p class="card-title" style="font-size: 12px;"><strong>Bill ID : </strong>${bill.invoiceId} </p>
-              <p class="card-title" style="font-size: 12px"><strong>Price: </strong>${bill.amount} $</p>
-              <p class="card-title" style="font-size: 12px"><strong>Amount: </strong>${bill.quantity}</p>
-              <p class="card-title" style="font-size: 12px"><strong>Bill from: </strong>${bill.partyIdFrom}</p>
+        <div class="card card_internal p-0" style=" max-width: 320px; max-height: 135px">
+          <div class="row" style="width: 100%; height: 100%">
+            <div class="col-6">
+              <img class="card-img-top rounded-circle" src="../img/avatar.png" alt="Card image cap" style="height: 100%; width: 100%">
+            </div>
+            <div class="col-6 p-0">
+              <div class="card-body card_selections p-0 mt-3">
+                <p class="card-title" style="font-size: 12px; font-weight: bold">From: ${bill.partyIdFrom}<br> To: ${bill.partyIdTrans}</p>
+                <p class="card-title" style="font-size: 10px">Total: ${bill.amount}€</p>
+                <p class="card-title text-truncate" style="font-size: 10px; overflow-y: hidden"
+                   data-toggle="tooltip" data-placement="top" title=${bill.itemDescription}>Description:<br> ${bill.itemDescription ? bill.itemDescription : "None"}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
   </div>
 
   <div class="side_window d-flex flex-column fixed-right" >
