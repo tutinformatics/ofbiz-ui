@@ -4,6 +4,7 @@ import {v1 as uuidv1} from 'uuid';
 import {QueryBuilder} from './query-builder/query-builder';
 import toWords from 'split-camelcase-to-words';
 import {HttpClient} from 'aurelia-fetch-client';
+import camelCase from 'camelcase';
 
 @inject(HttpClient, QueryBuilder)
 export class ObjectDist {
@@ -44,7 +45,6 @@ export class ObjectDist {
 
   constructor(httpClient, queryBuilder) {
     this.httpClient = httpClient;
-    //this.setHTTPClient();
     this.fetchPublishers();
     this.fetchSubscribers();
     this.fetchOfbizEntities();
@@ -336,16 +336,16 @@ export class ObjectDist {
     let builderValues = [];
     let filterList = [];
     for (let entry in filterJson) {
-      let list = [];
+      let queryList = [];
       filterList = filterJson[entry];
-      for (let property in filterJson[entry]) {
-        list.push([toWords(property), '=', filterJson[entry][property][0]]);
-        list.push('and');
+      for (let property of filterJson[entry]) {
+        let a = [toWords(property.fieldName), property.operation, property.value];
+        queryList.push(a);
+        queryList.push('and');
       }
-      list.pop();
-      builderValues.push(list);
+      queryList.pop();
+      builderValues.push(queryList);
     }
-
     document.getElementById('editSubscriberName').value = entity.OfbizEntityName;
     document.getElementById('editSubscriberTopic').value = entity.topic;
     document.getElementById('editSubscriberDescription').value = entity.description;
@@ -362,18 +362,20 @@ export class ObjectDist {
     let builderValues = [];
     let filterList = [];
     for (let entry in filterJson) {
-      let list = [];
+      let queryList = [];
       filterList = filterJson[entry];
       for (let property in filterJson[entry]) {
-        list.push([toWords(property), '=', filterJson[entry][property][0]]);
-        list.push('and');
+        let a = [toWords(property.fieldName), property.operation, property.value];
+        queryList.push(a);
+        queryList.push('and');
       }
-      list.pop();
-      builderValues.push(list);
+      queryList.pop();
+      builderValues.push(queryList);
     }
     document.getElementById('editPublisherName').value = entity.OfbizEntityName;
     document.getElementById('editPublisherTopic').value = entity.topic;
     document.getElementById('editPublisherDescription').value = entity.description;
+    this.populateEditFields(false, filterList);
     builder.value = builderValues;
   }
 
@@ -400,6 +402,8 @@ export class ObjectDist {
         const queryBuilders = document.querySelectorAll('smart-query-builder'); // TODO: add sorting, ma ei viitsi
         if (isSubscriber) {
           queryBuilders[1].fields = customFields;
+        } else {
+          queryBuilders[3].fields = customFields;
         }
       });
   }
@@ -445,7 +449,7 @@ export class ObjectDist {
   }
 
   refreshPage() {
-    location.reload();  // TODO rework
+    //location.reload();  // TODO rework
   }
 
   getFilterFromComponent(isPublisher) {
@@ -484,7 +488,7 @@ export class ObjectDist {
     for (let i = 1; i < rowLength; i++) {
       let oCells = oTable.rows.item(i).cells;
       if (oCells.item(2).children[0].checked) {
-        properties.push(oCells.item(1).innerHTML);
+        properties.push(camelCase(oCells.item(1).innerHTML));
       }
     }
     return properties;
