@@ -52,11 +52,6 @@
           <td class="align-middle">
             <p>${product['code-owner']}</p>
           </td>
-          <td class="aff-table__action-icon">
-            <icon class="mt-n2">
-              <eye-icon></eye-icon>
-            </icon>
-          </td>
         </tr>
         </tbody>
       </table>
@@ -97,15 +92,10 @@
           <td class="align-middle">
             <p>${partner['sub-partners']}</p>
           </td>
-          <td class="aff-table__action-icon">
-            <icon class="mt-n2">
-              <eye-icon></eye-icon>
-            </icon>
-          </td>
         </tr>
         </tbody>
       </table>
-      <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
+      <button click.trigger="showAll(partners)" class="mx-auto w-75 btn aff-system__button--main">Show More</button>
     </div>
     <div class="col-md-9 mx-auto my-5 table-responsive-md">
       <h6>Statistics per affiliate-code</h6>
@@ -159,15 +149,10 @@
           <td class="align-middle">
             <p>${code['invited']}</p>
           </td>
-          <td class="aff-table__action-icon">
-            <icon class="mt-n2">
-              <eye-icon></eye-icon>
-            </icon>
-          </td>
         </tr>
         </tbody>
       </table>
-      <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
+      <button click.trigger="showAll(codes)" class="mx-auto w-75 btn aff-system__button--main">Show More</button>
     </div>
   </div>
 </template>

@@ -1,0 +1,11 @@
+<template>
+  <button
+    click.delegate="handleFavorite()"
+    class="btn btn-secondary"
+    type="button"
+    style="color: #FFD700;"
+  >
+    <i if.bind="isFavourite" class="fa fa-star" aria-hidden="true"></i>
+    <i else class="fa fa-star-o" aria-hidden="true"></i>
+  </button>
+</template>

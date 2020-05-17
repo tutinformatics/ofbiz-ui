@@ -1,7 +1,8 @@
 import * as _ from 'lodash';
+import {PLATFORM} from 'aurelia-pal';
 
 const routes = {
-  project: [
+  'project': [
     {
       route: '',
       moduleId: PLATFORM.moduleName('project/components/project-list'),
@@ -10,15 +11,21 @@ const routes = {
       title: 'Projects'
     },
     {
-      route: 'new-task',
-      moduleId: PLATFORM.moduleName('project/task/components/task-edit'),
-      name: 'new-task',
+      route: 'my-tasks',
+      moduleId: PLATFORM.moduleName('project/task/components/task-list'),
+      name: 'my-tasks',
       nav: true,
       title: 'My Tasks'
     },
     {
+      route: 'new-task',
+      moduleId: PLATFORM.moduleName('project/task/components/task-edit'),
+      name: 'new-task',
+      title: 'Create Task'
+    },
+    {
       route: 'project/:id',
-      moduleId: PLATFORM.moduleName('project/task/components/task-list'),
+      moduleId: PLATFORM.moduleName('project/components/project-view'),
       name: 'project-view'
     },
     {
@@ -26,10 +33,45 @@ const routes = {
       moduleId: PLATFORM.moduleName('project/components/project-edit'),
       name: 'new-project',
       title: 'Create Project'
+    },
+    {
+      route: 'resources',
+      moduleId: PLATFORM.moduleName(
+        'project/resource/components/resource-list'
+      ),
+      name: 'resource',
+      title: 'Resources',
+      nav: true
+    },
+    {
+      route: 'new-resource',
+      moduleId: PLATFORM.moduleName(
+        'project/resource/components/resource-edit'
+      ),
+      name: 'new-resource'
+    },
+    {
+      route: 'timesheets',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-list'
+      ),
+      title: 'Timesheets',
+      name: 'timesheets',
+      nav: true
+    },
+    {
+      route: 'new-timesheet',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-edit'
+      ),
+      title: 'Create timesheet',
+      name: 'new-timesheet'
     }
   ],
+
   sfa: [
     { route: '', redirect: 'opportunities' },
+
     {
       route: 'opportunities',
       moduleId: PLATFORM.moduleName('sfa/view/opportunities/opportunities'),
@@ -59,10 +101,10 @@ const routes = {
       name: 'orders'
     },
   ],
-  crm: [], // TODO: add crm child routes here
-  cms: [], // TODO: add cms child routes here
-  marketdata: [], // TODO: add marketdata child routes here
-  objectdist: [] // TODO: add objectdist child routes here
+  'crm': [], // TODO: add crm child routes here
+  'cms': [], // TODO: add cms child routes here
+  'marketdata': [], // TODO: add marketdata child routes here
+  'object-dist': [] // TODO: add objectdist child routes here
 };
 
 export class NavigationService {
