@@ -1,14 +1,16 @@
 <template>
+  <require from="../../../../commons/workspaces-menu/workspace-favourite"></require>
   <require from="../query-builder/query-builder"></require>
   <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
     <span class="navbar-brand mb-0 h1">Orders</span>
-    <img src="../../../assets/img/favorite.svg" alt="fave">
+    <workspace-favourite class="float-left mx-2"></workspace-favourite>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal">
       <img src="../../../assets/img/add.svg" alt="">
       <a style="color: #000000; text-decoration: none" route-href="route: order-edit">New order</a>
     </button>
     <div class="form-inline col-6">
-      <input class="form-control" type="search" placeholder="Search Orders..." aria-label="Search" style="width:100%" value.bind="searchId" change.delegate="search()">
+      <input class="form-control" type="search" placeholder="Search Orders..." aria-label="Search" style="width:100%"
+        value.bind="searchId" change.delegate="search()">
     </div>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#filterModal">
       Order Filter
@@ -19,8 +21,8 @@
     </button>
   </nav>
   <div class="dropdown float-right">
-    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog"
-         aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -47,13 +49,13 @@
                 <label for="message-text" class="col-form-label">Price</label>
                 <div class="input-group">
                   <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
-                         value.bind="grandTotal">
+                    value.bind="grandTotal">
                 </div>
                 <div class="input-group">
                   <label for="message-text" class="col-form-label">Currency</label>
                   <div class="input-group">
                     <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
-                           value.bind="currencyUom">
+                      value.bind="currencyUom">
                   </div>
                 </div>
                 <div class="form-group">
@@ -67,8 +69,8 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" click.delegate="newOrder()"
-                          data-dismiss="modal">Save changes</button>
+                  <button type="button" class="btn btn-primary" click.delegate="newOrder()" data-dismiss="modal">Save
+                    changes</button>
                 </div>
             </form>
           </div>
@@ -76,8 +78,7 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="filterModal" tabindex="1" role="dialog"
-       aria-labelledby="filterModalLabel">
+  <div class="modal fade" id="filterModal" tabindex="1" role="dialog" aria-labelledby="filterModalLabel">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" style="width: unset">
         <div class="modal-header">
@@ -94,7 +95,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary" click.delegate="applyFilter()"
-                      data-dismiss="modal">Filter</button>
+                data-dismiss="modal">Filter</button>
 
             </div>
           </div>
