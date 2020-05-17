@@ -78,7 +78,7 @@ const routes = {
   'cms': [], // TODO: add cms child routes here
   'marketdata': [], // TODO: add marketdata child routes here
   'object-distribution': [
-    {route: '', redirect: 'publisher'},
+    {route: '', redirect: 'subscriber'},
     {
       route: 'subscriber',
       moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
