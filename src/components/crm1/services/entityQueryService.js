@@ -5,8 +5,8 @@ import { inject } from 'aurelia-framework';
 export class EntityQueryService {
   constructor(httpClient) {
     this.http = httpClient;
-    this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/entityquery/';
-    //this.baseUrl = '/api/generic/v1/';
+    //this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/entityquery/';
+    this.baseUrl = '/api/generic/v1/';
   }
 
   getEntity(entity, targetPartyId) {
