@@ -512,15 +512,17 @@ export class ObjectDist {
   }
 
   getProperties() {
-    var oTable = document.getElementById('properties-add-subscriber');
-    var properties = {};
-    var rowLength = oTable.rows.length;
+    let oTable = document.getElementById('properties-add-subscriber');
+    let properties = [];
+    let rowLength = oTable.rows.length;
 
-    for (var i = 1; i < rowLength; i++) {
-      var oCells = oTable.rows.item(i).cells;
-      properties[oCells.item(1).innerHTML] = oCells.item(2).children[0].checked;
+    for (let i = 1; i < rowLength; i++) {
+      let oCells = oTable.rows.item(i).cells;
+      if (oCells.item(2).children[0].checked) {
+        properties.push(oCells.item(1).innerHTML);
+      }
     }
-    return JSON.stringify(properties);
+    return properties;
   }
 
   generateKey() {
