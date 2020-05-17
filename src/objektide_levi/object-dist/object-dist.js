@@ -37,10 +37,19 @@ export class ObjectDist {
   dataOperatorMapping = {
     '<=': 'lessThanEqualTo',
     '<': 'lessThan',
-    '>': ' greaterThan',
-    '>=': ' greaterThanEqualTo',
+    '>': 'greaterThan',
+    '>=': 'greaterThanEqualTo',
     '=': 'equals',
     '<>': 'notEqual'
+  }
+
+  dataOperatorMappingReversed = {
+    'lessThanEqualTo': '<=',
+    'lessThan': '<',
+    'greaterThan': '>',
+    'greaterThanEqualTo': '>=',
+    'equals': '=',
+    'notEqual': '<>'
   }
 
   constructor(httpClient, queryBuilder) {
@@ -335,23 +344,49 @@ export class ObjectDist {
     let filterJson = JSON.parse(entity.filter);
     let builderValues = [];
     let filterList = [];
-    for (let entry in filterJson) {
+    for (const entry in filterJson) {
       let queryList = [];
       filterList = filterJson[entry];
-      for (let property of filterJson[entry]) {
-        let a = [toWords(property.fieldName), property.operation, property.value];
-        queryList.push(a);
+      for (const property of filterJson[entry]) {
+        let querySentence = [];
+        console.log(property);
+        querySentence.push(property.fieldName);
+        console.log(querySentence);
+        querySentence.push(this.dataOperatorMappingReversed[property.operation]);
+        console.log(querySentence);
+        querySentence.push(property.value);
+        console.log(querySentence);
+        console.log(querySentence);
+        console.log(typeof querySentence);
+        console.log('A ^^^^^^');
+        console.log(querySentence);
+        queryList.push(querySentence);
         queryList.push('and');
+        console.log(queryList);
       }
       queryList.pop();
       builderValues.push(queryList);
     }
+    console.log(builderValues[0][2][2]);
     document.getElementById('editSubscriberName').value = entity.OfbizEntityName;
     document.getElementById('editSubscriberTopic').value = entity.topic;
     document.getElementById('editSubscriberDescription').value = entity.description;
     this.selectedEntity = entity.OfbizEntityName;
     this.populateEditFields(true, filterList);
     builder.value = builderValues;
+    // builder.value = [[['agreementId', '<', 42], 'and', ['affiliateCodeId', '>=', 25]]];
+    // [[['agreementId', '<', 42], 'and', ['affiliateCodeId', '>=', 25]]]
+    // builder.value = [
+    //   [
+    //     ['purchased', '=', new Date(2019, 0, 4)],
+    //     'and',
+    //     ['productName', '<>', 'Monitors'],
+    //     'and',
+    //     ['productName', 'isblank']
+    //   ]
+    // ];
+
+    console.log(builderValues);
   }
 
   editPublisher(publisher) {
@@ -477,6 +512,7 @@ export class ObjectDist {
         filters.push(filterComponent);
       }
     }
+    console.log(filters);
     return JSON.stringify(filters);
   }
 
