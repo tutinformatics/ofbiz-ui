@@ -77,7 +77,23 @@ const routes = {
   'crm': [], // TODO: add crm child routes here
   'cms': [], // TODO: add cms child routes here
   'marketdata': [], // TODO: add marketdata child routes here
-  'object-dist': []
+  'object-distribution': [
+    {route: '', redirect: 'publisher'},
+    {
+      route: 'subscriber',
+      moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
+      name: 'subscriber',
+      nav: true,
+      title: 'Subscribers'
+    },
+    {
+      route: 'publisher',
+      moduleId: PLATFORM.moduleName('objektide_levi/object-dist/publisher/publisher'),
+      name: 'publisher',
+      nav: true,
+      title: 'Publishers'
+    },
+  ]
 };
 
 export class NavigationService {

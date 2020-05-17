@@ -4,13 +4,10 @@ import {v1 as uuidv1} from 'uuid';
 import {QueryBuilder} from "./query-builder/query-builder";
 import toWords from 'split-camelcase-to-words';
 import {HttpClient} from "aurelia-fetch-client";
-import {NavigationService} from "../../commons/services/navigation-service";
 
 @inject(HttpClient, QueryBuilder)
 export class ObjectDist {
 
-  httpClient;
-  queryBuilder;
   selectedEntity;
   selectedEntityId;
 
@@ -48,7 +45,6 @@ export class ObjectDist {
 
 
     this.httpClient = httpClient;
-    //this.setHTTPClient();
     this.fetchPublishers();
     this.fetchSubscribers();
     this.fetchOfbizEntities();
@@ -60,7 +56,6 @@ export class ObjectDist {
   }
 
   queryBuilderLoad() {
-
     let queryBuilders = document.querySelectorAll('smart-query-builder');
     for (let queryBuilder of queryBuilders) {
       queryBuilder.addEventListener('click', function () {
@@ -87,33 +82,6 @@ export class ObjectDist {
         }
       });
     }
-  }
-
-  setHTTPClient() {
-    //log in via postman, add your jwt
-    const jwt = 'eyJraWQiOiJrMSIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJBcGFjaGUgT2ZiaXoiLCJhdWQiOiJUbyB3aG9tIGl0IG1heSBjb25jZXJuIiwiZXhwIjoxNTg5MjI4MTMyLCJqdGkiOiJNMVBHZWZkcTlwT3RWUm1hc0lRR1NRIiwiaWF0IjoxNTg5MjI3NTMyLCJuYmYiOjE1ODkyMjc0MTIsInNlY3JldCI6ImV5SmhiR2NpT2lKQk1USTRTMWNpTENKbGJtTWlPaUpCTVRJNFEwSkRMVWhUTWpVMkluMC5XUC0wUHhQUW5DSTNNaE1aMWoxbThrU05jUjhsdEoydWxPbnY3M1lRemR3dDk1TmFpeVRSUWcuV0RCRG1FYWhpYV96akhtNm1LTFFudy40Sk1yZXoxQW1SR1RfaFk0ZUhyR1E3aW9vQkNBRHRvMDhwcjdRb3M1UWgxZkRtVTlvelhIWm9UcjFQdzlSLUp0U3NEZ2xaYmg3eEdGNmhrbXJYZTh0QS41S01xR2kza2pETGdnZTZiNDJfYkF3IiwiZ3JvdXBzIjpbIkZVTExBRE1JTiJdfQ.lY6a2FNqVfBHaJaK0rjR2e7Lb4wHc67SZM9G0sPDLqZiZU0xPn8IEzgcT6FP1JX7uTgEiG2Tn2O3O2nHiCfQvsgWJTev8erNogL_iXtESuSsDMsU-C56RUzfEoF3FeIVYQhcVtlvP2sOvaEM7QnMf9_m6_3RDvKNnRFsp_Ughm2oCq3yk9Vz4BxdFYGFm9SeSz9nj4We1_dpv5QZSEWi-oeS53xySVZBuKy48yCEh36CCWxrISk9QHO4Ksa3bqpQVfc1NxxBtdXi5IJbKnOKZ3M_9p1IMlqVXJwM_yD-MWEyGa49eHrClOz4r3YZweKe6Q8Jtv4pUuXeiObwvGIcLg'
-    this.httpClient.configure(config => {
-      config
-        .useStandardConfiguration()
-        .withBaseUrl('https://84.50.67.113:8443/api/')
-        .withDefaults({
-          credentials: 'same-origin',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${jwt}`
-          }
-        })
-        .withInterceptor({
-          request(request) {
-            //console.log(`Requesting ${request.method} ${request.url}`);
-            return request;
-          },
-          response(response) {
-            //console.log(`Received ${response.status} ${response.url}`);
-            return response;
-          }
-        });
-    });
   }
 
   addEventListeners(isPublisher) {

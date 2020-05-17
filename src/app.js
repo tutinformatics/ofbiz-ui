@@ -47,9 +47,10 @@ export class App {
         name: 'kanban'
       },
       {
-        route: 'object-dist',
-        moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
-        name: 'object-dist'
+        route: 'object-distribution',
+        moduleId: PLATFORM.moduleName('objektide_levi/object-dist-main'),
+        name: 'object-distribution',
+        title: 'Object Distribution'
       },
       {
         route: 'sfa',
