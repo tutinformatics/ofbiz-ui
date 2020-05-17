@@ -16,6 +16,8 @@ export class ChangeCustomerDetails {
       this.firstName = this.chosenContact.firstName;
       this.lastName = this.chosenContact.lastName;
       this.companyName = this.chosenContact.companyName;
+      this.email = this.chosenContact.email;
+      this.phoneNumber = this.chosenContact.phoneNumber;
       this.positionType = this.chosenContact.position;
       this.partyId = this.chosenContact.partyId;
     });

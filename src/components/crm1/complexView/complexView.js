@@ -39,7 +39,7 @@ export class ComplexView {
           response[i].firstName,
           response[i].lastName,
           response[i].emailAddress,
-          response[i].phoneNumber,
+          response[i].telContactNumber,
           response[i].companyName,
           response[i].roleTypeId,
           response[i].address1,
