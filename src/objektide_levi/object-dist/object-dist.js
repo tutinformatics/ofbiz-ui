@@ -1,52 +1,48 @@
 //import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import {v1 as uuidv1} from 'uuid';
-import {QueryBuilder} from "./query-builder/query-builder";
+import {QueryBuilder} from './query-builder/query-builder';
 import toWords from 'split-camelcase-to-words';
-import {HttpClient} from "aurelia-fetch-client";
-import {NavigationService} from "../../commons/services/navigation-service";
+import {HttpClient} from 'aurelia-fetch-client';
 
 @inject(HttpClient, QueryBuilder)
 export class ObjectDist {
-
   httpClient;
   queryBuilder;
   selectedEntity;
   selectedEntityId;
 
-  baseUrl = "api/generic/v1";
-  objectDistBaseUrl = "api/objectdist"
+  baseUrl = 'api/generic/v1';
+  objectDistBaseUrl = 'api/objectdist'
 
   dataTypeMapping = {
-    "ofbiz": "dataType",
-    "id": "number",
-    "id-long": "number",
-    "id-vlong": "number",
-    "numeric": "number",
-    "date": "datetime",
-    "date-time": "datetime",
-    "description": "string",
-    "currency-amount": "number",
-    "indicator": "boolean",
-    "short-varchar": "string",
-    "long-varchar": "string",
-    "very-long": "string",
-    "very-short": "string",
-    "comment": "string"
+    'ofbiz': 'dataType',
+    'id': 'number',
+    'id-long': 'number',
+    'id-vlong': 'number',
+    'numeric': 'number',
+    'date': 'datetime',
+    'date-time': 'datetime',
+    'description': 'string',
+    'currency-amount': 'number',
+    'indicator': 'boolean',
+    'short-varchar': 'string',
+    'long-varchar': 'string',
+    'very-long': 'string',
+    'very-short': 'string',
+    'comment': 'string'
   }
 
   dataOperatorMapping = {
-    "<=": "lessThanEqualTo",
-    "<": "lessThan",
-    ">": " greaterThan",
-    ">=": " greaterThanEqualTo",
-    "=": "equals",
-    "<>": "notEqual",
+    '<=': 'lessThanEqualTo',
+    '<': 'lessThan',
+    '>': ' greaterThan',
+    '>=': ' greaterThanEqualTo',
+    '=': 'equals',
+    '<>': 'notEqual'
   }
 
   constructor(httpClient, queryBuilder) {
-
-
     this.httpClient = httpClient;
     //this.setHTTPClient();
     this.fetchPublishers();
@@ -62,7 +58,7 @@ export class ObjectDist {
   queryBuilderLoad() {
     let queryBuilders = document.querySelectorAll('smart-query-builder');
     for (let queryBuilder of queryBuilders) {
-      queryBuilder.addEventListener('click', function () {
+      queryBuilder.addEventListener('click', function() {
         let list = this.getElementsByClassName('smart-conditions-menu');
         let elements = this.getElementsByClassName('smart-element smart-menu-item smart-unselectable');
         for (let item of list) {
@@ -89,15 +85,15 @@ export class ObjectDist {
   }
 
   addEventListeners(isPublisher) {
-    let entity = document.getElementById("publisherEntitiesSelect");
+    let entity = document.getElementById('publisherEntitiesSelect');
     if (!isPublisher) {
-      entity = document.getElementById("subscriberEntitiesSelect");
+      entity = document.getElementById('subscriberEntitiesSelect');
     }
     let _self = this;
-    entity.addEventListener("click", function () {
-      let options = entity.querySelectorAll("option");
+    entity.addEventListener('click', function() {
+      let options = entity.querySelectorAll('option');
       let count = options.length;
-      if (typeof (count) === "undefined" || count < 2) {
+      if (typeof (count) === 'undefined' || count < 2) {
         if (isPublisher) {
           addActivityItemPublisher();
         } else {
@@ -106,7 +102,7 @@ export class ObjectDist {
       }
     });
 
-    entity.addEventListener("change", function () {
+    entity.addEventListener('change', function() {
       if (isPublisher) {
         addActivityItemPublisher();
       } else {
@@ -116,13 +112,13 @@ export class ObjectDist {
 
     function addActivityItemPublisher() {
       _self.clearFields();
-      _self.selectedEntity = document.getElementById("publisherEntitiesSelect").options[document.getElementById("publisherEntitiesSelect").selectedIndex].text;
+      _self.selectedEntity = document.getElementById('publisherEntitiesSelect').options[document.getElementById('publisherEntitiesSelect').selectedIndex].text;
       _self.getEntityFields(true);
     }
 
     function addActivityItemSubscriber() {
       _self.clearFields();
-      _self.selectedEntity = document.getElementById("subscriberEntitiesSelect").options[document.getElementById("subscriberEntitiesSelect").selectedIndex].text;
+      _self.selectedEntity = document.getElementById('subscriberEntitiesSelect').options[document.getElementById('subscriberEntitiesSelect').selectedIndex].text;
       _self.getEntityFields(false);
     }
   }
@@ -143,8 +139,8 @@ export class ObjectDist {
     this.httpClient.fetch(`${this.baseUrl}/structure/entities/${this.selectedEntity}`)
       .then(response => response.json())
       .then(data => {
-        let customFields = []
-        data.sort(function (a, b) {
+        let customFields = [];
+        data.sort(function(a, b) {
           let textA = a.name.toUpperCase();
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -154,8 +150,8 @@ export class ObjectDist {
             label: toWords(field.name),
             dataField: field.name,
             dataType: this.dataTypeMapping[field.type],
-            filterOperations: ["=", "<=", "<", ">=", ">", "<>"]
-          })
+            filterOperations: ['=', '<=', '<', '>=', '>', '<>']
+          });
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isPublisher) {
@@ -183,7 +179,7 @@ export class ObjectDist {
     this.httpClient.fetch(`${this.baseUrl}/structure/entities/${entityName}`)
       .then(response => response.json())
       .then(data => {
-        data.sort(function (a, b) {
+        data.sort(function(a, b) {
           let textA = a.name.toUpperCase();
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -195,40 +191,38 @@ export class ObjectDist {
   populateSubscriberPublisherPropertiesField(isPublisher, edit, data) {
     let tableBody;
     if (!edit) {
-      tableBody = document.getElementById("property-table-body-add-subscribers");
+      tableBody = document.getElementById('property-table-body-add-subscribers');
       if (isPublisher) {
-        tableBody = document.getElementById("property-table-body-add-publishers");
+        tableBody = document.getElementById('property-table-body-add-publishers');
       }
       this.populateTable(tableBody, data);
     } else {
-      tableBody = document.getElementById("property-table-body-edit-subscribers");
+      tableBody = document.getElementById('property-table-body-edit-subscribers');
       if (isPublisher) {
-        tableBody = document.getElementById("property-table-body-edit-publishers");
+        tableBody = document.getElementById('property-table-body-edit-publishers');
       }
       this.getEntityFieldsByName(data.OfbizEntityName, tableBody);
     }
   }
 
   populateTable(tableBody, data) {
-
     tableBody.innerHTML = '';
     let i = 1;
     for (let field of data) {
+      let tableRow = document.createElement('tr');
+      tableRow.className = 'object-dist-properties-table';
 
-      let tableRow = document.createElement("tr");
-      tableRow.className = "object-dist-properties-table";
-
-      let tableHeader = document.createElement("th");
-      tableHeader.scope = "row";
+      let tableHeader = document.createElement('th');
+      tableHeader.scope = 'row';
       tableHeader.innerHTML = i.toString();
 
-      let propertyNameTd = document.createElement("td");
+      let propertyNameTd = document.createElement('td');
       propertyNameTd.innerHTML = toWords(field.name);
 
-      let checkBoxTd = document.createElement("td");
+      let checkBoxTd = document.createElement('td');
 
-      let checkboxInput = document.createElement("input");
-      checkboxInput.type = "checkbox";
+      let checkboxInput = document.createElement('input');
+      checkboxInput.type = 'checkbox';
 
       checkBoxTd.appendChild(checkboxInput);
       tableRow.append(tableHeader, propertyNameTd, checkBoxTd);
@@ -247,7 +241,7 @@ export class ObjectDist {
       select.appendChild(opt);
     }
     this.addEventListeners(false);
-    this.selectedEntity = document.getElementById("subscriberEntitiesSelect").options[document.getElementById("subscriberEntitiesSelect").selectedIndex].text;
+    this.selectedEntity = document.getElementById('subscriberEntitiesSelect').options[document.getElementById('subscriberEntitiesSelect').selectedIndex].text;
   }
 
   populatePublisherEntitiesDropdown(data) {
@@ -259,7 +253,7 @@ export class ObjectDist {
       select.appendChild(opt);
     }
     this.addEventListeners(true);
-    this.selectedEntity = document.getElementById("publisherEntitiesSelect").options[document.getElementById("publisherEntitiesSelect").selectedIndex].text;
+    this.selectedEntity = document.getElementById('publisherEntitiesSelect').options[document.getElementById('publisherEntitiesSelect').selectedIndex].text;
   }
 
   populatePublishers(data) {
@@ -281,7 +275,7 @@ export class ObjectDist {
         cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPublisher" style="margin: 2% 0 2% 0" id="publisher_' + content.publisherId + '">EDIT</button> <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="publisherDelete_' + content.publisherId + '">DELETE</button></td>';
         cell3.className = 'text-center';
         let self = this;
-        document.getElementById("publisher_" + content.publisherId).addEventListener('click', function (event) {
+        document.getElementById('publisher_' + content.publisherId).addEventListener('click', function(event) {
           self.selectedEntityId = event.target.id.substring(10);
           self.httpClient.fetch(`${self.baseUrl}/entities/OfbizPublisher?OfbizPublisherId=${event.target.id.substring(10)}`)
             .then(response => response.json())
@@ -289,7 +283,7 @@ export class ObjectDist {
               self.editPublisher(data);
             });
         });
-        document.getElementById("publisherDelete_" + content.publisherId).addEventListener('click', function (event) {
+        document.getElementById('publisherDelete_' + content.publisherId).addEventListener('click', function(event) {
           self.httpClient.delete(`${self.objectDistBaseUrl}/publishers/delete/${event.target.id.substring(16)}`).then(r => {
             self.refreshPage();
           });
@@ -317,7 +311,7 @@ export class ObjectDist {
         cell3.innerHTML = '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSubscriber" style="margin: 2% 0 2% 0" id="subscriber_' + content.subscriberId + '">EDIT</button> <button type="button" class="btn btn-danger" style="margin: 2% 0 2% 0" id="subscriberDelete_' + content.subscriberId + '">DELETE</button></td>';
         cell3.className = 'text-center';
         let self = this;
-        document.getElementById("subscriber_" + content.subscriberId).addEventListener('click', function (event) {
+        document.getElementById('subscriber_' + content.subscriberId).addEventListener('click', function(event) {
           self.selectedEntityId = event.target.id.substring(11);
           self.httpClient.fetch(`${self.baseUrl}/entities/OfbizSubscriber?OfbizSubscriberId=${event.target.id.substring(11)}`)
             .then(response => response.json())
@@ -325,9 +319,9 @@ export class ObjectDist {
               self.editSubscriber(data);
             });
         });
-        document.getElementById("subscriberDelete_" + content.subscriberId).addEventListener('click', function (event) {
+        document.getElementById('subscriberDelete_' + content.subscriberId).addEventListener('click', function(event) {
           self.httpClient.delete(`${self.objectDistBaseUrl}/subscribers/delete/${event.target.id.substring(17)}`).then(r => {
-            self.refreshPage()
+            self.refreshPage();
           });
         });
       }
@@ -345,10 +339,10 @@ export class ObjectDist {
       let list = [];
       filterList = filterJson[entry];
       for (let property in filterJson[entry]) {
-        list.push([toWords(property), "=", filterJson[entry][property][0]])
-        list.push("and");
+        list.push([toWords(property), '=', filterJson[entry][property][0]]);
+        list.push('and');
       }
-      list.pop()
+      list.pop();
       builderValues.push(list);
     }
 
@@ -371,10 +365,10 @@ export class ObjectDist {
       let list = [];
       filterList = filterJson[entry];
       for (let property in filterJson[entry]) {
-        list.push([toWords(property), "=", filterJson[entry][property][0]])
-        list.push("and");
+        list.push([toWords(property), '=', filterJson[entry][property][0]]);
+        list.push('and');
       }
-      list.pop()
+      list.pop();
       builderValues.push(list);
     }
     document.getElementById('editPublisherName').value = entity.OfbizEntityName;
@@ -387,8 +381,8 @@ export class ObjectDist {
     this.httpClient.fetch(`${this.baseUrl}/structure/entities/${this.selectedEntity}`)
       .then(response => response.json())
       .then(data => {
-        let customFields = []
-        data.sort(function (a, b) {
+        let customFields = [];
+        data.sort(function(a, b) {
           let textA = a.name.toUpperCase();
           let textB = b.name.toUpperCase();
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -399,8 +393,8 @@ export class ObjectDist {
               label: toWords(field.name),
               dataField: field.name,
               dataType: this.dataTypeMapping[field.type],
-              filterOperations: ["=", "<=", ">=", "<", ">", "<>"]
-            })
+              filterOperations: ['=', '<=', '>=', '<', '>', '<>']
+            });
           }
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder'); // TODO: add sorting, ma ei viitsi
@@ -463,20 +457,20 @@ export class ObjectDist {
     let queryArray = queryBuilder.value;
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
-      if (typeof queryArray[i] == "object") {
+      if (typeof queryArray[i] === 'object') {
         let filterComponent = [];
         for (let j = 0; j < queryArray[i].length; j++) {
           const data = queryArray[i][j];
-          if (typeof data == "object") {
+          if (typeof data === 'object') {
             let filter = {
-              "fieldName": data[0],
-              "operation": this.dataOperatorMapping[data[1]],
-              "value": data[2]
+              'fieldName': data[0],
+              'operation': this.dataOperatorMapping[data[1]],
+              'value': data[2]
             };
             filterComponent.push(filter);
           }
         }
-        filters.push(filterComponent)
+        filters.push(filterComponent);
       }
     }
     return JSON.stringify(filters);
@@ -552,16 +546,16 @@ export class ObjectDist {
     let queryArray = queryBuilder.value;
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
-      if (typeof queryArray[i] == "object") {
+      if (typeof queryArray[i] === 'object') {
         let filter = {};
         for (let j = 0; j < queryArray[i].length; j++) {
           const data = queryArray[i][j];
-          if (typeof data == "object") {
+          if (typeof data === 'object') {
             // filter[data[0]] = [data[1], data[2]];
             filter[data[0]] = [data[2]];
           }
         }
-        filters.push(filter)
+        filters.push(filter);
       }
     }
     return JSON.stringify(filters);
@@ -572,28 +566,28 @@ export class ObjectDist {
     let form = document.forms[index];
     for (let input in form) {
       if (form.hasOwnProperty(input)) {
-        if (form[input].required && ((form[input].type == "text" || form[input].type == "textarea") && form[input].value == "")) {
+        if (form[input].required && ((form[input].type == 'text' || form[input].type == 'textarea') && form[input].value == '')) {
           faulty = true;
         }
       }
     }
 
     if (faulty) {
-      alert("Please Fill The Fields");
+      alert('Please Fill The Fields');
     } else {
       switch (index) {
-        case 0:
-          this.subscriberPostRequest();
-          break;
-        case 1:
-          this.subscriberPutRequest();
-          break
-        case 2:
-          this.publisherPostRequest();
-          break;
-        case 3:
-          this.publisherPutRequest();
-          break
+      case 0:
+        this.subscriberPostRequest();
+        break;
+      case 1:
+        this.subscriberPutRequest();
+        break;
+      case 2:
+        this.publisherPostRequest();
+        break;
+      case 3:
+        this.publisherPutRequest();
+        break;
       }
     }
   }
