@@ -26,4 +26,3 @@ export class CustomerService {
       .then(response => response.json())
   }
 }
-

@@ -11,6 +11,10 @@ export class OpportunityService {
   }
 
   async filter(body) {
+    console.log(json({
+      "filterParameters": body,
+      "entityName": "opportunity"
+    }));
     return this.client
         .fetch(`${this.baseUrl}services/performFilteredSearch`, {
           method: 'POST',
@@ -20,6 +24,7 @@ export class OpportunityService {
           })
         }).then(response => response.json());
   }
+
   getOpportunities() {
     return this.client
       .fetch(`${this.baseUrl}entities/opportunity`)
@@ -49,6 +54,7 @@ export class OpportunityService {
          }
        );
    }
+
    editOpportunity(opportunity) {
      this.client
        .fetch(`${this.baseUrl}entities/opportunity`, {
