@@ -155,12 +155,14 @@ export class ObjectDist {
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
         for (let field of data) {
-          customFields.push({
-            label: toWords(field.name),
-            dataField: field.name,
-            dataType: this.dataTypeMapping[field.type],
-            filterOperations: ['=', '<=', '<', '>=', '>', '<>']
-          });
+          if (!field.name.startsWith('_')) {
+            customFields.push({
+              label: toWords(field.name),
+              dataField: field.name,
+              dataType: this.dataTypeMapping[field.type],
+              filterOperations: ['=', '<=', '<', '>=', '>', '<>']
+            });
+          }
         }
         const queryBuilders = document.querySelectorAll('smart-query-builder');
         if (isPublisher) {
@@ -218,25 +220,27 @@ export class ObjectDist {
     tableBody.innerHTML = '';
     let i = 1;
     for (let field of data) {
-      let tableRow = document.createElement('tr');
-      tableRow.className = 'object-dist-properties-table';
+      if (!field.name.startsWith('_')) {
+        let tableRow = document.createElement('tr');
+        tableRow.className = 'object-dist-properties-table';
 
-      let tableHeader = document.createElement('th');
-      tableHeader.scope = 'row';
-      tableHeader.innerHTML = i.toString();
+        let tableHeader = document.createElement('th');
+        tableHeader.scope = 'row';
+        tableHeader.innerHTML = i.toString();
 
-      let propertyNameTd = document.createElement('td');
-      propertyNameTd.innerHTML = toWords(field.name);
+        let propertyNameTd = document.createElement('td');
+        propertyNameTd.innerHTML = toWords(field.name);
 
-      let checkBoxTd = document.createElement('td');
+        let checkBoxTd = document.createElement('td');
 
-      let checkboxInput = document.createElement('input');
-      checkboxInput.type = 'checkbox';
+        let checkboxInput = document.createElement('input');
+        checkboxInput.type = 'checkbox';
 
-      checkBoxTd.appendChild(checkboxInput);
-      tableRow.append(tableHeader, propertyNameTd, checkBoxTd);
+        checkBoxTd.appendChild(checkboxInput);
+        tableRow.append(tableHeader, propertyNameTd, checkBoxTd);
 
-      tableBody.appendChild(tableRow);
+        tableBody.appendChild(tableRow);
+      }
       i++;
     }
   }
@@ -349,44 +353,21 @@ export class ObjectDist {
       filterList = filterJson[entry];
       for (const property of filterJson[entry]) {
         let querySentence = [];
-        console.log(property);
-        querySentence.push(property.fieldName);
-        console.log(querySentence);
+        querySentence.push(toWords(property.fieldName));
         querySentence.push(this.dataOperatorMappingReversed[property.operation]);
-        console.log(querySentence);
         querySentence.push(property.value);
-        console.log(querySentence);
-        console.log(querySentence);
-        console.log(typeof querySentence);
-        console.log('A ^^^^^^');
-        console.log(querySentence);
         queryList.push(querySentence);
         queryList.push('and');
-        console.log(queryList);
       }
       queryList.pop();
       builderValues.push(queryList);
     }
-    console.log(builderValues[0][2][2]);
     document.getElementById('editSubscriberName').value = entity.OfbizEntityName;
     document.getElementById('editSubscriberTopic').value = entity.topic;
     document.getElementById('editSubscriberDescription').value = entity.description;
     this.selectedEntity = entity.OfbizEntityName;
     this.populateEditFields(true, filterList);
     builder.value = builderValues;
-    // builder.value = [[['agreementId', '<', 42], 'and', ['affiliateCodeId', '>=', 25]]];
-    // [[['agreementId', '<', 42], 'and', ['affiliateCodeId', '>=', 25]]]
-    // builder.value = [
-    //   [
-    //     ['purchased', '=', new Date(2019, 0, 4)],
-    //     'and',
-    //     ['productName', '<>', 'Monitors'],
-    //     'and',
-    //     ['productName', 'isblank']
-    //   ]
-    // ];
-
-    console.log(builderValues);
   }
 
   editPublisher(publisher) {
@@ -399,9 +380,12 @@ export class ObjectDist {
     for (let entry in filterJson) {
       let queryList = [];
       filterList = filterJson[entry];
-      for (let property in filterJson[entry]) {
-        let a = [toWords(property.fieldName), property.operation, property.value];
-        queryList.push(a);
+      for (let property of filterJson[entry]) {
+        let querySentence = [];
+        querySentence.push(toWords(property.fieldName));
+        querySentence.push(this.dataOperatorMappingReversed[property.operation]);
+        querySentence.push(property.value);
+        queryList.push(querySentence);
         queryList.push('and');
       }
       queryList.pop();
@@ -425,7 +409,7 @@ export class ObjectDist {
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
         for (let field of data) {
-          if (existingFilter[field.name] == null) {
+          if (existingFilter[field.name] == null && !field.name.startsWith('_')) {
             customFields.push({
               label: toWords(field.name),
               dataField: field.name,
@@ -484,7 +468,7 @@ export class ObjectDist {
   }
 
   refreshPage() {
-    //location.reload();  // TODO rework
+    location.reload();  // TODO rework
   }
 
   getFilterFromComponent(isPublisher) {
@@ -493,7 +477,7 @@ export class ObjectDist {
     if (isPublisher) {
       queryBuilder = queryBuilders[2];
     }
-    let queryArray = queryBuilder.value;
+    let queryArray = queryBuilder.value; // will change, thats why its duplicate
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] === 'object') {
@@ -587,15 +571,19 @@ export class ObjectDist {
     let filters = [];
     for (let i = 0; i < queryArray.length; i++) {
       if (typeof queryArray[i] === 'object') {
-        let filter = {};
+        let filterComponent = [];
         for (let j = 0; j < queryArray[i].length; j++) {
           const data = queryArray[i][j];
           if (typeof data === 'object') {
-            // filter[data[0]] = [data[1], data[2]];
-            filter[data[0]] = [data[2]];
+            let filter = {
+              'fieldName': data[0],
+              'operation': this.dataOperatorMapping[data[1]],
+              'value': data[2]
+            };
+            filterComponent.push(filter);
           }
         }
-        filters.push(filter);
+        filters.push(filterComponent);
       }
     }
     return JSON.stringify(filters);
