@@ -44,6 +44,11 @@ input{
   margin: 20px 0 10px 20px;
   height: 135px;
 }
+.card.card_internal1{
+  margin: 20px 25px 10px 30px;
+
+  height: 135px;
+}
 
 .helpers{
   display: flex;
