@@ -27,7 +27,8 @@ export class TimesheetService {
         return res.json();
       });
   }
-  getFilteredTimesheet(name, type, value){
+
+ getFilteredTimesheet(name, type, value){
     const data = {};
     data[name + '_fld1_op'] = type;
     data[name + '_fld1_value'] = value;
@@ -51,6 +52,12 @@ export class TimesheetService {
             : undefined;
           return timesheet;
         });
+      })
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error(error);
+      }); // TODO: improve error handling
+  }
 
   updateTask(task) {
     const body = json(task);
