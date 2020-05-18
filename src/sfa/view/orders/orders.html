@@ -1,0 +1,21 @@
+<template>
+  <require from="sfa/components/order/order-header/order-header"></require>
+  <order-header></order-header>
+  <div class="container col-12 row" style="background-color: #F5F6F7;">
+    <div class="col-11">
+      <router-view></router-view>
+    </div>
+    <div class="col-1 align-content-center justify-content-center mt-3">
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: listview">
+          <img src="../../assets/img/list.svg" alt="list">
+        </a>
+      </div>
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: cardview">
+          <img src="../../assets/img/card.svg" alt="card">
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

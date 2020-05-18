@@ -60,33 +60,70 @@ const routes = {
       nav: true
     },
     {
+      route: 'timesheet',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-view'
+      ),
+      title: 'My Time',
+      name: 'my-timesheet',
+      nav: true
+    },
+    {
+      route: 'timesheet/:id',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-view'
+      ),
+      name: 'timesheet-view'
+    },
+    {
       route: 'new-timesheet',
       moduleId: PLATFORM.moduleName(
         'project/timesheet/components/timesheet-edit'
       ),
       title: 'Create timesheet',
       name: 'new-timesheet'
+    },
+    {
+      route: 'new-time',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/my-task-time'
+      ),
+      title: 'My Task Time',
+      name: 'new-time'
     }
   ],
-  'sfa': [
-    { route: '', redirect: 'pipeline' },
+
+  sfa: [
+    { route: '', redirect: 'opportunities' },
+
     {
-      route: 'pipeline',
-      moduleId: PLATFORM.moduleName('crm/components/pipeline/pipeline'),
-      name: 'pipeline',
-      title: 'CRM',
+      route: 'opportunities',
+      moduleId: PLATFORM.moduleName('sfa/view/opportunities/opportunities'),
+      name: 'opportunities',
+      title: 'Opportunities',
       nav: true
     },
     {
-      route: 'listview',
-      moduleId: PLATFORM.moduleName('crm/components/listview/listview'),
-      name: 'listview'
+      route: 'quotes',
+      moduleId: PLATFORM.moduleName('sfa/view/quotes/quotes'),
+      name: 'quotes',
+      title: 'Quotes',
+      nav: true
     },
     {
-      route: 'cardview',
-      moduleId: PLATFORM.moduleName('crm/components/cardview/cardview'),
-      name: 'cardview'
-    }
+      route: 'agents',
+      moduleId: PLATFORM.moduleName('sfa/view/agents/agents'),
+      nav: true,
+      title: 'Agents',
+      name: 'agents'
+    },
+    {
+      route: 'orders',
+      moduleId: PLATFORM.moduleName('sfa/view/orders/orders'),
+      nav: true,
+      title: 'Orders',
+      name: 'orders'
+    },
   ],
   crm: [
     { route: '', redirect: 'complex' },
