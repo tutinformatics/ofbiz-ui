@@ -1,7 +1,8 @@
 <template>
+  <require from="../../../../commons/workspaces-menu/workspace-favourite"></require>
   <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
     <span class="navbar-brand mb-0 h1">Quotes</span>
-    <img src="../../../assets/img/favorite.svg" alt="fave">
+    <workspace-favourite class="float-left mx-2"></workspace-favourite>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#quoteModal">
       <img src="../../../assets/img/add.svg" alt="">
       New quote
