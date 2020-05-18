@@ -8,7 +8,44 @@
         <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
         New Resource
       </button>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <font-awesome-icon icon.bind="faFilter"></font-awesome-icon>
+        Filter
+      </button>
+      <div class="dropdown-menu">
+        <form class="px-4 py-3">
+          <div class="form-group">
+            <label class="mr-sm-2" for="filtername">Filter Column</label>
+            <select class="custom-select mr-sm-2" id="filtername">
+              <option selected value="firstName">First Name</option>
+              <option value="lastName">Last Name</option>
+              <option value="partyId">Party ID</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2" for="filtertype">Filter Operation</label>
+            <select class="custom-select mr-sm-2" id="filtertype">
+              <option selected value="equals">Equals</option>
+              <option value="notEquals">Not Equal</option>
+              <option value="like">Like</option>
+              <option value="notLike">Not Like</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filtervalue">Value</label>
+            <input type="text" class="form-control" id="filtervalue" placeholder="Value">
+          </div>
+          <div class="form-group">
+          </div>
+          <button class="btn btn-primary" click.delegate="filterResource()">Filter</button>
+        </form>
+      </div>
     </div>
+    </div>
+
+
     <div class="card-body">
       <vaadin-grid theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
         <vaadin-grid-column path="firstName" header="First Name"></vaadin-grid-column>

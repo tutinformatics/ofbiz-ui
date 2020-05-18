@@ -25,6 +25,37 @@ export class ResourceService {
 
   }
 
+  getFilteredResource(name, type, value) {
+    const data = {
+    "roleTypeId_fld0_op": 'equals',
+    };
+    data["roleTypeId_fld0_value"] = 'PROJECT_TEAM';
+    data[name + '_fld1_op'] = type;
+    data[name + '_fld1_value'] = value;
+    console.log(data);
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}/services/performFindList`, {
+        method: 'post',
+        body: json({
+          "entityName": "PartyRoleAndPartyDetail",
+          "noConditionFind": "Y",
+          "inputFields": data
+        })
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        return safeGet(() => res.list, []).map((resource) => {
+          (resource.name = `${resource.firstName} ${resource.lastName}`);
+          return resource;
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      }); // TODO: improve error handling
+  }
+
   getResourceList(params) {
     const query = SearchUtils.appendQueryParams(params);
 
