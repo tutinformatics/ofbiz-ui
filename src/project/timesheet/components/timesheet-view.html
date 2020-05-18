@@ -7,7 +7,7 @@
       <workspace-favourite class="float-left mx-2"></workspace-favourite>
       <button class="btn btn-primary float-left" click.delegate="handleAddTaskTime()">
           <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
-          New Task Time
+          Update Task Time
       </button>
     </div>
 
@@ -15,9 +15,7 @@
       <vaadin-grid id="vaadin-grid-one" theme="compact row-stripes" height-by-rows>
         <vaadin-grid-column path="timesheetId" header="Task Name"></vaadin-grid-column>
         <vaadin-grid-column path="" header="Check Complete"></vaadin-grid-column>
-        <vaadin-grid-column path="rates" header="Rate Type Id">
-
-        </vaadin-grid-column>
+        <vaadin-grid-column path="rates" header="Rate Type Id"></vaadin-grid-column>
         <vaadin-grid-column path="" header="Mon"></vaadin-grid-column>
         <vaadin-grid-column path="" header="Tue"></vaadin-grid-column>
         <vaadin-grid-column path="" header="Wen"></vaadin-grid-column>

@@ -64,10 +64,6 @@ export class TimesheetView {
 
   attached() {
     const grid = document.getElementById("vaadin-grid-two");
-    const timetable = document.getElementById("vaadin-grid-one");
-    //const grid = document.querySelector("vaadin-grid");
-
-    const columns = timetable.querySelectorAll('vaadin-grid-column');
 
     this.initGridColumns();
     this.timesheetService
@@ -75,24 +71,6 @@ export class TimesheetView {
         partyId: this.state.userLoginId
       })
       .then((response) => (grid.items = response));
-      //TODO: Add logic to get only items with parameter 'actualMilliSeconds' being not null
-    // this.timesheetService
-    //   .getMyTime({ workEffortTypeId: 'TASK', partyId: this.state.userLoginId })
-    //   .then((response) => (timetable.items = response));
-  }
-
-  addListObjects(root) {
-    const select = window.document.createElement('vaadin-select');
-    const listBox = window.document.createElement('vaadin-list-box');
-
-    this.rates.forEach(function(item) {
-      const vaadinItem = window.document.createElement('vaadin-item');
-      vaadinItem.textContent = item.description;
-      listBox.appendChild(vaadinItem);
-      vaadinItem.setAttribute('value', item.rateTypeId);
-    });
-    select.appendChild(listBox);
-    root.appendChild(select);
   }
 
   handleAddTaskTime() {
