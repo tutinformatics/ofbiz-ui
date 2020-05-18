@@ -1,9 +1,7 @@
 import { inject } from "aurelia-dependency-injection";
 import { Router } from "aurelia-router";
-import { activationStrategy } from "aurelia-router";
 import { TimesheetService } from "../services/timesheet-service";
 import { Store } from "aurelia-store";
-import { getStatusBadge, convertStatus } from "../../../commons/util/status-utils";
 
 @inject(Router, TimesheetService, Store)
 export class MyTaskTime {
@@ -14,8 +12,7 @@ export class MyTaskTime {
     this.store = store;
     this.tasks = {};
     this.task = {};
-    this.rates = {};
-    this.subscription = this.store.state.subscribe(
+    this.store.state.subscribe(
       (state) => (this.state = state)
     );
   }

@@ -16,10 +16,9 @@ export class TimesheetView {
     this.tasks = {};
     this.rates = {};
     this.store = store;
-
     this.faPlus = faPlus;
     this.myTimes = {};
-    this.subscription = this.store.state.subscribe(
+    this.store.state.subscribe(
       (state) => (this.state = state)
     );
   }

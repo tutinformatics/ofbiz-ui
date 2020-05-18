@@ -19,12 +19,12 @@ export class TimesheetService {
         method: 'post',
         body: body
       })
-      .then((response) => {
-        if (!response.ok) {
+      .then((res) => {
+        if (!res.ok) {
           // TODO: improve error handling
           throw new Error('An error occured while creating timesheet');
         }
-        return response.json();
+        return res.json();
       });
   }
 
@@ -47,12 +47,12 @@ export class TimesheetService {
 
     return this.httpClient
       .fetch(`${this.baseUrl}/entities/Timesheet?${query}`)
-      .then((response) => {
-        if (!response.ok) {
+      .then((res) => {
+        if (!res.ok) {
           // TODO: improve error handling
-          throw new Error('An error occured while fetching project');
+          throw new Error('An error occured while fetching timesheet');
         }
-        return response.json();
+        return res.json();
       });
   }
 
@@ -87,11 +87,12 @@ export class TimesheetService {
       .fetch(`${this.baseUrl}/entities/RateType`, {
         method: 'get'
       })
-      .then((res) => res.json())
       .then((res) => {
-        return safeGet(() => res, []).map((rates) => {
-          return rates;
-        });
+        if (!res.ok) {
+          // TODO: improve error handling
+          throw new Error('An error occured while fetching timesheet');
+        }
+        return res.json();
       })
       .catch((error) => {
         /* eslint no-console: ["error", { allow: ["error"] }] */
