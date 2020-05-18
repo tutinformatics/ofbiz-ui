@@ -1,0 +1,51 @@
+<template>
+  <require from="../../../commons/workspaces-menu/workspace-favourite"></require>
+
+  <div show.bind="timesheet.timesheetId" class="card">
+    <div class="card-header">
+      <h2 class="float-left">Current Timesheet ID: ${timesheet.timesheetId}</h2>
+      <workspace-favourite class="float-left mx-2"></workspace-favourite>
+      <button class="btn btn-primary float-left" click.delegate="handleAddTaskTime()">
+          <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+          Update Task Time
+      </button>
+    </div>
+
+    <div class="card-body">
+      <vaadin-grid id="vaadin-grid-one" theme="compact row-stripes" height-by-rows>
+        <vaadin-grid-column path="timesheetId" header="Task Name"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Check Complete"></vaadin-grid-column>
+        <vaadin-grid-column path="rates" header="Rate Type Id"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Mon"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Tue"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Wen"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Thu"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Fri"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Sat"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Sun"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Actual Hours"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Act Total"></vaadin-grid-column>
+        <vaadin-grid-column path="" header="Plan Hours"></vaadin-grid-column>
+      </vaadin-grid>
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header">
+        <h2 class="float-left">My Timesheets</h2>
+        <workspace-favourite show.bind="!timesheet.timesheetId" class="float-left mx-2"></workspace-favourite>
+      </div>
+
+      <div class="card-body">
+
+        <vaadin-grid id="vaadin-grid-two" theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
+          <vaadin-grid-column path="timesheetId" header="Timesheet ID"></vaadin-grid-column>
+          <vaadin-grid-column path="partyId" header="Party"></vaadin-grid-column>
+          <vaadin-grid-column path="0" header="Actual hours"></vaadin-grid-column>
+          <vaadin-grid-column path="statusId" header="Priority"></vaadin-grid-column>
+          <vaadin-grid-column path="fromDate" header="From date"></vaadin-grid-column>
+          <vaadin-grid-column path="thruDate" header="Through date"></vaadin-grid-column>
+        </vaadin-grid>
+      </div>
+  </div>
+</template>

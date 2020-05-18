@@ -1,0 +1,14 @@
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="quote of store.quotes">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">${quote.quoteId}</h5>
+          <p class="card-text">${quote.quoteName}</p>
+          <p class="card-text">${quote.partyId}</p>
+          <p class="card-text"><b>${quote.issueDate}</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

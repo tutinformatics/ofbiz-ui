@@ -1,0 +1,47 @@
+<template>
+  <div class="container mt-4">
+    <h4 class="mb-4">Form</h4>
+    <div class="form-group border rounded p-5">
+      <div class="form-group row">
+        <h1>S${opportunity.opportunityId}</h1>
+        <h4 class="mt-2 ml-auto">Date: ${date}</h4>
+      </div>
+      <div class="d-flex flex-row-reverse ml-4 row">
+          <div class="form-group ml-2" style="width: 140px"> <!-- Date input -->
+            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+          </div>
+        <h4>Expiration date:</h4>
+      </div>
+      <div class="form-group">
+        <div class="row form-group">
+          <label class="col-sm-3 col-form-label">Client</label>
+          <select class="col-sm-3 form-control" value.bind="opportunity.customerId">
+            <option>empty</option>
+            <option repeat.for="customer of customers"
+                    model.bind="customer.customerId">
+              ${customer.name}
+            </option>
+          </select>
+        </div>
+          <div class="row form-group">
+            <label class="col-sm-3 form-label">Billing address</label>
+            <div class="col-sm-3 pl-0 pr-0">
+              <input type="text" class="form-control" aria-label="Address" aria-describedby="basic-addon2">
+            </div>
+          </div>
+      <div class="form-group">
+        <h5>${opportunity.description}</h5>
+      </div>
+      <div class="form-group">
+        <hr>
+        <h5 class="text-right">${price} €</h5>
+        <h5 class="text-right">+ ${(opportunity.price * 0.2).toFixed(2)} €</h5>
+        <h5 class="text-right">${totalPrice.toFixed(2)} €</h5>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a style="cursor: pointer" click.delegate="back()">Back to List</a>
+    </div>
+  </div>
+  </div>
+</template>

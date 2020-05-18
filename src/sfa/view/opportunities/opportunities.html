@@ -1,0 +1,26 @@
+<template>
+  <require from="sfa/components/opportunity/opportunity-header/opportunity-header"></require>
+  <opportunity-header></opportunity-header>
+  <div class="container col-12 row">
+    <div class="col-11">
+      <router-view></router-view>
+    </div>
+    <div class="col-1 align-content-center justify-content-center">
+      <div class="row align-content-center justify-content-center mt-3">
+        <a route-href="route: listview">
+          <img src="../../assets/img/list.svg" alt="list">
+        </a>
+      </div>
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: cardview">
+          <img src="../../assets/img/card.svg" alt="card">
+        </a>
+      </div>
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: pipeline">
+          <img src="../../assets/img/pipeline.svg" alt="pipeline">
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

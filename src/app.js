@@ -58,7 +58,7 @@ export class App {
       },
       {
         route: 'sfa',
-        moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
+        moduleId: PLATFORM.moduleName('sfa/sfa'),
         name: 'sfa',
         title: 'Salesforce Automation'
       },
