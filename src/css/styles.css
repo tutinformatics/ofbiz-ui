@@ -63,6 +63,10 @@ ul.custom-pagination li a.disabled {
 
 /*}*/
 
+.object-dist-properties-table {
+  text-align: center;
+}
+
 .workspace-menu {
   width: 266px;
   background-color: white !important;
