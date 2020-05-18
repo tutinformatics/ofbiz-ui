@@ -53,7 +53,7 @@ export class AuthService {
     try {
       const response = await this.httpClient
         .fetch(
-          `${this.baseUrl}auth/v1/login`,
+          `${this.baseUrl}auth/v1/register`,
           {
             method: 'POST',
             body: json({
