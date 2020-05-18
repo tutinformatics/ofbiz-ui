@@ -79,9 +79,6 @@ export class TimesheetView {
     // this.timesheetService
     //   .getMyTime({ workEffortTypeId: 'TASK', partyId: this.state.userLoginId })
     //   .then((response) => (timetable.items = response));
-
-    columns[2].renderer = (root, column, rowData) => this.addListObjects(root);
-    columns[0].renderer = (root, column, rowData) => this.getYourTaskList(root);
   }
 
   addListObjects(root) {
@@ -93,25 +90,6 @@ export class TimesheetView {
       vaadinItem.textContent = item.description;
       listBox.appendChild(vaadinItem);
       vaadinItem.setAttribute('value', item.rateTypeId);
-    });
-    select.appendChild(listBox);
-    root.appendChild(select);
-  }
-
-  getYourTaskList(root) {
-    const select = window.document.createElement('vaadin-select');
-    const listBox = window.document.createElement('vaadin-list-box');
-
-    this.tasks.forEach(function(item) {
-      const vaadinItem = window.document.createElement('vaadin-item');
-      vaadinItem.textContent = item.projectId
-                              + " "
-                              + item.projectName
-                              + "-"
-                              + item.phaseName
-                              + "-" + item.workEffortName;
-      listBox.appendChild(vaadinItem);
-      vaadinItem.setAttribute('value', item.workEffortId);
     });
     select.appendChild(listBox);
     root.appendChild(select);
