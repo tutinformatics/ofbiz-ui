@@ -16,12 +16,19 @@ export class TimesheetList {
     const grid = document.querySelector("vaadin-grid");
     this.initGridColumns();
     this.timesheetService
-      .getTimesheetList()
+      .getTimesheetList({ })
       .then((response) => (grid.items = response));
   }
 
   initGridColumns() {
     const columns = document.querySelectorAll('vaadin-grid-column');
+
+    columns[0].renderer = (root, column, rowData) => {
+      const timesheetId = rowData.item.timesheetId;
+      root.innerHTML = `<a href="javascript:void(0);">${timesheetId}<a/>`;
+      root.addEventListener("click", () => this.handleSelectTimesheet(timesheetId));
+    };
+
     columns[3].renderer = (root, columnm, rowData) => {
       const status = rowData.item.statusId;
       root.innerHTML = `
@@ -30,6 +37,10 @@ export class TimesheetList {
           </span >
         `;
     };
+  }
+
+  handleSelectTimesheet(timesheetId) {
+    this.router.navigateToRoute("timesheet-view", { id: timesheetId });
   }
 
   handleAddTimesheet() {

@@ -60,12 +60,36 @@ const routes = {
       nav: true
     },
     {
+      route: 'timesheet',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-view'
+      ),
+      title: 'My Time',
+      name: 'my-timesheet',
+      nav: true
+    },
+    {
+      route: 'timesheet/:id',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/timesheet-view'
+      ),
+      name: 'timesheet-view'
+    },
+    {
       route: 'new-timesheet',
       moduleId: PLATFORM.moduleName(
         'project/timesheet/components/timesheet-edit'
       ),
       title: 'Create timesheet',
       name: 'new-timesheet'
+    },
+    {
+      route: 'new-time',
+      moduleId: PLATFORM.moduleName(
+        'project/timesheet/components/my-task-time'
+      ),
+      title: 'My Task Time',
+      name: 'new-time'
     }
   ],
 

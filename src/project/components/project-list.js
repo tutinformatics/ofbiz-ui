@@ -28,7 +28,7 @@ export class ProjectList {
       root.addEventListener('click', () => this.handleSelectProject(projectId));
     };
 
-    columns[2].renderer = (root, columnm, rowData) => {
+    columns[2].renderer = (root, column, rowData) => {
       const status = rowData.item.currentStatusId;
       root.innerHTML = `
           <span class="badge ${getStatusBadge(status)}">
