@@ -11,7 +11,7 @@ export class EntityUpdateService {
   constructor(httpClient) {
     this.http = httpClient;
     //this.baseUrl = 'https://35.228.134.15:8443/api/generic/v1/services/';
-    this.baseUrl = '/api/generic/v1/services';
+    this.baseUrl = '/api/generic/v1/services/';
   }
 
   async useService(service, body) {
