@@ -23,7 +23,6 @@ export class HttpInterceptor {
   }
 
   request(request) {
-    console.log(`Requesting ${request.method} ${request.url}`);
     request.headers.append('Authorization', `Bearer ${this.token}`);
     return request;
   }
@@ -61,7 +60,6 @@ export class HttpInterceptor {
         }
       );
     }
-    console.log(`Received ${response.status} ${response.url}`);
     return response;
   }
 
