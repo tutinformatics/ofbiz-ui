@@ -107,11 +107,12 @@ export class TimesheetService {
       .fetch(`${this.baseUrl}/entities/ProjectAndPhaseAndTaskParty?${query}`, {
         method: 'get'
       })
-      .then((res) => res.json())
       .then((res) => {
-        return safeGet(() => res, []).map((taskParty) => {
-          return taskParty;
-        });
+        if (!res.ok) {
+          // TODO: improve error handling
+          throw new Error('An error occured while fetching timesheet');
+        }
+        return res.json();
       })
       .catch((error) => {
         /* eslint no-console: ["error", { allow: ["error"] }] */
