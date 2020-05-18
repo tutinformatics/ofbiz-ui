@@ -13,50 +13,51 @@ export class MyTaskTime {
     this.timesheetService = timesheetService;
     this.store = store;
     this.tasks = {};
+    this.task = {};
     this.rates = {};
     this.subscription = this.store.state.subscribe(
       (state) => (this.state = state)
     );
   }
 
-  activate(params, routeConfig) {
-    // this.params = params;
-    // routeConfig.navModel.setTitle(`Timesheet ID: ${params.id}`);
+  created() {
+    this.datasourceTasks = {
+      transport: {
+        read: (options) => {
+          this.timesheetService
+            .getMyTime({ partyId: this.state.userLoginId })
+            .then((response) => {
+              options.success(response);
+            });
+        }
+      }
+    };
 
-    this.timesheetService
-      .getRateTypes()
-      .then((response) => (this.rates = response));
-
-    this.timesheetService
-      .getMyTime({ partyId: this.state.userLoginId })
-      .then((response) => (this.tasks = response));
+    this.datasourceRates = {
+      transport: {
+        read: (options) => {
+          this.timesheetService
+            .getRateTypes()
+            .then((response) => {
+              options.success(response);
+            });
+        }
+      }
+    };
   }
 
-  attached() {
-    const select = document.querySelector("vaadin-select");
-
-    //TODO: make this work, currently activating everytime you open the vaadin-select
-    //select.renderer = (root) => this.getYourTaskList(root);
+  updateTaskTime(task) {
+    this.timesheetService
+      .updateTask(task)
+      .then(() => this.router.navigate('timesheet'));
   }
 
+  handleBack() {
+    this.router.navigateBack();
+  }
 
-  getYourTaskList(root) {
-    const listBox = window.document.createElement('vaadin-list-box');
-
-    this.tasks.forEach(function(item) {
-
-      const vaadinItem = window.document.createElement('vaadin-item');
-      vaadinItem.textContent = item.projectId
-                              + " "
-                              + item.projectName
-                              + "-"
-                              + item.phaseName
-                              + "-" + item.workEffortName;
-      console.log(vaadinItem.textContent);
-      listBox.appendChild(vaadinItem);
-      vaadinItem.setAttribute('value', item.workEffortId);
-    });
-    root.appendChild(listBox);
+  get canSave() {
+    return !!this.task.workEffortId;
   }
 
 }

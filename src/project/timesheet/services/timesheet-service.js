@@ -28,6 +28,20 @@ export class TimesheetService {
       });
   }
 
+  updateTask(task) {
+    const body = json(task);
+
+    return this.httpClient
+      .fetch(`${this.baseUrl}/services/updateTaskAndRelatedInfo`, {
+        method: 'post',
+        body: body
+      })
+      .catch((error) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error(error);
+      }); // TODO: improve error handling
+  }
+
   getTimesheet(params) {
     const query = SearchUtils.appendQueryParams(params);
 
@@ -114,6 +128,10 @@ export class TimesheetService {
       .then((res) => res.json())
       .then((res) => {
         return safeGet(() => res, []).map((taskParty) => {
+          (taskParty.name = `${taskParty.projectId}
+             ${taskParty.projectName}
+            -${taskParty.phaseName}
+            -${taskParty.workEffortName}`);
           return taskParty;
         });
       })
