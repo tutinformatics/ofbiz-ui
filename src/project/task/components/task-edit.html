@@ -24,9 +24,9 @@
                     <label class="col-md-3 col-form-label">Parent Phase</label>
                     <div class="col-md-9">
                         <ak-drop-down-list 
-                            k-data-text-field="text" 
-                            k-data-value-field="value" 
-                            k-data-source.bind="parentPhaseList"
+                            k-data-text-field="projectPhaseName" 
+                            k-data-value-field="phaseId"
+                            k-data-source.bind="datasource"
                             k-value.two-way="task.workEffortParentId" 
                             style="width: 100%;"
                         >
@@ -77,21 +77,21 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label">Estimated Start Date</label>
                     <div class="col-md-9">
-                        <input ak-datepicker="k-value.two-way: task.estimatedStartDate; k-enabled.two-way: false"/>
+                        <vaadin-date-picker id="estStartDate"></vaadin-date-picker>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label">Estimated Completion Date</label>
                     <div class="col-md-9">
-                        <input ak-datepicker="k-value.two-way: task.estimatedCompletionDate; k-enabled.two-way: false"/>
+                        <vaadin-date-picker id="estComplDate"></vaadin-date-picker>
                     </div>
                 </div>
             </form>
 
             <div>
                 <button 
-                    class="btn btn-primary btn-lg float-right rounded-pill" 
+                    class="btn btn-primary float-right" 
                     click.delegate="addTask()"
                     disabled.bind="!canSave"
                 >
@@ -99,7 +99,7 @@
                 </button>
 
                 <button 
-                    class="btn btn-secondary btn-lg float-left rounded-pill" 
+                    class="btn btn-secondary float-left" 
                     click.delegate="handleBack()"
                 >
                     Back

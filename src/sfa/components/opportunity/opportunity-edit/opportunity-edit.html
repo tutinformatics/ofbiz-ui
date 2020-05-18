@@ -1,0 +1,48 @@
+<template>
+  <div class="container mt-4">
+    <h4>Edit opportunity</h4>
+    <hr />
+    <form role="form" id="opportunityForm">
+      <div class="form-group">
+        <label for="recipient-name" class="col-form-label">Name</label>
+        <input type="text" class="form-control" id="opportunityName" value.bind="opportunity.name">
+      </div>
+      <div class="form-group">
+        <label for="message-text" class="col-form-label">Description</label>
+        <textarea class="form-control" id="opportunity-description" value.bind="opportunity.description">
+        </textarea>
+      </div>
+      <div class="input-group">
+        <label for="message-text" class="col-form-label">Price</label>
+        <div class="input-group">
+          <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2" value.bind="opportunity.price">
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2">€</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message-text" class="col-form-label">Stage</label>
+        <select class="form-control" value.bind="opportunity.stage">
+          <option value="new" selected.bind="opportunity.stage == 'new'">New</option>
+          <option value="proposition" selected.bind="opportunity.stage == 'proposition'">Proposition</option>
+          <option value="won" selected.bind="opportunity.stage == 'won'">Won</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message-text" class="col-form-label">Customer</label>
+        <select class="form-control" value.bind="opportunity.customerId">
+          <option>empty</option>
+          <option repeat.for="customer of customers"
+                  model.bind="customer.customerId">
+            ${customer.name}
+          </option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <a style="cursor: pointer" click.delegate="back()">Back to List</a>
+        <button class="btn btn-primary" click.delegate="editOpportunity()" type="submit">Save changes</button>
+      </div>
+    </form>
+  </div>
+</template>

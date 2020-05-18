@@ -1,0 +1,30 @@
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="order of store.orders">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <div class="row">
+            <h5 class="card-subtitle">${order.orderId}</h5>
+            <div class="col text-right">
+              <a style="text-decoration: none; cursor: pointer" route-href="route: order-edit; params.bind: { order: order}">
+                <img src="../../../assets/img/edit.svg" alt="edit">
+              </a>
+              <a style="cursor: pointer" click.delegate="deleteOrder($index, order.orderId)">
+                <img src="../../../assets/img/delete.svg" alt="delete">
+              </a>
+            </div>
+          </div>
+          <br>
+          <h5 class="card-subtitle">${order.name}</h5>
+          <div class="card-text">Status: ${order.status}</div>
+          <div class="card-text">Sum: ${order.totalSum} ${order.currencyUom}</div>
+          <div class="col text-right">
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

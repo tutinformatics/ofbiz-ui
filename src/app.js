@@ -54,7 +54,7 @@ export class App {
       },
       {
         route: 'sfa',
-        moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
+        moduleId: PLATFORM.moduleName('sfa/sfa'),
         name: 'sfa',
         title: 'Salesforce Automation'
       },
@@ -74,7 +74,13 @@ export class App {
         route: 'sign-up',
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
-      }
+      },
+      {
+        route: 'crm',
+        moduleId: PLATFORM.moduleName('./components/crm1/baseui/baseui'),
+        name: 'crm',
+        title: 'Customer Relations'
+      },
     ]);
     this.router = router;
   }

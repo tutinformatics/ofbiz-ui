@@ -1,0 +1,106 @@
+<template>
+  <require from="../../../../commons/workspaces-menu/workspace-favourite"></require>
+  <require from="./../query-builder/query-builder"></require>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
+    <span class="navbar-brand mb-0 h1">Opportunities</span>
+    <workspace-favourite class="float-left mx-2"></workspace-favourite>
+    <button type="button" class="btn btn-outline-dark col-2" data-toggle="modal" href="#opportunityModal">
+      <img src="../../../assets/img/add.svg" alt="">
+      New opportunity
+    </button>
+    <div class="form-inline col-3">
+      <input class="form-control" type="search" placeholder="Search Opportunities..." aria-label="Search"
+        style="width:100%" value.bind="searchInput" change.delegate="search()">
+    </div>
+    <button type="button" class="btn btn-outline-dark col-2" data-toggle="modal" href="#filterModal">
+      Opportunity Filter
+    </button>
+    <button type="button" class="btn btn-outline-dark col-3">
+      <img src="../../../assets/img/favourite.svg" alt="">
+      Opportunity Favourites
+    </button>
+  </nav>
+  <div class="col-12">
+    <div class="dropdown float-right">
+      <div class="modal fade" id="opportunityModal" tabindex="-1" role="dialog" aria-labelledby="opportunityModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="opportunityModalLabel">Add new opportunity</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form role="form" id="opportunityForm">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Name</label>
+                  <input type="text" class="form-control" id="opportunity-name" value.bind="name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Description</label>
+                  <textarea class="form-control" id="opportunity-description" value.bind="description"></textarea>
+                </div>
+                <div class="input-group">
+                  <label for="message-text" class="col-form-label">Price</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Price" aria-describedby="basic-addon2"
+                      value.bind="price">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">€</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Stage</label>
+                  <select class="form-control" value.bind="stage">
+                    <option value="new" selected>New</option>
+                    <option value="proposition">Proposition</option>
+                    <option value="won">Won</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" click.delegate="newOpportunity()"
+                    data-dismiss="modal">Save</button>
+                  <button type="button" class="btn btn-primary" click.delegate="newOpportunity()" data-dismiss="modal">
+                    <a style="color: #ffffff; text-decoration: none"
+                      route-href="route: opportunity-edit; params.bind: { name: name, description: description, price: price, stage: stage}">
+                      Save and edit
+                    </a>
+                  </button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal fade" id="filterModal" tabindex="1" role="dialog" aria-labelledby="filterModalLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content" style="width: unset">
+            <div class="modal-header">
+              <h5 class="modal-title" id="filterModalLabel">Filter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="nav-add-subscriber">
+                <div style="display: flex; justify-content: center" class="query-builder-div">
+                  <query-builder></query-builder>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" click.delegate="applyFilter()"
+                    data-dismiss="modal">Filter</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</template>

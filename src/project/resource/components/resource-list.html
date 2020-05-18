@@ -1,27 +1,20 @@
 <template>
-  <require from="aurelia-kendoui-bridge/grid/grid"></require>
-  <require from="aurelia-kendoui-bridge/grid/col"></require>
-  <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
-  <require from="aurelia-kendoui-bridge/common/template"></require>
-
+  <require from="../../../commons/workspaces-menu/workspace-favourite"></require>
   <div class="card">
-    <div class="card-header text-white bg-primary">Resource Dashboard</div>
+    <div class="card-header">
+      <h2 class="float-left">All Resources</h2>
+      <workspace-favourite class="float-left mx-2"></workspace-favourite>
+      <button class="btn btn-primary float-left" click.delegate="handleAddResource()">
+        <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+        New Resource
+      </button>
+    </div>
     <div class="card-body">
-      <ak-grid k-data-source.bind="datasource">
-        <ak-grid-toolbar>
-          <ak-template>
-            <button
-              class="btn btn-primary float-left"
-              click.delegate="handleAddResource()"
-            >
-              <font-awesome-icon icon.bind="button"></font-awesome-icon> Create Resource
-            </button>
-          </ak-template>
-        </ak-grid-toolbar>
-        <ak-col k-title="First Name" k-field="firstName"></ak-col>
-        <ak-col k-title="Last Name" k-field="lastName"></ak-col>
-        <ak-col k-title="Party Id" k-field="partyId"></ak-col>
-      </ak-grid>
+      <vaadin-grid theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
+        <vaadin-grid-column path="firstName" header="First Name"></vaadin-grid-column>
+        <vaadin-grid-column path="lastName" header="Last Name"></vaadin-grid-column>
+        <vaadin-grid-column path="partyId" header="Party ID"></vaadin-grid-column>
+      </vaadin-grid>
     </div>
   </div>
 </template>

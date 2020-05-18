@@ -1,0 +1,28 @@
+<template>
+  <div class="row mt-4">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">State</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr repeat.for="opportunity of store.opportunities">
+          <td>${opportunity.name}</td>
+          <td>${opportunity.description}</td>
+          <td>${opportunity.price}€</td>
+          <td>${opportunity.stage}</td>
+          <td>
+            <a style="text-decoration: none" route-href="route: opportunity-edit; params.bind: { opportunity: opportunity}">Edit</a> |
+            <a style="color: #007bff; cursor: pointer" click.trigger="deleteOpportunity(opportunity.opportunityId, $index)">Delete</a>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

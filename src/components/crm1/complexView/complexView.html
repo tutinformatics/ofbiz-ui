@@ -1,0 +1,163 @@
+<template>
+
+  <require from="../common/categories"></require>
+  <require from="../common/clients"></require>
+  <require from="../common/activeClient"></require>
+  <require from="../common/activity"></require>
+
+  <div class="bg">
+    <div class="d-flex flex-wrap">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 p-1">
+        <!--Categories-->
+        <categories></categories>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 p-1">
+        <!--Clients-->
+        <clients></clients>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 p-1">
+          <!--ActiveClient-->
+          <active-client></active-client>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-1">
+        <!--Activity-->
+        <activity></activity>
+      </div>
+    </div>
+  </div>
+  <style>
+    body {
+      padding-top: 0;
+    }
+    .bg {
+      box-shadow: black;
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+    .card.canHover:hover {
+      background-color: rgb(250, 250, 250);
+      font-weight: bolder;
+    }
+    .card-header {
+      background-color: rgb(252, 252, 252);
+      text-shadow: black;
+    }
+
+    .list-group-item {
+      border: none;
+    }
+
+    .btn-white:hover {
+      background-color: rgb(250, 250, 250);
+      font-weight: bolder;
+    }
+
+    .scrollbar {
+      margin-left: 30px;
+      float: left;
+      background: #fff;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      margin-bottom: 25px;
+      z-index: -9999;
+    }
+    .scrollbar {
+      overflow-y: scroll;
+      z-index: auto;
+    }
+
+    .scrollbar-primary::-webkit-scrollbar {
+      width: 12px;
+      background-color: rgba(245, 245, 245, 0);
+    }
+    .scrollbar-primary::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #4e4e4e;
+    }
+
+
+    .tableFixHead {
+      overflow-y: auto;
+      height: 100px;
+
+    }
+    .tableFixHead thead th {
+      position: sticky;
+      top: 0;
+    }
+
+    /* Just common table stuff. Really. */
+    table  { border-collapse: collapse; width: 100%; border-spacing: 2px;}
+    th, td {
+      padding: 8px 16px;
+    }
+    th     { background: #f6f6f6;
+      box-shadow: 0 -6px 0 #e8e8e8;
+    }
+
+    .add {
+      display:inline;
+      color: #343434;
+      margin-top: -6px;
+    }
+    .add:hover {
+      color: #000000;
+      font-weight: bolder;
+      margin-top: -6px;
+      margin-left: -1px;
+      margin-right: -1px
+    }
+    .entry:hover{
+      background-color: rgb(250, 250, 250);
+      font-weight: bolder;
+    }
+
+    .category {
+      color: #383838;
+    }
+    .category:hover {
+      color: black;
+      font-weight: bolder;
+    }
+    .hugeInput {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+    .fa-window-close {
+      color: #181818;
+      background-color: white;
+      margin: 0;
+    }
+
+    .fa.fa-window-close:hover {
+      color: black;
+    }
+    .btn:focus,.btn:active {
+      outline: none !important;
+      box-shadow: none;
+    }
+
+    .btnInteraction {
+      background-color: #212121;
+      color: white;
+    }
+    .btnInteraction:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .quickAction:hover {
+      color: white;
+      background-color: black;
+    }
+  </style>
+</template>
+
+

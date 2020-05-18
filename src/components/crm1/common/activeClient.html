@@ -1,0 +1,105 @@
+<template>
+  <require from="../common/complexViewClient/clientQuickAction"></require>
+  <require from="../common/complexViewClient/clientContactOption"></require>
+  <require from="../common/complexViewClient/clientSaleOption"></require>
+  <require from="../common/complexViewClient/clientDocumentOption"></require>
+  <require from="../common/add"></require>
+  <require from="../common/modals/changeCustomerDetails"></require>
+  <require from="../common/modals/addLeadPopUp"></require>
+
+  <div if.bind="displayClient">
+    <div class="card rounded shadow-sm pb-2">
+      <div class="card-header p-0 m-0" style="height: 22px">
+        <i class="fa fa-window-close fa-pull-right m-1 pointer" click.delegate="closeActiveClient()"
+           aria-hidden="true"></i>
+        <h6 class="p-0 m-0 text-center">Active client</h6>
+      </div>
+  <!--    Client profile picture, name, position-->
+      <div class=" card rounded-0">
+        <div class="container-fluid" style="width: 55%">
+          <img src="../img/avatar.png" class="card-img-top rounded-circle pt-1" alt="">
+        </div>
+        <div class="text-center">
+          <b class="m-0">${firstName} ${lastName}</b>
+          <p class="m-0">${companyName}</p>
+          <p class="m-0 font-weight-lighter">${positionType}</p>
+        </div>
+      </div>
+
+      <hr/>
+
+  <!--    Quick action such as edit etc.-->
+      <div class="card row no-gutters m-0 rounded-0 ">
+        <div class="btn-toolbar m-0 text-center p-0 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group" role="group">
+              <button type="button" click.delegate="quickAction(notes)"  class="btn quickAction btn-outline-dark btn-sm m-1">Notes</button>
+            </div>
+          <div class="btn-group" role="group">
+            <button type="button" data-toggle="modal" data-target="#changeCustomerData"  class="btn quickAction btn-outline-dark btn-sm m-1">Info</button>
+          </div>
+
+        </div>
+      </div>
+
+      <hr/>
+
+      <!--    Email, phone, meeting options-->
+      <div class="card rounded-0">
+        <div class="btn-toolbar m-0 text-center d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+          <a href="mailto:${email}" target="_blank" class="btn btnInteraction p-1 m-1 round">Email</a>
+          <a href="discord:" target="_blank" class="btn btnInteraction p-1 m-1 round">Call</a>
+          <a target="_blank" href="discord:" class="btn btnInteraction p-1 m-1 round white-text">Meeting</a>
+        </div>
+      </div>
+      <hr/>
+
+  <!--   View conversation history-->
+  <div class="card rounded-0 p-0 m-0 bg-white">
+    <div class="card-header p-0">
+      <h6 class="m-0 py-1 text-center">Conversations</h6>
+    </div>
+    <div repeat.for="option of contactsListingOptions" >
+      <div class="row">
+        <div class="col-12">
+          <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+
+  <!--    Leads, opportunities, proposals, deals-->
+      <div class="card rounded-0 p-0 m-0 bg-white">
+        <div class="card-header p-0">
+          <h6 class="m-0 py-1 text-center">Sales</h6>
+        </div>
+        <div repeat.for="option of saleOptions" >
+          <div class="row">
+            <div class="col-12">
+              <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}
+<!--                <add class="pb-1" data-toggle="modal" click.delegate="preventPropagation(option)"></add></button>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr/>
+
+
+  <!--    Orders, invoices, claims, returned-->
+      <div class="card rounded-0 m-0 p-0 bg-white">
+        <div class="card-header p-0">
+          <h6 class="m-0 py-1 text-center">Documents</h6>
+        </div>
+        <div repeat.for="option of options" >
+          <div class="row">
+            <div class="col-12">
+              <button type="button" click.delegate="quickAction(option)" class="btn p-0 m-0 btn-white btn-block rounded-0">${option.name}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <add-lead-pop-up></add-lead-pop-up>
+  <change-customer-details></change-customer-details>
+</template>
