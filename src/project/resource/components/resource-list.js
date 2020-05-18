@@ -3,8 +3,7 @@ import { Router } from 'aurelia-router';
 import { ResourceService } from '../services/resource-service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 @inject(Router, ResourceService)
 export class ResourceList {

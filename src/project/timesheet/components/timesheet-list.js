@@ -2,6 +2,7 @@ import { inject } from "aurelia-dependency-injection";
 import { Router } from "aurelia-router";
 import { TimesheetService } from "../services/timesheet-service.js";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import { convertStatus, getStatusBadge } from "../../../commons/util/status-utils.js";
 
 @inject(Router, TimesheetService)
@@ -10,6 +11,7 @@ export class TimesheetList {
     this.router = router;
     this.timesheetService = timesheetService;
     this.faPlus = faPlus;
+    this.faFilter = faFilter;
   }
 
   attached() {
@@ -18,6 +20,16 @@ export class TimesheetList {
     this.timesheetService
       .getTimesheetList()
       .then((response) => (grid.items = response));
+  }
+  async filterTimesheet() {
+    const grid = document.querySelector('vaadin-grid');
+    const nameValue = document.getElementById("filtername").value;
+    const typeValue = document.getElementById("filtertype").value;
+    const filterValue = document.getElementById("filtervalue").value;
+    this.timesheetService
+      .getFilteredTimesheet(nameValue, typeValue, filterValue)
+      .then((response) => grid.items = response
+      );
   }
 
   initGridColumns() {
