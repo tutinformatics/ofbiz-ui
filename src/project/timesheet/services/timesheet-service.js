@@ -90,7 +90,7 @@ export class TimesheetService {
       .then((res) => {
         if (!res.ok) {
           // TODO: improve error handling
-          throw new Error('An error occured while fetching timesheet');
+          throw new Error('An error occured while fetching rates');
         }
         return res.json();
       })
@@ -110,7 +110,7 @@ export class TimesheetService {
       .then((res) => {
         if (!res.ok) {
           // TODO: improve error handling
-          throw new Error('An error occured while fetching timesheet');
+          throw new Error('An error occured while fetching task names');
         }
         return res.json();
       })
