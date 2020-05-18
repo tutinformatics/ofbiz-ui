@@ -1,0 +1,36 @@
+<template>
+  <require from="../../../css/crm1.css"></require>
+
+  <template if.bind="displayActivity">
+    <div class="container-fluid p-0 w-100" >
+      <div class="card shadow-sm" style="max-height: 87vh;">
+        <div class="card-header p-0 d-inline-block" style="height: 22px">
+          <i class="fa-pull-right fa fa-window-close  m-1 pointer" click.delegate="closeActivity()"
+             aria-hidden="true"></i>
+          <h6 class="p-0 m-0 ">Current activity: ${activity}</h6>
+        </div>
+        <div class="scrollbar scrollbar-primary m-0">
+          <div class="force-overflow"></div>
+
+        <table class="table tableFixHead table-hover">
+          <thead>
+            <tr class="text-center sticky">
+              <th repeat.for="header of tableHeaders" scope="col" class="p-0" style="background-color: rgb(253, 253, 253);">${header}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="entry of tableData" class="text-center pointer" click.delegate="test(entry)">
+              <td repeat.for="data of entry.data">
+                ${data}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+          <div if.bind="tableData.length < 1"  class="text-center pb-4">No entries found for this contact</div>
+        </div>
+
+      </div>
+    </div>
+  </template>
+
+</template>

@@ -125,10 +125,41 @@ const routes = {
       name: 'orders'
     },
   ],
-  'crm': [], // TODO: add crm child routes here
-  'cms': [], // TODO: add cms child routes here
-  'marketdata': [], // TODO: add marketdata child routes here
-  'object-dist': [] // TODO: add objectdist child routes here
+  crm: [
+    { route: '', redirect: 'complex' },
+    {
+      route: 'complex',
+      moduleId: PLATFORM.moduleName('components/crm1/complexView/complexView'),
+      name: 'complexview',
+      title: 'Complex View',
+      nav: true
+    },
+    {
+      route: 'clients',
+      moduleId: PLATFORM.moduleName('components/crm1/clientsView/clientsView'),
+      name: 'clients',
+      title: 'Clients',
+      nav: true
+    },
+
+    {
+      route: 'bills',
+      moduleId: PLATFORM.moduleName('components/crm1/billView/billsView'),
+      name: 'bills',
+      title: 'Bills',
+      nav: true
+    },
+    {
+      route: 'orders',
+      moduleId: PLATFORM.moduleName('components/crm1/orderView/ordersView'),
+      name: 'orders',
+      title: 'Orders',
+      nav: true
+    },
+  ],
+  cms: [], // TODO: add cms child routes here
+  marketdata: [], // TODO: add marketdata child routes here
+  objectdist: [] // TODO: add objectdist child routes here
 };
 
 export class NavigationService {

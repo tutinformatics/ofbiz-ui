@@ -22,6 +22,7 @@
   cursor: pointer
 }
 
+
 .ul.custom-pagination {
   display: inline-block;
   padding: 0;
@@ -52,6 +53,7 @@ ul.custom-pagination li a:hover:not(.active):not(.disabled) {
 ul.custom-pagination li a.disabled {
   color: darkgrey;
 }
+
 
 /*Please rename according to BEM convention (It broke my layout)*/
 

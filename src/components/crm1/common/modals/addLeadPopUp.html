@@ -1,0 +1,38 @@
+<template>
+  <div class="modal fade bd-example-modal" id="create-lead" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog my-0 mt-3">
+      <div class="modal-content">
+        <div class="modal-header p-1">
+          <h5 class="modal-title pl-4">Create new lead</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pt-0">
+          <form role="form">
+            <div class="form-group m-0">
+              <label class="col col-form-label required">First Name</label>
+              <div class="col">
+                <input type="text" placeholder="First Name" class="form-control" value.bind="lead.firstName">
+              </div>
+            </div>
+
+            <div class="form-group required m-0">
+              <label class="col col-form-label required">Last Name</label>
+              <div class="col">
+                <input type="text" placeholder="Last Name" class="form-control" value.bind="lead.lastName">
+              </div>
+            </div>
+          <div class="mt-3">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            <button class="btn btn-dark float-right" click.delegate="addLead(lead)">Save</button>
+            <button class="btn btn-dark float-right mx-1" click.delegate="addLeadAndClose(lead)">Save and Close</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>

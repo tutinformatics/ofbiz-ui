@@ -1,0 +1,41 @@
+<template>
+  <require from="../common/add"></require>
+  <require from="../common/modals/addClientPopUp"></require>
+  <div class="card shadow-sm">
+    <div class="card-header p-0 text-center" style="height: 22px">
+      <h6 class="m-0">Clients <add data-toggle="modal" data-target="#create-modal"></add></h6>
+    </div>
+
+    <div class="scrollbar scrollbar-primary m-0">
+      <div class="force-overflow"></div>
+        <ul class="list-group list-group-flush mt-1" style="max-height: 84vh;">
+          <div repeat.for="contact of filteredContacts">
+
+<!--            Single contact-->
+            <li  class="list-group-item p-0 text-left" click.delegate="chooseContact(contact)">
+              <div class="card pointer canHover rounded-0 m-0">
+                <div class="row no-gutters">
+                  <div class="col-4">
+                    <img src="../img/avatar.png" class="card-img d-inline-block m-0 mr-3 ml-1"
+                         style="width: 60px; height: 60px; border-radius: 50%" alt="..." >
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body no-gutters text-sm-center text-md-left p-0 pt-2 m-0 d-inline-block text-truncate">
+                        <div class="text-truncate">${contact.firstName}</div>
+                        <div class="text-truncate">${contact.lastName}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+<!--            Single contact end-->
+
+          </div>
+
+
+        </ul>
+      </div>
+    </div>
+  <add-client-pop-up ></add-client-pop-up>
+
+</template>
