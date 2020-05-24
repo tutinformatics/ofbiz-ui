@@ -1,7 +1,8 @@
 import {inject} from 'aurelia-dependency-injection';
-import { HttpClient } from 'aurelia-fetch-client';
+import {HttpClient} from 'aurelia-fetch-client';
+import {MarketdataService} from './marketdata-service';
 
-@inject(HttpClient)
+@inject(HttpClient, MarketdataService)
 export class Marketdata {
   baseUrl = 'api/generic/v1/entities/MarketdataModel';
   companies = [];
@@ -15,12 +16,16 @@ export class Marketdata {
   selectedModels = [];
   selectedCompanies = [];
   filters = [
-    {value: '', keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount', 'contactEmail']},
+    {
+      value: '',
+      keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount', 'contactEmail']
+    },
     {value: this.selectedStatuses, keys: ['companyStatus']}
   ];
 
-  constructor(httpClient) {
+  constructor(httpClient, marketdataService) {
     this.httpClient = httpClient;
+    this.marketdataService = marketdataService;
   }
 
   bind() {
@@ -32,6 +37,10 @@ export class Marketdata {
       .catch(error => {
         console.error(error);
       });
+  }
+
+  async attached() {
+    this.data = await this.marketdataService.getMarketdataCompanies();
   }
 
   handleClick(company, $event) {

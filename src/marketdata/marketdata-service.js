@@ -1,8 +1,8 @@
 import {inject} from 'aurelia-dependency-injection';
-import { HttpClient, json } from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 @inject(HttpClient)
-export class ProjectService {
+export class MarketdataService {
   // baseUrl = 'https://localhost:8443/api/marketdata';
   baseUrl = 'api/generic/v1';
 
@@ -36,15 +36,16 @@ export class ProjectService {
 
   async getMarketdataCompanies() {
     try {
-      return await this.httpClient.fetch(`${this.baseUrl}/services/getMarketdataCompanies`,
+      const response = await this.httpClient.fetch(
+        `${this.baseUrl}/services/getMarketdataCompanies`,
         {
           method: 'POST',
           body: JSON.stringify(
-            console.log(this.state)
-     //       {'registryCode': this.state.}
+            {'': ''}
           )
         }
       );
+      return await response.json();
     } catch (e) {
       return null;
     }
