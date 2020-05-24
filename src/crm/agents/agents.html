@@ -1,23 +1,30 @@
 <template>
-  <require from="materialize-css/dist/css/materialize.css"></require>
-  <require from="crm/agents/agents.css"></require>
-  <div class="container agents-container">
-    <table class="striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone number</th>
-          <th>E-mail address</th>
-        </tr>
-      </thead>
+  <div class="container mt-4">
+    <div class="row mt-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">E-mail address</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr repeat.for="agent of agents">
-          <td>${agent.name}</td>
-          <td>${agent.telecomNumber}</td>
-          <td>${agent.emailAddress}</td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          <tr repeat.for="agent of agents">
+            <td>${agent.name}</td>
+            <td>${agent.telecomNumber}</td>
+            <td>${agent.emailAddress}€</td>
+            <td>
+              <a href="#">Edit</a>
+              <!-- <a route-href="route: opportunity-edit; params.bind: { opportunity: opportunity }">Edit</a> | -->
+              <a href="#">Delete</a>
+              <!-- <a click.delegate="deleteOpportunity(opportunity.id)">Delete</a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>

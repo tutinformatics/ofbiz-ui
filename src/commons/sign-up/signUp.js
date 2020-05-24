@@ -1,6 +1,6 @@
 import "../assets/scss/general-login.scss"
 import { inject } from "aurelia-framework";
-import { AuthService } from "../login/authService";
+import { AuthService } from "../services/authService";
 import "./signUp.scss"
 import { Router } from "aurelia-router";
 
@@ -21,7 +21,7 @@ export class SignUp {
     if (this.password !== '' && this.password === this.repeatPassword && this.userLoginId !== '') {
       const response = await this.authService.signUpRequest(this.userLoginId, this.password, this.repeatPassword);
       if (response) {
-        this.router.navigate("#/login")
+        this.router.navigate("/")
       } else {
         this.formError = true
       }

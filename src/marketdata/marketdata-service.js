@@ -3,7 +3,8 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class ProjectService {
-  baseUrl = 'https://localhost:8443/api/marketdata';
+  // baseUrl = 'https://localhost:8443/api/marketdata';
+  baseUrl = 'api/generic/v1';
 
   constructor(httpClient) {
     this.httpClient = httpClient;
@@ -31,5 +32,21 @@ export class ProjectService {
         /* eslint no-console: ["error", { allow: ["error"] }] */
         console.error(error);
       }); // TODO: improve error handling
+  }
+
+  async getMarketdataCompanies() {
+    try {
+      return await this.httpClient.fetch(`${this.baseUrl}/services/getMarketdataCompanies`,
+        {
+          method: 'POST',
+          body: JSON.stringify(
+            console.log(this.state)
+     //       {'registryCode': this.state.}
+          )
+        }
+      );
+    } catch (e) {
+      return null;
+    }
   }
 }

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project",
+    "url": "project"
+  },
+  {
+    "name": "crm",
+    "url": "" 
+  },
+  {
+    "name": "sfa",
+    "url": "sfa"
+  },
+  {
+    "name": "marketing",
+    "url": "affiliate-manager?affCode=10"
+  },
+  {
+    "name": "object dist",
+    "url": ""
+  },
+  {
+    "name": "marketdata",
+    "url": ""
+  },
+  {
+    "name": "cms",
+    "url": ""
+  }
+]
