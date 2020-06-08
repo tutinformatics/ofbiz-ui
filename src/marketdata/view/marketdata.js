@@ -1,6 +1,6 @@
 import {inject} from 'aurelia-dependency-injection';
 import {HttpClient} from 'aurelia-fetch-client';
-import {MarketdataService} from './marketdata-service';
+import {MarketdataService} from '../service/marketdata-service';
 
 @inject(HttpClient, MarketdataService)
 export class Marketdata {

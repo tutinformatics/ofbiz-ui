@@ -1,12 +1,10 @@
 <template>
-  <div class="row_marketdata-table">
-    <input type="text" value.bind="filters[0].value" placeholder="Find" class="search_marketdata"/>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContact"
-            style="margin: 0 0 0 1%">
-      Add Contact
-    </button>
-    <button type="button" class="btn btn-primary pull-right">Import contacts</button>
-  </div>
+  <require from="marketdata/components/search/searchbar"></require>
+  <require from="marketdata/components/modal/new-modal/newModalButton"></require>
+
+    <searchbar></searchbar>
+
+    <newModalButton></newModalButton>
 
   <div class="btn-group" role="group">
     <button class="btn btn-light"><a href="mailto:${selectedCompanies}"><i class="fa fa-envelope"></i></a></button>
@@ -178,4 +176,3 @@
   </div>
   </div>
 </template>
-
