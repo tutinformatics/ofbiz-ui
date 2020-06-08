@@ -1,0 +1,51 @@
+<template>
+  <div class="modal fade bd-example-modal mt-5" id="bill-modal" tabindex="-1" role="dialog"
+       aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog my-0 pt-5 align-self-center">
+      <div class="modal-content">
+        <div class="modal-header pt-1">
+          <h5 class="modal-title pl-4">Bill information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pt-0" style="max-height: calc(100vh - 50px);overflow-y: auto;">
+          <form role="form">
+            <div class="row">
+              <div class="form-group m-0">
+                <label class="col-4 col-form-label" >From:</label>
+                <div class="col">
+                  <b class="px-2">${bill.partyIdFrom}</b>
+                </div>
+              </div>
+
+              <div class="form-group m-0">
+                <label class="col-4 col-form-label">Created:</label>
+                <div class="col">
+                  <b class="px-2">${bill.invoiceDate}</b>
+                </div>
+              </div>
+
+            <div class="form-group m-0">
+              <label class="col col-form-label">Amount:</label>
+              <div class="col-4">
+                <b class="px-2">${billAmount}</b>
+              </div>
+            </div>
+
+            </div>
+            <div class="row mt-3">
+              <div class="col">Description:</div>
+            </div>
+            <div class="row">
+              <div class="container ml-2">
+                <b>${description}</b>
+              </div>
+            </div>
+              <button type="button" class="btn btn-dark ml-3 pull-right" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

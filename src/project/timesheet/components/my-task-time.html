@@ -1,0 +1,67 @@
+<template>
+  <require from="aurelia-kendoui-bridge/numerictextbox/numerictextbox"></require>
+  <require from="aurelia-kendoui-bridge/datepicker/datepicker"></require>
+  <require from="aurelia-kendoui-bridge/dropdownlist/dropdownlist"></require>
+  
+  <div class="card mx-auto" style="width: 60vw;">
+      <div class="card-header text-white bg-primary">New Time Task</div>
+
+      <div class="card-body">
+          <form role="form">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">Task Name</label>
+                <div class="col-md-9">
+                  <ak-drop-down-list
+                    k-data-text-field="name"
+                    k-data-value-field="workEffortId"
+                    k-data-source.bind="datasourceTasks"
+                    k-value.two-way="task.workEffortId"
+                    style="width: 100%;"
+                  >
+                  </ak-drop-down-list>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">Rate Type Id</label>
+                <div class="col-md-9">
+                  <ak-drop-down-list
+                    k-data-text-field="description"
+                    k-data-value-field="rateTypeId"
+                    k-data-source.bind="datasourceRates"
+                    style="width: 100%;"
+                  >
+                  </ak-drop-down-list>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label">Actual Hours</label>
+                  <div class="col-md-9">
+                      <input type="number"
+                          ak-numerictextbox="k-value.two-way: task.actualMilliSeconds; k-min.bind:1; k-step.bind:1"
+                      />
+                  </div>
+              </div>
+
+          </form>
+
+          <div>
+              <button
+                  class="btn btn-primary float-right"
+                  click.delegate="updateTaskTime()"
+                  disabled.bind="!canSave"
+              >
+                  Update Task
+              </button>
+
+              <button
+                  class="btn btn-secondary float-left"
+                  click.delegate="handleBack()"
+              >
+                  Back
+              </button>
+          </div>
+      </div>
+  </div>
+</template>

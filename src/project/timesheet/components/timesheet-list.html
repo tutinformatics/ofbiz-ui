@@ -1,38 +1,62 @@
 <template>
-    <require from="aurelia-kendoui-bridge/grid/grid"></require>
-    <require from="aurelia-kendoui-bridge/grid/col"></require>
-    <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
-    <require from="aurelia-kendoui-bridge/common/template"></require>
-
+  <require from="../../../commons/workspaces-menu/workspace-favourite"></require>
     <div class="card">
-        <div class="card-header text-white bg-primary">Timesheet Dashboard</div>
-
+        <div class="card-header">
+            <h2 class="float-left">All Timesheets</h2>
+            <workspace-favourite class="float-left mx-2"></workspace-favourite>
+            <button class="btn btn-primary float-left" click.delegate="handleAddTimesheet()">
+                <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+                New Timesheet
+            </button>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <font-awesome-icon icon.bind="faFilter"></font-awesome-icon>
+              Filter
+            </button>
+            <div class="dropdown-menu">
+              <form class="px-4 py-3">
+                <div class="form-group">
+                  <label class="mr-sm-2" for="filtername">Filter Column</label>
+                  <select class="custom-select mr-sm-2" id="filtername">
+                    <option selected value="timesheetId">Timesheet ID</option>
+                    <option value="partyId">Party ID</option>
+                    <option value="0" disabled>Actual Hours</option>
+                    <option value="statusId" disabled>Priority</option>
+                    <option value="fromDate" disabled>From Date</option>
+                    <option value="thruDate" disabled>Through date</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="mr-sm-2" for="filtertype">Filter Operation</label>
+                  <select class="custom-select mr-sm-2" id="filtertype">
+                    <option selected value="equals">Equals</option>
+                    <option value="notEqual">Not Equal</option>
+                    <option value="like">Like</option>
+                    <option value="notLike">Not Like</option>
+                    <option value="contains">Contains</option>
+                    <option value="notContains">Doesn't Contain</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="filtervalue">Value</label>
+                  <input type="text" class="form-control" id="filtervalue" placeholder="Value">
+                </div>
+                <div class="form-group">
+                </div>
+                <button class="btn btn-primary" click.delegate="filterTimesheet()">Filter</button>
+              </form>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
-            <ak-grid k-data-source.bind="datasource">
-              <ak-grid-toolbar>
-                <ak-template>
-                  <button
-                    class="btn btn-primary float-left"
-                    click.delegate="handleAddTimesheet()"
-                  >
-                    <font-awesome-icon icon.bind="button"></font-awesome-icon>
-                    Create Timesheet
-                  </button>
-                </ak-template>
-              </ak-grid-toolbar>
-              <ak-col k-title="Timesheet ID" k-field="timesheetId"></ak-col>
-              <ak-col k-title="Party" k-field="partyId"></ak-col>
-              <ak-col k-title="Actual hours"></ak-col>
-              <ak-col k-title="Status" k-field="statusId">
-                <ak-template>
-                  <span class="badge badge-pill ${statusId | statusBadge}">
-                    ${statusId | status}
-                  </span>
-                </ak-template>
-              </ak-col>
-              <ak-col k-title="From date" k-field="fromDate" k-format="{0:MM/dd/yyyy}"></ak-col>
-              <ak-col k-title="Through date" k-field="thruDate" k-format="{0:MM/dd/yyyy}"></ak-col>
-            </ak-grid>
+          <vaadin-grid theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
+            <vaadin-grid-column path="timesheetId" header="Timesheet ID"></vaadin-grid-column>
+            <vaadin-grid-column path="partyId" header="Party"></vaadin-grid-column>
+            <vaadin-grid-column path="0" header="Actual hours"></vaadin-grid-column>
+            <vaadin-grid-column path="statusId" header="Priority"></vaadin-grid-column>
+            <vaadin-grid-column path="fromDate" header="From date"></vaadin-grid-column>
+            <vaadin-grid-column path="thruDate" header="Through date"></vaadin-grid-column>
+          </vaadin-grid>
         </div>
     </div>
 </template>

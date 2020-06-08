@@ -217,14 +217,17 @@ export class AffManagerService {
     }
   }
 
-  async generateAffiliateCodeRequest() {
+  async generateAffiliateCodeRequest(productCategoryId) {
     try {
       return await this.httpClient.fetch(
         `${this.baseUrl}generic/v1/services/createAffiliateCode`,
         {
           method: 'POST',
           body: JSON.stringify(
-            {"partyId": this.state.partyId}
+            {
+              "partyId": this.state.partyId,
+              "productCategoryId": productCategoryId
+            }
           ),
         }
       )
@@ -260,7 +263,11 @@ export class AffManagerService {
           method: 'POST',
           body: JSON.stringify(
             {
-              "fieldList": ["categoryName"]
+              "fieldList": [
+                "categoryName",
+                "productCategoryId",
+                "affiliateCommission",
+              ]
             }
           ),
         }
@@ -289,6 +296,74 @@ export class AffManagerService {
     }
   }
 
+  async getAffiliateDiscounts() {
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}generic/v1/services/getAffiliateDiscounts`,
+        {
+          method: "POST",
+          body: JSON.stringify({}),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
 
+  async setAffiliateDiscount(productCategoryId, amount) {
+    try {
+      const response = await this.httpClient.fetch(
+        `${this.baseUrl}/generic/v1/services/setAffiliateDiscount`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            {
+              "productCategoryId": productCategoryId,
+              "amount": amount
+            }
+          ),
+        }
+      );
+      return !!response.ok;
+
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async setCommission(commission, productCategoryId) {
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}/generic/v1/services/setCommission`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            {
+              "productCategoryId": productCategoryId,
+              "affiliateCommission": commission
+            }
+          ),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async setGlobalSettings(settings){
+    try {
+      return await this.httpClient.fetch(
+        `${this.baseUrl}/generic/v1/services/setAffiliateSettings`,
+        {
+          method: "POST",
+          body: JSON.stringify(
+            settings
+          ),
+        }
+      );
+    } catch (e) {
+      return null;
+    }
+  }
 
 }

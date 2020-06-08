@@ -22,7 +22,7 @@ export default class GeneratorGenerator {
       ProjectItem.text(`${fileName}.js`, this.generateSource(className))
     );
 
-    await this.project.commitChanges()
+    await this.project.commitChanges();
     await this.ui.log(`Created ${fileName}.`);
   }
 

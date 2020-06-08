@@ -47,18 +47,14 @@ export class App {
         name: 'kanban'
       },
       {
-        route: 'object-dist/publisher',
-        moduleId: PLATFORM.moduleName('objektide_levi/publisher/publisher'),
-        name: 'publisher'
-      },
-      {
         route: 'object-dist',
         moduleId: PLATFORM.moduleName('objektide_levi/object-dist/object-dist'),
-        name: 'object-dist'
+        name: 'object-dist',
+        title: 'Object Distribution'
       },
       {
         route: 'sfa',
-        moduleId: PLATFORM.moduleName('./crm/opportunities/opportunities'),
+        moduleId: PLATFORM.moduleName('sfa/sfa'),
         name: 'sfa',
         title: 'Salesforce Automation'
       },
@@ -78,6 +74,12 @@ export class App {
         route: 'sign-up',
         name: 'sign-up page',
         moduleId: PLATFORM.moduleName('commons/sign-up/signUp')
+      },
+      {
+        route: 'crm',
+        moduleId: PLATFORM.moduleName('./components/crm1/baseui/baseui'),
+        name: 'crm',
+        title: 'Customer Relations'
       },
       {
         route: 'marketdata',

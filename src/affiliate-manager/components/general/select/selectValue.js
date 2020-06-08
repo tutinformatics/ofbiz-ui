@@ -8,7 +8,7 @@ export class SelectValue {
   @bindable callback;
   @bindable id;
   @bindable labelText;
-  selectedValue = 'Choose';
+  @bindable selectedValue = 'Choose';
 
   setSelected(key, value) {
     this.selectedKey = key;

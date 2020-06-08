@@ -1,0 +1,26 @@
+<template>
+  <div class="row mt-4">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">E-mail address</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr repeat.for="agent of store.agents">
+          <td>${agent.name}</td>
+          <td>${agent.telecomNumber}</td>
+          <td>${agent.emailAddress}</td>
+          <td>
+            <a style="text-decoration: none" route-href="route: agent-edit; params.bind: { agent: agent}">Edit</a> |
+            <a style="color: #007bff;cursor: pointer" click.trigger="deleteAgent(agent.agentId, $index)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

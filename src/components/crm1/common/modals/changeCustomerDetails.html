@@ -1,0 +1,76 @@
+<template>
+  <div class="modal fade" id="changeCustomerData" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="card">
+          <div class="card-header modalHeader p-0">
+            <h3>${firstName} ${lastName} Details</h3>
+          </div>
+          <div class="card-body modalBody p-3">
+            <form role="form">
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputFirstName">First Name:</label>
+                    <input value.bind="firstName" type="text" id="inputFirstName" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputLastName">Last Name:</label>
+                    <input value.bind="lastName" type="text" id="inputLastName" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputEmail">Email:</label>
+                    <input value.bind="email" disabled type="text" id="inputEmail" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputPhoneNumber">Phone number:</label>
+                    <input value.bind="phoneNumber" disabled  type="text" id="inputPhoneNumber" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputCompany">Company:</label>
+                    <input value="${companyName}" disabled type="text" id="inputCompany" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row py-2">
+                <div class="col">
+                  <div class="form-group m-0">
+                    <label for="inputPosition">Position:</label>
+                    <input value="${position}" disabled type="text" id="inputPosition" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <div class="modal-footer pt-2 pb-0 mt-2">
+              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-dark" click.delegate="updatePerson(firstName, lastName)">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,65 @@
+<template>
+  <div class="container mt-4">
+    <h4 class="mb-4">Edit order</h4>
+    <div class="form-group border rounded p-5">
+      <div class="form-group row">
+        <h1>${order.orderId}</h1>
+        <h4 class="mt-2 ml-auto">Date: ${date}</h4>
+      </div>
+      <div class="form-group">
+        <div class="row form-group">
+          <label class="col-sm-3 col-form-label">Client</label>
+          <select class="col-sm-3 form-control" value.bind="order.contactId">
+            <option>empty</option>
+            <option repeat.for="contact of contacts._value"
+                    model.bind="contact.contactId">
+              ${contact.lastName}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="row form-group">
+          <label for="message-text" class="col-sm-3 col-form-label">Billing account</label>
+          <select class="form-control col-sm-3" value.bind="order.billingAccountId">
+            <option value="null">empty</option>
+            <option repeat.for="billingAccount of billingAccounts._value"
+                    model.bind="billingAccount.billingAccountId"
+                    selected.bind="billingAccount.billingAccountId == order.billingAccountId">
+              ${billingAccount.description}
+            </option>
+          </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row form-group">
+          <label for="message-text" class="col-form-label col-sm-3">Status</label>
+          <select class="form-control col-sm-3" value.bind="order.statusId">
+            <option value="ORDER_CREATED" selected.bind="order.statusId == 'ORDER_CREATED'">Created</option>
+            <option value="ORDER_APPROVED" selected.bind="order.statusId == 'ORDER_APPROVED'">Approved</option>
+            <option value="ORDER_COMPLETED" selected.bind="order.statusId == 'ORDER_COMPLETED'">Completed</option>
+          </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <label for="message-text" class="col-sm-3 col-form-label">Sales Channel</label>
+          <select class="form-control col-sm-2" value.bind="order.salesChannelEnumId">
+            <option value="EMAIL_SALES_CHANNEL">E-Mail</option>
+            <option value="PHONE_SALES_CHANNEL">Phone</option>
+            <option value="FAX_SALES_CHANNEL">Fax</option>
+            <option value="WEB_SALES_CHANNEL">Web</option>
+          </select>
+        </div>
+        <div class="row form-group">
+          <label for="message-text" class="col-sm-3 col-form-label">Price</label>
+          <input type="number" class="form-control col-sm-2" aria-label="Price" aria-describedby="basic-addon2" value.bind="order.grandTotal">
+          <input class="input-group-text col-sm-1" value.bind="order.currencyUom" id="basic-addon2" placeholder="${order.currencyUom}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a style="cursor: pointer" click.delegate="goBack()">Back to List</a>
+        <button class="btn btn-primary" if.bind="order.orderId !== 'New order'" click.delegate="editOrder()" type="submit">Save changes</button>
+        <button class="btn btn-primary" if.bind="order.orderId === 'New order'" click.delegate="createOrder()" type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+</template>

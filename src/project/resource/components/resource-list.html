@@ -1,27 +1,59 @@
 <template>
-  <require from="aurelia-kendoui-bridge/grid/grid"></require>
-  <require from="aurelia-kendoui-bridge/grid/col"></require>
-  <require from="aurelia-kendoui-bridge/grid/grid-toolbar"></require>
-  <require from="aurelia-kendoui-bridge/common/template"></require>
-
+  <require from="../../../commons/workspaces-menu/workspace-favourite"></require>
   <div class="card">
-    <div class="card-header text-white bg-primary">Resource Dashboard</div>
+    <div class="card-header">
+      <h2 class="float-left">All Resources</h2>
+      <workspace-favourite class="float-left mx-2"></workspace-favourite>
+      <button class="btn btn-primary float-left" click.delegate="handleAddResource()">
+        <font-awesome-icon icon.bind="faPlus"></font-awesome-icon>
+        New Resource
+      </button>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <font-awesome-icon icon.bind="faFilter"></font-awesome-icon>
+        Filter
+      </button>
+      <div class="dropdown-menu">
+        <form class="px-4 py-3">
+          <div class="form-group">
+            <label class="mr-sm-2" for="filtername">Filter Column</label>
+            <select class="custom-select mr-sm-2" id="filtername">
+              <option selected value="firstName">First Name</option>
+              <option value="lastName">Last Name</option>
+              <option value="partyId">Party ID</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2" for="filtertype">Filter Operation</label>
+            <select class="custom-select mr-sm-2" id="filtertype">
+              <option selected value="equals">Equals</option>
+              <option value="notEqual">Not Equal</option>
+              <option value="like">Like</option>
+              <option value="notLike">Not Like</option>
+              <option value="contains">Contains</option>
+              <option value="notContains">Doesn't Contain</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filtervalue">Value</label>
+            <input type="text" class="form-control" id="filtervalue" placeholder="Value">
+          </div>
+          <div class="form-group">
+          </div>
+          <button class="btn btn-primary" click.delegate="filterResource()">Filter</button>
+        </form>
+      </div>
+    </div>
+    </div>
+
+
     <div class="card-body">
-      <ak-grid k-data-source.bind="datasource">
-        <ak-grid-toolbar>
-          <ak-template>
-            <button
-              class="btn btn-primary float-left"
-              click.delegate="handleAddResource()"
-            >
-              <font-awesome-icon icon.bind="button"></font-awesome-icon> Create Resource
-            </button>
-          </ak-template>
-        </ak-grid-toolbar>
-        <ak-col k-title="First Name" k-field="firstName"></ak-col>
-        <ak-col k-title="Last Name" k-field="lastName"></ak-col>
-        <ak-col k-title="Party Id" k-field="partyId"></ak-col>
-      </ak-grid>
+      <vaadin-grid theme="compact row-stripes" column-reordering-allowed multi-sort height-by-rows>
+        <vaadin-grid-column path="firstName" header="First Name"></vaadin-grid-column>
+        <vaadin-grid-column path="lastName" header="Last Name"></vaadin-grid-column>
+        <vaadin-grid-column path="partyId" header="Party ID"></vaadin-grid-column>
+      </vaadin-grid>
     </div>
   </div>
 </template>

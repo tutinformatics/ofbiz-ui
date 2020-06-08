@@ -24,7 +24,7 @@ function cleanArgs(args) {
       } else if (env.startsWith('test')) {
         cleaned.push('--tests');
       }
-    } else if (args[i] === '--host' && i < ii -1) {
+    } else if (args[i] === '--host' && i < ii - 1) {
       host = args[++i];
     } else {
       cleaned.push(args[i]);

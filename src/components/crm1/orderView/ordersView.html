@@ -1,0 +1,136 @@
+<template>
+  <require from="../../../css/crm1.css"></require>
+  <require from="../common/modals/addClientPopUp"></require>
+
+  <div class="container-fluid">
+    <div class="mt-3 d-flex flex-row">
+      <div class="col-sm-3 d-flex justify-content-start">
+        <h3 class="m-1">Orders</h3>
+      </div>
+      <div class="col-sm-6">
+        <div class="m-1 helpers">
+          <input class="input_inside" type="text"  value.bind="searchArgument" placeholder="    Search Orders...">
+        </div>
+      </div>
+      <div class="col-sm-3 d-flex flex-row">
+        <div class="dropdown m-1">
+          <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-filter"></i> Filters</a>
+
+          <div class="dropdown-menu filter" style=";height: 100px;padding-left: 7px;background-color: #F5F6F7; border-radius: 8px;" aria-labelledby="dropdownMenuLink" >
+            <h6 class="ml-3">Select filters:</h6>
+              <input type="checkbox" class="hugeInput" checked.bind="searchParty" autocomplete="on">
+              <b>Company</b><br/>
+              <input type="checkbox" class="hugeInput" checked.bind="searchWebsite" autocomplete="on">
+              <b>Website</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div if.bind="simpleView" class="container-fluid"  >
+      <div class="row outside " style="float: left; width: 95%"  >
+
+        <div repeat.for="order of filteredOrders" >
+          <div class="card card_internal p-0" style=" max-width: 320px; max-height: 135px">
+            <div class="row">
+              <div class="col-6">
+                <img class="card-img-top rounded-circle mt-2 ml-2" src="../img/avatar.png" alt="Card image cap" style="height: 89%; width: 85%">
+              </div>
+              <div class="col-6 p-0">
+                <div class="card-body card_selections p-0 mt-3">
+                  <p class="card-title" style="font-size: 12px;"><strong>ID: </strong>${order.orderId}</p>
+                  <p class="card-title" style="font-size: 12px"><strong>Company:<br></strong> ${order.partyId}</p>
+                  <p class="card-title" style="font-size: 12px"><strong>Status:<br></strong>${order.statusId}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    <div class="side_window d-flex flex-column fixed-right" >
+      <a href="#" role="button" click.delegate="cardView()"><img src="../baseui/assets/img/card.svg"></a>
+      <a href="#" role="button" click.delegate="tableView()"><img src="../baseui/assets/img/list.svg"></a>
+    </div>
+  </div>
+
+  <div else class="container-fluid" >
+
+    <div class="row">
+      <div class="col-md-11">
+        <table class="table" >
+      <thead>
+      <tr>
+        <th scope="col">Order Number</th>
+        <th scope="col">Company</th>
+        <th scope="col">${selectedOrder}</th>
+        <th scope="col">${selectedShip}</th>
+        <th scope="col">${selectedWeb}</th>
+        <th scope="col">${selectedSale}</th>
+        <th scope="col">${selectedStatus}</th>
+        <th scope="col">Total</th>
+        <th scope="col">
+          <div class="dropdown">
+            <a class="btn btn-outline-dark" style="border: none;" href="#" role="button" id="checkDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-ellipsis-v"></i></a>
+            <form>
+              <div repeat.for="category of categories">
+              <div class="dropdown-menu" style="margin-right: 200px;" aria-labelledby="checkDropDown">
+
+                  <p class="dropdown-item">
+                  <input type="checkbox" value.bind="category.orderDate" checked.bind="selectedOrder" autocomplete="on">
+                  ${category.orderDate}</p>
+                  <p class="dropdown-item">
+                  <input type="checkbox" value.bind="category.shipment" checked.bind="selectedShip" autocomplete="on">
+                  ${category.shipment}</p>
+                  <p class="dropdown-item">
+                  <input type="checkbox" value.bind="category.website" checked.bind="selectedWeb" autocomplete="on">
+                  ${category.website}</p>
+                 <p class="dropdown-item">
+                  <input type="checkbox" value.bind="category.salesperson" checked.bind="selectedSale" autocomplete="on">
+                  ${category.salesperson}</p>
+                  <p class="dropdown-item">
+                  <input type="checkbox" value.bind="category.status" checked.bind="selectedStatus" autocomplete="on">
+                  ${category.status}</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="order of filteredOrders">
+        <td>${order.orderId}</td>
+        <td>${order.partyId}</td>
+        <td if.bind="isOrder">${order.orderDate}</td>
+        <td else></td>
+        <td if.bind="isShip">${order.entryDate}</td>
+        <td else></td>
+        <td if.bind="isWeb">${order.webSiteId}</td>
+        <td else></td>
+        <td if.bind="isSale">${order.roleTypeId}</td>
+        <td else></td>
+        <td if.bind="isStatus">${order.statusId}</td>
+        <td else></td>
+        <td>${order.grandTotal} €</td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+      <div class="col-md-1 ">
+        <div class="side_window d-flex flex-column ">
+          <a href="#" role="button" click.delegate="cardView()"><img src="../baseui/assets/img/card.svg"></a>
+          <a href="#" role="button" click.delegate="tableView()"><img src="../baseui/assets/img/list.svg"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <add-client-pop-up ></add-client-pop-up>
+
+</template>

@@ -35,6 +35,5 @@ export default function ${functionName}() {
     .pipe(gulp.dest(project.paths.output));
 }
 `;
-
   }
 }
