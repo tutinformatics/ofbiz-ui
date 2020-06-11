@@ -28,15 +28,22 @@ export class Marketdata {
     this.marketdataService = marketdataService;
   }
 
+  // bind() {
+  //   console.log('Getting data ...');
+  //   return this.httpClient
+  //     .fetch(`${this.baseUrl}`)
+  //     .then(res => res.json())
+  //     .then(companies => this.companies = companies)
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // }
   bind() {
-    console.log('Getting data ...');
-    return this.httpClient
-      .fetch(`${this.baseUrl}`)
-      .then(res => res.json())
-      .then(companies => this.companies = companies)
-      .catch(error => {
-        console.error(error);
-      });
+    let client = new HttpClient();
+
+    return client.fetch('data.json')
+      .then(response => response.json())
+      .then(companies => this.companies = companies);
   }
 
   async attached() {

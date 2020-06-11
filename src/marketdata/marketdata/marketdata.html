@@ -3,73 +3,129 @@
   <require from="marketdata/components/listview/listview"></require>
 
   <header></header>
-  <listview></listview>
-  <div class="container col-12 row">
-    <div class="col-11">
-      <router-view></router-view>
-    </div>
-    <div class="col-1 align-content-center justify-content-center">
-      <div class="row align-content-center justify-content-center mt-3">
-        <a route-href="route: listview">
-          <img src="../assets/list.svg" alt="list">
-        </a>
-      </div>
-      <div class="row align-content-center justify-content-center">
-        <a route-href="route: cardview">
-          <img src="../assets/card.svg" alt="card">
-        </a>
-      </div>
-    </div>
-  </div>
+  <!-- <listview></listview> -->
+  <table class="table table-hover" aurelia-table="data.bind: companies; display-data.bind: $displayData;
+                                              current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
+    <thead>
+    <tr>
+      <th>Select</th>
+      <th>Company name</th>
+      <th>Company code</th>
+      <th>Status</th>
+      <th>Address</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
+        aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
+      <td><input type="checkbox" model.bind="company.contactEmail" checked.bind="selectedCompanies"/></td>
+      <td data-toggle="modal" data-target="#detailedCompany" style="color:#007bff">${company.companyName}</td>
+      <td>${company.registryCode}</td>
+      <td>${company.companyStatus}</td>
+      <td>${company.companyAddress}</td>
+      <td>
+        <button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button>
+        <button class="btn btn-secondary" style="margin: 0 0 0 0"><i class="fa fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-<!--  <div class="btn-group" role="group">
-    <button class="btn btn-light"><a href="mailto:${selectedCompanies}"><i class="fa fa-envelope"></i></a></button>
-    <div class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableSector" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-        Sector
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <label repeat.for="sector of sectors">
-          <input
-            type="checkbox"
-            value.bind="sector"
-            checked.bind="selectedSectors">
-          ${sector}
-        </label>
+
+  <!--    <div class="container col-12 row">
+        <div class="col-11">
+          <router-view></router-view>
+        </div>
+        <div class="col-1 align-content-center justify-content-center">
+          <div class="row align-content-center justify-content-center mt-3">
+            <a route-href="route: listview">
+              <img src="../assets/list.svg" alt="list">
+            </a>
+          </div>
+          <div class="row align-content-center justify-content-center">
+            <a route-href="route: cardview">
+              <img src="../assets/card.svg" alt="card">
+            </a>
+          </div>
+        </div>
+      </div> -->
+
+  <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems">
+    <template replace-part="pagination">
+      <ul class="custom-pagination" hide.bind="hideSinglePage && totalPages === 1">
+        <li>
+          <a aria-label="Previous" click.delegate="previousPage()"
+             class-name.bind="currentPage === 1 ? 'disabled' : ''">
+            <span aria-hidden="true">«</span>
+          </a>
+        </li>
+
+        <li repeat.for="page of displayPages">
+          <a click.delegate="selectPage(page.value)" class-name.bind="currentPage === page.value ? 'active' : ''">
+            ${page.title}
+          </a>
+        </li>
+
+        <li>
+          <a aria-label="Next" click.delegate="nextPage()"
+             class-name.bind="currentPage === totalPages ? 'disabled' : ''">
+            <span aria-hidden="true">»</span>
+          </a>
+        </li>
+      </ul>
+    </template>
+  </aut-pagination>
+
+
+  <!--  <div class="btn-group" role="group">
+      <button class="btn btn-light"><a href="mailto:${selectedCompanies}"><i class="fa fa-envelope"></i></a></button>
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="filterTableSector" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Sector
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <label repeat.for="sector of sectors">
+            <input
+              type="checkbox"
+              value.bind="sector"
+              checked.bind="selectedSectors">
+            ${sector}
+          </label>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="filterTableStatus" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Status
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <label repeat.for="status of statuses">
+            <input
+              type="checkbox"
+              value.bind="status"
+              checked.bind="selectedStatuses">
+            ${status}
+          </label>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="filterTableBusinessModel" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Business model
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <label repeat.for="model of models">
+            <input
+              type="checkbox"
+              value.bind="model"
+              checked.bind="selectedModels">
+            ${model}
+          </label>
+        </div>
+        <button type="button" class="btn btn-link">Clear all filters</button>
       </div>
     </div>
-    <div class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableStatus" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-        Status
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <label repeat.for="status of statuses">
-          <input
-            type="checkbox"
-            value.bind="status"
-            checked.bind="selectedStatuses">
-          ${status}
-        </label>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableBusinessModel" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-        Business model
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <label repeat.for="model of models">
-          <input
-            type="checkbox"
-            value.bind="model"
-            checked.bind="selectedModels">
-          ${model}
-        </label>
-      </div>
-      <button type="button" class="btn btn-link">Clear all filters</button>
-    </div>
-  </div>
-  </div> -->
+    </div> -->
 </template>
