@@ -1,0 +1,75 @@
+<template>
+  <require from="marketdata/components/header/header"></require>
+  <require from="marketdata/components/listview/listview"></require>
+
+  <header></header>
+  <listview></listview>
+  <div class="container col-12 row">
+    <div class="col-11">
+      <router-view></router-view>
+    </div>
+    <div class="col-1 align-content-center justify-content-center">
+      <div class="row align-content-center justify-content-center mt-3">
+        <a route-href="route: listview">
+          <img src="../assets/list.svg" alt="list">
+        </a>
+      </div>
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: cardview">
+          <img src="../assets/card.svg" alt="card">
+        </a>
+      </div>
+    </div>
+  </div>
+
+<!--  <div class="btn-group" role="group">
+    <button class="btn btn-light"><a href="mailto:${selectedCompanies}"><i class="fa fa-envelope"></i></a></button>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableSector" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Sector
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <label repeat.for="sector of sectors">
+          <input
+            type="checkbox"
+            value.bind="sector"
+            checked.bind="selectedSectors">
+          ${sector}
+        </label>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableStatus" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Status
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <label repeat.for="status of statuses">
+          <input
+            type="checkbox"
+            value.bind="status"
+            checked.bind="selectedStatuses">
+          ${status}
+        </label>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="filterTableBusinessModel" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        Business model
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <label repeat.for="model of models">
+          <input
+            type="checkbox"
+            value.bind="model"
+            checked.bind="selectedModels">
+          ${model}
+        </label>
+      </div>
+      <button type="button" class="btn btn-link">Clear all filters</button>
+    </div>
+  </div>
+  </div> -->
+</template>
