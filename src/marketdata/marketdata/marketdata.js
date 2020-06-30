@@ -20,7 +20,6 @@ export class Marketdata {
       value: '',
       keys: ['companyName', 'registryCode', 'companyStatus', 'companyAddress', 'companyBusinessModel', 'companySector', 'employeeCount', 'contactEmail']
     },
-    {value: this.selectedStatuses, keys: ['companyStatus']}
   ];
 
   constructor(httpClient, marketdataService) {

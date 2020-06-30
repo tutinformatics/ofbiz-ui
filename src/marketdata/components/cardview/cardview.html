@@ -1,0 +1,16 @@
+<template>
+  <div class="row mt-4">
+    <div class="col-4" repeat.for="company of $displayData">
+      <div class="card" style="height: 12rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col h-25 w-75">
+              <h5>${company.companyName}</h5>
+              <p class="card-text">${company.companyAddress}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

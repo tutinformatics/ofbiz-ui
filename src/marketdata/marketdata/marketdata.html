@@ -2,80 +2,103 @@
   <require from="marketdata/components/header/header"></require>
   <require from="marketdata/components/listview/listview"></require>
 
-  <header></header>
+  <!-- <header></header> -->
   <!-- <listview></listview> -->
-  <table class="table table-hover" aurelia-table="data.bind: companies; display-data.bind: $displayData;
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between col-12">
+    <span class="navbar-brand mb-0 h1">Companies</span>
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal" href="#addContact">
+      <i class="fa fa-plus"></i>
+      New company
+    </button>
+    <div class="form-inline col-6">
+      <input type="text" value.bind="filters[0].value" placeholder="Search..." class="form-control" style="width:100%"/>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-outline-dark">
+        <i class="fa fa-filter"></i>
+        Filter
+      </button>
+      <button type="button" class="btn btn-outline-dark">
+        Import
+      </button>
+    </div>
+  </nav>
+  <div class="container col-12 row">
+    <div class="col-11">
+      <table class="table table-hover table-bordered shadow-sm p-3 mb-5 bg-white rounded" aurelia-table="data.bind: companies; display-data.bind: $displayData;
                                               current-page.bind: currentPage; page-size.bind: pageSize; total-items.bind: totalItems; filters.bind: filters">
-    <thead>
-    <tr>
-      <th>Select</th>
-      <th>Company name</th>
-      <th>Company code</th>
-      <th>Status</th>
-      <th>Address</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
-        aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
-      <td><input type="checkbox" model.bind="company.contactEmail" checked.bind="selectedCompanies"/></td>
-      <td data-toggle="modal" data-target="#detailedCompany" style="color:#007bff">${company.companyName}</td>
-      <td>${company.registryCode}</td>
-      <td>${company.companyStatus}</td>
-      <td>${company.companyAddress}</td>
-      <td>
-        <button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button>
-        <button class="btn btn-secondary" style="margin: 0 0 0 0"><i class="fa fa-trash"></i></button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+        <thead>
+        <tr>
+          <th>Select</th>
+          <th>Company name</th>
+          <th>Company code</th>
+          <th>Status</th>
+          <th>Address</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr repeat.for="company of $displayData" click.delegate="handleClick(company, $event)"
+            aut-select="row.bind: company; custom.bind: true; mode: multiple; selected-class: info">
+          <td><input type="checkbox" model.bind="company.contactEmail" checked.bind="selectedCompanies"/></td>
+          <td data-toggle="modal" data-target="#detailedCompany" style="color:#007bff">${company.companyName}</td>
+          <td>${company.registryCode}</td>
+          <td>${company.companyStatus}</td>
+          <td>${company.companyAddress}</td>
+          <td>
+            <button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-secondary" style="margin: 0 0 0 0"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
 
+      <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems">
+        <template replace-part="pagination">
+          <ul class="custom-pagination" hide.bind="hideSinglePage && totalPages === 1">
+            <li>
+              <a aria-label="Previous" click.delegate="previousPage()"
+                 class-name.bind="currentPage === 1 ? 'disabled' : ''">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
 
-  <!--    <div class="container col-12 row">
-        <div class="col-11">
-          <router-view></router-view>
+            <li repeat.for="page of displayPages">
+              <a click.delegate="selectPage(page.value)" class-name.bind="currentPage === page.value ? 'active' : ''">
+                ${page.title}
+              </a>
+            </li>
+
+            <li>
+              <a aria-label="Next" click.delegate="nextPage()"
+                 class-name.bind="currentPage === totalPages ? 'disabled' : ''">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          </ul>
+        </template>
+      </aut-pagination>
+    </div>
+
+    <div class="col-1 align-content-center justify-content-center mt-3">
+      <div class="row align-content-center justify-content-center">
+        <router-view></router-view>
+      </div>
+      <div class="col-1 align-content-center justify-content-center">
+        <div class="row align-content-center justify-content-center mt-3">
+          <a route-href="route: listview">
+            <img src="../assets/list.svg" alt="list">
+          </a>
         </div>
-        <div class="col-1 align-content-center justify-content-center">
-          <div class="row align-content-center justify-content-center mt-3">
-            <a route-href="route: listview">
-              <img src="../assets/list.svg" alt="list">
-            </a>
-          </div>
-          <div class="row align-content-center justify-content-center">
-            <a route-href="route: cardview">
-              <img src="../assets/card.svg" alt="card">
-            </a>
-          </div>
+        <div class="row align-content-center justify-content-center">
+          <a route-href="route: cardview">
+            <img src="../assets/card.svg" alt="card">
+          </a>
         </div>
-      </div> -->
-
-  <aut-pagination current-page.bind="currentPage" page-size.bind="pageSize" total-items.bind="totalItems">
-    <template replace-part="pagination">
-      <ul class="custom-pagination" hide.bind="hideSinglePage && totalPages === 1">
-        <li>
-          <a aria-label="Previous" click.delegate="previousPage()"
-             class-name.bind="currentPage === 1 ? 'disabled' : ''">
-            <span aria-hidden="true">«</span>
-          </a>
-        </li>
-
-        <li repeat.for="page of displayPages">
-          <a click.delegate="selectPage(page.value)" class-name.bind="currentPage === page.value ? 'active' : ''">
-            ${page.title}
-          </a>
-        </li>
-
-        <li>
-          <a aria-label="Next" click.delegate="nextPage()"
-             class-name.bind="currentPage === totalPages ? 'disabled' : ''">
-            <span aria-hidden="true">»</span>
-          </a>
-        </li>
-      </ul>
-    </template>
-  </aut-pagination>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
   <!--  <div class="btn-group" role="group">
