@@ -83,8 +83,9 @@ export class App {
       },
       {
         route: 'marketdata',
-        moduleId: PLATFORM.moduleName('marketdata/marketdata/marketdata'),
-        name: 'marketdata'
+        moduleId: PLATFORM.moduleName('marketdata/marketdata'),
+        name: 'marketdata',
+        title: 'Marketdata'
       }
     ]);
     this.router = router;

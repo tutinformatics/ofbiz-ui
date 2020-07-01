@@ -1,0 +1,21 @@
+<template>
+  <require from="marketdata/components/header/header"></require>
+  <header></header>
+  <div class="container col-12 row">
+    <div class="col-11">
+      <router-view></router-view>
+    </div>
+    <div class="col-1 align-content-center justify-content-center mt-3">
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: listview">
+          <img src="../assets/list.svg" alt="list">
+        </a>
+      </div>
+      <div class="row align-content-center justify-content-center">
+        <a route-href="route: cardview">
+          <img src="../assets/card.svg" alt="card">
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

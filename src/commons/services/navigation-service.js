@@ -157,8 +157,22 @@ const routes = {
       nav: true
     },
   ],
+  marketdata: [
+    { route: '', redirect: 'companies' },
+    {
+      route: 'companies',
+      moduleId: PLATFORM.moduleName('marketdata/view/companies'),
+      name: 'companies',
+      title: 'Companies',
+      nav: true
+    },
+    {
+      route: 'detailed-view/:id',
+      moduleId: PLATFORM.moduleName('marketdata/components/detailed-view/detailed-view'),
+      name: 'Detailed-view'
+    },
+  ],
   cms: [], // TODO: add cms child routes here
-  marketdata: [], // TODO: add marketdata child routes here
   objectdist: [] // TODO: add objectdist child routes here
 };
 
