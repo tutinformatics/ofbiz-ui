@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-dependency-injection';
 import {HttpClient} from 'aurelia-fetch-client';
 import { autoinject } from 'aurelia-framework';
-import { Router } from 'aurelia-router';
+import { Router } from "aurelia-router";
 import {MarketdataService} from '../../service/marketdata-service';
 
 @autoinject
@@ -25,7 +25,7 @@ export class Listview {
       .then(companies => this.companies = companies);
   }
 
-  onSelectCompany(UIEvent, Company) {
-    this.router.navigateToRoute('detailed-view', {id: company.id});
+  onSelectCompany(onClick, company) {
+    this.router.navigateToRoute('Detailed-view', {id: company.companyName});
   }
 }

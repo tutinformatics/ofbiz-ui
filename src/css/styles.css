@@ -122,3 +122,11 @@ ul.custom-pagination li a.disabled {
   -moz-box-shadow:    -3px 2px 3px var(--box-shadow-color);  /* Firefox 3.5 - 3.6 */
   box-shadow:         -3px 2px 3px var(--box-shadow-color);
 }
+.row-marketdata {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+}
+.column-marketdata {
+  display: table-cell;
+}
