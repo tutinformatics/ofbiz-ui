@@ -170,7 +170,7 @@ const routes = {
       route: 'detailed-view/:id',
       moduleId: PLATFORM.moduleName('marketdata/components/detailed-view/detailed-view'),
       name: 'Detailed-view'
-    },
+    }
   ],
   cms: [], // TODO: add cms child routes here
   objectdist: [] // TODO: add objectdist child routes here

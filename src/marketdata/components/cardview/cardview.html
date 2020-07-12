@@ -5,7 +5,9 @@
         <div class="card-body">
           <div class="row">
             <div class="col h-25 w-75">
-              <h5>${company.companyName}</h5>
+              <a style="cursor: pointer" click.delegate="onSelectCompany($event, company)">
+                <h5>${company.companyName}</h5>
+              </a>
             </div>
           </div>
           <p class="card-text">Company code: ${company.registryCode}</p>

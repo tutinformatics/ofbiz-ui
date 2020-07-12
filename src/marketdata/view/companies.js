@@ -5,9 +5,10 @@ export class Companies {
     config.title = 'Companies';
     config.options.pushState = true;
     config.map([
-      { route: '', redirect: 'listview' },
+      { route: '', redirect: 'vaadin-listview' },
       { route: 'listview', moduleId: PLATFORM.moduleName('marketdata/components/listview/listview'), name: 'listview' },
-      { route: 'cardview', moduleId: PLATFORM.moduleName('marketdata/components/cardview/cardview'), name: 'cardview' }
+      { route: 'cardview', moduleId: PLATFORM.moduleName('marketdata/components/cardview/cardview'), name: 'cardview' },
+      { route: 'vaadin-listview', moduleId: PLATFORM.moduleName('marketdata/components/vaadin-list/vaadin-listview'), name: 'vaadin-listview' }
 
     ]);
     this.router = router;

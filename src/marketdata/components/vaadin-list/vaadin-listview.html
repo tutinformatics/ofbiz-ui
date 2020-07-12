@@ -1,0 +1,20 @@
+
+<template>
+  <div class="card-body">
+    <vaadin-context-menu style="text-align: end;">
+      <vaadin-button theme="icon" aria-label="Hide column menu">
+        <font-awesome-icon icon.bind="faBars"></font-awesome-icon>
+      </vaadin-button>
+    </vaadin-context-menu>
+    <vaadin-grid theme="compact row-stripes" column-reordering-allowed height-by-rows>
+      <vaadin-grid-selection-column auto-select></vaadin-grid-selection-column>
+      <vaadin-grid-column path="companyName" header="Company Name" name="companyName"></vaadin-grid-column>
+      <vaadin-grid-column path="registryCode" header="Company Code" name="registryCode"></vaadin-grid-column>
+      <vaadin-grid-column path="companyStatus" header="Status" name="companyStatus"></vaadin-grid-column>
+      <vaadin-grid-column path="companyAddress" header="Address" name="companyAddress"></vaadin-grid-column>
+      <vaadin-grid-column path="city" header="City" name="city"></vaadin-grid-column>
+      <button class="btn btn-primary" style="margin: 1% 1% 1% 1%"><i class="fa fa-pencil"></i></button>
+    </vaadin-grid>
+  </div>
+  </div>
+</template>

@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-dependency-injection';
 import {HttpClient} from 'aurelia-fetch-client';
 import { autoinject } from 'aurelia-framework';
-import { Router } from "aurelia-router";
+import { Router } from 'aurelia-router';
 import {MarketdataService} from '../../service/marketdata-service';
 
 @autoinject
